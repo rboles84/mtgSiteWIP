@@ -1,0 +1,1183 @@
+{
+  "schema_version": "1.0.0",
+  "source_path": "data/dossier/card-voice-relationships.source.json",
+  "source_sha256": "bfd4734b4bdc7fe57518ff520d51ece7efa762330435ea740e059832808f13fc",
+  "generated_policy": "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
+  "records": [
+    {
+      "relationship_id": "cardvoice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64",
+      "identity_key": "WU",
+      "card": {
+        "name": "Azorius Cluestone",
+        "oracle_id": "27e04c41-f42c-4d60-8a71-ec2d7c326f64",
+        "scryfall_id": "09eeb301-bc28-4515-ad69-0b1b5164a5bc",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64"
+      },
+      "excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...",
+      "why_it_echoes": "Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "azorius_senate_claim_001",
+          "azorius_senate_claim_002",
+          "azorius_senate_claim_003",
+          "azorius_senate_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018",
+          "src_mark_rosewater_slow_and_steady_2006"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f",
+      "identity_key": "UB",
+      "card": {
+        "name": "Consult the Necrosages",
+        "oracle_id": "c9edddb4-0d60-4d21-8887-51d943c6a31f",
+        "scryfall_id": "6f51484b-3bad-4332-87f8-61924e153799",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f"
+      },
+      "excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...",
+      "why_it_echoes": "Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "house_dimir_claim_0017",
+          "house_dimir_claim_0018",
+          "house_dimir_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_br_3f806353_592e_431c_a7dd_a4c64034f94d",
+      "identity_key": "BR",
+      "card": {
+        "name": "Avatar of Discord",
+        "oracle_id": "3f806353-592e-431c-a7dd-a4c64034f94d",
+        "scryfall_id": "adf2a1fd-eb1e-46aa-b715-6e6fb5195e42",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d"
+      },
+      "excerpt": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
+      "why_it_echoes": "Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "cult_of_rakdos_claim_001",
+          "cult_of_rakdos_claim_002",
+          "cult_of_rakdos_claim_006"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd",
+      "identity_key": "RG",
+      "card": {
+        "name": "Burning-Tree Emissary",
+        "oracle_id": "327d9679-0049-4401-8dab-e0fb362306bd",
+        "scryfall_id": "ba327a5e-bd57-4e24-b4b4-062202df30e1",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd"
+      },
+      "excerpt": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
+      "why_it_echoes": "Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_gruul_clans_core_identity_0002",
+          "claim_gruul_clans_philosophy_0004",
+          "claim_gruul_clans_placement_0001"
+        ],
+        "source_ids": [
+          "src_gruul_clans_0001",
+          "src_gruul_clans_0002",
+          "src_gruul_clans_0003",
+          "src_gruul_clans_0004"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1",
+      "identity_key": "WG",
+      "card": {
+        "name": "Camaraderie",
+        "oracle_id": "9aab386c-d48c-4611-b757-aa69b26cc1b1",
+        "scryfall_id": "ca18b625-6767-45b9-bc2c-765f1ba7bd44",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1"
+      },
+      "excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\" —Heruj, Selesnya hierophant",
+      "why_it_echoes": "Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "selesnya_conclave_claim_001",
+          "selesnya_conclave_claim_002",
+          "selesnya_conclave_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b",
+      "identity_key": "WB",
+      "card": {
+        "name": "Afterlife Insurance",
+        "oracle_id": "05501e88-d4c3-4474-92a9-c02ab15b107b",
+        "scryfall_id": "2fa47810-ba83-4a6e-9940-7315ee7e44a5",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b"
+      },
+      "excerpt": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
+      "why_it_echoes": "Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "orzhov_syndicate_claim_001",
+          "orzhov_syndicate_claim_002",
+          "orzhov_syndicate_claim_007",
+          "orzhov_syndicate_claim_0018"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063",
+      "identity_key": "UR",
+      "card": {
+        "name": "Beamsplitter Mage",
+        "oracle_id": "fa09e18c-e7cf-4f08-9cc4-324e36594063",
+        "scryfall_id": "8f1801f2-ea6e-4196-858e-2afc456cf6a0",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063"
+      },
+      "excerpt": "The Izzet love replicating results.",
+      "why_it_echoes": "Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_izzet_league_0001",
+          "claim_izzet_league_0003",
+          "claim_izzet_league_0004",
+          "claim_izzet_league_0006"
+        ],
+        "source_ids": [
+          "src_izzet_league_0001",
+          "src_izzet_league_0005",
+          "src_izzet_league_0007",
+          "src_izzet_league_0002"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5",
+      "identity_key": "BG",
+      "card": {
+        "name": "Bloodbond March",
+        "oracle_id": "fc17d8dd-887f-405e-a195-777aa3da36f5",
+        "scryfall_id": "fb977f5b-2202-43c1-a8c0-7fba8c093fa2",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5"
+      },
+      "excerpt": "The Golgari support a vast army because death never ends its soldiers' service.",
+      "why_it_echoes": "Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "golgari_swarm_claim_001",
+          "golgari_swarm_claim_007",
+          "golgari_swarm_claim_0018"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f",
+      "identity_key": "UG",
+      "card": {
+        "name": "Coiling Oracle",
+        "oracle_id": "69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
+        "scryfall_id": "559ff1b1-018c-4e08-9531-8af20af47d05",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f"
+      },
+      "excerpt": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
+      "why_it_echoes": "Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "simic_combine_claim_001",
+          "simic_combine_claim_002",
+          "simic_combine_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678",
+      "identity_key": "WR",
+      "card": {
+        "name": "Boros Strike-Captain",
+        "oracle_id": "30b20932-0d9a-447f-b934-1daa8c44a678",
+        "scryfall_id": "11fab2c1-250a-44f7-a187-ee0352b81569",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678"
+      },
+      "excerpt": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
+      "why_it_echoes": "Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "boros_legion_claim_001",
+          "boros_legion_claim_004",
+          "boros_legion_claim_007",
+          "boros_legion_claim_012"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_gatecrash_boros_lore_2013"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04",
+      "identity_key": "LOREHOLD",
+      "card": {
+        "name": "Campus Renovation",
+        "oracle_id": "d34a3b58-a905-4e90-b35c-9f5c21149b04",
+        "scryfall_id": "6d925d13-fcd6-417b-b2b2-bbdd114aae78",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04"
+      },
+      "excerpt": "Reconstructing the past is Lorehold's specialty.",
+      "why_it_echoes": "Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_lorehold_placement_0001",
+          "claim_lorehold_placement_0002",
+          "claim_lorehold_placement_0009"
+        ],
+        "source_ids": [
+          "src_lorehold_0002",
+          "src_lorehold_0008",
+          "src_lorehold_0009",
+          "src_lorehold_0010",
+          "src_lorehold_0014"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "identity_key": "PRISMARI",
+      "card": {
+        "name": "Rootha, Mastering the Moment",
+        "oracle_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+        "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+      },
+      "excerpt": "\"The great thrill of perfection is that we'll always be chasing it.\"",
+      "why_it_echoes": "Rootha, Mastering the Moment's exact excerpt provides a bounded voice echo of a certified Prismari figure voicing perfection as an endless artistic pursuit.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "prismari_claim_002",
+          "prismari_claim_004",
+          "prismari_claim_006",
+          "prismari_claim_0025"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_witherbloom_53e86135_3b24_4618_bcc0_af4d81e672dd",
+      "identity_key": "WITHERBLOOM",
+      "card": {
+        "name": "Death Begets Life",
+        "oracle_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
+        "scryfall_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd"
+      },
+      "excerpt": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\" —...",
+      "why_it_echoes": "Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "witherbloom_claim_0019",
+          "witherbloom_claim_0020",
+          "witherbloom_claim_0023"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7",
+      "identity_key": "QUANDRIX",
+      "card": {
+        "name": "Additive Evolution",
+        "oracle_id": "ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
+        "scryfall_id": "b44ec684-d558-45eb-bcd6-8119428634c2",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7"
+      },
+      "excerpt": "\"Numbers have no limits. Why should nature?\" —Emil, Quandrix fourth-year",
+      "why_it_echoes": "Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "quandrix_claim_002",
+          "quandrix_claim_006",
+          "quandrix_claim_0019",
+          "quandrix_claim_0020"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518",
+      "identity_key": "SILVERQUILL",
+      "card": {
+        "name": "Beaming Defiance",
+        "oracle_id": "f88eeb04-4b8e-4c76-a8c6-90887b94d518",
+        "scryfall_id": "7e22411c-11c1-4770-8491-7952dd406e01",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518"
+      },
+      "excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\" —Killian, Silverquill mage-student",
+      "why_it_echoes": "Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "silverquill_claim_0019",
+          "silverquill_claim_0020",
+          "silverquill_claim_0021"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e",
+      "identity_key": "W",
+      "card": {
+        "name": "Aligned Heart",
+        "oracle_id": "ae61b2ef-2e60-499a-8708-e37b9bd5620e",
+        "scryfall_id": "a235cbda-3dc3-4aed-a911-90f26c330157",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e"
+      },
+      "excerpt": "When hearts and minds align, so too do actions.",
+      "why_it_echoes": "Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "white_claim_0002",
+          "white_claim_0004",
+          "white_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-W-2015",
+          "MONO-W-2025"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_b_78725353_9274_420a_b722_add0f43c444e",
+      "identity_key": "B",
+      "card": {
+        "name": "Ancient Craving",
+        "oracle_id": "78725353-9274-420a-b722-add0f43c444e",
+        "scryfall_id": "f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e"
+      },
+      "excerpt": "Knowledge demands sacrifice.",
+      "why_it_echoes": "Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "black_claim_0003",
+          "black_claim_0004"
+        ],
+        "source_ids": [
+          "MONO-B-2015",
+          "MONO-B-2025"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159",
+      "identity_key": "U",
+      "card": {
+        "name": "Azami, Lady of Scrolls",
+        "oracle_id": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+        "scryfall_id": "fa727656-fb33-485b-9378-18b80cad42b9",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159"
+      },
+      "excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\" —Lady Azami, letter t...",
+      "why_it_echoes": "Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "blue_claim_0002",
+          "blue_claim_0003",
+          "blue_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-U-2015",
+          "MONO-U-2025"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "identity_key": "R",
+      "card": {
+        "name": "Torbran, Thane of Red Fell",
+        "oracle_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+        "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+      },
+      "excerpt": "A dwarf's grudge runs deeper than the mountains' roots.",
+      "why_it_echoes": "Torbran, Thane of Red Fell's exact excerpt provides a bounded voice echo of emotion held as a deep, active grudge rather than suppressed.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "red_claim_0002",
+          "red_claim_0004",
+          "red_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-R-2015",
+          "MONO-R-2025"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3",
+      "identity_key": "G",
+      "card": {
+        "name": "Ghalta, Primal Hunger",
+        "oracle_id": "b0b6be0c-41cf-4757-9f0e-87227b6ba6b3",
+        "scryfall_id": "6a9c39e4-a8cf-42dd-8d0e-45634b335546",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3"
+      },
+      "excerpt": "The earth walks, strongest of all.",
+      "why_it_echoes": "Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "green_claim_0002",
+          "green_claim_0004",
+          "green_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-G-2015",
+          "MONO-G-2025"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59",
+      "identity_key": "BANT",
+      "card": {
+        "name": "Bant Sojourners",
+        "oracle_id": "67ceffa4-2fdb-499c-88cd-49fb5eb9be59",
+        "scryfall_id": "eff007af-0329-4872-8621-41e90d9f06e6",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59"
+      },
+      "excerpt": "\"We must spread Bant's light before we are shadowed over.\"",
+      "why_it_echoes": "Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "bant_claim_0004",
+          "bant_claim_0007"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_bant_20081006",
+          "src_vm_bant_metaphysics_md_20260529",
+          "src_vm_bant_evidence_ledger_20260528",
+          "src_vm_bant_research_dossier_20260528"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_esper_fef94125_aa8d_4147_a609_1e990961bde2",
+      "identity_key": "ESPER",
+      "card": {
+        "name": "Brainbite",
+        "oracle_id": "fef94125-aa8d-4147-a609-1e990961bde2",
+        "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+      },
+      "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+      "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0004",
+          "esper_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_esper_evidence_ledger_20260529",
+          "src_wotc_rosewater_esper_striving_for_perfection"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_grixis_fef94125_aa8d_4147_a609_1e990961bde2",
+      "identity_key": "GRIXIS",
+      "card": {
+        "name": "Brainbite",
+        "oracle_id": "fef94125-aa8d-4147-a609-1e990961bde2",
+        "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+      },
+      "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+      "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_grixis_evidence_ledger_20260530",
+          "src_wotc_rosewater_grixis_looking_out_for_number_one"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_jund_9b984236_39cf_4552_827b_e81c26cfb388",
+      "identity_key": "JUND",
+      "card": {
+        "name": "Broodmate Tyrant",
+        "oracle_id": "9b984236-39cf-4552-827b-e81c26cfb388",
+        "scryfall_id": "b46d498b-dac3-4ab0-bcd6-514025a046aa",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388"
+      },
+      "excerpt": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
+      "why_it_echoes": "Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "jund_claim_0003",
+          "jund_claim_0005",
+          "jund_claim_0007"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_jund_following_your_heart",
+          "src_vm_jund_evidence_ledger_20260530",
+          "src_vm_jund_reliability_audit_20260530"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_naya_956250da_532a_4457_8696_73915be56943",
+      "identity_key": "NAYA",
+      "card": {
+        "name": "Cradle of Vitality",
+        "oracle_id": "956250da-532a-4457-8696-73915be56943",
+        "scryfall_id": "4caae1f4-dfb0-466f-9fa6-eb014767e3c8",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943"
+      },
+      "excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...",
+      "why_it_echoes": "Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0007"
+        ],
+        "source_ids": [
+          "src_vm_naya_evidence_ledger_20260530",
+          "src_wotc_rosewater_naya_searching_within"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8",
+      "identity_key": "ABZAN",
+      "card": {
+        "name": "Abzan Banner",
+        "oracle_id": "46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
+        "scryfall_id": "7855528a-ede9-49a9-8749-795a004fd927",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8"
+      },
+      "excerpt": "Stone to endure, roots to remember.",
+      "why_it_echoes": "Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "abzan_claim_0003",
+          "abzan_claim_0008"
+        ],
+        "source_ids": [
+          "src_vm_abzan_evidence_ledger_20260531",
+          "src_wotc_tarkir_khans_pg_part_1",
+          "src_wotc_tarkir_dragonstorm_pg_part_1"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875",
+      "identity_key": "TEMUR",
+      "card": {
+        "name": "Avalanche Tusker",
+        "oracle_id": "ccad8b03-5ff1-4895-94e0-0c96883cb875",
+        "scryfall_id": "408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875"
+      },
+      "excerpt": "\"Hold the high ground, then bring it to your enemy.\" —Surrak, khan of the Temur",
+      "why_it_echoes": "Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003",
+          "temur_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_temur_evidence_ledger_20260531",
+          "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "src_wotc_tarkir_khans_pg_part_2",
+          "src_wotc_tarkir_story_awakening_the_bear"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_sultai_c469133e_174d_476b_b135_bbf15e415e72",
+      "identity_key": "SULTAI",
+      "card": {
+        "name": "Aggressive Negotiations",
+        "oracle_id": "c469133e-174d-476b-b135-bbf15e415e72",
+        "scryfall_id": "993ade84-031f-4a3e-bd68-55f61b559248",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72"
+      },
+      "excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\" —Heng, Sultai ambassador",
+      "why_it_echoes": "Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0004",
+          "sultai_claim_0007"
+        ],
+        "source_ids": [
+          "src_vm_sultai_evidence_ledger_20260531",
+          "src_wotc_rosewater_sultai_whatever_it_takes",
+          "src_wotc_tarkir_khans_pg_part_1",
+          "src_wotc_tarkir_fate_reforged_pg",
+          "src_wotc_tarkir_story_khanfall"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191",
+      "identity_key": "MARDU",
+      "card": {
+        "name": "Bloodsoaked Champion",
+        "oracle_id": "cad09970-14c8-4d80-82fe-6c855efb0191",
+        "scryfall_id": "275d6137-5eff-4e82-8232-64e8679bc11c",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191"
+      },
+      "excerpt": "\"Death is merely another foe the Mardu will overcome.\"",
+      "why_it_echoes": "Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "mardu_claim_0002",
+          "mardu_claim_0003",
+          "mardu_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_mardu_evidence_ledger_20260531",
+          "src_wotc_rosewater_mardu_finishing_first",
+          "src_wotc_tarkir_khans_pg_part_2",
+          "src_wotc_tarkir_fate_reforged_pg",
+          "src_wotc_tarkir_story_truth_of_names",
+          "src_wotc_tarkir_story_khanfall"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0",
+      "identity_key": "JESKAI",
+      "card": {
+        "name": "Bloodfire Expert",
+        "oracle_id": "341cf654-faf7-4db9-bd9a-70783f1ccff0",
+        "scryfall_id": "0742564e-f7a7-4107-b9ed-63703ca4702c",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0"
+      },
+      "excerpt": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
+      "why_it_echoes": "Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "jeskai_claim_0002",
+          "jeskai_claim_0004",
+          "jeskai_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_jeskai_evidence_ledger_20260531",
+          "src_wotc_rosewater_jeskai_smart_thinking",
+          "src_wotc_tarkir_khans_pg_part_1"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078",
+      "identity_key": "YORE",
+      "card": {
+        "name": "Artificer's Epiphany",
+        "oracle_id": "ed10bb4c-f7ef-4046-8dde-465041b55078",
+        "scryfall_id": "f4e6f89d-c73b-4105-9743-95504f0fd866",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078"
+      },
+      "excerpt": "The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.",
+      "why_it_echoes": "Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "yore_claim_0002",
+          "yore_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36",
+      "identity_key": "GLINT",
+      "card": {
+        "name": "Aberrant Return",
+        "oracle_id": "3a92b235-196b-4f46-9d20-06f4d3653d36",
+        "scryfall_id": "a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36"
+      },
+      "excerpt": "Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.",
+      "why_it_echoes": "Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "glint_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166",
+      "identity_key": "DUNE",
+      "card": {
+        "name": "Aurelia, the Warleader",
+        "oracle_id": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+        "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166"
+      },
+      "excerpt": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
+      "why_it_echoes": "Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "dune_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "identity_key": "INK",
+      "card": {
+        "name": "Command Tower",
+        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
+      },
+      "excerpt": "Knowledge is wasted if not shared.",
+      "why_it_echoes": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "ink_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9",
+      "identity_key": "WITCH",
+      "card": {
+        "name": "Animation Module",
+        "oracle_id": "af42079b-a3c0-448c-9bb2-b915252e87a9",
+        "scryfall_id": "34bdc973-db45-46a6-ac48-ce88fb59920a",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9"
+      },
+      "excerpt": "Design leads to progress.",
+      "why_it_echoes": "Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "witch_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20",
+      "identity_key": "COLORLESS",
+      "card": {
+        "name": "All Is Dust",
+        "oracle_id": "14693689-d087-43b6-9c3f-63ab0648fc20",
+        "scryfall_id": "4210c54e-89fd-4971-ab6a-ca8f4e7fe97a",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20"
+      },
+      "excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...",
+      "why_it_echoes": "All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "colorless_claim_0004",
+          "colorless_claim_0005",
+          "colorless_claim_0006"
+        ],
+        "source_ids": [
+          "COLORLESS-SRC-008",
+          "COLORLESS-SRC-012",
+          "COLORLESS-CANON-001",
+          "COLORLESS-SRC-018",
+          "COLORLESS-SCOPE-005"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125",
+      "identity_key": "WUBRG",
+      "card": {
+        "name": "Coalition Victory",
+        "oracle_id": "e9e25800-9ee7-40c9-b22d-611c7281c125",
+        "scryfall_id": "446824f7-dc42-42da-8bd5-6c37f3358d65",
+        "data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125"
+      },
+      "excerpt": "\"You can build a perfect machine out of imperfect parts.\" —Urza",
+      "why_it_echoes": "Coalition Victory's exact excerpt provides a bounded voice echo of a complete construction made from distinct imperfect parts.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "display_priority": 1,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "provenance": {
+        "claim_ids": [
+          "wubrg_claim_0002",
+          "wubrg_claim_0003",
+          "wubrg_claim_0004",
+          "wubrg_claim_0007"
+        ],
+        "source_ids": [
+          "WUBRG-OFF-001",
+          "WUBRG-LOCAL-001",
+          "WUBRG-OFF-003",
+          "WUBRG-OFF-004",
+          "WUBRG-CANON-001",
+          "WUBRG-CANON-002",
+          "WUBRG-SCOPE-001"
+        ],
+        "validator_version": "vm551-evidence-validator-v1",
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    }
+  ]
+}

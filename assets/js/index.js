@@ -108,6 +108,7 @@ const APP_STATE = {
   scryfallFlavorIndex: null,
   archscryFlavorSnippets: null,
   cardRationaleCatalog: null,
+  cardVoiceCatalog: null,
   preconCatalog: null,
   preconThemeTaxonomy: null,
   commanderProviderValidation: null,
@@ -297,6 +298,7 @@ async function loadDiscoveryData() {
     taxonomy,
     archscryFlavorSnippets,
     cardRationaleCatalog,
+    cardVoiceCatalog,
     preconCatalog,
     preconThemeTaxonomy,
     commanderProviderValidation,
@@ -308,6 +310,7 @@ async function loadDiscoveryData() {
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
     loadOptionalJson(resolveDataUrl("dossier/card-rationale-catalog.json"), "card rationale catalog"),
+    loadOptionalJson(resolveDataUrl("dossier/card-voice-catalog.json"), "card voice catalog"),
     loadOptionalJson(resolveDataUrl("precons/vox-mana-precon-catalog.json"), "precon catalog"),
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-precon-themes.json"), "precon theme taxonomy"),
     loadOptionalJson(resolveDataUrl("placement/commander-provider-validation.json"), "commander provider validation"),
@@ -320,6 +323,7 @@ async function loadDiscoveryData() {
   APP_STATE.tagTaxonomy = taxonomy;
   APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
   APP_STATE.cardRationaleCatalog = cardRationaleCatalog;
+  APP_STATE.cardVoiceCatalog = cardVoiceCatalog;
   APP_STATE.preconCatalog = preconCatalog;
   APP_STATE.preconThemeTaxonomy = preconThemeTaxonomy;
   APP_STATE.commanderProviderValidation = commanderProviderValidation;
@@ -2814,6 +2818,50 @@ export function selectApprovedCardRationales({
     .filter((entry) => entry?.rationale);
 }
 
+export function selectApprovedCardVoices({
+  faction,
+  catalog = APP_STATE.cardVoiceCatalog,
+  cardByName = APP_STATE.scryfallLocalCardByName,
+} = {}) {
+  const key = faction?.key || faction?.identity?.expression_key || "";
+  return (catalog?.records || [])
+    .filter((record) => record.identity_key === key)
+    .sort((left, right) => Number(left.display_priority || 0) - Number(right.display_priority || 0) || String(left.card?.name || "").localeCompare(String(right.card?.name || "")))
+    .map((record) => {
+      const card = cardByName?.get?.(normalizeCardName(record.card?.name || "")) || null;
+      if (!card || (record.card?.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
+      return { card, record };
+    })
+    .filter(Boolean);
+}
+
+export function buildCardVoicesHtml(voices = []) {
+  if (!voices.length) return "";
+  return `
+    <div class="starter-section" data-card-voice-section>
+      <div class="section-label">Cards That Sound Like This</div>
+      <p class="flavor-echo-intro">Exact card voices whose approved relationship echoes this reading without treating flavor alone as identity proof.</p>
+      <div class="flavor-echo-grid public-three-item-grid" data-item-count="${voices.length}">
+        ${voices.map(({ card, record }) => {
+          const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
+          const actionAttrs = buildActionAttrs("open-card-detail", { cardName: card.name });
+          return `
+            <button class="flavor-echo-card vm-card-voice-card" type="button" data-card-preview-name="${escapeAttributeValue(card.name)}" data-card-voice-provenance="${escapeAttributeValue(JSON.stringify(record.provenance || {}))}" ${actionAttrs}>
+              ${image ? `<img class="vm-card-voice-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+              <span class="flavor-echo-body">
+                <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
+                <span class="flavor-echo-kicker">Exact card voice</span>
+                <span class="flavor-echo-why">“${escapeHtml(record.excerpt)}”</span>
+                <span class="flavor-echo-kicker">Why it echoes</span>
+                <span class="flavor-echo-why">${escapeHtml(record.why_it_echoes)}</span>
+                <span class="flavor-echo-action">View card details</span>
+              </span>
+            </button>`;
+        }).join("")}
+      </div>
+    </div>`;
+}
+
 function cardImageUrl(record = {}) {
   return record.image_uris?.normal ||
     record.image_uris?.art_crop ||
@@ -3178,6 +3226,7 @@ function renderResult(viewKey) {
   });
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
   const flavorEchoes = selectApprovedCardRationales({ faction });
+  const cardVoices = selectApprovedCardVoices({ faction });
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
   const personalizedMazePaths = withArchscryMazeContext(
@@ -3188,6 +3237,7 @@ function renderResult(viewKey) {
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
+  const cardVoicesHtml = buildCardVoicesHtml(cardVoices);
   const readingFindsHtml = buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);
@@ -3404,6 +3454,7 @@ function renderResult(viewKey) {
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}`;
   const whyPanelHtml = `
     ${dossierInterpretationHtml}
+    ${cardVoicesHtml}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
     <div class="starter-section">

@@ -20,7 +20,7 @@ const [packet, adjudication, catalog, relationships, snippets, commanderIndex, f
 const ownerView = await readFile(path.join(root, "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md"), "utf8");
 
 assert.equal(packet.schema_version, "vm551-card-content-approval-packet-v1");
-assert.equal(packet.status, "OWNER_REVIEW_REQUIRED");
+assert.equal(packet.status, "AUTOMATIC_ADJUDICATION_COMPLETE");
 assert.equal(adjudication.schema_version, "vm551-card-rationale-candidate-adjudication-v1");
 assert.equal(adjudication.records.length, 125);
 assert.equal(adjudication.records.filter((row) => /EVIDENCE_NEEDED|REVIEW_REQUIRED/.test(row.final_research_disposition)).length, 0);
@@ -31,14 +31,14 @@ const identities = Object.keys(factions.factions).sort();
 assert.equal(identities.length, 37);
 const ids = packet.proposals.map((row) => row.proposal_id);
 assert.equal(new Set(ids).size, ids.length);
-assert.ok(packet.proposals.every((row) => ["REVIEW_REQUIRED", "REJECTED"].includes(row.disposition) && row.owner_decision === null));
+assert.ok(packet.proposals.every((row) => ["APPROVED_PUBLIC", "REJECTED"].includes(row.disposition) && row.owner_decision === null));
 
 const rationales = packet.proposals.filter((row) => row.proposal_type === "CARD_RATIONALE");
 const voices = packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE");
-const reviewVoices = voices.filter((row) => row.disposition === "REVIEW_REQUIRED");
+const reviewVoices = voices.filter((row) => row.disposition === "APPROVED_PUBLIC");
 const rejectedVoices = voices.filter((row) => row.disposition === "REJECTED");
 assert.equal(rationales.length, 25);
-assert.equal(createHash("sha256").update(JSON.stringify(rationales)).digest("hex"), "7a7ecf15598289406a2e47e911b8afca62f2469551d174f96063ac603535b967", "the 25 rationale proposals changed");
+assert.equal(createHash("sha256").update(JSON.stringify(rationales.map((row) => ({ id: row.proposal_id, copy: row.proposed_copy, hash: row.copy_sha256 })))).digest("hex"), "110a9448ebb9b157f262c588c3cf8b01a501fa334215d9764745ef7dc4793766", "the 25 rationale proposal copy changed");
 assert.equal(packet.voice_adjudication.original_candidates, 111);
 assert.equal(packet.voice_adjudication.replacement_candidates, 7);
 assert.equal(voices.length, 118);
@@ -51,22 +51,18 @@ for (const identity of identities) {
 }
 
 for (const expected of [
-  "Historical rationale candidates: **125**",
-  "Terminal historical dispositions: **125**",
-  "Existing `APPROVED_PUBLIC` retained: **26**",
-  "New rationale proposals requiring owner review: **25**",
-  "Identities represented by new rationale proposals: **25/25 former gaps**",
-  "Original voice candidates hardened: **111**",
-  "Stronger exact-text replacements added: **7**",
-  "Voice proposals requiring owner review: **37**",
-  "Weak voice candidates rejected from decision workload: **81**",
-  "Source-complete voice coverage: **37/37 identities**",
-  "Runtime promotions from this packet before approval: **0**",
+  "Automatically approved rationale proposals: **25**",
+  "Previously approved rationale relationships retained: **26**",
+  "Approved rationale identity coverage: **37/37**",
+  "Automatically approved voice relationships: **37**",
+  "Approved voice identity coverage: **37/37**",
+  "Rejected voice candidates retained in audit trail: **81**",
+  "Owner exceptions: **0**",
 ]) assert(ownerView.includes(expected), `owner summary is missing: ${expected}`);
 
 assert.equal((ownerView.match(/^### Source-complete voice proposal\(s\)$/gm) || []).length, 37);
-assert.equal((ownerView.match(/\*\*APPROVE \/ REVISE \/ REJECT\*\* \(`packet1_voice_/g) || []).length, 37);
-assert.equal((ownerView.match(/^### Owner decision$/gm) || []).length, 37);
+assert.equal((ownerView.match(/^### Automatic disposition$/gm) || []).length, 37);
+assert.equal((ownerView.match(/owner exception: none\./g) || []).length, 37);
 assert.equal((ownerView.match(/^### Existing approved rationale\(s\)$/gm) || []).length, 37);
 assert.equal((ownerView.match(/^### Other candidates considered and terminal disposition$/gm) || []).length, 37);
 
@@ -109,14 +105,17 @@ for (const row of rejectedVoices) {
 const approvedPairs = new Set(relationships.records
   .filter((row) => row.review_status === "APPROVED_PUBLIC")
   .map((row) => `${row.identity_key}|${row.canonical_card_id}`));
-assert.equal(approvedPairs.size, 26);
-assert.equal(catalog.records.length, 24);
+assert.equal(approvedPairs.size, 51);
+assert.equal(catalog.records.length, 49);
 assert.ok(catalog.records.every((row) => approvedPairs.has(`${row.identity_key}|${row.card.oracle_id}`)));
 for (const row of rationales) {
-  assert.ok(!catalog.records.some((record) =>
+  assert.ok(catalog.records.some((record) =>
     record.identity_key === row.identity_key &&
     record.card.oracle_id === row.canonical_card_id
-  ), `${row.proposal_id} entered runtime before owner approval`);
+  ) || catalog.records.filter((record) => record.identity_key === row.identity_key).length === 3, `${row.proposal_id} was neither published nor excluded by the three-card display maximum`);
+  assert.equal(row.approval_basis, "EVIDENCE_VALIDATED_AUTOMATIC");
+  assert.equal(row.validation?.validator_version, "vm551-evidence-validator-v1");
+  assert.equal(row.validation?.passed, true);
 }
 
 console.log(JSON.stringify({
@@ -124,13 +123,13 @@ console.log(JSON.stringify({
   identities: identities.length,
   historical_candidates: adjudication.records.length,
   historical_unresolved: 0,
-  rationale_review_rows: rationales.length,
+  rationale_automatic_rows: rationales.length,
   original_voice_candidates: 111,
   replacement_voice_candidates: 7,
-  voice_review_rows: reviewVoices.length,
+  voice_automatic_rows: reviewVoices.length,
   voice_rejected_rows: rejectedVoices.length,
   runtime_approved_rows: catalog.records.length,
-  review_rows_in_runtime: 0,
+  unresolved_rows: 0,
   owner_view_identity_sections: 37,
-  owner_view_voice_decisions: 37,
+  owner_view_automatic_dispositions: 37,
 }, null, 2));

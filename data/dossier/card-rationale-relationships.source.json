@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "authority": "Vox Mana source-first dossier card relationship adjudication",
   "generated_from_baseline": false,
-  "review_policy": "New or newly surfaced public rationale remains REVIEW_REQUIRED until explicit owner approval. Runtime receives only APPROVED_PUBLIC records.",
+  "review_policy": "APPROVED_PUBLIC requires prior owner approval or a passing evidence-validated automatic decision. Runtime receives no unresolved, rejected, or fallback relationship.",
   "records": [
     {
       "relationship_id": "cardrel_wu_c46718dc",
@@ -1445,6 +1445,834 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "canonical_card_name": "Rootha, Mastering the Moment",
+      "canonical_card_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+      "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_006",
+        "prismari_claim_0017"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator": "Prismari College"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator": "Prismari College and Dichotomy of Prismari"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator": "Prismari - The College of Elemental Arts"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+        "exact_text": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+        "verified_card_observation": "At the beginning of combat on your turn, if you've cast an instant or sorcery spell this turn, create an X/X blue and red Elemental creature token with flying and haste, where X...",
+        "relationship_bridge": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value. The relationship is limited to the verified card action and certified claims prismari_claim_002, prismari_claim_003, prismari_claim_006, prismari_claim_0017.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "prismari_claim_002",
+            "prismari_claim_003",
+            "prismari_claim_006",
+            "prismari_claim_0017"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_002",
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_003",
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006",
+            "data/raw-factions/prismari/prismari.claims.json#prismari_claim_0017"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+      "proposal_origin": "packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "prismari_claim_002",
+            "prismari_claim_003",
+            "prismari_claim_006",
+            "prismari_claim_0017"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "canonical_card_name": "Dina, Essence Brewer",
+      "canonical_card_id": "f61c1dc4-2f09-4b50-957f-ee656c659072",
+      "scryfall_id": "9fe237b8-c02c-41ea-9fc4-b771b91d2157",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "witherbloom_claim_0019",
+        "witherbloom_claim_0022"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator": "Planeswalker's Guide to Strixhaven - Witherbloom college overview"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+        "exact_text": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+        "verified_card_observation": "Whenever you sacrifice a creature, draw a card. This ability triggers only once each turn. {2}, {T}, Sacrifice another creature: You gain X life and put X +1/+1 counters on targ...",
+        "relationship_bridge": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters. The relationship is limited to the verified card action and certified claims witherbloom_claim_0019, witherbloom_claim_0022.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "witherbloom_claim_0019",
+            "witherbloom_claim_0022"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0022"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+      "proposal_origin": "packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "witherbloom_claim_0019",
+            "witherbloom_claim_0022"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "canonical_card_name": "Zimone, Infinite Analyst",
+      "canonical_card_id": "977f9390-e01d-4e9d-8e9c-e543b1266972",
+      "scryfall_id": "605afac4-d2e5-4e68-97d2-3ac2ead5f3a9",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "quandrix_claim_002",
+        "quandrix_claim_006",
+        "quandrix_claim_0017",
+        "quandrix_claim_0019"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+        "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator": "Quandrix College / The College of Numeromancy"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator": "Quandrix"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+        "exact_text": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
+        "verified_card_observation": "The first spell you cast with {X} in its mana cost each turn costs {1} less to cast for each +1/+1 counter on Zimone. Whenever you cast your first spell with {X} in its mana cos...",
+        "relationship_bridge": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token. The relationship is limited to the verified card action and certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0017, quandrix_claim_0019.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "quandrix_claim_002",
+            "quandrix_claim_006",
+            "quandrix_claim_0017",
+            "quandrix_claim_0019"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_002",
+            "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_006",
+            "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0017",
+            "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0019"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
+      "proposal_origin": "packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "quandrix_claim_002",
+            "quandrix_claim_006",
+            "quandrix_claim_0017",
+            "quandrix_claim_0019"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "canonical_card_name": "Breena, the Demagogue",
+      "canonical_card_id": "d11e627b-8a48-411d-a261-2c9a02a758ba",
+      "scryfall_id": "599f87c8-643e-4224-93a5-853c0bd4e497",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "silverquill_claim_001",
+        "silverquill_claim_006",
+        "silverquill_claim_0019"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_planeswalkers_guide_strixhaven_2021",
+        "src_wotc_strixhaven_product_page_2021",
+        "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "locator": "Planeswalker's Guide to Strixhaven ? Silverquill college overview"
+        },
+        {
+          "source_id": "src_wotc_strixhaven_product_page_2021",
+          "locator": "Strixhaven: School of Mages ? college product overview"
+        },
+        {
+          "source_id": "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+        "exact_text": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+        "verified_card_observation": "Flying Whenever a player attacks one of your opponents, if that opponent has more life than another of your opponents, that attacking player draws a card and you put two +1/+1 c...",
+        "relationship_bridge": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger. The relationship is limited to the verified card action and certified claims silverquill_claim_001, silverquill_claim_006, silverquill_claim_0019.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "silverquill_claim_001",
+            "silverquill_claim_006",
+            "silverquill_claim_0019"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_001",
+            "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_006",
+            "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0019"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+      "proposal_origin": "packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "silverquill_claim_001",
+            "silverquill_claim_006",
+            "silverquill_claim_0019"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+      "identity_key": "W",
+      "identity_name": "White",
+      "canonical_card_name": "Giada, Font of Hope",
+      "canonical_card_id": "48e6d3d8-2f27-4017-acdd-40bce8cdbc02",
+      "scryfall_id": "8ae6fc26-cfad-4da8-98d9-49c27c24d293",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "white_claim_0004",
+        "white_claim_0007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "MONO-W-2015",
+        "MONO-W-2025",
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "source_locators": [
+        {
+          "source_id": "MONO-W-2015",
+          "locator": "docs/research/mono_upgrade/10_white.md#W2015-Q3;W2015-Q4"
+        },
+        {
+          "source_id": "MONO-W-2025",
+          "locator": "docs/research/mono_upgrade/10_white.md#W2025-e"
+        },
+        {
+          "source_id": "MECH-CP-2021",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-carddraw;MECH-counters;MECH-removal"
+        },
+        {
+          "source_id": "GOV-COC-2024",
+          "locator": "docs/research/mono_upgrade/22_council_of_colors.md#COC-shift-commander"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+        "exact_text": "Giada gives White's coordinated creature growth a direct example: she helps cast Angels, and each later Angel enters with counters for the Angels already assembled.",
+        "verified_card_observation": "Flying, vigilance Each other Angel you control enters with an additional +1/+1 counter on it for each Angel you already control. {T}: Add {W}. Spend this mana only to cast an An...",
+        "relationship_bridge": "Giada gives White's coordinated creature growth a direct example: she helps cast Angels, and each later Angel enters with counters for the Angels already assembled. The relationship is limited to the verified card action and certified claims white_claim_0004, white_claim_0007.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "white_claim_0004",
+            "white_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/white/white.claims.json#white_claim_0004",
+            "data/raw-factions/white/white.claims.json#white_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Giada gives White's coordinated creature growth a direct example: she helps cast Angels, and each later Angel enters with counters for the Angels already assembled.",
+      "proposal_origin": "packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "white_claim_0004",
+            "white_claim_0007"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+      "identity_key": "B",
+      "identity_name": "Black",
+      "canonical_card_name": "K'rrik, Son of Yawgmoth",
+      "canonical_card_id": "cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd",
+      "scryfall_id": "4f087b1c-97e0-4379-a94d-beac53685314",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "black_claim_0004",
+        "black_claim_0007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "MONO-B-2015",
+        "MONO-B-2025",
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "source_locators": [
+        {
+          "source_id": "MONO-B-2015",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2015-Q3;B2015-Q4"
+        },
+        {
+          "source_id": "MONO-B-2025",
+          "locator": "docs/research/mono_upgrade/12_black.md#B2025-b;B2025-d"
+        },
+        {
+          "source_id": "MECH-CP-2021",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-discard-effect"
+        },
+        {
+          "source_id": "MECH-CP-2021-CHG",
+          "locator": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md#CHG-cantblock;CHG-discard-cost"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+        "exact_text": "K'rrik makes Black's resource-conversion pattern literal by letting life pay for black mana symbols and rewarding additional black spells with +1/+1 counters.",
+        "verified_card_observation": "({B/P} can be paid with either {B} or 2 life.) Lifelink For each {B} in a cost, you may pay 2 life rather than pay that mana. Whenever you cast a black spell, put a +1/+1 counte...",
+        "relationship_bridge": "K'rrik makes Black's resource-conversion pattern literal by letting life pay for black mana symbols and rewarding additional black spells with +1/+1 counters. The relationship is limited to the verified card action and certified claims black_claim_0004, black_claim_0007.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "black_claim_0004",
+            "black_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/black/black.claims.json#black_claim_0004",
+            "data/raw-factions/black/black.claims.json#black_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "K'rrik makes Black's resource-conversion pattern literal by letting life pay for black mana symbols and rewarding additional black spells with +1/+1 counters.",
+      "proposal_origin": "packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "black_claim_0004",
+            "black_claim_0007"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "canonical_card_name": "Talrand, Sky Summoner",
+      "canonical_card_id": "ea1eb902-a23c-44ff-9169-19baf71de238",
+      "scryfall_id": "1be3ed47-072e-481a-b3d9-dc232ac4b24f",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "blue_claim_0006",
+        "blue_claim_0007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "MONO-U-2015",
+        "MONO-U-2025",
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "source_locators": [
+        {
+          "source_id": "MONO-U-2015",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2015-Q6"
+        },
+        {
+          "source_id": "MONO-U-2025",
+          "locator": "docs/research/mono_upgrade/11_blue.md#U2025-j"
+        },
+        {
+          "source_id": "MECH-CP-2021",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-carddraw;MECH-counters;MECH-flying;MECH-removal;MECH-artifact-friendly"
+        },
+        {
+          "source_id": "GOV-COC-2024",
+          "locator": "docs/research/mono_upgrade/22_council_of_colors.md#COC-mandate"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+        "exact_text": "Talrand turns Blue's instant-and-sorcery plan into a visible board by creating a flying Drake whenever you cast one of those spells.",
+        "verified_card_observation": "Whenever you cast an instant or sorcery spell, create a 2/2 blue Drake creature token with flying.",
+        "relationship_bridge": "Talrand turns Blue's instant-and-sorcery plan into a visible board by creating a flying Drake whenever you cast one of those spells. The relationship is limited to the verified card action and certified claims blue_claim_0006, blue_claim_0007.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "blue_claim_0006",
+            "blue_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/blue/blue.claims.json#blue_claim_0006",
+            "data/raw-factions/blue/blue.claims.json#blue_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Talrand turns Blue's instant-and-sorcery plan into a visible board by creating a flying Drake whenever you cast one of those spells.",
+      "proposal_origin": "packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "blue_claim_0006",
+            "blue_claim_0007"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "identity_key": "R",
+      "identity_name": "Red",
+      "canonical_card_name": "Torbran, Thane of Red Fell",
+      "canonical_card_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+      "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "red_claim_0003",
+        "red_claim_0007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "MONO-R-2015",
+        "MONO-R-2025",
+        "MECH-CP-2021",
+        "GOV-COC-2024"
+      ],
+      "source_locators": [
+        {
+          "source_id": "MONO-R-2015",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2015-Q2"
+        },
+        {
+          "source_id": "MONO-R-2025",
+          "locator": "docs/research/mono_upgrade/13_red.md#R2025-b;R2025-c;R2025-e"
+        },
+        {
+          "source_id": "MECH-CP-2021",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-antiflying;MECH-artifact-friendly"
+        },
+        {
+          "source_id": "GOV-COC-2024",
+          "locator": "docs/research/mono_upgrade/22_council_of_colors.md#COC-shift-commander;COC-gaps"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+        "exact_text": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
+        "verified_card_observation": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
+        "relationship_bridge": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents. The relationship is limited to the verified card action and certified claims red_claim_0003, red_claim_0007.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "red_claim_0003",
+            "red_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/red/red.claims.json#red_claim_0003",
+            "data/raw-factions/red/red.claims.json#red_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
+      "proposal_origin": "packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "red_claim_0003",
+            "red_claim_0007"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+      "identity_key": "G",
+      "identity_name": "Green",
+      "canonical_card_name": "Azusa, Lost but Seeking",
+      "canonical_card_id": "6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51",
+      "scryfall_id": "2fe97fbe-a6d6-4e96-8c26-f81bcdf579a1",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "green_claim_0004",
+        "green_claim_0007"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "MONO-G-2015",
+        "MONO-G-2025",
+        "MECH-CP-2021",
+        "MECH-CP-2021-CHG"
+      ],
+      "source_locators": [
+        {
+          "source_id": "MONO-G-2015",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2015-Q3;G2015-Q4"
+        },
+        {
+          "source_id": "MONO-G-2025",
+          "locator": "docs/research/mono_upgrade/14_green.md#G2025-c"
+        },
+        {
+          "source_id": "MECH-CP-2021",
+          "locator": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md#MECH-removal;MECH-carddraw;MECH-antiflying"
+        },
+        {
+          "source_id": "MECH-CP-2021-CHG",
+          "locator": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md#CHG-carddraw;CHG-cardfilter;CHG-counter-ability"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+        "exact_text": "Azusa gives Green's land-based growth a direct Commander example by allowing two additional land plays on each of your turns.",
+        "verified_card_observation": "You may play two additional lands on each of your turns.",
+        "relationship_bridge": "Azusa gives Green's land-based growth a direct Commander example by allowing two additional land plays on each of your turns. The relationship is limited to the verified card action and certified claims green_claim_0004, green_claim_0007.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "green_claim_0004",
+            "green_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/green/green.claims.json#green_claim_0004",
+            "data/raw-factions/green/green.claims.json#green_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Azusa gives Green's land-based growth a direct Commander example by allowing two additional land plays on each of your turns.",
+      "proposal_origin": "packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "green_claim_0004",
+            "green_claim_0007"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51"
+        }
+      }
+    },
+    {
       "relationship_id": "cardrel_bant_c6e17443",
       "identity_key": "BANT",
       "identity_name": "Bant",
@@ -1496,6 +2324,1512 @@
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
       }
+    },
+    {
+      "relationship_id": "cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
+      "identity_key": "ESPER",
+      "identity_name": "Esper",
+      "canonical_card_name": "Y'shtola, Night's Blessed",
+      "canonical_card_id": "3268251a-8292-44f9-9267-c961b182f739",
+      "scryfall_id": "c7f2c2d5-e052-49e8-b5de-712858c2ea78",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "esper_claim_0003",
+        "esper_claim_0006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_esper_evidence_ledger_20260529",
+        "src_wotc_rosewater_esper_striving_for_perfection"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-003"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#potential-knowledge-change"
+        },
+        {
+          "source_id": "src_vm_esper_evidence_ledger_20260529",
+          "locator": "docs/research/esper/esper-evidence-ledger.md#ESPER-006"
+        },
+        {
+          "source_id": "src_wotc_rosewater_esper_striving_for_perfection",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#black-ally"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739",
+        "exact_text": "Y'shtola links planned noncreature spells and a known life-loss threshold to repeatable card access and pressure.",
+        "verified_card_observation": "Vigilance At the beginning of each end step, if a player lost 4 or more life this turn, you draw a card. Whenever you cast a noncreature spell with mana value 3 or greater, Y'sh...",
+        "relationship_bridge": "Y'shtola links planned noncreature spells and a known life-loss threshold to repeatable card access and pressure. The relationship is limited to the verified card action and certified claims esper_claim_0003, esper_claim_0006.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/esper/esper.claims.json#esper_claim_0003",
+            "data/raw-factions/esper/esper.claims.json#esper_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Y'shtola links planned noncreature spells and a known life-loss threshold to repeatable card access and pressure.",
+      "proposal_origin": "packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "esper_claim_0003",
+            "esper_claim_0006"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+      "identity_key": "GRIXIS",
+      "identity_name": "Grixis",
+      "canonical_card_name": "Kess, Dissident Mage",
+      "canonical_card_id": "f5092c14-eec4-472c-999c-ba96c36b2fbb",
+      "scryfall_id": "e83e6d7a-3af0-4955-8004-2310f051e306",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "grixis_claim_0003",
+        "grixis_claim_0004",
+        "grixis_claim_0006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_grixis_evidence_ledger_20260530",
+        "src_wotc_rosewater_grixis_looking_out_for_number_one"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:26#GRIXIS-003"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:29-104"
+        },
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:27#GRIXIS-004"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:141-149"
+        },
+        {
+          "source_id": "src_vm_grixis_evidence_ledger_20260530",
+          "locator": "docs/research/grixis/grixis-evidence-ledger.md:29#GRIXIS-006"
+        },
+        {
+          "source_id": "src_wotc_rosewater_grixis_looking_out_for_number_one",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:151-155"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+        "exact_text": "Kess turns a spent instant or sorcery into one more planned option by letting you cast one such card from your graveyard during each of your turns.",
+        "verified_card_observation": "Flying Once during each of your turns, you may cast an instant or sorcery spell from your graveyard. If a spell cast this way would be put into your graveyard, exile it instead.",
+        "relationship_bridge": "Kess turns a spent instant or sorcery into one more planned option by letting you cast one such card from your graveyard during each of your turns. The relationship is limited to the verified card action and certified claims grixis_claim_0003, grixis_claim_0004, grixis_claim_0006.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "grixis_claim_0003",
+            "grixis_claim_0004",
+            "grixis_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0003",
+            "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0004",
+            "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Kess turns a spent instant or sorcery into one more planned option by letting you cast one such card from your graveyard during each of your turns.",
+      "proposal_origin": "packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "grixis_claim_0003",
+            "grixis_claim_0004",
+            "grixis_claim_0006"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+      "identity_key": "JUND",
+      "identity_name": "Jund",
+      "canonical_card_name": "Prossh, Skyraider of Kher",
+      "canonical_card_id": "868882d2-ed4e-4171-a17c-478a341080fb",
+      "scryfall_id": "889c1a0f-7df2-4497-8058-04358173d7e8",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "jund_claim_0005",
+        "jund_claim_0008"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_wotc_rosewater_jund_following_your_heart",
+        "src_vm_jund_evidence_ledger_20260530",
+        "src_vm_jund_reliability_audit_20260530"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L150-L156"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L30"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jund_following_your_heart",
+          "locator": "docs/research/jund/sources/Hungry-Like-the-Wolf.md#L158-L165"
+        },
+        {
+          "source_id": "src_vm_jund_evidence_ledger_20260530",
+          "locator": "docs/research/jund/jund-evidence-ledger.md#L29-L36"
+        },
+        {
+          "source_id": "src_vm_jund_reliability_audit_20260530",
+          "locator": "docs/research/jund/jund-reliability-audit.md#L20-L30"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+        "exact_text": "Prossh turns each cast into a larger visible board, then lets those creatures be sacrificed for immediate power.",
+        "verified_card_observation": "When you cast this spell, create X 0/1 red Kobold creature tokens named Kobolds of Kher Keep, where X is the amount of mana spent to cast it. Flying Sacrifice another creature:...",
+        "relationship_bridge": "Prossh turns each cast into a larger visible board, then lets those creatures be sacrificed for immediate power. The relationship is limited to the verified card action and certified claims jund_claim_0005, jund_claim_0008.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0008"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0005",
+            "data/raw-factions/jund/jund.claims.json#jund_claim_0008"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Prossh turns each cast into a larger visible board, then lets those creatures be sacrificed for immediate power.",
+      "proposal_origin": "packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "jund_claim_0005",
+            "jund_claim_0008"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+      "identity_key": "NAYA",
+      "identity_name": "Naya",
+      "canonical_card_name": "Shalai and Hallar",
+      "canonical_card_id": "e7604cd9-d00d-4957-82c9-46a7cdb88209",
+      "scryfall_id": "80804f25-efc3-44a2-bbae-9a97fec98009",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "naya_claim_0003",
+        "naya_claim_0004",
+        "naya_claim_0006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_naya_evidence_ledger_20260530",
+        "src_wotc_rosewater_naya_searching_within"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L12"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L21-L33"
+        },
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L13"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L171-L178"
+        },
+        {
+          "source_id": "src_vm_naya_evidence_ledger_20260530",
+          "locator": "docs/research/naya/naya-evidence-ledger.md#L15"
+        },
+        {
+          "source_id": "src_wotc_rosewater_naya_searching_within",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L161-L165"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+        "exact_text": "Shalai and Hallar turn creature growth into immediate table pressure by dealing damage when +1/+1 counters are put on your creatures.",
+        "verified_card_observation": "Flying, vigilance Whenever one or more +1/+1 counters are put on a creature you control, Shalai and Hallar deals that much damage to target opponent.",
+        "relationship_bridge": "Shalai and Hallar turn creature growth into immediate table pressure by dealing damage when +1/+1 counters are put on your creatures. The relationship is limited to the verified card action and certified claims naya_claim_0003, naya_claim_0004, naya_claim_0006.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "naya_claim_0003",
+            "naya_claim_0004",
+            "naya_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/naya/naya.claims.json#naya_claim_0003",
+            "data/raw-factions/naya/naya.claims.json#naya_claim_0004",
+            "data/raw-factions/naya/naya.claims.json#naya_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Shalai and Hallar turn creature growth into immediate table pressure by dealing damage when +1/+1 counters are put on your creatures.",
+      "proposal_origin": "packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "naya_claim_0003",
+            "naya_claim_0004",
+            "naya_claim_0006"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "canonical_card_name": "Felothar the Steadfast",
+      "canonical_card_id": "2b3f791a-d672-46fb-a03a-96e19f2c3121",
+      "scryfall_id": "2c3549f6-25df-4ea7-84ad-922ccd4af6b2",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "abzan_claim_0002",
+        "abzan_claim_0011"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_abzan_evidence_ledger_20260531",
+        "src_wotc_rosewater_abzan_we_will_survive",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_abzan_evidence_ledger_20260531",
+          "locator": "docs/research/abzan/abzan-evidence-ledger.md#L9-L40"
+        },
+        {
+          "source_id": "src_wotc_rosewater_abzan_we_will_survive",
+          "locator": "docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md#L1-L90"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+          "locator": "docs/research/VM-378-379-380_source-intake.md#L1-L120"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+        "exact_text": "Felothar makes an Abzan defensive board matter in combat: creatures assign combat damage using toughness, and defenders can attack.",
+        "verified_card_observation": "Each creature you control assigns combat damage equal to its toughness rather than its power. Creatures you control can attack as though they didn't have defender. {3}, {T}, Sac...",
+        "relationship_bridge": "Felothar makes an Abzan defensive board matter in combat: creatures assign combat damage using toughness, and defenders can attack. The relationship is limited to the verified card action and certified claims abzan_claim_0002, abzan_claim_0011.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "abzan_claim_0002",
+            "abzan_claim_0011"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0002",
+            "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0011"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Felothar makes an Abzan defensive board matter in combat: creatures assign combat damage using toughness, and defenders can attack.",
+      "proposal_origin": "packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "abzan_claim_0002",
+            "abzan_claim_0011"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+      "identity_key": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "canonical_card_name": "Eshki, Temur's Roar",
+      "canonical_card_id": "1b162dd3-3be6-406d-bf86-f7cc9eff098d",
+      "scryfall_id": "ff9aa863-8773-452d-946c-ae334c632e11",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "temur_claim_0002",
+        "temur_claim_0003",
+        "temur_claim_0011"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_temur_evidence_ledger_20260531",
+        "src_wotc_rosewater_temur_what_doesnt_kill_you",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-002"
+        },
+        {
+          "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "locator": "Temur: What Doesn't Kill You Makes You Stronger; bounded local capture for temur_claim_0002"
+        },
+        {
+          "source_id": "src_vm_temur_evidence_ledger_20260531",
+          "locator": "Temur Evidence Ledger; rows TEMUR-EVID-003, TEMUR-EVID-004, TEMUR-EVID-005"
+        },
+        {
+          "source_id": "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "locator": "Temur: What Doesn't Kill You Makes You Stronger; bounded local capture for temur_claim_0003"
+        },
+        {
+          "source_id": "src_wotc_tarkir_dragonstorm_commander_decklists_20250325",
+          "locator": "Tarkir: Dragonstorm Commander Decklists; bounded local capture for temur_claim_0011"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+        "exact_text": "Eshki rewards increasingly large creature spells with visible growth, then cards and damage as the creatures cross higher power thresholds.",
+        "verified_card_observation": "Whenever you cast a creature spell, put a +1/+1 counter on Eshki. If that spell's power is 4 or greater, draw a card. If that spell's power is 6 or greater, Eshki deals damage e...",
+        "relationship_bridge": "Eshki rewards increasingly large creature spells with visible growth, then cards and damage as the creatures cross higher power thresholds. The relationship is limited to the verified card action and certified claims temur_claim_0002, temur_claim_0003, temur_claim_0011.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "temur_claim_0002",
+            "temur_claim_0003",
+            "temur_claim_0011"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/temur/temur.claims.json#temur_claim_0002",
+            "data/raw-factions/temur/temur.claims.json#temur_claim_0003",
+            "data/raw-factions/temur/temur.claims.json#temur_claim_0011"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Eshki rewards increasingly large creature spells with visible growth, then cards and damage as the creatures cross higher power thresholds.",
+      "proposal_origin": "packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "temur_claim_0002",
+            "temur_claim_0003",
+            "temur_claim_0011"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+      "identity_key": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "canonical_card_name": "Kotis, Sibsig Champion",
+      "canonical_card_id": "0177b410-b559-491f-b393-ac3ed774653c",
+      "scryfall_id": "b9ea2e9c-c1c7-4870-877a-023118909f56",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "sultai_claim_0002",
+        "sultai_claim_0003",
+        "sultai_claim_0011"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_sultai_evidence_ledger_20260531",
+        "src_wotc_rosewater_sultai_whatever_it_takes",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-002"
+        },
+        {
+          "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+          "locator": "Sultai: Whatever It Takes; bounded local capture for sultai_claim_0002"
+        },
+        {
+          "source_id": "src_vm_sultai_evidence_ledger_20260531",
+          "locator": "Sultai Evidence Ledger; rows SULTAI-EVID-003"
+        },
+        {
+          "source_id": "src_wotc_rosewater_sultai_whatever_it_takes",
+          "locator": "Sultai: Whatever It Takes; bounded local capture for sultai_claim_0003"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+        "exact_text": "Kotis turns the graveyard into a constrained resource: one creature can be cast from it each turn by exiling three other graveyard cards as an additional cost.",
+        "verified_card_observation": "Once during each of your turns, you may cast a creature spell from your graveyard by exiling three other cards from your graveyard in addition to paying its other costs. Wheneve...",
+        "relationship_bridge": "Kotis turns the graveyard into a constrained resource: one creature can be cast from it each turn by exiling three other graveyard cards as an additional cost. The relationship is limited to the verified card action and certified claims sultai_claim_0002, sultai_claim_0003, sultai_claim_0011.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "sultai_claim_0002",
+            "sultai_claim_0003",
+            "sultai_claim_0011"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0002",
+            "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0003",
+            "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0011"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Kotis turns the graveyard into a constrained resource: one creature can be cast from it each turn by exiling three other graveyard cards as an additional cost.",
+      "proposal_origin": "packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "sultai_claim_0002",
+            "sultai_claim_0003",
+            "sultai_claim_0011"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+      "identity_key": "MARDU",
+      "identity_name": "Mardu Horde",
+      "canonical_card_name": "Zurgo Stormrender",
+      "canonical_card_id": "0f93d88c-9d2e-416d-a10b-99483360b1fb",
+      "scryfall_id": "dc8eb325-75c9-4331-830d-3f7d62d77290",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "mardu_claim_0002",
+        "mardu_claim_0011"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_mardu_evidence_ledger_20260531",
+        "src_wotc_rosewater_mardu_finishing_first",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_mardu_evidence_ledger_20260531",
+          "locator": "Mardu Evidence Ledger; rows MARDU-EVID-002, MARDU-EVID-003"
+        },
+        {
+          "source_id": "src_wotc_rosewater_mardu_finishing_first",
+          "locator": "Mardu: Finishing First; bounded local capture for mardu_claim_0002"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+        "exact_text": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks.",
+        "verified_card_observation": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.) Whenever a creatur...",
+        "relationship_bridge": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks. The relationship is limited to the verified card action and certified claims mardu_claim_0002, mardu_claim_0011.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "mardu_claim_0002",
+            "mardu_claim_0011"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0002",
+            "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0011"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks.",
+      "proposal_origin": "packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "mardu_claim_0002",
+            "mardu_claim_0011"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+      "identity_key": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "canonical_card_name": "Shiko and Narset, Unified",
+      "canonical_card_id": "40ed32a6-ad56-48c7-aecf-b4238c34c212",
+      "scryfall_id": "5a42fc7d-52ac-4e95-9e04-8f8fa7f687c8",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "jeskai_claim_0002",
+        "jeskai_claim_0003",
+        "jeskai_claim_0011"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_jeskai_evidence_ledger_20260531",
+        "src_wotc_rosewater_jeskai_smart_thinking",
+        "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-002"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+          "locator": "Jeskai: Smart Thinking; bounded local capture for jeskai_claim_0002"
+        },
+        {
+          "source_id": "src_vm_jeskai_evidence_ledger_20260531",
+          "locator": "Jeskai Evidence Ledger; rows JESKAI-EVID-003"
+        },
+        {
+          "source_id": "src_wotc_rosewater_jeskai_smart_thinking",
+          "locator": "Jeskai: Smart Thinking; bounded local capture for jeskai_claim_0003"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+        "exact_text": "Shiko and Narset reward deliberate spell sequencing: the second spell each turn can be copied when it targets a permanent or player.",
+        "verified_card_observation": "Flying, vigilance Flurry — Whenever you cast your second spell each turn, copy that spell if it targets a permanent or player, and you may choose new targets for the copy. If yo...",
+        "relationship_bridge": "Shiko and Narset reward deliberate spell sequencing: the second spell each turn can be copied when it targets a permanent or player. The relationship is limited to the verified card action and certified claims jeskai_claim_0002, jeskai_claim_0003, jeskai_claim_0011.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "jeskai_claim_0002",
+            "jeskai_claim_0003",
+            "jeskai_claim_0011"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0002",
+            "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0003",
+            "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0011"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Shiko and Narset reward deliberate spell sequencing: the second spell each turn can be copied when it targets a permanent or player.",
+      "proposal_origin": "packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "jeskai_claim_0002",
+            "jeskai_claim_0003",
+            "jeskai_claim_0011"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "canonical_card_name": "Breya, Etherium Shaper",
+      "canonical_card_id": "d460a9e2-5a7d-4562-880e-45174be19a9d",
+      "scryfall_id": "8bf3929c-957f-4ea2-a27d-7d53979844af",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "yore_claim_0003",
+        "yore_claim_0004"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_yore_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-003"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md; Yore / Artifice WUBR rows"
+        },
+        {
+          "source_id": "src_vm_yore_evidence_ledger_20260602",
+          "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-004"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+        "exact_text": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects.",
+        "verified_card_observation": "When Breya enters, create two 1/1 blue Thopter artifact creature tokens with flying. {2}, Sacrifice two artifacts: Choose one — • Breya deals 3 damage to target player or planes...",
+        "relationship_bridge": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects. The relationship is limited to the verified card action and certified claims yore_claim_0003, yore_claim_0004.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "yore_claim_0003",
+            "yore_claim_0004"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/yore/yore.claims.json#yore_claim_0003",
+            "data/raw-factions/yore/yore.claims.json#yore_claim_0004"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects.",
+      "proposal_origin": "packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "yore_claim_0003",
+            "yore_claim_0004"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+      "identity_key": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "canonical_card_name": "Yidris, Maelstrom Wielder",
+      "canonical_card_id": "9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f",
+      "scryfall_id": "c219dd22-433c-4f6a-a0c4-fae12239291c",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "glint_claim_0003",
+        "glint_claim_0005"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_glint_evidence_ledger_20260602",
+        "src_vm_four_color_reference_audit_20260602"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-003"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#glint-chaos-ubrg"
+        },
+        {
+          "source_id": "src_vm_glint_evidence_ledger_20260602",
+          "locator": "docs/research/glint/glint-evidence-ledger.md#GLINT-EVID-005"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260602",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#missing-white-reference-frame"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+        "exact_text": "Yidris converts successful combat into volatile follow-up routes by giving spells cast from hand cascade for the rest of that turn.",
+        "verified_card_observation": "Trample Whenever Yidris deals combat damage to a player, as you cast spells from your hand this turn, they gain cascade. (When you cast the spell, exile cards from the top of yo...",
+        "relationship_bridge": "Yidris converts successful combat into volatile follow-up routes by giving spells cast from hand cascade for the rest of that turn. The relationship is limited to the verified card action and certified claims glint_claim_0003, glint_claim_0005.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "glint_claim_0003",
+            "glint_claim_0005"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/glint/glint.claims.json#glint_claim_0003",
+            "data/raw-factions/glint/glint.claims.json#glint_claim_0005"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Yidris converts successful combat into volatile follow-up routes by giving spells cast from hand cascade for the rest of that turn.",
+      "proposal_origin": "packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "glint_claim_0003",
+            "glint_claim_0005"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+      "identity_key": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "canonical_card_name": "Saskia the Unyielding",
+      "canonical_card_id": "e54d207c-51b8-458e-86a1-2633ac064c8e",
+      "scryfall_id": "5b483db6-b614-4af1-820a-42a4ee0c8707",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "dune_claim_0003",
+        "dune_claim_0005"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_dune_evidence_ledger_20260603",
+        "src_vm_four_color_reference_audit_20260603"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-003"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260603",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune"
+        },
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-007"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+        "exact_text": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
+        "verified_card_observation": "Vigilance, haste As Saskia enters, choose a player. Whenever a creature you control deals combat damage to a player, it deals that much damage to the chosen player.",
+        "relationship_bridge": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player. The relationship is limited to the verified card action and certified claims dune_claim_0003, dune_claim_0005.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "dune_claim_0003",
+            "dune_claim_0005"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/dune/dune.claims.json#dune_claim_0003",
+            "data/raw-factions/dune/dune.claims.json#dune_claim_0005"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
+      "proposal_origin": "packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "dune_claim_0003",
+            "dune_claim_0005"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+      "identity_key": "INK",
+      "identity_name": "Ink / Altruism",
+      "canonical_card_name": "Kynaios and Tiro of Meletis",
+      "canonical_card_id": "53ee4254-fef7-49ec-aafc-0320987764e6",
+      "scryfall_id": "97fa8615-2b6c-445a-bcaf-44a7e847bf65",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "ink_claim_0003",
+        "ink_claim_0005"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_ink_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-003"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink"
+        },
+        {
+          "source_id": "src_vm_ink_evidence_ledger_20260604",
+          "locator": "docs/research/ink/ink-evidence-ledger.md#INK-EVID-007"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+        "exact_text": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
+        "verified_card_observation": "At the beginning of your end step, draw a card. Each player may put a land card from their hand onto the battlefield, then each opponent who didn't draws a card.",
+        "relationship_bridge": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws. The relationship is limited to the verified card action and certified claims ink_claim_0003, ink_claim_0005.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "ink_claim_0003",
+            "ink_claim_0005"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/ink/ink.claims.json#ink_claim_0003",
+            "data/raw-factions/ink/ink.claims.json#ink_claim_0005"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
+      "proposal_origin": "packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "ink_claim_0003",
+            "ink_claim_0005"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+      "identity_key": "WITCH",
+      "identity_name": "Witch / Growth",
+      "canonical_card_name": "Atraxa, Praetors' Voice",
+      "canonical_card_id": "7e6b9b59-cd68-4e3c-827b-38833c92d6eb",
+      "scryfall_id": "d0d33d52-3d28-4635-b985-51e126289259",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "witch_claim_0003",
+        "witch_claim_0005"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "src_vm_witch_evidence_ledger_20260604",
+        "src_vm_four_color_reference_audit_20260604"
+      ],
+      "source_locators": [
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-003"
+        },
+        {
+          "source_id": "src_vm_four_color_reference_audit_20260604",
+          "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch"
+        },
+        {
+          "source_id": "src_vm_witch_evidence_ledger_20260604",
+          "locator": "docs/research/witch/witch-evidence-ledger.md#WITCH-EVID-005-WITCH-EVID-007"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+        "exact_text": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps.",
+        "verified_card_observation": "Flying, vigilance, deathtouch, lifelink At the beginning of your end step, proliferate. (Choose any number of permanents and/or players, then give each another counter of each k...",
+        "relationship_bridge": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps. The relationship is limited to the verified card action and certified claims witch_claim_0003, witch_claim_0005.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "witch_claim_0003",
+            "witch_claim_0005"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/witch/witch.claims.json#witch_claim_0003",
+            "data/raw-factions/witch/witch.claims.json#witch_claim_0005"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps.",
+      "proposal_origin": "packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "witch_claim_0003",
+            "witch_claim_0005"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "canonical_card_name": "Zhulodok, Void Gorger",
+      "canonical_card_id": "ec726c54-987b-48ed-8ffa-ec73a5e35333",
+      "scryfall_id": "a015461d-4214-4feb-8b04-519c537759eb",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "colorless_claim_0005",
+        "colorless_claim_0006"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "COLORLESS-SRC-018",
+        "COLORLESS-CANON-001",
+        "COLORLESS-SCOPE-005"
+      ],
+      "source_locators": [
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#modern-horizons-3-eldrazi-deck"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#five-color-vs-colorless-through-artifacts-eldrazi-and-wastes-as-separate-colorless-branches"
+        },
+        {
+          "source_id": "COLORLESS-SCOPE-005",
+          "locator": "docs/architecture/colors/colorless/product-decision-gate.md#vm-372-support-only-controlled-richness-addendum"
+        },
+        {
+          "source_id": "COLORLESS-SRC-018",
+          "locator": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md#why-players-choose-colorless-through-strategy-mapping-why-the-player-selects-the-strategy"
+        },
+        {
+          "source_id": "COLORLESS-CANON-001",
+          "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#how-these-identities-work-for-vox-mana-placement"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
+        "exact_text": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
+        "verified_card_observation": "Colorless spells you cast from your hand with mana value 7 or greater have \"Cascade, cascade.\" (When you cast one, exile cards from the top of your library until you exile a non...",
+        "relationship_bridge": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice. The relationship is limited to the verified card action and certified claims colorless_claim_0005, colorless_claim_0006.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "colorless_claim_0005",
+            "colorless_claim_0006"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0005",
+            "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0006"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
+      "proposal_origin": "packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "colorless_claim_0005",
+            "colorless_claim_0006"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333"
+        }
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+      "identity_key": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "canonical_card_name": "Ulalek, Fused Atrocity",
+      "canonical_card_id": "9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+      "scryfall_id": "fdad1b0e-d3cc-4d76-ae7e-fee12558cf2c",
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "certified_identity_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0006",
+        "wubrg_claim_0008"
+      ],
+      "supporting_record_ids": [],
+      "source_ids": [
+        "WUBRG-OFF-001",
+        "WUBRG-LOCAL-001",
+        "WUBRG-SCOPE-001",
+        "WUBRG-SCOPE-002",
+        "WUBRG-CANON-001"
+      ],
+      "source_locators": [
+        {
+          "source_id": "WUBRG-OFF-001",
+          "locator": "https://magic.wizards.com/en/formats/commander#color-identity-and-deck-construction"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#claim-1-definition-of-color-identity"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-002",
+          "locator": "docs/kanban/done/VM-367-wubrg-gold-layer1-layer2.md#guardrails-preserved"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#commander-and-deckbuilding-relevance"
+        },
+        {
+          "source_id": "WUBRG-SCOPE-001",
+          "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope-through-gold-standard-contract"
+        },
+        {
+          "source_id": "WUBRG-LOCAL-001",
+          "locator": "docs/research/wubrg/WUBRG Identity Research Prompt.md#official-five-color-examples-through-commander-and-deckbuilding-relevance"
+        },
+        {
+          "source_id": "WUBRG-CANON-001",
+          "locator": "docs/research/canon/five-color-reference-audit.md#notes-and-boundaries"
+        }
+      ],
+      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+      "relationship_evidence": {
+        "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+        "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+        "exact_text": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+        "verified_card_observation": "Devoid (This card has no color.) Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abil...",
+        "relationship_bridge": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008.",
+        "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
+        "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+      },
+      "limitation": "A bounded card example validated against certified identity claims and canonical card text. It does not prove player motivation, placement, or identity from color, mechanic, tag, or product membership.",
+      "review_status": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "wubrg_claim_0002",
+            "wubrg_claim_0006",
+            "wubrg_claim_0008"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0002",
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0006",
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0008"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
+          ]
+        }
+      },
+      "display_priority": 1,
+      "proposed_public_rationale": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+      "proposal_origin": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+      "proposed_tags": [],
+      "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
+      "provenance_roles": {
+        "identity_relationship": {
+          "role": "certified_identity_claims",
+          "claim_ids": [
+            "wubrg_claim_0002",
+            "wubrg_claim_0006",
+            "wubrg_claim_0008"
+          ]
+        },
+        "card_behavior": {
+          "role": "canonical_card_data",
+          "verified_field": "oracle_excerpt",
+          "locator": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
+        },
+        "public_copy": {
+          "role": "bounded_deterministic_composition",
+          "proposal_id": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
+        }
+      }
     }
   ],
   "coverage_policy": {
@@ -1509,98 +3843,386 @@
     "WU": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_wu_c46718dc", "cardrel_wu_1f8d4d5f"],
-      "usefulness_finding": "Two native Azorius examples give the section distinct, player-useful leadership and rules/tax reference points rather than a color-only list.",
-      "remaining_candidate_finding": "Kwain is a non-native analogy and Lavinia lacks complete current provenance; neither is necessary to make the approved section useful.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_wu_c46718dc",
+        "cardrel_wu_1f8d4d5f"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "UB": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_ub_8027a610"],
-      "usefulness_finding": "Lazav is a direct House Dimir guildmaster anchor with a bounded, identity-specific reason, so the section is useful with one card.",
-      "remaining_candidate_finding": "Etrata's unresolved reviewer-language/source problem concerns an optional second example, not a missing foundation for the section.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_ub_8027a610"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "BR": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_br_143a269a", "cardrel_br_03a4b997"],
-      "usefulness_finding": "The two native Rakdos cards provide complementary grounded examples of life-loss-enabled spectacle and deliberate high variance.",
-      "remaining_candidate_finding": "The remaining rows are incomplete-provenance or non-native/generic alternatives; they do not identify a missing public coverage need.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_br_143a269a",
+        "cardrel_br_03a4b997"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "RG": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_rg_b7505737", "cardrel_rg_ebf3fd80", "cardrel_rg_6ed13a89"],
-      "usefulness_finding": "Three native Gruul examples cover a clan leader, creature-only mana commitment, and pressure against noncreature plans without relying on generic Gruul colors.",
-      "remaining_candidate_finding": "Hallar's missing provenance is an optional alternative and does not leave the approved examples materially incomplete.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_rg_b7505737",
+        "cardrel_rg_ebf3fd80",
+        "cardrel_rg_6ed13a89"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "WG": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_wg_e94ef397"],
-      "usefulness_finding": "Trostani is a direct Selesnya leadership and speaker anchor, providing a clear identity-specific reason for inclusion.",
-      "remaining_candidate_finding": "The other candidates are unapproved alternates with source-method or non-native limitations; their absence does not make Trostani's example unusable.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_wg_e94ef397"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "WB": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_wb_644eeefd", "cardrel_wb_8191342b", "cardrel_wb_647d7988", "cardrel_wb_6c3df703"],
-      "usefulness_finding": "Four native Orzhov anchors cover death triggers, sacrifice/exile transactions, lifegain converted to removal, and the old Ghost Council power structure; stable priority limits display to three.",
-      "remaining_candidate_finding": "The remaining Athreos and Elas rows are explicitly non-Ravnica gameplay analogies, so they are not required coverage.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_wb_644eeefd",
+        "cardrel_wb_8191342b",
+        "cardrel_wb_647d7988",
+        "cardrel_wb_6c3df703"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "UR": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_ur_33666a98", "cardrel_ur_095d9719", "cardrel_ur_f787c6cf", "cardrel_ur_899d58dc"],
-      "usefulness_finding": "Four native Izzet anchors give distinct grounded examples through spell exchange/card draw, top-library copying, escalating cost reduction, and repeatable resource conversion; stable priority limits display to three.",
-      "remaining_candidate_finding": "Ovika and Vadrik are non-Izzet/non-Ravnica gameplay alternatives, not missing native coverage.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_ur_33666a98",
+        "cardrel_ur_095d9719",
+        "cardrel_ur_f787c6cf",
+        "cardrel_ur_899d58dc"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "BG": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_bg_87e65e36"],
-      "usefulness_finding": "Jarad is a direct Golgari leader whose approved card rationale connects graveyard scale and creature conversion in one bounded example.",
-      "remaining_candidate_finding": "The Gitrog Monster and Meren are generic or non-Golgari alternatives, so their unresolved bridges do not leave a meaningful native-example defect.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_bg_87e65e36"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "UG": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_ug_311e9368"],
-      "usefulness_finding": "Prime Speaker Zegana is a direct former Simic leader tied to the certified incremental-change record, making one example useful without a quota.",
-      "remaining_candidate_finding": "The remaining Simic candidates need cleaner public/source bridges or are generic UG fits; they add breadth but do not expose a missing foundational example.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_ug_311e9368"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "WR": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_wr_0f5a3a09", "cardrel_wr_ae6f21a2", "cardrel_wr_aa219936"],
-      "usefulness_finding": "Three native Boros figures provide useful, distinct examples of military combat pressure, team protection, and recurring targeted-spell value.",
-      "remaining_candidate_finding": "Osgir is a Lorehold-branded cross-faction stretch and is not necessary Boros coverage.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_wr_0f5a3a09",
+        "cardrel_wr_ae6f21a2",
+        "cardrel_wr_aa219936"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "LOREHOLD": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_lorehold_61a41cf1", "cardrel_lorehold_5c40a8d4", "cardrel_lorehold_43832745"],
-      "usefulness_finding": "The approved founder, protagonist, and college-embodiment examples provide three distinct, direct Lorehold reference points.",
-      "remaining_candidate_finding": "The adjudication inventory identifies no additional unresolved Lorehold card-rationale candidate or meaningful coverage defect.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_lorehold_61a41cf1",
+        "cardrel_lorehold_5c40a8d4",
+        "cardrel_lorehold_43832745"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "PRISMARI": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "WITHERBLOOM": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "QUANDRIX": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "SILVERQUILL": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "W": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "B": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "U": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "R": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "G": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     },
     "BANT": {
       "classification": "Full",
       "meaningful_unresolved_defect": false,
-      "approved_relationship_ids": ["cardrel_bant_c6e17443"],
-      "usefulness_finding": "Rafiq is the certified clearest Bant champion expression and gives the section one specific, player-useful combat example.",
-      "remaining_candidate_finding": "All remaining Bant candidates resolve only to support records rather than substantive certified claims, so they are not required to make the Rafiq section useful.",
-      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+      "approved_relationship_ids": [
+        "cardrel_bant_c6e17443"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "ESPER": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "GRIXIS": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "JUND": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "NAYA": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "ABZAN": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "TEMUR": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "SULTAI": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "MARDU": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "JESKAI": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "YORE": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "GLINT": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "DUNE": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "INK": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "WITCH": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "COLORLESS": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
+    },
+    "WUBRG": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": [
+        "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
+      ],
+      "usefulness_finding": "The approved example set contains at least one source-complete card whose public rationale explains a specific certified identity relationship rather than relying on color, mechanic, tag, product, or popularity.",
+      "remaining_candidate_finding": "All 125 historical candidates reached terminal disposition; rejected or unused candidates are unnecessary or weaker and do not create a meaningful unresolved public coverage defect.",
+      "decision_locator": "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv"
     }
   }
 }

@@ -134,9 +134,9 @@ globalThis.document = {
 };
 
 const { approvedCardRationaleForFaction, buildFlavorEchoesHtml, renderPlayerCopy } = await import("../assets/js/index.js");
-assert.equal(cardRationaleSource.records.length, 26, "expected only provenance-complete native-anchor proposals to remain reviewable");
+assert.equal(cardRationaleSource.records.length, 51, "expected 26 retained and 25 evidence-validated rationale relationships");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
-assert.equal(cardRationaleCatalog.records.length, 24, "approved catalog must retain the deterministic three-card display maximum");
+assert.equal(cardRationaleCatalog.records.length, 49, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");
 const isperiaRationale = approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog);
@@ -145,6 +145,9 @@ assert.equal(approvedCardRationaleForFaction(genericAzoriusCard, factions.WU, ca
 assert.match(buildFlavorEchoesHtml([{ card: isperia, rationale: isperiaRationale }], factions.WU, cardRationaleCatalog), /Isperia represents Azorius leadership/);
 assert.equal(buildFlavorEchoesHtml([{ card: genericAzoriusCard }], factions.WU), "", "unsupported card rationale should omit the card section");
 assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
+assert.match(indexSource, /dossier\/card-voice-catalog\.json/);
+assert.match(indexSource, /Cards That Sound Like This/);
+assert.match(indexSource, /selectApprovedCardVoices\(\{ faction \}\)/);
 assert.match(indexSource, /selectApprovedCardRationales\(\{ faction \}\)/);
 
 assert.match(indexSource, /Why This Fit/);

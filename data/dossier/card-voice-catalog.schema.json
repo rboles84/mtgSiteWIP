@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/card-voice-catalog.schema.json",
+  "title": "Generated approved Archscry card-voice catalog",
+  "type": "object",
+  "required": ["schema_version", "source_path", "source_sha256", "generated_policy", "records"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "source_path": { "const": "data/dossier/card-voice-relationships.source.json" },
+    "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "generated_policy": { "type": "string", "minLength": 1 },
+    "records": { "type": "array", "minItems": 37, "maxItems": 37 }
+  },
+  "additionalProperties": false
+}

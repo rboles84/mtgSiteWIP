@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://voxmana.io/schemas/vm551-card-content-review-proposals.source.schema.json",
-  "title": "VM-551 Packet 1 card-content owner-review proposals",
+  "title": "VM-551 Packet 1 card-content automatic adjudication",
   "type": "object",
   "required": [
     "schema_version", "status", "authority_chain", "promotion_rule",
@@ -10,7 +10,7 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": { "const": "vm551-card-content-approval-packet-v1" },
-    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "status": { "const": "AUTOMATIC_ADJUDICATION_COMPLETE" },
     "authority_chain": { "type": "string", "minLength": 1 },
     "promotion_rule": { "type": "string", "minLength": 1 },
     "candidate_adjudication": {
@@ -25,14 +25,16 @@
     },
     "voice_adjudication": {
       "type": "object",
-      "required": ["original_candidates", "replacement_candidates", "review_required", "rejected", "review_identity_coverage"],
+      "required": ["original_candidates", "replacement_candidates", "review_required", "rejected", "review_identity_coverage", "approved_public", "approved_identity_coverage"],
       "additionalProperties": false,
       "properties": {
         "original_candidates": { "const": 111 },
         "replacement_candidates": { "type": "integer", "minimum": 0 },
-        "review_required": { "type": "integer", "minimum": 37 },
+        "review_required": { "const": 0 },
         "rejected": { "type": "integer", "minimum": 0 },
-        "review_identity_coverage": { "const": 37 }
+        "review_identity_coverage": { "const": 0 },
+        "approved_public": { "const": 37 },
+        "approved_identity_coverage": { "const": 37 }
       }
     },
     "proposals": {
@@ -43,7 +45,7 @@
         "required": [
           "proposal_id", "proposal_type", "identity_key", "canonical_card_name",
           "canonical_card_id", "proposed_copy", "copy_sha256", "provenance",
-          "limitations", "disposition", "owner_decision", "replacement_locator"
+          "limitations", "disposition", "approval_basis", "owner_decision", "replacement_locator"
         ],
         "properties": {
           "proposal_id": { "type": "string", "pattern": "^packet1_(rationale|voice)_[a-z0-9_]+$" },
@@ -72,10 +74,12 @@
           "relationship_bridge": { "type": "string", "minLength": 1 },
           "false_positive_analysis": { "type": "string", "minLength": 1 },
           "adjacent_identity_confusion_risk": { "type": "string", "minLength": 1 },
-          "agent_recommendation": { "enum": ["REVIEW_REQUIRED", "REJECTED"] },
+          "agent_recommendation": { "enum": ["APPROVED_PUBLIC", "REJECTED"] },
           "provenance": { "type": "object" },
           "limitations": { "type": "string", "minLength": 1 },
-          "disposition": { "enum": ["REVIEW_REQUIRED", "REJECTED"] },
+          "disposition": { "enum": ["APPROVED_PUBLIC", "REJECTED"] },
+          "approval_basis": { "enum": ["EVIDENCE_VALIDATED_AUTOMATIC", "NOT_APPLICABLE"] },
+          "validation": { "type": "object" },
           "owner_decision": { "type": "null" },
           "replacement_locator": { "type": "string", "minLength": 1 }
         },
@@ -94,6 +98,10 @@
                 "adjacent_identity_confusion_risk", "agent_recommendation"
               ]
             }
+          },
+          {
+            "if": { "properties": { "disposition": { "const": "APPROVED_PUBLIC" } } },
+            "then": { "required": ["validation"] }
           }
         ]
       }

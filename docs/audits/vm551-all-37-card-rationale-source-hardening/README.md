@@ -9,9 +9,9 @@
 
 ## Post-Hardening State
 
-- Canonical relationship source records: 26.
-- Approved public relationships: 26.
-- Approved public runtime records: 24.
+- Canonical relationship source records: 51.
+- Approved public relationships: 51.
+- Approved public runtime records: 49.
 - Review required: 0.
 - Evidence needed: 96.
 - Rejected: 3.

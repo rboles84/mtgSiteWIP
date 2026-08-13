@@ -72,6 +72,8 @@
             },
             "additionalProperties": false
           },
+          "approval_basis": { "enum": ["EVIDENCE_VALIDATED_AUTOMATIC", "PREVIOUS_OWNER_APPROVAL"] },
+          "validation": { "type": "object" },
           "display_priority": { "type": "integer", "minimum": 1 },
           "proposed_public_rationale": { "type": ["string", "null"] }
         },

@@ -1,9 +1,144 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "5ba22e4395c3c8c9c0fdaea5a154451f5dcd201ae3f53c8b2472d46eb6545e67",
+  "source_sha256": "fcfbc286765792908dc253495f9a82a2e26e4ee288abc09835794f97c25392b7",
   "generated_policy": "APPROVED_PUBLIC only; no fallback or inferred relationship",
   "records": [
+    {
+      "relationship_id": "cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+      "identity_key": "W",
+      "card": {
+        "name": "Giada, Font of Hope",
+        "oracle_id": "48e6d3d8-2f27-4017-acdd-40bce8cdbc02",
+        "scryfall_id": "8ae6fc26-cfad-4da8-98d9-49c27c24d293",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02"
+      },
+      "rationale": "Giada gives White's coordinated creature growth a direct example: she helps cast Angels, and each later Angel enters with counters for the Angels already assembled.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "white_claim_0004",
+          "white_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-W-2015",
+          "MONO-W-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+      "identity_key": "U",
+      "card": {
+        "name": "Talrand, Sky Summoner",
+        "oracle_id": "ea1eb902-a23c-44ff-9169-19baf71de238",
+        "scryfall_id": "1be3ed47-072e-481a-b3d9-dc232ac4b24f",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238"
+      },
+      "rationale": "Talrand turns Blue's instant-and-sorcery plan into a visible board by creating a flying Drake whenever you cast one of those spells.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "blue_claim_0006",
+          "blue_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-U-2015",
+          "MONO-U-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+      "identity_key": "B",
+      "card": {
+        "name": "K'rrik, Son of Yawgmoth",
+        "oracle_id": "cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd",
+        "scryfall_id": "4f087b1c-97e0-4379-a94d-beac53685314",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd"
+      },
+      "rationale": "K'rrik makes Black's resource-conversion pattern literal by letting life pay for black mana symbols and rewarding additional black spells with +1/+1 counters.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "black_claim_0004",
+          "black_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-B-2015",
+          "MONO-B-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "identity_key": "R",
+      "card": {
+        "name": "Torbran, Thane of Red Fell",
+        "oracle_id": "8c3495bf-02e7-4ad9-949d-92eb3d2b662a",
+        "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
+      },
+      "rationale": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "red_claim_0003",
+          "red_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-R-2015",
+          "MONO-R-2025",
+          "MECH-CP-2021",
+          "GOV-COC-2024"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+      "identity_key": "G",
+      "card": {
+        "name": "Azusa, Lost but Seeking",
+        "oracle_id": "6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51",
+        "scryfall_id": "2fe97fbe-a6d6-4e96-8c26-f81bcdf579a1",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51"
+      },
+      "rationale": "Azusa gives Green's land-based growth a direct Commander example by allowing two additional land plays on each of your turns.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "green_claim_0004",
+          "green_claim_0007"
+        ],
+        "source_ids": [
+          "MONO-G-2015",
+          "MONO-G-2025",
+          "MECH-CP-2021",
+          "MECH-CP-2021-CHG"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51"
+      }
+    },
     {
       "relationship_id": "cardrel_wu_c46718dc",
       "identity_key": "WU",
@@ -725,6 +860,114 @@
       }
     },
     {
+      "relationship_id": "cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+      "identity_key": "PRISMARI",
+      "card": {
+        "name": "Rootha, Mastering the Moment",
+        "oracle_id": "348c67ef-9ccc-4651-9038-efdf1ad1b36a",
+        "scryfall_id": "a5b3dbb2-c090-4118-9e47-56c16202572c",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
+      },
+      "rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "prismari_claim_002",
+          "prismari_claim_003",
+          "prismari_claim_006",
+          "prismari_claim_0017"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+      "identity_key": "QUANDRIX",
+      "card": {
+        "name": "Zimone, Infinite Analyst",
+        "oracle_id": "977f9390-e01d-4e9d-8e9c-e543b1266972",
+        "scryfall_id": "605afac4-d2e5-4e68-97d2-3ac2ead5f3a9",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
+      },
+      "rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "quandrix_claim_002",
+          "quandrix_claim_006",
+          "quandrix_claim_0017",
+          "quandrix_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026",
+          "src_wotc_secrets_strixhaven_commander_decklists_20260401"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+      "identity_key": "SILVERQUILL",
+      "card": {
+        "name": "Breena, the Demagogue",
+        "oracle_id": "d11e627b-8a48-411d-a261-2c9a02a758ba",
+        "scryfall_id": "599f87c8-643e-4224-93a5-853c0bd4e497",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
+      },
+      "rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "silverquill_claim_001",
+          "silverquill_claim_006",
+          "silverquill_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_strixhaven_product_page_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+      "identity_key": "WITHERBLOOM",
+      "card": {
+        "name": "Dina, Essence Brewer",
+        "oracle_id": "f61c1dc4-2f09-4b50-957f-ee656c659072",
+        "scryfall_id": "9fe237b8-c02c-41ea-9fc4-b771b91d2157",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
+      },
+      "rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "witherbloom_claim_0019",
+          "witherbloom_claim_0022"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072"
+      }
+    },
+    {
       "relationship_id": "cardrel_bant_c6e17443",
       "identity_key": "BANT",
       "card": {
@@ -751,6 +994,422 @@
           "src_vm_bant_manual_fill_20260529"
         ],
         "relationship_evidence_locator": "data/raw-factions/bant/bant.profile.json#/commander_compass/native_fit_commanders/0"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
+      "identity_key": "ESPER",
+      "card": {
+        "name": "Y'shtola, Night's Blessed",
+        "oracle_id": "3268251a-8292-44f9-9267-c961b182f739",
+        "scryfall_id": "c7f2c2d5-e052-49e8-b5de-712858c2ea78",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739"
+      },
+      "rationale": "Y'shtola links planned noncreature spells and a known life-loss threshold to repeatable card access and pressure.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_esper_evidence_ledger_20260529",
+          "src_wotc_rosewater_esper_striving_for_perfection"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+      "identity_key": "GRIXIS",
+      "card": {
+        "name": "Kess, Dissident Mage",
+        "oracle_id": "f5092c14-eec4-472c-999c-ba96c36b2fbb",
+        "scryfall_id": "e83e6d7a-3af0-4955-8004-2310f051e306",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb"
+      },
+      "rationale": "Kess turns a spent instant or sorcery into one more planned option by letting you cast one such card from your graveyard during each of your turns.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_grixis_evidence_ledger_20260530",
+          "src_wotc_rosewater_grixis_looking_out_for_number_one"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+      "identity_key": "JUND",
+      "card": {
+        "name": "Prossh, Skyraider of Kher",
+        "oracle_id": "868882d2-ed4e-4171-a17c-478a341080fb",
+        "scryfall_id": "889c1a0f-7df2-4497-8058-04358173d7e8",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb"
+      },
+      "rationale": "Prossh turns each cast into a larger visible board, then lets those creatures be sacrificed for immediate power.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "jund_claim_0005",
+          "jund_claim_0008"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_jund_following_your_heart",
+          "src_vm_jund_evidence_ledger_20260530",
+          "src_vm_jund_reliability_audit_20260530"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+      "identity_key": "NAYA",
+      "card": {
+        "name": "Shalai and Hallar",
+        "oracle_id": "e7604cd9-d00d-4957-82c9-46a7cdb88209",
+        "scryfall_id": "80804f25-efc3-44a2-bbae-9a97fec98009",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209"
+      },
+      "rationale": "Shalai and Hallar turn creature growth into immediate table pressure by dealing damage when +1/+1 counters are put on your creatures.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_naya_evidence_ledger_20260530",
+          "src_wotc_rosewater_naya_searching_within"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+      "identity_key": "ABZAN",
+      "card": {
+        "name": "Felothar the Steadfast",
+        "oracle_id": "2b3f791a-d672-46fb-a03a-96e19f2c3121",
+        "scryfall_id": "2c3549f6-25df-4ea7-84ad-922ccd4af6b2",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121"
+      },
+      "rationale": "Felothar makes an Abzan defensive board matter in combat: creatures assign combat damage using toughness, and defenders can attack.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "abzan_claim_0002",
+          "abzan_claim_0011"
+        ],
+        "source_ids": [
+          "src_vm_abzan_evidence_ledger_20260531",
+          "src_wotc_rosewater_abzan_we_will_survive",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+      "identity_key": "TEMUR",
+      "card": {
+        "name": "Eshki, Temur's Roar",
+        "oracle_id": "1b162dd3-3be6-406d-bf86-f7cc9eff098d",
+        "scryfall_id": "ff9aa863-8773-452d-946c-ae334c632e11",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d"
+      },
+      "rationale": "Eshki rewards increasingly large creature spells with visible growth, then cards and damage as the creatures cross higher power thresholds.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003",
+          "temur_claim_0011"
+        ],
+        "source_ids": [
+          "src_vm_temur_evidence_ledger_20260531",
+          "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+      "identity_key": "SULTAI",
+      "card": {
+        "name": "Kotis, Sibsig Champion",
+        "oracle_id": "0177b410-b559-491f-b393-ac3ed774653c",
+        "scryfall_id": "b9ea2e9c-c1c7-4870-877a-023118909f56",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c"
+      },
+      "rationale": "Kotis turns the graveyard into a constrained resource: one creature can be cast from it each turn by exiling three other graveyard cards as an additional cost.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0003",
+          "sultai_claim_0011"
+        ],
+        "source_ids": [
+          "src_vm_sultai_evidence_ledger_20260531",
+          "src_wotc_rosewater_sultai_whatever_it_takes",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+      "identity_key": "MARDU",
+      "card": {
+        "name": "Zurgo Stormrender",
+        "oracle_id": "0f93d88c-9d2e-416d-a10b-99483360b1fb",
+        "scryfall_id": "dc8eb325-75c9-4331-830d-3f7d62d77290",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb"
+      },
+      "rationale": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "mardu_claim_0002",
+          "mardu_claim_0011"
+        ],
+        "source_ids": [
+          "src_vm_mardu_evidence_ledger_20260531",
+          "src_wotc_rosewater_mardu_finishing_first",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+      "identity_key": "JESKAI",
+      "card": {
+        "name": "Shiko and Narset, Unified",
+        "oracle_id": "40ed32a6-ad56-48c7-aecf-b4238c34c212",
+        "scryfall_id": "5a42fc7d-52ac-4e95-9e04-8f8fa7f687c8",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212"
+      },
+      "rationale": "Shiko and Narset reward deliberate spell sequencing: the second spell each turn can be copied when it targets a permanent or player.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "jeskai_claim_0002",
+          "jeskai_claim_0003",
+          "jeskai_claim_0011"
+        ],
+        "source_ids": [
+          "src_vm_jeskai_evidence_ledger_20260531",
+          "src_wotc_rosewater_jeskai_smart_thinking",
+          "src_wotc_tarkir_dragonstorm_commander_decklists_20250325"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+      "identity_key": "YORE",
+      "card": {
+        "name": "Breya, Etherium Shaper",
+        "oracle_id": "d460a9e2-5a7d-4562-880e-45174be19a9d",
+        "scryfall_id": "8bf3929c-957f-4ea2-a27d-7d53979844af",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d"
+      },
+      "rationale": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "yore_claim_0003",
+          "yore_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+      "identity_key": "GLINT",
+      "card": {
+        "name": "Yidris, Maelstrom Wielder",
+        "oracle_id": "9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f",
+        "scryfall_id": "c219dd22-433c-4f6a-a0c4-fae12239291c",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f"
+      },
+      "rationale": "Yidris converts successful combat into volatile follow-up routes by giving spells cast from hand cascade for the rest of that turn.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "glint_claim_0003",
+          "glint_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+      "identity_key": "DUNE",
+      "card": {
+        "name": "Saskia the Unyielding",
+        "oracle_id": "e54d207c-51b8-458e-86a1-2633ac064c8e",
+        "scryfall_id": "5b483db6-b614-4af1-820a-42a4ee0c8707",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
+      },
+      "rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+      "identity_key": "INK",
+      "card": {
+        "name": "Kynaios and Tiro of Meletis",
+        "oracle_id": "53ee4254-fef7-49ec-aafc-0320987764e6",
+        "scryfall_id": "97fa8615-2b6c-445a-bcaf-44a7e847bf65",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
+      },
+      "rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "ink_claim_0003",
+          "ink_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+      "identity_key": "WITCH",
+      "card": {
+        "name": "Atraxa, Praetors' Voice",
+        "oracle_id": "7e6b9b59-cd68-4e3c-827b-38833c92d6eb",
+        "scryfall_id": "d0d33d52-3d28-4635-b985-51e126289259",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb"
+      },
+      "rationale": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
+      "identity_key": "COLORLESS",
+      "card": {
+        "name": "Zhulodok, Void Gorger",
+        "oracle_id": "ec726c54-987b-48ed-8ffa-ec73a5e35333",
+        "scryfall_id": "a015461d-4214-4feb-8b04-519c537759eb",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333"
+      },
+      "rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "colorless_claim_0005",
+          "colorless_claim_0006"
+        ],
+        "source_ids": [
+          "COLORLESS-SRC-018",
+          "COLORLESS-CANON-001",
+          "COLORLESS-SCOPE-005"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333"
+      }
+    },
+    {
+      "relationship_id": "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+      "identity_key": "WUBRG",
+      "card": {
+        "name": "Ulalek, Fused Atrocity",
+        "oracle_id": "9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+        "scryfall_id": "fdad1b0e-d3cc-4d76-ae7e-fee12558cf2c",
+        "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
+      },
+      "rationale": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+      "tags": [],
+      "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
+      "display_priority": 1,
+      "provenance": {
+        "claim_ids": [
+          "wubrg_claim_0002",
+          "wubrg_claim_0006",
+          "wubrg_claim_0008"
+        ],
+        "source_ids": [
+          "WUBRG-OFF-001",
+          "WUBRG-LOCAL-001",
+          "WUBRG-SCOPE-001",
+          "WUBRG-SCOPE-002",
+          "WUBRG-CANON-001"
+        ],
+        "relationship_evidence_locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
       }
     }
   ]

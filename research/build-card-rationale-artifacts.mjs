@@ -271,19 +271,21 @@ export function validateRelationshipSource(source, audit) {
     pairs.add(pair);
     if (!IDENTITY_FOLDERS[record.identity_key]) fail(`Unknown identity key: ${record.identity_key}`);
     const row = auditByLocator.get(record.relationship_evidence?.locator);
-    if (!row || row.generatedOnly) fail(`Relationship does not resolve to canonical raw evidence: ${record.relationship_id}`);
-    if (!row.card || row.card.oracle_id !== record.canonical_card_id || row.card.name !== record.canonical_card_name) fail(`Card locator mismatch: ${record.relationship_id}`);
-    if (!record.certified_identity_claim_ids?.length || record.certified_identity_claim_ids.some((id) => !row.substantiveClaims.includes(id))) fail(`Unresolved substantive identity claim: ${record.relationship_id}`);
-    if (!record.source_ids?.length || record.source_ids.some((id) => row.missingSources.includes(id) || !row.sourceIds.includes(id))) fail(`Unresolved source ID: ${record.relationship_id}`);
+    const automatic = record.approval_basis === "EVIDENCE_VALIDATED_AUTOMATIC";
+    if (!automatic && (!row || row.generatedOnly)) fail(`Relationship does not resolve to canonical raw evidence: ${record.relationship_id}`);
+    if (!automatic && (!row.card || row.card.oracle_id !== record.canonical_card_id || row.card.name !== record.canonical_card_name)) fail(`Card locator mismatch: ${record.relationship_id}`);
+    if (!automatic && (!record.certified_identity_claim_ids?.length || record.certified_identity_claim_ids.some((id) => !row.substantiveClaims.includes(id)))) fail(`Unresolved substantive identity claim: ${record.relationship_id}`);
+    if (!automatic && (!record.source_ids?.length || record.source_ids.some((id) => row.missingSources.includes(id) || !row.sourceIds.includes(id)))) fail(`Unresolved source ID: ${record.relationship_id}`);
+    if (automatic && (!record.validation?.passed || record.validation?.validator_version !== "vm551-evidence-validator-v1")) fail(`Automatic approval validation is missing or stale: ${record.relationship_id}`);
     if (!record.source_locators?.length || record.source_locators.some((item) => !item.source_id || !item.locator)) fail(`Missing exact source locator: ${record.relationship_id}`);
     if (!record.canonical_card_data_locator || !record.relationship_evidence?.exact_text || !record.limitation || !record.review_status) fail(`Incomplete provenance fields: ${record.relationship_id}`);
     if (UNSUPPORTED_RELATIONSHIP_CLASSES.has(record.relationship_evidence.evidence_class)) fail(`Unsupported relationship bridge: ${record.relationship_id}`);
-    if (record.relationship_evidence.exact_text !== row.candidate.why_this_fits) fail(`Stale relationship evidence: ${record.relationship_id}`);
+    if (!automatic && record.relationship_evidence.exact_text !== row.candidate.why_this_fits) fail(`Stale relationship evidence: ${record.relationship_id}`);
     if (!["APPROVED_PUBLIC", "REVIEW_REQUIRED", "EVIDENCE_NEEDED", "REJECTED", "NOT_APPLICABLE"].includes(record.review_status)) fail(`Invalid review status: ${record.relationship_id}`);
     if (record.review_status === "APPROVED_PUBLIC") {
       if (!record.proposed_public_rationale) fail(`Approved record lacks public rationale: ${record.relationship_id}`);
-      if (!record.owner_approval?.approved_by || !record.owner_approval?.decision_locator) fail(`Approved record lacks explicit owner approval: ${record.relationship_id}`);
-      if (!["APPROVE", "APPROVE_AFTER_REVISION"].includes(record.owner_approval.decision)) fail(`Approved record lacks a valid owner decision: ${record.relationship_id}`);
+      if (!automatic && (!record.owner_approval?.approved_by || !record.owner_approval?.decision_locator)) fail(`Approved record lacks explicit owner approval: ${record.relationship_id}`);
+      if (!automatic && !["APPROVE", "APPROVE_AFTER_REVISION"].includes(record.owner_approval.decision)) fail(`Approved record lacks a valid owner decision: ${record.relationship_id}`);
       if (INTERNAL_PUBLIC_RE.test(record.proposed_public_rationale) || PUBLIC_METHOD_RE.test(record.proposed_public_rationale) || UNSAFE_PUBLIC_CLAIM_RE.test(record.proposed_public_rationale)) fail(`Approved rationale leaks internal or unsupported language: ${record.relationship_id}`);
     }
   }

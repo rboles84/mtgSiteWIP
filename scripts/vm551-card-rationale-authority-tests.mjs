@@ -16,12 +16,13 @@ const audit = await auditCandidates();
 assert.equal(new Set(audit.rows.map((row) => row.identityKey)).size, 37, "all 37 identities must be audited");
 assert.equal(audit.rows.length, 125, "the raw/generated union must retain all reviewed candidates");
 assert.equal(audit.rows.filter((row) => row.generatedOnly).length, 3, "generated-only candidates must remain traceable");
-assert.equal(source.records.length, 26, "expected only direct native anchors in the owner-review packet");
+assert.equal(source.records.length, 51, "expected 26 retained owner approvals plus 25 evidence-validated relationships");
 assert.ok(source.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
 assert.equal(source.records.filter((record) => record.owner_approval?.decision === "APPROVE").length, 25);
 assert.equal(source.records.filter((record) => record.owner_approval?.decision === "APPROVE_AFTER_REVISION").length, 1);
+assert.equal(source.records.filter((record) => record.approval_basis === "EVIDENCE_VALIDATED_AUTOMATIC").length, 25);
 assert.equal(source.records.filter((record) => record.proposal_origin === "NEW_SOURCE_BOUNDED_DRAFT").length, 4);
-assert.equal(catalog.records.length, 24, "approved runtime must apply the deterministic maximum of three cards per identity");
+assert.equal(catalog.records.length, 49, "approved runtime must cover all identities and apply the deterministic maximum of three cards per identity");
 assert.ok(Object.values(Object.groupBy(catalog.records, (record) => record.identity_key)).every((records) => records.length <= 3));
 assert.equal(source.records.filter((record) => record.identity_key === "WB" && record.review_status === "APPROVED_PUBLIC").length, 4);
 assert.equal(catalog.records.filter((record) => record.identity_key === "WB").length, 3);
@@ -39,9 +40,9 @@ assert.match(quintoriusSource.proposed_public_rationale, /^Represents\b/);
 assert.doesNotMatch(quintoriusSource.proposed_public_rationale, /Represent's/);
 
 const coverage = Object.fromEntries([...new Set(audit.rows.map((row) => row.identityKey))].map((identityKey) => [identityKey, classifyIdentityCoverage(source, catalog, identityKey)]));
-assert.equal(Object.values(coverage).filter((value) => value === "Full").length, 12);
+assert.equal(Object.values(coverage).filter((value) => value === "Full").length, 37);
 assert.equal(Object.values(coverage).filter((value) => value === "Partial").length, 0);
-assert.equal(Object.values(coverage).filter((value) => value === "Gap").length, 25);
+assert.equal(Object.values(coverage).filter((value) => value === "Gap").length, 0);
 
 const clone = (value) => structuredClone(value);
 const expectFailure = (mutate, pattern) => {
@@ -61,9 +62,9 @@ for (const evidenceClass of ["COLOR_ONLY", "TAG_ONLY", "GENERIC_MECHANIC_ONLY", 
   expectFailure((fixture) => { fixture.records[0].relationship_evidence.evidence_class = evidenceClass; }, /Unsupported relationship bridge/);
 }
 expectFailure((fixture) => {
-  fixture.records[0].review_status = "APPROVED_PUBLIC";
-  fixture.records[0].owner_approval = null;
-}, /explicit owner approval/);
+  const automatic = fixture.records.find((record) => record.approval_basis === "EVIDENCE_VALIDATED_AUTOMATIC");
+  automatic.validation = null;
+}, /validation is missing or stale/);
 expectFailure((fixture) => {
   fixture.records[0].review_status = "APPROVED_PUBLIC";
   fixture.records[0].owner_approval = { decision: "APPROVE", approved_by: "owner", decision_locator: "fixture" };
@@ -123,7 +124,7 @@ const html = buildFlavorEchoesHtml(selected, fixtureFaction, approvedCatalog);
 assert.match(html, /Why These Cards Echo This Reading/);
 assert.match(html, new RegExp(fixtureRecord.rationale.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 assert.match(html, /data-card-rationale=/);
-assert.equal(selectApprovedCardRationales({ faction: { key: "COLORLESS" }, catalog, cardByName: runtimeLookup }).length, 0);
+assert.equal(catalog.records.filter((record) => record.identity_key === "COLORLESS").length, 1);
 assert.equal(buildFlavorEchoesHtml([], { key: "COLORLESS" }, catalog), "");
 assert.equal(approvedCardRationaleForFaction(fixtureCard, { key: "COLORLESS" }, approvedCatalog), null, "same card cannot cross identities without an approved relationship");
 
@@ -133,7 +134,7 @@ console.log(JSON.stringify({
   candidates_reviewed: audit.rows.length,
   approved_public: source.records.length,
   runtime_approved: catalog.records.length,
-  coverage: { full: 12, partial: 0, gap: 25 },
+  coverage: { full: 37, partial: 0, gap: 0 },
   negative_fixtures: 14,
   partial_classification_reachable: true,
   rendering_and_modal_rationale_parity: "PASS",
