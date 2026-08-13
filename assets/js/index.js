@@ -95,6 +95,8 @@ const APP_STATE = {
   adaptiveState: null,
   currentQuickQuestion: null,
   quickTransition: null,
+  refinementMode: false,
+  refinementOriginResult: null,
   activeResult: null,
   activeViewKey: null,
   resultSource: "quick",
@@ -661,7 +663,7 @@ function buildIdentityStoryCard({ title, headline, copy, meta = "", className = 
   return `
     <div class="starter-card identity-story-card${className ? ` ${className}` : ""}">
       <div class="starter-title">${escapeHtml(title)}</div>
-      <div class="identity-story-headline">${renderPlayerCopy(headline)}</div>
+      ${headline ? `<div class="identity-story-headline">${renderPlayerCopy(headline)}</div>` : ""}
       <div class="starter-copy">${renderPlayerCopy(copy)}</div>
       ${meta ? `<div class="identity-story-meta">${meta}</div>` : ""}
     </div>`;
@@ -677,20 +679,20 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
     : content.test_the_fit.certified_boundary_self_check;
   const cards = [
     selfCheck ? buildIdentityStoryCard({
-      title: "This may fit if",
-      headline: "Notice what resonates",
+      title: "A useful self-check",
+      headline: "",
       copy: selfCheck,
       className: "identity-story-card--support",
     }) : "",
     tension ? buildIdentityStoryCard({
       title: "Where it can pull too far",
-      headline: "Keep the tension visible",
+      headline: "",
       copy: tension,
       className: "identity-story-card--support",
     }) : "",
     contrast ? buildIdentityStoryCard({
       title: comparisonFaction ? `Compare ${comparisonFaction.name}` : "Check the boundary",
-      headline: comparisonFaction ? "Where the nearby reading differs" : "What this reading does not claim",
+      headline: "",
       copy: contrast,
       className: "identity-story-card--support",
     }) : "",
@@ -734,7 +736,6 @@ function buildLoreToMechanicCardHtml(faction) {
 function buildHowThisPlaysCardHtml(faction) {
   return `
     <div class="starter-card starter-card-wide how-this-plays-card">
-      <div class="starter-copy">This is the table-facing bridge between the placement language and the kind of Commander game it usually becomes.</div>
       <div class="how-this-plays-grid">
         ${buildTableIdentityCardHtml(faction)}
         ${buildLoreToMechanicCardHtml(faction)}
@@ -838,6 +839,8 @@ function resetLocalFlow() {
     : null;
   APP_STATE.currentQuickQuestion = null;
   APP_STATE.quickTransition = null;
+  APP_STATE.refinementMode = false;
+  APP_STATE.refinementOriginResult = null;
   APP_STATE.activeResult = null;
   APP_STATE.activeViewKey = null;
   APP_STATE.interviewState = "idle";
@@ -905,11 +908,49 @@ function startQuickFlow() {
   APP_STATE.quickAnswers = [];
   APP_STATE.quickIndex = 0;
   APP_STATE.quickTransition = null;
+  APP_STATE.refinementMode = false;
+  APP_STATE.refinementOriginResult = null;
   showSection("quick");
   renderQuickQuestion();
   window.setTimeout(() => {
     document.getElementById("quick")?.scrollIntoView({ block: "start", inline: "nearest" });
   }, 0);
+}
+
+function placementQuestionById(questionId) {
+  if (!questionId || !APP_STATE.placementModel?.question_bank) return null;
+  return Object.values(APP_STATE.placementModel.question_bank)
+    .flatMap((questions) => Array.isArray(questions) ? questions : [])
+    .find((question) => question.id === questionId) || null;
+}
+
+function startTargetedRefinement() {
+  const refinement = APP_STATE.activeResult?.refinement;
+  const question = placementQuestionById(refinement?.question_id);
+  if (refinement?.kind !== "ask_targeted_question" || !question || !APP_STATE.adaptiveState) return;
+  APP_STATE.refinementOriginResult = APP_STATE.activeResult;
+  APP_STATE.refinementMode = "targeted";
+  APP_STATE.currentQuickQuestion = question;
+  APP_STATE.quickTransition = null;
+  showSection("quick");
+  renderQuickQuestion();
+}
+
+function revisitRefinementAnswer() {
+  const revisit = APP_STATE.activeResult?.refinement?.revisit;
+  const question = placementQuestionById(revisit?.question_id);
+  const selectionIndex = APP_STATE.quickSelections.findIndex((selection) => selection.question?.id === revisit?.question_id);
+  if (!question || selectionIndex < 0) return;
+  APP_STATE.refinementOriginResult = APP_STATE.activeResult;
+  APP_STATE.quickSelections = APP_STATE.quickSelections.slice(0, selectionIndex);
+  APP_STATE.quickAnswers = APP_STATE.quickAnswers.slice(0, selectionIndex);
+  APP_STATE.adaptiveState = replayAdaptiveSelections(APP_STATE.placementModel, APP_STATE.quickSelections);
+  APP_STATE.currentQuickQuestion = question;
+  APP_STATE.quickIndex = APP_STATE.quickSelections.length;
+  APP_STATE.refinementMode = "revisit";
+  APP_STATE.quickTransition = null;
+  showSection("quick");
+  renderQuickQuestion();
 }
 
 /**
@@ -930,6 +971,12 @@ async function startInterviewFlow() {
  * Returns to the previous quick question when possible.
  */
 function goBackQuickQuestion() {
+  if (APP_STATE.refinementMode) {
+    APP_STATE.refinementMode = false;
+    APP_STATE.currentQuickQuestion = null;
+    renderResult();
+    return;
+  }
   if (!APP_STATE.quickSelections.length) {
     showSection("landing");
     return;
@@ -967,14 +1014,17 @@ function renderQuickQuestion() {
     return;
   }
 
-  const stageLabel = getStageLabel(question.stage);
+  const stageLabel = APP_STATE.refinementMode ? "Refinement" : getStageLabel(question.stage);
   const stageCounts = APP_STATE.adaptiveState?.stage_counts || {};
   const stageQuestionNumber = (stageCounts[question.stage] || 0) + 1;
   const questionNumber = APP_STATE.quickSelections.length + 1;
   const minimumQuestions = APP_STATE.placementModel?.stages?.min_total_questions || 6;
   const maxQuestions = APP_STATE.placementModel?.stages?.max_total_questions || 8;
   const stageMaximum = APP_STATE.placementModel?.stages?.[question.stage]?.max_questions || stageQuestionNumber;
-  const progress = buildAdaptiveProgress({
+  const progress = APP_STATE.refinementMode ? {
+    label: "Optional refinement · one additional observation",
+    percentage: 100,
+  } : buildAdaptiveProgress({
     stageLabel,
     stageQuestionNumber,
     stageMaximum,
@@ -1012,7 +1062,9 @@ function renderQuickQuestion() {
 
   progressCopy.textContent = progress.label;
   progressFill.style.width = `${progress.percentage}%`;
-  backButton.textContent = APP_STATE.quickSelections.length === 0 ? "Return to landing" : "Back";
+  backButton.textContent = APP_STATE.refinementMode
+    ? "Return to reading"
+    : APP_STATE.quickSelections.length === 0 ? "Return to landing" : "Back";
 }
 
 function showQuickTransition(kind) {
@@ -1084,6 +1136,13 @@ function answerQuickQuestion(answerIndex) {
     answerIndex,
   });
   APP_STATE.quickIndex = APP_STATE.quickSelections.length;
+
+  if (APP_STATE.refinementMode === "targeted") {
+    APP_STATE.refinementMode = false;
+    showQuickTransition("reading");
+    return;
+  }
+  if (APP_STATE.refinementMode === "revisit") APP_STATE.refinementMode = false;
 
   if (shouldFinishAdaptiveReading(APP_STATE.adaptiveState, APP_STATE.placementModel)) {
     showQuickTransition("reading");
@@ -2836,11 +2895,13 @@ export function selectApprovedCardRationales({
   faction,
   catalog = APP_STATE.cardRationaleCatalog,
   cardByName = APP_STATE.scryfallLocalCardByName,
+  excludedCardIds = new Set(),
 } = {}) {
   return factionCardRationaleRecords(faction, catalog)
     .map((record) => {
       const card = cardByName?.get?.(normalizeCardName(record.card.name)) || null;
       if (!card || (record.card.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
+      if (excludedCardIds.has(card.oracle_id || normalizeCardName(card.name))) return null;
       return {
         card,
         rationale: approvedCardRationaleForFaction(card, faction, catalog),
@@ -2854,6 +2915,7 @@ export function selectApprovedCardVoices({
   faction,
   catalog = APP_STATE.cardVoiceCatalog,
   cardByName = APP_STATE.scryfallLocalCardByName,
+  excludedCardIds = new Set(),
 } = {}) {
   const key = faction?.key || faction?.identity?.expression_key || "";
   return (catalog?.records || [])
@@ -2862,9 +2924,33 @@ export function selectApprovedCardVoices({
     .map((record) => {
       const card = cardByName?.get?.(normalizeCardName(record.card?.name || "")) || null;
       if (!card || (record.card?.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
+      const cardId = card.oracle_id || normalizeCardName(card.name);
+      if (excludedCardIds.has(cardId) && record.critical_repeat?.allowed !== true) return null;
       return { card, record };
     })
     .filter(Boolean);
+}
+
+function canonicalUsageCardId(cardOrName) {
+  const card = typeof cardOrName === "string"
+    ? APP_STATE.scryfallLocalCardByName.get(normalizeCardName(cardOrName))
+    : cardOrName;
+  return card?.oracle_id || normalizeCardName(card?.name || cardOrName || "");
+}
+
+function addUsageCards(target, cards = []) {
+  for (const card of cards) {
+    const id = canonicalUsageCardId(card);
+    if (id) target.add(id);
+  }
+  return target;
+}
+
+function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set()) {
+  return Object.fromEntries(["creatures", "spells", "permanents"].map((group) => [
+    group,
+    (starterCards[group] || []).filter((name) => !excludedCardIds.has(canonicalUsageCardId(name))),
+  ]));
 }
 
 export function buildCardVoicesHtml(voices = []) {
@@ -3131,6 +3217,26 @@ function renderBoundedResultShell(result, state) {
   const continueAction = state === "incomplete" && getResumableQuickQuestion()
     ? `<button class="btn-primary" type="button" ${buildActionAttrs("resume-quick-flow")}>Continue</button>`
     : "";
+  const refinement = result?.refinement || {};
+  const refinementAction = refinement.kind === "ask_targeted_question" && placementQuestionById(refinement.question_id)
+    ? `<button class="btn-primary" type="button" ${buildActionAttrs("start-result-refinement")}>Sharpen This Reading</button>`
+    : refinement.kind === "revisit_prior_answer" && refinement.revisit?.question_id
+      ? `<button class="btn-primary" type="button" ${buildActionAttrs("revisit-result-answer")}>Revisit a Conditional Answer</button>`
+      : "";
+  const supportedDirections = state === "mixed"
+    ? (result?.top_matches || []).filter((match) => match?.faction).slice(0, 3)
+    : [];
+  const directionActions = supportedDirections.length ? `
+    <div class="bounded-direction-actions" aria-label="Supported reading directions">
+      ${supportedDirections.map((match) => {
+        const faction = getFaction(match.faction);
+        return faction ? `<button class="btn-secondary" type="button" ${buildActionAttrs("show-bounded-direction", { viewKey: match.faction })}>Explore ${escapeHtml(faction.name)}</button>` : "";
+      }).join("")}
+    </div>
+    <div class="bounded-direction-detail" data-bounded-direction-detail aria-live="polite"></div>` : "";
+  const noDiscriminatorCopy = refinement.kind === "no_approved_discriminator"
+    ? `<p>${escapeHtml(refinement.limitation || "The approved instrument cannot responsibly separate the remaining directions with another available question.")}</p>`
+    : "";
   document.getElementById("result-inner").innerHTML = `
     <div class="empty-state bounded-result-shell" data-result-state="${escapeAttributeValue(state)}">
       <h2>${escapeHtml(heading)}</h2>
@@ -3138,8 +3244,11 @@ function renderBoundedResultShell(result, state) {
       ${state === "mixed" || state === "contradictory"
         ? "<p>Explore more than one Commander path, or retake when you want a fresh reading. No identity-specific recommendation is being inferred here.</p>"
         : ""}
+      ${directionActions}
+      ${noDiscriminatorCopy}
       <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
         ${continueAction}
+        ${refinementAction}
         <button class="btn-secondary" type="button" ${buildActionAttrs("start-quick-flow")}>Restart</button>
       </div>
     </div>`;
@@ -3147,6 +3256,19 @@ function renderBoundedResultShell(result, state) {
   APP_STATE.activeViewKey = result?.faction || null;
   showSection("result");
   updateTopbar();
+}
+
+function showBoundedDirection(identityKey) {
+  const faction = getFaction(identityKey);
+  const content = dossierContentForFaction(identityKey);
+  const detail = document.querySelector("[data-bounded-direction-detail]");
+  if (!faction || !content || !detail) return;
+  detail.innerHTML = `
+    <div class="starter-card bounded-direction-card">
+      <div class="starter-title">${escapeHtml(faction.name)}</div>
+      <div class="starter-copy">${renderPlayerCopy(content.test_the_fit.positive_self_check)}</div>
+      <div class="starter-copy">${renderPlayerCopy(content.how_this_plays.table_experience)}</div>
+    </div>`;
 }
 
 /**
@@ -3257,8 +3379,14 @@ function renderResult(viewKey) {
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
-  const flavorEchoes = selectApprovedCardRationales({ faction });
-  const cardVoices = selectApprovedCardVoices({ faction });
+  const pageCardUsage = new Set();
+  const visiblePrecons = selectPreconPreviewRecommendations(preconRecommendations).visible;
+  addUsageCards(pageCardUsage, visiblePrecons.map((precon) => precon.mainCommander));
+  const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: pageCardUsage });
+  addUsageCards(pageCardUsage, flavorEchoes.map((entry) => entry.card));
+  const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: pageCardUsage });
+  addUsageCards(pageCardUsage, cardVoices.map((entry) => entry.card));
+  const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, pageCardUsage);
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
   const personalizedMazePaths = withArchscryMazeContext(
@@ -3336,7 +3464,7 @@ function renderResult(viewKey) {
   }
 
   const renderState = buildDossierRenderState({
-    starterCards: dossier.starterCards,
+    starterCards: starterCardsForUsage,
     colors: faction.colors || [],
   });
   const renderableStarterCards = renderState.starterCards;
@@ -4272,6 +4400,15 @@ async function handleArchscryActionClick(event) {
       return;
     case "resume-quick-flow":
       resumeIncompleteQuickReading();
+      return;
+    case "start-result-refinement":
+      startTargetedRefinement();
+      return;
+    case "revisit-result-answer":
+      revisitRefinementAnswer();
+      return;
+    case "show-bounded-direction":
+      showBoundedDirection(actionNode.dataset.viewKey || "");
       return;
     case "quick-back":
       goBackQuickQuestion();

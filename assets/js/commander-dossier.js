@@ -2216,9 +2216,19 @@ export function buildReadingOmens({
 } = {}) {
   const activeKey = String(activeFactionKey || "").toUpperCase();
   void factions;
-  return (evidenceTrail || [])
-    .filter((entry) => evidenceDeltaForFaction(entry, activeKey) > 0)
-    .slice(-limit)
+  const seenDependencies = new Set();
+  const independentPositiveEvidence = [...(evidenceTrail || [])]
+    .reverse()
+    .filter((entry) => {
+      if (entry?.neutral || evidenceDeltaForFaction(entry, activeKey) <= 0) return false;
+      const dependencyKey = String(entry?.dependency_group || entry?.construct || entry?.question_id || "");
+      if (!dependencyKey || seenDependencies.has(dependencyKey)) return false;
+      seenDependencies.add(dependencyKey);
+      return true;
+    })
+    .slice(0, limit)
+    .reverse();
+  return independentPositiveEvidence
     .map((entry, index) => {
       const answerTitle = entry?.answer_title || "A recorded answer";
       const observation = entry?.observation || entry?.bounded_observation || "";
@@ -2228,6 +2238,8 @@ export function buildReadingOmens({
         copy: observation,
         questionId: entry?.question_id || "",
         answerId: entry?.answer_id || "",
+        construct: entry?.construct || "",
+        dependencyGroup: entry?.dependency_group || "",
         provenance: entry?.evidence_provenance || entry?.mapping_provenance || null,
       };
     })

@@ -57,6 +57,7 @@
     "test:gate-b1-result-contract": "node scripts/vm551-gate-b1-qualified-alternatives-tests.mjs",
     "test:gate-b1-questionnaire-presentation": "node scripts/vm551-gate-b1-questionnaire-presentation-tests.mjs",
     "test:vm551-dossier-integrity": "node scripts/vm551-dossier-content-integrity-tests.mjs",
+    "test:vm551-dossier-recovery": "node scripts/vm551-dossier-recovery-tests.mjs",
     "test:vm551-provider-maze": "node scripts/build-vm551-commander-provider-validation.mjs --check && node scripts/vm551-maze-commander-path-parity-tests.mjs",
     "build:card-rationales": "node research/build-card-rationale-artifacts.mjs",
     "test:card-rationales": "node research/build-card-rationale-artifacts.mjs --check && node scripts/vm551-card-rationale-authority-tests.mjs",

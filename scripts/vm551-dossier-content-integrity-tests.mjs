@@ -110,6 +110,17 @@ const publicOmens = buildReadingOmens({
 assert.equal(publicOmens.length, 1);
 assert.equal(publicOmens[0].copy, "You preferred to act as opponents commit.");
 assert.doesNotMatch(JSON.stringify(publicOmens.map(({ answerTitle, copy }) => ({ answerTitle, copy }))), INTERNAL_TOKEN_RE);
+const independentOmens = buildReadingOmens({
+  activeFactionKey: "UB",
+  evidenceTrail: [
+    { observation: "First timing observation.", dependency_group: "DG_C08", construct: "C08", deltas: [{ faction: "UB", delta: 1 }] },
+    { observation: "Duplicated timing observation.", dependency_group: "DG_C08", construct: "C08", deltas: [{ faction: "UB", delta: 1 }] },
+    { observation: "Information observation.", dependency_group: "DG_C16", construct: "C16", deltas: [{ faction: "UB", delta: 1 }] },
+    { observation: "Neutral observation.", dependency_group: "DG_C09", construct: "C09", neutral: true, deltas: [{ faction: "UB", delta: 1 }] },
+  ],
+});
+assert.equal(independentOmens.length, 2, "Why This Fit must count independent positive dependency groups, not duplicate or neutral evidence");
+assert.deepEqual(independentOmens.map((omen) => omen.dependencyGroup), ["DG_C08", "DG_C16"]);
 
 globalThis.VM_SESSION = { profile: null, username: "" };
 globalThis.window = {
@@ -147,8 +158,10 @@ assert.equal(buildFlavorEchoesHtml([{ card: genericAzoriusCard }], factions.WU),
 assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
 assert.match(indexSource, /dossier\/card-voice-catalog\.json/);
 assert.match(indexSource, /Cards That Sound Like This/);
-assert.match(indexSource, /selectApprovedCardVoices\(\{ faction \}\)/);
-assert.match(indexSource, /selectApprovedCardRationales\(\{ faction \}\)/);
+assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
+assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
+assert.match(indexSource, /visiblePrecons\.map\(\(precon\) => precon\.mainCommander\)/, "precon commanders must reserve their canonical card identity first");
+assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, pageCardUsage\)/, "Card Signal References must consume the page-level usage plan");
 
 assert.match(indexSource, /Why This Fit/);
 assert.match(indexSource, /Test the Fit/);
@@ -170,6 +183,8 @@ assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /aria-l
 assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not generic mana/);
 assert.doesNotMatch(renderPlayerCopy("Spend true {C}."), /\{C\}/);
 assert.match(indexSource, /renderedEducationalTerms\.has\(termKey\)/, "glossary should decorate only the first canonical term occurrence per dossier render");
+assert.match(indexSource, /Sharpen This Reading/, "bounded readings with an approved discriminator should expose optional refinement");
+assert.match(indexSource, /show-bounded-direction/, "mixed readings should expose their independently supported directions");
 assert.match(indexSource, /if \(trigger\.cardName\)[\s\S]*?loadCachedScryfallNamedCard\(trigger\.cardName\)/, "named rationale previews should resolve the canonical full-card record before using a tile image");
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
