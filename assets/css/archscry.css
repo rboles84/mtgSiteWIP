@@ -3405,6 +3405,17 @@ body.vm-archscry-route .saved-deck-link-note{
     grid-column:1 / -1;
   }
 }
+
+.vm-inline-mana-symbol{
+  display:inline-grid;
+  place-items:center;
+  min-width:1em;
+  vertical-align:-0.12em;
+}
+
+.vm-inline-mana-symbol .ms{
+  font-size:1em;
+}
 @media(max-width:700px){
   #landing,#quick,#interview{padding-top:5rem}
   .answer-grid{grid-template-columns:1fr}
@@ -3644,6 +3655,15 @@ body.vm-archscry-route .public-three-item-grid{
   grid-template-columns:repeat(3,minmax(0,1fr));
 }
 
+body.vm-archscry-route .public-three-item-grid[data-item-count="1"]{
+  grid-template-columns:minmax(0,min(100%,760px));
+  justify-content:center;
+}
+
+body.vm-archscry-route .public-three-item-grid[data-item-count="2"]{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
 body.vm-archscry-route .flavor-echo-card{
   width:100%;
   color:inherit;
@@ -3717,6 +3737,9 @@ body.vm-archscry-route .precon-provider-links{
 .archscry-glossary-tooltip[hidden]{display:none}
 
 .archscry-card-dialog{
+  position:fixed;
+  inset:0;
+  margin:auto;
   width:min(880px,calc(100vw - 2rem));
   max-height:calc(100vh - 2rem);
   overflow:auto;
@@ -3825,7 +3848,7 @@ body.vm-archscry-route .precon-provider-links{
   body.vm-archscry-route .public-three-item-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
-  body.vm-archscry-route .public-three-item-grid > :last-child:nth-child(odd){
+  body.vm-archscry-route .public-three-item-grid[data-item-count="3"] > :last-child{
     grid-column:1 / -1;
     width:calc(50% - 6px);
     justify-self:center;

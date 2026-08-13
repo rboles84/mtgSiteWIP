@@ -624,8 +624,8 @@ function buildIdentityStoryCard({ title, headline, copy, meta = "", className = 
   return `
     <div class="starter-card identity-story-card${className ? ` ${className}` : ""}">
       <div class="starter-title">${escapeHtml(title)}</div>
-      <div class="identity-story-headline">${escapeHtml(headline)}</div>
-      <div class="starter-copy">${escapeHtml(copy)}</div>
+      <div class="identity-story-headline">${renderPlayerCopy(headline)}</div>
+      <div class="starter-copy">${renderPlayerCopy(copy)}</div>
       ${meta ? `<div class="identity-story-meta">${meta}</div>` : ""}
     </div>`;
 }
@@ -659,7 +659,7 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
   return `
     <div class="starter-section" data-test-the-fit>
       <div class="section-label">Test the Fit</div>
-      <div class="identity-story-grid public-three-item-grid">${cards.join("")}</div>
+      <div class="identity-story-grid public-three-item-grid" data-item-count="${cards.length}">${cards.join("")}</div>
     </div>`;
 }
 
@@ -669,9 +669,9 @@ function buildTableIdentityCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
-        <div><span>Role</span>${escapeHtml(presentation.tableRole)}</div>
-        <div><span>How opponents read it</span>${escapeHtml(presentation.opponentRead)}</div>
-        <div><span>Emotional pressure</span>${escapeHtml(presentation.emotionalPressure)}</div>
+        <div><span>Role</span>${renderPlayerCopy(presentation.tableRole)}</div>
+        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.opponentRead)}</div>
+        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotionalPressure)}</div>
       </div>
     </div>`;
 }
@@ -682,9 +682,9 @@ function buildLoreToMechanicCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
-        <div><span>Lore role</span>${escapeHtml(presentation.loreRole)}</div>
-        <div><span>Mechanical expression</span>${escapeHtml(presentation.mechanics)}</div>
-        <div><span>Table experience</span>${escapeHtml(presentation.tableExperience)}</div>
+        <div><span>Lore role</span>${renderPlayerCopy(presentation.loreRole)}</div>
+        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanics)}</div>
+        <div><span>Table experience</span>${renderPlayerCopy(presentation.tableExperience)}</div>
       </div>
     </div>`;
 }
@@ -1801,6 +1801,27 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+function decodeNumericHtmlEntities(value) {
+  return String(value ?? "").replace(/&#(?:x([0-9a-f]+)|([0-9]+));/gi, (match, hex, decimal) => {
+    const codePoint = Number.parseInt(hex || decimal, hex ? 16 : 10);
+    if (!Number.isSafeInteger(codePoint) || codePoint < 0 || codePoint > 0x10ffff) return match;
+    try {
+      return String.fromCodePoint(codePoint);
+    } catch (_) {
+      return match;
+    }
+  });
+}
+
+export function renderPlayerCopy(value) {
+  return decodeNumericHtmlEntities(value)
+    .split(/(\{C\})/g)
+    .map((part) => part === "{C}"
+      ? '<span class="vm-inline-mana-symbol" role="img" aria-label="colorless mana"><i class="ms ms-c ms-cost" aria-hidden="true"></i></span>'
+      : escapeHtml(part))
+    .join("");
+}
+
 function sanitizeUserFacingCopy(value) {
   return SYSTEM_COPY_REPLACEMENTS.reduce(
     (copy, rule) => copy.replace(rule.pattern, rule.replacement),
@@ -2497,6 +2518,8 @@ const ARCHSCRY_TERM_HELP = Object.freeze({
   "open mana": ["Meaning: leave lands or other mana sources untapped.", "Commander: this preserves the option to interact, draw, or act later.", "Why here: reactive Azorius directions can value flexible timing.", "Boundary: open mana does not prove a counterspell is present."],
 });
 
+let renderedEducationalTerms = new Set();
+
 function renderEducationalText(value) {
   const text = String(value || "");
   const terms = Object.keys(ARCHSCRY_TERM_HELP).sort((left, right) => right.length - left.length);
@@ -2504,7 +2527,10 @@ function renderEducationalText(value) {
   const matcher = new RegExp(`\\b(${escapedTerms.join("|")})\\b`, "gi");
   return text.split(matcher).map((part) => {
     const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
-    if (!canonical) return escapeHtml(part);
+    if (!canonical) return renderPlayerCopy(part);
+    const termKey = canonical.toLowerCase();
+    if (renderedEducationalTerms.has(termKey)) return renderPlayerCopy(part);
+    renderedEducationalTerms.add(termKey);
     const help = ARCHSCRY_TERM_HELP[canonical].slice(0, 2).join(" ");
     return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss="${escapeAttributeValue(help)}">${escapeHtml(part)}</span>`;
   }).join("");
@@ -2710,11 +2736,11 @@ function buildDiscoverySummaryHtml({ dossier, faction }) {
     <div class="starter-section" data-public-fit-reasons>
       <div class="section-label">Why This Fit</div>
       <p class="signals-intro">These are the answer-derived observations that moved this reading toward ${escapeHtml(faction.name)}.</p>
-      <div class="starter-grid public-three-item-grid">
+      <div class="starter-grid public-three-item-grid" data-item-count="${observations.length}">
         ${observations.map((observation) => `
           <div class="starter-card omen-card">
             <div class="starter-title">${escapeHtml(observation.answerTitle)}</div>
-            <div class="starter-copy">${escapeHtml(observation.copy)}</div>
+            <div class="starter-copy">${renderPlayerCopy(observation.copy)}</div>
           </div>`).join("")}
       </div>
     </div>`;
@@ -2815,7 +2841,7 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
     <div class="starter-section" data-card-rationale-section>
       <div class="section-label">Why These Cards Echo This Reading</div>
       <div class="flavor-echo-intro">Each example below has an approved card-to-identity explanation in the repository.</div>
-      <div class="flavor-echo-grid">
+      <div class="flavor-echo-grid public-three-item-grid" data-item-count="${groundedEchoes.length}">
         ${groundedEchoes.map(({ card, rationale }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
           const actionAttrs = buildActionAttrs("open-card-detail", {
@@ -3075,6 +3101,7 @@ function renderResult(viewKey) {
   const activeKey = allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
   destroyDossierManaRadar();
+  renderedEducationalTerms = new Set();
 
   if (!result) {
     document.getElementById("result-inner").innerHTML = `
@@ -3170,7 +3197,8 @@ function renderResult(viewKey) {
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
   const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
-  const archetypeHtml = (dossier.whatToLookFor || [])
+  const archetypeItems = dossier.whatToLookFor || [];
+  const archetypeHtml = archetypeItems
     .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
     .join("");
 
@@ -3292,7 +3320,7 @@ function renderResult(viewKey) {
     <div class="starter-grid mana-primer-grid">
       <div class="starter-card">
         <div class="starter-title">Wastes First</div>
-        <div class="starter-copy">Use Wastes and true {C} producers as the floor before adding utility lands.</div>
+        <div class="starter-copy">${renderPlayerCopy("Use Wastes and true {C} producers as the floor before adding utility lands.")}</div>
       </div>
       <div class="starter-card">
         <div class="starter-title">Rocks And Sources</div>
@@ -3300,7 +3328,7 @@ function renderResult(viewKey) {
       </div>
       <div class="starter-card">
         <div class="starter-title">Color-Choice Caution</div>
-        <div class="starter-copy">Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make {C}.</div>
+        <div class="starter-copy">${renderPlayerCopy("Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make {C}.")}</div>
       </div>
     </div>` : "";
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
@@ -3310,7 +3338,7 @@ function renderResult(viewKey) {
     ? `
         <div class="land-tier tier-utility">
           <div class="land-tier-label">${isColorlessFaction ? "Utility Land Caution" : "Utility"}</div>
-          <div class="land-tier-copy">${landLaneCopy.utility}</div>
+          <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.utility)}</div>
           <div class="land-cards-row">${landSlots(landRecommendations.utility, "lu")}</div>
         </div>`
     : "";
@@ -3405,7 +3433,7 @@ function renderResult(viewKey) {
     ${archetypeHtml ? `
       <div class="archetypes-section">
         <div class="section-label">What to Look For</div>
-        <div class="archetypes-grid">${archetypeHtml}</div>
+        <div class="archetypes-grid public-three-item-grid" data-item-count="${archetypeItems.length}">${archetypeHtml}</div>
       </div>` : ""}`;
   const accountDeckLinksPanelHtml = ACCOUNT_DECK_LINKS_ENABLED
     ? buildAccountDeckLinkPanelHtml({ result })
@@ -3448,20 +3476,20 @@ function renderResult(viewKey) {
           </div>`)}
         ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
           <div class="land-tier tier-premium">
-            <div class="land-tier-label">${isColorlessFaction ? "Fast {C} Lane" : "Premium"}</div>
-            <div class="land-tier-copy">${landLaneCopy.premium}</div>
+            <div class="land-tier-label">${isColorlessFaction ? renderPlayerCopy("Fast {C} Lane") : "Premium"}</div>
+            <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.premium)}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "midrange") ? buildSegmentPanelHtml("mana-base", "midrange", manaBaseSegment, `
           <div class="land-tier tier-midrange">
             <div class="land-tier-label">${isColorlessFaction ? "Practical Upgrade Lane" : "Midrange"}</div>
-            <div class="land-tier-copy">${landLaneCopy.midrange}</div>
+            <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.midrange)}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.midrange, "lm")}</div>
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "budget") ? buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
           <div class="land-tier tier-budget">
-            <div class="land-tier-label">${isColorlessFaction ? "Entry {C} Lane" : "Budget"}</div>
-            <div class="land-tier-copy">${landLaneCopy.budget}</div>
+            <div class="land-tier-label">${isColorlessFaction ? renderPlayerCopy("Entry {C} Lane") : "Budget"}</div>
+            <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.budget)}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "utility") ? buildSegmentPanelHtml("mana-base", "utility", manaBaseSegment, utilityTierHtml) : ""}
@@ -3513,8 +3541,8 @@ function renderResult(viewKey) {
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>
       ${pipsHtml}
-      <div class="guild-philosophy">${escapeHtml(heroNarrative)}</div>
-      <div class="guild-lore-summary">${faction.philosophy}</div>
+      <div class="guild-philosophy">${renderPlayerCopy(heroNarrative)}</div>
+      <div class="guild-lore-summary">${renderPlayerCopy(faction.philosophy)}</div>
     </div>
 
     ${placementSnapshotHtml}`;
@@ -3811,7 +3839,8 @@ function ensureCardPreviewOverlay() {
 
 function positionCardPreviewOverlay(overlay, source, event = null) {
   const rect = source.getBoundingClientRect();
-  const width = source.classList.contains("land-img") ? 228 : 252;
+  const preferredWidth = source.classList.contains("land-img") ? 285 : 315;
+  const width = Math.min(preferredWidth, Math.max(180, window.innerWidth - 24));
   const height = Math.round(width * 88 / 63);
   const anchorX = event?.clientX || rect.right;
   const anchorY = event?.clientY || rect.top + rect.height / 2;
@@ -3831,16 +3860,17 @@ async function showCardPreviewOverlay(trigger, event = null) {
     return;
   }
   const requestId = ++cardPreviewRequestId;
-  let imageUrl = trigger.image instanceof HTMLImageElement
-    ? (trigger.image.currentSrc || trigger.image.src)
-    : "";
-  if (!imageUrl && trigger.cardName) {
+  let imageUrl = "";
+  if (trigger.cardName) {
     try {
       const card = await loadCachedScryfallNamedCard(trigger.cardName);
       imageUrl = cardImageUrl(card);
     } catch (_) {
       return;
     }
+  }
+  if (!imageUrl && trigger.image instanceof HTMLImageElement) {
+    imageUrl = trigger.image.currentSrc || trigger.image.src;
   }
   if (!imageUrl || requestId !== cardPreviewRequestId) return;
   const overlay = ensureCardPreviewOverlay();
@@ -4089,11 +4119,26 @@ function handleGlossaryFocusOut(event) {
   if (target) hideGlossaryTooltip(target);
 }
 
+function handleGlossaryClick(event) {
+  const target = glossaryTargetFromEvent(event);
+  if (target) {
+    event.preventDefault();
+    if (target === glossaryTooltipTarget && glossaryTooltip && !glossaryTooltip.hidden) {
+      hideGlossaryTooltip(target);
+    } else {
+      showGlossaryTooltip(target);
+    }
+    return;
+  }
+  hideGlossaryTooltip();
+}
+
 // Delegated route controls. Keep data-action behavior centralized here.
 
 function bindArchscryControls() {
   const app = document.querySelector(".app");
   app?.addEventListener("click", (event) => {
+    handleGlossaryClick(event);
     void handleArchscryActionClick(event);
   });
   app?.addEventListener("keydown", handleArchscryKeydown);
@@ -4205,6 +4250,10 @@ async function handleArchscryActionClick(event) {
 }
 
 function handleArchscryKeydown(event) {
+  if (event.key === "Escape" && glossaryTooltip && !glossaryTooltip.hidden) {
+    hideGlossaryTooltip();
+    return;
+  }
   const tab = event.target.closest("[data-dossier-tab]");
   if (!(tab instanceof HTMLElement)) return;
   const tablist = tab.closest('[role="tablist"]');

@@ -128,7 +128,7 @@ globalThis.document = {
   },
 };
 
-const { approvedCardRationaleForFaction, buildFlavorEchoesHtml } = await import("../assets/js/index.js");
+const { approvedCardRationaleForFaction, buildFlavorEchoesHtml, renderPlayerCopy } = await import("../assets/js/index.js");
 assert.equal(cardRationaleSource.records.length, 26, "expected only provenance-complete native-anchor proposals to remain reviewable");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
 assert.equal(cardRationaleCatalog.records.length, 24, "approved catalog must retain the deterministic three-card display maximum");
@@ -158,10 +158,18 @@ assert.match(indexSource, /card-detail-image-trigger/);
 assert.match(indexSource, /rationale && provenance \?/);
 assert.doesNotMatch(indexSource, /function buildCommanderSpecificLinks/);
 assert.match(indexSource, /archscryGlossaryTooltip/);
+assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /aria-label="colorless mana"/);
+assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not generic mana/);
+assert.doesNotMatch(renderPlayerCopy("Spend true {C}."), /\{C\}/);
+assert.match(indexSource, /renderedEducationalTerms\.has\(termKey\)/, "glossary should decorate only the first canonical term occurrence per dossier render");
+assert.match(indexSource, /if \(trigger\.cardName\)[\s\S]*?loadCachedScryfallNamedCard\(trigger\.cardName\)/, "named rationale previews should resolve the canonical full-card record before using a tile image");
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
+assert.match(cssSource, /public-three-item-grid\[data-item-count="2"\]/);
 assert.match(cssSource, /@media\(max-width:980px\) and \(min-width:701px\)[\s\S]*?public-three-item-grid\{\s*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
-assert.match(cssSource, /public-three-item-grid > :last-child:nth-child\(odd\)/);
+assert.match(cssSource, /public-three-item-grid\[data-item-count="3"\] > :last-child/);
 assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*?public-three-item-grid\{\s*grid-template-columns:1fr/);
+assert.match(cssSource, /\.archscry-card-dialog\{[\s\S]*?position:fixed;[\s\S]*?inset:0;[\s\S]*?margin:auto;/);
 assert.doesNotMatch(indexSource, /length\s*[<=>]+\s*4[^\n]*reason/i, "layout must not require a fourth reason");
 
 console.log(JSON.stringify({
