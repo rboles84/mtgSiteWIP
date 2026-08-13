@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - completing all 37 public dossiers through scoped evidence-validated automatic promotion, owner exceptions only, deterministic repairs, live witness replay, and an explicit PASS/NOT_APPLICABLE/FAIL certification matrix on the single canonical branch.
+- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - implementation and local certification complete on the single canonical branch: 36 named witnesses plus bounded Yore, 621 PASS / 8 contract-backed N/A / 0 FAIL matrix cells, and full regression green; awaiting owner final visual/product review.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
