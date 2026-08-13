@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import {
   auditCandidates,
   buildRuntimeCatalog,
+  classifyIdentityCoverage,
   validateRelationshipSource,
 } from "../research/build-card-rationale-artifacts.mjs";
 
@@ -16,11 +17,31 @@ assert.equal(new Set(audit.rows.map((row) => row.identityKey)).size, 37, "all 37
 assert.equal(audit.rows.length, 125, "the raw/generated union must retain all reviewed candidates");
 assert.equal(audit.rows.filter((row) => row.generatedOnly).length, 3, "generated-only candidates must remain traceable");
 assert.equal(source.records.length, 26, "expected only direct native anchors in the owner-review packet");
-assert.ok(source.records.every((record) => record.review_status === "REVIEW_REQUIRED"));
+assert.ok(source.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
+assert.equal(source.records.filter((record) => record.owner_approval?.decision === "APPROVE").length, 25);
+assert.equal(source.records.filter((record) => record.owner_approval?.decision === "APPROVE_AFTER_REVISION").length, 1);
 assert.equal(source.records.filter((record) => record.proposal_origin === "NEW_SOURCE_BOUNDED_DRAFT").length, 4);
-assert.equal(catalog.records.length, 0, "review-required rationale must not leak into runtime");
+assert.equal(catalog.records.length, 24, "approved runtime must apply the deterministic maximum of three cards per identity");
+assert.ok(Object.values(Object.groupBy(catalog.records, (record) => record.identity_key)).every((records) => records.length <= 3));
+assert.equal(source.records.filter((record) => record.identity_key === "WB" && record.review_status === "APPROVED_PUBLIC").length, 4);
+assert.equal(catalog.records.filter((record) => record.identity_key === "WB").length, 3);
+assert.equal(source.records.filter((record) => record.identity_key === "UR" && record.review_status === "APPROVED_PUBLIC").length, 4);
+assert.equal(catalog.records.filter((record) => record.identity_key === "UR").length, 3);
 assert.equal(validateRelationshipSource(source, audit), true);
 assert.deepEqual(catalog, buildRuntimeCatalog(source), "generated runtime catalog must be deterministic");
+
+const isperiaSource = source.records.find((record) => record.canonical_card_name === "Isperia, Supreme Judge");
+assert.equal(isperiaSource.proposed_public_rationale, "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.");
+assert.ok(isperiaSource.provenance_roles.identity_relationship);
+assert.equal(isperiaSource.provenance_roles.card_behavior.verified_field, "oracle_excerpt");
+const quintoriusSource = source.records.find((record) => record.canonical_card_name === "Quintorius, History Chaser");
+assert.match(quintoriusSource.proposed_public_rationale, /^Represents\b/);
+assert.doesNotMatch(quintoriusSource.proposed_public_rationale, /Represent's/);
+
+const coverage = Object.fromEntries([...new Set(audit.rows.map((row) => row.identityKey))].map((identityKey) => [identityKey, classifyIdentityCoverage(source, catalog, identityKey)]));
+assert.equal(Object.values(coverage).filter((value) => value === "Full").length, 12);
+assert.equal(Object.values(coverage).filter((value) => value === "Partial").length, 0);
+assert.equal(Object.values(coverage).filter((value) => value === "Gap").length, 25);
 
 const clone = (value) => structuredClone(value);
 const expectFailure = (mutate, pattern) => {
@@ -34,6 +55,8 @@ expectFailure((fixture) => { fixture.records[0].certified_identity_claim_ids = [
 expectFailure((fixture) => { fixture.records[0].source_ids = ["missing_source"]; }, /Unresolved source ID/);
 expectFailure((fixture) => { fixture.records[0].canonical_card_id = "00000000-0000-0000-0000-000000000000"; }, /Card locator mismatch/);
 expectFailure((fixture) => { fixture.records[0].source_locators = []; }, /Missing exact source locator/);
+expectFailure((fixture) => { delete fixture.coverage_adjudication.WU; }, /lacks explicit coverage adjudication/);
+expectFailure((fixture) => { fixture.coverage_adjudication.WU.meaningful_unresolved_defect = true; }, /classification and unresolved-defect finding disagree/);
 for (const evidenceClass of ["COLOR_ONLY", "TAG_ONLY", "GENERIC_MECHANIC_ONLY", "PRODUCT_ONLY", "GENERATED_FALLBACK"]) {
   expectFailure((fixture) => { fixture.records[0].relationship_evidence.evidence_class = evidenceClass; }, /Unsupported relationship bridge/);
 }
@@ -43,19 +66,31 @@ expectFailure((fixture) => {
 }, /explicit owner approval/);
 expectFailure((fixture) => {
   fixture.records[0].review_status = "APPROVED_PUBLIC";
-  fixture.records[0].owner_approval = { approved_by: "owner", decision_locator: "fixture" };
+  fixture.records[0].owner_approval = { decision: "APPROVE", approved_by: "owner", decision_locator: "fixture" };
   fixture.records[0].proposed_public_rationale = "This card proves you are this identity.";
 }, /unsupported language/);
 
 const approvedFixture = clone(source);
+for (const record of approvedFixture.records) {
+  record.review_status = "REVIEW_REQUIRED";
+  delete record.owner_approval;
+}
 approvedFixture.records[0].review_status = "APPROVED_PUBLIC";
 approvedFixture.records[0].owner_approval = { approved_by: "test fixture", decision_locator: "scripts/vm551-card-rationale-authority-tests.mjs" };
+approvedFixture.records[0].owner_approval.decision = "APPROVE";
+approvedFixture.coverage_adjudication.WU.approved_relationship_ids = [approvedFixture.records[0].relationship_id];
 validateRelationshipSource(approvedFixture, audit);
 const approvedCatalog = buildRuntimeCatalog(approvedFixture);
 assert.equal(approvedCatalog.records.length, 1);
 assert.equal(approvedCatalog.records[0].rationale, approvedFixture.records[0].proposed_public_rationale);
 assert.ok(approvedCatalog.records[0].provenance.claim_ids.length);
 assert.ok(approvedCatalog.records[0].provenance.source_ids.length);
+
+const partialCoverageFixture = clone(source);
+partialCoverageFixture.coverage_adjudication.WU.classification = "Partial";
+partialCoverageFixture.coverage_adjudication.WU.meaningful_unresolved_defect = true;
+validateRelationshipSource(partialCoverageFixture, audit);
+assert.equal(classifyIdentityCoverage(partialCoverageFixture, buildRuntimeCatalog(partialCoverageFixture), "WU"), "Partial", "Partial must remain reachable through explicit unresolved-defect adjudication");
 
 for (const inventoryPath of [
   "../docs/audits/vm551-all-37-card-rationale-source-hardening/baseline-inventory.tsv",
@@ -96,8 +131,10 @@ console.log(JSON.stringify({
   status: "PASS",
   identities: 37,
   candidates_reviewed: audit.rows.length,
-  review_required: source.records.length,
+  approved_public: source.records.length,
   runtime_approved: catalog.records.length,
-  negative_fixtures: 12,
+  coverage: { full: 12, partial: 0, gap: 25 },
+  negative_fixtures: 14,
+  partial_classification_reachable: true,
   rendering_and_modal_rationale_parity: "PASS",
 }, null, 2));

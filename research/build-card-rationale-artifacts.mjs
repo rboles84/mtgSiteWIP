@@ -259,6 +259,7 @@ function fail(message) {
 
 export function validateRelationshipSource(source, audit) {
   if (source?.schema_version !== "1.0.0" || !Array.isArray(source.records)) fail("Invalid card-rationale source envelope.");
+  if (source.coverage_policy?.display_maximum !== 3 || source.coverage_policy?.display_minimum !== 0) fail("Invalid card-rationale display-count policy.");
   const ids = new Set();
   const pairs = new Set();
   const auditByLocator = new Map(audit.rows.map((row) => [row.currentSourcePool, row]));
@@ -282,16 +283,29 @@ export function validateRelationshipSource(source, audit) {
     if (record.review_status === "APPROVED_PUBLIC") {
       if (!record.proposed_public_rationale) fail(`Approved record lacks public rationale: ${record.relationship_id}`);
       if (!record.owner_approval?.approved_by || !record.owner_approval?.decision_locator) fail(`Approved record lacks explicit owner approval: ${record.relationship_id}`);
+      if (!["APPROVE", "APPROVE_AFTER_REVISION"].includes(record.owner_approval.decision)) fail(`Approved record lacks a valid owner decision: ${record.relationship_id}`);
       if (INTERNAL_PUBLIC_RE.test(record.proposed_public_rationale) || PUBLIC_METHOD_RE.test(record.proposed_public_rationale) || UNSAFE_PUBLIC_CLAIM_RE.test(record.proposed_public_rationale)) fail(`Approved rationale leaks internal or unsupported language: ${record.relationship_id}`);
     }
   }
+  const isperia = source.records.find((record) => record.canonical_card_name === "Isperia, Supreme Judge");
+  const approvedIsperia = "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.";
+  if (isperia?.review_status === "APPROVED_PUBLIC" && (isperia.proposed_public_rationale !== approvedIsperia || !isperia.provenance_roles?.identity_relationship || isperia.provenance_roles?.card_behavior?.verified_field !== "oracle_excerpt")) fail("Isperia owner-approved narrowing or provenance-role separation is stale.");
+  for (const identityKey of Object.keys(IDENTITY_FOLDERS)) classifyIdentityCoverage(source, buildRuntimeCatalog(source), identityKey);
   return true;
 }
 
 export function buildRuntimeCatalog(source) {
-  const records = source.records
+  const approved = source.records
     .filter((record) => record.review_status === "APPROVED_PUBLIC")
-    .sort((a, b) => Object.keys(IDENTITY_FOLDERS).indexOf(a.identity_key) - Object.keys(IDENTITY_FOLDERS).indexOf(b.identity_key) || a.display_priority - b.display_priority || a.canonical_card_name.localeCompare(b.canonical_card_name))
+    .sort((a, b) => Object.keys(IDENTITY_FOLDERS).indexOf(a.identity_key) - Object.keys(IDENTITY_FOLDERS).indexOf(b.identity_key) || a.display_priority - b.display_priority || a.canonical_card_name.localeCompare(b.canonical_card_name));
+  const perIdentity = new Map();
+  const records = approved
+    .filter((record) => {
+      const count = perIdentity.get(record.identity_key) || 0;
+      if (count >= source.coverage_policy.display_maximum) return false;
+      perIdentity.set(record.identity_key, count + 1);
+      return true;
+    })
     .map((record) => ({
       relationship_id: record.relationship_id,
       identity_key: record.identity_key,
@@ -318,6 +332,19 @@ export function buildRuntimeCatalog(source) {
     generated_policy: "APPROVED_PUBLIC only; no fallback or inferred relationship",
     records,
   };
+}
+
+export function classifyIdentityCoverage(source, catalog, identityKey) {
+  const approvedRecords = source.records.filter((record) => record.identity_key === identityKey && record.review_status === "APPROVED_PUBLIC");
+  if (!approvedRecords.length) return "Gap";
+  const adjudication = source.coverage_adjudication?.[identityKey];
+  if (!adjudication) fail(`Approved identity lacks explicit coverage adjudication: ${identityKey}`);
+  if (!adjudication.usefulness_finding || !adjudication.remaining_candidate_finding || !adjudication.decision_locator) fail(`Incomplete coverage adjudication: ${identityKey}`);
+  const approvedIds = new Set(approvedRecords.map((record) => record.relationship_id));
+  if (!Array.isArray(adjudication.approved_relationship_ids) || adjudication.approved_relationship_ids.length !== approvedIds.size || adjudication.approved_relationship_ids.some((id) => !approvedIds.has(id))) fail(`Coverage adjudication does not enumerate approved relationships: ${identityKey}`);
+  if (adjudication.classification === "Full" && adjudication.meaningful_unresolved_defect === false) return "Full";
+  if (adjudication.classification === "Partial" && adjudication.meaningful_unresolved_defect === true) return "Partial";
+  fail(`Coverage classification and unresolved-defect finding disagree: ${identityKey}`);
 }
 
 function mechanicallyEligibleGenerated(generatedFactions) {
@@ -365,11 +392,18 @@ function inventoryTsv({ audit, catalog, baseline, post }) {
   for (const identityKey of Object.keys(IDENTITY_FOLDERS)) {
     const candidates = audit.rows.filter((row) => row.identityKey === identityKey);
     const runtime = catalog.records.filter((record) => record.identity_key === identityKey);
-    const eligible = baseline ? (post.mechanical.counts.get(identityKey) || 0) : runtime.length;
+    const eligible = baseline
+      ? (post.mechanical.counts.get(identityKey) || 0)
+      : post.source.records.filter((record) => record.identity_key === identityKey && record.review_status === "APPROVED_PUBLIC").length;
     const shown = baseline ? post.shown.get(identityKey) || [] : runtime.map((record) => record.card.name);
+    const coverage = baseline ? null : classifyIdentityCoverage(post.source, catalog, identityKey);
     const missing = baseline
       ? (eligible ? "Mechanical candidates are not semantically approved; selector may still drop them." : "No row passes the current mechanical filter.")
-      : (runtime.length ? (runtime.length < 3 ? "Partial: fewer than three approved examples; no quota filler." : "Full: three approved examples.") : "Gap: no owner-approved public relationship.");
+      : coverage === "Full"
+        ? "Full: approved examples provide useful coverage and no meaningful unresolved card-rationale defect is adjudicated."
+        : coverage === "Partial"
+          ? "Partial: approved examples exist, but a meaningful unresolved card-rationale defect remains adjudicated."
+          : "Gap: no owner-approved public relationship.";
     rows.push([
       `${identityKey} — ${candidates[0]?.identityName || identityKey}`,
       eligible,
@@ -382,9 +416,11 @@ function inventoryTsv({ audit, catalog, baseline, post }) {
   return `${rows.map((row) => row.map(tsvCell).join("\t")).join("\n")}\n`;
 }
 
-function adjudicationTsv(audit) {
-  const rows = [["identity", "canonical_card_name", "canonical_card_id", "current_source_pool", "relationship_class", "certified_identity_claim_ids", "exact_card_facts", "relationship_evidence", "source_ids", "exact_source_locators", "disposition", "limitation", "proposed_public_rationale", "rationale_review_state", "display_priority"]];
+function adjudicationTsv(audit, source) {
+  const sourceByLocator = new Map(source.records.map((record) => [record.relationship_evidence.locator, record]));
+  const rows = [["identity", "canonical_card_name", "canonical_card_id", "current_source_pool", "relationship_class", "certified_identity_claim_ids", "exact_card_facts", "relationship_evidence", "source_ids", "exact_source_locators", "baseline_disposition", "current_disposition", "limitation", "public_rationale", "owner_decision", "display_priority"]];
   for (const row of audit.rows) {
+    const approved = sourceByLocator.get(row.currentSourcePool);
     rows.push([
       row.identityKey,
       candidateName(row.candidate),
@@ -397,9 +433,10 @@ function adjudicationTsv(audit) {
       row.sourceIds.join(";"),
       row.sourceLocators.map((item) => `${item.source_id}=${item.locator}`).join(";"),
       row.disposition,
+      approved?.review_status || row.disposition,
       [row.candidate.caution_notes, row.candidate.skip_if, row.reason].flat().filter(Boolean).join(" "),
-      row.disposition === "REVIEW_REQUIRED" ? row.candidate.why_this_fits : "None",
-      row.disposition,
+      approved?.proposed_public_rationale || (row.disposition === "REVIEW_REQUIRED" ? row.candidate.why_this_fits : "None"),
+      approved?.owner_approval?.decision || (row.disposition === "REVIEW_REQUIRED" ? "PENDING" : "NOT_APPLICABLE"),
       row.sourceOrder,
     ]);
   }
@@ -408,36 +445,42 @@ function adjudicationTsv(audit) {
 
 function ownerReviewTsv(source) {
   const rows = [["relationship_id", "identity", "card", "proposed_wording", "supporting_identity_claims", "supporting_sources", "canonical_card_facts", "relationship_evidence", "limitation", "why_wording_may_be_entailed", "owner_decision"]];
-  for (const record of source.records.filter((item) => item.review_status === "REVIEW_REQUIRED")) {
+  for (const record of source.records) {
     rows.push([
       record.relationship_id, record.identity_key, record.canonical_card_name, record.proposed_public_rationale,
       record.certified_identity_claim_ids.join(";"), record.source_ids.join(";"), record.canonical_card_data_locator,
       `${record.relationship_evidence.locator}: ${record.relationship_evidence.exact_text}`, record.limitation,
-      record.rationale_support_note, "PENDING",
+      record.rationale_support_note, record.owner_approval?.decision || "PENDING",
     ]);
   }
   return `${rows.map((row) => row.map(tsvCell).join("\t")).join("\n")}\n`;
 }
 
-function gapReport(audit, catalog) {
+function gapReport(audit, source, catalog) {
+  const full = [];
   const partial = [];
   const gaps = [];
   for (const identityKey of Object.keys(IDENTITY_FOLDERS)) {
-    const approved = catalog.records.filter((record) => record.identity_key === identityKey).length;
-    const review = audit.rows.filter((row) => row.identityKey === identityKey && row.disposition === "REVIEW_REQUIRED").length;
+    const approved = source.records.filter((record) => record.identity_key === identityKey && record.review_status === "APPROVED_PUBLIC").length;
+    const review = source.records.filter((record) => record.identity_key === identityKey && record.review_status === "REVIEW_REQUIRED").length;
     const evidence = audit.rows.filter((row) => row.identityKey === identityKey && row.disposition === "EVIDENCE_NEEDED").length;
     const rejected = audit.rows.filter((row) => row.identityKey === identityKey && row.disposition === "REJECTED").length;
     const line = `- **${identityKey}:** ${approved} approved public; ${review} review-required; ${evidence} evidence-needed; ${rejected} rejected.`;
-    if (approved) partial.push(line); else gaps.push(line);
+    const coverage = classifyIdentityCoverage(source, catalog, identityKey);
+    if (coverage === "Full") full.push(line);
+    else if (coverage === "Partial") partial.push(line);
+    else gaps.push(line);
   }
-  return `# VM-551 Card-Rationale Coverage Gaps\n\n## Classification Rule\n\nFull requires three genuinely useful approved examples; Partial requires at least one approved example; Gap means no relationship is currently approved for public runtime. Three is a maximum, never a quota.\n\n## Partial\n\n${partial.length ? partial.join("\n") : "None. No rationale was self-promoted during this task."}\n\n## Gap\n\n${gaps.join("\n")}\n\n## Owner Gate\n\nReview-required rows are research-complete proposals, not public content. They remain absent until the owner approves, revises, or rejects them. Evidence-needed and rejected rows cannot be promoted by copy review alone.\n`;
+  return `# VM-551 Card-Rationale Coverage Gaps\n\n## Classification Rule\n\nFull means approved examples provide genuinely useful coverage and no meaningful unresolved card-rationale coverage defect is adjudicated. Full does not require three cards. Partial means at least one useful approved example exists while a meaningful unresolved coverage defect remains. Gap means no relationship is currently approved for public runtime. Three is only the display maximum, never a quota.\n\n## Full\n\n${full.length ? full.join("\n") : "None."}\n\n## Partial\n\n${partial.length ? partial.join("\n") : "None."}\n\n## Gap\n\n${gaps.join("\n")}\n\n## Owner Gate\n\nReview-required rows are research-complete proposals, not public content. Evidence-needed and rejected rows cannot be promoted by copy review alone.\n`;
 }
 
 function readme(audit, source, catalog, baseline) {
   const dispositions = audit.rows.reduce((out, row) => ((out[row.disposition] = (out[row.disposition] || 0) + 1), out), {});
+  const approved = source.records.filter((record) => record.review_status === "APPROVED_PUBLIC").length;
+  const reviewRequired = source.records.filter((record) => record.review_status === "REVIEW_REQUIRED").length;
   const baselineEligible = [...baseline.mechanical.counts.values()].reduce((sum, count) => sum + count, 0);
   const baselineShown = [...baseline.shown.values()].reduce((sum, cards) => sum + cards.length, 0);
-  return `# VM-551 All-37 Card-Rationale Source Hardening\n\n## Verified Baseline\n\n- 37 identities inventoried.\n- ${audit.rows.length} distinct current candidates reviewed (${audit.rows.filter((row) => row.generatedOnly).length} generated-only and therefore rejected as noncanonical).\n- ${baselineEligible} rows pass the old mechanical filter across ${[...baseline.mechanical.counts.values()].filter(Boolean).length} identities.\n- ${baselineShown} card survives the old selector/filter intersection.\n\n## Post-Hardening State\n\n- Canonical relationship source records: ${source.records.length}.\n- Approved public runtime records: ${catalog.records.length}.\n- Review required: ${dispositions.REVIEW_REQUIRED || 0}.\n- Evidence needed: ${dispositions.EVIDENCE_NEEDED || 0}.\n- Rejected: ${dispositions.REJECTED || 0}.\n- No newly surfaced rationale was self-approved.\n\n## Authority Boundary\n\nThe raw faction claim/source packets and committed Commander card index establish the review chain. Generated faction data and flavor snippets are baseline comparison surfaces only. The runtime catalog emits only records explicitly marked \`APPROVED_PUBLIC\`; all other content fails closed.\n`;
+  return `# VM-551 All-37 Card-Rationale Source Hardening\n\n## Verified Baseline\n\n- 37 identities inventoried.\n- ${audit.rows.length} distinct current candidates reviewed (${audit.rows.filter((row) => row.generatedOnly).length} generated-only and therefore rejected as noncanonical).\n- ${baselineEligible} rows pass the old mechanical filter across ${[...baseline.mechanical.counts.values()].filter(Boolean).length} identities.\n- ${baselineShown} card survives the old selector/filter intersection.\n\n## Post-Hardening State\n\n- Canonical relationship source records: ${source.records.length}.\n- Approved public relationships: ${approved}.\n- Approved public runtime records: ${catalog.records.length}.\n- Review required: ${reviewRequired}.\n- Evidence needed: ${dispositions.EVIDENCE_NEEDED || 0}.\n- Rejected: ${dispositions.REJECTED || 0}.\n- Owner-approved relationships enter runtime only through the canonical source and deterministic builder.\n\n## Authority Boundary\n\nThe raw faction claim/source packets and committed Commander card index establish the review chain. Generated faction data and flavor snippets are baseline comparison surfaces only. The runtime catalog emits only records explicitly marked \`APPROVED_PUBLIC\`; all other content fails closed.\n`;
 }
 
 export async function buildArtifacts({ bootstrapSource = false } = {}) {
@@ -456,10 +499,10 @@ export async function buildArtifacts({ bootstrapSource = false } = {}) {
       [CATALOG_PATH, pretty(catalog)],
       [`${AUDIT_DIR}/README.md`, readme(audit, source, catalog, baseline)],
       [`${AUDIT_DIR}/baseline-inventory.tsv`, inventoryTsv({ audit, catalog, baseline: true, post: baseline })],
-      [`${AUDIT_DIR}/post-hardening-inventory.tsv`, inventoryTsv({ audit, catalog, baseline: false, post: baseline })],
-      [`${AUDIT_DIR}/per-card-adjudication.tsv`, adjudicationTsv(audit)],
+      [`${AUDIT_DIR}/post-hardening-inventory.tsv`, inventoryTsv({ audit, catalog, baseline: false, post: { ...baseline, source } })],
+      [`${AUDIT_DIR}/per-card-adjudication.tsv`, adjudicationTsv(audit, source)],
       [`${AUDIT_DIR}/owner-review-packet.tsv`, ownerReviewTsv(source)],
-      [`${AUDIT_DIR}/gap-report.md`, gapReport(audit, catalog)],
+      [`${AUDIT_DIR}/gap-report.md`, gapReport(audit, source, catalog)],
     ]),
   };
 }
@@ -481,7 +524,8 @@ async function main() {
     }
   }
   if (mismatches.length) fail(`Stale card-rationale artifacts: ${mismatches.join(", ")}`);
-  const dispositions = result.audit.rows.reduce((out, row) => ((out[row.disposition] = (out[row.disposition] || 0) + 1), out), {});
+  const baselineDispositions = result.audit.rows.reduce((out, row) => ((out[row.disposition] = (out[row.disposition] || 0) + 1), out), {});
+  const sourceDispositions = result.source.records.reduce((out, record) => ((out[record.review_status] = (out[record.review_status] || 0) + 1), out), {});
   console.log(JSON.stringify({
     status: "PASS",
     mode: check ? "check" : "write",
@@ -489,7 +533,8 @@ async function main() {
     candidates_reviewed: result.audit.rows.length,
     source_records: result.source.records.length,
     runtime_records: result.catalog.records.length,
-    dispositions,
+    source_dispositions: sourceDispositions,
+    baseline_candidate_dispositions: baselineDispositions,
   }, null, 2));
 }
 

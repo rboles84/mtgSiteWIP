@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Card-Rationale Owner Approval Application](done/VM-551-card-rationale-owner-approval-application.md) - applied 25 direct approvals and the exact narrowed Isperia approval, rebuilt 24 displayed entries from 26 approved relationships, and recorded evidence-based 12 Full / 0 Partial / 25 Gap adjudications without researching remaining gaps or changing placement semantics.
+
 - [VM-551 — All-37 Card-Rationale Source Hardening](done/VM-551-all-37-card-rationale-source-hardening.md) - audited 125 candidates across all 37 identities, retained 26 direct native anchors for owner review, rejected three generated-only rows, left 96 evidence gaps explicit, and replaced the selector mismatch with an approved-only deterministic catalog that currently renders no unapproved rationale.
 
 - [VM-551 — Gate B1 Dossier Usefulness And Content Integrity](done/VM-551-gate-b1-dossier-usefulness-content-integrity.md) - completed provenance-gated player explanations, verified card/precon discovery, accessible card details and tooltips, responsive no-filler layouts, and public internal-token guards while preserving all placement semantics; awaiting owner hands-on review on the canonical branch.

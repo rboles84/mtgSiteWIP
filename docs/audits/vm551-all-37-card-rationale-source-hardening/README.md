@@ -10,11 +10,12 @@
 ## Post-Hardening State
 
 - Canonical relationship source records: 26.
-- Approved public runtime records: 0.
-- Review required: 26.
+- Approved public relationships: 26.
+- Approved public runtime records: 24.
+- Review required: 0.
 - Evidence needed: 96.
 - Rejected: 3.
-- No newly surfaced rationale was self-approved.
+- Owner-approved relationships enter runtime only through the canonical source and deterministic builder.
 
 ## Authority Boundary
 

@@ -130,13 +130,14 @@ globalThis.document = {
 
 const { approvedCardRationaleForFaction, buildFlavorEchoesHtml } = await import("../assets/js/index.js");
 assert.equal(cardRationaleSource.records.length, 26, "expected only provenance-complete native-anchor proposals to remain reviewable");
-assert.ok(cardRationaleSource.records.every((record) => record.review_status === "REVIEW_REQUIRED"));
-assert.equal(cardRationaleCatalog.records.length, 0, "review-required rationale must fail closed in player runtime");
+assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
+assert.equal(cardRationaleCatalog.records.length, 24, "approved catalog must retain the deterministic three-card display maximum");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");
-assert.equal(approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog), null, "owner-review copy must not be treated as approved");
+const isperiaRationale = approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog);
+assert.equal(isperiaRationale?.text, "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.");
 assert.equal(approvedCardRationaleForFaction(genericAzoriusCard, factions.WU, cardRationaleCatalog), null, "generic same-color overlap must not create a rationale");
-assert.equal(buildFlavorEchoesHtml([{ card: isperia }], factions.WU, cardRationaleCatalog), "", "unapproved card rationale should omit the card section");
+assert.match(buildFlavorEchoesHtml([{ card: isperia, rationale: isperiaRationale }], factions.WU, cardRationaleCatalog), /Isperia represents Azorius leadership/);
 assert.equal(buildFlavorEchoesHtml([{ card: genericAzoriusCard }], factions.WU), "", "unsupported card rationale should omit the card section");
 assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
 assert.match(indexSource, /selectApprovedCardRationales\(\{ faction \}\)/);

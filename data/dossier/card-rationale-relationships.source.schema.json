@@ -3,11 +3,39 @@
   "$id": "https://voxmana.io/schemas/card-rationale-relationships.source.schema.json",
   "title": "Vox Mana card-rationale relationship source",
   "type": "object",
-  "required": ["schema_version", "authority", "review_policy", "records"],
+  "required": ["schema_version", "authority", "review_policy", "coverage_policy", "coverage_adjudication", "records"],
   "properties": {
     "schema_version": { "const": "1.0.0" },
     "authority": { "type": "string", "minLength": 1 },
     "review_policy": { "type": "string", "minLength": 1 },
+    "coverage_policy": {
+      "type": "object",
+      "required": ["full", "partial", "gap", "display_maximum", "display_minimum"],
+      "properties": {
+        "full": { "type": "string", "minLength": 1 },
+        "partial": { "type": "string", "minLength": 1 },
+        "gap": { "type": "string", "minLength": 1 },
+        "display_maximum": { "const": 3 },
+        "display_minimum": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "coverage_adjudication": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["classification", "meaningful_unresolved_defect", "approved_relationship_ids", "usefulness_finding", "remaining_candidate_finding", "decision_locator"],
+        "properties": {
+          "classification": { "enum": ["Full", "Partial"] },
+          "meaningful_unresolved_defect": { "type": "boolean" },
+          "approved_relationship_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+          "usefulness_finding": { "type": "string", "minLength": 1 },
+          "remaining_candidate_finding": { "type": "string", "minLength": 1 },
+          "decision_locator": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
     "records": {
       "type": "array",
       "items": {
@@ -32,6 +60,17 @@
           "limitation": { "type": "string", "minLength": 1 },
           "review_status": {
             "enum": ["APPROVED_PUBLIC", "REVIEW_REQUIRED", "EVIDENCE_NEEDED", "REJECTED", "NOT_APPLICABLE"]
+          },
+          "owner_approval": {
+            "type": "object",
+            "required": ["decision", "approved_by", "decision_locator", "applied_on"],
+            "properties": {
+              "decision": { "enum": ["APPROVE", "APPROVE_AFTER_REVISION"] },
+              "approved_by": { "type": "string", "minLength": 1 },
+              "decision_locator": { "type": "string", "minLength": 1 },
+              "applied_on": { "type": "string", "format": "date" }
+            },
+            "additionalProperties": false
           },
           "display_priority": { "type": "integer", "minimum": 1 },
           "proposed_public_rationale": { "type": ["string", "null"] }

@@ -57,16 +57,67 @@
         "exact_text": "Directly represents the guild's leadership and punishes those who dare attack the law (you)."
       },
       "limitation": "You prefer a proactive, aggressive strategy rather than reactive defense.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Directly represents the guild's leadership and punishes those who dare attack the law (you).",
+      "proposed_public_rationale": "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Control",
         "Card Draw",
         "Pillowfort"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE_AFTER_REVISION",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      },
+      "provenance_roles": {
+        "identity_relationship": {
+          "certified_identity_claim_ids": [
+            "azorius_senate_claim_005"
+          ],
+          "source_ids": [
+            "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+            "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+            "src_mtg_stories_rallying_the_reluctant_d21b8009",
+            "src_mtg_stories_ashes_6ede4fea",
+            "src_mtg_stories_desperate_operatives_6c6a580b",
+            "src_mtg_stories_fblthp_e26059d7"
+          ],
+          "source_locators": [
+            {
+              "source_id": "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+              "locator": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07"
+            },
+            {
+              "source_id": "src_mtg_stories_the_gathering_storm_chapter_3_c2a81b82",
+              "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/036%20-%20Guilds%20of%20Ravnica/009_The%20Gathering%20Storm%3A%20Chapter%203.typ"
+            },
+            {
+              "source_id": "src_mtg_stories_rallying_the_reluctant_d21b8009",
+              "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/003_Rallying%20the%20Reluctant.typ"
+            },
+            {
+              "source_id": "src_mtg_stories_ashes_6ede4fea",
+              "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/006_Ashes.typ"
+            },
+            {
+              "source_id": "src_mtg_stories_desperate_operatives_6c6a580b",
+              "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/038%20-%20War%20of%20the%20Spark/004_Desperate%20Operatives.typ"
+            },
+            {
+              "source_id": "src_mtg_stories_fblthp_e26059d7",
+              "locator": "https://github.com/polarkac/MTG-Stories/blob/5e0a53c7193ba58835fd811f66612e8f6d6f344b/stories/003%20-%20Gatecrash/009_Fblthp.typ"
+            }
+          ]
+        },
+        "card_behavior": {
+          "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c46718dc-24dc-4b77-b455-aa4c89570b8d",
+          "verified_field": "oracle_excerpt"
+        }
+      }
     },
     {
       "relationship_id": "cardrel_wu_1f8d4d5f",
@@ -104,7 +155,7 @@
         "exact_text": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl."
       },
       "limitation": "High salt score on EDHREC. Use with caution. Your playgroup dislikes 'Stax' or games that take 3+ hours.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
       "proposed_public_rationale": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -113,7 +164,13 @@
         "Taxing",
         "Control"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ub_8027a610",
@@ -151,7 +208,7 @@
         "exact_text": "Auxiliary product fit for players who want a Lazav-led Dimir deck; the canonical proof is Lazav as guildmaster, not the deck mechanics."
       },
       "limitation": "Commander/card/product material remains auxiliary and is not authoritative Dimir semantic proof. Skip if you want a transparent table plan or a commander whose appeal does not depend on opponents' graveyards.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Lazav appears because the certified House Dimir record identifies him as the guildmaster of the guild associated with secrecy, spies, assassins, and backroom deals.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
@@ -160,7 +217,13 @@
         "Hidden information",
         "Graveyard interaction"
       ],
-      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_br_143a269a",
@@ -200,7 +263,7 @@
         "exact_text": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures."
       },
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Rakdos semantic proof. Skip if you want consistent early casting, low variance, or a commander that avoids big threat perception.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -209,7 +272,13 @@
         "Big Mana",
         "Damage Gate"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_br_03a4b997",
@@ -249,7 +318,7 @@
         "exact_text": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle."
       },
       "limitation": "High-variance by design. Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Rakdos semantic proof. Skip if you want reliability, low variance, or table-safe board states.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 6,
       "proposed_public_rationale": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -258,7 +327,13 @@
         "volatility",
         "Board Wipe"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_rg_b7505737",
@@ -302,7 +377,7 @@
         "exact_text": "A Burning-Tree-linked Gruul figure whose lands-matter damage gameplay can echo direct Rubblebelt force as auxiliary Commander texture."
       },
       "limitation": "You don't want to play an 8-mana commander.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Borborygmos appears because the certified Gruul record identifies him as the leader of the Burning-Tree clan.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
@@ -311,7 +386,13 @@
         "Discard",
         "Large-Creature Pressure"
       ],
-      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_rg_ebf3fd80",
@@ -343,7 +424,7 @@
         "exact_text": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters."
       },
       "limitation": "Requires a very specific deck composition. You like playing instants, sorceries, or artifacts.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
       "proposed_public_rationale": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -351,7 +432,13 @@
         "Creatures Only",
         "Big Mana"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_rg_6ed13a89",
@@ -382,7 +469,7 @@
         "exact_text": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells."
       },
       "limitation": "You want to play a deck with more than 5-10 noncreature spells.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 4,
       "proposed_public_rationale": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -391,7 +478,13 @@
         "Punisher",
         "Creature Pressure"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wg_e94ef397",
@@ -435,7 +528,7 @@
         "exact_text": "Trostani has source-backed Selesnya leadership context, while her token/populate/lifegain card play is auxiliary Commander texture rather than independent lore proof."
       },
       "limitation": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Trostani appears because the certified Selesnya record identifies the three dryads as Mat'Selesnya's speaker for Life, Order, and Harmony.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
@@ -444,7 +537,13 @@
         "Populate",
         "Lifegain"
       ],
-      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wb_644eeefd",
@@ -483,7 +582,7 @@
         "exact_text": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce."
       },
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you dislike sacrifice loops, death-trigger stacks, or incremental value engines.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -492,7 +591,13 @@
         "Death Triggers",
         "Tokens"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wb_8191342b",
@@ -532,7 +637,7 @@
         "exact_text": "This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine."
       },
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you want a simple precon-style gameplan or dislike combo-adjacent sacrifice engines.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 2,
       "proposed_public_rationale": "This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -541,7 +646,13 @@
         "Tokens",
         "Removal"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wb_647d7988",
@@ -580,7 +691,7 @@
         "exact_text": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence."
       },
       "limitation": "Can become removal-heavy and commander-centric. Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you want a token-sacrifice deck or dislike commander-damage pressure backed by cheap lifegain triggers.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 5,
       "proposed_public_rationale": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -589,7 +700,13 @@
         "Counters",
         "Removal"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wb_6c3df703",
@@ -628,7 +745,7 @@
         "exact_text": "Obzedat is the iconic old Orzhov power structure: deathless elites draining value, dodging consequences, and returning to collect again."
       },
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you need a fast engine or dislike high-mana commanders that win through slow drain.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 6,
       "proposed_public_rationale": "Obzedat is the iconic old Orzhov power structure: deathless elites draining value, dodging consequences, and returning to collect again.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -637,7 +754,13 @@
         "Blink",
         "Control"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ur_33666a98",
@@ -693,7 +816,7 @@
         "exact_text": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage."
       },
       "limitation": "Skip if your table dislikes compact draw-damage combos, repeated triggers, or commanders that become the whole deck plan.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -702,7 +825,13 @@
         "Draw-Burn",
         "Control"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ur_095d9719",
@@ -732,7 +861,7 @@
         "exact_text": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique."
       },
       "limitation": "Skip if you want a low-curve commander or dislike playing with the top of your library revealed.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 2,
       "proposed_public_rationale": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -741,7 +870,13 @@
         "Spell Copy",
         "Topdeck"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ur_f787c6cf",
@@ -771,7 +906,7 @@
         "exact_text": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous."
       },
       "limitation": "Can drift into high-power combo if tuned aggressively. Skip if your group dislikes storm turns, long sequencing, or commanders that snowball from cost reduction.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 5,
       "proposed_public_rationale": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -780,7 +915,13 @@
         "Spellslinger",
         "Combo"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ur_899d58dc",
@@ -836,7 +977,7 @@
         "exact_text": "This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion."
       },
       "limitation": "Skip if you need modern efficiency or want the strongest Niv-Mizzet Commander option.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 6,
       "proposed_public_rationale": "This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -845,7 +986,13 @@
         "Card Draw",
         "Ping Damage"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_bg_87e65e36",
@@ -889,7 +1036,7 @@
         "exact_text": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage."
       },
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Golgari semantic proof. You don't like 'glass cannon' combos or graveyard hate.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -897,7 +1044,13 @@
         "Sacrifice",
         "Graveyard Matters"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_ug_311e9368",
@@ -934,7 +1087,7 @@
         "exact_text": "Zegana has source-backed Simic leadership context, while her size-to-cards gameplay is auxiliary Commander texture for improvement and knowledge rather than independent lore proof."
       },
       "limitation": "Skip if you want a low-curve commander or a deck that does not rely on having another large creature first.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Prime Speaker Zegana appears because the certified Simic record identifies her as the former Prime Speaker associated with Utopian incremental change.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
@@ -943,7 +1096,13 @@
         "Card Draw",
         "Counters"
       ],
-      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference."
+      "rationale_support_note": "The draft narrows the internal Commander guidance to the direct native figure relationship stated by the cited substantive claim. It deliberately makes no gameplay, player-motivation, or personality inference.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wr_0f5a3a09",
@@ -980,7 +1139,7 @@
         "exact_text": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force."
       },
       "limitation": "Discovery-only story-corpus claims removed from this support chain during Gate 3. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You prefer a slow, reactive deck or don't enjoy the combat phase.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -988,7 +1147,13 @@
         "Extra Combats",
         "Aggro"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wr_ae6f21a2",
@@ -1019,7 +1184,7 @@
         "exact_text": "A low-cost commander that protects your team from damage and encourages offensive growth."
       },
       "limitation": "Tajic is retained only as auxiliary Commander/card support, not as authoritative key-figure proof. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You are playing against decks with lots of targeted 'destroy' effects rather than 'damage' effects.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
       "proposed_public_rationale": "A low-cost commander that protects your team from damage and encourages offensive growth.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -1028,7 +1193,13 @@
         "Protection",
         "Mentor"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_wr_aa219936",
@@ -1063,7 +1234,7 @@
         "exact_text": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value."
       },
       "limitation": "Feather is retained only through bounded leadership-transition support; story-corpus claims removed. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You dislike tracking many triggers per turn.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 4,
       "proposed_public_rationale": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -1071,7 +1242,13 @@
         "Spellslinger",
         "Voltron"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_lorehold_61a41cf1",
@@ -1116,7 +1293,7 @@
         "exact_text": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand."
       },
       "limitation": "Requires specific top-deck manipulation (Scroll Rack, Sensei's Divining Top) to maximize Miracle. Your deck is primarily permanent-based (artifacts/creatures) rather than instants and sorceries.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -1125,7 +1302,13 @@
         "Spellslinger",
         "Card Draw"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_lorehold_5c40a8d4",
@@ -1186,15 +1369,21 @@
         "exact_text": "Represent's the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research."
       },
       "limitation": "Commander eligibility comes from explicit Oracle text, not from the planeswalker type line alone. You are building a high-power non-creature storm deck.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 2,
-      "proposed_public_rationale": "Represent's the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research.",
+      "proposed_public_rationale": "Represents the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Spirit Tribal",
         "Recursion"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_lorehold_43832745",
@@ -1239,7 +1428,7 @@
         "exact_text": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity."
       },
       "limitation": "You want a lower mana-value commander; 7 mana is a steep investment in Boros.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
       "proposed_public_rationale": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -1247,7 +1436,13 @@
         "Spellslinger",
         "Attack Triggers"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     },
     {
       "relationship_id": "cardrel_bant_c6e17443",
@@ -1285,7 +1480,7 @@
         "exact_text": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole."
       },
       "limitation": "Card data and deck guidance require live verification before runtime Commander Compass use. The player wants broad go-wide tokens, prison control, or ramp with no champion frame.",
-      "review_status": "REVIEW_REQUIRED",
+      "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
       "proposed_public_rationale": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
@@ -1294,7 +1489,118 @@
         "Voltron",
         "Single Champion"
       ],
-      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge."
+      "rationale_support_note": "The preserved Commander guidance sentence is the direct relationship assertion. Certified claim IDs establish the identity-side boundary; the committed Scryfall index establishes only the named card facts. Owner review must confirm that the sentence does not overstate that bridge.",
+      "owner_approval": {
+        "decision": "APPROVE",
+        "approved_by": "Vox Mana owner",
+        "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
+        "applied_on": "2026-08-12"
+      }
     }
-  ]
+  ],
+  "coverage_policy": {
+    "full": "Approved examples provide genuinely useful coverage and no meaningful unresolved card-rationale coverage defect is adjudicated; no minimum card count.",
+    "partial": "At least one useful approved example exists, but a meaningful unresolved card-rationale coverage defect remains adjudicated.",
+    "gap": "No APPROVED_PUBLIC card-rationale example exists.",
+    "display_maximum": 3,
+    "display_minimum": 0
+  },
+  "coverage_adjudication": {
+    "WU": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_wu_c46718dc", "cardrel_wu_1f8d4d5f"],
+      "usefulness_finding": "Two native Azorius examples give the section distinct, player-useful leadership and rules/tax reference points rather than a color-only list.",
+      "remaining_candidate_finding": "Kwain is a non-native analogy and Lavinia lacks complete current provenance; neither is necessary to make the approved section useful.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "UB": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_ub_8027a610"],
+      "usefulness_finding": "Lazav is a direct House Dimir guildmaster anchor with a bounded, identity-specific reason, so the section is useful with one card.",
+      "remaining_candidate_finding": "Etrata's unresolved reviewer-language/source problem concerns an optional second example, not a missing foundation for the section.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "BR": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_br_143a269a", "cardrel_br_03a4b997"],
+      "usefulness_finding": "The two native Rakdos cards provide complementary grounded examples of life-loss-enabled spectacle and deliberate high variance.",
+      "remaining_candidate_finding": "The remaining rows are incomplete-provenance or non-native/generic alternatives; they do not identify a missing public coverage need.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "RG": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_rg_b7505737", "cardrel_rg_ebf3fd80", "cardrel_rg_6ed13a89"],
+      "usefulness_finding": "Three native Gruul examples cover a clan leader, creature-only mana commitment, and pressure against noncreature plans without relying on generic Gruul colors.",
+      "remaining_candidate_finding": "Hallar's missing provenance is an optional alternative and does not leave the approved examples materially incomplete.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "WG": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_wg_e94ef397"],
+      "usefulness_finding": "Trostani is a direct Selesnya leadership and speaker anchor, providing a clear identity-specific reason for inclusion.",
+      "remaining_candidate_finding": "The other candidates are unapproved alternates with source-method or non-native limitations; their absence does not make Trostani's example unusable.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "WB": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_wb_644eeefd", "cardrel_wb_8191342b", "cardrel_wb_647d7988", "cardrel_wb_6c3df703"],
+      "usefulness_finding": "Four native Orzhov anchors cover death triggers, sacrifice/exile transactions, lifegain converted to removal, and the old Ghost Council power structure; stable priority limits display to three.",
+      "remaining_candidate_finding": "The remaining Athreos and Elas rows are explicitly non-Ravnica gameplay analogies, so they are not required coverage.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "UR": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_ur_33666a98", "cardrel_ur_095d9719", "cardrel_ur_f787c6cf", "cardrel_ur_899d58dc"],
+      "usefulness_finding": "Four native Izzet anchors give distinct grounded examples through spell exchange/card draw, top-library copying, escalating cost reduction, and repeatable resource conversion; stable priority limits display to three.",
+      "remaining_candidate_finding": "Ovika and Vadrik are non-Izzet/non-Ravnica gameplay alternatives, not missing native coverage.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "BG": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_bg_87e65e36"],
+      "usefulness_finding": "Jarad is a direct Golgari leader whose approved card rationale connects graveyard scale and creature conversion in one bounded example.",
+      "remaining_candidate_finding": "The Gitrog Monster and Meren are generic or non-Golgari alternatives, so their unresolved bridges do not leave a meaningful native-example defect.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "UG": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_ug_311e9368"],
+      "usefulness_finding": "Prime Speaker Zegana is a direct former Simic leader tied to the certified incremental-change record, making one example useful without a quota.",
+      "remaining_candidate_finding": "The remaining Simic candidates need cleaner public/source bridges or are generic UG fits; they add breadth but do not expose a missing foundational example.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "WR": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_wr_0f5a3a09", "cardrel_wr_ae6f21a2", "cardrel_wr_aa219936"],
+      "usefulness_finding": "Three native Boros figures provide useful, distinct examples of military combat pressure, team protection, and recurring targeted-spell value.",
+      "remaining_candidate_finding": "Osgir is a Lorehold-branded cross-faction stretch and is not necessary Boros coverage.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "LOREHOLD": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_lorehold_61a41cf1", "cardrel_lorehold_5c40a8d4", "cardrel_lorehold_43832745"],
+      "usefulness_finding": "The approved founder, protagonist, and college-embodiment examples provide three distinct, direct Lorehold reference points.",
+      "remaining_candidate_finding": "The adjudication inventory identifies no additional unresolved Lorehold card-rationale candidate or meaningful coverage defect.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    },
+    "BANT": {
+      "classification": "Full",
+      "meaningful_unresolved_defect": false,
+      "approved_relationship_ids": ["cardrel_bant_c6e17443"],
+      "usefulness_finding": "Rafiq is the certified clearest Bant champion expression and gives the section one specific, player-useful combat example.",
+      "remaining_candidate_finding": "All remaining Bant candidates resolve only to support records rather than substantive certified claims, so they are not required to make the Rafiq section useful.",
+      "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#coverage-adjudication"
+    }
+  }
 }
