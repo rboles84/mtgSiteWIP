@@ -18,7 +18,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -30,23 +30,15 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.terms"
         },
         {
-          "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.combat"
-        },
-        {
           "question_id": "b1.hall.setup.v1",
           "answer_id": "b1.hall.setup.v1.change"
-        },
-        {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.act"
         }
       ],
       "supporting_constructs": [
@@ -55,11 +47,11 @@
         "C13"
       ],
       "strongest_competitors": [
-        "JUND",
-        "RG",
-        "R",
         "TEMUR",
-        "W"
+        "W",
+        "WG",
+        "GLINT",
+        "JESKAI"
       ],
       "major_confusion_pairs": [
         "ABZAN__MARDU",
@@ -76,8 +68,8 @@
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
-      "main_journey_evidence": 8,
+      "minimum_evidence_needed": 6,
+      "main_journey_evidence": 6,
       "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.gate.disruption.v1",
@@ -226,19 +218,23 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.balance"
+          "answer_id": "b1.gate.initiative.v1.advance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.protect"
+          "answer_id": "b1.gate.disruption.v1.limit"
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.coordinate"
         },
         {
           "question_id": "b1.hall.commitment.v1",
@@ -246,21 +242,11 @@
         },
         {
           "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
-        },
-        {
-          "question_id": "b1.hall.engine-shape.v1",
-          "answer_id": "b1.hall.engine-shape.v1.purpose"
+          "answer_id": "b1.hall.setup.v1.change"
         },
         {
           "question_id": "b1.crucible.bant.v1",
-          "answer_id": "b1.crucible.bant.v1.refine",
-          "refinement": true
-        },
-        {
-          "question_id": "b1.crucible.dune-ink.v1",
-          "answer_id": "b1.crucible.dune-ink.v1.commons",
-          "refinement": true
+          "answer_id": "b1.crucible.bant.v1.refine"
         }
       ],
       "supporting_constructs": [
@@ -269,11 +255,11 @@
         "C09"
       ],
       "strongest_competitors": [
-        "INK",
         "WG",
-        "ABZAN",
         "WUBRG",
-        "SULTAI"
+        "TEMUR",
+        "MARDU",
+        "WR"
       ],
       "major_confusion_pairs": [
         "BANT__ESPER",
@@ -291,9 +277,9 @@
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
-      "minimum_evidence_needed": 9,
-      "main_journey_evidence": 7,
-      "optional_refinement_evidence": 2,
+      "minimum_evidence_needed": 8,
+      "main_journey_evidence": 8,
+      "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.hall.commitment.v1",
         "b1.hall.setup.v1",
@@ -302,20 +288,34 @@
       ],
       "routing_questions_encountered": [
         "b1.crucible.bant.v1",
+        "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
+        "b1.crucible.disruption-boundary.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.sultai.v1",
+        "b1.crucible.temur.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.wb.v1",
+        "b1.crucible.witch-yore.v1",
+        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
         "b1.gate.visibility.v1",
+        "b1.hall.breadth.v1",
+        "b1.hall.commander-role.v1",
         "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.interaction-window.v1",
         "b1.hall.pressure.v1",
         "b1.hall.sacrifice.v1",
-        "b1.hall.setup.v1"
+        "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
+        "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
       "blocking_reason": null
@@ -552,20 +552,20 @@
         },
         {
           "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.access"
+          "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
           "question_id": "b1.crucible.colorless-wubrg.v1",
           "answer_id": "b1.crucible.colorless-wubrg.v1.constraint"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early",
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.neither",
           "refinement": true
         },
         {
-          "question_id": "b1.crucible.bant.v1",
-          "answer_id": "b1.crucible.bant.v1.neither",
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.neither",
           "refinement": true
         }
       ],
@@ -575,11 +575,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "WG",
-        "BANT",
-        "INK",
         "LOREHOLD",
-        "UR"
+        "SILVERQUILL",
+        "UR",
+        "YORE",
+        "MARDU"
       ],
       "major_confusion_pairs": [
         "COLORLESS__WUBRG"
@@ -1420,7 +1420,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1428,7 +1428,7 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.depends"
+          "answer_id": "b1.gate.disruption.v1.recover"
         },
         {
           "question_id": "b1.gate.tempo.v1",
@@ -1441,14 +1441,6 @@
         {
           "question_id": "b1.hall.sacrifice.v1",
           "answer_id": "b1.hall.sacrifice.v1.convert"
-        },
-        {
-          "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.depends"
-        },
-        {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.convert"
         }
       ],
       "supporting_constructs": [
@@ -1459,9 +1451,9 @@
       "strongest_competitors": [
         "R",
         "RG",
+        "G",
         "B",
-        "WR",
-        "GRIXIS"
+        "JESKAI"
       ],
       "major_confusion_pairs": [
         "BANT__JUND",
@@ -1480,9 +1472,9 @@
       "can_appear_top_3": true,
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
-      "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
-      "main_journey_evidence": 8,
+      "best_internal_rank": 2,
+      "minimum_evidence_needed": 6,
+      "main_journey_evidence": 6,
       "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.gate.initiative.v1",
@@ -2052,15 +2044,15 @@
         },
         {
           "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.combat"
+          "answer_id": "b1.hall.pressure.v1.coordinate"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
         },
         {
           "question_id": "b1.hall.sacrifice.v1",
           "answer_id": "b1.hall.sacrifice.v1.convert"
-        },
-        {
-          "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         },
         {
           "question_id": "b1.crucible.disruption-boundary.v1",
@@ -2074,10 +2066,10 @@
       ],
       "strongest_competitors": [
         "JUND",
-        "RG",
-        "ESPER",
-        "B",
-        "GRIXIS"
+        "MARDU",
+        "WR",
+        "DUNE",
+        "RG"
       ],
       "major_confusion_pairs": [
         "B__R",
@@ -2108,21 +2100,34 @@
         "b1.crucible.mono-multi.v1"
       ],
       "routing_questions_encountered": [
+        "b1.crucible.bant.v1",
+        "b1.crucible.bg.v1",
+        "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.disruption-boundary.v1",
+        "b1.crucible.dune-ink.v1",
         "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
         "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.mono-multi.v1",
+        "b1.crucible.temur.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.witch-yore.v1",
+        "b1.crucible.wr.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
         "b1.gate.visibility.v1",
         "b1.hall.breadth.v1",
         "b1.hall.commitment.v1",
+        "b1.hall.engine-shape.v1",
         "b1.hall.information-to-plan.v1",
         "b1.hall.interaction-window.v1",
         "b1.hall.pressure.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -2136,7 +2141,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -2156,15 +2161,7 @@
         },
         {
           "question_id": "b1.hall.sacrifice.v1",
-          "answer_id": "b1.hall.sacrifice.v1.convert"
-        },
-        {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.staged"
-        },
-        {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
+          "answer_id": "b1.hall.sacrifice.v1.preserve"
         }
       ],
       "supporting_constructs": [
@@ -2174,10 +2171,10 @@
       ],
       "strongest_competitors": [
         "JUND",
-        "G",
         "R",
-        "BG",
-        "WITHERBLOOM"
+        "G",
+        "JESKAI",
+        "WR"
       ],
       "major_confusion_pairs": [
         "B__RG",
@@ -2189,11 +2186,11 @@
       "can_become_primary": true,
       "can_appear_top_2": true,
       "can_appear_top_3": true,
-      "can_appear_internal_top_2": true,
+      "can_appear_internal_top_2": false,
       "can_appear_internal_top_3": true,
-      "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
-      "main_journey_evidence": 8,
+      "best_internal_rank": 3,
+      "minimum_evidence_needed": 6,
+      "main_journey_evidence": 6,
       "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.gate.initiative.v1",
@@ -2370,7 +2367,7 @@
         },
         {
           "question_id": "b1.crucible.colorless-wubrg.v1",
-          "answer_id": "b1.crucible.colorless-wubrg.v1.breadth",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.neither",
           "refinement": true
         }
       ],
@@ -2380,11 +2377,11 @@
         "C14"
       ],
       "strongest_competitors": [
-        "WUBRG",
         "JUND",
         "RG",
-        "UR",
-        "R"
+        "COLORLESS",
+        "R",
+        "UR"
       ],
       "major_confusion_pairs": [
         "ABZAN__SULTAI",
@@ -2979,19 +2976,11 @@
         },
         {
           "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.combat"
+          "answer_id": "b1.hall.pressure.v1.engine"
         },
         {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.procedure"
-        },
-        {
-          "question_id": "b1.hall.interaction-window.v1",
-          "answer_id": "b1.hall.interaction-window.v1.before"
-        },
-        {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.act"
         }
       ],
       "supporting_constructs": [
@@ -3000,11 +2989,11 @@
         "C07"
       ],
       "strongest_competitors": [
-        "R",
-        "JUND",
-        "RG",
         "WU",
-        "ABZAN"
+        "ABZAN",
+        "JUND",
+        "R",
+        "RG"
       ],
       "major_confusion_pairs": [
         "B__W",
@@ -3026,8 +3015,8 @@
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
-      "main_journey_evidence": 8,
+      "minimum_evidence_needed": 6,
+      "main_journey_evidence": 6,
       "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.gate.disruption.v1",
@@ -3579,7 +3568,7 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -3587,27 +3576,23 @@
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.protect"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.before"
+        },
+        {
           "question_id": "b1.hall.commitment.v1",
           "answer_id": "b1.hall.commitment.v1.procedure"
         },
         {
-          "question_id": "b1.hall.interaction-window.v1",
-          "answer_id": "b1.hall.interaction-window.v1.split"
-        },
-        {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.open"
-        },
-        {
-          "question_id": "b1.crucible.jeskai.v1",
-          "answer_id": "b1.crucible.jeskai.v1.commit"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         }
       ],
       "supporting_constructs": [
@@ -3618,10 +3603,10 @@
       ],
       "strongest_competitors": [
         "W",
+        "ESPER",
+        "JESKAI",
         "U",
-        "ABZAN",
-        "WG",
-        "UB"
+        "MARDU"
       ],
       "major_confusion_pairs": [
         "BR__WU",
@@ -3635,9 +3620,9 @@
       "can_appear_top_3": true,
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
-      "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
-      "main_journey_evidence": 8,
+      "best_internal_rank": 2,
+      "minimum_evidence_needed": 7,
+      "main_journey_evidence": 7,
       "optional_refinement_evidence": 0,
       "discriminating_questions": [
         "b1.hall.commitment.v1",
@@ -3679,23 +3664,19 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.unsure"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.board"
+          "answer_id": "b1.gate.visibility.v1.depends"
         },
         {
           "question_id": "b1.gate.disruption.v1",
-          "answer_id": "b1.gate.disruption.v1.protect"
+          "answer_id": "b1.gate.disruption.v1.depends"
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.burst"
-        },
-        {
-          "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.combat"
+          "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
           "question_id": "b1.hall.commitment.v1",
@@ -3703,11 +3684,20 @@
         },
         {
           "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.early"
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.replace"
         },
         {
           "question_id": "b1.crucible.colorless-wubrg.v1",
           "answer_id": "b1.crucible.colorless-wubrg.v1.breadth"
+        },
+        {
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.neither",
+          "refinement": true
         }
       ],
       "supporting_constructs": [
@@ -3716,11 +3706,11 @@
         "C10"
       ],
       "strongest_competitors": [
-        "JUND",
-        "RG",
-        "R",
         "WG",
-        "BANT"
+        "BANT",
+        "LOREHOLD",
+        "TEMUR",
+        "YORE"
       ],
       "major_confusion_pairs": [
         "COLORLESS__WUBRG",
@@ -3740,9 +3730,9 @@
       "can_appear_internal_top_2": true,
       "can_appear_internal_top_3": true,
       "best_internal_rank": 1,
-      "minimum_evidence_needed": 8,
+      "minimum_evidence_needed": 9,
       "main_journey_evidence": 8,
-      "optional_refinement_evidence": 0,
+      "optional_refinement_evidence": 1,
       "discriminating_questions": [
         "b1.hall.engine-shape.v1",
         "b1.hall.commitment.v1",
@@ -3755,18 +3745,29 @@
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.disruption-boundary.v1",
         "b1.crucible.dune-ink.v1",
+        "b1.crucible.esper.v1",
+        "b1.crucible.glint-dune.v1",
+        "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.temur.v1",
+        "b1.crucible.ug.v1",
+        "b1.crucible.ur.v1",
+        "b1.crucible.witch-yore.v1",
         "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",
         "b1.gate.visibility.v1",
+        "b1.hall.commander-role.v1",
         "b1.hall.commitment.v1",
         "b1.hall.engine-shape.v1",
+        "b1.hall.information-to-plan.v1",
         "b1.hall.interaction-window.v1",
         "b1.hall.pressure.v1",
         "b1.hall.sacrifice.v1",
         "b1.hall.setup.v1",
+        "b1.hall.theme.v1",
         "b1.hall.threat.v1"
       ],
       "unresolved_authority_gaps": [],
@@ -3780,11 +3781,11 @@
       "strongest_approved_evidence_path": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
-          "answer_id": "b1.gate.visibility.v1.depends"
+          "answer_id": "b1.gate.visibility.v1.board"
         },
         {
           "question_id": "b1.gate.disruption.v1",
@@ -3795,24 +3796,24 @@
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.engine"
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
         },
         {
-          "question_id": "b1.hall.sacrifice.v1",
-          "answer_id": "b1.hall.sacrifice.v1.convert"
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
         },
         {
           "question_id": "b1.hall.engine-shape.v1",
-          "answer_id": "b1.hall.engine-shape.v1.replace"
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
         },
         {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.preserve"
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
         },
         {
-          "question_id": "b1.crucible.wr.v1",
-          "answer_id": "b1.crucible.wr.v1.recover",
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange",
           "refinement": true
         },
         {
@@ -3827,11 +3828,11 @@
         "C12"
       ],
       "strongest_competitors": [
-        "LOREHOLD",
-        "JUND",
-        "RG",
-        "COLORLESS",
-        "R"
+        "UB",
+        "GRIXIS",
+        "WITHERBLOOM",
+        "JESKAI",
+        "B"
       ],
       "major_confusion_pairs": [
         "ABZAN__YORE",
@@ -3867,12 +3868,17 @@
         "b1.crucible.bg.v1",
         "b1.crucible.colorless-wubrg.v1",
         "b1.crucible.disruption-boundary.v1",
+        "b1.crucible.dune-ink.v1",
+        "b1.crucible.esper.v1",
         "b1.crucible.glint-dune.v1",
         "b1.crucible.grixis.v1",
+        "b1.crucible.jeskai.v1",
         "b1.crucible.temur.v1",
+        "b1.crucible.ug.v1",
         "b1.crucible.ur.v1",
         "b1.crucible.witch-yore.v1",
         "b1.crucible.wr.v1",
+        "b1.crucible.yore-glint.v1",
         "b1.gate.disruption.v1",
         "b1.gate.initiative.v1",
         "b1.gate.tempo.v1",

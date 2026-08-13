@@ -165,7 +165,7 @@ function syntheticJourney(identityId, variant, seed, competitorId = null) {
   return { state, selections, result: finalizeReading({ state, model: MODEL, factions: FACTIONS }) };
 }
 
-function beamSearchIdentity(identityId) {
+function beamSearchIdentity(identityId, { beamWidth = BEAM_WIDTH, refinementBeamWidth = REFINEMENT_BEAM_WIDTH } = {}) {
   const cleanSyntheticSeed = syntheticJourney(identityId, "clean", 1);
   let nodes = [{ state: createInitialState(MODEL), selections: [] }];
   const terminal = [];
@@ -194,7 +194,7 @@ function beamSearchIdentity(identityId) {
     for (const node of expanded.sort((a, b) => b.heuristic - a.heuristic || JSON.stringify(a.selections).localeCompare(JSON.stringify(b.selections)))) {
       const key = node.selections.map((selection) => selection.answer_id).join("|");
       if (!deduped.has(key)) deduped.set(key, node);
-      if (deduped.size >= BEAM_WIDTH) break;
+      if (deduped.size >= beamWidth) break;
     }
     nodes = [...deduped.values()];
   }
@@ -204,13 +204,13 @@ function beamSearchIdentity(identityId) {
   cleanSyntheticSeed.selections.forEach((selection) => encounteredQuestions.add(selection.question_id));
   const strongestSeeds = [...terminal]
     .sort((left, right) => choiceScore(right.state, identityId) - choiceScore(left.state, identityId) || JSON.stringify(left.selections).localeCompare(JSON.stringify(right.selections)))
-    .slice(0, REFINEMENT_BEAM_WIDTH - 1);
+    .slice(0, refinementBeamWidth - 1);
   const seedMap = new Map([
     [cleanSyntheticSeed.selections.map((selection) => selection.answer_id).join("|"), { state: cleanSyntheticSeed.state, selections: cleanSyntheticSeed.selections }],
     ...strongestSeeds.map((node) => [node.selections.map((selection) => selection.answer_id).join("|"), node]),
   ]);
   const refinementSeeds = [...seedMap.values()]
-    .slice(0, REFINEMENT_BEAM_WIDTH)
+    .slice(0, refinementBeamWidth)
     .map((node) => ({ ...node, refinement_count: 0 }));
   const refinementNodes = [...terminal];
   let refinementFrontier = refinementSeeds;
@@ -238,7 +238,7 @@ function beamSearchIdentity(identityId) {
     for (const node of expanded.sort((a, b) => b.heuristic - a.heuristic || JSON.stringify(a.selections).localeCompare(JSON.stringify(b.selections)))) {
       const key = node.selections.map((selection) => selection.answer_id).join("|");
       if (!deduped.has(key)) deduped.set(key, node);
-      if (deduped.size >= REFINEMENT_BEAM_WIDTH) break;
+      if (deduped.size >= refinementBeamWidth) break;
     }
     refinementFrontier = [...deduped.values()];
     refinementNodes.push(...refinementFrontier);
@@ -248,7 +248,7 @@ function beamSearchIdentity(identityId) {
     const rank = ranking.findIndex((candidate) => candidate.identity === identityId) + 1;
     const result = finalizeReading({ state: node.state, model: MODEL, factions: FACTIONS });
     const target = ranking[rank - 1];
-    const publicPrimary = result.faction === identityId && ["primary", "close", "tied", "mixed"].includes(result.result_state);
+    const publicPrimary = result.faction === identityId && ["primary", "close", "tied"].includes(result.result_state);
     const publicNamed = ["primary", "close", "tied", "mixed"].includes(result.result_state)
       ? result.top_matches.map((match) => match.faction)
       : [];
@@ -651,7 +651,10 @@ function reachabilityReport() {
   const rows = [];
   const searchCache = new Map();
   for (const identity of MODEL.identities) {
-    const search = beamSearchIdentity(identity.id);
+    const requiresNamedEndpointSearch = ["BANT", "R", "WUBRG", "YORE"].includes(identity.id);
+    const search = beamSearchIdentity(identity.id, requiresNamedEndpointSearch
+      ? { beamWidth: 3000, refinementBeamWidth: 200 }
+      : undefined);
     searchCache.set(identity.id, search);
     const best = search.best;
     const internalOrder = best.ranking.map((candidate) => candidate.identity);
