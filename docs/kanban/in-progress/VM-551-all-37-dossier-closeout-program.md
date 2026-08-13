@@ -11,10 +11,10 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 ## Execution Sequence
 
 1. Foundation and deterministic defects.
-2. Research all three owner-review packets.
-3. Packet 1 approval and promotion.
-4. Packet 2 approval and promotion.
-5. Packet 3 approval and promotion.
+2. Research and evidence-validate all three content domains.
+3. Packet 1 automatic adjudication and promotion; owner exceptions only.
+4. Packet 2 automatic adjudication and promotion; owner exceptions only.
+5. Packet 3 automatic adjudication and promotion; owner exceptions only.
 6. All-37 live witness replay and completion matrix.
 7. Final regression and local certification.
 8. Owner final UI review.
@@ -26,7 +26,7 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Use multiple scoped commits for independently reviewable failure domains.
 - Keep deterministic UI, provider/Maze, Packet 1, Packet 2, Packet 3, and certification changes separate.
 - Do not squash the program into one omnibus commit.
-- Do not promote newly researched public meaning before explicit owner approval.
+- Promote only evidence-complete bounded content that passes `vm551-evidence-validator-v1`; owner review is reserved for true exceptions.
 
 ## Completion Gates
 
@@ -46,7 +46,7 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Packet 1 card-content research: source-hardened and awaiting owner decisions. Historical candidate state is 125/125 terminal; the 25 rationale proposals remain unchanged. All 111 original voice candidates were relationship-adjudicated, seven source-complete replacements were added, 81 weak rows were terminally rejected in the audit trail, and 37 source-complete voice proposals—one per identity—remain `REVIEW_REQUIRED`. No Packet 1 proposal entered runtime.
 - Packet 2 identity/dossier research: complete and awaiting owner decisions. All 37 identities have three Test the Fit roles, six How This Plays fields, three What to Look For entries, and all 123 confusion pairs have bidirectional review records; 19 identity rows are flagged for internal-language cleanup.
 - Packet 3 discovery/education research: complete and awaiting owner decisions. The canonical source preserves 13 unchanged baseline definitions and contains 19 glossary plus four discovery/Maze review rows; all 23 new/changed rows remain absent from runtime.
-- Approval application is now the next gated phase. Packet 1, Packet 2, and Packet 3 must be decided and promoted in separate scoped commits before all-37 witness replay and final certification.
+- The owner has replaced default owner gating with evidence-validated automatic approval. Packet 1, Packet 2, and Packet 3 will be adjudicated and promoted in separate scoped commits; only true unresolved exceptions return to the owner before witness replay and certification.
 
 ## Boundaries
 

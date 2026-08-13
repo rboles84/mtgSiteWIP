@@ -65,7 +65,7 @@
         "provenance",
         "limitation",
         "replaces",
-        "owner_decision"
+        "approval_basis"
       ],
       "additionalProperties": false,
       "properties": {
@@ -78,6 +78,19 @@
         "subject": { "type": "object" },
         "disposition": {
           "enum": ["EVIDENCE_NEEDED", "REVIEW_REQUIRED", "APPROVED_PUBLIC", "REJECTED", "NOT_APPLICABLE"]
+        },
+        "approval_basis": {
+          "enum": ["EVIDENCE_VALIDATED_AUTOMATIC", "OWNER_EXCEPTION", "PREVIOUS_OWNER_APPROVAL", "BASELINE_MIGRATION", "NOT_APPLICABLE"]
+        },
+        "validation": {
+          "type": "object",
+          "required": ["validator_version", "passed", "failures"],
+          "additionalProperties": true,
+          "properties": {
+            "validator_version": { "type": "string", "minLength": 1 },
+            "passed": { "type": "boolean" },
+            "failures": { "type": "array", "items": { "type": "string" } }
+          }
         },
         "proposed_public_copy": {
           "oneOf": [
@@ -103,6 +116,19 @@
         },
         "owner_decision": { "$ref": "#/$defs/decision" }
       },
+      "allOf": [
+        {
+          "if": { "properties": { "approval_basis": { "const": "EVIDENCE_VALIDATED_AUTOMATIC" } } },
+          "then": {
+            "required": ["validation"],
+            "properties": { "validation": { "properties": { "passed": { "const": true } } } }
+          }
+        },
+        {
+          "if": { "properties": { "approval_basis": { "const": "OWNER_EXCEPTION" } } },
+          "then": { "required": ["owner_decision"] }
+        }
+      ],
       "anyOf": [
         { "required": ["identity_key"] },
         { "required": ["pair_key"] },

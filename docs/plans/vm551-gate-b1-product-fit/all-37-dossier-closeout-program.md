@@ -9,7 +9,9 @@
 
 ## Public Content Rule
 
-Newly researched or substantively changed player-facing meaning remains `REVIEW_REQUIRED` until explicit owner approval. Deterministic composition may reuse an already approved claim by stable ID. Generated public catalogs consume only `APPROVED_PUBLIC` records and fail when required approved content is absent.
+Owner review is an exception gate. Evidence-complete bounded content may become `APPROVED_PUBLIC` through `EVIDENCE_VALIDATED_AUTOMATIC` when the shared validator proves certified identity authority, canonical or official factual authority, an explicit relationship bridge, false-positive and neighbor controls, and no unresolved conflict, extrapolation, generated fallback, new identity meaning, or placement change. Human approval is recorded only for a true exception.
+
+Generated public catalogs consume only `APPROVED_PUBLIC` records and fail when required approved content is absent. See [Evidence-Validated Automatic Approval](evidence-validated-automatic-approval.md).
 
 ## Approval Packets
 
@@ -17,15 +19,14 @@ Newly researched or substantively changed player-facing meaning remains `REVIEW_
 2. Test the Fit, How This Plays, comparisons, and What to Look For.
 3. Glossary, Start Here education, provider/discovery labels, and Maze-facing explanatory copy.
 
-Each packet records provenance, proposed copy, replaced copy, limitation, and an owner `APPROVE`, `REVISE`, or `REJECT` field. Approval gates block promotion of new public meaning, not independent deterministic implementation.
+Each packet records provenance, public copy, replaced copy, limitation, automatic validation, approval basis, and any true owner exception. Normal evidence-complete records do not wait for row-by-row owner decisions.
 
 ### Current milestone
 
 - Packet 1 rationale research remains complete at 125/125 terminal historical adjudications and 25 unchanged rationale review proposals. Voice hardening adjudicated all 111 original candidates, added seven source-complete replacements, retained 37 owner-review proposals covering all identities, and terminally rejected 81 weak rows in the audit trail.
-- Packet 1 remains owner-gated; zero new records have entered runtime.
-- Packet 2 research is complete at 37 identity records and 123 pair-specific comparison records; all remain owner-gated and absent from runtime.
-- Packet 3 research is complete at 13 unchanged baseline glossary migrations plus 19 glossary and four discovery/Maze review rows; all 23 review rows remain owner-gated and absent from runtime.
-- All three approval packets now await owner decisions. Public promotion and the all-37 witness/certification sequence remain blocked until the relevant packet decisions are applied in separate scoped commits.
+- Packet 1, Packet 2, and Packet 3 now enter evidence-validator adjudication and automatic promotion in separate scoped commits.
+- Only true exceptions may remain for owner decision; the target is zero exception rows.
+- All-37 witness replay and certification follow runtime promotion and deterministic defect completion.
 
 ## Final State
 
