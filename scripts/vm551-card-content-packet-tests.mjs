@@ -16,6 +16,7 @@ const [packet, adjudication, catalog, relationships, snippets, commanderIndex, f
   readJson("data/scryfall/indexes/card-flavor-index.json"),
   readJson("data/factions.json"),
 ]);
+const ownerView = await readFile(path.join(root, "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md"), "utf8");
 
 assert.equal(packet.schema_version, "vm551-card-content-approval-packet-v1");
 assert.equal(packet.status, "OWNER_REVIEW_REQUIRED");
@@ -38,7 +39,24 @@ assert.equal(voices.length, 111);
 assert.equal(new Set(voices.map((row) => row.identity_key)).size, 37);
 for (const identity of identities) {
   assert.equal(voices.filter((row) => row.identity_key === identity).length, 3, `${identity} must have exactly three voice review candidates`);
+  assert(ownerView.includes(`(\`${identity}\`)`), `${identity} owner section is missing`);
 }
+
+for (const expected of [
+  "Historical rationale candidates: **125**",
+  "Terminal historical dispositions: **125**",
+  "Existing `APPROVED_PUBLIC` retained: **26**",
+  "New rationale proposals requiring owner review: **25**",
+  "Identities represented by new rationale proposals: **25/25 former gaps**",
+  "Voice proposals requiring owner review: **111**",
+  "Voice coverage: **37/37 identities**",
+  "Runtime promotions from this packet before approval: **0**",
+]) assert(ownerView.includes(expected), `owner summary is missing: ${expected}`);
+
+assert.equal((ownerView.match(/^### Voice candidate [123]:/gm) || []).length, 111);
+assert.equal((ownerView.match(/^### Owner decision$/gm) || []).length, 37);
+assert.equal((ownerView.match(/^### Existing approved rationale\(s\)$/gm) || []).length, 37);
+assert.equal((ownerView.match(/^### Other candidates considered and terminal disposition$/gm) || []).length, 37);
 
 const canonicalCards = new Map([
   ...(flavorIndex.cards || []),
@@ -85,4 +103,6 @@ console.log(JSON.stringify({
   voice_review_rows: voices.length,
   runtime_approved_rows: catalog.records.length,
   review_rows_in_runtime: 0,
+  owner_view_identity_sections: 37,
+  owner_view_voice_sections: 111,
 }, null, 2));

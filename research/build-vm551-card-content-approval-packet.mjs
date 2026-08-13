@@ -16,10 +16,11 @@ const digest = (value) => createHash("sha256").update(String(value)).digest("hex
 const modeCheck = process.argv.includes("--check");
 
 const audit = await auditCandidates();
-const [relationshipSource, snippets, cardFlavorIndex] = await Promise.all([
+const [relationshipSource, snippets, cardFlavorIndex, factions] = await Promise.all([
   readJson("data/dossier/card-rationale-relationships.source.json"),
   readJson("data/archscry-flavor-snippets.json"),
   readJson("data/scryfall/indexes/card-flavor-index.json"),
+  readJson("data/factions.json"),
 ]);
 
 const approvedPairs = new Map(relationshipSource.records.map((record) => [
@@ -333,10 +334,152 @@ const tsv = [tsvHeaders.join("\t"), ...packet.proposals.map((record) => tsvHeade
   tsvCell(header === "provenance" ? JSON.stringify(record.provenance) : record[header])
 ).join("\t"))].join("\n") + "\n";
 
+const markdownText = (value) => String(value ?? "").replace(/\r?\n/g, " ").replace(/\|/g, "\\|").trim();
+const approvedByIdentity = new Map(Object.keys(factions.factions).map((identityKey) => [
+  identityKey,
+  relationshipSource.records.filter((record) => record.identity_key === identityKey && record.review_status === "APPROVED_PUBLIC"),
+]));
+const rationaleByIdentity = new Map(rationaleProposals.map((record) => [record.identity_key, record]));
+const voicesByIdentity = new Map(Object.keys(factions.factions).map((identityKey) => [
+  identityKey,
+  voiceProposals.filter((record) => record.identity_key === identityKey),
+]));
+const historicalByIdentity = new Map(Object.keys(factions.factions).map((identityKey) => [
+  identityKey,
+  candidateAdjudications.filter((record) => record.identity_key === identityKey),
+]));
+const cardByOracleId = new Map([
+  ...(audit.commanderIndex.commanders || []),
+  ...(cardFlavorIndex.cards || []),
+].map((card) => [card.oracle_id, card]));
+
+const ownerReviewSections = Object.keys(factions.factions)
+  .sort((left, right) => factions.factions[left].name.localeCompare(factions.factions[right].name))
+  .map((identityKey) => {
+    const identity = factions.factions[identityKey];
+    const existing = approvedByIdentity.get(identityKey) || [];
+    const rationale = rationaleByIdentity.get(identityKey) || null;
+    const voices = voicesByIdentity.get(identityKey) || [];
+    const selectedCardIds = new Set([
+      ...existing.map((record) => record.canonical_card_id),
+      rationale?.canonical_card_id,
+    ].filter(Boolean));
+    const alternates = (historicalByIdentity.get(identityKey) || []).filter((record) => !selectedCardIds.has(record.canonical_card_id));
+
+    const existingLines = existing.length
+      ? existing.map((record) => `- **${markdownText(record.canonical_card_name)}** (\`${record.relationship_id}\`): ${markdownText(record.proposed_public_rationale)}`).join("\n")
+      : "- None. This identity was one of the 25 former public rationale gaps.";
+    const newProposal = rationale
+      ? `- **${markdownText(rationale.canonical_card_name)}** (\`${rationale.proposal_id}\`, Oracle ID \`${rationale.canonical_card_id}\`)`
+      : "- None required; Packet 1 retains existing approved relationship authority without reopening it.";
+    const whySelected = rationale
+      ? `- Selected as the smallest source-complete replacement for this former gap: the canonical observation is compared directly with certified claims ${rationale.provenance.certified_identity_claims.map((claim) => `\`${claim.claim_id}\``).join(", ")}. Color, product membership, and mechanic overlap remain excluded as independent proof.`
+      : "- No new candidate was selected. Existing owner-approved relationships already clear the authority chain, and this packet does not manufacture additional content for symmetry.";
+
+    const certifiedLines = rationale
+      ? rationale.provenance.certified_identity_claims.map((claim) => `- \`${claim.claim_id}\`: ${markdownText(claim.statement)}`).join("\n") + `\n- Relationship lead: \`${markdownText(rationale.provenance.relationship_lead)}\``
+      : existing.flatMap((record) => record.certified_identity_claim_ids.map((claimId) => {
+          const claim = claimsByIdentity.get(identityKey)?.byId.get(claimId);
+          return `- \`${claimId}\`${claim?.statement ? `: ${markdownText(claim.statement)}` : ""}`;
+        })).join("\n") || "- No new certified claim is asserted by this packet.";
+
+    const canonicalLines = rationale
+      ? `- ${markdownText(rationale.verified_card_observation)}\n- Locator: \`${markdownText(rationale.provenance.canonical_card_data)}\``
+      : existing.map((record) => {
+          const card = cardByOracleId.get(record.canonical_card_id);
+          return `- **${markdownText(record.canonical_card_name)}**: ${markdownText(card?.oracle_excerpt || "Canonical card record resolves under the approved relationship validator.")}\n  - Locator: \`${markdownText(record.canonical_card_data_locator)}\``;
+        }).join("\n") || "- None.";
+
+    const alternateLines = alternates.length
+      ? alternates.map((record) => `- **${markdownText(record.canonical_card_name || "Unresolved card lead")}** — \`${record.final_research_disposition}\`: ${markdownText(record.disposition_reason)} Source: \`${markdownText(record.source_pool_locator)}\``).join("\n")
+      : "- None beyond the selected or retained card relationship(s).";
+
+    const voiceLines = voices.map((voice, index) => [
+      `### Voice candidate ${index + 1}: ${markdownText(voice.canonical_card_name)}`,
+      "",
+      `- Exact excerpt: “${markdownText(voice.proposed_copy)}”`,
+      `- Proposal: \`${voice.proposal_id}\``,
+      `- Candidate inventory: \`${markdownText(voice.provenance.candidate_inventory)}\``,
+      `- Canonical card source: \`${markdownText(voice.provenance.canonical_card_data)}\``,
+      `- Identity authority: \`${markdownText(voice.provenance.identity_authority)}\``,
+      `- Limitation: ${markdownText(voice.limitations)}`,
+    ].join("\n")).join("\n\n");
+
+    const decisions = [
+      rationale ? `rationale \`${rationale.proposal_id}\`: **APPROVE / REVISE / REJECT**` : "rationale: **RETAINED APPROVED AUTHORITY — no new decision**",
+      ...voices.map((voice) => `voice \`${voice.proposal_id}\`: **APPROVE / REVISE / REJECT**`),
+    ].map((entry) => `- ${entry}`).join("\n");
+
+    return [
+      `## ${markdownText(identity.name)} (\`${identityKey}\`)`,
+      "",
+      "### Existing approved rationale(s)",
+      "",
+      existingLines,
+      "",
+      "### New rationale proposal, if required",
+      "",
+      newProposal,
+      "",
+      "### Why this candidate was selected",
+      "",
+      whySelected,
+      "",
+      "### Certified identity evidence",
+      "",
+      certifiedLines,
+      "",
+      "### Canonical card evidence",
+      "",
+      canonicalLines,
+      "",
+      "### Proposed public rationale",
+      "",
+      rationale ? `- ${markdownText(rationale.proposed_copy)}` : "- No new public rationale; see retained approved rationale(s) above.",
+      "",
+      "### Limitation",
+      "",
+      `- ${markdownText(rationale?.limitations || "Packet 1 does not reopen, strengthen, or add to existing approved public relationships for this identity.")}`,
+      "",
+      "### Other candidates considered and terminal disposition",
+      "",
+      alternateLines,
+      "",
+      voiceLines,
+      "",
+      "### Owner decision",
+      "",
+      decisions,
+    ].join("\n");
+  });
+
+const ownerReviewMarkdown = [
+  "# VM-551 Packet 1 — Card Content Owner Review",
+  "",
+  "Status: **OWNER REVIEW REQUIRED** — no Packet 1 review row is public or runtime-active.",
+  "",
+  "## Summary",
+  "",
+  `- Historical rationale candidates: **${candidateAdjudications.length}**`,
+  `- Terminal historical dispositions: **${candidateAdjudications.filter((row) => !/EVIDENCE_NEEDED|REVIEW_REQUIRED/.test(row.final_research_disposition)).length}**`,
+  `- Existing \`APPROVED_PUBLIC\` retained: **${relationshipSource.records.filter((record) => record.review_status === "APPROVED_PUBLIC").length}**`,
+  `- New rationale proposals requiring owner review: **${rationaleProposals.length}**`,
+  `- Identities represented by new rationale proposals: **${new Set(rationaleProposals.map((record) => record.identity_key)).size}/25 former gaps**`,
+  `- Voice proposals requiring owner review: **${voiceProposals.length}**`,
+  `- Voice coverage: **${new Set(voiceProposals.map((record) => record.identity_key)).size}/37 identities**`,
+  "- Runtime promotions from this packet before approval: **0**",
+  "",
+  "Every decision is bound to the exact proposal ID and copy hash in the canonical source. `REVISE` requires exact replacement content; no generated fallback is authorized.",
+  "",
+  ...ownerReviewSections,
+  "",
+].join("\n");
+
 const outputs = {
   "data/dossier/card-rationale-candidate-adjudication.source.json": `${JSON.stringify(adjudicationEnvelope, null, 2)}\n`,
   "data/dossier/card-content-review-proposals.source.json": `${JSON.stringify(packet, null, 2)}\n`,
   "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-card-content.tsv": tsv,
+  "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md": ownerReviewMarkdown,
 };
 
 if (modeCheck) {

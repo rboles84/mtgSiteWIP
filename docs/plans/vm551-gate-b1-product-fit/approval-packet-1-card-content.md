@@ -58,6 +58,8 @@ Page-level reuse remains disallowed unless a future approved `critical_repeat` r
 
 Use the exact rows in [approval-packet-1-card-content.tsv](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-card-content.tsv).
 
+For a review-oriented presentation, use [Packet 1 — Card Content Owner Review](../../audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md). It contains the complete summary plus one section per identity with retained approvals, any new rationale proposal, selection basis, certified and canonical evidence, limitations, terminal alternate candidates, three exact voice candidates, and explicit `APPROVE / REVISE / REJECT` fields.
+
 For every row, set one decision:
 
 - `APPROVE` — exact copy/relationship may be promoted.
