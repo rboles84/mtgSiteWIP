@@ -39,6 +39,14 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Full engine, frontend, source/generated, browser, accessibility, and Git checks pass.
 - Owner final UI review passes.
 
+## Current Milestones
+
+- Foundation and deterministic interaction/layout repairs: committed.
+- Provider and Maze truthfulness: committed; 155/155 exact provider routes verified and all-37 basic Commander Maze paths parity-checked.
+- Packet 1 card-content research: complete and awaiting owner decisions. Historical candidate state is 125/125 terminal; 25 rationale and 111 exact voice proposals remain `REVIEW_REQUIRED` and absent from runtime.
+- Packet 2 identity/dossier research: next.
+- Packet 3 discovery/education research: pending.
+
 ## Boundaries
 
 Preserve placement scoring, ranking, naming qualification, public result-state semantics, the six-to-eight-question journey, Yore's intentional behavioral boundary, persistence/schema compatibility, Gate A result shapes, Matrix calculations, and certified identity truth. Do not push, merge, deploy, migrate, or begin empirical player validation.

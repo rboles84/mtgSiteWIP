@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/vm551-card-rationale-candidate-adjudication.source.schema.json",
+  "title": "VM-551 card-rationale candidate adjudication authority",
+  "type": "object",
+  "required": ["schema_version", "policy", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-card-rationale-candidate-adjudication-v1" },
+    "policy": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "minItems": 125,
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id", "identity_key", "canonical_card_name", "source_pool_locator",
+          "baseline_disposition", "final_research_disposition", "disposition_reason",
+          "replacement_locator", "owner_decision"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": { "type": "string", "pattern": "^cardcandidate_[a-z0-9_]+$" },
+          "identity_key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+          "canonical_card_name": { "type": "string" },
+          "canonical_card_id": { "type": ["string", "null"] },
+          "source_pool_locator": { "type": "string", "minLength": 1 },
+          "baseline_disposition": { "type": "string", "minLength": 1 },
+          "final_research_disposition": { "enum": ["APPROVED_PUBLIC", "REJECTED", "NOT_APPLICABLE"] },
+          "disposition_reason": { "type": "string", "minLength": 1 },
+          "replacement_locator": { "type": "string", "minLength": 1 },
+          "source_needed": { "type": ["string", "null"] },
+          "owner_decision": { "enum": ["APPROVE", "APPROVE_AFTER_REVISION", "REJECT", "NOT_APPLICABLE"] }
+        }
+      }
+    }
+  }
+}

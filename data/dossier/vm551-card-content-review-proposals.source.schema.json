@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/vm551-card-content-review-proposals.source.schema.json",
+  "title": "VM-551 Packet 1 card-content owner-review proposals",
+  "type": "object",
+  "required": [
+    "schema_version", "status", "authority_chain", "promotion_rule",
+    "candidate_adjudication", "proposals"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-card-content-approval-packet-v1" },
+    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "authority_chain": { "type": "string", "minLength": 1 },
+    "promotion_rule": { "type": "string", "minLength": 1 },
+    "candidate_adjudication": {
+      "type": "object",
+      "required": ["source", "total", "unresolved"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "total": { "const": 125 },
+        "unresolved": { "const": 0 }
+      }
+    },
+    "proposals": {
+      "type": "array",
+      "minItems": 136,
+      "items": {
+        "type": "object",
+        "required": [
+          "proposal_id", "proposal_type", "identity_key", "canonical_card_name",
+          "canonical_card_id", "proposed_copy", "copy_sha256", "provenance",
+          "limitations", "disposition", "owner_decision", "replacement_locator"
+        ],
+        "properties": {
+          "proposal_id": { "type": "string", "pattern": "^packet1_(rationale|voice)_[a-z0-9_]+$" },
+          "proposal_type": { "enum": ["CARD_RATIONALE", "CARD_VOICE"] },
+          "identity_key": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+          "canonical_card_name": { "type": "string", "minLength": 1 },
+          "canonical_card_id": { "type": "string", "minLength": 1 },
+          "proposed_copy": { "type": "string", "minLength": 1 },
+          "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "verified_card_observation": { "type": "string", "minLength": 1 },
+          "provenance": { "type": "object" },
+          "limitations": { "type": "string", "minLength": 1 },
+          "disposition": { "const": "REVIEW_REQUIRED" },
+          "owner_decision": { "type": "null" },
+          "replacement_locator": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": { "properties": { "proposal_type": { "const": "CARD_RATIONALE" } } },
+            "then": { "required": ["verified_card_observation"] }
+          }
+        ]
+      }
+    }
+  }
+}

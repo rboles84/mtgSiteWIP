@@ -19,6 +19,12 @@ Newly researched or substantively changed player-facing meaning remains `REVIEW_
 
 Each packet records provenance, proposed copy, replaced copy, limitation, and an owner `APPROVE`, `REVISE`, or `REJECT` field. Approval gates block promotion of new public meaning, not independent deterministic implementation.
 
+### Current milestone
+
+- Packet 1 research is complete at 125/125 terminal historical adjudications, 25 rationale review proposals, and 111 exact voice review proposals covering all 37 identities.
+- Packet 1 remains owner-gated; zero new records have entered runtime.
+- Packet 2 and Packet 3 research may continue independently on the same branch.
+
 ## Final State
 
 Final candidate dispositions may be `APPROVED_PUBLIC`, `REJECTED`, or legitimately schema-defined `NOT_APPLICABLE`. `EVIDENCE_NEEDED` and `REVIEW_REQUIRED` must both be zero. Every applicable completion-matrix cell must pass; missing work is never `NOT_APPLICABLE`.
