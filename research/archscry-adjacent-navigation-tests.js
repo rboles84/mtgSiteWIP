@@ -8,17 +8,17 @@ import { getDossierRadarProfile } from "../assets/js/dossier-radar.js";
 
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 
-const resultStatusIndex = indexSource.indexOf("const resultStatusHtml =");
+const resultStatusIndex = indexSource.indexOf("const stateHeading =");
 const placementPanelIndex = indexSource.indexOf("const placementPanelHtml =");
 const adjacentPanelIndex = indexSource.indexOf('id: "adjacent", content: adjacentSectionHtml');
 const returnPrimaryActionCount = (indexSource.match(/buildActionAttrs\("return-primary-reading"\)/g) || []).length;
 const returnPrimaryLabelCount = (indexSource.match(/Back to original reading/g) || []).length;
 
-assert.ok(resultStatusIndex >= 0, "expected renderResult to define resultStatusHtml");
+assert.ok(resultStatusIndex >= 0, "expected renderResult to derive the named-result state heading");
 assert.ok(placementPanelIndex >= 0, "expected renderResult to define placementPanelHtml");
 assert.ok(
   resultStatusIndex < placementPanelIndex,
-  "resultStatusHtml should be declared before the placement panel is built"
+  "the named-result state heading should be derived before the placement panel is built"
 );
 assert.ok(
   adjacentPanelIndex >= 0,

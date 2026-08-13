@@ -59,7 +59,8 @@ assert.ok(
   "White boundary case should include debug-only family grouping for its raw adjacent label."
 );
 assert.ok(monoWhite.presentation.hero_thesis.length > 80);
-assert.ok(monoWhite.presentation.why_rose_first.copy.includes("White led with a"));
+assert.ok(monoWhite.presentation.why_rose_first.copy.includes("These signals help explain why White appeared here"));
+assert.ok(monoWhite.presentation.why_rose_first.copy.includes("do not define your personality"));
 assert.ok(monoWhite.presentation.commander_recommendation_names.length >= 3);
 assert.ok(monoWhite.presentation.maze_paths.every((path) => path.plainReadingQuery && path.operatorQuery));
 assert.match(monoWhite.authored_vs_fallback.summary, /commander_compass/);
@@ -84,7 +85,8 @@ Object.entries(monoBoundaryFamilies).forEach(([caseId, expectedFamilies]) => {
 const pairCase = payload.cases.find((entry) => entry.case_id === "guild-golgari-golden");
 assert.ok(pairCase, "Expected Golgari pair snapshot case.");
 assert.equal(pairCase.placement_result.faction, "BG");
-assert.ok(pairCase.presentation.adjacent_or_fork.copy.length > 40);
+assert.equal(pairCase.presentation.adjacent_or_fork.adjacent_key, "", "an unqualified numerical neighbor must not become a public adjacent identity");
+assert.equal(pairCase.presentation.adjacent_or_fork.copy, "", "the snapshot must not manufacture comparison copy when no public alternative qualified");
 
 const csv = renderPresentationSnapshotCsv(payload);
 const header = csv.split(/\r?\n/)[0].split(",");

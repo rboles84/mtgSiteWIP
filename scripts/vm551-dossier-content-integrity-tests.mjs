@@ -144,10 +144,34 @@ globalThis.document = {
   },
 };
 
-const { approvedCardRationaleForFaction, buildFlavorEchoesHtml, renderPlayerCopy } = await import("../assets/js/index.js");
-assert.equal(cardRationaleSource.records.length, 51, "expected 26 retained and 25 evidence-validated rationale relationships");
+const {
+  approvedCardRationaleForFaction,
+  buildFlavorEchoesHtml,
+  renderPlayerCopy,
+  validateDossierContentCatalogs,
+} = await import("../assets/js/index.js");
+const [placementModel, identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
+  readJson("../data/gate-b1-placement-model.json"),
+  readJson("../data/dossier/identity-dossier-content.catalog.json"),
+  readJson("../data/dossier/public-comparisons.catalog.json"),
+  readJson("../data/dossier/discovery-education-catalog.json"),
+]);
+const dossierCatalogFixture = {
+  placementModel,
+  identityDossierCatalog,
+  publicComparisonCatalog,
+  discoveryEducationCatalog,
+};
+assert.equal(validateDossierContentCatalogs(dossierCatalogFixture), true, "the completed additive dossier catalogs must satisfy runtime readiness");
+const staleComparisonCatalog = structuredClone(publicComparisonCatalog);
+const requiredPair = placementModel.confusion_pairs[0].identities;
+staleComparisonCatalog.records = staleComparisonCatalog.records.filter((record) => !(
+  requiredPair.includes(record.identity_a) && requiredPair.includes(record.identity_b)
+));
+assert.equal(validateDossierContentCatalogs({ ...dossierCatalogFixture, publicComparisonCatalog: staleComparisonCatalog }), false, "a missing mandatory confusion-pair comparison must still fail closed");
+assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 original gap proposals, and the approved Colorless collision-repair rationale");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
-assert.equal(cardRationaleCatalog.records.length, 49, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
+assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");
 const isperiaRationale = approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog);
@@ -184,6 +208,7 @@ assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not ge
 assert.doesNotMatch(renderPlayerCopy("Spend true {C}."), /\{C\}/);
 assert.match(indexSource, /renderedEducationalTerms\.has\(termKey\)/, "glossary should decorate only the first canonical term occurrence per dossier render");
 assert.match(indexSource, /Sharpen This Reading/, "bounded readings with an approved discriminator should expose optional refinement");
+assert.match(indexSource, /observations\.length < 3[\s\S]*?why-fit-refinement/, "valid two-observation named readings should offer optional explanation refinement when approved evidence remains");
 assert.match(indexSource, /show-bounded-direction/, "mixed readings should expose their independently supported directions");
 assert.match(indexSource, /if \(trigger\.cardName\)[\s\S]*?loadCachedScryfallNamedCard\(trigger\.cardName\)/, "named rationale previews should resolve the canonical full-card record before using a tile image");
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);

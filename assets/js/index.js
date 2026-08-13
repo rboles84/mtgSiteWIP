@@ -291,14 +291,72 @@ async function loadIdentityLayerData() {
   return APP_STATE.identityLayers;
 }
 
+export function validateDossierContentCatalogs({
+  placementModel,
+  identityDossierCatalog,
+  publicComparisonCatalog,
+  discoveryEducationCatalog,
+} = {}) {
+  const modelIdentities = placementModel?.identities || [];
+  const identityKeys = new Set(Array.isArray(modelIdentities)
+    ? modelIdentities.map((identity) => identity.id)
+    : Object.keys(modelIdentities));
+  const identityRecords = identityDossierCatalog?.records || [];
+  const dossierKeys = new Set(identityRecords.map((record) => record.identity_key));
+  const comparisons = publicComparisonCatalog?.records || [];
+  const comparisonKeys = new Set();
+  const normalizePair = (identities = []) => [...identities].sort().join("::");
+  let comparisonsValid = comparisons.length > 0;
+
+  for (const record of comparisons) {
+    const normalized = normalizePair([record.identity_a, record.identity_b]);
+    if (
+      !record.pair_key
+      || !identityKeys.has(record.identity_a)
+      || !identityKeys.has(record.identity_b)
+      || record.identity_a === record.identity_b
+      || comparisonKeys.has(normalized)
+      || typeof record.a_to_b !== "string"
+      || !record.a_to_b.trim()
+      || typeof record.b_to_a !== "string"
+      || !record.b_to_a.trim()
+    ) comparisonsValid = false;
+    comparisonKeys.add(normalized);
+  }
+
+  const requiredPairsPresent = (placementModel?.confusion_pairs || []).every((pair) => (
+    comparisonKeys.has(normalizePair(pair.identities))
+  ));
+  const glossary = discoveryEducationCatalog?.glossary || [];
+  const glossaryIds = new Set(glossary.map((record) => record.record_id));
+  const glossaryValid = glossary.length > 0
+    && glossaryIds.size === glossary.length
+    && glossary.every((record) => typeof record.definition === "string" && record.definition.trim());
+
+  return identityDossierCatalog?.schema_version === "vm551-identity-dossier-catalog-v1"
+    && publicComparisonCatalog?.schema_version === "vm551-public-comparison-catalog-v1"
+    && discoveryEducationCatalog?.schema_version === "vm551-discovery-education-catalog-v1"
+    && identityKeys.size === 37
+    && identityRecords.length === identityKeys.size
+    && dossierKeys.size === identityKeys.size
+    && [...identityKeys].every((identityKey) => dossierKeys.has(identityKey))
+    && comparisonsValid
+    && requiredPairsPresent
+    && glossaryValid;
+}
+
 async function loadDossierContentAuthority() {
   const [identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
     loadCoreJson("dossier/identity-dossier-content.catalog.json", "identity dossier content"),
     loadCoreJson("dossier/public-comparisons.catalog.json", "public identity comparisons"),
     loadCoreJson("dossier/discovery-education-catalog.json", "Archscry education content"),
   ]);
-  const identities = new Set((identityDossierCatalog?.records || []).map((record) => record.identity_key));
-  if (identities.size !== 37 || (publicComparisonCatalog?.records || []).length !== 123 || (discoveryEducationCatalog?.glossary || []).length !== 32) {
+  if (!validateDossierContentCatalogs({
+    placementModel: APP_STATE.placementModel,
+    identityDossierCatalog,
+    publicComparisonCatalog,
+    discoveryEducationCatalog,
+  })) {
     throw new Error("Archscry dossier content is stale or incomplete.");
   }
   APP_STATE.identityDossierCatalog = identityDossierCatalog;
@@ -1729,7 +1787,7 @@ function buildPreconCardHtml(precon) {
     </div>`;
 }
 
-function buildPreconSectionHtml(preconRecommendations) {
+function buildPreconSectionHtml(preconRecommendations, excludedCardIds = new Set()) {
   const preview = selectPreconPreviewRecommendations(preconRecommendations);
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
@@ -1739,8 +1797,9 @@ function buildPreconSectionHtml(preconRecommendations) {
       </div>`;
   }
 
-  const canExpand = preview.hasOverflow && preview.remaining.length > 0;
-  const remainingCount = preview.remaining.length;
+  const remaining = preview.remaining.filter((precon) => !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander)));
+  const canExpand = remaining.length > 0;
+  const remainingCount = remaining.length;
   const collapsedLabel = `Display other ${remainingCount}`;
   const expandedLabel = `Show first ${preview.visible.length} precons`;
   const toggleAttrs = canExpand
@@ -1756,7 +1815,7 @@ function buildPreconSectionHtml(preconRecommendations) {
       <div class="precon-intro">Ready-made Commander decks compared through verified color identity and cataloged deck facts.</div>
       <div class="precon-meta">Use the recorded themes and mechanics to decide whether each deck is worth a closer look.</div>
       <div class="precon-grid is-compact" data-precon-preview-grid="primary">${preview.visible.map((precon) => buildPreconCardHtml(precon)).join("")}</div>
-      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${preview.remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
+      ${canExpand ? `<div class="precon-grid is-compact" data-precon-preview-grid="remaining" hidden>${remaining.map((precon) => buildPreconCardHtml(precon)).join("")}</div>` : ""}
       ${canExpand ? `
         <div class="precon-reveal-row" data-precon-preview-overflow>
           <button class="precon-reveal-btn" type="button" aria-expanded="false" ${toggleAttrs}>
@@ -2254,7 +2313,7 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPe
         <span>${escapeHtml(adjacentFit.label || "Close alternative")}</span>
         <strong>${escapeHtml(adjacentFit.heading || adjacentFit.targetName || "Alternative path")}</strong>
         <div class="dossier-snapshot-signal">${escapeHtml(adjacentFit.signalLabel || "Close is relative within this reading; it is not a certainty claim.")}</div>
-        <div class="dossier-snapshot-copy">${escapeHtml(adjacentFit.relationshipCopy || "This path received direct support from the same recorded answers.")}</div>
+        <div class="dossier-snapshot-copy">${renderPlayerCopy(adjacentFit.relationshipCopy || "This path received direct support from the same recorded answers.")}</div>
       </div>` : "";
   const tiedPeerName = tiedPeerDossier?.faction?.name || "";
   const tiedPeerKey = tiedPeerDossier?.targetFactionKey || "";
@@ -2275,13 +2334,13 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPe
       <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
         <span>${escapeHtml(`${whereThisLeads.label || "Where this leads"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
-        <div class="dossier-snapshot-copy">${escapeHtml(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
+        <div class="dossier-snapshot-copy">${renderPlayerCopy(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
         ${buildSummaryTagRowHtml(whereThisLeads.tags || [])}
       </div>
       <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
         <span>${escapeHtml(`${playPattern.label || "Play pattern"} - ${activeIdentityName}`)}</span>
         <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
-        <div class="dossier-snapshot-copy">${escapeHtml(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
+        <div class="dossier-snapshot-copy">${renderPlayerCopy(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
       ${tiedPeerCard}
     </div>`;
@@ -2824,9 +2883,10 @@ export function selectFlavorEchoes({
     .slice(0, 3);
 }
 
-function buildDiscoverySummaryHtml({ dossier, faction }) {
+function buildDiscoverySummaryHtml({ dossier, faction, result }) {
   const observations = (dossier?.readingOmens || []).slice(0, 3);
   if (!observations.length) return "";
+  const canSharpen = observations.length < 3 && result?.refinement?.kind === "ask_targeted_question" && placementQuestionById(result.refinement.question_id);
   return `
     <div class="starter-section" data-public-fit-reasons>
       <div class="section-label">Why This Fit</div>
@@ -2838,6 +2898,7 @@ function buildDiscoverySummaryHtml({ dossier, faction }) {
             <div class="starter-copy">${renderPlayerCopy(observation.copy)}</div>
           </div>`).join("")}
       </div>
+      ${canSharpen ? `<div class="why-fit-refinement"><p>A further approved observation may make this explanation more specific without changing the naming standard.</p><button class="btn-secondary" type="button" ${buildActionAttrs("start-result-refinement")}>Sharpen This Reading</button></div>` : ""}
     </div>`;
 }
 
@@ -2944,6 +3005,17 @@ function addUsageCards(target, cards = []) {
     if (id) target.add(id);
   }
   return target;
+}
+
+function filterPreconRecommendationsForEditorialCards(preconRecommendations = {}, excludedCardIds = new Set()) {
+  const filtered = { ...preconRecommendations };
+  for (const group of ["nativeExact", "otherExact", "stretch"]) {
+    filtered[group] = (preconRecommendations[group] || []).filter((precon) => (
+      !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander))
+    ));
+  }
+  filtered.hasAny = ["nativeExact", "otherExact", "stretch"].some((group) => filtered[group].length > 0);
+  return filtered;
 }
 
 function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set()) {
@@ -3378,14 +3450,31 @@ function renderResult(viewKey) {
     preconCatalog: APP_STATE.preconCatalog,
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
+  const preconCommanderIds = new Set(["nativeExact", "otherExact", "stretch"]
+    .flatMap((group) => preconRecommendations[group] || [])
+    .map((precon) => canonicalUsageCardId(precon.mainCommander)));
+  const editorialCardUsage = new Set();
+  const rationaleRecords = factionCardRationaleRecords(faction);
+  const nonPreconRationales = rationaleRecords.filter((record) => !preconCommanderIds.has(canonicalUsageCardId(record.card.name)));
+  for (const record of nonPreconRationales.length ? nonPreconRationales : rationaleRecords.slice(0, 1)) {
+    addUsageCards(editorialCardUsage, [record.card.name]);
+  }
+  for (const record of (APP_STATE.cardVoiceCatalog?.records || []).filter((entry) => entry.identity_key === faction.key)) {
+    addUsageCards(editorialCardUsage, [record.card?.name]);
+  }
+  const usablePreconRecommendations = filterPreconRecommendationsForEditorialCards(preconRecommendations, editorialCardUsage);
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
   const pageCardUsage = new Set();
-  const visiblePrecons = selectPreconPreviewRecommendations(preconRecommendations).visible;
+  const preconPreview = selectPreconPreviewRecommendations(usablePreconRecommendations);
+  const visiblePrecons = preconPreview.visible;
   addUsageCards(pageCardUsage, visiblePrecons.map((precon) => precon.mainCommander));
   const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: pageCardUsage });
   addUsageCards(pageCardUsage, flavorEchoes.map((entry) => entry.card));
   const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: pageCardUsage });
   addUsageCards(pageCardUsage, cardVoices.map((entry) => entry.card));
+  addUsageCards(pageCardUsage, preconPreview.remaining
+    .filter((precon) => !pageCardUsage.has(canonicalUsageCardId(precon.mainCommander)))
+    .map((precon) => precon.mainCommander));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, pageCardUsage);
   const mazeContext = buildArchscryMazeContext({ result, dossier, faction });
   writeArchscryDossierHandoff(result, mazeContext);
@@ -3530,7 +3619,7 @@ function renderResult(viewKey) {
     tagRefs: readingTagRefs,
   }));
   const preconSectionHtml = Array.isArray(APP_STATE.preconCatalog?.precons)
-    ? buildPreconSectionHtml(preconRecommendations)
+    ? buildPreconSectionHtml(usablePreconRecommendations)
     : "";
   const landLaneCopy = landLaneCopyForFaction(faction);
   const isColorlessFaction = String(faction?.key || "").toUpperCase() === "COLORLESS";
@@ -3691,7 +3780,7 @@ function renderResult(viewKey) {
         ${buildSegmentPanelHtml("mana-base", "basics", manaBaseSegment, `
           <div class="land-tier tier-basics">
             ${isColorlessFaction ? `<div class="land-tier-label">Wastes First</div>` : ""}
-            <div class="land-tier-copy">${basicLandCopy}</div>
+            <div class="land-tier-copy">${renderPlayerCopy(basicLandCopy)}</div>
           </div>`)}
         ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
           <div class="land-tier tier-premium">
@@ -4159,7 +4248,11 @@ function handleCardPreviewPointerOut(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
   if (trigger && !relatedInside) {
-    hideCardPreviewOverlay();
+    window.requestAnimationFrame(() => {
+      const stillHovered = trigger.boundary.matches?.(":hover");
+      const stillFocused = trigger.boundary === document.activeElement || trigger.boundary.contains(document.activeElement);
+      if (!stillHovered && !stillFocused) hideCardPreviewOverlay();
+    });
   }
 }
 

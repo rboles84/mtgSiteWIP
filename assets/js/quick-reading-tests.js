@@ -3605,7 +3605,7 @@ assert.deepEqual(
 );
 assert.equal(new Set(whiteMazePaths.map((path) => path.operatorQuery)).size, 4);
 assert.equal(new Set(whiteMazePaths.map((path) => path.plainReadingQuery)).size, 4);
-assert.match(whiteMazePaths[0].operatorQuery, /^id=w is:commander f:commander /);
+assert.match(whiteMazePaths[0].operatorQuery, /^id=w is:commander f:commander$/);
 assert.match(whiteMazePaths[1].operatorQuery, /^id<=w f:commander -is:commander -t:land /);
 assert.match(whiteMazePaths[2].operatorQuery, /^id<=w f:commander \(ft:/);
 assert.match(whiteMazePaths[3].operatorQuery, /^-id<=w is:commander f:commander /);
@@ -3620,7 +3620,7 @@ assert.deepEqual(
   grixisMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(grixisMazePaths[0].operatorQuery, /^id=ubr is:commander f:commander /);
+assert.match(grixisMazePaths[0].operatorQuery, /^id=ubr is:commander f:commander$/);
 assert.equal(grixisMazePaths[0].plainReadingQuery, "Grixis commanders with exactly blue-black-red identity");
 assert.match(grixisMazePaths[1].operatorQuery, /^id<=ubr f:commander -is:commander -t:land /);
 assert.match(grixisMazePaths[2].operatorQuery, /^id<=ubr f:commander \(ft:/);
@@ -3636,7 +3636,7 @@ assert.deepEqual(
   jundMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(jundMazePaths[0].operatorQuery, /^id=brg is:commander f:commander /);
+assert.match(jundMazePaths[0].operatorQuery, /^id=brg is:commander f:commander$/);
 assert.equal(jundMazePaths[0].plainReadingQuery, "Jund commanders with exactly black-red-green identity");
 assert.match(jundMazePaths[1].operatorQuery, /^id<=brg f:commander -is:commander -t:land /);
 assert.match(jundMazePaths[2].operatorQuery, /^id<=brg f:commander \(ft:/);
@@ -3652,7 +3652,7 @@ assert.deepEqual(
   nayaMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(nayaMazePaths[0].operatorQuery, /^id=rgw is:commander f:commander /);
+assert.match(nayaMazePaths[0].operatorQuery, /^id=rgw is:commander f:commander$/);
 assert.equal(nayaMazePaths[0].plainReadingQuery, "Naya commanders with exactly red-green-white identity");
 assert.match(nayaMazePaths[1].operatorQuery, /^id<=rgw f:commander -is:commander -t:land /);
 assert.match(nayaMazePaths[2].operatorQuery, /^id<=rgw f:commander \(ft:/);
@@ -3668,7 +3668,7 @@ assert.deepEqual(
   abzanMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(abzanMazePaths[0].operatorQuery, /^id=wbg is:commander f:commander /);
+assert.match(abzanMazePaths[0].operatorQuery, /^id=wbg is:commander f:commander$/);
 assert.equal(abzanMazePaths[0].plainReadingQuery, "Abzan Houses commanders with exactly white-black-green identity");
 assert.match(abzanMazePaths[1].operatorQuery, /^id<=wbg f:commander -is:commander -t:land /);
 assert.match(abzanMazePaths[2].operatorQuery, /^id<=wbg f:commander \(ft:/);
@@ -3684,7 +3684,7 @@ assert.deepEqual(
   temurMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(temurMazePaths[0].operatorQuery, /^id=gur is:commander f:commander /);
+assert.match(temurMazePaths[0].operatorQuery, /^id=gur is:commander f:commander$/);
 assert.equal(temurMazePaths[0].plainReadingQuery, "Temur Frontier commanders with exactly green-blue-red identity");
 assert.match(temurMazePaths[1].operatorQuery, /^id<=gur f:commander -is:commander -t:land /);
 assert.match(temurMazePaths[2].operatorQuery, /^id<=gur f:commander \(ft:/);
@@ -3700,7 +3700,7 @@ assert.deepEqual(
   sultaiMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(sultaiMazePaths[0].operatorQuery, /^id=bgu is:commander f:commander /);
+assert.match(sultaiMazePaths[0].operatorQuery, /^id=bgu is:commander f:commander$/);
 assert.equal(sultaiMazePaths[0].plainReadingQuery, "Sultai Brood commanders with exactly black-green-blue identity");
 assert.match(sultaiMazePaths[1].operatorQuery, /^id<=bgu f:commander -is:commander -t:land /);
 assert.match(sultaiMazePaths[2].operatorQuery, /^id<=bgu f:commander \(ft:/);
@@ -3716,7 +3716,7 @@ assert.deepEqual(
   marduMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(marduMazePaths[0].operatorQuery, /^id=rwb is:commander f:commander /);
+assert.match(marduMazePaths[0].operatorQuery, /^id=rwb is:commander f:commander$/);
 assert.equal(marduMazePaths[0].plainReadingQuery, "Mardu Horde commanders with exactly red-white-black identity");
 assert.match(marduMazePaths[1].operatorQuery, /^id<=rwb f:commander -is:commander -t:land /);
 assert.match(marduMazePaths[2].operatorQuery, /^id<=rwb f:commander \(ft:/);
@@ -3733,7 +3733,7 @@ assert.deepEqual(
   jeskaiMazePaths.map((path) => path.pathType),
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
-assert.match(jeskaiMazePaths[0].operatorQuery, /^id=urw is:commander f:commander /);
+assert.match(jeskaiMazePaths[0].operatorQuery, /^id=urw is:commander f:commander$/);
 assert.equal(jeskaiMazePaths[0].plainReadingQuery, "Jeskai Way commanders with exactly blue-red-white identity");
 assert.match(jeskaiMazePaths[1].operatorQuery, /^id<=urw f:commander -is:commander -t:land /);
 assert.match(jeskaiMazePaths[2].operatorQuery, /^id<=urw f:commander \(ft:/);
