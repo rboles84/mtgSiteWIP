@@ -4,7 +4,10 @@ export const VM551_AUTOMATIC_APPROVAL_BASIS = "EVIDENCE_VALIDATED_AUTOMATIC";
 
 const CERTIFIED_IDENTITY_LOCATOR = /^(?:data\/raw-factions\/[^/]+\/[^/]+\.(?:claims|profile|placement)\.json|docs\/reference\/37-identity-player-relationship-guide\.md)/;
 const FACT_LOCATOR = /^(?:data\/scryfall\/|data\/taxonomy\/|data\/generated\/commander-provider-validation\.json|docs\/research\/[^/]+\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
+const RUNTIME_CONTRACT_LOCATOR = /^(?:assets\/js\/archscry-presentation\.js|data\/generated\/commander-provider-validation\.json)/;
 const VAGUE_BRIDGE = /\b(?:vibe|feels? like|sounds? like|because (?:it is|it's) [a-z -]+(?:colored|color)|generic overlap|mere(?:ly)? (?:color|mechanic|theme|product|tag))\b/i;
+const EDUCATION_FACT_LOCATOR = /^(?:data\/taxonomy\/vox-mana-tags\.json|docs\/research\/colorless\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
+const EDUCATION_RUNTIME_LOCATOR = /^(?:assets\/js\/archscry-presentation\.js|data\/placement\/commander-provider-validation\.json)/;
 
 function nonEmpty(value) {
   return typeof value === "string" && value.trim().length > 0;
@@ -25,7 +28,9 @@ export function validateAutomaticApproval(record) {
     failures.push("INVALID_IDENTITY_AUTHORITY");
   }
   const certifiedRestatement = record.content_class === "CERTIFIED_IDENTITY_RESTATEMENT";
-  if ((!factLocators.length && !certifiedRestatement) || factLocators.some((locator) => !FACT_LOCATOR.test(locator))) {
+  const verifiedRuntimeContract = record.content_class === "VERIFIED_RUNTIME_CONTRACT";
+  const validFactLocator = (locator) => FACT_LOCATOR.test(locator) || (verifiedRuntimeContract && RUNTIME_CONTRACT_LOCATOR.test(locator));
+  if ((!factLocators.length && !certifiedRestatement) || factLocators.some((locator) => !validFactLocator(locator))) {
     failures.push("INVALID_FACT_AUTHORITY");
   }
   if (!nonEmpty(record.relationship_bridge) || VAGUE_BRIDGE.test(record.relationship_bridge)) failures.push("MISSING_OR_VAGUE_RELATIONSHIP_BRIDGE");
@@ -56,4 +61,27 @@ export function assertAutomaticApproval(record, label = record.id || "record") {
   const result = validateAutomaticApproval(record);
   if (!result.passed) throw new Error(`${label} failed automatic approval: ${result.failures.join(", ")}`);
   return result;
+}
+
+export function assertAutomaticEducationApproval(record, label = record.id || "education record") {
+  const locators = uniqueStrings(record.fact_source_locators);
+  const allowed = record.content_class === "VERIFIED_RUNTIME_CONTRACT"
+    ? EDUCATION_RUNTIME_LOCATOR
+    : EDUCATION_FACT_LOCATOR;
+  const failures = [];
+  if (!nonEmpty(record.public_copy)) failures.push("EMPTY_PUBLIC_COPY");
+  if (!locators.length || locators.some((locator) => !allowed.test(locator))) failures.push("INVALID_FACT_AUTHORITY");
+  if (!nonEmpty(record.limitation)) failures.push("MISSING_LIMITATION");
+  if (record.creates_identity_meaning) failures.push("NEW_IDENTITY_MEANING");
+  if (record.changes_placement_semantics) failures.push("PLACEMENT_SEMANTICS_CHANGE");
+  if (failures.length) throw new Error(`${label} failed automatic education approval: ${failures.join(", ")}`);
+  return {
+    validator_version: "vm551-education-validator-v1",
+    passed: true,
+    failures: [],
+    approval_basis: VM551_AUTOMATIC_APPROVAL_BASIS,
+    content_class: record.content_class,
+    fact_source_locators: locators,
+    identity_meaning_authorized: false,
+  };
 }

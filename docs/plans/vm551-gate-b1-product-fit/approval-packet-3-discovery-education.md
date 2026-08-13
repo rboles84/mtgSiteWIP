@@ -1,6 +1,13 @@
 # VM-551 Approval Packet 3 — Discovery And Education
 
-Status: **OWNER REVIEW REQUIRED** — research complete; no new public promotion authorized.
+Status: **AUTOMATIC ADJUDICATION COMPLETE** — zero owner exceptions.
+
+The prior owner-review procedure below is retained as historical context. The final authority contains 32 approved glossary definitions and four verified discovery/Maze microcopy records. Nineteen Commander/rules terms and four instructional records passed `vm551-education-validator-v1`; 13 unchanged baseline definitions remain approved. None authorizes identity meaning or placement semantics.
+
+- `EVIDENCE_NEEDED`: 0.
+- `REVIEW_REQUIRED`: 0.
+- Owner exceptions: 0.
+- Inline glossary fallback removed; runtime consumes the approved catalog.
 
 ## Scope
 

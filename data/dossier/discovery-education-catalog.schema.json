@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/discovery-education-catalog.schema.json",
+  "title": "VM-551 discovery and education runtime catalog",
+  "type": "object",
+  "required": ["schema_version", "generated_from", "glossary", "microcopy"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-discovery-education-catalog-v1" },
+    "generated_from": { "const": "data/dossier/discovery-education-automatic-adjudication.source.json" },
+    "glossary": { "type": "array", "minItems": 32, "maxItems": 32 },
+    "microcopy": { "type": "array", "minItems": 4, "maxItems": 4 }
+  }
+}

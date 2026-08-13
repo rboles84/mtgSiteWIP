@@ -1,0 +1,484 @@
+{
+  "schema_version": "vm551-discovery-education-catalog-v1",
+  "generated_from": "data/dossier/discovery-education-automatic-adjudication.source.json",
+  "glossary": [
+    {
+      "record_id": "glossary_aristocrats",
+      "term": "Aristocrats",
+      "aliases": [],
+      "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#aristocrats",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_big_spell_storm",
+      "term": "Big Spell Storm",
+      "aliases": [
+        "big-spell storm"
+      ],
+      "definition": "A spellslinger plan that builds mana and spell count toward a concentrated turn of large spells; it may use the Storm keyword, but does not have to.",
+      "provenance": {
+        "role": "deterministic_taxonomy_composition",
+        "locator": "data/taxonomy/vox-mana-tags.json#big-mana",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#spellslinger",
+          "data/taxonomy/vox-mana-tags.json#storm"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_blink_flicker",
+      "term": "Blink/Flicker",
+      "aliases": [
+        "blink",
+        "flicker"
+      ],
+      "definition": "Exiling permanents and returning them to reuse enter-the-battlefield effects or dodge removal.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#blink",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_colorless_mana",
+      "term": "Colorless mana",
+      "aliases": [
+        "true colorless source"
+      ],
+      "definition": "Colorless mana is mana with no color. A {C} cost can be paid only with colorless mana.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-106-10-107-4c",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards Comprehensive Rules digest"
+      }
+    },
+    {
+      "record_id": "glossary_control",
+      "term": "Control",
+      "aliases": [],
+      "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#control"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_convoke",
+      "term": "Convoke",
+      "aliases": [],
+      "definition": "As you cast a spell with convoke, your creatures can be tapped to help pay its mana cost; each tapped creature pays for one mana of its color or one generic mana.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04#convoke",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Guilds of Ravnica mechanics explanation of convoke"
+      }
+    },
+    {
+      "record_id": "glossary_detain",
+      "term": "Detain",
+      "aliases": [],
+      "definition": "Temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_devoid",
+      "term": "Devoid",
+      "aliases": [],
+      "definition": "A card with devoid is colorless even if colored mana symbols appear in its mana cost. Devoid does not remove those colors from the card's Commander color identity.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-3-mechanics#devoid",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons 3 mechanics explanation of devoid"
+      }
+    },
+    {
+      "record_id": "glossary_draw_go_control",
+      "term": "Draw-Go Control",
+      "aliases": [
+        "draw-go"
+      ],
+      "definition": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_etb",
+      "term": "ETB",
+      "aliases": [
+        "enters the battlefield",
+        "enter-the-battlefield"
+      ],
+      "definition": "Using effects that trigger when permanents enter the battlefield.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#etb",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_generic_mana",
+      "term": "Generic mana",
+      "aliases": [
+        "generic cost",
+        "generic mana cost"
+      ],
+      "definition": "A generic mana cost is shown with a number and can be paid with mana of any color or with colorless mana; it is a cost, not a type of mana.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-107-4b-107-4c",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards Comprehensive Rules digest"
+      }
+    },
+    {
+      "record_id": "glossary_goad",
+      "term": "Goad",
+      "aliases": [
+        "goaded"
+      ],
+      "definition": "Until your next turn, a goaded creature attacks each combat if able and attacks a player other than you if able.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/making-magic/its-another-conspiracy-2016-08-15#goad",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Conspiracy mechanic explanation plus current Comprehensive Rules authority"
+      }
+    },
+    {
+      "record_id": "glossary_hatebears",
+      "term": "Hatebears",
+      "aliases": [
+        "hate bears"
+      ],
+      "definition": "Small creatures that restrict opponents' actions while applying pressure.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#hatebears"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_mana_rocks",
+      "term": "Mana rocks",
+      "aliases": [
+        "mana rock"
+      ],
+      "definition": "Getting access to more mana than normal for your turn count.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#ramp",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_midrange",
+      "term": "Midrange",
+      "aliases": [],
+      "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#midrange"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_open_mana",
+      "term": "Open mana",
+      "aliases": [
+        "hold up mana"
+      ],
+      "definition": "Leave lands or other mana sources untapped so you can act later.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_parity",
+      "term": "Parity",
+      "aliases": [
+        "break parity"
+      ],
+      "definition": "A board or resource state that appears even; breaking parity means benefiting more than opponents from a symmetrical rule or reset.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_pillowfort",
+      "term": "Pillowfort",
+      "aliases": [
+        "pillow fort"
+      ],
+      "definition": "Make attacking you less attractive or more expensive without necessarily stopping the whole table.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_populate",
+      "term": "Populate",
+      "aliases": [],
+      "definition": "Create a token that's a copy of a creature token you control.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/return-to-ravnica-mechanics#populate",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Return to Ravnica mechanics explanation of populate"
+      }
+    },
+    {
+      "record_id": "glossary_prison_control",
+      "term": "Prison Control",
+      "aliases": [
+        "prison"
+      ],
+      "definition": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_protection",
+      "term": "Protection",
+      "aliases": [],
+      "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#protection",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons mechanics explanation of protection"
+      }
+    },
+    {
+      "record_id": "glossary_ramp",
+      "term": "Ramp",
+      "aliases": [
+        "mana acceleration"
+      ],
+      "definition": "Getting access to more mana than normal for your turn count.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#ramp",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_spell_copying",
+      "term": "Spell copying",
+      "aliases": [
+        "copy spells",
+        "spell copy"
+      ],
+      "definition": "Copying instants, sorceries, or other spells for extra effects.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#spell-copy",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_spellslinger",
+      "term": "Spellslinger",
+      "aliases": [],
+      "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#spellslinger",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_stax",
+      "term": "Stax",
+      "aliases": [],
+      "definition": "Restricting resources, actions, or timing so opponents cannot execute normal plans.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#stax"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_storm",
+      "term": "Storm",
+      "aliases": [],
+      "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#storm",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_sweepers",
+      "term": "Board wipe",
+      "aliases": [
+        "board wipes",
+        "sweeper",
+        "sweepers"
+      ],
+      "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_taxation",
+      "term": "Taxation",
+      "aliases": [
+        "tax",
+        "taxes"
+      ],
+      "definition": "Make selected actions cost more mana or other resources.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_tempo",
+      "term": "Tempo",
+      "aliases": [],
+      "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+      "provenance": {
+        "role": "approved_baseline_migration",
+        "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": [
+          "data/taxonomy/vox-mana-tags.json#tempo"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_tokens",
+      "term": "Tokens",
+      "aliases": [
+        "token deck"
+      ],
+      "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#tokens",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_voltron",
+      "term": "Voltron",
+      "aliases": [],
+      "definition": "Building one creature, often a commander, into a lethal protected threat.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#voltron",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_wastes",
+      "term": "Wastes",
+      "aliases": [],
+      "definition": "Wastes is a basic land with no land types that taps for one colorless mana; a Commander deck may include any number of it.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-305-6-305-7",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Committed Wizards rules digest and Oath of the Gatewatch mechanics"
+      }
+    }
+  ],
+  "microcopy": [
+    {
+      "record_id": "microcopy_browse_builds",
+      "type": "DISCOVERY_LABEL",
+      "term": "Decks — Browse builds",
+      "copy": "Browse exact-commander deck pages from verified providers.",
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "data/placement/commander-provider-validation.json#providers",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "microcopy_commanders_that_fit",
+      "type": "MAZE_EXPLANATION",
+      "term": "Commanders That Fit",
+      "copy": "Browse Commander-legal cards with exactly this reading's color identity.",
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#buildMazeRouteQuery",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "microcopy_flavor_echoes",
+      "type": "MAZE_EXPLANATION",
+      "term": "Flavor Echoes",
+      "copy": "Browse cards using the visible flavor term shown by this route.",
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#ARCHSCRY_MAZE_PATHS",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "microcopy_support_cards",
+      "type": "MAZE_EXPLANATION",
+      "term": "Support Cards",
+      "copy": "Browse cards within this color identity using only the support theme named by the route.",
+      "provenance": {
+        "role": "verified_runtime_contract",
+        "locator": "assets/js/archscry-presentation.js#ARCHSCRY_MAZE_PATHS",
+        "supporting_locators": []
+      }
+    }
+  ]
+}

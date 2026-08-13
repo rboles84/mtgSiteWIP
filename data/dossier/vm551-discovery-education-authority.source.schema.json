@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": { "const": "vm551-discovery-education-authority-v1" },
-    "status": { "const": "OWNER_REVIEW_REQUIRED" },
+    "status": { "const": "AUTOMATIC_VALIDATION_INPUT" },
     "authority_rule": { "type": "string", "minLength": 1 },
     "records": {
       "type": "array",
@@ -39,7 +39,7 @@
             }
           },
           "limitations": { "type": "string", "minLength": 1 },
-          "disposition": { "enum": ["APPROVED_PUBLIC", "REVIEW_REQUIRED", "REJECTED", "NOT_APPLICABLE"] },
+          "disposition": { "enum": ["APPROVED_PUBLIC", "PENDING_AUTOMATIC_VALIDATION", "REJECTED", "NOT_APPLICABLE"] },
           "owner_decision": { "type": ["string", "null"] },
           "replacement_locator": { "type": "string", "minLength": 1 },
           "copy_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }

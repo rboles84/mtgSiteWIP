@@ -76,7 +76,7 @@ const taxonomyReview = [
     supporting_locators: [],
   },
   limitations: "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
-  disposition: "REVIEW_REQUIRED",
+  disposition: "PENDING_AUTOMATIC_VALIDATION",
   owner_decision: null,
   replacement_locator: `data/dossier/discovery-education-authority.source.json#glossary_${termId}`,
 }));
@@ -144,7 +144,7 @@ const rulesReview = [
     authority_note: entry.rule,
   },
   limitations: "Explains the game term only; it does not establish an identity relationship or placement preference.",
-  disposition: "REVIEW_REQUIRED",
+  disposition: "PENDING_AUTOMATIC_VALIDATION",
   owner_decision: null,
   replacement_locator: `data/dossier/discovery-education-authority.source.json#glossary_${entry.id}`,
 }));
@@ -165,7 +165,7 @@ const compositeReview = [{
     ],
   },
   limitations: "A proposed Vox Mana teaching label, not an official rules term. Owner review must confirm that the composition is useful and does not blur the Storm keyword.",
-  disposition: "REVIEW_REQUIRED",
+  disposition: "PENDING_AUTOMATIC_VALIDATION",
   owner_decision: null,
   replacement_locator: "data/dossier/discovery-education-authority.source.json#glossary_big_spell_storm",
 }];
@@ -176,7 +176,7 @@ const microcopyReview = [
     type: "DISCOVERY_LABEL",
     term: "Decks — Browse builds",
     copy: "Browse exact-commander deck pages from verified providers.",
-    locator: "data/generated/commander-provider-validation.json#providers",
+    locator: "data/placement/commander-provider-validation.json#providers",
     limitation: "The action renders only for destinations verified to describe the exact displayed commander.",
   },
   {
@@ -216,7 +216,7 @@ const microcopyReview = [
     supporting_locators: [],
   },
   limitations: entry.limitation,
-  disposition: "REVIEW_REQUIRED",
+  disposition: "PENDING_AUTOMATIC_VALIDATION",
   owner_decision: null,
   replacement_locator: `data/dossier/discovery-education-authority.source.json#microcopy_${entry.id}`,
 }));
@@ -227,12 +227,12 @@ const records = [...baselineTerms, ...taxonomyReview, ...rulesReview, ...composi
 
 const authority = {
   schema_version: "vm551-discovery-education-authority-v1",
-  status: "OWNER_REVIEW_REQUIRED",
-  authority_rule: "Existing public teaching copy may migrate unchanged. New or substantively changed meaning remains REVIEW_REQUIRED and cannot enter runtime until explicit owner approval.",
+  status: "AUTOMATIC_VALIDATION_INPUT",
+  authority_rule: "Existing public teaching copy may migrate unchanged. New or changed factual teaching copy must pass automatic evidence validation; owner review is reserved for genuinely interpretive exceptions.",
   records,
 };
 
-const reviewRows = records.filter((record) => record.disposition === "REVIEW_REQUIRED");
+const reviewRows = records.filter((record) => record.disposition === "PENDING_AUTOMATIC_VALIDATION");
 const headings = ["Record ID", "Type", "Term", "Aliases", "Proposed copy", "Provenance role", "Primary locator", "Supporting locators", "Limitations", "Disposition", "Owner decision", "Replacement locator", "Copy SHA-256"];
 const rows = reviewRows.map((record) => [
   record.record_id,

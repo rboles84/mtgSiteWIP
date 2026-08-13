@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/discovery-education-automatic-adjudication.source.schema.json",
+  "title": "VM-551 Packet 3 automatic adjudication source",
+  "type": "object",
+  "required": ["schema_version", "status", "authority_rule", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "vm551-discovery-education-authority-v1" },
+    "status": { "const": "AUTOMATIC_ADJUDICATION_COMPLETE" },
+    "authority_rule": { "type": "string", "minLength": 1 },
+    "records": { "type": "array", "minItems": 36, "maxItems": 36 }
+  }
+}

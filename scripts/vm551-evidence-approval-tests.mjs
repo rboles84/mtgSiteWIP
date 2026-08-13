@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   VM551_AUTOMATIC_APPROVAL_BASIS,
   VM551_EVIDENCE_VALIDATOR_VERSION,
+  assertAutomaticEducationApproval,
   validateAutomaticApproval,
 } from "../research/vm551-evidence-approval.mjs";
 
@@ -34,6 +35,30 @@ const certifiedRestatement = validateAutomaticApproval({
 });
 assert.equal(certifiedRestatement.passed, true);
 assert.equal(validateAutomaticApproval({ ...valid, fact_source_locators: [] }).passed, false);
+assert.equal(validateAutomaticApproval({
+  ...valid,
+  content_class: "VERIFIED_RUNTIME_CONTRACT",
+  fact_source_locators: ["assets/js/archscry-presentation.js#buildMazeRouteQuery"],
+}).passed, true);
+assert.equal(validateAutomaticApproval({
+  ...valid,
+  fact_source_locators: ["assets/js/archscry-presentation.js#buildMazeRouteQuery"],
+}).passed, false);
+
+assert.equal(assertAutomaticEducationApproval({
+  content_class: "FACTUAL_EDUCATION",
+  fact_source_locators: ["data/taxonomy/vox-mana-tags.json#control"],
+  public_copy: "A bounded Commander term definition.",
+  limitation: "This definition does not assign identity meaning.",
+  creates_identity_meaning: false,
+  changes_placement_semantics: false,
+}).passed, true);
+assert.throws(() => assertAutomaticEducationApproval({
+  content_class: "FACTUAL_EDUCATION",
+  fact_source_locators: ["https://example.com/wiki"],
+  public_copy: "Unsupported definition.",
+  limitation: "None.",
+}), /INVALID_FACT_AUTHORITY/);
 
 for (const [field, value, failure] of [
   ["identity_claim_ids", [], "NO_CERTIFIED_IDENTITY_CLAIMS"],

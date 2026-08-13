@@ -111,6 +111,7 @@ const APP_STATE = {
   cardVoiceCatalog: null,
   identityDossierCatalog: null,
   publicComparisonCatalog: null,
+  discoveryEducationCatalog: null,
   preconCatalog: null,
   preconThemeTaxonomy: null,
   commanderProviderValidation: null,
@@ -289,16 +290,18 @@ async function loadIdentityLayerData() {
 }
 
 async function loadDossierContentAuthority() {
-  const [identityDossierCatalog, publicComparisonCatalog] = await Promise.all([
+  const [identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
     loadCoreJson("dossier/identity-dossier-content.catalog.json", "identity dossier content"),
     loadCoreJson("dossier/public-comparisons.catalog.json", "public identity comparisons"),
+    loadCoreJson("dossier/discovery-education-catalog.json", "Archscry education content"),
   ]);
   const identities = new Set((identityDossierCatalog?.records || []).map((record) => record.identity_key));
-  if (identities.size !== 37 || (publicComparisonCatalog?.records || []).length !== 123) {
+  if (identities.size !== 37 || (publicComparisonCatalog?.records || []).length !== 123 || (discoveryEducationCatalog?.glossary || []).length !== 32) {
     throw new Error("Archscry dossier content is stale or incomplete.");
   }
   APP_STATE.identityDossierCatalog = identityDossierCatalog;
   APP_STATE.publicComparisonCatalog = publicComparisonCatalog;
+  APP_STATE.discoveryEducationCatalog = discoveryEducationCatalog;
 }
 
 /**
@@ -2541,27 +2544,21 @@ function uniqueTagRefs(refs = []) {
   });
 }
 
-const ARCHSCRY_TERM_HELP = Object.freeze({
-  "Draw-Go Control": ["Meaning: develop mostly on other players' turns.", "Commander: keep mana open for draw, counters, or instant-speed interaction.", "Why here: a possible reactive Azorius exploration lane.", "Boundary: it does not mean doing nothing or prolonging every game."],
-  "Prison Control": ["Meaning: constrain which actions remain available.", "Commander: use rule-setting permanents and taxes to narrow opposing lines.", "Why here: a possible proactive Azorius control lane.", "Boundary: the label does not promise a hard lock or a preferred power level."],
-  Midrange: ["Meaning: build flexible threats and answers for the middle turns.", "Commander: develop value while keeping enough interaction to change plans.", "Why here: a broad exploration lane supported by the displayed deck context.", "Boundary: it is not proof of a pace or skill preference."],
-  Control: ["Meaning: spend resources to answer pivotal opposing plays before closing the game.", "Commander: combine removal, counters, board resets, or durable value.", "Why here: the dossier surfaced a control-related authored tag.", "Boundary: control does not automatically mean slow play or a long game."],
-  Tempo: ["Meaning: protect your progress while delaying an opponent's key play.", "Commander: bounce, tap, tax, or counter selectively while advancing a board.", "Why here: the dossier surfaced timing and enforcement language.", "Boundary: tempo is not the same as denying every action."],
-  Stax: ["Meaning: use persistent rules that restrict resources or actions.", "Commander: permanents can tax spells, limit untaps, or narrow legal sequences.", "Why here: curated Azorius guidance includes a possible rule-setting lane.", "Boundary: one tax card does not make a deck Stax, and the label says nothing about social fit."],
-  Pillowfort: ["Meaning: make attacking you less attractive or more expensive.", "Commander: defensive permanents redirect combat without necessarily stopping the whole table.", "Why here: it can overlap with protective White-Blue exploration.", "Boundary: it is not a promise that opponents will leave you alone."],
-  Hatebears: ["Meaning: small creatures carry targeted rule restrictions.", "Commander: the creatures pressure life totals while disrupting selected lines.", "Why here: it is a possible creature-based enforcement lane.", "Boundary: color access alone does not show that this reading wants it."],
-  taxation: ["Meaning: make selected actions cost more.", "Commander: spells, attacks, or activated abilities may require extra mana or resources.", "Why here: taxation is one curated Azorius mechanical expression.", "Boundary: a tax does not define personality or prove this fit."],
-  sweepers: ["Meaning: reset many permanents at once.", "Commander: a board wipe can answer a developed battlefield when one-for-one removal is insufficient.", "Why here: sweepers are one possible control tool.", "Boundary: showing the term does not mean every suggested deck should run the same reset package."],
-  detain: ["Meaning: temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.", "Commander: detain creates a limited timing window rather than permanent removal.", "Why here: it is an official Azorius mechanic used as an example.", "Boundary: lore or mechanic ownership does not prove a player's deck preference."],
-  parity: ["Meaning: players appear even on resources or board position.", "Commander: an effect can break parity when your deck benefits more from a symmetrical rule or reset.", "Why here: timing advice may ask which exchange changes that balance.", "Boundary: parity is board-specific, not a claim that the table is objectively fair."],
-  "open mana": ["Meaning: leave lands or other mana sources untapped.", "Commander: this preserves the option to interact, draw, or act later.", "Why here: reactive Azorius directions can value flexible timing.", "Boundary: open mana does not prove a counterspell is present."],
-});
+function archscryTermHelp() {
+  const map = {};
+  for (const record of APP_STATE.discoveryEducationCatalog?.glossary || []) {
+    for (const label of [record.term, ...(record.aliases || [])]) map[label] = record.definition;
+  }
+  return map;
+}
 
 let renderedEducationalTerms = new Set();
 
 function renderEducationalText(value) {
   const text = String(value || "");
-  const terms = Object.keys(ARCHSCRY_TERM_HELP).sort((left, right) => right.length - left.length);
+  const termHelp = archscryTermHelp();
+  const terms = Object.keys(termHelp).sort((left, right) => right.length - left.length);
+  if (!terms.length) return renderPlayerCopy(text);
   const escapedTerms = terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   const matcher = new RegExp(`\\b(${escapedTerms.join("|")})\\b`, "gi");
   return text.split(matcher).map((part) => {
@@ -2570,7 +2567,7 @@ function renderEducationalText(value) {
     const termKey = canonical.toLowerCase();
     if (renderedEducationalTerms.has(termKey)) return renderPlayerCopy(part);
     renderedEducationalTerms.add(termKey);
-    const help = ARCHSCRY_TERM_HELP[canonical].slice(0, 2).join(" ");
+    const help = termHelp[canonical];
     return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss="${escapeAttributeValue(help)}">${escapeHtml(part)}</span>`;
   }).join("");
 }
