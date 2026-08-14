@@ -3903,10 +3903,8 @@ body.vm-archscry-route .precon-provider-links{
   margin-inline: auto;
 }
 
-.bounded-direction-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.bounded-direction-grid {
+  display: grid;
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
@@ -3917,8 +3915,26 @@ body.vm-archscry-route .precon-provider-links{
 }
 
 .bounded-direction-card {
-  max-width: 38rem;
-  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bounded-direction-card .btn-secondary {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.result-refinement-card {
+  border: 1px solid rgba(216, 185, 106, 0.26);
+  background: rgba(216, 185, 106, 0.055);
+  padding: 1rem;
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.result-refinement-card .btn-secondary {
+  margin-top: 0.75rem;
 }
 
 @media (max-width: 720px) {

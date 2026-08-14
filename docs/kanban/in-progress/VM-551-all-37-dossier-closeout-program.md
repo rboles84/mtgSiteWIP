@@ -55,6 +55,18 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Final automated regression is green, including 5,000 generated journeys, all 123 confusion pairs, 6,660 synthetic runs, 884 mutations, 155/155 exact provider destinations, full source/generated guards, legacy 37 golden paths, dossier integrity, and Git whitespace checks.
 - Status: implementation and local certification are complete; awaiting the owner's final hands-on visual/product review before VM-551 closeout.
 
+## Consolidated Visual Review Remediation
+
+Owner testing superseded the prior local certification after reproducing systemic defects in the real Jund mixed/refinement/co-leader journey. The active remediation remains on the same branch and worktree and must finish before the owner visual review resumes.
+
+- Freeze `vm551-gate-b1-placement-engine-v1-quick-jund-4` as the primary real-ledger regression.
+- Make refinement state-specific and exactly one approved discriminator per action, with immediate result re-evaluation.
+- Render mixed directions as structured fields; remove generic named-result sharpening.
+- Complete canonical glossary decoration, distinct card-surface presentation, stale-preview protection, and player-copy audit-language removal.
+- Enforce visible-intent/operator parity for every identity and every runtime-emittable Maze path.
+- Extend existing witnesses, pair data, bounded fixtures, and replay output into one deterministic owner visual-review manifest.
+- Replace the superseded 621-cell claim only after the new defect-class regression suite is green.
+
 ## Boundaries
 
 Preserve placement scoring, ranking, naming qualification, public result-state semantics, the six-to-eight-question journey, Yore's intentional behavioral boundary, persistence/schema compatibility, Gate A result shapes, Matrix calculations, and certified identity truth. Do not push, merge, deploy, migrate, or begin empirical player validation.

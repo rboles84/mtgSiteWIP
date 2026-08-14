@@ -199,7 +199,7 @@ async function replay(page, origin, witness) {
       state: guildName ? "named" : document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || "unknown",
       guildName,
       whyCount: document.querySelectorAll("[data-public-fit-reasons] .omen-card").length,
-      sharpenAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
+      whyFitRefinementAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
       testFitCount: document.querySelectorAll("[data-test-the-fit] .identity-story-card").length,
       rationaleCount: document.querySelectorAll("[data-card-rationale-section] .flavor-echo-card").length,
       voiceCount: document.querySelectorAll("[data-card-voice-section] .flavor-echo-card").length,
@@ -230,9 +230,7 @@ async function replay(page, origin, witness) {
     assert.equal(ui.state, "named", `${witness.identity_key} did not render a named dossier`);
     assert.ok(ui.guildName, `${witness.identity_key} omitted the dossier hero`);
     assert.ok(ui.whyCount >= 2 && ui.whyCount <= 3, `${witness.identity_key} Why This Fit count ${ui.whyCount}`);
-    if (ui.whyCount < 3 && witness.result.refinement?.kind === "ask_targeted_question") {
-      assert.equal(ui.sharpenAvailable, true, `${witness.identity_key} omitted optional explanation refinement`);
-    }
+    assert.equal(ui.whyFitRefinementAvailable, false, `${witness.identity_key} put a retake action inside Why This Fit`);
     assert.equal(ui.testFitCount, 3, `${witness.identity_key} Test the Fit incomplete`);
     assert.ok(ui.rationaleCount >= 1, `${witness.identity_key} rationale section missing`);
     assert.ok(ui.voiceCount >= 1, `${witness.identity_key} voice section missing`);

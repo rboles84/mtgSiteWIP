@@ -844,23 +844,96 @@ function revisitCandidate(state, model, candidateIds) {
   return null;
 }
 
+function qualifiedRefinementCandidates(ranked, model) {
+  const primary = ranked.find((candidate) => getNamingQualification(candidate, model).qualified);
+  if (!primary) return [];
+  const window = Number(model.scoring_rules?.meaningful_alternative_window || 0.2);
+  return ranked.filter((candidate) => (
+    candidate.score >= primary.score - window &&
+    getNamingQualification(candidate, model).qualified
+  )).slice(0, 3);
+}
+
+function refinementPairUtility(question, leftId, rightId) {
+  let bestDifference = 0;
+  for (const answer of question.answers || []) {
+    if (neutralAnswer(answer)) continue;
+    bestDifference = Math.max(
+      bestDifference,
+      Math.abs(directMappingEffect(answer, leftId) - directMappingEffect(answer, rightId))
+    );
+  }
+  return bestDifference;
+}
+
+function bestApprovedRefinementQuestion(state, model, candidateIds) {
+  const asked = new Set(state.answered_question_ids || []);
+  const boundaries = unresolvedBoundaries(model, candidateIds);
+  const boundaryByPair = new Map(boundaries.map((boundary) => [boundary.pair_id, boundary]));
+  const targeted = (model.question_bank?.crucible || []).filter((question) => !asked.has(question.id));
+  const scored = targeted.map((question) => {
+    const separating = [];
+    for (let left = 0; left < candidateIds.length; left += 1) {
+      for (let right = left + 1; right < candidateIds.length; right += 1) {
+        const identities = [candidateIds[left], candidateIds[right]];
+        const utility = refinementPairUtility(question, identities[0], identities[1]);
+        if (utility <= EPSILON) continue;
+        const id = pairId(identities[0], identities[1]);
+        separating.push({
+          boundary: boundaryByPair.get(id) || {
+            pair_id: id,
+            identities,
+            distinction: "",
+          },
+          utility,
+        });
+      }
+    }
+    return {
+      question,
+      separating,
+      utility: round(separating.reduce((sum, entry) => sum + entry.utility, 0)),
+    };
+  }).filter((entry) => entry.utility > EPSILON);
+  return scored.sort((left, right) => (
+    right.utility - left.utility ||
+    left.question.order - right.question.order ||
+    left.question.id.localeCompare(right.question.id)
+  ))[0] || null;
+}
+
 export function getRefinementPath(state, model, ranked = rankCandidates(state, model)) {
-  const candidates = plausibleCandidates(state, model, ranked);
+  const stopping = evaluateStopping(state, model, ranked);
+  const resultState = stopping.stop ? stopping.state : "incomplete";
+  const publicCandidates = qualifiedRefinementCandidates(ranked, model);
+  const candidates = ["mixed", "tied", "close"].includes(resultState) && publicCandidates.length >= 2
+    ? publicCandidates
+    : plausibleCandidates(state, model, ranked);
   const candidateIds = candidates.map((candidate) => candidate.identity);
-  const hall = eligibleHallQuestions(state, model);
-  const targeted = eligibleTargetedQuestions(state, model, ranked);
-  const nextMeasurement = selectBestQuestion(state, model, [...hall, ...targeted], ranked);
+  const boundaries = unresolvedBoundaries(model, candidateIds);
+  const nextMeasurement = resultState === "primary"
+    ? null
+    : bestApprovedRefinementQuestion(state, model, candidateIds);
   if (nextMeasurement) {
+    const separatingBoundaries = nextMeasurement.separating.map((entry) => entry.boundary);
+    const primaryBoundary = separatingBoundaries[0] || null;
+    const construct = (model.constructs || []).find((entry) => entry.id === nextMeasurement.question.construct_id);
     return {
       kind: "ask_targeted_question",
       can_reduce_ambiguity: true,
       remaining_candidates: candidateIds,
-      unresolved_boundaries: unresolvedBoundaries(model, candidateIds),
+      unresolved_boundaries: boundaries,
       missing_constructs: missingConstructs(model, state, candidateIds),
       question_id: nextMeasurement.question.id,
       question_stage: nextMeasurement.question.stage,
+      purpose: resultState === "mixed" ? "refine_supported_directions" : "separate_supported_pair",
+      target_identities: primaryBoundary?.identities || candidateIds.slice(0, 3),
+      target_pair_ids: separatingBoundaries.map((boundary) => boundary.pair_id),
+      distinction: primaryBoundary?.distinction || (construct
+        ? `One question about ${construct.name.toLowerCase()} can separate the remaining supported directions.`
+        : "One approved behavioral question can separate the remaining supported directions."),
       revisit: null,
-      limitation: "This is an optional targeted refinement after the bounded main reading and does not extend the eight-question main journey.",
+      limitation: "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey.",
     };
   }
   const lens = lensEligibility(state, model, ranked, { ignoreMainTargetLimit: true });
@@ -873,6 +946,10 @@ export function getRefinementPath(state, model, ranked = rankCandidates(state, m
       missing_constructs: missingConstructs(model, state, candidateIds),
       question_id: lens.id,
       question_stage: "lens",
+      purpose: "refine_supported_directions",
+      target_identities: candidateIds.slice(0, 2),
+      target_pair_ids: unresolvedBoundaries(model, candidateIds).map((boundary) => boundary.pair_id),
+      distinction: "The optional identity lens can clarify the supported Yore and Glint directions without overriding behavior.",
       revisit: null,
       limitation: "This optional identity-lens refinement remains separate from behavioral naming and cannot flip or name Yore.",
     };
@@ -897,8 +974,14 @@ export function getRefinementPath(state, model, ranked = rankCandidates(state, m
     unresolved_boundaries: unresolvedBoundaries(model, candidateIds),
     missing_constructs: missingConstructs(model, state, candidateIds),
     question_id: null,
+    purpose: resultState === "primary" ? "none_for_clean_primary" : "no_approved_discriminator",
+    target_identities: candidateIds.slice(0, 3),
+    target_pair_ids: boundaries.map((boundary) => boundary.pair_id),
+    distinction: "",
     revisit: null,
-    limitation: "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation.",
+    limitation: resultState === "primary"
+      ? "The named reading is complete; optional questioning is not used merely to add another explanation card."
+      : "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation.",
   };
 }
 

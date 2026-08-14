@@ -675,7 +675,7 @@ function buildSummaryTagRowHtml(tags = []) {
   }
   return `
     <div class="dossier-snapshot-tags" data-summary-tags-row>
-      ${tags.map((tag) => `<span class="dossier-snapshot-tag">${escapeHtml(tag)}</span>`).join("")}
+      ${tags.map((tag) => `<span class="dossier-snapshot-tag">${renderEducationalText(tag, "summary-tags")}</span>`).join("")}
     </div>`;
 }
 
@@ -717,12 +717,12 @@ function buildSelfCheckCopy(faction) {
   return dossierContentForFaction(faction)?.test_the_fit?.positive_self_check || "";
 }
 
-function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "" }) {
+function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "", educationBlock = "test-the-fit" }) {
   return `
     <div class="starter-card identity-story-card${className ? ` ${className}` : ""}">
       <div class="starter-title">${escapeHtml(title)}</div>
       ${headline ? `<div class="identity-story-headline">${renderPlayerCopy(headline)}</div>` : ""}
-      <div class="starter-copy">${renderPlayerCopy(copy)}</div>
+      <div class="starter-copy">${renderEducationalText(copy, educationBlock)}</div>
       ${meta ? `<div class="identity-story-meta">${meta}</div>` : ""}
     </div>`;
 }
@@ -770,9 +770,9 @@ function buildTableIdentityCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
-        <div><span>Role</span>${renderPlayerCopy(presentation.role)}</div>
-        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.how_opponents_read_it)}</div>
-        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotional_pressure)}</div>
+        <div><span>Role</span>${renderEducationalText(presentation.role, "how-this-plays")}</div>
+        <div><span>How opponents read it</span>${renderEducationalText(presentation.how_opponents_read_it, "how-this-plays")}</div>
+        <div><span>Emotional pressure</span>${renderEducationalText(presentation.emotional_pressure, "how-this-plays")}</div>
       </div>
     </div>`;
 }
@@ -784,9 +784,9 @@ function buildLoreToMechanicCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
-        <div><span>Lore role</span>${renderPlayerCopy(presentation.lore_role)}</div>
-        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanical_expression)}</div>
-        <div><span>Table experience</span>${renderPlayerCopy(presentation.table_experience)}</div>
+        <div><span>Lore role</span>${renderEducationalText(presentation.lore_role, "how-this-plays")}</div>
+        <div><span>Mechanical expression</span>${renderEducationalText(presentation.mechanical_expression, "how-this-plays")}</div>
+        <div><span>Table experience</span>${renderEducationalText(presentation.table_experience, "how-this-plays")}</div>
       </div>
     </div>`;
 }
@@ -1197,7 +1197,7 @@ function answerQuickQuestion(answerIndex) {
 
   if (APP_STATE.refinementMode === "targeted") {
     APP_STATE.refinementMode = false;
-    showQuickTransition("reading");
+    finalizeQuickReading();
     return;
   }
   if (APP_STATE.refinementMode === "revisit") APP_STATE.refinementMode = false;
@@ -2665,14 +2665,18 @@ function uniqueTagRefs(refs = []) {
 function archscryTermHelp() {
   const map = {};
   for (const record of APP_STATE.discoveryEducationCatalog?.glossary || []) {
-    for (const label of [record.term, ...(record.aliases || [])]) map[label] = record.definition;
+    for (const label of [record.term, ...(record.aliases || [])]) map[label] = {
+      definition: record.definition,
+      recordId: record.record_id,
+      term: record.term,
+    };
   }
   return map;
 }
 
-let renderedEducationalTerms = new Set();
+let renderedEducationalTerms = new Map();
 
-function renderEducationalText(value) {
+function renderEducationalText(value, semanticBlock = "page") {
   const text = String(value || "");
   const termHelp = archscryTermHelp();
   const terms = Object.keys(termHelp).sort((left, right) => right.length - left.length);
@@ -2682,11 +2686,12 @@ function renderEducationalText(value) {
   return text.split(matcher).map((part) => {
     const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
     if (!canonical) return renderPlayerCopy(part);
-    const termKey = canonical.toLowerCase();
-    if (renderedEducationalTerms.has(termKey)) return renderPlayerCopy(part);
-    renderedEducationalTerms.add(termKey);
     const help = termHelp[canonical];
-    return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss="${escapeAttributeValue(help)}">${escapeHtml(part)}</span>`;
+    const blockTerms = renderedEducationalTerms.get(semanticBlock) || new Set();
+    if (blockTerms.has(help.recordId)) return renderPlayerCopy(part);
+    blockTerms.add(help.recordId);
+    renderedEducationalTerms.set(semanticBlock, blockTerms);
+    return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss-record="${escapeAttributeValue(help.recordId)}" data-gloss="${escapeAttributeValue(help.definition)}">${escapeHtml(part)}</span>`;
   }).join("");
 }
 
@@ -2886,7 +2891,6 @@ export function selectFlavorEchoes({
 function buildDiscoverySummaryHtml({ dossier, faction, result }) {
   const observations = (dossier?.readingOmens || []).slice(0, 3);
   if (!observations.length) return "";
-  const canSharpen = observations.length < 3 && result?.refinement?.kind === "ask_targeted_question" && placementQuestionById(result.refinement.question_id);
   return `
     <div class="starter-section" data-public-fit-reasons>
       <div class="section-label">Why This Fit</div>
@@ -2895,10 +2899,28 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
         ${observations.map((observation) => `
           <div class="starter-card omen-card">
             <div class="starter-title">${escapeHtml(observation.answerTitle)}</div>
-            <div class="starter-copy">${renderPlayerCopy(observation.copy)}</div>
+            <div class="starter-copy">${renderEducationalText(observation.copy, "why-this-fit")}</div>
           </div>`).join("")}
       </div>
-      ${canSharpen ? `<div class="why-fit-refinement"><p>A further approved observation may make this explanation more specific without changing the naming standard.</p><button class="btn-secondary" type="button" ${buildActionAttrs("start-result-refinement")}>Sharpen This Reading</button></div>` : ""}
+    </div>`;
+}
+
+function refinementIdentityNames(result = {}) {
+  return (result.refinement?.target_identities || [])
+    .map((identity) => getFaction(identity)?.name || identity)
+    .filter(Boolean);
+}
+
+function buildNamedResultRefinementHtml(result, resultState) {
+  const refinement = result?.refinement || {};
+  if (!['tied', 'close'].includes(resultState) || refinement.kind !== "ask_targeted_question" || !placementQuestionById(refinement.question_id)) return "";
+  const names = refinementIdentityNames(result).slice(0, 2);
+  if (names.length !== 2) return "";
+  return `
+    <div class="result-refinement-card" data-result-refinement-purpose="${escapeAttributeValue(refinement.purpose || "separate_supported_pair")}">
+      <div class="starter-title">One distinction is still available</div>
+      <p class="starter-copy">${escapeHtml(refinement.distinction || `One approved question can help compare ${names[0]} and ${names[1]}.`)}</p>
+      <button class="btn-secondary" type="button" ${buildActionAttrs("start-result-refinement")}>Try to separate ${escapeHtml(names[0])} and ${escapeHtml(names[1])}</button>
     </div>`;
 }
 
@@ -3030,7 +3052,7 @@ export function buildCardVoicesHtml(voices = []) {
   return `
     <div class="starter-section" data-card-voice-section>
       <div class="section-label">Cards That Sound Like This</div>
-      <p class="flavor-echo-intro">Exact card voices whose approved relationship echoes this reading without treating flavor alone as identity proof.</p>
+      <p class="flavor-echo-intro">A line of Magic flavor that sounds like this reading.</p>
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${voices.length}">
         ${voices.map(({ card, record }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
@@ -3042,8 +3064,6 @@ export function buildCardVoicesHtml(voices = []) {
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
                 <span class="flavor-echo-kicker">Exact card voice</span>
                 <span class="flavor-echo-why">“${escapeHtml(record.excerpt)}”</span>
-                <span class="flavor-echo-kicker">Why it echoes</span>
-                <span class="flavor-echo-why">${escapeHtml(record.why_it_echoes)}</span>
                 <span class="flavor-echo-action">View card details</span>
               </span>
             </button>`;
@@ -3077,8 +3097,8 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
   if (!groundedEchoes.length) return "";
   return `
     <div class="starter-section" data-card-rationale-section>
-      <div class="section-label">Why These Cards Echo This Reading</div>
-      <div class="flavor-echo-intro">Each example below has an approved card-to-identity explanation in the repository.</div>
+      <div class="section-label">Cards That Play Like This</div>
+      <div class="flavor-echo-intro">Cards whose verified play patterns give you a concrete way to explore this reading.</div>
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${groundedEchoes.length}">
         ${groundedEchoes.map(({ card, rationale }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
@@ -3093,7 +3113,7 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
               ${image ? `<img class="vm-card-rationale-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Why it appears</span>
+                <span class="flavor-echo-kicker">Why it fits in play</span>
                 <span class="flavor-echo-why">${escapeHtml(rationale.text)}</span>
                 ${rationale.tags.length ? `<span class="vm-tag-row">${renderStaticTagChips(rationale.tags, 3)}</span>` : ""}
                 <span class="flavor-echo-action">View card details</span>
@@ -3290,8 +3310,14 @@ function renderBoundedResultShell(result, state) {
     ? `<button class="btn-primary" type="button" ${buildActionAttrs("resume-quick-flow")}>Continue</button>`
     : "";
   const refinement = result?.refinement || {};
+  const refinementNames = refinementIdentityNames(result);
+  const targetedLabel = state === "mixed"
+    ? "Refine these directions"
+    : ['tied', 'close'].includes(state) && refinementNames.length >= 2
+      ? `Try to separate ${refinementNames[0]} and ${refinementNames[1]}`
+      : "Refine this reading";
   const refinementAction = refinement.kind === "ask_targeted_question" && placementQuestionById(refinement.question_id)
-    ? `<button class="btn-primary" type="button" ${buildActionAttrs("start-result-refinement")}>Sharpen This Reading</button>`
+    ? `<button class="btn-primary" type="button" ${buildActionAttrs("start-result-refinement")}>${escapeHtml(targetedLabel)}</button>`
     : refinement.kind === "revisit_prior_answer" && refinement.revisit?.question_id
       ? `<button class="btn-primary" type="button" ${buildActionAttrs("revisit-result-answer")}>Revisit a Conditional Answer</button>`
       : "";
@@ -3299,10 +3325,19 @@ function renderBoundedResultShell(result, state) {
     ? (result?.top_matches || []).filter((match) => match?.faction).slice(0, 3)
     : [];
   const directionActions = supportedDirections.length ? `
-    <div class="bounded-direction-actions" aria-label="Supported reading directions">
+    <div class="bounded-direction-grid public-three-item-grid" data-item-count="${supportedDirections.length}" aria-label="Supported reading directions">
       ${supportedDirections.map((match) => {
         const faction = getFaction(match.faction);
-        return faction ? `<button class="btn-secondary" type="button" ${buildActionAttrs("show-bounded-direction", { viewKey: match.faction })}>Explore ${escapeHtml(faction.name)}</button>` : "";
+        const content = dossierContentForFaction(match.faction);
+        const reason = answerGroundedDirectionReason(result, match.faction);
+        const orientation = content?.test_the_fit?.positive_self_check || "";
+        return faction ? `
+          <div class="starter-card bounded-direction-card" data-direction-identity="${escapeAttributeValue(match.faction)}">
+            <div class="starter-title">${escapeHtml(faction.name)}</div>
+            ${reason ? `<p class="starter-copy" data-direction-reason>${renderPlayerCopy(reason)}</p>` : ""}
+            ${orientation ? `<p class="starter-copy" data-direction-orientation>${renderPlayerCopy(orientation)}</p>` : ""}
+            <button class="btn-secondary" type="button" ${buildActionAttrs("show-bounded-direction", { viewKey: match.faction })}>Explore ${escapeHtml(faction.name)}</button>
+          </div>` : "";
       }).join("")}
     </div>
     <div class="bounded-direction-detail" data-bounded-direction-detail aria-live="polite"></div>` : "";
@@ -3330,6 +3365,20 @@ function renderBoundedResultShell(result, state) {
   updateTopbar();
 }
 
+function answerGroundedDirectionReason(result, identityKey) {
+  const entries = (result?.evidence_ledger || result?.evidence_trail || [])
+    .filter((entry) => (
+      entry?.neutral !== true &&
+      (entry.positive_support || entry.qualification_support || []).includes(identityKey) &&
+      !(entry.contradiction || []).includes(identityKey)
+    ));
+  const strongest = entries.sort((left, right) => (
+    Number(right.mapping_strength || 0) - Number(left.mapping_strength || 0) ||
+    String(left.question_id || "").localeCompare(String(right.question_id || ""))
+  ))[0];
+  return strongest?.bounded_observation || strongest?.observation || "";
+}
+
 function showBoundedDirection(identityKey) {
   const faction = getFaction(identityKey);
   const content = dossierContentForFaction(identityKey);
@@ -3338,8 +3387,7 @@ function showBoundedDirection(identityKey) {
   detail.innerHTML = `
     <div class="starter-card bounded-direction-card">
       <div class="starter-title">${escapeHtml(faction.name)}</div>
-      <div class="starter-copy">${renderPlayerCopy(content.test_the_fit.positive_self_check)}</div>
-      <div class="starter-copy">${renderPlayerCopy(content.how_this_plays.table_experience)}</div>
+      <div class="starter-copy">${renderPlayerCopy(content.test_the_fit.certified_boundary_self_check)}</div>
     </div>`;
 }
 
@@ -3375,7 +3423,7 @@ function renderResult(viewKey) {
   const activeKey = allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
   destroyDossierManaRadar();
-  renderedEducationalTerms = new Set();
+  renderedEducationalTerms = new Map();
 
   if (!result) {
     document.getElementById("result-inner").innerHTML = `
@@ -3506,7 +3554,7 @@ function renderResult(viewKey) {
     },
   })) || [];
   const archetypeHtml = archetypeItems
-    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc)}</div></div>`)
+    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name, "what-to-look-for")}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for")}</div></div>`)
     .join("");
 
   function cardSlots(items, prefix, placeholderClass, imageClass) {
@@ -3699,6 +3747,7 @@ function renderResult(viewKey) {
   const stateExplanation = resultState === "unknown" && isLegacyGateAResult(result)
     ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
     : gateAStatePresentation(resultState)[1];
+  const namedResultRefinementHtml = buildNamedResultRefinementHtml(result, resultState);
   const placementPanelHtml = `
     ${adjacentContextHtml}
     ${resultState === "tied" ? "" : `<div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
@@ -3707,6 +3756,7 @@ function renderResult(viewKey) {
     </div>`}
     ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not confirmation of the reading. Retake if you want an answer-grounded result.</div>` : ""}
     ${returnToPrimaryButton}
+    ${namedResultRefinementHtml}
     ${discoverySummaryHtml}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}`;
   const whyPanelHtml = `
@@ -3720,12 +3770,12 @@ function renderResult(viewKey) {
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
-          <div class="starter-copy">${renderEducationalText(commanderLane.copy)}</div>
+          <div class="starter-copy">${renderEducationalText(commanderLane.copy, "start-here")}</div>
           <div class="starter-notes">
             ${commanderLane.details.map((detail) => `
               <div class="starter-note">
-                <div class="starter-note-label">${renderEducationalText(detail.label)}</div>
-                <div class="starter-copy">${renderEducationalText(detail.copy)}</div>
+                <div class="starter-note-label">${renderEducationalText(detail.label, "start-here")}</div>
+                <div class="starter-copy">${renderEducationalText(detail.copy, "start-here")}</div>
               </div>`).join("")}
           </div>
           ${commanderPreviewHtml}
@@ -4168,6 +4218,15 @@ async function showCardPreviewOverlay(trigger, event = null) {
     return;
   }
   const requestId = ++cardPreviewRequestId;
+  const overlay = ensureCardPreviewOverlay();
+  const overlayImage = overlay.querySelector("img");
+  overlay.classList.remove("is-visible");
+  overlay.classList.add("is-loading");
+  overlay.setAttribute("aria-busy", "true");
+  if (overlayImage) {
+    overlayImage.removeAttribute("src");
+    overlayImage.alt = "";
+  }
   let imageUrl = "";
   if (trigger.cardName) {
     try {
@@ -4181,19 +4240,37 @@ async function showCardPreviewOverlay(trigger, event = null) {
     imageUrl = trigger.image.currentSrc || trigger.image.src;
   }
   if (!imageUrl || requestId !== cardPreviewRequestId) return;
-  const overlay = ensureCardPreviewOverlay();
-  const image = overlay.querySelector("img");
-  if (image) {
-    image.src = imageUrl;
-    image.alt = "";
+  if (typeof Image === "function") {
+    const pendingImage = new Image();
+    const loaded = new Promise((resolve, reject) => {
+      pendingImage.onload = resolve;
+      pendingImage.onerror = reject;
+    });
+    pendingImage.src = imageUrl;
+    try {
+      await loaded;
+    } catch (_) {
+      if (requestId === cardPreviewRequestId) {
+        overlay.classList.remove("is-loading");
+        overlay.removeAttribute("aria-busy");
+      }
+      return;
+    }
   }
+  if (requestId !== cardPreviewRequestId) return;
+  if (overlayImage) overlayImage.src = imageUrl;
   positionCardPreviewOverlay(overlay, trigger.boundary, event);
+  overlay.classList.remove("is-loading");
+  overlay.removeAttribute("aria-busy");
   overlay.classList.add("is-visible");
 }
 
 function hideCardPreviewOverlay() {
   cardPreviewRequestId += 1;
-  cardPreviewOverlay?.classList.remove("is-visible");
+  cardPreviewOverlay?.classList.remove("is-visible", "is-loading");
+  cardPreviewOverlay?.removeAttribute("aria-busy");
+  const image = cardPreviewOverlay?.querySelector("img");
+  image?.removeAttribute("src");
 }
 
 const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image, img.vm-card-rationale-image";
