@@ -2063,7 +2063,7 @@ assert.doesNotMatch(jundLaneText, /Exact BRG|playable pattern|personality label|
 const nayaPresentation = presentationForFaction(factions.NAYA);
 assert.match(nayaPresentation.thesis, /life becoming relation before it becomes force/i);
 assert.match(nayaPresentation.tableExperience, /grow mana, guard the living whole, build a protected board/i);
-assert.match(nayaPresentation.mechanics, /support-only ways to show abundance, instinct, and creature-forward scale/i);
+assert.match(nayaPresentation.mechanics, /combat patterns that show abundance, instinct, and creature-forward scale/i);
 assert.doesNotMatch(
   [
     nayaPresentation.thesis,
@@ -2173,7 +2173,7 @@ assert.doesNotMatch(
 const sultaiPresentation = presentationForFaction(factions.SULTAI);
 assert.match(sultaiPresentation.thesis, /opportunity becoming power/i);
 assert.match(sultaiPresentation.tableExperience, /convert graveyards/i);
-assert.match(sultaiPresentation.mechanics, /Commander-facing support texture/i);
+assert.match(sultaiPresentation.mechanics, /express calculated resource conversion and survival/i);
 assert.doesNotMatch(
   [
     sultaiPresentation.thesis,
