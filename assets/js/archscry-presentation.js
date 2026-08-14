@@ -604,6 +604,10 @@ function applyMazeIdentityOverride(entries = [], identity = "") {
       .replace(new RegExp(`id<=${normalizedIdentity}\\b`, "g"), `id<=${queryIdentity}`)
       .replace(new RegExp(`-id<=${normalizedIdentity}\\b`, "g"), `-id<=${queryIdentity}`),
     plainReadingQuery: String(entry.plainReadingQuery || "").replace(normalizedWords, queryWords),
+    visibleConstraints: (entry.visibleConstraints || []).map((constraint) => String(constraint)
+      .replace(new RegExp(`id=${normalizedIdentity}\\b`, "g"), `id=${queryIdentity}`)
+      .replace(new RegExp(`id<=${normalizedIdentity}\\b`, "g"), `id<=${queryIdentity}`)
+      .replace(new RegExp(`-id<=${normalizedIdentity}\\b`, "g"), `-id<=${queryIdentity}`)),
   }));
 }
 
@@ -618,7 +622,7 @@ function applyLiveFourColorExactCommanderPolicy(entries = [], identity = "") {
   const exactCommanderQuery = liveFourColorExactCommanderQuery(identity);
   if (!exactCommanderQuery) return entries;
   return entries.map((entry) => entry.pathType === "commanders-that-fit"
-    ? { ...entry, query: exactCommanderQuery }
+    ? { ...entry, query: exactCommanderQuery, visibleConstraints: [`id=${String(identity).toLowerCase()}`, "is:commander", "f:commander"] }
     : entry
   );
 }
@@ -1409,6 +1413,7 @@ export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
       query: entry.query,
       pathType: entry.pathType,
       plainReadingQuery: entry.plainReadingQuery,
+      visibleConstraints: entry.visibleConstraints,
     });
   });
 }

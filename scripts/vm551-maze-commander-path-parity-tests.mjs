@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildDossierMazePathEntries } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze-handoff.js";
 
 const factions = JSON.parse(await readFile(new URL("../data/factions.json", import.meta.url), "utf8")).factions;
 const forbiddenInvisibleRestriction = /(?:^|\s)[-+]?(?:o|oracle|t|type|ft|flavor|usd|eur|tix|set|e|rarity|r|legal|format):/i;
@@ -20,9 +20,17 @@ for (const faction of Object.values(factions)) {
   assert.doesNotMatch(commanderPath.query, forbiddenInvisibleRestriction, `${faction.key} commander path must not add an invisible mechanic/type/text/price/set restriction`);
   assert.match(commanderPath.query, /^id=[a-z]+ is:commander f:commander$/, `${faction.key} commander path must contain only exact identity, Commander type, and Commander legality`);
   assert.match(commanderPath.plainReadingQuery, /commanders with (?:exactly|strict)/i, `${faction.key} visible intent must state the exact/strict identity scope`);
-  rows.push({ identity: faction.key, path_type: commanderPath.pathType, plain: commanderPath.plainReadingQuery, operator: commanderPath.query, status: "PASS" });
+  for (const mazePath of paths) {
+    const parity = validateMazeSemanticParity(mazePath);
+    assert.equal(parity.valid, true, `${faction.key}/${mazePath.pathType} hid or misstated constraints: ${JSON.stringify(parity)}`);
+    rows.push({ identity: faction.key, path_type: mazePath.pathType, plain: mazePath.plainReadingQuery, operator: mazePath.query, constraints: parity.actual, status: "PASS" });
+  }
 }
 
-assert.equal(rows.length, 37);
+assert.ok(rows.length >= 37 * 3);
 assert.equal(new Set(rows.map((row) => row.identity)).size, 37);
-console.log(JSON.stringify({ status: "PASS", identities: rows.length, path_type: "basic commanders that fit", hidden_restrictions: 0 }, null, 2));
+const jundSupport = rows.find((row) => row.identity === "JUND" && row.path_type === "support-cards");
+assert.ok(jundSupport);
+assert.match(jundSupport.plain, /tokens, token army, aggro, or aggressive/i);
+assert.doesNotMatch(jundSupport.operator, /control|permission/i, "Jund must not inherit generic control/permission filters");
+console.log(JSON.stringify({ status: "PASS", identities: 37, paths: rows.length, hidden_restrictions: 0 }, null, 2));

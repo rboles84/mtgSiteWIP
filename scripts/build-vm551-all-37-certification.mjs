@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 
-import { buildDossierMazePathEntries } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze-handoff.js";
 
 const root = process.cwd();
 const check = process.argv.includes("--check");
@@ -59,7 +59,8 @@ const rows = Object.values(factions).map((faction) => {
   const identityPrecons = exactPrecons(faction);
   const providerGaps = identityPrecons.filter((precon) => !(provider.commanders?.[precon.mainCommander]?.links || []).some((link) => link.verified === true));
   const sourceSignalCount = Object.values(faction.staples || {}).flat().length;
-  const commanderPath = buildDossierMazePathEntries({ identity: identityCode(faction), factionName: faction.name, identityHint: key })
+  const mazePaths = buildDossierMazePathEntries({ identity: identityCode(faction), factionName: faction.name, identityHint: key });
+  const commanderPath = mazePaths
     .find((entry) => entry.pathType === "commanders-that-fit" || entry.pathType === "colorless-identity");
 
   assert.equal(content.what_to_look_for.length, 3, `${key} What to Look For authority incomplete`);
@@ -70,6 +71,10 @@ const rows = Object.values(factions).map((faction) => {
   assert.deepEqual(missingEmittedComparisons, [], `${key} emitted an alternative without approved comparison copy`);
   assert.ok(identityPrecons.length >= 1 && providerGaps.length === 0, `${key} precon/provider evidence incomplete`);
   assert.ok(commanderPath && /^id=[a-z]+ is:commander f:commander$/.test(commanderPath.query), `${key} Maze path is not exact-intent`);
+  for (const mazePath of mazePaths) {
+    const parity = validateMazeSemanticParity(mazePath);
+    assert.equal(parity.valid, true, `${key}/${mazePath.pathType} Maze semantic parity failed: ${JSON.stringify(parity)}`);
+  }
   if (named) {
     for (const row of rendered) {
       assert.equal(row.state, "named", `${key} did not render its named dossier`);

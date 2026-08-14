@@ -1279,7 +1279,7 @@ const inkMazePaths = buildPersonalizedMazePaths({
 assert.equal(inkMazePaths.length, 3, "INK should create live personalized Maze links after VM-332.");
 assert.equal(inkMazePaths[0].pathType, "commanders-that-fit");
 assert.equal(inkMazePaths[0].operatorQuery, "id=rgwu is:commander f:commander");
-assert.equal(inkMazePaths[0].plainReadingQuery, "Ink commanders with exactly red-green-white-blue identity");
+assert.equal(inkMazePaths[0].plainReadingQuery, "Ink Commander-legal commanders with exactly red-green-white-blue identity");
 assert.ok(
   inkMazePaths.slice(1).every((link) => /^id<=rgwu\b/i.test(link.operatorQuery || "")),
   "INK support and flavor Maze paths should remain bounded RGWU support queries"
@@ -1418,7 +1418,7 @@ assert.deepEqual(
 );
 assert.equal(witchMazePaths[0].operatorQuery, "id=gwub is:commander f:commander");
 assert.doesNotMatch(witchMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
-assert.equal(witchMazePaths[0].plainReadingQuery, "Witch commanders with exactly green-white-blue-black identity");
+assert.equal(witchMazePaths[0].plainReadingQuery, "Witch Commander-legal commanders with exactly green-white-blue-black identity");
 assert.match(witchMazePaths[1].operatorQuery, /^id<=gwub f:commander -is:commander -t:land /);
 assert.match(witchMazePaths[2].operatorQuery, /^id<=gwub f:commander \(ft:/);
 assert.ok(!witchMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3621,7 +3621,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(grixisMazePaths[0].operatorQuery, /^id=ubr is:commander f:commander$/);
-assert.equal(grixisMazePaths[0].plainReadingQuery, "Grixis commanders with exactly blue-black-red identity");
+assert.equal(grixisMazePaths[0].plainReadingQuery, "Grixis Commander-legal commanders with exactly blue-black-red identity");
 assert.match(grixisMazePaths[1].operatorQuery, /^id<=ubr f:commander -is:commander -t:land /);
 assert.match(grixisMazePaths[2].operatorQuery, /^id<=ubr f:commander \(ft:/);
 assert.ok(!grixisMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3637,7 +3637,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(jundMazePaths[0].operatorQuery, /^id=brg is:commander f:commander$/);
-assert.equal(jundMazePaths[0].plainReadingQuery, "Jund commanders with exactly black-red-green identity");
+assert.equal(jundMazePaths[0].plainReadingQuery, "Jund Commander-legal commanders with exactly black-red-green identity");
 assert.match(jundMazePaths[1].operatorQuery, /^id<=brg f:commander -is:commander -t:land /);
 assert.match(jundMazePaths[2].operatorQuery, /^id<=brg f:commander \(ft:/);
 assert.ok(!jundMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3653,7 +3653,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(nayaMazePaths[0].operatorQuery, /^id=rgw is:commander f:commander$/);
-assert.equal(nayaMazePaths[0].plainReadingQuery, "Naya commanders with exactly red-green-white identity");
+assert.equal(nayaMazePaths[0].plainReadingQuery, "Naya Commander-legal commanders with exactly red-green-white identity");
 assert.match(nayaMazePaths[1].operatorQuery, /^id<=rgw f:commander -is:commander -t:land /);
 assert.match(nayaMazePaths[2].operatorQuery, /^id<=rgw f:commander \(ft:/);
 assert.ok(!nayaMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3669,7 +3669,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(abzanMazePaths[0].operatorQuery, /^id=wbg is:commander f:commander$/);
-assert.equal(abzanMazePaths[0].plainReadingQuery, "Abzan Houses commanders with exactly white-black-green identity");
+assert.equal(abzanMazePaths[0].plainReadingQuery, "Abzan Houses Commander-legal commanders with exactly white-black-green identity");
 assert.match(abzanMazePaths[1].operatorQuery, /^id<=wbg f:commander -is:commander -t:land /);
 assert.match(abzanMazePaths[2].operatorQuery, /^id<=wbg f:commander \(ft:/);
 assert.ok(!abzanMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3685,7 +3685,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(temurMazePaths[0].operatorQuery, /^id=gur is:commander f:commander$/);
-assert.equal(temurMazePaths[0].plainReadingQuery, "Temur Frontier commanders with exactly green-blue-red identity");
+assert.equal(temurMazePaths[0].plainReadingQuery, "Temur Frontier Commander-legal commanders with exactly green-blue-red identity");
 assert.match(temurMazePaths[1].operatorQuery, /^id<=gur f:commander -is:commander -t:land /);
 assert.match(temurMazePaths[2].operatorQuery, /^id<=gur f:commander \(ft:/);
 assert.ok(!temurMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3701,7 +3701,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(sultaiMazePaths[0].operatorQuery, /^id=bgu is:commander f:commander$/);
-assert.equal(sultaiMazePaths[0].plainReadingQuery, "Sultai Brood commanders with exactly black-green-blue identity");
+assert.equal(sultaiMazePaths[0].plainReadingQuery, "Sultai Brood Commander-legal commanders with exactly black-green-blue identity");
 assert.match(sultaiMazePaths[1].operatorQuery, /^id<=bgu f:commander -is:commander -t:land /);
 assert.match(sultaiMazePaths[2].operatorQuery, /^id<=bgu f:commander \(ft:/);
 assert.ok(!sultaiMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3717,7 +3717,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(marduMazePaths[0].operatorQuery, /^id=rwb is:commander f:commander$/);
-assert.equal(marduMazePaths[0].plainReadingQuery, "Mardu Horde commanders with exactly red-white-black identity");
+assert.equal(marduMazePaths[0].plainReadingQuery, "Mardu Horde Commander-legal commanders with exactly red-white-black identity");
 assert.match(marduMazePaths[1].operatorQuery, /^id<=rwb f:commander -is:commander -t:land /);
 assert.match(marduMazePaths[2].operatorQuery, /^id<=rwb f:commander \(ft:/);
 assert.ok(!marduMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3734,7 +3734,7 @@ assert.deepEqual(
   ["commanders-that-fit", "support-cards", "flavor-echoes"]
 );
 assert.match(jeskaiMazePaths[0].operatorQuery, /^id=urw is:commander f:commander$/);
-assert.equal(jeskaiMazePaths[0].plainReadingQuery, "Jeskai Way commanders with exactly blue-red-white identity");
+assert.equal(jeskaiMazePaths[0].plainReadingQuery, "Jeskai Way Commander-legal commanders with exactly blue-red-white identity");
 assert.match(jeskaiMazePaths[1].operatorQuery, /^id<=urw f:commander -is:commander -t:land /);
 assert.match(jeskaiMazePaths[2].operatorQuery, /^id<=urw f:commander \(ft:/);
 assert.ok(!jeskaiMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3751,7 +3751,7 @@ assert.deepEqual(
 );
 assert.equal(yoreMazePaths[0].operatorQuery, "id=wubr is:commander f:commander");
 assert.doesNotMatch(yoreMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
-assert.equal(yoreMazePaths[0].plainReadingQuery, "Yore commanders with exactly white-blue-black-red identity");
+assert.equal(yoreMazePaths[0].plainReadingQuery, "Yore Commander-legal commanders with exactly white-blue-black-red identity");
 assert.match(yoreMazePaths[1].operatorQuery, /^id<=wubr f:commander -is:commander -t:land /);
 assert.match(yoreMazePaths[2].operatorQuery, /^id<=wubr f:commander \(ft:/);
 assert.ok(!yoreMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3768,7 +3768,7 @@ assert.deepEqual(
 );
 assert.equal(glintMazePaths[0].operatorQuery, "id=ubrg is:commander f:commander");
 assert.doesNotMatch(glintMazePaths[0].operatorQuery, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
-assert.equal(glintMazePaths[0].plainReadingQuery, "Glint commanders with exactly blue-black-red-green identity");
+assert.equal(glintMazePaths[0].plainReadingQuery, "Glint Commander-legal commanders with exactly blue-black-red-green identity");
 assert.match(glintMazePaths[1].operatorQuery, /^id<=ubrg f:commander -is:commander -t:land /);
 assert.match(glintMazePaths[2].operatorQuery, /^id<=ubrg f:commander \(ft:/);
 assert.ok(!glintMazePaths.some((path) => path.pathType === "weird-stretch-commanders"));
@@ -3811,9 +3811,9 @@ assert.deepEqual(
 assert.deepEqual(
   wubrgMazePaths.map((path) => path.plainReadingQuery),
   [
-    "Five-Color commanders with exactly white-blue-black-red-green identity",
-    "Five-Color support cards in WUBRG Commander identity",
-    "Five-Color flavor and story echoes across all five colors",
+    "Five-Color Commander-legal commanders with exactly white-blue-black-red-green identity",
+    "Five-Color Commander-legal noncommander, nonland cards in WUBRG identity that mention domain, converge, sunburst, basic land types, or all five mana symbols",
+    "Five-Color Commander-legal cards in WUBRG identity whose flavor text mentions coalition, domain, spectrum, unite, or world",
   ],
   "expected WUBRG personalized Maze paths to preserve plain-reading sidebar copy"
 );

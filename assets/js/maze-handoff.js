@@ -8,8 +8,6 @@ const MANA_SYMBOL_NAMES = {
   g: "green",
   c: "colorless"
 };
-const DEFAULT_ORACLE_TERMS = ["draw", "token", "graveyard", "sacrifice"];
-const DEFAULT_FLAVOR_TERMS = ["death", "secret", "growth", "law"];
 
 /**
  * Resolves a Maze operator query from a link or a URL-bearing object.
@@ -73,13 +71,14 @@ export function resolveMazePlainReadingQuery(link = {}, context = {}) {
  * @param {object} input - Link label, query, and optional overrides.
  * @returns {object} Maze link payload.
  */
-export function mazeSearchLink({ label, query, service = "maze", pathType = "", plainReadingQuery = "" } = {}) {
+export function mazeSearchLink({ label, query, service = "maze", pathType = "", plainReadingQuery = "", visibleConstraints = [] } = {}) {
   return {
     service,
     label,
     pathType: pathType || resolveMazePathType({ label }),
     plainReadingQuery: plainReadingQuery || label || DEFAULT_MAZE_PATH_LABEL,
     operatorQuery: query,
+    visibleConstraints: [...visibleConstraints],
     url: `/maze/?q=${encodeURIComponent(query || "")}`,
   };
 }
@@ -106,8 +105,12 @@ export function buildDossierMazePathEntries({
   const normalizedIdentity = normalizeMazeIdentity(identity);
   if (!normalizedIdentity) return [];
 
-  const oracleGroup = groupQueryTerms(oracleTerms, "o", DEFAULT_ORACLE_TERMS);
-  const flavorGroup = groupQueryTerms(flavorTerms, "ft", DEFAULT_FLAVOR_TERMS);
+  const normalizedOracleTerms = normalizeQueryTerms(oracleTerms, "o");
+  const normalizedFlavorTerms = normalizeQueryTerms(flavorTerms, "ft");
+  const oracleGroup = groupQueryTerms(normalizedOracleTerms);
+  const flavorGroup = groupQueryTerms(normalizedFlavorTerms);
+  const oracleDescription = queryTermsToPlainLanguage(normalizedOracleTerms);
+  const flavorDescription = queryTermsToPlainLanguage(normalizedFlavorTerms);
   const identityLabel = String(identityHint || "").trim() || normalizedIdentity.toUpperCase();
   const identityText = identityToWords(normalizedIdentity);
   const readingName = String(factionName || "this reading").trim() || "this reading";
@@ -120,7 +123,8 @@ export function buildDossierMazePathEntries({
         hint: "C",
         pathType: "colorless-identity",
         query: "id=c is:commander f:commander",
-        plainReadingQuery: `${readingName} commanders with strict Colorless identity`
+        plainReadingQuery: `${readingName} Commander-legal commanders with exactly Colorless identity`,
+        visibleConstraints: ["id=c", "is:commander", "f:commander"]
       },
       {
         label: "Colorless support cards",
@@ -128,7 +132,8 @@ export function buildDossierMazePathEntries({
         hint: "noncommander support",
         pathType: "colorless-noncommander-support",
         query: "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
-        plainReadingQuery: `${readingName} Colorless-legal noncommander support cards`
+        plainReadingQuery: `${readingName} Commander-legal noncommander Colorless cards that are artifacts or mention colorless mana or Eldrazi`,
+        visibleConstraints: ["id<=c", "f:commander", "-is:commander", "t:artifact", "o:{c}", "o:\"colorless mana\"", "o:eldrazi"]
       },
       {
         label: "Colorless story echoes",
@@ -136,7 +141,8 @@ export function buildDossierMazePathEntries({
         hint: "void, Wastes, Eldrazi",
         pathType: "colorless-story-echoes",
         query: "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
-        plainReadingQuery: `${readingName} Colorless story echoes`
+        plainReadingQuery: `${readingName} Commander-legal Colorless cards whose flavor text mentions cosmic, void, waste, Wastes, or Eldrazi`,
+        visibleConstraints: ["id<=c", "f:commander", "ft:cosmic", "ft:void", "ft:waste", "ft:wastes", "ft:eldrazi"]
       },
       {
         label: "Outside-color stretch",
@@ -144,7 +150,8 @@ export function buildDossierMazePathEntries({
         hint: "not native Colorless",
         pathType: "outside-color-stretch",
         query: "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
-        plainReadingQuery: `${readingName} outside-color commander stretch`
+        plainReadingQuery: `${readingName} Commander-legal commanders outside Colorless identity that are artifacts or mention colorless mana, Eldrazi, or artifacts`,
+        visibleConstraints: ["-id<=c", "is:commander", "f:commander", "t:artifact", "o:\"colorless mana\"", "o:eldrazi", "o:artifact"]
       }
     ];
   }
@@ -157,7 +164,8 @@ export function buildDossierMazePathEntries({
         hint: "WUBRG",
         pathType: "commanders-that-fit",
         query: "id=wubrg is:commander f:commander",
-        plainReadingQuery: `${readingName} commanders with exactly white-blue-black-red-green identity`
+        plainReadingQuery: `${readingName} Commander-legal commanders with exactly white-blue-black-red-green identity`,
+        visibleConstraints: ["id=wubrg", "is:commander", "f:commander"]
       },
       {
         label: "cards that support this shape",
@@ -165,7 +173,8 @@ export function buildDossierMazePathEntries({
         hint: "five-color support",
         pathType: "support-cards",
         query: "id<=wubrg f:commander -is:commander -t:land (o:domain OR o:converge OR o:sunburst OR o:\"basic land type\" OR o:\"basic land types\" OR mana:{W}{U}{B}{R}{G} OR o:\"{W}{U}{B}{R}{G}\")",
-        plainReadingQuery: `${readingName} support cards in WUBRG Commander identity`
+        plainReadingQuery: `${readingName} Commander-legal noncommander, nonland cards in WUBRG identity that mention domain, converge, sunburst, basic land types, or all five mana symbols`,
+        visibleConstraints: ["id<=wubrg", "f:commander", "-is:commander", "-t:land", "o:domain", "o:converge", "o:sunburst", "o:\"basic land type\"", "o:\"basic land types\"", "mana:{w}{u}{b}{r}{g}", "o:\"{w}{u}{b}{r}{g}\""]
       },
       {
         label: "flavor echoes",
@@ -173,7 +182,8 @@ export function buildDossierMazePathEntries({
         hint: "coalition, domain, spectrum",
         pathType: "flavor-echoes",
         query: "id<=wubrg f:commander (ft:coalition OR ft:domain OR ft:spectrum OR ft:unite OR ft:world)",
-        plainReadingQuery: `${readingName} flavor and story echoes across all five colors`
+        plainReadingQuery: `${readingName} Commander-legal cards in WUBRG identity whose flavor text mentions coalition, domain, spectrum, unite, or world`,
+        visibleConstraints: ["id<=wubrg", "f:commander", "ft:coalition", "ft:domain", "ft:spectrum", "ft:unite", "ft:world"]
       }
     ];
   }
@@ -185,23 +195,26 @@ export function buildDossierMazePathEntries({
       hint: identityLabel,
       pathType: "commanders-that-fit",
       query: `id=${normalizedIdentity} is:commander f:commander`,
-      plainReadingQuery: `${readingName} commanders with exactly ${identityText} identity`
+      plainReadingQuery: `${readingName} Commander-legal commanders with exactly ${identityText} identity`,
+      visibleConstraints: [`id=${normalizedIdentity}`, "is:commander", "f:commander"]
     },
     {
       label: "cards that support this shape",
       sidebarLabel: "Cards that support this shape",
       hint: "noncommander support",
       pathType: "support-cards",
-      query: `id<=${normalizedIdentity} f:commander -is:commander -t:land ${oracleGroup}`,
-      plainReadingQuery: `${readingName} noncommander support cards in ${identityText} Commander identity`
+      query: joinMazeQuery(`id<=${normalizedIdentity} f:commander -is:commander -t:land`, oracleGroup),
+      plainReadingQuery: `${readingName} Commander-legal noncommander, nonland support cards in ${identityText} identity${oracleDescription ? ` whose Oracle text mentions ${oracleDescription}` : ""}`,
+      visibleConstraints: [`id<=${normalizedIdentity}`, "f:commander", "-is:commander", "-t:land", ...normalizedOracleTerms]
     },
     {
       label: "flavor echoes",
       sidebarLabel: "Flavor echoes",
       hint: "card-story texture",
       pathType: "flavor-echoes",
-      query: `id<=${normalizedIdentity} f:commander ${flavorGroup}`,
-      plainReadingQuery: `${readingName} flavor and story echoes in ${identityText} Commander identity`
+      query: joinMazeQuery(`id<=${normalizedIdentity} f:commander`, flavorGroup),
+      plainReadingQuery: `${readingName} Commander-legal flavor and story echoes in ${identityText} identity${flavorDescription ? ` whose flavor text mentions ${flavorDescription}` : ""}`,
+      visibleConstraints: [`id<=${normalizedIdentity}`, "f:commander", ...normalizedFlavorTerms]
     }
   ];
 
@@ -211,8 +224,9 @@ export function buildDossierMazePathEntries({
       sidebarLabel: "Outside-color commander stretch",
       hint: "stretch lane",
       pathType: "weird-stretch-commanders",
-      query: `-id<=${normalizedIdentity} is:commander f:commander ${oracleGroup}`,
-      plainReadingQuery: `${readingName} commander stretch outside ${identityText} identity`
+      query: joinMazeQuery(`-id<=${normalizedIdentity} is:commander f:commander`, oracleGroup),
+      plainReadingQuery: `${readingName} Commander-legal commanders outside ${identityText} identity${oracleDescription ? ` whose Oracle text mentions ${oracleDescription}` : ""}`,
+      visibleConstraints: [`-id<=${normalizedIdentity}`, "is:commander", "f:commander", ...normalizedOracleTerms]
     });
   }
 
@@ -268,11 +282,27 @@ function identityToWords(identity) {
     .join("-");
 }
 
-function groupQueryTerms(terms, field, fallbackTerms) {
-  const normalized = [...new Set((terms?.length ? terms : fallbackTerms)
-    .map((term) => normalizeQueryTerm(term, field))
-    .filter(Boolean))];
-  return `(${normalized.join(" OR ")})`;
+function normalizeQueryTerms(terms, field) {
+  return [...new Set((terms || []).map((term) => normalizeQueryTerm(term, field)).filter(Boolean))];
+}
+
+function groupQueryTerms(terms) {
+  return terms.length ? `(${terms.join(" OR ")})` : "";
+}
+
+function joinMazeQuery(...parts) {
+  return parts.map((part) => String(part || "").trim()).filter(Boolean).join(" ");
+}
+
+function queryTermsToPlainLanguage(terms) {
+  const labels = terms.map((term) => String(term)
+    .replace(/^[a-z]+:/i, "")
+    .replace(/^"|"$/g, "")
+    .replace(/\{([wubrgc])\}/gi, "$1 mana")
+    .trim())
+    .filter(Boolean);
+  if (labels.length < 2) return labels[0] || "";
+  return `${labels.slice(0, -1).join(", ")}, or ${labels.at(-1)}`;
 }
 
 function normalizeQueryTerm(term, field) {
@@ -282,4 +312,23 @@ function normalizeQueryTerm(term, field) {
   const cleaned = value.toLowerCase().replace(/"/g, "").trim();
   if (!cleaned) return "";
   return /[^a-z0-9-]/i.test(cleaned) ? `${field}:"${cleaned}"` : `${field}:${cleaned}`;
+}
+
+export function extractMazeOperatorConstraints(query = "") {
+  const matches = String(query || "").matchAll(/-?(?:id|ci|c|o|t|is|f|type|oracle|color|otag|atag|art|artist|flavor|ft|kw|keyword|r|rarity|set|e|in|cn|number|lang|usd|eur|tix|pow|tou|loy|mv|cmc|mana)\s*(?:<=|>=|=|:)\s*(?:"[^"]*"|(?:\{[^}]+\})+|[^\s()]+)/gi);
+  return [...matches].map((match) => match[0].toLowerCase()).sort();
+}
+
+export function validateMazeSemanticParity(path = {}) {
+  const actual = extractMazeOperatorConstraints(path.query || path.operatorQuery || "");
+  const declared = [...new Set((path.visibleConstraints || []).map((value) => String(value).toLowerCase()))].sort();
+  const invisible = actual.filter((value) => !declared.includes(value));
+  const unexecuted = declared.filter((value) => !actual.includes(value));
+  return {
+    valid: Boolean(path.plainReadingQuery) && invisible.length === 0 && unexecuted.length === 0,
+    actual,
+    declared,
+    invisible,
+    unexecuted,
+  };
 }
