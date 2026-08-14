@@ -4,7 +4,10 @@ import fs from "node:fs";
 import {
   finalizeReading,
   getRefinementPath,
+  getNamingQualification,
   observe,
+  rankCandidates,
+  replaySelections,
   runJourney,
 } from "../assets/js/gate-b1-placement-engine.js";
 
@@ -21,7 +24,48 @@ assert.match(runtimeSource, /Refine these directions/);
 assert.match(runtimeSource, /Try to separate/);
 assert.doesNotMatch(runtimeSource, /Sharpen This Reading/);
 assert.match(runtimeSource, /if \(APP_STATE\.refinementMode === "targeted"\)[\s\S]*?finalizeQuickReading\(\)/);
-assert.match(runtimeSource, /refinementOriginResult = APP_STATE\.activeResult/);
+assert.match(runtimeSource, /function captureRefinementOrigin\(\)[\s\S]*?refinementOriginResult = \{/);
+assert.match(runtimeSource, /function restoreRefinementOriginReading\(\)/);
+assert.match(runtimeSource, /return-to-previous-reading/);
+assert.doesNotMatch(runtimeSource, /refinementHistory|refinement_history/, "one-step return must not become a generalized history stack");
+
+const STATE_ORDER = Object.freeze({ mixed: 0, tied: 1, close: 2, primary: 3 });
+
+function refinementPublicIds(state) {
+  const ranked = rankCandidates(state, model);
+  const result = finalizeReading({ state, model, factions });
+  const qualified = ranked.filter((candidate) => getNamingQualification(candidate, model).qualified);
+  const primary = qualified[0];
+  if (!primary) return { state: result.result_state, ids: [] };
+  const window = Number(model.scoring_rules.meaningful_alternative_window || 0.2);
+  const nearby = qualified.filter((candidate) => candidate.score >= primary.score - window);
+  if (result.result_state === "tied") {
+    return { state: result.result_state, ids: nearby.filter((candidate) => Math.abs(candidate.score - primary.score) <= 1e-9).slice(0, 3).map((candidate) => candidate.identity) };
+  }
+  if (result.result_state === "close") return { state: result.result_state, ids: nearby.slice(0, 2).map((candidate) => candidate.identity) };
+  if (result.result_state === "mixed") return { state: result.result_state, ids: nearby.slice(0, 3).map((candidate) => candidate.identity) };
+  return { state: result.result_state, ids: [] };
+}
+
+function assertMonotonicRefinement(state, refinement, label) {
+  if (refinement.kind !== "ask_targeted_question") return;
+  const origin = refinementPublicIds(state);
+  if (!["mixed", "tied", "close"].includes(origin.state)) return;
+  assert.deepEqual(refinement.remaining_candidates, origin.ids, `${label} refinement frontier drifted from the public result`);
+  const originSet = new Set(origin.ids);
+  const question = questionById.get(refinement.question_id);
+  let improvedBranches = 0;
+  question.answers.forEach((answer, answerIndex) => {
+    const nextState = observe({ state, model, question, answer, answerIndex });
+    const next = refinementPublicIds(nextState);
+    const introduced = next.ids.filter((identity) => !originSet.has(identity));
+    assert.deepEqual(introduced, [], `${label}/${answer.id} introduced a new public identity`);
+    assert.ok(next.ids.length <= origin.ids.length, `${label}/${answer.id} broadened the public frontier`);
+    assert.ok(STATE_ORDER[next.state] >= STATE_ORDER[origin.state], `${label}/${answer.id} worsened ${origin.state} to ${next.state}`);
+    if (next.ids.length < origin.ids.length || STATE_ORDER[next.state] > STATE_ORDER[origin.state]) improvedBranches += 1;
+  });
+  assert.ok(improvedBranches > 0, `${label} refinement has no materially improving answer branch`);
+}
 
 function rng(seed) {
   let value = seed >>> 0;
@@ -63,6 +107,7 @@ for (let seed = 1; seed <= counts.journeys; seed += 1) {
     if (refinement.kind === "ask_targeted_question") {
       assert.equal(refinement.purpose, "refine_supported_directions");
       assert.ok(refinement.target_identities.length >= 2);
+      assertMonotonicRefinement(state, refinement, `mixed seed ${seed}`);
     }
   }
 
@@ -108,8 +153,23 @@ const jundWitness = runJourney({
 });
 assert.equal(jundWitness.result.result_state, "mixed");
 assert.deepEqual(jundWitness.result.top_matches.map((match) => match.faction), ["W", "JUND", "RG"]);
-assert.equal(jundWitness.result.refinement.question_id, "b1.crucible.mono-multi.v1");
-assert.equal(jundWitness.result.refinement.purpose, "refine_supported_directions");
+assert.equal(jundWitness.result.refinement.kind, "no_approved_discriminator");
+assert.equal(jundWitness.result.refinement.can_reduce_ambiguity, false);
+
+const greenWitnessArtifact = JSON.parse(fs.readFileSync(new URL("../docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json", import.meta.url), "utf8"));
+const greenWitness = greenWitnessArtifact.rows.find((row) => row.identity_key === "G");
+assert.ok(greenWitness, "certified Green witness is missing");
+const greenState = replaySelections(model, greenWitness.selections.map((selection) => ({
+  question_id: selection.question_id,
+  answer_id: selection.answer_id,
+})));
+const greenPublic = refinementPublicIds(greenState);
+const greenRefinement = getRefinementPath(greenState, model);
+assert.equal(greenPublic.state, "tied");
+assert.deepEqual(greenPublic.ids, ["G", "WITHERBLOOM"]);
+assert.deepEqual(greenRefinement.remaining_candidates, ["G", "WITHERBLOOM"]);
+assert.equal(greenRefinement.kind, "no_approved_discriminator");
+assert.notEqual(greenRefinement.question_id, "b1.crucible.mono-multi.v1");
 
 let cleanPrimarySeen = false;
 for (let seed = 1; seed <= 1000 && !cleanPrimarySeen; seed += 1) {

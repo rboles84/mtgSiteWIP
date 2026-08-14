@@ -844,14 +844,18 @@ function revisitCandidate(state, model, candidateIds) {
   return null;
 }
 
-function qualifiedRefinementCandidates(ranked, model) {
-  const primary = ranked.find((candidate) => getNamingQualification(candidate, model).qualified);
+function publicRefinementCandidates(ranked, model, resultState) {
+  const qualified = ranked.filter((candidate) => getNamingQualification(candidate, model).qualified);
+  const primary = qualified[0];
   if (!primary) return [];
   const window = Number(model.scoring_rules?.meaningful_alternative_window || 0.2);
-  return ranked.filter((candidate) => (
-    candidate.score >= primary.score - window &&
-    getNamingQualification(candidate, model).qualified
-  )).slice(0, 3);
+  const nearby = qualified.filter((candidate) => candidate.score >= primary.score - window);
+  if (resultState === "tied") {
+    return nearby.filter((candidate) => Math.abs(candidate.score - primary.score) <= EPSILON).slice(0, 3);
+  }
+  if (resultState === "close") return nearby.slice(0, 2);
+  if (resultState === "mixed") return nearby.slice(0, 3);
+  return [];
 }
 
 function refinementPairUtility(question, leftId, rightId) {
@@ -866,11 +870,41 @@ function refinementPairUtility(question, leftId, rightId) {
   return bestDifference;
 }
 
-function bestApprovedRefinementQuestion(state, model, candidateIds, ranked) {
+const REFINEMENT_STATE_ORDER = Object.freeze({ mixed: 0, tied: 1, close: 2, primary: 3 });
+
+function refinementBranchOutcome(state, model, question, answer, answerIndex, originIds, originState) {
+  const nextState = observe({ state, model, question, answer, answerIndex });
+  const nextRanked = rankCandidates(nextState, model);
+  const nextStopping = evaluateStopping(nextState, model, nextRanked);
+  const nextResultState = nextStopping.stop ? nextStopping.state : "incomplete";
+  const nextIds = publicRefinementCandidates(nextRanked, model, nextResultState).map((candidate) => candidate.identity);
+  const originSet = new Set(originIds);
+  const introduced = nextIds.filter((identity) => !originSet.has(identity));
+  const stateOrder = REFINEMENT_STATE_ORDER[nextResultState];
+  const originOrder = REFINEMENT_STATE_ORDER[originState];
+  const worsened = stateOrder === undefined || stateOrder < originOrder;
+  const broadened = introduced.length > 0 || nextIds.length > originIds.length;
+  const improved = !neutralAnswer(answer) && !worsened && !broadened && (
+    nextIds.length < originIds.length || stateOrder > originOrder
+  );
+  return {
+    answer_id: answer.id,
+    neutral: neutralAnswer(answer),
+    result_state: nextResultState,
+    public_candidate_ids: nextIds,
+    introduced_candidate_ids: introduced,
+    broadened,
+    worsened,
+    improved,
+  };
+}
+
+function bestApprovedRefinementQuestion(state, model, candidateIds, ranked, resultState) {
   const asked = new Set(state.answered_question_ids || []);
   const boundaries = unresolvedBoundaries(model, candidateIds);
   const boundaryByPair = new Map(boundaries.map((boundary) => [boundary.pair_id, boundary]));
   const targeted = (model.question_bank?.crucible || []).filter((question) => !asked.has(question.id));
+  const enforceMonotonicFrontier = ["mixed", "tied", "close"].includes(resultState);
   const scored = targeted.map((question) => {
     const separating = [];
     for (let left = 0; left < candidateIds.length; left += 1) {
@@ -889,13 +923,38 @@ function bestApprovedRefinementQuestion(state, model, candidateIds, ranked) {
         });
       }
     }
+    const outcomes = enforceMonotonicFrontier
+      ? (question.answers || []).map((answer, answerIndex) => refinementBranchOutcome(
+          state,
+          model,
+          question,
+          answer,
+          answerIndex,
+          candidateIds,
+          resultState
+        ))
+      : [];
     return {
       question,
       separating,
-      utility: questionUsefulness(state, model, question, ranked),
+      utility: enforceMonotonicFrontier
+        ? Math.max(0, ...separating.map((entry) => entry.utility))
+        : questionUsefulness(state, model, question, ranked),
+      outcomes,
+      narrowing_branches: outcomes.filter((outcome) => outcome.improved).length,
+      monotonic_safe: !enforceMonotonicFrontier || (
+        outcomes.length > 0 &&
+        outcomes.every((outcome) => !outcome.broadened && !outcome.worsened) &&
+        outcomes.some((outcome) => outcome.improved)
+      ),
     };
-  }).filter((entry) => entry.utility > EPSILON);
+  }).filter((entry) => (
+    (!enforceMonotonicFrontier || entry.separating.length > 0) &&
+    entry.utility > EPSILON &&
+    entry.monotonic_safe
+  ));
   return scored.sort((left, right) => (
+    right.narrowing_branches - left.narrowing_branches ||
     right.utility - left.utility ||
     left.question.order - right.question.order ||
     left.question.id.localeCompare(right.question.id)
@@ -905,15 +964,15 @@ function bestApprovedRefinementQuestion(state, model, candidateIds, ranked) {
 export function getRefinementPath(state, model, ranked = rankCandidates(state, model)) {
   const stopping = evaluateStopping(state, model, ranked);
   const resultState = stopping.stop ? stopping.state : "incomplete";
-  const publicCandidates = qualifiedRefinementCandidates(ranked, model);
-  const candidates = ["mixed", "tied", "close"].includes(resultState) && publicCandidates.length >= 2
+  const publicCandidates = publicRefinementCandidates(ranked, model, resultState);
+  const candidates = ["mixed", "tied", "close"].includes(resultState)
     ? publicCandidates
     : routingCandidates(state, model, ranked);
   const candidateIds = candidates.map((candidate) => candidate.identity);
   const boundaries = unresolvedBoundaries(model, candidateIds);
-  const nextMeasurement = resultState === "primary"
+  const nextMeasurement = resultState === "primary" || candidateIds.length < 2
     ? null
-    : bestApprovedRefinementQuestion(state, model, candidateIds, ranked);
+    : bestApprovedRefinementQuestion(state, model, candidateIds, ranked, resultState);
   if (nextMeasurement) {
     const separatingBoundaries = nextMeasurement.separating.map((entry) => entry.boundary);
     const primaryBoundary = separatingBoundaries[0] || null;

@@ -1018,11 +1018,46 @@ function placementQuestionById(questionId) {
     .find((question) => question.id === questionId) || null;
 }
 
+function captureRefinementOrigin() {
+  APP_STATE.refinementOriginResult = {
+    result: APP_STATE.activeResult,
+    viewKey: APP_STATE.activeViewKey,
+    adaptiveState: APP_STATE.adaptiveState,
+    quickSelections: APP_STATE.quickSelections.slice(),
+    quickAnswers: APP_STATE.quickAnswers.slice(),
+    quickIndex: APP_STATE.quickIndex,
+  };
+}
+
+function restoreRefinementOriginReading() {
+  const origin = APP_STATE.refinementOriginResult;
+  if (!origin?.result) return;
+  APP_STATE.activeResult = origin.result;
+  APP_STATE.activeViewKey = origin.viewKey || origin.result.faction;
+  APP_STATE.adaptiveState = origin.adaptiveState;
+  APP_STATE.quickSelections = origin.quickSelections.slice();
+  APP_STATE.quickAnswers = origin.quickAnswers.slice();
+  APP_STATE.quickIndex = origin.quickIndex;
+  APP_STATE.currentQuickQuestion = null;
+  APP_STATE.quickTransition = null;
+  APP_STATE.refinementMode = false;
+  APP_STATE.refinementOriginResult = null;
+  SESSION.interviewResult = APP_STATE.activeResult;
+  vm_cachePlacementResult(APP_STATE.activeResult);
+  renderResult(APP_STATE.activeViewKey);
+}
+
+function buildReturnToPreviousReadingAction() {
+  const origin = APP_STATE.refinementOriginResult;
+  if (!origin?.result || APP_STATE.activeResult === origin.result) return "";
+  return `<button class="btn-secondary" type="button" ${buildActionAttrs("return-to-previous-reading")}>Return to previous reading</button>`;
+}
+
 function startTargetedRefinement() {
   const refinement = APP_STATE.activeResult?.refinement;
   const question = placementQuestionById(refinement?.question_id);
   if (refinement?.kind !== "ask_targeted_question" || !question || !APP_STATE.adaptiveState) return;
-  APP_STATE.refinementOriginResult = APP_STATE.activeResult;
+  captureRefinementOrigin();
   APP_STATE.refinementMode = "targeted";
   APP_STATE.currentQuickQuestion = question;
   APP_STATE.quickTransition = null;
@@ -1035,7 +1070,7 @@ function revisitRefinementAnswer() {
   const question = placementQuestionById(revisit?.question_id);
   const selectionIndex = APP_STATE.quickSelections.findIndex((selection) => selection.question?.id === revisit?.question_id);
   if (!question || selectionIndex < 0) return;
-  APP_STATE.refinementOriginResult = APP_STATE.activeResult;
+  captureRefinementOrigin();
   APP_STATE.quickSelections = APP_STATE.quickSelections.slice(0, selectionIndex);
   APP_STATE.quickAnswers = APP_STATE.quickAnswers.slice(0, selectionIndex);
   APP_STATE.adaptiveState = replayAdaptiveSelections(APP_STATE.placementModel, APP_STATE.quickSelections);
@@ -1066,9 +1101,7 @@ async function startInterviewFlow() {
  */
 function goBackQuickQuestion() {
   if (APP_STATE.refinementMode) {
-    APP_STATE.refinementMode = false;
-    APP_STATE.currentQuickQuestion = null;
-    renderResult();
+    restoreRefinementOriginReading();
     return;
   }
   if (!APP_STATE.quickSelections.length) {
@@ -3413,6 +3446,7 @@ function renderBoundedResultShell(result, state) {
   const noDiscriminatorCopy = refinement.kind === "no_approved_discriminator"
     ? `<p>${escapeHtml(refinement.limitation || "The approved instrument cannot responsibly separate the remaining directions with another available question.")}</p>`
     : "";
+  const returnToPreviousReadingAction = buildReturnToPreviousReadingAction();
   document.getElementById("result-inner").innerHTML = `
     <div class="empty-state bounded-result-shell" data-result-state="${escapeAttributeValue(state)}">
       <h2>${escapeHtml(heading)}</h2>
@@ -3425,6 +3459,7 @@ function renderBoundedResultShell(result, state) {
       <div class="landing-actions" style="justify-content:center;margin-top:1.5rem">
         ${continueAction}
         ${refinementAction}
+        ${returnToPreviousReadingAction}
         <button class="btn-secondary" type="button" ${buildActionAttrs("start-quick-flow")}>Restart</button>
       </div>
     </div>`;
@@ -3837,6 +3872,7 @@ function renderResult(viewKey) {
     ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
     : gateAStatePresentation(resultState)[1];
   const namedResultRefinementHtml = buildNamedResultRefinementHtml(result, resultState);
+  const returnToPreviousReadingHtml = buildReturnToPreviousReadingAction();
   const placementPanelHtml = `
     ${adjacentContextHtml}
     ${resultState === "tied" ? "" : `<div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
@@ -3845,6 +3881,7 @@ function renderResult(viewKey) {
     </div>`}
     ${resultState === "unknown" ? `<div class="result-limitation-notice" role="note">Legacy reading — ${escapeHtml(faction.name)} was saved, but answer/evidence detail is unavailable. Matrix content is identity context, not confirmation of the reading. Retake if you want an answer-grounded result.</div>` : ""}
     ${returnToPrimaryButton}
+    ${returnToPreviousReadingHtml ? `<div class="result-refinement-card" data-return-to-previous-reading>${returnToPreviousReadingHtml}</div>` : ""}
     ${namedResultRefinementHtml}
     ${discoverySummaryHtml}
     ${renderDossierRadarSection({ result, faction, dossier, flavorSnippets: matrixFlavorSnippets, identityLayers: APP_STATE.identityLayers })}`;
@@ -4696,6 +4733,9 @@ async function handleArchscryActionClick(event) {
       return;
     case "revisit-result-answer":
       revisitRefinementAnswer();
+      return;
+    case "return-to-previous-reading":
+      restoreRefinementOriginReading();
       return;
     case "show-bounded-direction":
       showBoundedDirection(actionNode.dataset.viewKey || "");
