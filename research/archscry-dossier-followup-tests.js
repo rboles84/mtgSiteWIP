@@ -664,7 +664,7 @@ const wubrgDossier = buildCommanderDossier({
 });
 assert.match(
   wubrgDossier.commanderLane.copy,
-  /uses all five colors deliberately: build reliable fixing, decide what each color contributes/,
+  /uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep the deck focused on how those colors work together/,
   "expected WUBRG Start Here copy to use concrete player-facing five-color guidance"
 );
 assert.match(

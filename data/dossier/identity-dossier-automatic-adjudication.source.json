@@ -1480,7 +1480,7 @@
           {
             "item_id": "lookfor_ug_2_biological_adaptation",
             "title": "Biological Adaptation",
-            "copy": "+1/+1 counters, evolve, graft, proliferate, mutate, and Adapt are play pattern only unless they express source-bounded biological improvement.",
+            "copy": "+1/+1 counters, evolve, graft, proliferate, mutate, and Adapt are play pattern only unless they express biological improvement.",
             "source_locator": "data/factions.json#/factions/UG/archetypes/1",
             "source_role": "existing_authored_commander_guidance"
           },
@@ -1493,7 +1493,7 @@
           }
         ]
       },
-      "copy_sha256": "7a72e0bae1205b9f1a143c765f0378ef78733986b0f7e52f3d8c31e34f63fe1c",
+      "copy_sha256": "336d7728a1cd9445a1bdc914732376f08ea2196bb8473fd0115e1eb8efda05c5",
       "provenance": {
         "certified_profile": "data/raw-factions/simic_combine/simic_combine.profile.json",
         "certified_claims": [
@@ -2590,14 +2590,14 @@
           },
           {
             "item_id": "lookfor_silverquill_3_support_only_product_navigation",
-            "title": "Support-Only Product Navigation",
-            "copy": "Killian and Scriv are official Silverquill Influence product anchors for navigation/support only, not independent lore, popularity, legality, or metagame proof.",
+            "title": "Exact Silverquill Starting Points",
+            "copy": "Look for the exact Silverquill Influence commanders when you want a starting point built around the college's named product.",
             "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/2",
             "source_role": "existing_authored_commander_guidance"
           }
         ]
       },
-      "copy_sha256": "c06f3f92cf8d7aac8915cb939002dbfd1366797a4550cb8ba65831f867d86d45",
+      "copy_sha256": "081aa58b4c53b3dbd538b195ad467469c96a2f8d86644b8fabf4dfe38921d7ba",
       "provenance": {
         "certified_profile": "data/raw-factions/silverquill/silverquill.profile.json",
         "certified_claims": [
@@ -3818,7 +3818,7 @@
           "how_opponents_read_it": "Opponents feel the deck as a protected board becoming a habitat: mana grows, creatures gather, and scale turns belonging into pressure.",
           "emotional_pressure": "Pressure through abundance, instinct, protection, and the sense that the whole living world is moving at once.",
           "lore_role": "Alara shard, Green-centered living abundance, White care for the whole, Red instinct, and belonging inside a larger natural world",
-          "mechanical_expression": "Ramp, protection, creature engines, tokens, counters, lands, and combat patterns as support-only ways to show abundance, instinct, and creature-forward scale",
+          "mechanical_expression": "Ramp, protection, creature engines, tokens, counters, lands, and combat patterns that show abundance, instinct, and creature-forward scale",
           "table_experience": "grow mana, guard the living whole, build a protected board, and let creature-forward scale make the table answer abundance"
         },
         "what_to_look_for": [
@@ -3845,7 +3845,7 @@
           }
         ]
       },
-      "copy_sha256": "82059ebecda7d4be471b258cf409e133c0161f8619864f76b149a955a920da90",
+      "copy_sha256": "0249293ae4ac34444e48f0ebee68e530edc96b6aec7fe9b9f2cd6a0c8fe28b07",
       "provenance": {
         "certified_profile": "data/raw-factions/naya/naya.profile.json",
         "certified_claims": [
@@ -4232,7 +4232,7 @@
           "how_opponents_read_it": "Opponents feel the deck turning every cost into advantage: graveyards stay useful, stolen options become pressure, and the table's discarded resources rarely stay dead for long.",
           "emotional_pressure": "Pressure through opportunity, secrecy, necromantic utility, and the sense that every body, secret, or opening can become power before anyone else names it.",
           "lore_role": "Tarkir wedge, Black-centered ruthless opportunity, Green life/death resources, Blue calculation, Sidisi-era ambition, and strict Silumgar and Dragonstorm boundaries",
-          "mechanical_expression": "Graveyard value, theft, self-mill, morph, mutate, recursion, and resource denial as Commander-facing examples, not Tarkir setting evidence",
+          "mechanical_expression": "Graveyard value, theft, self-mill, morph, mutate, recursion, and resource denial that express calculated resource conversion and survival",
           "table_experience": "convert graveyards, stolen options, and hidden costs into table advantage while keeping the table story anchored in Sultai source notes"
         },
         "what_to_look_for": [
@@ -4259,7 +4259,7 @@
           }
         ]
       },
-      "copy_sha256": "272f8b0a61029bded1dd5b59d3a4d9a484141d6060f4036c51d1ff439513fd89",
+      "copy_sha256": "da9fcec90925c7cfbaa43057453cea4eb8cb4f35131b6b5c2b029188db3ba2f2",
       "provenance": {
         "certified_profile": "data/raw-factions/sultai/sultai.profile.json",
         "certified_claims": [
@@ -5303,7 +5303,7 @@
       "identity_name": "Five-Color / WUBRG",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you want a Commander deck where every color matters, mana infrastructure is part of the discipline, and support links remain browsing aids rather than lore, legality, or result proof.",
+          "positive_self_check": "This may fit if you want a Commander deck where every color matters and mana infrastructure is part of the discipline.",
           "tension_failure_mode": "Watch for this tension: Each color must accept limits imposed by the other four: order must listen, knowledge must act, agency must coexist, freedom must take responsibility, and belonging must permit change.",
           "certified_boundary_self_check": "This is less likely to fit when generic goodstuff, access for its own sake, accumulation, superiority, or a deck where one color is decorative rather than meaningful is not the Five-Color synthesis."
         },
@@ -5312,7 +5312,7 @@
           "how_opponents_read_it": "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
           "emotional_pressure": "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
           "lore_role": "Vox Mana Five-Color expression for all five colors present, coalition, synthesis, and strict separation from official-faction, goodstuff-only, Colorless, and four-color leakage",
-          "mechanical_expression": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure as supporting play patterns, not unverified card claims",
+          "mechanical_expression": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure that make all five colors matter in play",
           "table_experience": "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift"
         },
         "what_to_look_for": [
@@ -5339,7 +5339,7 @@
           }
         ]
       },
-      "copy_sha256": "7a592830c4836c881b03dd878a663bdd52492822906a9281232230f71ca3f75c",
+      "copy_sha256": "672497a616e897211fe4ff4fa53c00b46a2db0d84c69cae475b39d3b9772e725",
       "provenance": {
         "certified_profile": "data/raw-factions/wubrg/wubrg.profile.json",
         "certified_claims": [

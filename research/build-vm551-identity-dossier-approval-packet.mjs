@@ -128,6 +128,9 @@ function playerFacingCopy(text) {
   return String(text || "")
     .replace(/Surveil Texture/g, "Information Filtering")
     .replace(/Public-Surface Guardrail/g, "Visible-Plan Boundary")
+    .replace(/Support-Only Product Navigation/g, "Exact Silverquill Starting Points")
+    .replace(/Killian and Scriv are official Silverquill Influence product anchors for navigation\/support only, not independent lore, popularity, legality, or metagame proof\./g, "Look for the exact Silverquill Influence commanders when you want a starting point built around the college's named product.")
+    .replace(/source-bounded biological improvement/gi, "biological improvement")
     .replace(/source-backed/gi, "verified")
     .replace(/scenario mapping/gi, "scenario planning")
     .replace(/Commander-facing support texture/gi, "Commander-facing examples")
@@ -144,7 +147,7 @@ function playerFacingCopy(text) {
     .replace(/\bguardrail\b/gi, "boundary");
 }
 
-const auditTerms = /\b(texture|source-backed|public-surface|guardrail|evidence-required|naming|mapping|boundary-only|routing|taxonomy|support lane|operator)\b/i;
+const auditTerms = /\b(texture|source-backed|source-bound|source-bounded|public-surface|guardrail|evidence-required|naming|mapping|boundary-only|routing|taxonomy|support lane|operator|support-only|support navigation|manually verified|unverified card claims|placement proof|result proof)\b/i;
 const genericCopy = /^(The pilot|Opponents experience the deck through its repeated play patterns|Pressure through the mechanics, resources, and table behavior|Commander mechanics that make the faction plan visible|a recognizable Commander table role)$/i;
 
 const monoPresentationCandidates = {

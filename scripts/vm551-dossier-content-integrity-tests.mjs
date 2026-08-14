@@ -23,6 +23,12 @@ const factionsSourceText = await readFile(new URL("../data/factions.json", impor
 const INTERNAL_TOKEN_RE = /\b(?:SIG_[A-Z0-9_]+|DG_[A-Z0-9_]+|MAPPING_[A-Z0-9_]+|b1\.[a-z0-9_.-]+|naming qualification|mapping hypothesis|bounded observation|question_id|answer_id)\b/i;
 const INTERNAL_GUIDANCE_RE = /\b(?:source-backed|public-surface|guardrail|evidence-required|boundary-only|routing|taxonomy|support lane)\b/i;
 
+for (const [identityKey, faction] of Object.entries(factions)) {
+  const lore = String(faction.lore_summary || "").trim();
+  const tension = String(faction.core_tension || "").trim();
+  assert.ok(!lore || !tension || lore !== tension, `${identityKey} repeats Lore verbatim as Core Tension`);
+}
+
 const uniqueCommanders = [...new Set(precons.map((precon) => precon.mainCommander).filter(Boolean))].sort();
 assert.equal(uniqueCommanders.length, 155, "expected the complete 155-commander precon provider matrix");
 assert.equal(providerValidation.scope.unique_commanders, uniqueCommanders.length);
@@ -203,6 +209,7 @@ assert.match(indexSource, /card-detail-image-trigger/);
 assert.match(indexSource, /<blockquote class="flavor-echo-why">\$\{escapeHtml\(record\.excerpt\)\}<\/blockquote>/, "public card voice must render the exact printing text without synthetic quote wrappers");
 assert.match(indexSource, /rationale && provenance \?/);
 assert.doesNotMatch(indexSource, /function buildCommanderSpecificLinks/);
+assert.match(indexSource, /const repeatsServiceName = serviceLabel\.localeCompare\(actionLabel/, "provider chips must suppress a repeated provider/action label");
 assert.match(indexSource, /archscryGlossaryTooltip/);
 assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /aria-label="colorless mana"/);
 assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not generic mana/);

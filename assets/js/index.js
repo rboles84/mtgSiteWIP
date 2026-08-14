@@ -1552,12 +1552,15 @@ function buildLinkButtons(links, className = "") {
       const service = getServiceChipMeta(link);
       const classes = ["deck-link", "service-chip", `service-${service.key}`, className].filter(Boolean).join(" ");
       const targetAttrs = service.key === "maze" ? "" : ' target="_blank" rel="noopener"';
+      const serviceLabel = String(service.label || "").trim();
+      const actionLabel = String(link.label || "").trim();
+      const repeatsServiceName = serviceLabel.localeCompare(actionLabel, undefined, { sensitivity: "base" }) === 0;
       return `
         <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
           <span class="service-mark" aria-hidden="true">${service.mark}</span>
           <span class="service-copy">
-            <span class="service-name">${service.label}</span>
-            <span class="service-label">${escapeHtml(link.label)}</span>
+            <span class="service-name">${escapeHtml(serviceLabel)}</span>
+            ${repeatsServiceName ? "" : `<span class="service-label">${escapeHtml(actionLabel)}</span>`}
           </span>
         </a>`;
     })

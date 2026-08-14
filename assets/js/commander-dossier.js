@@ -992,9 +992,9 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarnings: ["avoid collapsing Five-Color into generic goodstuff, mana fixing, official doctrine, Colorless proof, four-color leakage, or Commander legality and metagame claims"],
     preferredArchetypeTags: ["Five-Color", "Ramp", "Multicolor"],
     starterSearchTags: ["Five-Color", "Ramp", "Multicolor"],
-    commanderPlan: "uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep support-only Commander examples from becoming lore, legality, or result proof",
-    spellcraftIdentity: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure can express Five-Color texture while individual card claims remain manually verified.",
-    tableCautionText: "Develop fixing with a purpose, make every color justify its slot, and treat precons, MTGDecks, Archidekt, and Scryfall links as support navigation rather than proof.",
+    commanderPlan: "uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep the deck focused on how those colors work together",
+    spellcraftIdentity: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure can make all five colors matter in play.",
+    tableCautionText: "Develop fixing with a purpose, make every color justify its slot, and use the linked commanders and decks as practical starting points for exploration.",
     tableCautionReviewRule: "If text sounds like official WUBRG doctrine, generic goodstuff, Colorless proof, four-color leakage, broad legality, rankings, price, or metagame advice, rebind it to VM-367 source boundaries.",
   },
 };

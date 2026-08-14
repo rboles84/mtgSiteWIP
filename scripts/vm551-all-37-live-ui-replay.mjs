@@ -282,6 +282,27 @@ async function replay(page, origin, witness) {
     const normalizeNarrative = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
     const heroNarrative = normalizeNarrative(document.querySelector(".guild-philosophy")?.textContent);
     const loreSummary = normalizeNarrative(document.querySelector(".guild-lore-summary")?.textContent);
+    const narrativeSections = [
+      ["hero", document.querySelector(".guild-philosophy")?.textContent],
+      ["hero-lore", document.querySelector(".guild-lore-summary")?.textContent],
+      ["lore", document.querySelector(".vm-lore-line p")?.textContent],
+      ["core-tension", document.querySelector(".vm-core-tension p")?.textContent],
+      ["play-pattern", document.querySelector('[data-summary-card="play-pattern"] .dossier-snapshot-copy')?.textContent],
+    ].map(([label, value]) => [label, normalizeNarrative(value)]).filter(([, value]) => value);
+    const nearDuplicateNarratives = [];
+    for (let leftIndex = 0; leftIndex < narrativeSections.length; leftIndex += 1) {
+      for (let rightIndex = leftIndex + 1; rightIndex < narrativeSections.length; rightIndex += 1) {
+        const [leftLabel, left] = narrativeSections[leftIndex];
+        const [rightLabel, right] = narrativeSections[rightIndex];
+        const leftWords = new Set(left.split(" ").filter((word) => word.length > 2));
+        const rightWords = new Set(right.split(" ").filter((word) => word.length > 2));
+        const intersection = [...leftWords].filter((word) => rightWords.has(word)).length;
+        const union = new Set([...leftWords, ...rightWords]).size;
+        if (left === right || left.includes(right) || right.includes(left) || (union && intersection / union >= 0.82)) {
+          nearDuplicateNarratives.push(`${leftLabel}:${rightLabel}`);
+        }
+      }
+    }
     return {
       state: guildName ? "named" : document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || "unknown",
       publicResultState: document.querySelector('[data-summary-card="co-leader"]')
@@ -305,10 +326,16 @@ async function replay(page, origin, witness) {
         .filter((node) => !node.closest('[data-education-surface="start-here"], [data-education-surface="why-this-fit"], [data-education-surface="test-the-fit"], [data-education-surface="what-to-look-for"]'))
         .map((node) => node.textContent?.trim() || ""),
       basicLandCards: [...document.querySelectorAll("[data-basic-land-cards] .land-name")].map((node) => node.textContent?.trim() || ""),
+      duplicateProviderLabels: [...document.querySelectorAll(".service-copy")].filter((node) => {
+        const service = node.querySelector(".service-name")?.textContent?.trim().toLowerCase() || "";
+        const action = node.querySelector(".service-label")?.textContent?.trim().toLowerCase() || "";
+        return service && service === action;
+      }).map((node) => node.textContent?.trim() || ""),
       duplicateCards: [...new Set(all.filter((name, index) => all.indexOf(name) !== index))],
       cardGroups: groups,
       internalLeaks: text.match(/\b(?:SIG_|DG_|MAPPING_|naming qualification|mapping hypothesis|bounded observation)\S*/gi) || [],
-      auditLanguageLeaks: text.match(/\b(?:Commander support texture|lore-canon proof|approved relationship|approved card-to-identity explanation|source-backed|public-surface|guardrail|evidence-required|mapping|routing|taxonomy|bounded interpretation)\b/gi) || [],
+      auditLanguageLeaks: text.match(/\b(?:Commander support texture|lore-canon proof|approved relationship|approved card-to-identity explanation|source-backed|source-bound|source-bounded|public-surface|guardrail|evidence-required|mapping|routing|taxonomy|bounded interpretation|support-only|support navigation|manually verified|unverified card claims|placement proof|result proof)\b/gi) || [],
+      auditLanguageLeakLines: text.split(/\n+/).map((line) => line.trim()).filter((line) => /\b(?:support-only|support navigation|manually verified|unverified card claims|source-bound(?:ed)?|placement proof|result proof)\b/i.test(line)),
       entityLeaks: text.match(/&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi) || [],
       knownCopyDefects: [
         /volatility Theater/gi,
@@ -320,6 +347,7 @@ async function replay(page, origin, witness) {
         .filter((node) => [...node.childNodes].some((child) => child.nodeType === Node.TEXT_NODE && child.textContent.includes("{C}")))
         .map((node) => ({ className: node.className || node.tagName, text: node.textContent.trim() })),
       heroNarrativeDuplicate: Boolean(heroNarrative && loreSummary && (heroNarrative === loreSummary || heroNarrative.includes(loreSummary) || loreSummary.includes(heroNarrative))),
+      nearDuplicateNarratives,
       documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
     };
   });
@@ -340,8 +368,10 @@ async function replay(page, origin, witness) {
     assert.equal(ui.manaNotesPresent, true, `${witness.identity_key} omitted Mana Notes`);
     assert.ok(ui.basicLandCards.length >= 1 && ui.basicLandCards.length <= 5, `${witness.identity_key} Basics cards were not rendered intentionally`);
     assert.deepEqual(ui.duplicateCards, [], `${witness.identity_key} repeated cards across public page roles: ${JSON.stringify(ui.cardGroups)}`);
-    assert.deepEqual(ui.auditLanguageLeaks, [], `${witness.identity_key} leaked reviewer or implementation language`);
+    assert.deepEqual(ui.auditLanguageLeaks, [], `${witness.identity_key} leaked reviewer or implementation language: ${JSON.stringify(ui.auditLanguageLeakLines)}`);
+    assert.deepEqual(ui.duplicateProviderLabels, [], `${witness.identity_key} repeated a provider name inside one action`);
     assert.equal(ui.heroNarrativeDuplicate, false, `${witness.identity_key} repeated its hero thesis in the adjacent lore summary`);
+    assert.deepEqual(ui.nearDuplicateNarratives, [], `${witness.identity_key} repeated a narrative across dossier sections`);
   } else {
     assert.notEqual(ui.state, "named", "Yore must retain a bounded public state");
   }
