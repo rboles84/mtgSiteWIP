@@ -866,7 +866,7 @@ function refinementPairUtility(question, leftId, rightId) {
   return bestDifference;
 }
 
-function bestApprovedRefinementQuestion(state, model, candidateIds) {
+function bestApprovedRefinementQuestion(state, model, candidateIds, ranked) {
   const asked = new Set(state.answered_question_ids || []);
   const boundaries = unresolvedBoundaries(model, candidateIds);
   const boundaryByPair = new Map(boundaries.map((boundary) => [boundary.pair_id, boundary]));
@@ -892,7 +892,7 @@ function bestApprovedRefinementQuestion(state, model, candidateIds) {
     return {
       question,
       separating,
-      utility: round(separating.reduce((sum, entry) => sum + entry.utility, 0)),
+      utility: questionUsefulness(state, model, question, ranked),
     };
   }).filter((entry) => entry.utility > EPSILON);
   return scored.sort((left, right) => (
@@ -908,12 +908,12 @@ export function getRefinementPath(state, model, ranked = rankCandidates(state, m
   const publicCandidates = qualifiedRefinementCandidates(ranked, model);
   const candidates = ["mixed", "tied", "close"].includes(resultState) && publicCandidates.length >= 2
     ? publicCandidates
-    : plausibleCandidates(state, model, ranked);
+    : routingCandidates(state, model, ranked);
   const candidateIds = candidates.map((candidate) => candidate.identity);
   const boundaries = unresolvedBoundaries(model, candidateIds);
   const nextMeasurement = resultState === "primary"
     ? null
-    : bestApprovedRefinementQuestion(state, model, candidateIds);
+    : bestApprovedRefinementQuestion(state, model, candidateIds, ranked);
   if (nextMeasurement) {
     const separatingBoundaries = nextMeasurement.separating.map((entry) => entry.boundary);
     const primaryBoundary = separatingBoundaries[0] || null;

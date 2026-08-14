@@ -78,8 +78,8 @@ These frequencies measure only synthetic agents generated from the model's own a
 
 ## Sensitivity
 
-- 884 one-answer mutations tested.
-- 638 changed the internal primary; 778 changed stopping/result behavior.
+- 881 one-answer mutations tested.
+- 639 changed the internal primary; 718 changed stopping/result behavior.
 - Catastrophic weak/irrelevant-answer sensitivity flags: 0.
 
 ## Owner gate
