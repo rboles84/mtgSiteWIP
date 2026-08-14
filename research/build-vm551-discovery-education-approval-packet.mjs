@@ -53,6 +53,11 @@ const baselineTerms = [
 }));
 
 const taxonomyReview = [
+  ["aggro", "Aggro", ["aggressive"], "aggro"],
+  ["counters_matter", "Counters Matter", ["counters matter", "counters"], "counters"],
+  ["sacrifice", "Sacrifice", ["sacrificing"], "sacrifice"],
+  ["graveyard_value", "Graveyard value", [], "graveyard"],
+  ["equipment", "Equipment", [], "equipment"],
   ["spellslinger", "Spellslinger", [], "spellslinger"],
   ["tokens", "Tokens", ["token deck"], "tokens"],
   ["spell_copying", "Spell copying", ["copy spells", "spell copy"], "spell-copy"],
@@ -83,6 +88,12 @@ const taxonomyReview = [
 }));
 
 const rulesReview = [
+  {
+    id: "devour", term: "Devour", aliases: [],
+    copy: "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
+    locator: "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
+    rule: "Wizards Modern Horizons mechanics explanation of devour",
+  },
   {
     id: "protection", term: "Protection", aliases: [],
     copy: "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",

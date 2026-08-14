@@ -3,6 +3,19 @@
   "generated_from": "data/dossier/discovery-education-automatic-adjudication.source.json",
   "glossary": [
     {
+      "record_id": "glossary_aggro",
+      "term": "Aggro",
+      "aliases": [
+        "aggressive"
+      ],
+      "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#aggro",
+        "supporting_locators": []
+      }
+    },
+    {
       "record_id": "glossary_aristocrats",
       "term": "Aristocrats",
       "aliases": [],
@@ -87,6 +100,20 @@
       }
     },
     {
+      "record_id": "glossary_counters_matter",
+      "term": "Counters Matter",
+      "aliases": [
+        "counters matter",
+        "counters"
+      ],
+      "definition": "Using counters on permanents or players as a scaling resource.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#counters",
+        "supporting_locators": []
+      }
+    },
+    {
       "record_id": "glossary_detain",
       "term": "Detain",
       "aliases": [],
@@ -112,6 +139,20 @@
       }
     },
     {
+      "record_id": "glossary_devour",
+      "term": "Devour",
+      "aliases": [],
+      "definition": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons mechanics explanation of devour"
+      }
+    },
+    {
       "record_id": "glossary_draw_go_control",
       "term": "Draw-Go Control",
       "aliases": [
@@ -121,6 +162,17 @@
       "provenance": {
         "role": "approved_baseline_migration",
         "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_equipment",
+      "term": "Equipment",
+      "aliases": [],
+      "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#equipment",
         "supporting_locators": []
       }
     },
@@ -169,6 +221,17 @@
           "https://magic.wizards.com/en/rules"
         ],
         "authority_note": "Wizards Conspiracy mechanic explanation plus current Comprehensive Rules authority"
+      }
+    },
+    {
+      "record_id": "glossary_graveyard_value",
+      "term": "Graveyard value",
+      "aliases": [],
+      "definition": "Using the graveyard as an active game zone or resource.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#graveyard",
+        "supporting_locators": []
       }
     },
     {
@@ -302,6 +365,19 @@
       "provenance": {
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#ramp",
+        "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_sacrifice",
+      "term": "Sacrifice",
+      "aliases": [
+        "sacrificing"
+      ],
+      "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#sacrifice",
         "supporting_locators": []
       }
     },
@@ -447,81 +523,6 @@
           "https://magic.wizards.com/en/rules"
         ],
         "authority_note": "Committed Wizards rules digest and Oath of the Gatewatch mechanics"
-      }
-    },
-    {
-      "record_id": "glossary_aggro",
-      "term": "Aggro",
-      "aliases": [
-        "aggressive"
-      ],
-      "definition": "A proactive strategy that pressures opponents early through damage or threats.",
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#aggro",
-        "supporting_locators": []
-      }
-    },
-    {
-      "record_id": "glossary_counters_matter",
-      "term": "Counters Matter",
-      "aliases": [
-        "counters matter",
-        "counters"
-      ],
-      "definition": "Using counters on permanents or players as a scaling resource.",
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#counters",
-        "supporting_locators": []
-      }
-    },
-    {
-      "record_id": "glossary_sacrifice",
-      "term": "Sacrifice",
-      "aliases": [
-        "sacrificing"
-      ],
-      "definition": "Sacrificing your own permanents for value, protection, or triggers.",
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#sacrifice",
-        "supporting_locators": []
-      }
-    },
-    {
-      "record_id": "glossary_graveyard_value",
-      "term": "Graveyard value",
-      "aliases": [],
-      "definition": "Using the graveyard as an active game zone or resource.",
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#graveyard",
-        "supporting_locators": []
-      }
-    },
-    {
-      "record_id": "glossary_devour",
-      "term": "Devour",
-      "aliases": [],
-      "definition": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
-      "provenance": {
-        "role": "official_game_rule",
-        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
-        "supporting_locators": [
-          "https://magic.wizards.com/en/rules"
-        ]
-      }
-    },
-    {
-      "record_id": "glossary_equipment",
-      "term": "Equipment",
-      "aliases": [],
-      "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#equipment",
-        "supporting_locators": []
       }
     }
   ],

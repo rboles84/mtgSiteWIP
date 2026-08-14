@@ -4,6 +4,38 @@
   "authority_rule": "Factual teaching and verified runtime microcopy pass vm551-education-validator-v1. Owner review is reserved for interpretive exceptions.",
   "records": [
     {
+      "record_id": "glossary_aggro",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Aggro",
+      "aliases": [
+        "aggressive"
+      ],
+      "proposed_copy": "A proactive strategy that pressures opponents early through damage or threats.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#aggro",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_aggro",
+      "copy_sha256": "fda7a131d3c26a276840ca87c810cb9c76a3b3427e6e0cb00c4b7e9103a058f9",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#aggro"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_aristocrats",
       "record_type": "GLOSSARY_TERM",
       "term": "Aristocrats",
@@ -194,6 +226,39 @@
       }
     },
     {
+      "record_id": "glossary_counters_matter",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Counters Matter",
+      "aliases": [
+        "counters matter",
+        "counters"
+      ],
+      "proposed_copy": "Using counters on permanents or players as a scaling resource.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#counters",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_counters_matter",
+      "copy_sha256": "982f820858da7fee934bb959b602b661dd2456010d0bc798cbbd97afb938b13c",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#counters"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_detain",
       "record_type": "GLOSSARY_TERM",
       "term": "Detain",
@@ -246,6 +311,40 @@
       }
     },
     {
+      "record_id": "glossary_devour",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Devour",
+      "aliases": [],
+      "proposed_copy": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Wizards Modern Horizons mechanics explanation of devour"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_devour",
+      "copy_sha256": "83634b284926a67a63fbd97f13c01b26cf643308769eeead00c77c22e8812f88",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_draw_go_control",
       "record_type": "GLOSSARY_TERM",
       "term": "Draw-Go Control",
@@ -264,6 +363,36 @@
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_draw_go_control",
       "copy_sha256": "da60c87484951b83ba15b2920194dbcba2a41beaa58c2a1696fa04c5ddb57987"
+    },
+    {
+      "record_id": "glossary_equipment",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Equipment",
+      "aliases": [],
+      "proposed_copy": "Using Equipment artifacts to enhance creatures repeatedly.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#equipment",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_equipment",
+      "copy_sha256": "1f4c5d8aa8c226fb6483437e77a448191a2a25c41aeaa8640cd95cb5531d95a8",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#equipment"
+        ],
+        "identity_meaning_authorized": false
+      }
     },
     {
       "record_id": "glossary_etb",
@@ -367,6 +496,36 @@
         "fact_source_locators": [
           "https://magic.wizards.com/en/news/making-magic/its-another-conspiracy-2016-08-15#goad",
           "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_graveyard_value",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Graveyard value",
+      "aliases": [],
+      "proposed_copy": "Using the graveyard as an active game zone or resource.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#graveyard",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_graveyard_value",
+      "copy_sha256": "107a13e25f9006c3881a079475698e86bcabd57e3a943d1bba2efd06b86c1f3d",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#graveyard"
         ],
         "identity_meaning_authorized": false
       }
@@ -621,6 +780,38 @@
         "content_class": "FACTUAL_EDUCATION",
         "fact_source_locators": [
           "data/taxonomy/vox-mana-tags.json#ramp"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_sacrifice",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Sacrifice",
+      "aliases": [
+        "sacrificing"
+      ],
+      "proposed_copy": "Sacrificing your own permanents for value, protection, or triggers.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#sacrifice",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_sacrifice",
+      "copy_sha256": "61d9a3bad0b916019c4acdec3e2c6733611d90a75414c5cb10d014173f975f04",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#sacrifice"
         ],
         "identity_meaning_authorized": false
       }
@@ -927,196 +1118,6 @@
         "fact_source_locators": [
           "docs/research/colorless/source-material/official/colorless-off-001-current-comprehensive-rules.md#rules-305-6-305-7",
           "https://magic.wizards.com/en/rules"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_aggro",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Aggro",
-      "aliases": [
-        "aggressive"
-      ],
-      "proposed_copy": "A proactive strategy that pressures opponents early through damage or threats.",
-      "example": null,
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#aggro",
-        "supporting_locators": []
-      },
-      "limitations": "Explains the Commander archetype term only; it does not establish an identity relationship or placement preference.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_aggro",
-      "copy_sha256": "fda7a131d3c26a276840ca87c810cb9c76a3b3427e6e0cb00c4b7e9103a058f9",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "data/taxonomy/vox-mana-tags.json#aggro"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_counters_matter",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Counters Matter",
-      "aliases": [
-        "counters matter",
-        "counters"
-      ],
-      "proposed_copy": "Using counters on permanents or players as a scaling resource.",
-      "example": null,
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#counters",
-        "supporting_locators": []
-      },
-      "limitations": "Explains the Commander archetype term only; it does not establish an identity relationship or placement preference.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_counters_matter",
-      "copy_sha256": "982f820858da7fee934bb959b602b661dd2456010d0bc798cbbd97afb938b13c",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "data/taxonomy/vox-mana-tags.json#counters"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_sacrifice",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Sacrifice",
-      "aliases": [
-        "sacrificing"
-      ],
-      "proposed_copy": "Sacrificing your own permanents for value, protection, or triggers.",
-      "example": null,
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#sacrifice",
-        "supporting_locators": []
-      },
-      "limitations": "Explains the Commander mechanic and archetype term only; it does not establish an identity relationship or placement preference.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_sacrifice",
-      "copy_sha256": "61d9a3bad0b916019c4acdec3e2c6733611d90a75414c5cb10d014173f975f04",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "data/taxonomy/vox-mana-tags.json#sacrifice"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_graveyard_value",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Graveyard value",
-      "aliases": [],
-      "proposed_copy": "Using the graveyard as an active game zone or resource.",
-      "example": null,
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#graveyard",
-        "supporting_locators": []
-      },
-      "limitations": "Explains the Commander archetype term only; it does not establish an identity relationship or placement preference.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_graveyard_value",
-      "copy_sha256": "107a13e25f9006c3881a079475698e86bcabd57e3a943d1bba2efd06b86c1f3d",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "data/taxonomy/vox-mana-tags.json#graveyard"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_devour",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Devour",
-      "aliases": [],
-      "proposed_copy": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
-      "example": null,
-      "provenance": {
-        "role": "official_game_rule",
-        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
-        "supporting_locators": [
-          "https://magic.wizards.com/en/rules"
-        ]
-      },
-      "limitations": "Explains the game mechanic only; it does not make every card with devour an identity example.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_devour",
-      "copy_sha256": "83634b284926a67a63fbd97f13c01b26cf643308769eeead00c77c22e8812f88",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "https://magic.wizards.com/en/news/feature/modern-horizons-mechanics-2019-05-31#devour",
-          "https://magic.wizards.com/en/rules"
-        ],
-        "identity_meaning_authorized": false
-      }
-    },
-    {
-      "record_id": "glossary_equipment",
-      "record_type": "GLOSSARY_TERM",
-      "term": "Equipment",
-      "aliases": [],
-      "proposed_copy": "Using Equipment artifacts to enhance creatures repeatedly.",
-      "example": null,
-      "provenance": {
-        "role": "vox_mana_commander_vocabulary",
-        "locator": "data/taxonomy/vox-mana-tags.json#equipment",
-        "supporting_locators": []
-      },
-      "limitations": "Explains the Commander archetype term only; it does not establish an identity relationship or placement preference.",
-      "disposition": "APPROVED_PUBLIC",
-      "owner_decision": null,
-      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_equipment",
-      "copy_sha256": "1f4c5d8aa8c226fb6483437e77a448191a2a25c41aeaa8640cd95cb5531d95a8",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-      "validation": {
-        "validator_version": "vm551-education-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
-        "content_class": "FACTUAL_EDUCATION",
-        "fact_source_locators": [
-          "data/taxonomy/vox-mana-tags.json#equipment"
         ],
         "identity_meaning_authorized": false
       }
