@@ -3,7 +3,7 @@ export const VM551_EVIDENCE_VALIDATOR_VERSION = "vm551-evidence-validator-v1";
 export const VM551_AUTOMATIC_APPROVAL_BASIS = "EVIDENCE_VALIDATED_AUTOMATIC";
 
 const CERTIFIED_IDENTITY_LOCATOR = /^(?:data\/raw-factions\/[^/]+\/[^/]+\.(?:claims|profile|placement)\.json|docs\/reference\/37-identity-player-relationship-guide\.md)/;
-const FACT_LOCATOR = /^(?:data\/scryfall\/|data\/taxonomy\/|data\/generated\/commander-provider-validation\.json|docs\/research\/[^/]+\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
+const FACT_LOCATOR = /^(?:data\/scryfall\/|data\/dossier\/card-voice-printings\.source\.json|data\/taxonomy\/|data\/generated\/commander-provider-validation\.json|docs\/research\/[^/]+\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
 const RUNTIME_CONTRACT_LOCATOR = /^(?:assets\/js\/archscry-presentation\.js|data\/generated\/commander-provider-validation\.json)/;
 const VAGUE_BRIDGE = /\b(?:vibe|feels? like|sounds? like|because (?:it is|it's) [a-z -]+(?:colored|color)|generic overlap|mere(?:ly)? (?:color|mechanic|theme|product|tag))\b/i;
 const EDUCATION_FACT_LOCATOR = /^(?:data\/taxonomy\/vox-mana-tags\.json|docs\/research\/colorless\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;

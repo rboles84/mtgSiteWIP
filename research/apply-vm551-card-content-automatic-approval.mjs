@@ -16,13 +16,16 @@ const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const stableId = (prefix, ...parts) => `${prefix}_${parts.join("|").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`;
 
-const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions] = await Promise.all([
+const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions, voicePrintings] = await Promise.all([
   readJson("data/dossier/card-content-review-proposals.source.json"),
   readJson("data/dossier/card-rationale-relationships.source.json"),
   readJson("data/scryfall/indexes/commander-index.json"),
   readJson("data/scryfall/indexes/card-flavor-index.json"),
   readJson("data/factions.json"),
+  readJson("data/dossier/card-voice-printings.source.json"),
 ]);
+
+const voicePrintingByIdentity = new Map((voicePrintings.records || []).map((record) => [record.identity_key, record]));
 
 const cardByOracleId = new Map([
   ...(commanderIndex.commanders || []),
@@ -62,10 +65,50 @@ const automaticProposals = [];
 const newRationaleRecords = [];
 const voiceSourceRecords = [];
 
-for (const proposal of packetInput.proposals) {
-  if (proposal.disposition === "REJECTED") {
-    automaticProposals.push({ ...proposal, approval_basis: "NOT_APPLICABLE" });
+for (const proposalInput of packetInput.proposals) {
+  if (proposalInput.disposition === "REJECTED") {
+    automaticProposals.push({ ...proposalInput, approval_basis: "NOT_APPLICABLE" });
     continue;
+  }
+
+  const voicePrinting = proposalInput.proposal_type === "CARD_VOICE"
+    ? voicePrintingByIdentity.get(proposalInput.identity_key)
+    : null;
+  if (proposalInput.proposal_type === "CARD_VOICE" && !voicePrinting) {
+    throw new Error(`Missing exact printing authority: ${proposalInput.identity_key}`);
+  }
+  const relationshipOverride = voicePrinting?.relationship_override || {};
+  const proposal = voicePrinting ? {
+    ...proposalInput,
+    canonical_card_name: voicePrinting.canonical_card_name,
+    canonical_card_id: voicePrinting.oracle_id,
+    proposed_copy: voicePrinting.exact_flavor_text,
+    copy_sha256: digest(voicePrinting.exact_flavor_text),
+    provenance: {
+      ...proposalInput.provenance,
+      canonical_card_data: `data/dossier/card-voice-printings.source.json#identity_key=${voicePrinting.identity_key}`,
+    },
+    ...Object.fromEntries([
+      "relationship_class",
+      "why_voice_belongs",
+      "relationship_bridge",
+      "false_positive_analysis",
+      "adjacent_identity_confusion_risk",
+      "limitations",
+    ].filter((field) => relationshipOverride[field]).map((field) => [field, relationshipOverride[field]])),
+  } : proposalInput;
+
+  if (relationshipOverride.supersedes_card_name && proposalInput.canonical_card_name === relationshipOverride.supersedes_card_name) {
+    automaticProposals.push({
+      ...proposalInput,
+      proposal_id: `${proposalInput.proposal_id}_superseded`,
+      disposition: "REJECTED",
+      agent_recommendation: "REJECTED",
+      approval_basis: "NOT_APPLICABLE",
+      owner_decision: null,
+      relationship_bridge: relationshipOverride.supersession_reason,
+      limitations: relationshipOverride.supersession_reason,
+    });
   }
 
   const isRationale = proposal.proposal_type === "CARD_RATIONALE";
@@ -79,6 +122,7 @@ for (const proposal of packetInput.proposals) {
     return claim;
   });
   const factLocator = proposal.provenance.canonical_card_data;
+  const factLocators = [factLocator, ...(relationshipOverride.supporting_official_locators || [])];
   const neighbor = isRationale
     ? selectedVoiceByIdentity.get(proposal.identity_key)?.adjacent_identity_confusion_risk || "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
     : proposal.adjacent_identity_confusion_risk;
@@ -89,7 +133,7 @@ for (const proposal of packetInput.proposals) {
     id: proposal.proposal_id,
     identity_claim_ids: claimIds,
     identity_source_locators: claimIds.map((claimId) => `${authority.authorityPath}#${claimId}`),
-    fact_source_locators: [factLocator],
+    fact_source_locators: factLocators,
     relationship_bridge: relationshipBridge,
     public_copy: proposal.proposed_copy,
     false_positive_analysis: isRationale
@@ -116,7 +160,11 @@ for (const proposal of packetInput.proposals) {
   };
   automaticProposals.push(approvedProposal);
 
-  const card = cardByOracleId.get(proposal.canonical_card_id);
+  const card = voicePrinting ? {
+    name: voicePrinting.canonical_card_name,
+    oracle_id: voicePrinting.oracle_id,
+    scryfall_id: voicePrinting.scryfall_id,
+  } : cardByOracleId.get(proposal.canonical_card_id);
   if (!card || card.name !== proposal.canonical_card_name) throw new Error(`Canonical card mismatch: ${proposal.proposal_id}`);
   const details = sourceDetails(claims);
   if (!details.sourceIds.length || !details.sourceLocators.length) throw new Error(`Missing certified source chain: ${proposal.proposal_id}`);
@@ -168,10 +216,19 @@ for (const proposal of packetInput.proposals) {
       canonical_card_id: proposal.canonical_card_id,
       scryfall_id: card.scryfall_id,
       exact_excerpt: proposal.proposed_copy,
+      printing: {
+        scryfall_id: voicePrinting.scryfall_id,
+        oracle_id: voicePrinting.oracle_id,
+        set: voicePrinting.set,
+        collector_number: voicePrinting.collector_number,
+        flavor_text_field: voicePrinting.flavor_text_field,
+        source_locator: voicePrinting.source_locator,
+      },
       relationship_class: proposal.relationship_class,
       certified_identity_claim_ids: claimIds,
       source_ids: details.sourceIds,
       source_locators: details.sourceLocators,
+      supporting_official_locators: relationshipOverride.supporting_official_locators || [],
       canonical_card_data_locator: factLocator,
       why_voice_belongs: proposal.why_voice_belongs,
       relationship_bridge: proposal.relationship_bridge,
@@ -183,6 +240,12 @@ for (const proposal of packetInput.proposals) {
       validation,
       display_priority: 1,
       critical_repeat: { allowed: false, reason: "Page-level usage planning should prefer a distinct card for each teaching role." },
+      ...(relationshipOverride.supersedes_card_name ? {
+        supersession: {
+          card_name: relationshipOverride.supersedes_card_name,
+          reason: relationshipOverride.supersession_reason,
+        },
+      } : {}),
     });
   }
 }
@@ -241,6 +304,8 @@ const voiceCatalog = {
       name: record.canonical_card_name,
       oracle_id: record.canonical_card_id,
       scryfall_id: record.scryfall_id,
+      set: record.printing.set,
+      collector_number: record.printing.collector_number,
       data_locator: record.canonical_card_data_locator,
     },
     excerpt: record.exact_excerpt,
@@ -251,6 +316,8 @@ const voiceCatalog = {
     provenance: {
       claim_ids: record.certified_identity_claim_ids,
       source_ids: record.source_ids,
+      printing_id: record.printing.scryfall_id,
+      printing_source_locator: record.printing.source_locator,
       validator_version: record.validation.validator_version,
       approval_basis: record.approval_basis,
     },

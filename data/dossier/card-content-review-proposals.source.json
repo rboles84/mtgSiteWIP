@@ -1525,7 +1525,7 @@
       "copy_sha256": "3817d2519ef563373f41ff3986896510d0bb736128358ad35b95f913a39c2b0f",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/ABZAN/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=ABZAN",
         "identity_authority": "data/raw-factions/abzan/abzan.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge.",
@@ -1568,7 +1568,7 @@
             "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0008"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8"
+            "data/dossier/card-voice-printings.source.json#identity_key=ABZAN"
           ]
         }
       }
@@ -1664,7 +1664,7 @@
       "copy_sha256": "f85e051fa3ac08cb39618ad2298bf6e9d78a788b16ee08ffe97912ec1484c516",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=B",
         "identity_authority": "data/raw-factions/black/black.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt.",
@@ -1707,7 +1707,7 @@
             "data/raw-factions/black/black.claims.json#black_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e"
+            "data/dossier/card-voice-printings.source.json#identity_key=B"
           ]
         }
       }
@@ -1776,7 +1776,7 @@
       "copy_sha256": "c6d304f5cc4fe4167bc2a129fe2c8a662cc0935b7113073fac60937a5b2ef393",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/BANT/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=BANT",
         "identity_authority": "data/raw-factions/bant/bant.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference.",
@@ -1819,7 +1819,7 @@
             "data/raw-factions/bant/bant.claims.json#bant_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59"
+            "data/dossier/card-voice-printings.source.json#identity_key=BANT"
           ]
         }
       }
@@ -1915,7 +1915,7 @@
       "copy_sha256": "7e6c060f9c1599176d503c5799229d753e1a5810bfa38fe255770cf7bef3eb4e",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/BG/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=BG",
         "identity_authority": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required.",
@@ -1965,7 +1965,7 @@
             "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_0018"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5"
+            "data/dossier/card-voice-printings.source.json#identity_key=BG"
           ]
         }
       }
@@ -1980,7 +1980,7 @@
       "copy_sha256": "47ac6b52757953b9e0e848f5103aa87fb7b56d7dca03bb54650c64f882c0eca8",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/BR/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=BR",
         "identity_authority": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship.",
@@ -2030,7 +2030,7 @@
             "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d"
+            "data/dossier/card-voice-printings.source.json#identity_key=BR"
           ]
         }
       }
@@ -2095,11 +2095,11 @@
       "identity_key": "COLORLESS",
       "canonical_card_name": "All Is Dust",
       "canonical_card_id": "14693689-d087-43b6-9c3f-63ab0648fc20",
-      "proposed_copy": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...",
-      "copy_sha256": "9032cb1ea4dd64967fafa7164e125fe917b60665a8211d297d2a052ca22181e9",
+      "proposed_copy": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\"\n—Javad Nasrin, Ondu relic hunter",
+      "copy_sha256": "e46d4efa5737fddb295b7c91fd81032182c8f600141870c42bbc14f004157bf9",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/COLORLESS/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=COLORLESS",
         "identity_authority": "data/raw-factions/colorless/colorless.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless.",
@@ -2149,7 +2149,7 @@
             "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20"
+            "data/dossier/card-voice-printings.source.json#identity_key=COLORLESS"
           ]
         }
       }
@@ -2218,7 +2218,7 @@
       "copy_sha256": "d8e566ca60d54eb71b3089362001ac800197dc81f2547a38ff38141b803e5c6c",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/DUNE/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=DUNE",
         "identity_authority": "data/raw-factions/dune/dune.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame.",
@@ -2254,7 +2254,7 @@
             "data/raw-factions/dune/dune.claims.json#dune_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166"
+            "data/dossier/card-voice-printings.source.json#identity_key=DUNE"
           ]
         }
       }
@@ -2377,7 +2377,7 @@
       "copy_sha256": "55636717d40196b19027d4104a7ceedbb408cde6e02f8ed3d2a0ddd50a4a9d83",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/ESPER/2",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=ESPER",
         "identity_authority": "data/raw-factions/esper/esper.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis.",
@@ -2427,7 +2427,7 @@
             "data/raw-factions/esper/esper.claims.json#esper_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+            "data/dossier/card-voice-printings.source.json#identity_key=ESPER"
           ]
         }
       }
@@ -2469,7 +2469,7 @@
       "copy_sha256": "5d117f038e407b3c5c85d0e1630535c52c0e8faefca2a1fe92d0a19bf03cc4f6",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/G/2",
-        "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=G",
         "identity_authority": "data/raw-factions/green/green.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color.",
@@ -2519,7 +2519,7 @@
             "data/raw-factions/green/green.claims.json#green_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3"
+            "data/dossier/card-voice-printings.source.json#identity_key=G"
           ]
         }
       }
@@ -2588,7 +2588,7 @@
       "copy_sha256": "bb10e29f5e581741079d0d5c6c09d2fa400b1a1041710e357b1138cc5d695597",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=GLINT",
         "identity_authority": "data/raw-factions/glint/glint.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary.",
@@ -2624,7 +2624,7 @@
             "data/raw-factions/glint/glint.claims.json#glint_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36"
+            "data/dossier/card-voice-printings.source.json#identity_key=GLINT"
           ]
         }
       }
@@ -2747,7 +2747,7 @@
       "copy_sha256": "55636717d40196b19027d4104a7ceedbb408cde6e02f8ed3d2a0ddd50a4a9d83",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/GRIXIS/2",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=GRIXIS",
         "identity_authority": "data/raw-factions/grixis/grixis.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible.",
@@ -2797,7 +2797,7 @@
             "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+            "data/dossier/card-voice-printings.source.json#identity_key=GRIXIS"
           ]
         }
       }
@@ -2812,7 +2812,7 @@
       "copy_sha256": "c6cb92513641263ee6f3a20a4edb6e1c8ae2738378a3f12baea546fcba8640f1",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=INK",
         "identity_authority": "data/raw-factions/ink/ink.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.",
@@ -2848,7 +2848,7 @@
             "data/raw-factions/ink/ink.claims.json#ink_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
+            "data/dossier/card-voice-printings.source.json#identity_key=INK"
           ]
         }
       }
@@ -2944,7 +2944,7 @@
       "copy_sha256": "b5e044530ce7cf55d685a688312dc2f05b34a6344032b0b76566f00f7e920239",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/JESKAI/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=JESKAI",
         "identity_authority": "data/raw-factions/jeskai/jeskai.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge.",
@@ -2994,7 +2994,7 @@
             "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0"
+            "data/dossier/card-voice-printings.source.json#identity_key=JESKAI"
           ]
         }
       }
@@ -3117,7 +3117,7 @@
       "copy_sha256": "57467eb92c56afb76d3dc3e7222f7675fcbb4d1aae3153780289bf58d7a993fd",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/JUND/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=JUND",
         "identity_authority": "data/raw-factions/jund/jund.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference.",
@@ -3167,7 +3167,7 @@
             "data/raw-factions/jund/jund.claims.json#jund_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388"
+            "data/dossier/card-voice-printings.source.json#identity_key=JUND"
           ]
         }
       }
@@ -3209,7 +3209,7 @@
       "copy_sha256": "fec81314fe89a432d218fd6992135fd71df8cd411d3c91ab7f16d8ed1367de69",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/LOREHOLD/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD",
         "identity_authority": "data/raw-factions/lorehold/lorehold.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required.",
@@ -3259,7 +3259,7 @@
             "data/raw-factions/lorehold/lorehold.claims.json#claim_lorehold_placement_0009"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04"
+            "data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD"
           ]
         }
       }
@@ -3355,7 +3355,7 @@
       "copy_sha256": "79c88f4256777a7c31ff4961b7e5930c9fc9f03a7b1131767b86560db1242f7e",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/MARDU/2",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=MARDU",
         "identity_authority": "data/raw-factions/mardu/mardu.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge.",
@@ -3405,7 +3405,7 @@
             "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191"
+            "data/dossier/card-voice-printings.source.json#identity_key=MARDU"
           ]
         }
       }
@@ -3443,11 +3443,11 @@
       "identity_key": "NAYA",
       "canonical_card_name": "Cradle of Vitality",
       "canonical_card_id": "956250da-532a-4457-8696-73915be56943",
-      "proposed_copy": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...",
-      "copy_sha256": "4a587c5490d122ff0cba1ab0f0d89e62787e18c47e47d185819e23417eadebcf",
+      "proposed_copy": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.",
+      "copy_sha256": "5ef6240ccd14923b6c3359261db9e919528f0e2f675f02a0c78ab9a8ce5ce14a",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/NAYA/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=NAYA",
         "identity_authority": "data/raw-factions/naya/naya.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference.",
@@ -3497,7 +3497,7 @@
             "data/raw-factions/naya/naya.claims.json#naya_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943"
+            "data/dossier/card-voice-printings.source.json#identity_key=NAYA"
           ]
         }
       }
@@ -3593,7 +3593,7 @@
       "copy_sha256": "88708dcf40743b654c67f54fceb85cbd4cc8ad0beaa3431cf59c70db20706694",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/PRISMARI/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=PRISMARI",
         "identity_authority": "data/raw-factions/prismari/prismari.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
@@ -3643,7 +3643,7 @@
             "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77"
+            "data/dossier/card-voice-printings.source.json#identity_key=PRISMARI"
           ]
         }
       }
@@ -3708,11 +3708,11 @@
       "identity_key": "QUANDRIX",
       "canonical_card_name": "Additive Evolution",
       "canonical_card_id": "ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
-      "proposed_copy": "\"Numbers have no limits. Why should nature?\" —Emil, Quandrix fourth-year",
-      "copy_sha256": "fa87c0a22fe25e8a9d129404848837abf0a6674f8f762892bc0a01909811fbd9",
+      "proposed_copy": "\"Numbers have no limits. Why should nature?\"\n—Emil, Quandrix fourth-year",
+      "copy_sha256": "0e1c7952b3bd3bf2f11d378b6360c1af4599a8928d8afa0f08861b62db86d40f",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/QUANDRIX/2",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX",
         "identity_authority": "data/raw-factions/quandrix/quandrix.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth.",
@@ -3769,7 +3769,7 @@
             "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0020"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7"
+            "data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX"
           ]
         }
       }
@@ -3838,7 +3838,7 @@
       "copy_sha256": "931f5e2edf466c3f8b4aeb36cc17d16434e99782a256b81c8e02e4e37215765c",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=R",
         "identity_authority": "data/raw-factions/red/red.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
@@ -3888,7 +3888,7 @@
             "data/raw-factions/red/red.claims.json#red_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a"
+            "data/dossier/card-voice-printings.source.json#identity_key=R"
           ]
         }
       }
@@ -3930,7 +3930,7 @@
       "copy_sha256": "46790977e1362640198b43f2d1c880b25b3043351be368dd4f88f9201e8d74e8",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/RG/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=RG",
         "identity_authority": "data/raw-factions/gruul_clans/gruul_clans.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship.",
@@ -3980,7 +3980,7 @@
             "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0001"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd"
+            "data/dossier/card-voice-printings.source.json#identity_key=RG"
           ]
         }
       }
@@ -4099,11 +4099,11 @@
       "identity_key": "SILVERQUILL",
       "canonical_card_name": "Beaming Defiance",
       "canonical_card_id": "f88eeb04-4b8e-4c76-a8c6-90887b94d518",
-      "proposed_copy": "\"I've lived too long in my father's shadow. It's time to find my own light.\" —Killian, Silverquill mage-student",
-      "copy_sha256": "35cbc972550b1704fc6cf827162a15cc794110e3ae9c57809da0a6e9b7c9368b",
+      "proposed_copy": "\"I've lived too long in my father's shadow. It's time to find my own light.\"\n—Killian, Silverquill mage-student",
+      "copy_sha256": "b99a9c568db46d9781049e4292480a77f22dc913be3a9ab2f4b3b3be89776c3f",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/SILVERQUILL/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL",
         "identity_authority": "data/raw-factions/silverquill/silverquill.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone.",
@@ -4153,7 +4153,7 @@
             "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0021"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518"
+            "data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL"
           ]
         }
       }
@@ -4191,11 +4191,11 @@
       "identity_key": "SULTAI",
       "canonical_card_name": "Aggressive Negotiations",
       "canonical_card_id": "c469133e-174d-476b-b135-bbf15e415e72",
-      "proposed_copy": "\"When an alliance outlasts its usefulness it's best to end it quickly.\" —Heng, Sultai ambassador",
-      "copy_sha256": "8a38e17762d1aba7ebcc9fd9faa297e6cd2f025d86e9025d9ef4365492f42265",
+      "proposed_copy": "\"When an alliance outlasts its usefulness it's best to end it quickly.\"\n—Heng, Sultai ambassador",
+      "copy_sha256": "2f22a850e09229bf804891bd7b4b6f6220a6f9aa07ba8cf39432db1900e835ad",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/SULTAI/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=SULTAI",
         "identity_authority": "data/raw-factions/sultai/sultai.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required.",
@@ -4245,7 +4245,7 @@
             "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72"
+            "data/dossier/card-voice-printings.source.json#identity_key=SULTAI"
           ]
         }
       }
@@ -4337,11 +4337,11 @@
       "identity_key": "TEMUR",
       "canonical_card_name": "Avalanche Tusker",
       "canonical_card_id": "ccad8b03-5ff1-4895-94e0-0c96883cb875",
-      "proposed_copy": "\"Hold the high ground, then bring it to your enemy.\" —Surrak, khan of the Temur",
-      "copy_sha256": "0d5269fe8e689f87921ca467878a2a5882f45225176245f6fe0c05fcbbd302a5",
+      "proposed_copy": "\"Hold the high ground, then bring it to your enemy.\"\n—Surrak, khan of the Temur",
+      "copy_sha256": "848afc2bd519f288646d64b68298231e5e24b20af116fa1ae33e398a8cfe538e",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/TEMUR/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=TEMUR",
         "identity_authority": "data/raw-factions/temur/temur.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge.",
@@ -4391,7 +4391,7 @@
             "data/raw-factions/temur/temur.claims.json#temur_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875"
+            "data/dossier/card-voice-printings.source.json#identity_key=TEMUR"
           ]
         }
       }
@@ -4402,11 +4402,11 @@
       "identity_key": "U",
       "canonical_card_name": "Azami, Lady of Scrolls",
       "canonical_card_id": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
-      "proposed_copy": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\" —Lady Azami, letter t...",
-      "copy_sha256": "b19768dfd355dc4cdea713240f808a665745f822ace6a9514e57ce77256d4650",
+      "proposed_copy": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
+      "copy_sha256": "c75142188c6a1bb966281f33e1493366b0ac0fbe2ed76dee0efb474a488e147b",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/U/1",
-        "canonical_card_data": "data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=U",
         "identity_authority": "data/raw-factions/blue/blue.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine.",
@@ -4456,7 +4456,7 @@
             "data/raw-factions/blue/blue.claims.json#blue_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159"
+            "data/dossier/card-voice-printings.source.json#identity_key=U"
           ]
         }
       }
@@ -4548,11 +4548,11 @@
       "identity_key": "UB",
       "canonical_card_name": "Consult the Necrosages",
       "canonical_card_id": "c9edddb4-0d60-4d21-8887-51d943c6a31f",
-      "proposed_copy": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...",
-      "copy_sha256": "884893a6933035964533a00b7d6f5e2c14792b8bfc26f69a6ac8a81ce15cd68c",
+      "proposed_copy": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.",
+      "copy_sha256": "597b0b4491a3c240790c0142c86e6ff2208bc024f8d855eb25b62ac3d9fe2760",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/UB/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=UB",
         "identity_authority": "data/raw-factions/house_dimir/house_dimir.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction.",
@@ -4602,7 +4602,7 @@
             "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0019"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f"
+            "data/dossier/card-voice-printings.source.json#identity_key=UB"
           ]
         }
       }
@@ -4644,7 +4644,7 @@
       "copy_sha256": "dfcd018718bebe10dff1e59a43afd361897dc14c81d2100ba88adc59aaba0933",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/UG/2",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=UG",
         "identity_authority": "data/raw-factions/simic_combine/simic_combine.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge.",
@@ -4694,7 +4694,7 @@
             "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f"
+            "data/dossier/card-voice-printings.source.json#identity_key=UG"
           ]
         }
       }
@@ -4817,7 +4817,7 @@
       "copy_sha256": "29f9444d975aacc63b793c9a36b60e0f3a4fa74da72d9fd093e0bf55f845cef0",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/UR/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=UR",
         "identity_authority": "data/raw-factions/izzet_league/izzet_league.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose.",
@@ -4874,7 +4874,7 @@
             "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063"
+            "data/dossier/card-voice-printings.source.json#identity_key=UR"
           ]
         }
       }
@@ -4916,7 +4916,7 @@
       "copy_sha256": "0955b078ce8f9b753b7e5f9bbc09df51f3154bc0e568a7ab37738f60f0706d2f",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=W",
         "identity_authority": "data/raw-factions/white/white.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution.",
@@ -4966,7 +4966,7 @@
             "data/raw-factions/white/white.claims.json#white_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e"
+            "data/dossier/card-voice-printings.source.json#identity_key=W"
           ]
         }
       }
@@ -5035,7 +5035,7 @@
       "copy_sha256": "5a15b031fadb6791ddb0a4148b892d9774fbc545b98de5ec0051ef095bd7c59b",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/WB/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WB",
         "identity_authority": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific.",
@@ -5092,7 +5092,7 @@
             "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0018"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b"
+            "data/dossier/card-voice-printings.source.json#identity_key=WB"
           ]
         }
       }
@@ -5157,11 +5157,11 @@
       "identity_key": "WG",
       "canonical_card_name": "Camaraderie",
       "canonical_card_id": "9aab386c-d48c-4611-b757-aa69b26cc1b1",
-      "proposed_copy": "\"Within the song of Mat'Selesnya, one becomes all.\" —Heruj, Selesnya hierophant",
-      "copy_sha256": "797b582267108914bf6747fc5f91a330cbf803d89f79f795b6100fb0322ca117",
+      "proposed_copy": "\"Within the song of Mat'Selesnya, one becomes all.\"\n—Heruj, Selesnya hierophant",
+      "copy_sha256": "0f9dfbd992e0af3bd4061aec74f5ce9ed284807c7f5aa4ce8935ed7c5762d223",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/WG/0",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WG",
         "identity_authority": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge.",
@@ -5211,7 +5211,7 @@
             "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1"
+            "data/dossier/card-voice-printings.source.json#identity_key=WG"
           ]
         }
       }
@@ -5361,7 +5361,7 @@
       "copy_sha256": "1a5d993ddbb5b2642c5acf70955b062ed0e832afbd5fe78b966c5529735f72b9",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WITCH",
         "identity_authority": "data/raw-factions/witch/witch.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone.",
@@ -5397,7 +5397,7 @@
             "data/raw-factions/witch/witch.claims.json#witch_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9"
+            "data/dossier/card-voice-printings.source.json#identity_key=WITCH"
           ]
         }
       }
@@ -5435,11 +5435,11 @@
       "identity_key": "WITHERBLOOM",
       "canonical_card_name": "Death Begets Life",
       "canonical_card_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
-      "proposed_copy": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\" —...",
-      "copy_sha256": "c881b3d6f071623d3b62ab1177a09198aeeeaf9fe970244f1c7bc83e0372caff",
+      "proposed_copy": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\"\n—Kotis, the Fangkeeper",
+      "copy_sha256": "a66146f3b5d48a5f09de78e1f1c501857980f50d5462c5767f9b23073c8d3ff7",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM",
         "identity_authority": "data/raw-factions/witherbloom/witherbloom.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.",
@@ -5489,7 +5489,7 @@
             "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd"
+            "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
           ]
         }
       }
@@ -5558,7 +5558,7 @@
       "copy_sha256": "6253db7a946475ffc90a2c46e3dd6cc3a9361c8286932c9cef619d98cd0f40ed",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/WR/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WR",
         "identity_authority": "data/raw-factions/boros_legion/boros_legion.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action.",
@@ -5615,7 +5615,7 @@
             "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_012"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678"
+            "data/dossier/card-voice-printings.source.json#identity_key=WR"
           ]
         }
       }
@@ -5707,11 +5707,11 @@
       "identity_key": "WU",
       "canonical_card_name": "Azorius Cluestone",
       "canonical_card_id": "27e04c41-f42c-4d60-8a71-ec2d7c326f64",
-      "proposed_copy": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...",
-      "copy_sha256": "651c40edb3687ae27604566533e3546b1092a581ca20ea4fa1037ed4a3e67cad",
+      "proposed_copy": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
+      "copy_sha256": "92055731e8746b6b02dab111ff47dce27ea8f763eafa2cda59b4e5ca79e917b1",
       "provenance": {
         "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/WU/1",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WU",
         "identity_authority": "data/raw-factions/azorius_senate/azorius_senate.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius.",
@@ -5768,7 +5768,7 @@
             "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64"
+            "data/dossier/card-voice-printings.source.json#identity_key=WU"
           ]
         }
       }
@@ -5855,7 +5855,7 @@
       "approval_basis": "NOT_APPLICABLE"
     },
     {
-      "proposal_id": "packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1",
+      "proposal_id": "packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1_superseded",
       "proposal_type": "CARD_VOICE",
       "identity_key": "WUBRG",
       "canonical_card_name": "Coalition Victory",
@@ -5867,8 +5867,8 @@
         "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125",
         "identity_authority": "data/raw-factions/wubrg/wubrg.claims.json"
       },
-      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
-      "disposition": "APPROVED_PUBLIC",
+      "limitations": "The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice.",
+      "disposition": "REJECTED",
       "owner_decision": null,
       "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-wubrg",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
@@ -5897,9 +5897,81 @@
         }
       ],
       "why_voice_belongs": "Coalition Victory's exact excerpt provides a bounded voice echo of a complete construction made from distinct imperfect parts.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims wubrg_claim_0002, wubrg_claim_0003, wubrg_claim_0004, wubrg_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
+      "relationship_bridge": "The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice.",
       "false_positive_analysis": "Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
       "adjacent_identity_confusion_risk": "Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
+      "agent_recommendation": "REJECTED",
+      "approval_basis": "NOT_APPLICABLE",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "wubrg_claim_0002",
+            "wubrg_claim_0003",
+            "wubrg_claim_0004",
+            "wubrg_claim_0007"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0002",
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0003",
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0004",
+            "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0007"
+          ],
+          "fact_source_locators": [
+            "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125"
+          ]
+        }
+      }
+    },
+    {
+      "proposal_id": "packet1_voice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125_1",
+      "proposal_type": "CARD_VOICE",
+      "identity_key": "WUBRG",
+      "canonical_card_name": "Call the Spirit Dragons",
+      "canonical_card_id": "3ceb23f5-abb1-4569-a1e4-1eed9a9babcf",
+      "proposed_copy": "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.",
+      "copy_sha256": "ff6a2d2eddbf52f0776dcb760b60f5063a60c35f2300eed21aaae51ac7a229a8",
+      "provenance": {
+        "candidate_inventory": "data/archscry-flavor-snippets.json#/snippets/WUBRG/0",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WUBRG",
+        "identity_authority": "data/raw-factions/wubrg/wubrg.claims.json"
+      },
+      "limitations": "Public use is limited to this exact regular-printing flavor line and its bounded Five-Color relationship. It does not merge Tarkir's clans into one official faction or turn generic multicolor, Dragon, or unity themes into WUBRG evidence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-wubrg",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "certified_identity_claim_ids": [
+        "wubrg_claim_0002",
+        "wubrg_claim_0003",
+        "wubrg_claim_0004",
+        "wubrg_claim_0007"
+      ],
+      "certified_identity_claims": [
+        {
+          "claim_id": "wubrg_claim_0002",
+          "statement": "In Commander, a WUBRG commander gives the deck access to White, Blue, Black, Red, and Green color identity at the deck-construction level."
+        },
+        {
+          "claim_id": "wubrg_claim_0003",
+          "statement": "WUBRG grants full deck-level color access, but individual cards and effects remain bounded by their own rules text, color identity, and color-pie context."
+        },
+        {
+          "claim_id": "wubrg_claim_0004",
+          "statement": "Five-Color is the preferred public label, WUBRG is the technical/internal code, and Vox Mana must not present WUBRG as a single official faction, plane, civilization, guild, college, or doctrine."
+        },
+        {
+          "claim_id": "wubrg_claim_0007",
+          "statement": "WUBRG must remain distinct from Colorless, five-color Eldrazi-as-Colorless claims, four-color missing-color frames, generic goodstuff-only framing, superiority or total mastery claims, universal-superset claims, endpoint/completion claims, and default high-complexity-answer claims."
+        }
+      ],
+      "why_voice_belongs": "The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.",
+      "relationship_bridge": "This is a bounded Five-Color voice echo of all five colors and distinct clan embodiments acting within one card. It does not make Tarkir's clans a single official WUBRG faction or establish completion as a Vox Mana identity claim.",
+      "false_positive_analysis": "The bridge depends on the exact regular-printing flavor text together with the card's five-color canonical facts, not on a generic unity, Dragon, multicolor, or Tarkir theme.",
+      "adjacent_identity_confusion_risk": "Each Tarkir clan remains a distinct three-color identity, and Yore or artifact decks may also combine parts. The public relationship is limited to Five-Color access across all five colors.",
       "agent_recommendation": "APPROVED_PUBLIC",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -5921,7 +5993,9 @@
             "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125"
+            "data/dossier/card-voice-printings.source.json#identity_key=WUBRG",
+            "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-release-notes#0174_MTGTDM_Main",
+            "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-mechanics"
           ]
         }
       }
@@ -5990,7 +6064,7 @@
       "copy_sha256": "7eac1aec48236cec33d3734f573fa1c4339514c8a4c3b250e0de9da9738cd7fd",
       "provenance": {
         "candidate_inventory": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078",
-        "canonical_card_data": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=YORE",
         "identity_authority": "data/raw-factions/yore/yore.claims.json"
       },
       "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction.",
@@ -6033,7 +6107,7 @@
             "data/raw-factions/yore/yore.claims.json#yore_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078"
+            "data/dossier/card-voice-printings.source.json#identity_key=YORE"
           ]
         }
       }

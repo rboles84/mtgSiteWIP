@@ -3127,7 +3127,7 @@ export function buildCardVoicesHtml(voices = []) {
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
                 <span class="flavor-echo-kicker">Exact card voice</span>
-                <span class="flavor-echo-why">“${escapeHtml(record.excerpt)}”</span>
+                <blockquote class="flavor-echo-why">${escapeHtml(record.excerpt)}</blockquote>
                 <button class="flavor-echo-action" type="button" ${actionAttrs}>View card details</button>
               </span>
             </article>`;

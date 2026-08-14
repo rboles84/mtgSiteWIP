@@ -10,7 +10,15 @@
       "canonical_card_name": "Azorius Cluestone",
       "canonical_card_id": "27e04c41-f42c-4d60-8a71-ec2d7c326f64",
       "scryfall_id": "09eeb301-bc28-4515-ad69-0b1b5164a5bc",
-      "exact_excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...",
+      "exact_excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
+      "printing": {
+        "scryfall_id": "09eeb301-bc28-4515-ad69-0b1b5164a5bc",
+        "oracle_id": "27e04c41-f42c-4d60-8a71-ec2d7c326f64",
+        "set": "dgm",
+        "collector_number": "136",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/09eeb301-bc28-4515-ad69-0b1b5164a5bc#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "azorius_senate_claim_001",
@@ -37,7 +45,8 @@
           "locator": "Slow and Steady - WHAT DOES THE GUILD CARE ABOUT? WHAT IS ITS END GOAL? WHAT MEANS DOES THE GUILD USE TO ACHIEVE THESE ENDS?"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WU",
       "why_voice_belongs": "Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims azorius_senate_claim_001, azorius_senate_claim_002, azorius_senate_claim_003, azorius_senate_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius.",
@@ -64,7 +73,7 @@
             "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64"
+            "data/dossier/card-voice-printings.source.json#identity_key=WU"
           ]
         }
       },
@@ -81,7 +90,15 @@
       "canonical_card_name": "Consult the Necrosages",
       "canonical_card_id": "c9edddb4-0d60-4d21-8887-51d943c6a31f",
       "scryfall_id": "6f51484b-3bad-4332-87f8-61924e153799",
-      "exact_excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...",
+      "exact_excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.",
+      "printing": {
+        "scryfall_id": "6f51484b-3bad-4332-87f8-61924e153799",
+        "oracle_id": "c9edddb4-0d60-4d21-8887-51d943c6a31f",
+        "set": "rav",
+        "collector_number": "199",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/6f51484b-3bad-4332-87f8-61924e153799#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "house_dimir_claim_0017",
@@ -102,7 +119,8 @@
           "locator": "Guilds of Ravnica Mechanics - Dimir and surveil reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UB",
       "why_voice_belongs": "Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims house_dimir_claim_0017, house_dimir_claim_0018, house_dimir_claim_0019; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction.",
@@ -127,7 +145,7 @@
             "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0019"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f"
+            "data/dossier/card-voice-printings.source.json#identity_key=UB"
           ]
         }
       },
@@ -145,6 +163,14 @@
       "canonical_card_id": "3f806353-592e-431c-a7dd-a4c64034f94d",
       "scryfall_id": "adf2a1fd-eb1e-46aa-b715-6e6fb5195e42",
       "exact_excerpt": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
+      "printing": {
+        "scryfall_id": "adf2a1fd-eb1e-46aa-b715-6e6fb5195e42",
+        "oracle_id": "3f806353-592e-431c-a7dd-a4c64034f94d",
+        "set": "arc",
+        "collector_number": "79",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/adf2a1fd-eb1e-46aa-b715-6e6fb5195e42#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "cult_of_rakdos_claim_001",
@@ -165,7 +191,8 @@
           "locator": "Ravnica Allegiance Mechanics - Spectacle / Rakdos reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BR",
       "why_voice_belongs": "Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims cult_of_rakdos_claim_001, cult_of_rakdos_claim_002, cult_of_rakdos_claim_006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship.",
@@ -190,7 +217,7 @@
             "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d"
+            "data/dossier/card-voice-printings.source.json#identity_key=BR"
           ]
         }
       },
@@ -208,6 +235,14 @@
       "canonical_card_id": "327d9679-0049-4401-8dab-e0fb362306bd",
       "scryfall_id": "ba327a5e-bd57-4e24-b4b4-062202df30e1",
       "exact_excerpt": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
+      "printing": {
+        "scryfall_id": "ba327a5e-bd57-4e24-b4b4-062202df30e1",
+        "oracle_id": "327d9679-0049-4401-8dab-e0fb362306bd",
+        "set": "2x2",
+        "collector_number": "189",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/ba327a5e-bd57-4e24-b4b4-062202df30e1#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "claim_gruul_clans_core_identity_0002",
@@ -238,7 +273,8 @@
           "locator": "reviewed source record src_gruul_clans_0004"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=RG",
       "why_voice_belongs": "Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims claim_gruul_clans_core_identity_0002, claim_gruul_clans_philosophy_0004, claim_gruul_clans_placement_0001; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship.",
@@ -263,7 +299,7 @@
             "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_placement_0001"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd"
+            "data/dossier/card-voice-printings.source.json#identity_key=RG"
           ]
         }
       },
@@ -280,7 +316,15 @@
       "canonical_card_name": "Camaraderie",
       "canonical_card_id": "9aab386c-d48c-4611-b757-aa69b26cc1b1",
       "scryfall_id": "ca18b625-6767-45b9-bc2c-765f1ba7bd44",
-      "exact_excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\" —Heruj, Selesnya hierophant",
+      "exact_excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\"\n—Heruj, Selesnya hierophant",
+      "printing": {
+        "scryfall_id": "ca18b625-6767-45b9-bc2c-765f1ba7bd44",
+        "oracle_id": "9aab386c-d48c-4611-b757-aa69b26cc1b1",
+        "set": "ncc",
+        "collector_number": "334",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/ca18b625-6767-45b9-bc2c-765f1ba7bd44#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "selesnya_conclave_claim_001",
@@ -306,7 +350,8 @@
           "locator": "Guilds of Ravnica Mechanics - Convoke / Selesnya reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WG",
       "why_voice_belongs": "Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims selesnya_conclave_claim_001, selesnya_conclave_claim_002, selesnya_conclave_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge.",
@@ -331,7 +376,7 @@
             "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1"
+            "data/dossier/card-voice-printings.source.json#identity_key=WG"
           ]
         }
       },
@@ -349,6 +394,14 @@
       "canonical_card_id": "05501e88-d4c3-4474-92a9-c02ab15b107b",
       "scryfall_id": "2fa47810-ba83-4a6e-9940-7315ee7e44a5",
       "exact_excerpt": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
+      "printing": {
+        "scryfall_id": "2fa47810-ba83-4a6e-9940-7315ee7e44a5",
+        "oracle_id": "05501e88-d4c3-4474-92a9-c02ab15b107b",
+        "set": "clu",
+        "collector_number": "23",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/2fa47810-ba83-4a6e-9940-7315ee7e44a5#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "orzhov_syndicate_claim_001",
@@ -370,7 +423,8 @@
           "locator": "Ravnica Allegiance Mechanics - Afterlife / Orzhov reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WB",
       "why_voice_belongs": "Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims orzhov_syndicate_claim_001, orzhov_syndicate_claim_002, orzhov_syndicate_claim_007, orzhov_syndicate_claim_0018; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific.",
@@ -397,7 +451,7 @@
             "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0018"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b"
+            "data/dossier/card-voice-printings.source.json#identity_key=WB"
           ]
         }
       },
@@ -415,6 +469,14 @@
       "canonical_card_id": "fa09e18c-e7cf-4f08-9cc4-324e36594063",
       "scryfall_id": "8f1801f2-ea6e-4196-858e-2afc456cf6a0",
       "exact_excerpt": "The Izzet love replicating results.",
+      "printing": {
+        "scryfall_id": "8f1801f2-ea6e-4196-858e-2afc456cf6a0",
+        "oracle_id": "fa09e18c-e7cf-4f08-9cc4-324e36594063",
+        "set": "grn",
+        "collector_number": "155",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/8f1801f2-ea6e-4196-858e-2afc456cf6a0#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "claim_izzet_league_0001",
@@ -446,7 +508,8 @@
           "locator": "Planeswalker's Guide to Return to Ravnica: Part 2 — reviewed source record src_izzet_league_0002"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UR",
       "why_voice_belongs": "Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims claim_izzet_league_0001, claim_izzet_league_0003, claim_izzet_league_0004, claim_izzet_league_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose.",
@@ -473,7 +536,7 @@
             "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063"
+            "data/dossier/card-voice-printings.source.json#identity_key=UR"
           ]
         }
       },
@@ -491,6 +554,14 @@
       "canonical_card_id": "fc17d8dd-887f-405e-a195-777aa3da36f5",
       "scryfall_id": "fb977f5b-2202-43c1-a8c0-7fba8c093fa2",
       "exact_excerpt": "The Golgari support a vast army because death never ends its soldiers' service.",
+      "printing": {
+        "scryfall_id": "fb977f5b-2202-43c1-a8c0-7fba8c093fa2",
+        "oracle_id": "fc17d8dd-887f-405e-a195-777aa3da36f5",
+        "set": "rav",
+        "collector_number": "192",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/fb977f5b-2202-43c1-a8c0-7fba8c093fa2#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "golgari_swarm_claim_001",
@@ -516,7 +587,8 @@
           "locator": "Guilds of Ravnica Mechanics - Golgari and undergrowth reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BG",
       "why_voice_belongs": "Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims golgari_swarm_claim_001, golgari_swarm_claim_007, golgari_swarm_claim_0018; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required.",
@@ -541,7 +613,7 @@
             "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_0018"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5"
+            "data/dossier/card-voice-printings.source.json#identity_key=BG"
           ]
         }
       },
@@ -559,6 +631,14 @@
       "canonical_card_id": "69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
       "scryfall_id": "559ff1b1-018c-4e08-9531-8af20af47d05",
       "exact_excerpt": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
+      "printing": {
+        "scryfall_id": "559ff1b1-018c-4e08-9531-8af20af47d05",
+        "oracle_id": "69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
+        "set": "rvr",
+        "collector_number": "172",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/559ff1b1-018c-4e08-9531-8af20af47d05#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "simic_combine_claim_001",
@@ -579,7 +659,8 @@
           "locator": "Ravnica Allegiance Mechanics - Adapt / Simic section, reviewed source lines 120-128"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UG",
       "why_voice_belongs": "Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims simic_combine_claim_001, simic_combine_claim_002, simic_combine_claim_007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge.",
@@ -604,7 +685,7 @@
             "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f"
+            "data/dossier/card-voice-printings.source.json#identity_key=UG"
           ]
         }
       },
@@ -622,6 +703,14 @@
       "canonical_card_id": "30b20932-0d9a-447f-b934-1daa8c44a678",
       "scryfall_id": "11fab2c1-250a-44f7-a187-ee0352b81569",
       "exact_excerpt": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
+      "printing": {
+        "scryfall_id": "11fab2c1-250a-44f7-a187-ee0352b81569",
+        "oracle_id": "30b20932-0d9a-447f-b934-1daa8c44a678",
+        "set": "clu",
+        "collector_number": "25",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/11fab2c1-250a-44f7-a187-ee0352b81569#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "boros_legion_claim_001",
@@ -648,7 +737,8 @@
           "locator": "The Boros Legion - reviewed source record"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WR",
       "why_voice_belongs": "Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims boros_legion_claim_001, boros_legion_claim_004, boros_legion_claim_007, boros_legion_claim_012; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action.",
@@ -675,7 +765,7 @@
             "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_012"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678"
+            "data/dossier/card-voice-printings.source.json#identity_key=WR"
           ]
         }
       },
@@ -693,6 +783,14 @@
       "canonical_card_id": "d34a3b58-a905-4e90-b35c-9f5c21149b04",
       "scryfall_id": "6d925d13-fcd6-417b-b2b2-bbdd114aae78",
       "exact_excerpt": "Reconstructing the past is Lorehold's specialty.",
+      "printing": {
+        "scryfall_id": "6d925d13-fcd6-417b-b2b2-bbdd114aae78",
+        "oracle_id": "d34a3b58-a905-4e90-b35c-9f5c21149b04",
+        "set": "mat",
+        "collector_number": "27",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/6d925d13-fcd6-417b-b2b2-bbdd114aae78#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "claim_lorehold_placement_0001",
@@ -728,7 +826,8 @@
           "locator": "Field Studies in a Future Tense (MTG-Stories repository archive)"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD",
       "why_voice_belongs": "Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims claim_lorehold_placement_0001, claim_lorehold_placement_0002, claim_lorehold_placement_0009; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required.",
@@ -753,7 +852,7 @@
             "data/raw-factions/lorehold/lorehold.claims.json#claim_lorehold_placement_0009"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04"
+            "data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD"
           ]
         }
       },
@@ -771,6 +870,14 @@
       "canonical_card_id": "47ee6837-2e2f-4344-ab9f-6b8887874f77",
       "scryfall_id": "f5b54d46-2caf-4d1b-8be1-dbd9e9dce058",
       "exact_excerpt": "Prismari students are never afraid to let their imaginations run wild.",
+      "printing": {
+        "scryfall_id": "f5b54d46-2caf-4d1b-8be1-dbd9e9dce058",
+        "oracle_id": "47ee6837-2e2f-4344-ab9f-6b8887874f77",
+        "set": "sos",
+        "collector_number": "180",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/f5b54d46-2caf-4d1b-8be1-dbd9e9dce058#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "prismari_claim_002",
@@ -799,7 +906,8 @@
           "locator": "Prismari - The College of Elemental Arts"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=PRISMARI",
       "why_voice_belongs": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims prismari_claim_002, prismari_claim_004, prismari_claim_006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.",
@@ -824,7 +932,7 @@
             "data/raw-factions/prismari/prismari.claims.json#prismari_claim_006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77"
+            "data/dossier/card-voice-printings.source.json#identity_key=PRISMARI"
           ]
         }
       },
@@ -841,7 +949,15 @@
       "canonical_card_name": "Death Begets Life",
       "canonical_card_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
       "scryfall_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
-      "exact_excerpt": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\" —...",
+      "exact_excerpt": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\"\n—Kotis, the Fangkeeper",
+      "printing": {
+        "scryfall_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
+        "oracle_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
+        "set": "tdm",
+        "collector_number": "176",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/1faab43d-587d-44f6-9516-c8e3965bbc20#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "witherbloom_claim_0019",
@@ -862,7 +978,8 @@
           "locator": "Planeswalker's Guide to Secrets of Strixhaven - Witherbloom college overview and study areas"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM",
       "why_voice_belongs": "Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims witherbloom_claim_0019, witherbloom_claim_0020, witherbloom_claim_0023; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.",
@@ -887,7 +1004,7 @@
             "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd"
+            "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
           ]
         }
       },
@@ -904,7 +1021,15 @@
       "canonical_card_name": "Additive Evolution",
       "canonical_card_id": "ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
       "scryfall_id": "b44ec684-d558-45eb-bcd6-8119428634c2",
-      "exact_excerpt": "\"Numbers have no limits. Why should nature?\" —Emil, Quandrix fourth-year",
+      "exact_excerpt": "\"Numbers have no limits. Why should nature?\"\n—Emil, Quandrix fourth-year",
+      "printing": {
+        "scryfall_id": "b44ec684-d558-45eb-bcd6-8119428634c2",
+        "oracle_id": "ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
+        "set": "sos",
+        "collector_number": "139",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/b44ec684-d558-45eb-bcd6-8119428634c2#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "quandrix_claim_002",
@@ -930,7 +1055,8 @@
           "locator": "Quandrix College / Look and Feel"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX",
       "why_voice_belongs": "Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims quandrix_claim_002, quandrix_claim_006, quandrix_claim_0019, quandrix_claim_0020; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth.",
@@ -957,7 +1083,7 @@
             "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0020"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7"
+            "data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX"
           ]
         }
       },
@@ -974,7 +1100,15 @@
       "canonical_card_name": "Beaming Defiance",
       "canonical_card_id": "f88eeb04-4b8e-4c76-a8c6-90887b94d518",
       "scryfall_id": "7e22411c-11c1-4770-8491-7952dd406e01",
-      "exact_excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\" —Killian, Silverquill mage-student",
+      "exact_excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\"\n—Killian, Silverquill mage-student",
+      "printing": {
+        "scryfall_id": "7e22411c-11c1-4770-8491-7952dd406e01",
+        "oracle_id": "f88eeb04-4b8e-4c76-a8c6-90887b94d518",
+        "set": "stx",
+        "collector_number": "9",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/7e22411c-11c1-4770-8491-7952dd406e01#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "silverquill_claim_0019",
@@ -995,7 +1129,8 @@
           "locator": "Planeswalker's Guide to Secrets of Strixhaven ? Silverquill college overview"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL",
       "why_voice_belongs": "Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims silverquill_claim_0019, silverquill_claim_0020, silverquill_claim_0021; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone.",
@@ -1020,7 +1155,7 @@
             "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0021"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518"
+            "data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL"
           ]
         }
       },
@@ -1038,6 +1173,14 @@
       "canonical_card_id": "ae61b2ef-2e60-499a-8708-e37b9bd5620e",
       "scryfall_id": "a235cbda-3dc3-4aed-a911-90f26c330157",
       "exact_excerpt": "When hearts and minds align, so too do actions.",
+      "printing": {
+        "scryfall_id": "a235cbda-3dc3-4aed-a911-90f26c330157",
+        "oracle_id": "ae61b2ef-2e60-499a-8708-e37b9bd5620e",
+        "set": "tdc",
+        "collector_number": "12",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/a235cbda-3dc3-4aed-a911-90f26c330157#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "white_claim_0002",
@@ -1074,7 +1217,8 @@
           "locator": "docs/research/mono_upgrade/10_white.md#W2025-j"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=W",
       "why_voice_belongs": "Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims white_claim_0002, white_claim_0004, white_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution.",
@@ -1099,7 +1243,7 @@
             "data/raw-factions/white/white.claims.json#white_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e"
+            "data/dossier/card-voice-printings.source.json#identity_key=W"
           ]
         }
       },
@@ -1117,6 +1261,14 @@
       "canonical_card_id": "78725353-9274-420a-b722-add0f43c444e",
       "scryfall_id": "f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78",
       "exact_excerpt": "Knowledge demands sacrifice.",
+      "printing": {
+        "scryfall_id": "f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78",
+        "oracle_id": "78725353-9274-420a-b722-add0f43c444e",
+        "set": "voc",
+        "collector_number": "117",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "black_claim_0003",
@@ -1144,7 +1296,8 @@
           "locator": "docs/research/mono_upgrade/12_black.md#B2025-b;B2025-d"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=B",
       "why_voice_belongs": "Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims black_claim_0003, black_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt.",
@@ -1167,7 +1320,7 @@
             "data/raw-factions/black/black.claims.json#black_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e"
+            "data/dossier/card-voice-printings.source.json#identity_key=B"
           ]
         }
       },
@@ -1184,7 +1337,15 @@
       "canonical_card_name": "Azami, Lady of Scrolls",
       "canonical_card_id": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
       "scryfall_id": "fa727656-fb33-485b-9378-18b80cad42b9",
-      "exact_excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\" —Lady Azami, letter t...",
+      "exact_excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
+      "printing": {
+        "scryfall_id": "fa727656-fb33-485b-9378-18b80cad42b9",
+        "oracle_id": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+        "set": "cmm",
+        "collector_number": "74",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/fa727656-fb33-485b-9378-18b80cad42b9#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "blue_claim_0002",
@@ -1221,7 +1382,8 @@
           "locator": "docs/research/mono_upgrade/11_blue.md#U2025-j"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=U",
       "why_voice_belongs": "Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims blue_claim_0002, blue_claim_0003, blue_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine.",
@@ -1246,7 +1408,7 @@
             "data/raw-factions/blue/blue.claims.json#blue_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159"
+            "data/dossier/card-voice-printings.source.json#identity_key=U"
           ]
         }
       },
@@ -1264,6 +1426,14 @@
       "canonical_card_id": "c363f338-0777-45e6-b13c-f15ba026b63a",
       "scryfall_id": "6f054978-446c-4565-b51e-8f1f0e0f01e2",
       "exact_excerpt": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
+      "printing": {
+        "scryfall_id": "6f054978-446c-4565-b51e-8f1f0e0f01e2",
+        "oracle_id": "c363f338-0777-45e6-b13c-f15ba026b63a",
+        "set": "kld",
+        "collector_number": "108",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/6f054978-446c-4565-b51e-8f1f0e0f01e2#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "red_claim_0002",
@@ -1300,7 +1470,8 @@
           "locator": "docs/research/mono_upgrade/13_red.md#R2025-d;R2025-e;R2025-f;R2025-h"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=R",
       "why_voice_belongs": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims red_claim_0002, red_claim_0003, red_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.",
@@ -1325,7 +1496,7 @@
             "data/raw-factions/red/red.claims.json#red_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a"
+            "data/dossier/card-voice-printings.source.json#identity_key=R"
           ]
         }
       },
@@ -1343,6 +1514,14 @@
       "canonical_card_id": "b0b6be0c-41cf-4757-9f0e-87227b6ba6b3",
       "scryfall_id": "6a9c39e4-a8cf-42dd-8d0e-45634b335546",
       "exact_excerpt": "The earth walks, strongest of all.",
+      "printing": {
+        "scryfall_id": "6a9c39e4-a8cf-42dd-8d0e-45634b335546",
+        "oracle_id": "b0b6be0c-41cf-4757-9f0e-87227b6ba6b3",
+        "set": "fdn",
+        "collector_number": "222",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/6a9c39e4-a8cf-42dd-8d0e-45634b335546#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "green_claim_0002",
@@ -1379,7 +1558,8 @@
           "locator": "docs/research/mono_upgrade/14_green.md#G2025-i"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=G",
       "why_voice_belongs": "Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims green_claim_0002, green_claim_0004, green_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color.",
@@ -1404,7 +1584,7 @@
             "data/raw-factions/green/green.claims.json#green_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3"
+            "data/dossier/card-voice-printings.source.json#identity_key=G"
           ]
         }
       },
@@ -1422,6 +1602,14 @@
       "canonical_card_id": "67ceffa4-2fdb-499c-88cd-49fb5eb9be59",
       "scryfall_id": "eff007af-0329-4872-8621-41e90d9f06e6",
       "exact_excerpt": "\"We must spread Bant's light before we are shadowed over.\"",
+      "printing": {
+        "scryfall_id": "eff007af-0329-4872-8621-41e90d9f06e6",
+        "oracle_id": "67ceffa4-2fdb-499c-88cd-49fb5eb9be59",
+        "set": "arb",
+        "collector_number": "125",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/eff007af-0329-4872-8621-41e90d9f06e6#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "bant_claim_0004",
@@ -1455,7 +1643,8 @@
           "locator": "docs/research/bant/bant-research-dossier.md#sigil-boundary"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BANT",
       "why_voice_belongs": "Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims bant_claim_0004, bant_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference.",
@@ -1478,7 +1667,7 @@
             "data/raw-factions/bant/bant.claims.json#bant_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59"
+            "data/dossier/card-voice-printings.source.json#identity_key=BANT"
           ]
         }
       },
@@ -1496,6 +1685,14 @@
       "canonical_card_id": "fef94125-aa8d-4147-a609-1e990961bde2",
       "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
       "exact_excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+      "printing": {
+        "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
+        "oracle_id": "fef94125-aa8d-4147-a609-1e990961bde2",
+        "set": "arb",
+        "collector_number": "18",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "esper_claim_0003",
@@ -1532,7 +1729,8 @@
           "locator": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md#black-ally"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=ESPER",
       "why_voice_belongs": "Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims esper_claim_0003, esper_claim_0004, esper_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis.",
@@ -1557,7 +1755,7 @@
             "data/raw-factions/esper/esper.claims.json#esper_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+            "data/dossier/card-voice-printings.source.json#identity_key=ESPER"
           ]
         }
       },
@@ -1575,6 +1773,14 @@
       "canonical_card_id": "fef94125-aa8d-4147-a609-1e990961bde2",
       "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
       "exact_excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
+      "printing": {
+        "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
+        "oracle_id": "fef94125-aa8d-4147-a609-1e990961bde2",
+        "set": "arb",
+        "collector_number": "18",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "grixis_claim_0003",
@@ -1611,7 +1817,8 @@
           "locator": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md:151-155"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=GRIXIS",
       "why_voice_belongs": "Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims grixis_claim_0003, grixis_claim_0004, grixis_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible.",
@@ -1636,7 +1843,7 @@
             "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2"
+            "data/dossier/card-voice-printings.source.json#identity_key=GRIXIS"
           ]
         }
       },
@@ -1654,6 +1861,14 @@
       "canonical_card_id": "9b984236-39cf-4552-827b-e81c26cfb388",
       "scryfall_id": "b46d498b-dac3-4ab0-bcd6-514025a046aa",
       "exact_excerpt": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
+      "printing": {
+        "scryfall_id": "b46d498b-dac3-4ab0-bcd6-514025a046aa",
+        "oracle_id": "9b984236-39cf-4552-827b-e81c26cfb388",
+        "set": "m3c",
+        "collector_number": "71",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/b46d498b-dac3-4ab0-bcd6-514025a046aa#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "jund_claim_0003",
@@ -1695,7 +1910,8 @@
           "locator": "docs/research/jund/jund-reliability-audit.md#L20-L30"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=JUND",
       "why_voice_belongs": "Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims jund_claim_0003, jund_claim_0005, jund_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference.",
@@ -1720,7 +1936,7 @@
             "data/raw-factions/jund/jund.claims.json#jund_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388"
+            "data/dossier/card-voice-printings.source.json#identity_key=JUND"
           ]
         }
       },
@@ -1737,7 +1953,15 @@
       "canonical_card_name": "Cradle of Vitality",
       "canonical_card_id": "956250da-532a-4457-8696-73915be56943",
       "scryfall_id": "4caae1f4-dfb0-466f-9fa6-eb014767e3c8",
-      "exact_excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...",
+      "exact_excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.",
+      "printing": {
+        "scryfall_id": "4caae1f4-dfb0-466f-9fa6-eb014767e3c8",
+        "oracle_id": "956250da-532a-4457-8696-73915be56943",
+        "set": "jmp",
+        "collector_number": "98",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/4caae1f4-dfb0-466f-9fa6-eb014767e3c8#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "naya_claim_0003",
@@ -1774,7 +1998,8 @@
           "locator": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md#L171-L175"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=NAYA",
       "why_voice_belongs": "Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims naya_claim_0003, naya_claim_0004, naya_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference.",
@@ -1799,7 +2024,7 @@
             "data/raw-factions/naya/naya.claims.json#naya_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943"
+            "data/dossier/card-voice-printings.source.json#identity_key=NAYA"
           ]
         }
       },
@@ -1817,6 +2042,14 @@
       "canonical_card_id": "46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
       "scryfall_id": "7855528a-ede9-49a9-8749-795a004fd927",
       "exact_excerpt": "Stone to endure, roots to remember.",
+      "printing": {
+        "scryfall_id": "7855528a-ede9-49a9-8749-795a004fd927",
+        "oracle_id": "46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
+        "set": "ktk",
+        "collector_number": "215",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/7855528a-ede9-49a9-8749-795a004fd927#card.flavor_text"
+      },
       "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
       "certified_identity_claim_ids": [
         "abzan_claim_0003",
@@ -1841,7 +2074,8 @@
           "locator": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md#L1-L260"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=ABZAN",
       "why_voice_belongs": "Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims abzan_claim_0003, abzan_claim_0008; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge.",
@@ -1864,7 +2098,7 @@
             "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0008"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8"
+            "data/dossier/card-voice-printings.source.json#identity_key=ABZAN"
           ]
         }
       },
@@ -1881,7 +2115,15 @@
       "canonical_card_name": "Avalanche Tusker",
       "canonical_card_id": "ccad8b03-5ff1-4895-94e0-0c96883cb875",
       "scryfall_id": "408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe",
-      "exact_excerpt": "\"Hold the high ground, then bring it to your enemy.\" —Surrak, khan of the Temur",
+      "exact_excerpt": "\"Hold the high ground, then bring it to your enemy.\"\n—Surrak, khan of the Temur",
+      "printing": {
+        "scryfall_id": "408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe",
+        "oracle_id": "ccad8b03-5ff1-4895-94e0-0c96883cb875",
+        "set": "ktk",
+        "collector_number": "166",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "temur_claim_0002",
@@ -1924,7 +2166,8 @@
           "locator": "Awakening the Bear; bounded local capture for temur_claim_0004"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=TEMUR",
       "why_voice_belongs": "Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims temur_claim_0002, temur_claim_0003, temur_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge.",
@@ -1949,7 +2192,7 @@
             "data/raw-factions/temur/temur.claims.json#temur_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875"
+            "data/dossier/card-voice-printings.source.json#identity_key=TEMUR"
           ]
         }
       },
@@ -1966,7 +2209,15 @@
       "canonical_card_name": "Aggressive Negotiations",
       "canonical_card_id": "c469133e-174d-476b-b135-bbf15e415e72",
       "scryfall_id": "993ade84-031f-4a3e-bd68-55f61b559248",
-      "exact_excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\" —Heng, Sultai ambassador",
+      "exact_excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\"\n—Heng, Sultai ambassador",
+      "printing": {
+        "scryfall_id": "993ade84-031f-4a3e-bd68-55f61b559248",
+        "oracle_id": "c469133e-174d-476b-b135-bbf15e415e72",
+        "set": "tdm",
+        "collector_number": "70",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/993ade84-031f-4a3e-bd68-55f61b559248#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "sultai_claim_0002",
@@ -2010,7 +2261,8 @@
           "locator": "Khanfall; bounded local capture for sultai_claim_0007"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=SULTAI",
       "why_voice_belongs": "Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims sultai_claim_0002, sultai_claim_0004, sultai_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required.",
@@ -2035,7 +2287,7 @@
             "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72"
+            "data/dossier/card-voice-printings.source.json#identity_key=SULTAI"
           ]
         }
       },
@@ -2053,6 +2305,14 @@
       "canonical_card_id": "cad09970-14c8-4d80-82fe-6c855efb0191",
       "scryfall_id": "275d6137-5eff-4e82-8232-64e8679bc11c",
       "exact_excerpt": "\"Death is merely another foe the Mardu will overcome.\"",
+      "printing": {
+        "scryfall_id": "275d6137-5eff-4e82-8232-64e8679bc11c",
+        "oracle_id": "cad09970-14c8-4d80-82fe-6c855efb0191",
+        "set": "clb",
+        "collector_number": "740",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/275d6137-5eff-4e82-8232-64e8679bc11c#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "mardu_claim_0002",
@@ -2101,7 +2361,8 @@
           "locator": "Khanfall; bounded local capture for mardu_claim_0005"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=MARDU",
       "why_voice_belongs": "Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims mardu_claim_0002, mardu_claim_0003, mardu_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge.",
@@ -2126,7 +2387,7 @@
             "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191"
+            "data/dossier/card-voice-printings.source.json#identity_key=MARDU"
           ]
         }
       },
@@ -2144,6 +2405,14 @@
       "canonical_card_id": "341cf654-faf7-4db9-bd9a-70783f1ccff0",
       "scryfall_id": "0742564e-f7a7-4107-b9ed-63703ca4702c",
       "exact_excerpt": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
+      "printing": {
+        "scryfall_id": "0742564e-f7a7-4107-b9ed-63703ca4702c",
+        "oracle_id": "341cf654-faf7-4db9-bd9a-70783f1ccff0",
+        "set": "ktk",
+        "collector_number": "101",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/0742564e-f7a7-4107-b9ed-63703ca4702c#card.flavor_text"
+      },
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "certified_identity_claim_ids": [
         "jeskai_claim_0002",
@@ -2181,7 +2450,8 @@
           "locator": "Planeswalker's Guide to Khans of Tarkir, Part 1; bounded local capture for jeskai_claim_0005"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=JESKAI",
       "why_voice_belongs": "Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims jeskai_claim_0002, jeskai_claim_0004, jeskai_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge.",
@@ -2206,7 +2476,7 @@
             "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0"
+            "data/dossier/card-voice-printings.source.json#identity_key=JESKAI"
           ]
         }
       },
@@ -2224,6 +2494,14 @@
       "canonical_card_id": "ed10bb4c-f7ef-4046-8dde-465041b55078",
       "scryfall_id": "f4e6f89d-c73b-4105-9743-95504f0fd866",
       "exact_excerpt": "The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.",
+      "printing": {
+        "scryfall_id": "f4e6f89d-c73b-4105-9743-95504f0fd866",
+        "oracle_id": "ed10bb4c-f7ef-4046-8dde-465041b55078",
+        "set": "ddu",
+        "collector_number": "36",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/f4e6f89d-c73b-4105-9743-95504f0fd866#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "yore_claim_0002",
@@ -2247,7 +2525,8 @@
           "locator": "docs/research/yore/yore-evidence-ledger.md; row YORE-EVID-004"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=YORE",
       "why_voice_belongs": "Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims yore_claim_0002, yore_claim_0004; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction.",
@@ -2270,7 +2549,7 @@
             "data/raw-factions/yore/yore.claims.json#yore_claim_0004"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078"
+            "data/dossier/card-voice-printings.source.json#identity_key=YORE"
           ]
         }
       },
@@ -2288,6 +2567,14 @@
       "canonical_card_id": "3a92b235-196b-4f46-9d20-06f4d3653d36",
       "scryfall_id": "a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d",
       "exact_excerpt": "Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.",
+      "printing": {
+        "scryfall_id": "a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d",
+        "oracle_id": "3a92b235-196b-4f46-9d20-06f4d3653d36",
+        "set": "ecc",
+        "collector_number": "7",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "glint_claim_0005"
@@ -2306,7 +2593,8 @@
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#missing-white-reference-frame"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=GLINT",
       "why_voice_belongs": "Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims glint_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary.",
@@ -2327,7 +2615,7 @@
             "data/raw-factions/glint/glint.claims.json#glint_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36"
+            "data/dossier/card-voice-printings.source.json#identity_key=GLINT"
           ]
         }
       },
@@ -2345,6 +2633,14 @@
       "canonical_card_id": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
       "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
       "exact_excerpt": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
+      "printing": {
+        "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
+        "oracle_id": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+        "set": "fdn",
+        "collector_number": "651",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/bc6ffc1c-575b-4116-83c9-d13b29886c35#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "dune_claim_0005"
@@ -2363,7 +2659,8 @@
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=DUNE",
       "why_voice_belongs": "Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims dune_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame.",
@@ -2384,7 +2681,7 @@
             "data/raw-factions/dune/dune.claims.json#dune_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166"
+            "data/dossier/card-voice-printings.source.json#identity_key=DUNE"
           ]
         }
       },
@@ -2402,6 +2699,14 @@
       "canonical_card_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
       "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
       "exact_excerpt": "Knowledge is wasted if not shared.",
+      "printing": {
+        "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
+        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "set": "soc",
+        "collector_number": "129",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "ink_claim_0005"
@@ -2420,7 +2725,8 @@
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=INK",
       "why_voice_belongs": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims ink_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.",
@@ -2441,7 +2747,7 @@
             "data/raw-factions/ink/ink.claims.json#ink_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
+            "data/dossier/card-voice-printings.source.json#identity_key=INK"
           ]
         }
       },
@@ -2459,6 +2765,14 @@
       "canonical_card_id": "af42079b-a3c0-448c-9bb2-b915252e87a9",
       "scryfall_id": "34bdc973-db45-46a6-ac48-ce88fb59920a",
       "exact_excerpt": "Design leads to progress.",
+      "printing": {
+        "scryfall_id": "34bdc973-db45-46a6-ac48-ce88fb59920a",
+        "oracle_id": "af42079b-a3c0-448c-9bb2-b915252e87a9",
+        "set": "kld",
+        "collector_number": "194",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/34bdc973-db45-46a6-ac48-ce88fb59920a#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "witch_claim_0005"
@@ -2477,7 +2791,8 @@
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#gwub-growth-witch"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITCH",
       "why_voice_belongs": "Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims witch_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone.",
@@ -2498,7 +2813,7 @@
             "data/raw-factions/witch/witch.claims.json#witch_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9"
+            "data/dossier/card-voice-printings.source.json#identity_key=WITCH"
           ]
         }
       },
@@ -2515,7 +2830,15 @@
       "canonical_card_name": "All Is Dust",
       "canonical_card_id": "14693689-d087-43b6-9c3f-63ab0648fc20",
       "scryfall_id": "4210c54e-89fd-4971-ab6a-ca8f4e7fe97a",
-      "exact_excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...",
+      "exact_excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\"\n—Javad Nasrin, Ondu relic hunter",
+      "printing": {
+        "scryfall_id": "4210c54e-89fd-4971-ab6a-ca8f4e7fe97a",
+        "oracle_id": "14693689-d087-43b6-9c3f-63ab0648fc20",
+        "set": "cmm",
+        "collector_number": "800",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/4210c54e-89fd-4971-ab6a-ca8f4e7fe97a#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "colorless_claim_0004",
@@ -2563,7 +2886,8 @@
           "locator": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md#how-these-identities-work-for-vox-mana-placement"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20",
+      "supporting_official_locators": [],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=COLORLESS",
       "why_voice_belongs": "All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims colorless_claim_0004, colorless_claim_0005, colorless_claim_0006; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless.",
@@ -2588,7 +2912,7 @@
             "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0006"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20"
+            "data/dossier/card-voice-printings.source.json#identity_key=COLORLESS"
           ]
         }
       },
@@ -2599,13 +2923,21 @@
       }
     },
     {
-      "relationship_id": "cardvoice_wubrg_e9e25800_9ee7_40c9_b22d_611c7281c125",
+      "relationship_id": "cardvoice_wubrg_3ceb23f5_abb1_4569_a1e4_1eed9a9babcf",
       "identity_key": "WUBRG",
       "identity_name": "Five-Color / WUBRG",
-      "canonical_card_name": "Coalition Victory",
-      "canonical_card_id": "e9e25800-9ee7-40c9-b22d-611c7281c125",
-      "scryfall_id": "446824f7-dc42-42da-8bd5-6c37f3358d65",
-      "exact_excerpt": "\"You can build a perfect machine out of imperfect parts.\" —Urza",
+      "canonical_card_name": "Call the Spirit Dragons",
+      "canonical_card_id": "3ceb23f5-abb1-4569-a1e4-1eed9a9babcf",
+      "scryfall_id": "b1ad91db-5f16-4392-baf1-f8400ec11e0a",
+      "exact_excerpt": "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.",
+      "printing": {
+        "scryfall_id": "b1ad91db-5f16-4392-baf1-f8400ec11e0a",
+        "oracle_id": "3ceb23f5-abb1-4569-a1e4-1eed9a9babcf",
+        "set": "tdm",
+        "collector_number": "174",
+        "flavor_text_field": "card.flavor_text",
+        "source_locator": "https://api.scryfall.com/cards/b1ad91db-5f16-4392-baf1-f8400ec11e0a#card.flavor_text"
+      },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "wubrg_claim_0002",
@@ -2664,12 +2996,16 @@
           "locator": "docs/reference/source-generated-guardrails.md#authoritative-source-scope"
         }
       ],
-      "canonical_card_data_locator": "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125",
-      "why_voice_belongs": "Coalition Victory's exact excerpt provides a bounded voice echo of a complete construction made from distinct imperfect parts.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims wubrg_claim_0002, wubrg_claim_0003, wubrg_claim_0004, wubrg_claim_0007; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
-      "adjacent_identity_confusion_risk": "Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
-      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.",
+      "supporting_official_locators": [
+        "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-release-notes#0174_MTGTDM_Main",
+        "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-mechanics"
+      ],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WUBRG",
+      "why_voice_belongs": "The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.",
+      "relationship_bridge": "This is a bounded Five-Color voice echo of all five colors and distinct clan embodiments acting within one card. It does not make Tarkir's clans a single official WUBRG faction or establish completion as a Vox Mana identity claim.",
+      "false_positive_analysis": "The bridge depends on the exact regular-printing flavor text together with the card's five-color canonical facts, not on a generic unity, Dragon, multicolor, or Tarkir theme.",
+      "adjacent_identity_confusion_risk": "Each Tarkir clan remains a distinct three-color identity, and Yore or artifact decks may also combine parts. The public relationship is limited to Five-Color access across all five colors.",
+      "limitation": "Public use is limited to this exact regular-printing flavor line and its bounded Five-Color relationship. It does not merge Tarkir's clans into one official faction or turn generic multicolor, Dragon, or unity themes into WUBRG evidence.",
       "review_status": "APPROVED_PUBLIC",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -2691,7 +3027,9 @@
             "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0007"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125"
+            "data/dossier/card-voice-printings.source.json#identity_key=WUBRG",
+            "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-release-notes#0174_MTGTDM_Main",
+            "https://magic.wizards.com/en/news/feature/tarkir-dragonstorm-mechanics"
           ]
         }
       },
@@ -2699,6 +3037,10 @@
       "critical_repeat": {
         "allowed": false,
         "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+      },
+      "supersession": {
+        "card_name": "Coalition Victory",
+        "reason": "The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice."
       }
     }
   ]

@@ -6,7 +6,7 @@
 - Approved rationale identity coverage: **37/37**
 - Automatically approved voice relationships: **37**
 - Approved voice identity coverage: **37/37**
-- Rejected voice candidates retained in audit trail: **82**
+- Rejected voice candidates retained in audit trail: **83**
 - Owner exceptions: **0**
 
 No human approval was fabricated. Every automatic approval records its evidence chain and validator result. The identity sections below are an audit view, not an approval workload.
@@ -20,12 +20,12 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Azorius Cluestone:** “Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages...”
+- **Azorius Cluestone:** “Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `azorius_senate_claim_001`, `azorius_senate_claim_002`, `azorius_senate_claim_003`, `azorius_senate_claim_007`
   - Why it belongs: Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages.
   - False-positive / neighbor limit: White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius. White, Blue, and Esper also use systems and records; the explicit civic/legal institution makes this Azorius.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=27e04c41-f42c-4d60-8a71-ec2d7c326f64`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WU`
 
 ### Other candidates considered and terminal disposition
 
@@ -44,12 +44,12 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Consult the Necrosages:** “Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appe...”
+- **Consult the Necrosages:** “Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `house_dimir_claim_0017`, `house_dimir_claim_0018`, `house_dimir_claim_0019`
   - Why it belongs: Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries.
   - False-positive / neighbor limit: Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction. Azorius and Orzhov also use hierarchy, while Blue/Black use information; the hidden backroom delivery is the Dimir distinction.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c9edddb4-0d60-4d21-8887-51d943c6a31f`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=UB`
 
 ### Other candidates considered and terminal disposition
 
@@ -74,7 +74,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `cult_of_rakdos_claim_001`, `cult_of_rakdos_claim_002`, `cult_of_rakdos_claim_006`
   - Why it belongs: Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative.
   - False-positive / neighbor limit: Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship. Mono-Red, Black, and Gruul can express danger or cruelty; only the explicit Rakdos spectacle/transgression frame supports this relationship.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=3f806353-592e-431c-a7dd-a4c64034f94d`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=BR`
 
 ### Other candidates considered and terminal disposition
 
@@ -100,7 +100,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `claim_gruul_clans_core_identity_0002`, `claim_gruul_clans_philosophy_0004`, `claim_gruul_clans_placement_0001`
   - Why it belongs: Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power.
   - False-positive / neighbor limit: Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship. Red, Green, and Temur can sound instinctive or wild; the explicit Gruul anti-civilization and shaman context supplies the relationship.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=327d9679-0049-4401-8dab-e0fb362306bd`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=RG`
 
 ### Other candidates considered and terminal disposition
 
@@ -119,12 +119,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Camaraderie:** “"Within the song of Mat'Selesnya, one becomes all." —Heruj, Selesnya hierophant”
+- **Camaraderie:** “"Within the song of Mat'Selesnya, one becomes all."
+—Heruj, Selesnya hierophant”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `selesnya_conclave_claim_001`, `selesnya_conclave_claim_002`, `selesnya_conclave_claim_007`
   - Why it belongs: Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice.
   - False-positive / neighbor limit: White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge. White, Green, Bant, and Ink also value community; the explicit Worldsoul/conclave unity frame is the Selesnya bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9aab386c-d48c-4611-b757-aa69b26cc1b1`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WG`
 
 ### Other candidates considered and terminal disposition
 
@@ -151,7 +152,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `orzhov_syndicate_claim_001`, `orzhov_syndicate_claim_002`, `orzhov_syndicate_claim_007`, `orzhov_syndicate_claim_0018`
   - Why it belongs: Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death.
   - False-positive / neighbor limit: White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific. White/Black, Golgari, and Witherbloom also use death; the insurance/debt/business frame makes the Orzhov relationship specific.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=05501e88-d4c3-4474-92a9-c02ab15b107b`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WB`
 
 ### Other candidates considered and terminal disposition
 
@@ -178,7 +179,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `claim_izzet_league_0001`, `claim_izzet_league_0003`, `claim_izzet_league_0004`, `claim_izzet_league_0006`
   - Why it belongs: Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results.
   - False-positive / neighbor limit: Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose. Prismari and Quandrix also experiment; Izzet requires invention, technical outcomes, or infrastructure rather than art or proof as the purpose.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fa09e18c-e7cf-4f08-9cc4-324e36594063`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=UR`
 
 ### Other candidates considered and terminal disposition
 
@@ -202,7 +203,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `golgari_swarm_claim_001`, `golgari_swarm_claim_007`, `golgari_swarm_claim_0018`
   - Why it belongs: Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service.
   - False-positive / neighbor limit: Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required. Witherbloom and generic graveyard decks also join life and death; the explicit Golgari reclamation-and-service frame is required.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fc17d8dd-887f-405e-a195-777aa3da36f5`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=BG`
 
 ### Other candidates considered and terminal disposition
 
@@ -226,7 +227,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `simic_combine_claim_001`, `simic_combine_claim_002`, `simic_combine_claim_007`
   - Why it belongs: Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress.
   - False-positive / neighbor limit: Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge. Quandrix and generic Blue-Green also join nature and intellect; the explicit Simic biological-improvement context supplies the bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=69fd4ddf-9ed8-4c56-bef3-9944daf05e4f`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=UG`
 
 ### Other candidates considered and terminal disposition
 
@@ -252,7 +253,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `boros_legion_claim_001`, `boros_legion_claim_004`, `boros_legion_claim_007`, `boros_legion_claim_012`
   - Why it belongs: Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action.
   - False-positive / neighbor limit: Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action. Mardu and mono-Red also coordinate attacks; Boros requires public duty, teamwork, and accountable martial action.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=30b20932-0d9a-447f-b934-1daa8c44a678`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WR`
 
 ### Other candidates considered and terminal disposition
 
@@ -278,7 +279,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `claim_lorehold_placement_0001`, `claim_lorehold_placement_0002`, `claim_lorehold_placement_0009`
   - Why it belongs: Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past.
   - False-positive / neighbor limit: White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required. White, Red, and generic artifact recursion can preserve objects; the explicit Lorehold historical-reconstruction purpose is required.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=d34a3b58-a905-4e90-b35c-9f5c21149b04`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD`
 
 ### Other candidates considered and terminal disposition
 
@@ -302,7 +303,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `prismari_claim_002`, `prismari_claim_004`, `prismari_claim_006`
   - Why it belongs: Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.
   - False-positive / neighbor limit: Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship. Izzet, Quandrix, and Red can also value imagination or experimentation; the explicit Prismari student reference and art-as-magic authority provide the bounded relationship.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=47ee6837-2e2f-4344-ab9f-6b8887874f77`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=PRISMARI`
 
 ### Other candidates considered and terminal disposition
 
@@ -321,12 +322,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Death Begets Life:** “"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form." —...”
+- **Death Begets Life:** “"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form."
+—Kotis, the Fangkeeper”
   - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
   - Certified claims: `witherbloom_claim_0019`, `witherbloom_claim_0020`, `witherbloom_claim_0023`
   - Why it belongs: Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form.
   - False-positive / neighbor limit: Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college. Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=53e86135-3b24-4618-bcc0-af4d81e672dd`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM`
 
 ### Other candidates considered and terminal disposition
 
@@ -346,12 +348,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Additive Evolution:** “"Numbers have no limits. Why should nature?" —Emil, Quandrix fourth-year”
+- **Additive Evolution:** “"Numbers have no limits. Why should nature?"
+—Emil, Quandrix fourth-year”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `quandrix_claim_002`, `quandrix_claim_006`, `quandrix_claim_0019`, `quandrix_claim_0020`
   - Why it belongs: Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature.
   - False-positive / neighbor limit: Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth. Simic and Green also scale living systems; the explicit mathematical/natural synthesis makes this Quandrix rather than generic growth.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ce1a6c1f-6b4e-4d19-b256-48d073b359b7`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX`
 
 ### Other candidates considered and terminal disposition
 
@@ -370,12 +373,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Beaming Defiance:** “"I've lived too long in my father's shadow. It's time to find my own light." —Killian, Silverquill mage-student”
+- **Beaming Defiance:** “"I've lived too long in my father's shadow. It's time to find my own light."
+—Killian, Silverquill mage-student”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `silverquill_claim_0019`, `silverquill_claim_0020`, `silverquill_claim_0021`
   - Why it belongs: Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence.
   - False-positive / neighbor limit: Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone. Prismari and mono-White can also value expression or confidence; Silverquill requires word/social influence and power-awareness rather than art alone.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=f88eeb04-4b8e-4c76-a8c6-90887b94d518`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL`
 
 ### Other candidates considered and terminal disposition
 
@@ -399,7 +403,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `white_claim_0002`, `white_claim_0004`, `white_claim_0006`
   - Why it belongs: Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action.
   - False-positive / neighbor limit: Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution. Selesnya, Boros, Azorius, and Ink also coordinate groups; this is a broad mono-White community-and-organization echo, not proof of any institution.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ae61b2ef-2e60-499a-8708-e37b9bd5620e`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=W`
 
 ### Other candidates considered and terminal disposition
 
@@ -424,7 +428,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `black_claim_0003`, `black_claim_0004`
   - Why it belongs: Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice.
   - False-positive / neighbor limit: Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt. Blue and Dimir also value knowledge, while Orzhov values payment; this echo belongs here only because the line makes sacrifice the price of access rather than secrecy or institutional debt.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=78725353-9274-420a-b722-add0f43c444e`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=B`
 
 ### Other candidates considered and terminal disposition
 
@@ -444,12 +448,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Azami, Lady of Scrolls:** “"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami." —Lady Azami, letter t...”
+- **Azami, Lady of Scrolls:** “"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami."
+—Lady Azami, letter to Sensei Hisoka”
   - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
   - Certified claims: `blue_claim_0002`, `blue_claim_0003`, `blue_claim_0006`
   - Why it belongs: Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course.
   - False-positive / neighbor limit: Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine. Azorius, Esper, Dimir, and Jeskai also plan; this is a mono-Blue knowledge-and-deliberation echo without secrecy, law, or faction doctrine.
-  - Source: `data/scryfall/indexes/commander-index.json#oracle_id=0f8b97fe-3e5e-47c2-9a9d-7f77482aa159`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=U`
 
 ### Other candidates considered and terminal disposition
 
@@ -473,7 +478,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `red_claim_0002`, `red_claim_0003`, `red_claim_0005`
   - Why it belongs: Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.
   - False-positive / neighbor limit: Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting. Gruul, Rakdos, and Kaladesh renegade themes can also reject regulation. This is a bounded mono-Red freedom-and-action echo, not identity proof from card color, artifact subject matter, or setting.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c363f338-0777-45e6-b13c-f15ba026b63a`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=R`
 
 ### Other candidates considered and terminal disposition
 
@@ -498,7 +503,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `green_claim_0002`, `green_claim_0004`, `green_claim_0006`
   - Why it belongs: Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength.
   - False-positive / neighbor limit: Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color. Gruul, Naya, and Temur also use primal nature; this is a mono-Green voice echo only, not proof from creature size or card color.
-  - Source: `data/scryfall/indexes/commander-index.json#oracle_id=b0b6be0c-41cf-4757-9f0e-87227b6ba6b3`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=G`
 
 ### Other candidates considered and terminal disposition
 
@@ -522,7 +527,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `bant_claim_0004`, `bant_claim_0007`
   - Why it belongs: Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard.
   - False-positive / neighbor limit: Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference. Azorius and Selesnya can also sound orderly or communal; the explicit Bant reference and its idealized public-honor frame prevent a generic WUG inference.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=67ceffa4-2fdb-499c-88cd-49fb5eb9be59`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=BANT`
 
 ### Other candidates considered and terminal disposition
 
@@ -546,7 +551,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `esper_claim_0003`, `esper_claim_0004`, `esper_claim_0006`
   - Why it belongs: Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information.
   - False-positive / neighbor limit: Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis. Blue, Dimir, Azorius, and Grixis also use information or control; the excerpt explicitly contrasts Esper's surgical precision with Grixis.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=ESPER`
 
 ### Other candidates considered and terminal disposition
 
@@ -570,7 +575,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `grixis_claim_0003`, `grixis_claim_0004`, `grixis_claim_0006`
   - Why it belongs: Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm.
   - False-positive / neighbor limit: Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible. Esper and Dimir share precision and information leverage; the explicit Esper/Grixis contrast makes the Grixis ruthlessness distinction visible.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=fef94125-aa8d-4147-a609-1e990961bde2`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=GRIXIS`
 
 ### Other candidates considered and terminal disposition
 
@@ -594,7 +599,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `jund_claim_0003`, `jund_claim_0005`, `jund_claim_0007`
   - Why it belongs: Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival.
   - False-positive / neighbor limit: Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference. Gruul, Naya, and Grixis can share force or survival; the explicit Jund predatory-world framing prevents generic BRG inference.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=9b984236-39cf-4552-827b-e81c26cfb388`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=JUND`
 
 ### Other candidates considered and terminal disposition
 
@@ -613,12 +618,12 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Cradle of Vitality:** “Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather...”
+- **Cradle of Vitality:** “Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `naya_claim_0003`, `naya_claim_0004`, `naya_claim_0007`
   - Why it belongs: Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering.
   - False-positive / neighbor limit: Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference. Selesnya and Green share growth and community; the explicit Naya ecosystem and abundance context prevents generic token or lifegain inference.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=956250da-532a-4457-8696-73915be56943`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=NAYA`
 
 ### Other candidates considered and terminal disposition
 
@@ -642,7 +647,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `abzan_claim_0003`, `abzan_claim_0008`
   - Why it belongs: Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity.
   - False-positive / neighbor limit: Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge. Bant, Selesnya, and Golgari can also sound enduring or communal; the Kin-Tree and ancestor-continuity frame is the bounded Abzan bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=46535f8e-1bcd-4588-ac6c-a4bc89c379c8`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=ABZAN`
 
 ### Other candidates considered and terminal disposition
 
@@ -661,12 +666,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Avalanche Tusker:** “"Hold the high ground, then bring it to your enemy." —Surrak, khan of the Temur”
+- **Avalanche Tusker:** “"Hold the high ground, then bring it to your enemy."
+—Surrak, khan of the Temur”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `temur_claim_0002`, `temur_claim_0003`, `temur_claim_0004`
   - Why it belongs: Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force.
   - False-positive / neighbor limit: Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge. Gruul and Green also use physical force; the explicit Temur synthesis of terrain, problem solving, and direct action is the bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ccad8b03-5ff1-4895-94e0-0c96883cb875`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=TEMUR`
 
 ### Other candidates considered and terminal disposition
 
@@ -685,12 +691,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Aggressive Negotiations:** “"When an alliance outlasts its usefulness it's best to end it quickly." —Heng, Sultai ambassador”
+- **Aggressive Negotiations:** “"When an alliance outlasts its usefulness it's best to end it quickly."
+—Heng, Sultai ambassador”
   - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `sultai_claim_0002`, `sultai_claim_0004`, `sultai_claim_0007`
   - Why it belongs: Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point.
   - False-positive / neighbor limit: Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required. Black, Dimir, Grixis, and Orzhov can all sound calculating; the explicit Sultai ruthlessness and instrumental alliance frame is required.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=c469133e-174d-476b-b135-bbf15e415e72`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=SULTAI`
 
 ### Other candidates considered and terminal disposition
 
@@ -714,7 +721,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `mardu_claim_0002`, `mardu_claim_0003`, `mardu_claim_0005`
   - Why it belongs: Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent.
   - False-positive / neighbor limit: Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge. Rakdos, Jund, and Black also speak in violent or death-facing terms; the explicit Mardu honor-and-action context is the bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=cad09970-14c8-4d80-82fe-6c855efb0191`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=MARDU`
 
 ### Other candidates considered and terminal disposition
 
@@ -738,7 +745,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `jeskai_claim_0002`, `jeskai_claim_0004`, `jeskai_claim_0005`
   - Why it belongs: Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame.
   - False-positive / neighbor limit: Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge. Prismari and Izzet also join Blue and Red through technique; the explicit Jeskai discipline, monastery, and bloodfire context supplies the bridge.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=341cf654-faf7-4db9-bd9a-70783f1ccff0`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=JESKAI`
 
 ### Other candidates considered and terminal disposition
 
@@ -762,7 +769,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `yore_claim_0002`, `yore_claim_0004`
   - Why it belongs: Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance.
   - False-positive / neighbor limit: Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction. Esper, Izzet, Blue, and Witch also use technology or progress. This proposal echoes Yore's bounded artifice frame but cannot make Yore behaviorally nameable or establish a faction.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=ed10bb4c-f7ef-4046-8dde-465041b55078`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=YORE`
 
 ### Other candidates considered and terminal disposition
 
@@ -787,7 +794,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `glint_claim_0005`
   - Why it belongs: Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile.
   - False-positive / neighbor limit: Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary. Prismari, Izzet, Rakdos, and Red can also sound volatile. The excerpt reaches only Glint's bounded volatility/force edge, not its appetite or anti-order boundary.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=3a92b235-196b-4f46-9d20-06f4d3653d36`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=GLINT`
 
 ### Other candidates considered and terminal disposition
 
@@ -812,7 +819,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `dune_claim_0005`
   - Why it belongs: Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force.
   - False-positive / neighbor limit: This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame. This excerpt is canonically Boros and therefore carries a high Boros/Mardu confusion risk. It is only a cross-identity voice echo for Dune's bounded direct-action frame.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=DUNE`
 
 ### Other candidates considered and terminal disposition
 
@@ -836,7 +843,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `ink_claim_0005`
   - Why it belongs: Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.
   - False-positive / neighbor limit: White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity. White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=INK`
 
 ### Other candidates considered and terminal disposition
 
@@ -861,7 +868,7 @@ No human approval was fabricated. Every automatic approval records its evidence 
   - Certified claims: `witch_claim_0005`
   - Why it belongs: Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation.
   - False-positive / neighbor limit: Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone. Yore, Esper, Simic, and Blue can also connect design to progress. This echo is limited to Witch's systematic-accumulation branch and cannot establish the four-color identity alone.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=af42079b-a3c0-448c-9bb2-b915252e87a9`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WITCH`
 
 ### Other candidates considered and terminal disposition
 
@@ -882,12 +889,13 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **All Is Dust:** “"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complet...”
+- **All Is Dust:** “"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets."
+—Javad Nasrin, Ondu relic hunter”
   - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
   - Certified claims: `colorless_claim_0004`, `colorless_claim_0005`, `colorless_claim_0006`
   - Why it belongs: All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.
   - False-positive / neighbor limit: Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless. Eldrazi flavor can also occur in Five-Color or Devoid decks. This is a bounded Eldrazi branch, not proof that every Eldrazi card or artifact belongs to Colorless.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=14693689-d087-43b6-9c3f-63ab0648fc20`
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=COLORLESS`
 
 ### Other candidates considered and terminal disposition
 
@@ -906,17 +914,18 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Coalition Victory:** “"You can build a perfect machine out of imperfect parts." —Urza”
+- **Call the Spirit Dragons:** “The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.”
   - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
   - Certified claims: `wubrg_claim_0002`, `wubrg_claim_0003`, `wubrg_claim_0004`, `wubrg_claim_0007`
-  - Why it belongs: Coalition Victory's exact excerpt provides a bounded voice echo of a complete construction made from distinct imperfect parts.
-  - False-positive / neighbor limit: Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore. Artifacts, Yore, and modular engines can also sound like assembled machines. This is only an integration metaphor for Five-Color access and must not become mastery, completion, or faction lore.
-  - Source: `data/scryfall/indexes/card-flavor-index.json#oracle_id=e9e25800-9ee7-40c9-b22d-611c7281c125`
+  - Why it belongs: The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.
+  - False-positive / neighbor limit: The bridge depends on the exact regular-printing flavor text together with the card's five-color canonical facts, not on a generic unity, Dragon, multicolor, or Tarkir theme. Each Tarkir clan remains a distinct three-color identity, and Yore or artifact decks may also combine parts. The public relationship is limited to Five-Color access across all five colors.
+  - Source: `data/dossier/card-voice-printings.source.json#identity_key=WUBRG`
 
 ### Other candidates considered and terminal disposition
 
 - **Command Tower:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 - **Heroes in a Half Shell:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
+- **Coalition Victory:** `REJECTED` — The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice.
 
 ### Automatic disposition
 

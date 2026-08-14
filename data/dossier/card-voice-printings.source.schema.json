@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/card-voice-printings.source.schema.json",
+  "title": "Exact printing authority for public Archscry card voices",
+  "type": "object",
+  "required": ["schema_version", "authority", "records"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "authority": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 37,
+      "items": {
+        "type": "object",
+        "required": ["identity_key", "canonical_card_name", "oracle_id", "scryfall_id", "set", "collector_number", "exact_flavor_text", "flavor_text_field", "scryfall_uri", "source_locator"],
+        "properties": {
+          "identity_key": { "type": "string", "minLength": 1 },
+          "canonical_card_name": { "type": "string", "minLength": 1 },
+          "oracle_id": { "type": "string", "format": "uuid" },
+          "scryfall_id": { "type": "string", "format": "uuid" },
+          "set": { "type": "string", "minLength": 2 },
+          "collector_number": { "type": "string", "minLength": 1 },
+          "exact_flavor_text": { "type": "string", "minLength": 1 },
+          "flavor_text_field": { "type": "string", "minLength": 1 },
+          "scryfall_uri": { "type": "string", "pattern": "^https://api\\.scryfall\\.com/cards/" },
+          "source_locator": { "type": "string", "pattern": "^https://api\\.scryfall\\.com/cards/" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -200,6 +200,7 @@ assert.match(indexSource, /dialog\.addEventListener\("close"/);
 assert.match(indexSource, /event\.key === "Escape"/);
 assert.match(indexSource, /Open on Scryfall/);
 assert.match(indexSource, /card-detail-image-trigger/);
+assert.match(indexSource, /<blockquote class="flavor-echo-why">\$\{escapeHtml\(record\.excerpt\)\}<\/blockquote>/, "public card voice must render the exact printing text without synthetic quote wrappers");
 assert.match(indexSource, /rationale && provenance \?/);
 assert.doesNotMatch(indexSource, /function buildCommanderSpecificLinks/);
 assert.match(indexSource, /archscryGlossaryTooltip/);
