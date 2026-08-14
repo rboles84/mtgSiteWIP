@@ -7,11 +7,14 @@
     "clean-primary",
     "close-or-tied",
     "jund-mixed",
+    "green-witherbloom-tied",
+    "witherbloom",
     "insufficient",
     "conflicting",
     "bounded-yore",
     "colorless",
-    "wubrg"
+    "wubrg",
+    "reversible-refinement"
   ],
   "cases": [
     {
@@ -55,7 +58,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "6a260cba7bd01427d1039138171cd4c7aae45df8416c5874d980135302b4fe5e",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-b",
@@ -106,7 +111,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "48c95a98b5271f9be24db1bd26edfd99aeb0cd9898dd2f6237861a7ba5420da6",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-bant",
@@ -157,7 +164,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "8f03b04bc02043879860ad5be90f7efc766ade205b9592b7ddad94bd2e8eeb8a",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-bg",
@@ -208,7 +217,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "1c15a2a654c5af423c0ffab40d71a8999e45e0e19055d90834e4e87f9e85b22e",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-br",
@@ -251,7 +262,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "d7e36fa665c1e1c9f426dee9414e690605dbb5bd8ca3ecf952595d0c00933423",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-colorless",
@@ -302,7 +315,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "b1c564c8d64571434992f71ccf9d5cc69b0ae447e2377a8d32a2fb8a1894b574",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-dune",
@@ -353,7 +368,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "6864c5d8d60ba3995d6e13fc8aae43cd10fa317c718f6dfc8ee052ca49e6bda3",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-esper",
@@ -404,7 +421,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "0e9004967a3920ff371918e73326ee19ebf0ce67e9cc5b18d2c047832ce2f60c",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-g",
@@ -412,17 +431,16 @@
       "identity_key": "G",
       "identity_name": "Green",
       "expected_public_contract": "NAMED_DOSSIER",
-      "expected_state": "tied",
+      "expected_state": "primary",
       "result_faction": "G",
       "expected_direction_keys": [
-        "G",
-        "WITHERBLOOM"
+        "G"
       ],
       "focus_identity_keys": [],
       "selections": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -434,11 +452,11 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.abundance"
+          "answer_id": "b1.hall.pressure.v1.resources"
         },
         {
           "question_id": "b1.hall.setup.v1",
@@ -451,22 +469,14 @@
         {
           "question_id": "b1.crucible.disruption-boundary.v1",
           "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
-        },
-        {
-          "question_id": "b1.crucible.ug.v1",
-          "answer_id": "b1.crucible.ug.v1.neither",
-          "refinement": true
-        },
-        {
-          "question_id": "b1.crucible.bg.v1",
-          "answer_id": "b1.crucible.bg.v1.exchange",
-          "refinement": true
         }
       ],
-      "evidence_ledger_entries": 10,
-      "evidence_ledger_sha256": "01be44d359f58b55965f048b5f85979d82965243097eae16b91a174512253a65",
+      "evidence_ledger_entries": 8,
+      "evidence_ledger_sha256": "81bac3eeed5e310793d5eabde37ea251d5ecdc967a002567e09922da2febb711",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-glint",
@@ -517,7 +527,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "d93d5a68b318ff450d7c0efd0b4ce2a63382f1f3fbf4eb4cefc08e6a59742dd1",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-grixis",
@@ -568,7 +580,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "dc91d055dd90483a568e82dc47558f47d9f52ad988334eaf44c48be42cda7538",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-ink",
@@ -619,7 +633,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "a181a9eb554ab41e63f45c5e076883527bbe800e5c0f96a8b3f21a4b3ce33ea8",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-jeskai",
@@ -670,7 +686,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "6899fce1beade70939935293f861c23de72e678143f6838dbc499e172eb0a1ce",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-jund",
@@ -714,7 +732,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "1ff7a3731073e151b6473cab0e7e730c23def0b82e666b1f5e6e0973ab6072b4",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-lorehold",
@@ -770,7 +790,9 @@
       "evidence_ledger_entries": 9,
       "evidence_ledger_sha256": "820d7d5a1ff343a8a7b5e36beb7f96abeefc986623e026018e4813c539a9f670",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-mardu",
@@ -813,7 +835,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "a111f4d44dd3b749e6b33bcaf4f7546603070813acd207579d6996f765ac358a",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-naya",
@@ -864,7 +888,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "bd9d6ef51bf71a5ab0469c3939d52116cb7bb695fb8f50c44c111845fef28d9b",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-prismari",
@@ -915,7 +941,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "e237535edfb3dcbad9fff2a1dca60e4ecc2b6dc24f48a8fdc86715dde4fe3c49",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-quandrix",
@@ -966,7 +994,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "8a0a0b7fcde258fa4525c0c32c92c5aea15da46ab76ccc255994205579d9cb07",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-r",
@@ -1017,7 +1047,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "052943a611d30044132a613f31fff8a8d7409d2d8f342bf27d357e6379b60b17",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-rg",
@@ -1060,7 +1092,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "e8a83e3f534ac4bfad343f454164a1e220958020d9ab8342350de0e71e64a184",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-silverquill",
@@ -1111,7 +1145,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "20a9632a7b40a7cfdd3b7e84f5be860991e582aa18f487014f9adf318b4c173d",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-sultai",
@@ -1167,7 +1203,9 @@
       "evidence_ledger_entries": 9,
       "evidence_ledger_sha256": "875d167c9d47e0e795caf26b92c1d02b238908b5e8bf07a8b2f686440c343857",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-temur",
@@ -1218,7 +1256,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "78bd10c609a553e4fc8d229ad95fcc33fa4833c63c670da5cbc5199a2729742b",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-u",
@@ -1265,7 +1305,9 @@
       "evidence_ledger_entries": 7,
       "evidence_ledger_sha256": "2c45d53715a746d0ef597b8e1f9aa9892353729a0f1ef756e06780ebfd5740a5",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-ub",
@@ -1312,7 +1354,9 @@
       "evidence_ledger_entries": 7,
       "evidence_ledger_sha256": "df21aa24c208d54fe10ce044705817895255a2b6cd091485e3588c8803051f7c",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-ug",
@@ -1363,7 +1407,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "4f0d6985d0f157a8e557305c3004259ee569994bf92982e30b2a3b5c2b5bf61c",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-ur",
@@ -1414,7 +1460,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "e3455595cf53892a94c91c208ef2f0d282c76009a4f4dce0ea6a5b17228d853a",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-w",
@@ -1457,7 +1505,9 @@
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "995b792571551ae2460eb118df7c4dacc6ccfa35a7027b184468c4e5fa4b19ec",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-wb",
@@ -1508,7 +1558,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "d18eccf33f8e08f0e532c35b8fe9f09a595744a3be8e1580de0c8405784d1a95",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-wg",
@@ -1555,7 +1607,9 @@
       "evidence_ledger_entries": 7,
       "evidence_ledger_sha256": "16aef562bc6c99ec49359539b00b85f16dbd02384beb02f4fbd24cadd4d6193a",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-witch",
@@ -1616,7 +1670,9 @@
       "evidence_ledger_entries": 10,
       "evidence_ledger_sha256": "59a69082d8e7c0bc0ebaeb6d0c668a1d4bbe8f6c12e83550bcb6f4e1b895104f",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-witherbloom",
@@ -1667,7 +1723,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "0dce4a216d46689665b5391f011a0221167484e22c78dcac6c65907e3aa82454",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-wr",
@@ -1718,7 +1776,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "4294ee2d1f31963a3fd0e91c1cf4f75f19902d3f81f1d1bde51dfcb6118c15a0",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-wu",
@@ -1735,7 +1795,7 @@
       "selections": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1750,22 +1810,24 @@
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.procedure"
-        },
-        {
           "question_id": "b1.hall.interaction-window.v1",
           "answer_id": "b1.hall.interaction-window.v1.before"
         },
         {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.procedure"
+        },
+        {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.open"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         }
       ],
       "evidence_ledger_entries": 7,
-      "evidence_ledger_sha256": "b7762efb2d8adb9140821ab5bb31280a96507b759421fe6b7805179c242c5e74",
+      "evidence_ledger_sha256": "10ed975bb7d518b06749f342795a90bbbe3e2151b0998edae98537b77246ffe8",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-wubrg",
@@ -1816,7 +1878,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "191173f9f19b91429831ca5cc7871898d170b52e96c2048673090e39c41d1d9f",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "identity-yore",
@@ -1865,7 +1929,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "a3736fd51e6f209fe2b18f79093ddb1bf29f78a1b2c9d04185c61afa00ed75f9",
       "witness_authority": "Certified current-engine all-37 witness; no authored preview route.",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "clean-primary",
@@ -1907,28 +1973,30 @@
       ],
       "evidence_ledger_entries": 6,
       "evidence_ledger_sha256": "6a260cba7bd01427d1039138171cd4c7aae45df8416c5874d980135302b4fe5e",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "close-or-tied",
-      "review_label": "Close/co-leader: Green",
-      "identity_key": "G",
-      "identity_name": "Green",
+      "review_label": "Close/co-leader: Jund",
+      "identity_key": "JUND",
+      "identity_name": "Jund",
       "expected_public_contract": "NAMED_DOSSIER",
-      "expected_state": "tied",
-      "result_faction": "G",
+      "expected_state": "close",
+      "result_faction": "JUND",
       "expected_direction_keys": [
-        "G",
-        "WITHERBLOOM"
+        "JUND",
+        "RG"
       ],
       "focus_identity_keys": [
-        "G",
-        "WITHERBLOOM"
+        "JUND",
+        "RG"
       ],
       "selections": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -1940,38 +2008,22 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.abundance"
+          "answer_id": "b1.hall.pressure.v1.combat"
         },
         {
-          "question_id": "b1.hall.setup.v1",
-          "answer_id": "b1.hall.setup.v1.staged"
-        },
-        {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.reopen"
-        },
-        {
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
-        },
-        {
-          "question_id": "b1.crucible.ug.v1",
-          "answer_id": "b1.crucible.ug.v1.neither",
-          "refinement": true
-        },
-        {
-          "question_id": "b1.crucible.bg.v1",
-          "answer_id": "b1.crucible.bg.v1.exchange",
-          "refinement": true
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
         }
       ],
-      "evidence_ledger_entries": 10,
-      "evidence_ledger_sha256": "01be44d359f58b55965f048b5f85979d82965243097eae16b91a174512253a65",
-      "seed": null
+      "evidence_ledger_entries": 6,
+      "evidence_ledger_sha256": "1ff7a3731073e151b6473cab0e7e730c23def0b82e666b1f5e6e0973ab6072b4",
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "jund-mixed",
@@ -2024,7 +2076,126 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "e16ba06345caebf06f361d152df4619be67e2b0f8a114852cdc156d27e8e7d88",
       "witness_authority": "Frozen owner Jund evidence ledger vm551-gate-b1-placement-engine-v1-quick-jund-4.",
-      "seed": 5083
+      "seed": 5083,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
+    },
+    {
+      "case_id": "green-witherbloom-tied",
+      "review_label": "Preserved Green / Witherbloom tied reading",
+      "identity_key": "G",
+      "identity_name": "Green",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "expected_state": "tied",
+      "result_faction": "G",
+      "expected_direction_keys": [
+        "G",
+        "WITHERBLOOM"
+      ],
+      "focus_identity_keys": [
+        "G",
+        "WITHERBLOOM"
+      ],
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.abundance"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.staged"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.neither"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "evidence_ledger_entries": 10,
+      "evidence_ledger_sha256": "01be44d359f58b55965f048b5f85979d82965243097eae16b91a174512253a65",
+      "witness_authority": "Preserved real owner evidence ledger from the accepted pre-remediation session; render-only regression, not current routing reachability proof.",
+      "seed": null,
+      "preload_saved_result": true,
+      "verify_return_to_previous_reading": false
+    },
+    {
+      "case_id": "witherbloom",
+      "review_label": "Witherbloom named dossier",
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "expected_state": "primary",
+      "result_faction": "WITHERBLOOM",
+      "expected_direction_keys": [
+        "WITHERBLOOM"
+      ],
+      "focus_identity_keys": [],
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "evidence_ledger_entries": 8,
+      "evidence_ledger_sha256": "0dce4a216d46689665b5391f011a0221167484e22c78dcac6c65907e3aa82454",
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "insufficient",
@@ -2075,7 +2246,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "acae0bad4b8cee2c46cc8bb739800ef8af3039d6cec6b0aa592703c789d6c804",
       "witness_authority": "Deterministic current-engine journey; no authored preview route.",
-      "seed": 3
+      "seed": 3,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "conflicting",
@@ -2126,7 +2299,9 @@
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "4c628b061f6a153d896b6f1906187f4b8e835f4f5717319540ed516c76b80f10",
       "witness_authority": "Deterministic current-engine journey; no authored preview route.",
-      "seed": 12
+      "seed": 12,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "bounded-yore",
@@ -2174,7 +2349,9 @@
       ],
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "a3736fd51e6f209fe2b18f79093ddb1bf29f78a1b2c9d04185c61afa00ed75f9",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "colorless",
@@ -2224,7 +2401,9 @@
       ],
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "b1c564c8d64571434992f71ccf9d5cc69b0ae447e2377a8d32a2fb8a1894b574",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
     },
     {
       "case_id": "wubrg",
@@ -2274,7 +2453,65 @@
       ],
       "evidence_ledger_entries": 8,
       "evidence_ledger_sha256": "191173f9f19b91429831ca5cc7871898d170b52e96c2048673090e39c41d1d9f",
-      "seed": null
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": false
+    },
+    {
+      "case_id": "reversible-refinement",
+      "review_label": "One-step bounded refinement return",
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "expected_public_contract": "INTENTIONAL_BOUNDED_STATE",
+      "expected_state": "insufficient",
+      "result_faction": "UB",
+      "expected_direction_keys": [],
+      "focus_identity_keys": [],
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.neither",
+          "refinement": true
+        }
+      ],
+      "evidence_ledger_entries": 9,
+      "evidence_ledger_sha256": "17fa0d70e8413fccba1bcab405d6e0e172111642b17f5ff8243efae67bad7158",
+      "witness_authority": "Certified current-engine Yore bounded witness plus one approved optional targeted observation.",
+      "seed": null,
+      "preload_saved_result": false,
+      "verify_return_to_previous_reading": true
     }
   ]
 }

@@ -14994,10 +14994,10 @@
       "identity_key": "G",
       "identity_name": "Green",
       "expected_public_contract": "NAMED_DOSSIER",
-      "expected_state": "tied",
+      "expected_state": "primary",
       "result_faction": "G",
       "main_question_count": 8,
-      "refinement_question_count": 2,
+      "refinement_question_count": 0,
       "why_this_fit_observation_count": 2,
       "why_this_fit_dependencies": [
         "DG_C14",
@@ -15006,7 +15006,7 @@
       "selections": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.advance"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -15018,11 +15018,11 @@
         },
         {
           "question_id": "b1.gate.tempo.v1",
-          "answer_id": "b1.gate.tempo.v1.depends"
+          "answer_id": "b1.gate.tempo.v1.burst"
         },
         {
           "question_id": "b1.hall.pressure.v1",
-          "answer_id": "b1.hall.pressure.v1.abundance"
+          "answer_id": "b1.hall.pressure.v1.resources"
         },
         {
           "question_id": "b1.hall.setup.v1",
@@ -15035,16 +15035,6 @@
         {
           "question_id": "b1.crucible.disruption-boundary.v1",
           "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
-        },
-        {
-          "question_id": "b1.crucible.ug.v1",
-          "answer_id": "b1.crucible.ug.v1.neither",
-          "refinement": true
-        },
-        {
-          "question_id": "b1.crucible.bg.v1",
-          "answer_id": "b1.crucible.bg.v1.exchange",
-          "refinement": true
         }
       ],
       "result": {
@@ -15071,9 +15061,9 @@
             "label": "Green"
           }
         },
-        "decree": "The approved observations do not support a more certain public claim.",
+        "decree": "This is the identity your recorded answers favored most in this reading.",
         "confidence": 0.041,
-        "confidence_gap": 0,
+        "confidence_gap": 1,
         "mana_scores": {
           "W": 9,
           "U": 8,
@@ -15105,36 +15095,41 @@
             "score": 0.729167,
             "confidence": 0.041,
             "reason": "Green remained plausible through C03, C14; identity mapping remains a hypothesis."
-          },
-          {
-            "rank": 2,
-            "faction": "WITHERBLOOM",
-            "faction_name": "Witherbloom College",
-            "institution_type": "college",
-            "world": "Strixhaven",
-            "identity": {
-              "core_color": "B",
-              "secondary_colors": [
-                "G"
-              ],
-              "secondary_color": "G",
-              "expression_key": "WITHERBLOOM",
-              "expression_name": "Witherbloom College",
-              "expression_kind": "college",
-              "purity": null,
-              "routing": {
-                "edhrec_slug": "golgari",
-                "mtgdecks_slug": "golgari",
-                "label": "Golgari"
-              }
-            },
-            "score": 0.729167,
-            "confidence": 0.041,
-            "reason": "Witherbloom College remained plausible through C12, C14; identity mapping remains a hypothesis."
           }
         ],
         "adjacent_matches": [],
         "internal_candidate_order": [
+          {
+            "identity": "RG",
+            "score": 0.916667,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
+            "naming_dependencies": 0,
+            "positive_constructs": [
+              "C03"
+            ],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "RG",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C07"
+            ]
+          },
           {
             "identity": "G",
             "score": 0.729167,
@@ -15169,141 +15164,6 @@
             "independent_constructs": [
               "C03",
               "C14"
-            ]
-          },
-          {
-            "identity": "WITHERBLOOM",
-            "score": 0.729167,
-            "positive_dependencies": 2,
-            "qualification_dependencies": 2,
-            "naming_dependencies": 1,
-            "positive_constructs": [
-              "C12",
-              "C14"
-            ],
-            "satisfied_naming_rule_ids": [
-              "baseline_40:b1.crucible.bg.v1.exchange:WITHERBLOOM"
-            ],
-            "naming_qualification": {
-              "identity": "WITHERBLOOM",
-              "qualified": true,
-              "satisfied_naming_rule_ids": [
-                "baseline_40:b1.crucible.bg.v1.exchange:WITHERBLOOM"
-              ],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": true,
-                "independent_positive_dependencies": true,
-                "independent_positive_constructs": true,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C12",
-              "C14"
-            ]
-          },
-          {
-            "identity": "RG",
-            "score": 0.729167,
-            "positive_dependencies": 2,
-            "qualification_dependencies": 2,
-            "naming_dependencies": 0,
-            "positive_constructs": [
-              "C01",
-              "C03"
-            ],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "RG",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": true,
-                "independent_positive_constructs": true,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C01",
-              "C07"
-            ]
-          },
-          {
-            "identity": "NAYA",
-            "score": 0.645833,
-            "positive_dependencies": 2,
-            "qualification_dependencies": 2,
-            "naming_dependencies": 1,
-            "positive_constructs": [
-              "C07",
-              "C14"
-            ],
-            "satisfied_naming_rule_ids": [
-              "instrument_completion_overlay:b1.hall.pressure.v1.abundance:NAYA"
-            ],
-            "naming_qualification": {
-              "identity": "NAYA",
-              "qualified": true,
-              "satisfied_naming_rule_ids": [
-                "instrument_completion_overlay:b1.hall.pressure.v1.abundance:NAYA"
-              ],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": true,
-                "independent_positive_dependencies": true,
-                "independent_positive_constructs": true,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C07"
-            ]
-          },
-          {
-            "identity": "JUND",
-            "score": 0.625,
-            "positive_dependencies": 1,
-            "qualification_dependencies": 1,
-            "naming_dependencies": 0,
-            "positive_constructs": [
-              "C01"
-            ],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "JUND",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C01",
-              "C07",
-              "C12"
             ]
           },
           {
@@ -15370,17 +15230,17 @@
             ]
           },
           {
-            "identity": "R",
+            "identity": "BG",
             "score": 0.458333,
             "positive_dependencies": 1,
             "qualification_dependencies": 1,
             "naming_dependencies": 0,
             "positive_constructs": [
-              "C01"
+              "C14"
             ],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "R",
+              "identity": "BG",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -15396,7 +15256,37 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C01"
+              "C03"
+            ]
+          },
+          {
+            "identity": "NAYA",
+            "score": 0.458333,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
+            "naming_dependencies": 0,
+            "positive_constructs": [
+              "C14"
+            ],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "NAYA",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C07"
             ]
           },
           {
@@ -15428,15 +15318,17 @@
             ]
           },
           {
-            "identity": "TEMUR",
-            "score": 0.25,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
+            "identity": "WB",
+            "score": 0.458333,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
             "naming_dependencies": 0,
-            "positive_constructs": [],
+            "positive_constructs": [
+              "C07"
+            ],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "TEMUR",
+              "identity": "WB",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -15452,9 +15344,67 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C01",
-              "C07",
+              "C13"
+            ]
+          },
+          {
+            "identity": "WITHERBLOOM",
+            "score": 0.458333,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
+            "naming_dependencies": 0,
+            "positive_constructs": [
               "C14"
+            ],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "WITHERBLOOM",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C14"
+            ]
+          },
+          {
+            "identity": "JESKAI",
+            "score": 0.4375,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
+            "naming_dependencies": 0,
+            "positive_constructs": [
+              "C01"
+            ],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "JESKAI",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01"
             ]
           },
           {
@@ -15485,6 +15435,36 @@
               "C01",
               "C07",
               "C13"
+            ]
+          },
+          {
+            "identity": "TEMUR",
+            "score": 0.25,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "TEMUR",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C07",
+              "C14"
             ]
           },
           {
@@ -15548,65 +15528,6 @@
             ]
           },
           {
-            "identity": "GRIXIS",
-            "score": 0.1875,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "GRIXIS",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C01",
-              "C02",
-              "C12"
-            ]
-          },
-          {
-            "identity": "SULTAI",
-            "score": 0.166667,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "SULTAI",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C12",
-              "C14"
-            ]
-          },
-          {
             "identity": "DUNE",
             "score": 0.166667,
             "positive_dependencies": 0,
@@ -15665,7 +15586,7 @@
             ]
           },
           {
-            "identity": "WB",
+            "identity": "JUND",
             "score": 0.166667,
             "positive_dependencies": 0,
             "qualification_dependencies": 0,
@@ -15673,7 +15594,7 @@
             "positive_constructs": [],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "WB",
+              "identity": "JUND",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -15689,8 +15610,37 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C12",
-              "C13"
+              "C01",
+              "C07"
+            ]
+          },
+          {
+            "identity": "R",
+            "score": 0.166667,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "R",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C04"
             ]
           },
           {
@@ -15723,6 +15673,35 @@
             ]
           },
           {
+            "identity": "GRIXIS",
+            "score": 0.125,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "GRIXIS",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C02"
+            ]
+          },
+          {
             "identity": "LOREHOLD",
             "score": 0.083333,
             "positive_dependencies": 0,
@@ -15748,6 +15727,34 @@
             "contradiction_dependencies": 0,
             "independent_constructs": [
               "C03"
+            ]
+          },
+          {
+            "identity": "PRISMARI",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "PRISMARI",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C04"
             ]
           },
           {
@@ -15803,7 +15810,7 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C12"
+              "C04"
             ]
           },
           {
@@ -15863,6 +15870,62 @@
             ]
           },
           {
+            "identity": "SULTAI",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "SULTAI",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C14"
+            ]
+          },
+          {
+            "identity": "UR",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "UR",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C04"
+            ]
+          },
+          {
             "identity": "WITCH",
             "score": 0.083333,
             "positive_dependencies": 0,
@@ -15888,121 +15951,6 @@
             "contradiction_dependencies": 0,
             "independent_constructs": [
               "C14"
-            ]
-          },
-          {
-            "identity": "YORE",
-            "score": 0.083333,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "YORE",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": false,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C12"
-            ]
-          },
-          {
-            "identity": "BG",
-            "score": 0.072917,
-            "positive_dependencies": 1,
-            "qualification_dependencies": 1,
-            "naming_dependencies": 0,
-            "positive_constructs": [
-              "C14"
-            ],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "BG",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": false
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 1,
-            "independent_constructs": [
-              "C03",
-              "C12"
-            ]
-          },
-          {
-            "identity": "B",
-            "score": 0.0625,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "B",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C12"
-            ]
-          },
-          {
-            "identity": "JESKAI",
-            "score": 0.0625,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "JESKAI",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C01"
             ]
           },
           {
@@ -16090,6 +16038,32 @@
             ]
           },
           {
+            "identity": "B",
+            "score": 0,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "B",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": []
+          },
+          {
             "identity": "COLORLESS",
             "score": 0,
             "positive_dependencies": 0,
@@ -16142,58 +16116,6 @@
             "independent_constructs": []
           },
           {
-            "identity": "PRISMARI",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "PRISMARI",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
-            "identity": "UR",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "UR",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
             "identity": "WUBRG",
             "score": 0,
             "positive_dependencies": 0,
@@ -16218,131 +16140,62 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": []
-          }
-        ],
-        "candidate_set": [
-          "G",
-          "WITHERBLOOM",
-          "RG",
-          "NAYA",
-          "JUND",
-          "ABZAN",
-          "UG",
-          "R"
-        ],
-        "alternatives": [
+          },
           {
-            "identity": "WITHERBLOOM",
-            "identity_name": "Witherbloom College",
-            "support_difference_from_primary": 0,
-            "shared_constructs": [
-              "C14"
-            ],
-            "distinguishing_constructs": [
-              "C03",
-              "C06",
-              "C10",
-              "C12"
-            ],
-            "strongest_unresolved_boundary": "No approved direct boundary is recorded.",
-            "best_approved_question_id": null,
-            "meaningful_support": true,
+            "identity": "YORE",
+            "score": 0,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "WITHERBLOOM",
-              "qualified": true,
-              "satisfied_naming_rule_ids": [
-                "baseline_40:b1.crucible.bg.v1.exchange:WITHERBLOOM"
-              ],
+              "identity": "YORE",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
               "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": true,
-                "independent_positive_dependencies": true,
-                "independent_positive_constructs": true,
+                "behaviorally_observable": false,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
                 "no_disqualifying_contradiction": true
               },
               "minimum_positive_dependencies": 2,
               "minimum_positive_constructs": 2,
               "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
             },
-            "faction": "WITHERBLOOM",
-            "faction_name": "Witherbloom College",
-            "match": {
-              "rank": 2,
-              "faction": "WITHERBLOOM",
-              "faction_name": "Witherbloom College",
-              "institution_type": "college",
-              "world": "Strixhaven",
-              "identity": {
-                "core_color": "B",
-                "secondary_colors": [
-                  "G"
-                ],
-                "secondary_color": "G",
-                "expression_key": "WITHERBLOOM",
-                "expression_name": "Witherbloom College",
-                "expression_kind": "college",
-                "purity": null,
-                "routing": {
-                  "edhrec_slug": "golgari",
-                  "mtgdecks_slug": "golgari",
-                  "label": "Golgari"
-                }
-              },
-              "score": 0.729167,
-              "confidence": 0.041,
-              "reason": "Witherbloom College remained plausible through C12, C14; identity mapping remains a hypothesis."
-            }
+            "contradiction_dependencies": 0,
+            "independent_constructs": []
           }
         ],
+        "candidate_set": [
+          "RG",
+          "G",
+          "ABZAN"
+        ],
+        "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "G",
-            "WITHERBLOOM",
-            "NAYA"
+            "G"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "G__NAYA",
-              "identities": [
-                "G",
-                "NAYA"
-              ],
-              "distinction": "G uses Disruption response evidence; NAYA uses Pressure channel evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.disruption.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
-          "missing_constructs": [
-            "C06",
-            "C10"
-          ],
-          "question_id": "b1.crucible.mono-multi.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "unresolved_boundaries": [],
+          "missing_constructs": [],
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "G",
-            "WITHERBLOOM"
+            "G"
           ],
-          "target_pair_ids": [
-            "G__WITHERBLOOM",
-            "G__NAYA"
-          ],
-          "distinction": "One question about deck breadth and constraint can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
-          "state": "tied",
-          "reason": "equal_supported_leaders",
+          "state": "close",
+          "reason": "highest_responsible_candidate_trails_unqualified_internal_candidate",
           "can_improve": false,
           "next_question_id": null
         },
@@ -16354,22 +16207,18 @@
         "evidence_trail": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.advance",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "construct": "C01",
-            "bounded_observation": "Prefers proactive development on an open turn.",
-            "signal": "SIG_C01_PROACTIVE",
+            "bounded_observation": "Prefers mixed development with bounded response.",
+            "signal": "SIG_C01_BALANCED",
             "dependency_group": "DG_C01",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "positive_support": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "contradiction": [],
             "neutral": false,
@@ -16377,32 +16226,22 @@
             "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
             "mapping_role": "completion_corroboration_direction",
             "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.advance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.balance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
             "limitation": "Initiative posture may vary across calm, behind, and disrupted contexts; every C01 response shares DG_C01 and cannot stack.",
             "behavioral_vs_lens": "behavioral",
-            "answer_title": "Set the pace",
+            "answer_title": "Advance with a safeguard",
             "prompt": "Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?",
-            "observation": "Prefers proactive development on an open turn.",
+            "observation": "Prefers mixed development with bounded response.",
             "deltas": [
               {
-                "faction": "JUND",
-                "delta": 0.5
-              },
-              {
-                "faction": "R",
-                "delta": 0.5
-              },
-              {
-                "faction": "RG",
+                "faction": "JESKAI",
                 "delta": 0.5
               }
             ]
@@ -16487,17 +16326,17 @@
           },
           {
             "question_id": "b1.gate.tempo.v1",
-            "answer_id": "b1.gate.tempo.v1.depends",
+            "answer_id": "b1.gate.tempo.v1.burst",
             "stage": "gate",
             "construct": "C04",
-            "bounded_observation": "Reports no stable payoff-rhythm preference.",
-            "signal": "SIG_C04_CONDITIONAL",
+            "bounded_observation": "Prefers a concentrated payoff turn.",
+            "signal": "SIG_C04_CONCENTRATED",
             "dependency_group": "DG_C04",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [],
             "positive_support": [],
             "contradiction": [],
-            "neutral": true,
+            "neutral": false,
             "mapping_strength": 0,
             "naming_evidence": false,
             "qualification_eligible": false,
@@ -16508,57 +16347,51 @@
             "mapping_status": "OBSERVATION_ONLY",
             "mapping_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
+            "limitation": "Observation wording and identity association require player validation; no weight is authorized.",
             "behavioral_vs_lens": "behavioral",
-            "answer_title": "No stable preference",
+            "answer_title": "One turn that changes the game",
             "prompt": "When your Commander deck is doing what you built it to do, how do you want the advantage to arrive?",
-            "observation": "Reports no stable payoff-rhythm preference.",
+            "observation": "Prefers a concentrated payoff turn.",
             "deltas": []
           },
           {
             "question_id": "b1.hall.pressure.v1",
-            "answer_id": "b1.hall.pressure.v1.abundance",
+            "answer_id": "b1.hall.pressure.v1.resources",
             "stage": "hall",
             "construct": "C07",
-            "bounded_observation": "Prefers abundance-based board pressure rather than one concentrated strike.",
-            "signal": "SIG_C07_ABUNDANCE_PRESSURE",
+            "bounded_observation": "Prefers resource-control pressure before attempting to end the game.",
+            "signal": "SIG_C07_RESOURCE_CONTROL",
             "dependency_group": "DG_C07",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "NAYA"
+              "WB"
             ],
             "positive_support": [
-              "NAYA"
+              "WB"
             ],
             "contradiction": [],
             "neutral": false,
-            "mapping_strength": 1,
-            "naming_evidence": true,
+            "mapping_strength": 0.5,
+            "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "NAYA"
+              "WB"
             ],
-            "naming_support": [
-              "NAYA"
-            ],
-            "naming_rule_ids_by_identity": {
-              "NAYA": [
-                "instrument_completion_overlay:b1.hall.pressure.v1.abundance:NAYA"
-              ]
-            },
-            "mapping_role": "completion_boundary_direction",
+            "naming_support": [],
+            "naming_rule_ids_by_identity": {},
+            "mapping_role": "completion_corroboration_direction",
             "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.abundance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.resources;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
-            "limitation": "Board width may be accidental or mechanically efficient rather than identity-relevant.",
+            "limitation": "Removing options can be a tactical prerequisite in any deck.",
             "behavioral_vs_lens": "behavioral",
-            "answer_title": "Keep the wide board moving",
+            "answer_title": "Narrow their options first",
             "prompt": "The player ahead uses all their mana and leaves one turn where the table can take control. Which kind of pressure do you want your deck to create?",
-            "observation": "Prefers abundance-based board pressure rather than one concentrated strike.",
+            "observation": "Prefers resource-control pressure before attempting to end the game.",
             "deltas": [
               {
-                "faction": "NAYA",
-                "delta": 1
+                "faction": "WB",
+                "delta": 0.5
               }
             ]
           },
@@ -16730,111 +16563,23 @@
                 "delta": 1
               }
             ]
-          },
-          {
-            "question_id": "b1.crucible.ug.v1",
-            "answer_id": "b1.crucible.ug.v1.neither",
-            "stage": "crucible",
-            "construct": "C06",
-            "bounded_observation": "Rejects the proposed UG-family distinction.",
-            "signal": "SIG_C06_UNKNOWN",
-            "dependency_group": "DG_C06",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [],
-            "positive_support": [],
-            "contradiction": [],
-            "neutral": true,
-            "mapping_strength": 0,
-            "naming_evidence": false,
-            "qualification_eligible": false,
-            "qualification_support": [],
-            "naming_support": [],
-            "naming_rule_ids_by_identity": {},
-            "mapping_role": "observation_only",
-            "mapping_status": "OBSERVATION_ONLY",
-            "mapping_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
-            "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
-            "behavioral_vs_lens": "behavioral",
-            "answer_title": "My engine uses another structure",
-            "prompt": "When building an engine, which structure fits your deck?",
-            "observation": "Rejects the proposed UG-family distinction.",
-            "deltas": []
-          },
-          {
-            "question_id": "b1.crucible.bg.v1",
-            "answer_id": "b1.crucible.bg.v1.exchange",
-            "stage": "crucible",
-            "construct": "C12",
-            "bounded_observation": "Prefers immediate conversion.",
-            "signal": "SIG_C12_CONVERT",
-            "dependency_group": "DG_C12",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [
-              "BG",
-              "WITHERBLOOM"
-            ],
-            "positive_support": [
-              "WITHERBLOOM"
-            ],
-            "contradiction": [
-              "BG"
-            ],
-            "neutral": false,
-            "mapping_strength": 1,
-            "naming_evidence": true,
-            "qualification_eligible": true,
-            "qualification_support": [
-              "WITHERBLOOM"
-            ],
-            "naming_support": [
-              "WITHERBLOOM"
-            ],
-            "naming_rule_ids_by_identity": {
-              "WITHERBLOOM": [
-                "baseline_40:b1.crucible.bg.v1.exchange:WITHERBLOOM"
-              ]
-            },
-            "mapping_role": "exact_pair_direction",
-            "mapping_status": "MAPPING_HYPOTHESIS",
-            "mapping_provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
-            "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
-            "limitation": "Use only after prior independent observations leave the stated competitor boundary plausible; the identity association requires player validation.",
-            "behavioral_vs_lens": "behavioral",
-            "answer_title": "Turn the loss into a new resource",
-            "prompt": "Several cards from your battlefield went to your graveyard. What do you want that loss to enable?",
-            "observation": "Prefers immediate conversion.",
-            "deltas": [
-              {
-                "faction": "WITHERBLOOM",
-                "delta": 1
-              },
-              {
-                "faction": "BG",
-                "delta": -1
-              }
-            ]
           }
         ],
         "evidence_ledger": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.advance",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "construct": "C01",
-            "bounded_observation": "Prefers proactive development on an open turn.",
-            "signal": "SIG_C01_PROACTIVE",
+            "bounded_observation": "Prefers mixed development with bounded response.",
+            "signal": "SIG_C01_BALANCED",
             "dependency_group": "DG_C01",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "positive_support": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "contradiction": [],
             "neutral": false,
@@ -16842,15 +16587,13 @@
             "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "JUND",
-              "R",
-              "RG"
+              "JESKAI"
             ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
             "mapping_role": "completion_corroboration_direction",
             "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.advance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.balance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
             "limitation": "Initiative posture may vary across calm, behind, and disrupted contexts; every C01 response shares DG_C01 and cannot stack.",
             "behavioral_vs_lens": "behavioral"
@@ -16918,17 +16661,17 @@
           },
           {
             "question_id": "b1.gate.tempo.v1",
-            "answer_id": "b1.gate.tempo.v1.depends",
+            "answer_id": "b1.gate.tempo.v1.burst",
             "stage": "gate",
             "construct": "C04",
-            "bounded_observation": "Reports no stable payoff-rhythm preference.",
-            "signal": "SIG_C04_CONDITIONAL",
+            "bounded_observation": "Prefers a concentrated payoff turn.",
+            "signal": "SIG_C04_CONCENTRATED",
             "dependency_group": "DG_C04",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [],
             "positive_support": [],
             "contradiction": [],
-            "neutral": true,
+            "neutral": false,
             "mapping_strength": 0,
             "naming_evidence": false,
             "qualification_eligible": false,
@@ -16939,45 +16682,39 @@
             "mapping_status": "OBSERVATION_ONLY",
             "mapping_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
+            "limitation": "Observation wording and identity association require player validation; no weight is authorized.",
             "behavioral_vs_lens": "behavioral"
           },
           {
             "question_id": "b1.hall.pressure.v1",
-            "answer_id": "b1.hall.pressure.v1.abundance",
+            "answer_id": "b1.hall.pressure.v1.resources",
             "stage": "hall",
             "construct": "C07",
-            "bounded_observation": "Prefers abundance-based board pressure rather than one concentrated strike.",
-            "signal": "SIG_C07_ABUNDANCE_PRESSURE",
+            "bounded_observation": "Prefers resource-control pressure before attempting to end the game.",
+            "signal": "SIG_C07_RESOURCE_CONTROL",
             "dependency_group": "DG_C07",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "NAYA"
+              "WB"
             ],
             "positive_support": [
-              "NAYA"
+              "WB"
             ],
             "contradiction": [],
             "neutral": false,
-            "mapping_strength": 1,
-            "naming_evidence": true,
+            "mapping_strength": 0.5,
+            "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "NAYA"
+              "WB"
             ],
-            "naming_support": [
-              "NAYA"
-            ],
-            "naming_rule_ids_by_identity": {
-              "NAYA": [
-                "instrument_completion_overlay:b1.hall.pressure.v1.abundance:NAYA"
-              ]
-            },
-            "mapping_role": "completion_boundary_direction",
+            "naming_support": [],
+            "naming_rule_ids_by_identity": {},
+            "mapping_role": "completion_corroboration_direction",
             "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.abundance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.pressure.v1.resources;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
-            "limitation": "Board width may be accidental or mechanically efficient rather than identity-relevant.",
+            "limitation": "Removing options can be a tactical prerequisite in any deck.",
             "behavioral_vs_lens": "behavioral"
           },
           {
@@ -17097,80 +16834,13 @@
             "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
             "limitation": "Any player may pivot when reconstruction is impossible.",
             "behavioral_vs_lens": "behavioral"
-          },
-          {
-            "question_id": "b1.crucible.ug.v1",
-            "answer_id": "b1.crucible.ug.v1.neither",
-            "stage": "crucible",
-            "construct": "C06",
-            "bounded_observation": "Rejects the proposed UG-family distinction.",
-            "signal": "SIG_C06_UNKNOWN",
-            "dependency_group": "DG_C06",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [],
-            "positive_support": [],
-            "contradiction": [],
-            "neutral": true,
-            "mapping_strength": 0,
-            "naming_evidence": false,
-            "qualification_eligible": false,
-            "qualification_support": [],
-            "naming_support": [],
-            "naming_rule_ids_by_identity": {},
-            "mapping_role": "observation_only",
-            "mapping_status": "OBSERVATION_ONLY",
-            "mapping_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
-            "evidence_provenance": "E-CERTIFIED;E-PLAYER-COMMANDER;E-AUDIT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
-            "behavioral_vs_lens": "behavioral"
-          },
-          {
-            "question_id": "b1.crucible.bg.v1",
-            "answer_id": "b1.crucible.bg.v1.exchange",
-            "stage": "crucible",
-            "construct": "C12",
-            "bounded_observation": "Prefers immediate conversion.",
-            "signal": "SIG_C12_CONVERT",
-            "dependency_group": "DG_C12",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [
-              "BG",
-              "WITHERBLOOM"
-            ],
-            "positive_support": [
-              "WITHERBLOOM"
-            ],
-            "contradiction": [
-              "BG"
-            ],
-            "neutral": false,
-            "mapping_strength": 1,
-            "naming_evidence": true,
-            "qualification_eligible": true,
-            "qualification_support": [
-              "WITHERBLOOM"
-            ],
-            "naming_support": [
-              "WITHERBLOOM"
-            ],
-            "naming_rule_ids_by_identity": {
-              "WITHERBLOOM": [
-                "baseline_40:b1.crucible.bg.v1.exchange:WITHERBLOOM"
-              ]
-            },
-            "mapping_role": "exact_pair_direction",
-            "mapping_status": "MAPPING_HYPOTHESIS",
-            "mapping_provenance": "answer-semantic-adjudication.tsv BG vs WITHERBLOOM evidence-required hypothesis",
-            "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-AUDIT;E-CECOS;E-VOICE",
-            "limitation": "Use only after prior independent observations leave the stated competitor boundary plausible; the identity association requires player validation.",
-            "behavioral_vs_lens": "behavioral"
           }
         ],
         "lens_ledger": [],
         "stage_history": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.advance",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
@@ -17188,13 +16858,13 @@
           },
           {
             "question_id": "b1.gate.tempo.v1",
-            "answer_id": "b1.gate.tempo.v1.depends",
+            "answer_id": "b1.gate.tempo.v1.burst",
             "stage": "gate",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
           {
             "question_id": "b1.hall.pressure.v1",
-            "answer_id": "b1.hall.pressure.v1.abundance",
+            "answer_id": "b1.hall.pressure.v1.resources",
             "stage": "hall",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
@@ -17215,23 +16885,11 @@
             "answer_id": "b1.crucible.disruption-boundary.v1.adapt",
             "stage": "crucible",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
-          },
-          {
-            "question_id": "b1.crucible.ug.v1",
-            "answer_id": "b1.crucible.ug.v1.neither",
-            "stage": "crucible",
-            "evidence_class": "BEHAVIORAL_OBSERVATION"
-          },
-          {
-            "question_id": "b1.crucible.bg.v1",
-            "answer_id": "b1.crucible.bg.v1.exchange",
-            "stage": "crucible",
-            "evidence_class": "BEHAVIORAL_OBSERVATION"
           }
         ],
-        "result_state": "tied",
-        "public_confidence_state": "tied",
-        "alternative_state": "co-leader",
+        "result_state": "primary",
+        "public_confidence_state": "current-best-fit",
+        "alternative_state": "none",
         "confidence_display_mode": "bounded-state",
         "model_kind": "gate-b1-evidence-ranking-v1",
         "legacy_result": false,
@@ -17240,7 +16898,7 @@
           "Internal scores are ranking aids and are not public confidence percentages."
         ],
         "compatibility_version": "gate-a-v1",
-        "engine_result_state": "tied"
+        "engine_result_state": "close"
       }
     },
     {
@@ -26706,27 +26364,24 @@
           }
         ],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
             "JUND",
             "RG"
           ],
           "unresolved_boundaries": [],
           "missing_constructs": [],
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
             "JUND",
             "RG"
           ],
-          "target_pair_ids": [
-            "JUND__RG"
-          ],
-          "distinction": "One question about disruption response can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -32259,129 +31914,24 @@
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "NAYA",
-            "ABZAN",
-            "G",
-            "JUND",
-            "R",
-            "RG",
-            "UG",
-            "BG"
+            "NAYA"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "G__NAYA",
-              "identities": [
-                "G",
-                "NAYA"
-              ],
-              "distinction": "G uses Disruption response evidence; NAYA uses Pressure channel evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.disruption.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "G__R",
-              "identities": [
-                "G",
-                "R"
-              ],
-              "distinction": "G uses Disruption response evidence; R uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.disruption.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.pressure.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "JUND__NAYA",
-              "identities": [
-                "JUND",
-                "NAYA"
-              ],
-              "distinction": "JUND uses Initiative posture evidence; NAYA uses Theme-efficiency tradeoff evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.initiative.v1",
-                "b1.hall.theme.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.sacrifice.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "NAYA__R",
-              "identities": [
-                "NAYA",
-                "R"
-              ],
-              "distinction": "NAYA uses Pressure channel evidence; R uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.pressure.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "NAYA__RG",
-              "identities": [
-                "NAYA",
-                "RG"
-              ],
-              "distinction": "NAYA uses Threat posture evidence; RG uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.threat.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.gate.disruption.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
+          "unresolved_boundaries": [],
           "missing_constructs": [
-            "C06",
-            "C10",
-            "C12"
+            "C10"
           ],
-          "question_id": "b1.crucible.ug.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "NAYA",
-            "UG"
+            "NAYA"
           ],
-          "target_pair_ids": [
-            "NAYA__UG",
-            "ABZAN__UG",
-            "G__UG",
-            "JUND__UG",
-            "R__UG",
-            "RG__UG",
-            "BG__UG"
-          ],
-          "distinction": "One question about engine concentration can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -39849,77 +39399,22 @@
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "JUND",
-            "R",
-            "RG",
-            "G",
-            "JESKAI"
+            "RG"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "G__R",
-              "identities": [
-                "G",
-                "R"
-              ],
-              "distinction": "G uses Disruption response evidence; R uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.disruption.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.pressure.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "JESKAI__R",
-              "identities": [
-                "JESKAI",
-                "R"
-              ],
-              "distinction": "JESKAI uses Mana commitment and interaction window evidence; R uses Advantage tempo evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.interaction-window.v1",
-                "b1.gate.tempo.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.information-to-plan.v1",
-                "b1.crucible.jeskai.v1",
-                "b1.gate.initiative.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
-          "missing_constructs": [
-            "C08",
-            "C14"
-          ],
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "unresolved_boundaries": [],
+          "missing_constructs": [],
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "JUND",
-            "R"
+            "RG"
           ],
-          "target_pair_ids": [
-            "JUND__R",
-            "JUND__RG",
-            "G__JUND",
-            "R__RG",
-            "G__R",
-            "JESKAI__R",
-            "JESKAI__RG",
-            "G__JESKAI"
-          ],
-          "distinction": "One question about disruption response can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -45715,152 +45210,22 @@
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "NAYA",
-            "TEMUR",
-            "JUND",
-            "R",
-            "RG",
-            "GLINT"
+            "TEMUR"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "GLINT__JUND",
-              "identities": [
-                "GLINT",
-                "JUND"
-              ],
-              "distinction": "GLINT uses Repeatability preference evidence; JUND uses Resource sacrifice evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.repeatability.v1",
-                "b1.hall.sacrifice.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.gate.initiative.v1",
-                "b1.hall.pressure.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.interaction-window.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "GLINT__R",
-              "identities": [
-                "GLINT",
-                "R"
-              ],
-              "distinction": "GLINT uses Repeatability preference evidence; R uses Advantage tempo evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.repeatability.v1",
-                "b1.gate.tempo.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.gate.initiative.v1",
-                "b1.hall.pressure.v1",
-                "b1.hall.setup.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.interaction-window.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "GLINT__TEMUR",
-              "identities": [
-                "GLINT",
-                "TEMUR"
-              ],
-              "distinction": "Direct scenario tests one bounded Commander behavior.",
-              "question_ids": [
-                "b1.crucible.temur.v1",
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.hall.interaction-window.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "JUND__NAYA",
-              "identities": [
-                "JUND",
-                "NAYA"
-              ],
-              "distinction": "JUND uses Initiative posture evidence; NAYA uses Theme-efficiency tradeoff evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.initiative.v1",
-                "b1.hall.theme.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.sacrifice.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "NAYA__R",
-              "identities": [
-                "NAYA",
-                "R"
-              ],
-              "distinction": "NAYA uses Pressure channel evidence; R uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.pressure.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "NAYA__RG",
-              "identities": [
-                "NAYA",
-                "RG"
-              ],
-              "distinction": "NAYA uses Threat posture evidence; RG uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.threat.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.gate.disruption.v1",
-                "b1.hall.pressure.v1",
-                "b1.crucible.disruption-boundary.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
-          "missing_constructs": [
-            "C09",
-            "C10"
-          ],
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "unresolved_boundaries": [],
+          "missing_constructs": [],
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "NAYA",
-            "R"
+            "TEMUR"
           ],
-          "target_pair_ids": [
-            "NAYA__R",
-            "NAYA__RG",
-            "R__TEMUR",
-            "RG__TEMUR",
-            "JUND__R",
-            "JUND__RG",
-            "R__RG",
-            "GLINT__R",
-            "GLINT__RG"
-          ],
-          "distinction": "NAYA uses Pressure channel evidence; R uses Initiative posture evidence. No direct pair claim is made.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -57271,30 +56636,24 @@
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "WB",
-            "JESKAI"
+            "WB"
           ],
           "unresolved_boundaries": [],
           "missing_constructs": [
-            "C08",
             "C12"
           ],
-          "question_id": "b1.crucible.jeskai.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "WB",
-            "JESKAI"
+            "WB"
           ],
-          "target_pair_ids": [
-            "JESKAI__WB"
-          ],
-          "distinction": "One question about mana commitment and interaction window can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -65980,16 +65339,15 @@
       "result_faction": "WU",
       "main_question_count": 7,
       "refinement_question_count": 0,
-      "why_this_fit_observation_count": 3,
+      "why_this_fit_observation_count": 2,
       "why_this_fit_dependencies": [
-        "DG_C13",
         "DG_C08",
-        "DG_C16"
+        "DG_C13"
       ],
       "selections": [
         {
           "question_id": "b1.gate.initiative.v1",
-          "answer_id": "b1.gate.initiative.v1.unsure"
+          "answer_id": "b1.gate.initiative.v1.balance"
         },
         {
           "question_id": "b1.gate.visibility.v1",
@@ -66004,16 +65362,16 @@
           "answer_id": "b1.gate.tempo.v1.depends"
         },
         {
-          "question_id": "b1.hall.commitment.v1",
-          "answer_id": "b1.hall.commitment.v1.procedure"
-        },
-        {
           "question_id": "b1.hall.interaction-window.v1",
           "answer_id": "b1.hall.interaction-window.v1.before"
         },
         {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.procedure"
+        },
+        {
           "question_id": "b1.hall.information-to-plan.v1",
-          "answer_id": "b1.hall.information-to-plan.v1.open"
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
         }
       ],
       "result": {
@@ -66043,14 +65401,14 @@
           }
         },
         "decree": "This is the identity your recorded answers favored most in this reading.",
-        "confidence": 0.046,
+        "confidence": 0.047,
         "confidence_gap": 1,
         "mana_scores": {
           "W": 10,
-          "U": 10,
+          "U": 9,
           "B": 9,
           "R": 9,
-          "G": 9
+          "G": 8
         },
         "top_matches": [
           {
@@ -66075,8 +65433,8 @@
                 "label": "Azorius"
               }
             },
-            "score": 0.6875,
-            "confidence": 0.046,
+            "score": 0.75,
+            "confidence": 0.047,
             "reason": "Azorius Senate remained plausible through C08, C13, C16; identity mapping remains a hypothesis."
           }
         ],
@@ -66118,14 +65476,13 @@
           },
           {
             "identity": "WU",
-            "score": 0.6875,
-            "positive_dependencies": 3,
-            "qualification_dependencies": 3,
+            "score": 0.75,
+            "positive_dependencies": 2,
+            "qualification_dependencies": 2,
             "naming_dependencies": 1,
             "positive_constructs": [
               "C08",
-              "C13",
-              "C16"
+              "C13"
             ],
             "satisfied_naming_rule_ids": [
               "instrument_completion_overlay:b1.hall.commitment.v1.procedure:WU"
@@ -66155,74 +65512,14 @@
             ]
           },
           {
-            "identity": "U",
-            "score": 0.5,
-            "positive_dependencies": 1,
-            "qualification_dependencies": 1,
-            "naming_dependencies": 0,
-            "positive_constructs": [
-              "C16"
-            ],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "U",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C08",
-              "C16"
-            ]
-          },
-          {
-            "identity": "UB",
-            "score": 0.5,
-            "positive_dependencies": 1,
-            "qualification_dependencies": 1,
-            "naming_dependencies": 0,
-            "positive_constructs": [
-              "C16"
-            ],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "UB",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": [
-              "C08",
-              "C16"
-            ]
-          },
-          {
             "identity": "ESPER",
-            "score": 0.125,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
+            "score": 0.575,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
             "naming_dependencies": 0,
-            "positive_constructs": [],
+            "positive_constructs": [
+              "C16"
+            ],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
               "identity": "ESPER",
@@ -66247,6 +65544,97 @@
           },
           {
             "identity": "JESKAI",
+            "score": 0.5625,
+            "positive_dependencies": 1,
+            "qualification_dependencies": 1,
+            "naming_dependencies": 0,
+            "positive_constructs": [
+              "C01"
+            ],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "JESKAI",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C08",
+              "C16"
+            ]
+          },
+          {
+            "identity": "U",
+            "score": 0.1875,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "U",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C08",
+              "C16"
+            ]
+          },
+          {
+            "identity": "MARDU",
+            "score": 0.166667,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "MARDU",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C13"
+            ]
+          },
+          {
+            "identity": "GRIXIS",
             "score": 0.125,
             "positive_dependencies": 0,
             "qualification_dependencies": 0,
@@ -66254,7 +65642,36 @@
             "positive_constructs": [],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "JESKAI",
+              "identity": "GRIXIS",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01",
+              "C16"
+            ]
+          },
+          {
+            "identity": "UB",
+            "score": 0.125,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "UB",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -66331,6 +65748,34 @@
             ]
           },
           {
+            "identity": "GLINT",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "GLINT",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01"
+            ]
+          },
+          {
             "identity": "INK",
             "score": 0.083333,
             "positive_dependencies": 0,
@@ -66359,7 +65804,7 @@
             ]
           },
           {
-            "identity": "MARDU",
+            "identity": "JUND",
             "score": 0.083333,
             "positive_dependencies": 0,
             "qualification_dependencies": 0,
@@ -66367,7 +65812,7 @@
             "positive_constructs": [],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "MARDU",
+              "identity": "JUND",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -66383,7 +65828,63 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C13"
+              "C01"
+            ]
+          },
+          {
+            "identity": "R",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "R",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01"
+            ]
+          },
+          {
+            "identity": "RG",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "RG",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01"
             ]
           },
           {
@@ -66412,6 +65913,34 @@
             "contradiction_dependencies": 0,
             "independent_constructs": [
               "C13"
+            ]
+          },
+          {
+            "identity": "TEMUR",
+            "score": 0.083333,
+            "positive_dependencies": 0,
+            "qualification_dependencies": 0,
+            "naming_dependencies": 0,
+            "positive_constructs": [],
+            "satisfied_naming_rule_ids": [],
+            "naming_qualification": {
+              "identity": "TEMUR",
+              "qualified": false,
+              "satisfied_naming_rule_ids": [],
+              "requirements": {
+                "behaviorally_observable": true,
+                "approved_naming_rule": false,
+                "independent_positive_dependencies": false,
+                "independent_positive_constructs": false,
+                "no_disqualifying_contradiction": true
+              },
+              "minimum_positive_dependencies": 2,
+              "minimum_positive_constructs": 2,
+              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
+            },
+            "contradiction_dependencies": 0,
+            "independent_constructs": [
+              "C01"
             ]
           },
           {
@@ -66471,15 +66000,15 @@
             ]
           },
           {
-            "identity": "B",
-            "score": 0.0625,
+            "identity": "WR",
+            "score": 0.083333,
             "positive_dependencies": 0,
             "qualification_dependencies": 0,
             "naming_dependencies": 0,
             "positive_constructs": [],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "B",
+              "identity": "WR",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -66495,11 +66024,11 @@
             },
             "contradiction_dependencies": 0,
             "independent_constructs": [
-              "C16"
+              "C01"
             ]
           },
           {
-            "identity": "GRIXIS",
+            "identity": "B",
             "score": 0.0625,
             "positive_dependencies": 0,
             "qualification_dependencies": 0,
@@ -66507,7 +66036,7 @@
             "positive_constructs": [],
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
-              "identity": "GRIXIS",
+              "identity": "B",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -66657,58 +66186,6 @@
             "independent_constructs": []
           },
           {
-            "identity": "GLINT",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "GLINT",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
-            "identity": "JUND",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "JUND",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
             "identity": "LOREHOLD",
             "score": 0,
             "positive_dependencies": 0,
@@ -66813,58 +66290,6 @@
             "independent_constructs": []
           },
           {
-            "identity": "R",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "R",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
-            "identity": "RG",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "RG",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
             "identity": "SULTAI",
             "score": 0,
             "positive_dependencies": 0,
@@ -66874,32 +66299,6 @@
             "satisfied_naming_rule_ids": [],
             "naming_qualification": {
               "identity": "SULTAI",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
-            "identity": "TEMUR",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "TEMUR",
               "qualified": false,
               "satisfied_naming_rule_ids": [],
               "requirements": {
@@ -67021,32 +66420,6 @@
             "independent_constructs": []
           },
           {
-            "identity": "WR",
-            "score": 0,
-            "positive_dependencies": 0,
-            "qualification_dependencies": 0,
-            "naming_dependencies": 0,
-            "positive_constructs": [],
-            "satisfied_naming_rule_ids": [],
-            "naming_qualification": {
-              "identity": "WR",
-              "qualified": false,
-              "satisfied_naming_rule_ids": [],
-              "requirements": {
-                "behaviorally_observable": true,
-                "approved_naming_rule": false,
-                "independent_positive_dependencies": false,
-                "independent_positive_constructs": false,
-                "no_disqualifying_contradiction": true
-              },
-              "minimum_positive_dependencies": 2,
-              "minimum_positive_constructs": 2,
-              "limitation": "Qualification authorizes responsible naming but does not add score or satisfy the primary separation threshold."
-            },
-            "contradiction_dependencies": 0,
-            "independent_constructs": []
-          },
-          {
             "identity": "WUBRG",
             "score": 0,
             "positive_dependencies": 0,
@@ -67101,91 +66474,28 @@
         ],
         "candidate_set": [
           "W",
-          "WU"
+          "WU",
+          "ESPER",
+          "JESKAI"
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "W",
-            "WU",
-            "U",
-            "UB"
+            "WU"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "U__UB",
-              "identities": [
-                "U",
-                "UB"
-              ],
-              "distinction": "U uses Initiative posture evidence; UB uses Resource visibility evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.initiative.v1",
-                "b1.gate.visibility.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.engine-shape.v1",
-                "b1.hall.interaction-window.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "U__W",
-              "identities": [
-                "U",
-                "W"
-              ],
-              "distinction": "U uses Initiative posture evidence; W uses Disruption response evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.initiative.v1",
-                "b1.gate.disruption.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.information-to-plan.v1",
-                "b1.hall.commitment.v1",
-                "b1.hall.engine-shape.v1",
-                "b1.hall.interaction-window.v1",
-                "b1.crucible.disruption-boundary.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "W__WU",
-              "identities": [
-                "W",
-                "WU"
-              ],
-              "distinction": "W uses Disruption response evidence; WU uses Mana commitment and interaction window evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.disruption.v1",
-                "b1.hall.interaction-window.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.hall.information-to-plan.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
-          "missing_constructs": [
-            "C01",
-            "C02",
-            "C03"
-          ],
-          "question_id": "b1.crucible.disruption-boundary.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "unresolved_boundaries": [],
+          "missing_constructs": [],
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "U",
-            "W"
+            "WU"
           ],
-          "target_pair_ids": [
-            "U__W",
-            "U__WU",
-            "U__UB"
-          ],
-          "distinction": "U uses Initiative posture evidence; W uses Disruption response evidence. No direct pair claim is made.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,
@@ -67202,33 +66512,44 @@
         "evidence_trail": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.unsure",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "construct": "C01",
-            "bounded_observation": "Reports insufficient experience for this construct.",
-            "signal": "SIG_C01_UNKNOWN",
+            "bounded_observation": "Prefers mixed development with bounded response.",
+            "signal": "SIG_C01_BALANCED",
             "dependency_group": "DG_C01",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [],
-            "positive_support": [],
+            "affected_identities": [
+              "JESKAI"
+            ],
+            "positive_support": [
+              "JESKAI"
+            ],
             "contradiction": [],
-            "neutral": true,
-            "mapping_strength": 0,
+            "neutral": false,
+            "mapping_strength": 0.5,
             "naming_evidence": false,
-            "qualification_eligible": false,
-            "qualification_support": [],
+            "qualification_eligible": true,
+            "qualification_support": [
+              "JESKAI"
+            ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
-            "mapping_role": "observation_only",
-            "mapping_status": "OBSERVATION_ONLY",
-            "mapping_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
+            "mapping_role": "completion_corroboration_direction",
+            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.balance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
+            "limitation": "Initiative posture may vary across calm, behind, and disrupted contexts; every C01 response shares DG_C01 and cannot stack.",
             "behavioral_vs_lens": "behavioral",
-            "answer_title": "I do not know yet",
+            "answer_title": "Advance with a safeguard",
             "prompt": "Your turn begins, no urgent threat needs an answer, and you have enough mana to act. What feels best?",
-            "observation": "Reports insufficient experience for this construct.",
-            "deltas": []
+            "observation": "Prefers mixed development with bounded response.",
+            "deltas": [
+              {
+                "faction": "JESKAI",
+                "delta": 0.5
+              }
+            ]
           },
           {
             "question_id": "b1.gate.visibility.v1",
@@ -67321,6 +66642,47 @@
             "deltas": []
           },
           {
+            "question_id": "b1.hall.interaction-window.v1",
+            "answer_id": "b1.hall.interaction-window.v1.before",
+            "stage": "hall",
+            "construct": "C08",
+            "bounded_observation": "Prefers early prevention before the decisive action becomes visible.",
+            "signal": "SIG_C08_EARLY_WINDOW",
+            "dependency_group": "DG_C08",
+            "evidence_class": "BEHAVIORAL_OBSERVATION",
+            "affected_identities": [
+              "WU"
+            ],
+            "positive_support": [
+              "WU"
+            ],
+            "contradiction": [],
+            "neutral": false,
+            "mapping_strength": 0.5,
+            "naming_evidence": false,
+            "qualification_eligible": true,
+            "qualification_support": [
+              "WU"
+            ],
+            "naming_support": [],
+            "naming_rule_ids_by_identity": {},
+            "mapping_role": "completion_corroboration_direction",
+            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.before;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
+            "limitation": "Early action may be forced by card timing rather than preferred information use.",
+            "behavioral_vs_lens": "behavioral",
+            "answer_title": "Before the turn develops",
+            "prompt": "An opponent begins a decisive turn, but you do not yet know which card matters most. When do you want your deck to use the card or mana it kept available?",
+            "observation": "Prefers early prevention before the decisive action becomes visible.",
+            "deltas": [
+              {
+                "faction": "WU",
+                "delta": 0.5
+              }
+            ]
+          },
+          {
             "question_id": "b1.hall.commitment.v1",
             "answer_id": "b1.hall.commitment.v1.procedure",
             "stage": "hall",
@@ -67379,98 +66741,43 @@
             ]
           },
           {
-            "question_id": "b1.hall.interaction-window.v1",
-            "answer_id": "b1.hall.interaction-window.v1.before",
-            "stage": "hall",
-            "construct": "C08",
-            "bounded_observation": "Prefers early prevention before the decisive action becomes visible.",
-            "signal": "SIG_C08_EARLY_WINDOW",
-            "dependency_group": "DG_C08",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [
-              "WU"
-            ],
-            "positive_support": [
-              "WU"
-            ],
-            "contradiction": [],
-            "neutral": false,
-            "mapping_strength": 0.5,
-            "naming_evidence": false,
-            "qualification_eligible": true,
-            "qualification_support": [
-              "WU"
-            ],
-            "naming_support": [],
-            "naming_rule_ids_by_identity": {},
-            "mapping_role": "completion_corroboration_direction",
-            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.before;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
-            "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
-            "limitation": "Early action may be forced by card timing rather than preferred information use.",
-            "behavioral_vs_lens": "behavioral",
-            "answer_title": "Before the turn develops",
-            "prompt": "An opponent begins a decisive turn, but you do not yet know which card matters most. When do you want your deck to use the card or mana it kept available?",
-            "observation": "Prefers early prevention before the decisive action becomes visible.",
-            "deltas": [
-              {
-                "faction": "WU",
-                "delta": 0.5
-              }
-            ]
-          },
-          {
             "question_id": "b1.hall.information-to-plan.v1",
-            "answer_id": "b1.hall.information-to-plan.v1.open",
+            "answer_id": "b1.hall.information-to-plan.v1.consolidate",
             "stage": "hall",
             "construct": "C16",
-            "bounded_observation": "Prefers to retain broad optionality after gaining information.",
-            "signal": "SIG_C16_OPTIONALITY",
+            "bounded_observation": "Prefers to consolidate new options into one planned route.",
+            "signal": "SIG_C16_CONSOLIDATE",
             "dependency_group": "DG_C16",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "positive_support": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "contradiction": [],
             "neutral": false,
-            "mapping_strength": 0.5,
+            "mapping_strength": 0.6,
             "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
             "mapping_role": "cross_identity_direction",
             "mapping_status": "MAPPING_HYPOTHESIS",
-            "mapping_provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md",
+            "mapping_provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; esper-yore-evidence-recovery.md",
             "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-PLAYER-VARIANCE;E-CECOS;E-VOICE",
             "limitation": "Observation wording and identity association require player validation; no weight is authorized.",
             "behavioral_vs_lens": "behavioral",
-            "answer_title": "Keep several routes open",
+            "answer_title": "Choose one route",
             "prompt": "A dangerous opposing play has been stopped, and you now have enough cards to choose among several workable plans. What do you most want to do next?",
-            "observation": "Prefers to retain broad optionality after gaining information.",
+            "observation": "Prefers to consolidate new options into one planned route.",
             "deltas": [
               {
-                "faction": "U",
-                "delta": 0.5
-              },
-              {
-                "faction": "UB",
-                "delta": 0.5
-              },
-              {
-                "faction": "WU",
-                "delta": 0.5
+                "faction": "ESPER",
+                "delta": 0.6
               }
             ]
           }
@@ -67478,28 +66785,34 @@
         "evidence_ledger": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.unsure",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "construct": "C01",
-            "bounded_observation": "Reports insufficient experience for this construct.",
-            "signal": "SIG_C01_UNKNOWN",
+            "bounded_observation": "Prefers mixed development with bounded response.",
+            "signal": "SIG_C01_BALANCED",
             "dependency_group": "DG_C01",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [],
-            "positive_support": [],
+            "affected_identities": [
+              "JESKAI"
+            ],
+            "positive_support": [
+              "JESKAI"
+            ],
             "contradiction": [],
-            "neutral": true,
-            "mapping_strength": 0,
+            "neutral": false,
+            "mapping_strength": 0.5,
             "naming_evidence": false,
-            "qualification_eligible": false,
-            "qualification_support": [],
+            "qualification_eligible": true,
+            "qualification_support": [
+              "JESKAI"
+            ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
-            "mapping_role": "observation_only",
-            "mapping_status": "OBSERVATION_ONLY",
-            "mapping_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
+            "mapping_role": "completion_corroboration_direction",
+            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.gate.initiative.v1.balance;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
             "evidence_provenance": "E-PLAYER-PACE;E-PLAYER-THREAT;E-CECOS;E-VOICE",
-            "limitation": "Evidence-bearing but non-directional; may justify another Hall item or a close, mixed, contradictory, or insufficient result and must not be averaged into support.",
+            "limitation": "Initiative posture may vary across calm, behind, and disrupted contexts; every C01 response shares DG_C01 and cannot stack.",
             "behavioral_vs_lens": "behavioral"
           },
           {
@@ -67581,6 +66894,38 @@
             "behavioral_vs_lens": "behavioral"
           },
           {
+            "question_id": "b1.hall.interaction-window.v1",
+            "answer_id": "b1.hall.interaction-window.v1.before",
+            "stage": "hall",
+            "construct": "C08",
+            "bounded_observation": "Prefers early prevention before the decisive action becomes visible.",
+            "signal": "SIG_C08_EARLY_WINDOW",
+            "dependency_group": "DG_C08",
+            "evidence_class": "BEHAVIORAL_OBSERVATION",
+            "affected_identities": [
+              "WU"
+            ],
+            "positive_support": [
+              "WU"
+            ],
+            "contradiction": [],
+            "neutral": false,
+            "mapping_strength": 0.5,
+            "naming_evidence": false,
+            "qualification_eligible": true,
+            "qualification_support": [
+              "WU"
+            ],
+            "naming_support": [],
+            "naming_rule_ids_by_identity": {},
+            "mapping_role": "completion_corroboration_direction",
+            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
+            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.before;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
+            "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
+            "limitation": "Early action may be forced by card timing rather than preferred information use.",
+            "behavioral_vs_lens": "behavioral"
+          },
+          {
             "question_id": "b1.hall.commitment.v1",
             "answer_id": "b1.hall.commitment.v1.procedure",
             "stage": "hall",
@@ -67626,71 +66971,33 @@
             "behavioral_vs_lens": "behavioral"
           },
           {
-            "question_id": "b1.hall.interaction-window.v1",
-            "answer_id": "b1.hall.interaction-window.v1.before",
-            "stage": "hall",
-            "construct": "C08",
-            "bounded_observation": "Prefers early prevention before the decisive action becomes visible.",
-            "signal": "SIG_C08_EARLY_WINDOW",
-            "dependency_group": "DG_C08",
-            "evidence_class": "BEHAVIORAL_OBSERVATION",
-            "affected_identities": [
-              "WU"
-            ],
-            "positive_support": [
-              "WU"
-            ],
-            "contradiction": [],
-            "neutral": false,
-            "mapping_strength": 0.5,
-            "naming_evidence": false,
-            "qualification_eligible": true,
-            "qualification_support": [
-              "WU"
-            ],
-            "naming_support": [],
-            "naming_rule_ids_by_identity": {},
-            "mapping_role": "completion_corroboration_direction",
-            "mapping_status": "REMEDIATION_MAPPING_HYPOTHESIS",
-            "mapping_provenance": "docs/plans/vm551-gate-b1-instrument-completion/instrument-change-adjudication.tsv#b1.hall.interaction-window.v1.before;docs/audits/vm555-b1-identity-evidence-gap-bridge/identity-evidence-gap-matrix.tsv",
-            "evidence_provenance": "E-VM555;E-CERTIFIED;E-CECOS;E-PLAYER-LANGUAGE",
-            "limitation": "Early action may be forced by card timing rather than preferred information use.",
-            "behavioral_vs_lens": "behavioral"
-          },
-          {
             "question_id": "b1.hall.information-to-plan.v1",
-            "answer_id": "b1.hall.information-to-plan.v1.open",
+            "answer_id": "b1.hall.information-to-plan.v1.consolidate",
             "stage": "hall",
             "construct": "C16",
-            "bounded_observation": "Prefers to retain broad optionality after gaining information.",
-            "signal": "SIG_C16_OPTIONALITY",
+            "bounded_observation": "Prefers to consolidate new options into one planned route.",
+            "signal": "SIG_C16_CONSOLIDATE",
             "dependency_group": "DG_C16",
             "evidence_class": "BEHAVIORAL_OBSERVATION",
             "affected_identities": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "positive_support": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "contradiction": [],
             "neutral": false,
-            "mapping_strength": 0.5,
+            "mapping_strength": 0.6,
             "naming_evidence": false,
             "qualification_eligible": true,
             "qualification_support": [
-              "U",
-              "UB",
-              "WU"
+              "ESPER"
             ],
             "naming_support": [],
             "naming_rule_ids_by_identity": {},
             "mapping_role": "cross_identity_direction",
             "mapping_status": "MAPPING_HYPOTHESIS",
-            "mapping_provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; final-b1-architecture-decision.md",
+            "mapping_provenance": "answer-semantic-adjudication.tsv C16 evidence-required hypothesis; esper-yore-evidence-recovery.md",
             "evidence_provenance": "E-CERTIFIED;E-PLAYER-PACE;E-PLAYER-THREAT;E-PLAYER-VARIANCE;E-CECOS;E-VOICE",
             "limitation": "Observation wording and identity association require player validation; no weight is authorized.",
             "behavioral_vs_lens": "behavioral"
@@ -67700,7 +67007,7 @@
         "stage_history": [
           {
             "question_id": "b1.gate.initiative.v1",
-            "answer_id": "b1.gate.initiative.v1.unsure",
+            "answer_id": "b1.gate.initiative.v1.balance",
             "stage": "gate",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
@@ -67723,20 +67030,20 @@
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
           {
-            "question_id": "b1.hall.commitment.v1",
-            "answer_id": "b1.hall.commitment.v1.procedure",
-            "stage": "hall",
-            "evidence_class": "BEHAVIORAL_OBSERVATION"
-          },
-          {
             "question_id": "b1.hall.interaction-window.v1",
             "answer_id": "b1.hall.interaction-window.v1.before",
             "stage": "hall",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           },
           {
+            "question_id": "b1.hall.commitment.v1",
+            "answer_id": "b1.hall.commitment.v1.procedure",
+            "stage": "hall",
+            "evidence_class": "BEHAVIORAL_OBSERVATION"
+          },
+          {
             "question_id": "b1.hall.information-to-plan.v1",
-            "answer_id": "b1.hall.information-to-plan.v1.open",
+            "answer_id": "b1.hall.information-to-plan.v1.consolidate",
             "stage": "hall",
             "evidence_class": "BEHAVIORAL_OBSERVATION"
           }
@@ -68924,133 +68231,24 @@
         ],
         "alternatives": [],
         "refinement": {
-          "kind": "ask_targeted_question",
-          "can_reduce_ambiguity": true,
+          "kind": "no_approved_discriminator",
+          "can_reduce_ambiguity": false,
           "remaining_candidates": [
-            "WUBRG",
-            "WG",
-            "BANT",
-            "LOREHOLD",
-            "TEMUR",
-            "YORE",
-            "GLINT"
+            "WUBRG"
           ],
-          "unresolved_boundaries": [
-            {
-              "pair_id": "BANT__GLINT",
-              "identities": [
-                "BANT",
-                "GLINT"
-              ],
-              "distinction": "BANT uses Commander reliance evidence; GLINT uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.commander-role.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.bant.v1",
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.hall.commitment.v1",
-                "b1.hall.setup.v1",
-                "b1.hall.interaction-window.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "BANT__TEMUR",
-              "identities": [
-                "BANT",
-                "TEMUR"
-              ],
-              "distinction": "BANT uses Commander reliance evidence; TEMUR uses Initiative posture evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.hall.commander-role.v1",
-                "b1.gate.initiative.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.bant.v1",
-                "b1.crucible.temur.v1",
-                "b1.hall.commitment.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "GLINT__TEMUR",
-              "identities": [
-                "GLINT",
-                "TEMUR"
-              ],
-              "distinction": "Direct scenario tests one bounded Commander behavior.",
-              "question_ids": [
-                "b1.crucible.temur.v1",
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.hall.interaction-window.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "GLINT__YORE",
-              "identities": [
-                "GLINT",
-                "YORE"
-              ],
-              "distinction": "Direct scenario tests one bounded Commander behavior.",
-              "question_ids": [
-                "b1.crucible.yore-glint.v1",
-                "b1.crucible.glint-dune.v1",
-                "b1.crucible.witch-yore.v1",
-                "b1.hall.setup.v1",
-                "b1.hall.interaction-window.v1",
-                "b1.hall.engine-shape.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            },
-            {
-              "pair_id": "TEMUR__WUBRG",
-              "identities": [
-                "TEMUR",
-                "WUBRG"
-              ],
-              "distinction": "TEMUR uses Initiative posture evidence; WUBRG uses Deck breadth and constraint evidence. No direct pair claim is made.",
-              "question_ids": [
-                "b1.gate.initiative.v1",
-                "b1.hall.breadth.v1",
-                "b1.crucible.mono-multi.v1",
-                "b1.crucible.temur.v1",
-                "b1.crucible.colorless-wubrg.v1",
-                "b1.hall.commitment.v1",
-                "b1.hall.engine-shape.v1",
-                "b1.hall.setup.v1"
-              ],
-              "coverage_status": "DIRECT-OR-STRUCTURAL-MAPPING-HYPOTHESIS; bounded player validation required"
-            }
-          ],
+          "unresolved_boundaries": [],
           "missing_constructs": [
-            "C01",
-            "C03",
-            "C05",
-            "C07",
             "C09"
           ],
-          "question_id": "b1.crucible.bant.v1",
-          "question_stage": "crucible",
-          "purpose": "separate_supported_pair",
+          "question_id": null,
+          "purpose": "no_approved_discriminator",
           "target_identities": [
-            "WUBRG",
-            "BANT"
+            "WUBRG"
           ],
-          "target_pair_ids": [
-            "BANT__WUBRG",
-            "BANT__WG",
-            "BANT__LOREHOLD",
-            "BANT__TEMUR",
-            "BANT__YORE",
-            "BANT__GLINT"
-          ],
-          "distinction": "One question about commander reliance can separate the remaining supported directions.",
+          "target_pair_ids": [],
+          "distinction": "",
           "revisit": null,
-          "limitation": "This optional refinement asks one unused approved discriminator, then immediately returns to the result. It does not extend the eight-question main journey."
+          "limitation": "The approved instrument cannot responsibly distinguish the remaining candidates with another available observation."
         },
         "stopping": {
           "stop": true,

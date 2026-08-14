@@ -49,16 +49,6 @@ function hasDirections(result, expected) {
   return expected.every((identity) => actual.has(identity));
 }
 
-function answerBranches(state, questionId) {
-  const question = [...MODEL.question_bank.gate, ...MODEL.question_bank.hall, ...MODEL.question_bank.crucible, ...(MODEL.question_bank.lens || [])]
-    .find((entry) => entry.id === questionId);
-  if (!question) return [];
-  return question.answers.map((answer, answerIndex) => ({
-    answer,
-    state: observe({ state, model: MODEL, question, answer, answerIndex }),
-  }));
-}
-
 const seed = 5083;
 const main = runMain(seed);
 const initial = resultFor(main.state);
@@ -67,11 +57,11 @@ const refinement = getRefinementPath(main.state, MODEL);
 if (initial.result_state !== "mixed" || !hasDirections(initial, ["W", "RG", "JUND"])) {
   throw new Error("The frozen Jund witness no longer reproduces the White / Gruul / Jund mixed reading.");
 }
-if (refinement.kind !== "ask_targeted_question" || refinement.question_stage.toLowerCase() !== "crucible") {
-  throw new Error(`The Jund mixed reading did not select one approved targeted discriminator: ${JSON.stringify(refinement)}`);
+if (refinement.kind !== "no_approved_discriminator") {
+  throw new Error(`The frozen Jund reading exposed an unsafe or misleading refinement: ${JSON.stringify(refinement)}`);
 }
-if (refinement.purpose !== "refine_supported_directions") {
-  throw new Error(`Unexpected Jund refinement purpose: ${refinement.purpose || "missing"}`);
+if (!hasDirections(initial, refinement.remaining_candidates || [])) {
+  throw new Error(`The bounded Jund refinement frontier drifted outside its displayed directions: ${JSON.stringify(refinement)}`);
 }
 
 console.log(JSON.stringify({
@@ -86,15 +76,7 @@ console.log(JSON.stringify({
   },
   refinement: {
     ...refinement,
-    available_answers: answerBranches(main.state, refinement.question_id).map(({ answer, state }) => {
-      const nextResult = resultFor(state);
-      return {
-        answer_id: answer.id,
-        result_state: nextResult.result_state,
-        directions: publicKeys(nextResult),
-        faction: nextResult.faction || null,
-      };
-    }),
+    available_answers: [],
   },
   superseded_behavior: {
     first_generic_hall_question: "b1.hall.sacrifice.v1",

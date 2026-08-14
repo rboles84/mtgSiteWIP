@@ -3,7 +3,14 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
-import { finalizeReading, replaySelections, runJourney } from "../assets/js/gate-b1-placement-engine.js";
+import {
+  finalizeReading,
+  getRefinementPath,
+  observe,
+  replaySelections,
+  runJourney,
+} from "../assets/js/gate-b1-placement-engine.js";
+import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
 
 const root = process.cwd();
 const check = process.argv.includes("--check");
@@ -32,6 +39,8 @@ function compactCase(row) {
     evidence_ledger_sha256: ledgerHash(row.result),
     witness_authority: row.witness_authority,
     seed: row.seed || null,
+    preload_saved_result: row.preload_saved_result === true,
+    verify_return_to_previous_reading: row.verify_return_to_previous_reading === true,
   };
 }
 
@@ -100,17 +109,90 @@ const jundMixed = {
   witness_authority: "Frozen owner Jund evidence ledger vm551-gate-b1-placement-engine-v1-quick-jund-4.",
 };
 
+const frozenGreenWitherbloomSelections = [
+  ["b1.gate.initiative.v1", "b1.gate.initiative.v1.advance"],
+  ["b1.gate.visibility.v1", "b1.gate.visibility.v1.board"],
+  ["b1.gate.disruption.v1", "b1.gate.disruption.v1.recover"],
+  ["b1.gate.tempo.v1", "b1.gate.tempo.v1.depends"],
+  ["b1.hall.pressure.v1", "b1.hall.pressure.v1.abundance"],
+  ["b1.hall.setup.v1", "b1.hall.setup.v1.staged"],
+  ["b1.hall.commitment.v1", "b1.hall.commitment.v1.reopen"],
+  ["b1.crucible.disruption-boundary.v1", "b1.crucible.disruption-boundary.v1.adapt"],
+  ["b1.crucible.ug.v1", "b1.crucible.ug.v1.neither"],
+  ["b1.crucible.bg.v1", "b1.crucible.bg.v1.exchange"],
+];
+const frozenGreenWitherbloomState = replaySelections(model, frozenGreenWitherbloomSelections.map(([question_id, answer_id]) => ({ question_id, answer_id })));
+const frozenGreenWitherbloomResult = withGateAPublicState({
+  result: finalizeReading({ state: frozenGreenWitherbloomState, model, factions }),
+  placementModel: model,
+  factions,
+});
+assert.equal(frozenGreenWitherbloomResult.result_state, "tied");
+assert.deepEqual(frozenGreenWitherbloomResult.top_matches.map((match) => match.faction), ["G", "WITHERBLOOM"]);
+assert.equal(getRefinementPath(frozenGreenWitherbloomState, model).kind, "no_approved_discriminator");
+const greenWitherbloomTied = {
+  case_id: "green-witherbloom-tied",
+  review_label: "Preserved Green / Witherbloom tied reading",
+  identity_key: "G",
+  identity_name: "Green",
+  expected_public_contract: "NAMED_DOSSIER",
+  expected_state: "tied",
+  result_faction: "G",
+  selections: frozenGreenWitherbloomSelections.map(([question_id, answer_id]) => ({ question_id, answer_id })),
+  result: frozenGreenWitherbloomResult,
+  focus_identity_keys: ["G", "WITHERBLOOM"],
+  preload_saved_result: true,
+  witness_authority: "Preserved real owner evidence ledger from the accepted pre-remediation session; render-only regression, not current routing reachability proof.",
+};
+
+const boundedYore = byIdentity.get("YORE");
+const boundedYoreState = replaySelections(model, boundedYore.selections);
+const boundedYoreRefinement = getRefinementPath(boundedYoreState, model);
+assert.equal(boundedYoreRefinement.kind, "ask_targeted_question");
+const boundedYoreQuestion = Object.values(model.question_bank).flatMap((rows) => Array.isArray(rows) ? rows : [])
+  .find((question) => question.id === boundedYoreRefinement.question_id);
+const boundedYoreAnswerIndex = boundedYoreQuestion.answers.findIndex((answer) => answer.id.endsWith(".neither"));
+assert.ok(boundedYoreAnswerIndex >= 0);
+const boundedYoreRefinedState = observe({
+  state: boundedYoreState,
+  model,
+  question: boundedYoreQuestion,
+  answer: boundedYoreQuestion.answers[boundedYoreAnswerIndex],
+  answerIndex: boundedYoreAnswerIndex,
+});
+const boundedYoreRefinedResult = withGateAPublicState({
+  result: finalizeReading({ state: boundedYoreRefinedState, model, factions }),
+  placementModel: model,
+  factions,
+});
+const reversibleRefinement = {
+  ...boundedYore,
+  case_id: "reversible-refinement",
+  review_label: "One-step bounded refinement return",
+  selections: [
+    ...boundedYore.selections,
+    { question_id: boundedYoreQuestion.id, answer_id: boundedYoreQuestion.answers[boundedYoreAnswerIndex].id, refinement: true },
+  ],
+  result: boundedYoreRefinedResult,
+  expected_state: boundedYoreRefinedResult.result_state,
+  verify_return_to_previous_reading: true,
+  witness_authority: "Certified current-engine Yore bounded witness plus one approved optional targeted observation.",
+};
+
 const cleanPrimary = witnesses.find((row) => row.expected_state === "primary" && row.expected_public_contract === "NAMED_DOSSIER");
 const closeOrTied = witnesses.find((row) => ["close", "tied"].includes(row.expected_state)) || generatedStateCase("tied", "close-or-tied", "Qualified co-leader reading");
 const featured = [
   { ...cleanPrimary, case_id: "clean-primary", review_label: `Clean primary: ${cleanPrimary.identity_name}` },
   { ...closeOrTied, case_id: "close-or-tied", review_label: `Close/co-leader: ${closeOrTied.identity_name}`, focus_identity_keys: (closeOrTied.result?.top_matches || []).map((match) => match.faction).filter(Boolean) },
   jundMixed,
+  greenWitherbloomTied,
+  { ...byIdentity.get("WITHERBLOOM"), case_id: "witherbloom", review_label: "Witherbloom named dossier" },
   generatedStateCase("insufficient", "insufficient", "Insufficient reading with recovery"),
   generatedStateCase("contradictory", "conflicting", "Conflicting reading with recovery"),
   { ...byIdentity.get("YORE"), case_id: "bounded-yore", review_label: "Yore intentional bounded reading" },
   { ...byIdentity.get("COLORLESS"), case_id: "colorless", review_label: "Colorless named dossier" },
   { ...byIdentity.get("WUBRG"), case_id: "wubrg", review_label: "Five-Color named dossier" },
+  reversibleRefinement,
 ];
 
 assert.equal(identityCases.length, 37);

@@ -87,3 +87,14 @@ Owner testing superseded the prior local certification after reproducing systemi
 ## Boundaries
 
 Preserve placement scoring, ranking, naming qualification, public result-state semantics, the six-to-eight-question journey, Yore's intentional behavioral boundary, persistence/schema compatibility, Gate A result shapes, Matrix calculations, and certified identity truth. Do not push, merge, deploy, migrate, or begin empirical player validation.
+
+## Targeted Owner-Test Remediation
+
+- Refinement is monotonic over the identities already displayed in the current result. Every eligible unused targeted question is simulated across all of its answers; a question is excluded if any answer introduces a public identity, broadens the public frontier, or worsens the result state.
+- Each refinement action asks exactly one question and immediately returns to the recalculated reading. The existing state machinery retains exactly one prior result/evidence ledger and exposes `Return to previous reading`; returning consumes that snapshot rather than creating an undo history.
+- The preserved Green/Witherbloom owner ledger now reports no approved discriminator instead of offering the broad mono/multicolor question. The frozen Jund mixed ledger is governed by the same safety rule and exposes no no-op loop.
+- `Death Begets Life` remains in the voice audit as `REJECTED` and cannot render publicly. Witherbloom now uses the exact Strixhaven: School of Mages Witherbloom Campus collector 423 printing (`e5af06c8-86ab-4731-aa4a-2eec2c664488`) through the exact-printing authority pipeline.
+- Player-mode composition removes only the observed implementation/provenance language and contextual `source-bound` phrasing. Ordinary uncertainty and boundary vocabulary remains available when it is useful to the player.
+- The refreshed current-engine replay passes all 37 identities at desktop, intermediate, and mobile. Certification remains 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL`; the engine retains 36 responsible named primaries and intentionally bounded Yore.
+- Four deterministic owner cases are ready: `wubrg`, `green-witherbloom-tied`, `jund-mixed`, and `witherbloom`. The Green/Witherbloom case replays the preserved real owner evidence ledger as a cached-result regression; it is not represented as proof that current routing recreates that historical session.
+- Status: targeted remediation and local recertification are complete; awaiting the four-case owner visual acceptance before VM-551 closeout.

@@ -194,6 +194,10 @@ const SYSTEM_COPY_REPLACEMENTS = [
     pattern: /Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims\./g,
     replacement: "Keeps five-color breadth focused by making every color and every included tool contribute to the plan.",
   },
+  {
+    pattern: /Vox Mana Five-Color expression for all five colors present, coalition, synthesis, and strict separation from official-faction, goodstuff-only, Colorless, and four-color leakage/g,
+    replacement: "The Five-Color expression: all five colors present, coalition and synthesis, with each color contributing to the whole plan",
+  },
   { pattern: /\u00e2\u20ac\u201d/g, replacement: "-" },
   { pattern: /\u00e2\u20ac\u0153|\u00e2\u20ac\u009d/g, replacement: '"' },
   { pattern: /\u00e2\u20ac\u2122/g, replacement: "'" },
@@ -381,6 +385,7 @@ async function loadDiscoveryData() {
     archscryFlavorSnippets,
     cardRationaleCatalog,
     cardVoiceCatalog,
+    cardVoicePrintings,
     preconCatalog,
     preconThemeTaxonomy,
     commanderProviderValidation,
@@ -393,6 +398,7 @@ async function loadDiscoveryData() {
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
     loadOptionalJson(resolveDataUrl("dossier/card-rationale-catalog.json"), "card rationale catalog"),
     loadOptionalJson(resolveDataUrl("dossier/card-voice-catalog.json"), "card voice catalog"),
+    loadOptionalJson(resolveDataUrl("dossier/card-voice-printings.source.json"), "exact card voice printings"),
     loadOptionalJson(resolveDataUrl("precons/vox-mana-precon-catalog.json"), "precon catalog"),
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-precon-themes.json"), "precon theme taxonomy"),
     loadOptionalJson(resolveDataUrl("placement/commander-provider-validation.json"), "commander provider validation"),
@@ -422,6 +428,17 @@ async function loadDiscoveryData() {
     commanderIndex,
     colorThemeIndex,
     mechanicThemeIndex,
+    (cardVoicePrintings?.records || []).map((record) => ({
+      name: record.canonical_card_name,
+      oracle_id: record.oracle_id,
+      id: record.scryfall_id,
+      scryfall_id: record.scryfall_id,
+      set: record.set,
+      collector_number: record.collector_number,
+      flavor_text: record.exact_flavor_text,
+      image_uris: record.image_uris,
+      scryfall_uri: record.scryfall_uri,
+    })),
   ]);
 }
 

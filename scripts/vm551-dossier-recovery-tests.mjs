@@ -156,9 +156,9 @@ assert.deepEqual(jundWitness.result.top_matches.map((match) => match.faction), [
 assert.equal(jundWitness.result.refinement.kind, "no_approved_discriminator");
 assert.equal(jundWitness.result.refinement.can_reduce_ambiguity, false);
 
-const greenWitnessArtifact = JSON.parse(fs.readFileSync(new URL("../docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json", import.meta.url), "utf8"));
-const greenWitness = greenWitnessArtifact.rows.find((row) => row.identity_key === "G");
-assert.ok(greenWitness, "certified Green witness is missing");
+const visualReviewManifest = JSON.parse(fs.readFileSync(new URL("../docs/audits/vm551-all-37-dossier-closeout/visual-review-manifest.json", import.meta.url), "utf8"));
+const greenWitness = visualReviewManifest.cases.find((row) => row.case_id === "green-witherbloom-tied");
+assert.ok(greenWitness?.preload_saved_result, "preserved Green/Witherbloom owner ledger is missing from the review manifest");
 const greenState = replaySelections(model, greenWitness.selections.map((selection) => ({
   question_id: selection.question_id,
   answer_id: selection.answer_id,

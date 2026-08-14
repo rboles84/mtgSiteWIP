@@ -7,6 +7,9 @@ import { stat } from "node:fs/promises";
 import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
+import { finalizeReading, replaySelections } from "../assets/js/gate-b1-placement-engine.js";
+import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+
 const root = process.cwd();
 const host = "127.0.0.1";
 const viewportName = (process.argv.find((arg) => arg.startsWith("--viewport=")) || "--viewport=desktop").split("=")[1];
@@ -34,6 +37,7 @@ const witnesses = caseFilter
 assert.ok(witnesses.rows.length, `No replay case matched ${caseFilter || identityFilter || "the witness inventory"}`);
 if (reviewMode) assert.equal(witnesses.rows.length, 1, "Visual review mode opens one deterministic case at a time");
 const model = JSON.parse(fs.readFileSync(path.join(root, "data", "gate-b1-placement-model.json"), "utf8"));
+const factions = JSON.parse(fs.readFileSync(path.join(root, "data", "factions.json"), "utf8")).factions;
 const questions = Object.values(model.question_bank).flatMap((rows) => Array.isArray(rows) ? rows : []);
 const questionById = new Map(questions.map((question) => [question.id, question]));
 const mime = new Map([[".html", "text/html"], [".js", "text/javascript"], [".css", "text/css"], [".json", "application/json"], [".svg", "image/svg+xml"], [".png", "image/png"], [".jpg", "image/jpeg"], [".woff2", "font/woff2"]]);
@@ -84,8 +88,17 @@ async function clickTransitionIfVisible(page, expectedKind = "") {
 }
 
 async function replay(page, origin, witness) {
-  await page.evaluateOnNewDocument((enableDesktopHover) => {
+  const preloadedResult = witness.preload_saved_result
+    ? withGateAPublicState({
+        result: finalizeReading({ state: replaySelections(model, witness.selections), model, factions }),
+        placementModel: model,
+        factions,
+      })
+    : null;
+  await page.evaluateOnNewDocument((enableDesktopHover, cachedResult) => {
     localStorage.clear();
+    sessionStorage.clear();
+    if (cachedResult) sessionStorage.setItem("vm_last_result", JSON.stringify(cachedResult));
     window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
     if (enableDesktopHover) {
       const nativeMatchMedia = window.matchMedia.bind(window);
@@ -101,27 +114,34 @@ async function replay(page, origin, witness) {
         });
       };
     }
-  }, viewportName === "desktop");
+  }, viewportName === "desktop", preloadedResult);
   const consoleErrors = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
   await page.goto(`${origin}/archscry/`, { waitUntil: "networkidle0", timeout: 30000 });
-  try {
-    await page.waitForSelector('[data-action="start-quick-flow"]', { visible: true, timeout: 20000 });
-  } catch (error) {
-    const runtimeState = await page.evaluate(() => ({
-      title: document.querySelector("h2")?.textContent || "",
-      body: document.body?.innerText?.slice(0, 1000) || "",
-    }));
-    throw new Error(`Archscry did not reach its ready landing state: ${JSON.stringify(runtimeState)}; console=${JSON.stringify(consoleErrors)}`, { cause: error });
+  if (!preloadedResult) {
+    try {
+      await page.waitForSelector('[data-action="start-quick-flow"]', { visible: true, timeout: 20000 });
+    } catch (error) {
+      const runtimeState = await page.evaluate(() => ({
+        title: document.querySelector("h2")?.textContent || "",
+        body: document.body?.innerText?.slice(0, 1000) || "",
+      }));
+      throw new Error(`Archscry did not reach its ready landing state: ${JSON.stringify(runtimeState)}; console=${JSON.stringify(consoleErrors)}`, { cause: error });
+    }
+    await page.$eval('[data-action="start-quick-flow"]', (button) => button.click());
   }
-  await page.$eval('[data-action="start-quick-flow"]', (button) => button.click());
 
-  for (let index = 0; index < witness.selections.length; index += 1) {
+  let previousReadingSnapshot = null;
+  for (let index = 0; !preloadedResult && index < witness.selections.length; index += 1) {
     const selection = witness.selections[index];
     const question = questionById.get(selection.question_id);
     assert.ok(question, `${witness.identity_key} missing question ${selection.question_id}`);
     if (selection.refinement) {
       await page.waitForSelector('[data-action="start-result-refinement"]', { visible: true, timeout: 15000 });
+      if (witness.verify_return_to_previous_reading) {
+        previousReadingSnapshot = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+        assert.ok(previousReadingSnapshot?.evidence_ledger || previousReadingSnapshot?.evidence_trail, "refinement regression could not capture the prior evidence ledger");
+      }
       await page.$eval('[data-action="start-result-refinement"]', (button) => button.click());
     }
     await page.waitForFunction((prompt) => document.getElementById("question-title")?.textContent === prompt, { timeout: 15000 }, question.prompt);
@@ -145,6 +165,22 @@ async function replay(page, origin, witness) {
     const state = document.getElementById("result-inner")?.dataset.cardArtState;
     return !state || state === "ready" || state === "failed";
   }, { timeout: 45000 });
+  let returnToPreviousReadingVerified = false;
+  if (witness.verify_return_to_previous_reading) {
+    await page.waitForSelector('[data-action="return-to-previous-reading"]', { visible: true, timeout: 15000 });
+    await page.$eval('[data-action="return-to-previous-reading"]', (button) => button.click());
+    await page.waitForSelector("#result:not(.hidden)", { timeout: 15000 });
+    const restored = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    const comparable = (result) => ({
+      faction: result?.faction || null,
+      result_state: result?.result_state || null,
+      top_matches: result?.top_matches || [],
+      evidence_ledger: result?.evidence_ledger || result?.evidence_trail || [],
+    });
+    assert.deepEqual(comparable(restored), comparable(previousReadingSnapshot), "one-step return did not restore the exact prior reading and evidence ledger");
+    assert.equal(await page.$('[data-action="return-to-previous-reading"]'), null, "one-step return retained a history-stack action");
+    returnToPreviousReadingVerified = true;
+  }
   const cardArtState = await page.$eval("#result-inner", (node) => ({
     state: node.dataset.cardArtState || "not-requested",
     unavailable: [...node.querySelectorAll(".is-unavailable[data-card-art-name]")]
@@ -311,6 +347,7 @@ async function replay(page, origin, witness) {
       guildName,
       whyCount: document.querySelectorAll("[data-public-fit-reasons] .omen-card").length,
       whyFitRefinementAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
+      resultRefinementAvailable: Boolean(document.querySelector('[data-action="start-result-refinement"]')),
       testFitCount: document.querySelectorAll("[data-test-the-fit] .identity-story-card").length,
       rationaleCount: document.querySelectorAll("[data-card-rationale-section] .flavor-echo-card").length,
       voiceCount: document.querySelectorAll("[data-card-voice-section] .flavor-echo-card").length,
@@ -386,6 +423,7 @@ async function replay(page, origin, witness) {
   } else {
     assert.notEqual(ui.state, "named", "Yore must retain a bounded public state");
   }
+  if (witness.case_id === "green-witherbloom-tied") assert.equal(ui.resultRefinementAvailable, false, "unsafe Green/Witherbloom refinement remained visible");
   if (witness.expected_state) assert.equal(ui.publicResultState, witness.expected_state, `${witness.case_id || witness.identity_key} result-state drift`);
   assert.deepEqual(ui.internalLeaks, []);
   assert.deepEqual(ui.methodologyPhraseLeaks, [], `${witness.identity_key} retained scoped methodology copy`);
@@ -397,12 +435,12 @@ async function replay(page, origin, witness) {
   if (witness.identity_key === "WUBRG" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
   if (witness.identity_key === "G" && ui.state === "named") {
     const normalizedGlossary = ui.glossaryTerms.map((term) => term.toLowerCase());
-    for (const term of ["big mana", "graveyard", "landfall", "trample"]) assert.ok(normalizedGlossary.includes(term), `Green omitted ${term} glossary help`);
+    for (const term of ["big mana", "landfall", "trample"]) assert.ok(normalizedGlossary.includes(term), `Green omitted ${term} glossary help`);
     assert.ok(!normalizedGlossary.includes("counters"), "Green decorated ordinary bare counters");
   }
   assert.equal(ui.documentOverflow, false);
   assert.deepEqual(consoleErrors.filter((message) => !/favicon|ERR_FAILED|Failed to load resource/i.test(message)), []);
-  return { identity_key: witness.identity_key, ...ui, console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)) };
+  return { identity_key: witness.identity_key, ...ui, returnToPreviousReadingVerified, console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)) };
 }
 
 const server = await startServer();

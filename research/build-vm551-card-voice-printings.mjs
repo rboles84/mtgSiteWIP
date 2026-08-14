@@ -78,6 +78,12 @@ for (const relationship of current.records) {
     flavor_text_field: flavor.source,
     scryfall_uri: printing.scryfall_uri,
     source_locator: `https://api.scryfall.com/cards/${printing.id}#${flavor.source}`,
+    ...(override?.identity_key === "WITHERBLOOM" ? {
+      image_uris: {
+        normal: printing.image_uris?.normal || "",
+        art_crop: printing.image_uris?.art_crop || "",
+      },
+    } : {}),
     ...(override?.identity_key === "WUBRG" ? {
       relationship_override: {
         relationship_class: "CERTIFIED_SEMANTIC_ECHO",

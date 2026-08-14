@@ -23,6 +23,7 @@ const commanderDossierSource = await readFile(new URL("../assets/js/commander-do
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const preconSourceText = await readFile(new URL("../data/precons/vox-mana-precons.source.json", import.meta.url), "utf8");
 const factionsSourceText = await readFile(new URL("../data/factions.json", import.meta.url), "utf8");
+const cardVoicePrintings = await readJson("../data/dossier/card-voice-printings.source.json");
 
 const INTERNAL_TOKEN_RE = /\b(?:SIG_[A-Z0-9_]+|DG_[A-Z0-9_]+|MAPPING_[A-Z0-9_]+|b1\.[a-z0-9_.-]+|naming qualification|mapping hypothesis|bounded observation|question_id|answer_id)\b/i;
 const INTERNAL_GUIDANCE_RE = /\b(?:source-backed|public-surface|guardrail|evidence-required|boundary-only|routing|taxonomy|support lane)\b/i;
@@ -182,6 +183,10 @@ assert.equal(validateDossierContentCatalogs({ ...dossierCatalogFixture, publicCo
 assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 original gap proposals, and the approved Colorless collision-repair rationale");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
 assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
+const witherbloomPrinting = cardVoicePrintings.records.find((record) => record.identity_key === "WITHERBLOOM");
+assert.equal(witherbloomPrinting?.scryfall_id, "e5af06c8-86ab-4731-aa4a-2eec2c664488");
+assert.match(witherbloomPrinting?.image_uris?.normal || "", /e5af06c8-86ab-4731-aa4a-2eec2c664488/);
+assert.match(indexSource, /dossier\/card-voice-printings\.source\.json/, "runtime must consume the exact-printing card voice authority");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");
 const isperiaRationale = approvedCardRationaleForFaction(isperia, factions.WU, cardRationaleCatalog);
