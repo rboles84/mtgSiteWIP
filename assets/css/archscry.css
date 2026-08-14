@@ -3669,12 +3669,30 @@ body.vm-archscry-route .flavor-echo-card{
   color:inherit;
   font:inherit;
   text-align:left;
-  cursor:pointer;
+  cursor:default;
 }
 
-body.vm-archscry-route .flavor-echo-card:focus-visible{
+body.vm-archscry-route .flavor-echo-image-trigger:focus-visible,
+body.vm-archscry-route .flavor-echo-action:focus-visible{
   outline:2px solid rgba(240,197,106,0.9);
   outline-offset:3px;
+}
+
+body.vm-archscry-route .flavor-echo-image-trigger{
+  width:118px;
+  align-self:start;
+}
+
+body.vm-archscry-route .flavor-echo-action{
+  width:max-content;
+  margin-top:auto;
+  padding:0;
+  border:0;
+  border-bottom:1px solid rgba(236,217,153,0.42);
+  background:none;
+  color:var(--gold);
+  font:inherit;
+  cursor:pointer;
 }
 
 body.vm-archscry-route .precon-commander-trigger{

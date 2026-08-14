@@ -3080,15 +3080,17 @@ export function buildCardVoicesHtml(voices = []) {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
           const actionAttrs = buildActionAttrs("open-card-detail", { cardName: card.name });
           return `
-            <button class="flavor-echo-card vm-card-voice-card" type="button" data-card-preview-name="${escapeAttributeValue(card.name)}" data-card-voice-provenance="${escapeAttributeValue(JSON.stringify(record.provenance || {}))}" ${actionAttrs}>
-              ${image ? `<img class="vm-card-voice-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+            <article class="flavor-echo-card vm-card-voice-card" data-card-preview-image-only data-card-voice-provenance="${escapeAttributeValue(JSON.stringify(record.provenance || {}))}">
+              <button class="card-detail-image-trigger flavor-echo-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.name)} card details" data-card-preview-name="${escapeAttributeValue(card.name)}" ${actionAttrs}>
+                ${image ? `<img class="vm-card-voice-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+              </button>
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
                 <span class="flavor-echo-kicker">Exact card voice</span>
                 <span class="flavor-echo-why">“${escapeHtml(record.excerpt)}”</span>
-                <span class="flavor-echo-action">View card details</span>
+                <button class="flavor-echo-action" type="button" ${actionAttrs}>View card details</button>
               </span>
-            </button>`;
+            </article>`;
         }).join("")}
       </div>
     </div>`;
@@ -3131,16 +3133,18 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
             cardTags: rationale.tags.join("|"),
           });
           return `
-            <button class="flavor-echo-card" type="button" data-card-preview-name="${escapeAttributeValue(card.name)}" data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationale.provenance))}" ${actionAttrs}>
-              ${image ? `<img class="vm-card-rationale-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+            <article class="flavor-echo-card" data-card-preview-image-only data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationale.provenance))}">
+              <button class="card-detail-image-trigger flavor-echo-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.name)} card details" data-card-preview-name="${escapeAttributeValue(card.name)}" ${actionAttrs}>
+                ${image ? `<img class="vm-card-rationale-image" src="${escapeHtml(image)}" alt="${escapeAttributeValue(`${card.name} card art`)}" loading="lazy">` : `<span class="flavor-echo-image-fallback" aria-label="Card image unavailable">Image unavailable</span>`}
+              </button>
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
                 <span class="flavor-echo-kicker">Why it fits in play</span>
                 <span class="flavor-echo-why">${escapeHtml(rationale.text)}</span>
                 ${rationale.tags.length ? `<span class="vm-tag-row">${renderStaticTagChips(rationale.tags, 3)}</span>` : ""}
-                <span class="flavor-echo-action">View card details</span>
+                <button class="flavor-echo-action" type="button" ${actionAttrs}>View card details</button>
               </span>
-            </button>`;
+            </article>`;
         }).join("")}
       </div>
     </div>`;
@@ -3966,7 +3970,15 @@ function renderResult(viewKey) {
   void refreshAccountDeckLinks();
   initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
-    loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets);
+    const resultInner = document.getElementById("result-inner");
+    if (resultInner) resultInner.dataset.cardArtState = "loading";
+    void loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets)
+      .then(() => {
+        if (resultInner?.isConnected) resultInner.dataset.cardArtState = "ready";
+      })
+      .catch(() => {
+        if (resultInner?.isConnected) resultInner.dataset.cardArtState = "failed";
+      });
   }
 }
 
@@ -4069,6 +4081,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
     if (!slot) {
       continue;
     }
+    slot.dataset.cardArtName = card.displayName || card.name || "";
 
     if (card.matrixCardVoice && card.resolvedLocally) {
       continue;
@@ -4317,6 +4330,18 @@ function cardPreviewTriggerFromEvent(event) {
       image: target,
       boundary: namedBoundary || imageLink || target,
       cardName: namedBoundary?.dataset.cardPreviewName || "",
+    };
+  }
+
+  const imageOnlyCard = target.closest("[data-card-preview-image-only]");
+  if (imageOnlyCard instanceof HTMLElement) {
+    const imageTrigger = target.closest(".flavor-echo-image-trigger[data-card-preview-name]");
+    if (!(imageTrigger instanceof HTMLElement)) return null;
+    const image = imageTrigger.querySelector(CARD_PREVIEW_IMAGE_SELECTOR);
+    return {
+      image: image instanceof HTMLImageElement ? image : null,
+      boundary: imageTrigger,
+      cardName: imageTrigger.dataset.cardPreviewName || "",
     };
   }
 

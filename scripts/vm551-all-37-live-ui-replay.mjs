@@ -141,13 +141,25 @@ async function replay(page, origin, witness) {
   }
   await clickTransitionIfVisible(page, "reading");
   await page.waitForSelector("#result:not(.hidden)", { timeout: 20000 });
+  await page.waitForFunction(() => {
+    const state = document.getElementById("result-inner")?.dataset.cardArtState;
+    return !state || state === "ready" || state === "failed";
+  }, { timeout: 45000 });
+  const cardArtState = await page.$eval("#result-inner", (node) => ({
+    state: node.dataset.cardArtState || "not-requested",
+    unavailable: [...node.querySelectorAll(".is-unavailable[data-card-art-name]")]
+      .map((slot) => slot.getAttribute("data-card-art-name"))
+      .filter(Boolean),
+  }));
   if (witness.expected_public_contract === "NAMED_DOSSIER") {
+    assert.equal(cardArtState.state, "ready", `${witness.identity_key} card-art resolver did not complete`);
+    if (reviewMode) assert.deepEqual(cardArtState.unavailable, [], `${witness.identity_key} review card art unresolved`);
     const whyTab = await page.$('[data-dossier-tab="why"]');
     if (whyTab) {
       await whyTab.evaluate((button) => button.click());
       await page.waitForFunction(() => document.querySelector('[data-dossier-panel="why"]')?.hidden === false);
     }
-    const rationaleTrigger = await page.$('[data-card-rationale-section] [data-action="open-card-detail"]');
+    const rationaleTrigger = await page.$('[data-card-rationale-section] .flavor-echo-image-trigger');
     assert.ok(rationaleTrigger, `${witness.identity_key} has no rationale-card detail trigger`);
     const rationalePanel = await rationaleTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
     if (rationalePanel) {
@@ -187,12 +199,12 @@ async function replay(page, origin, witness) {
         await delay(50);
         await page.mouse.move(pointerTarget.x, pointerTarget.y);
         await delay(250);
-        realHoverReached = await page.evaluate(() => Boolean(document.querySelector('[data-card-rationale-section] [data-action="open-card-detail"]:hover')));
+        realHoverReached = await page.evaluate(() => Boolean(document.querySelector('[data-card-rationale-section] .flavor-echo-image-trigger:hover')));
         if (!realHoverReached) await rationaleTrigger.evaluate((node) => node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
       }
       const hoverState = await page.evaluate(() => ({
         hoverCapable: matchMedia("(hover: hover) and (pointer: fine)").matches,
-        triggerHovered: Boolean(document.querySelector('[data-card-rationale-section] [data-action="open-card-detail"]:hover')),
+        triggerHovered: Boolean(document.querySelector('[data-card-rationale-section] .flavor-echo-image-trigger:hover')),
         overlayExists: Boolean(document.querySelector(".card-preview-overlay")),
         overlayVisible: Boolean(document.querySelector(".card-preview-overlay")?.classList.contains("is-visible")),
         triggerRect: (() => {
@@ -211,6 +223,11 @@ async function replay(page, origin, witness) {
       assert.equal(hoverState.overlayVisible, true, `${witness.identity_key} hover handler did not open the full-card preview: ${JSON.stringify({ hoverState, consoleErrors })}`);
       const previewSource = await page.$eval(".card-preview-overlay img", (image) => image.getAttribute("src") || "");
       assert.ok(previewSource && !/art_crop/i.test(previewSource), `${witness.identity_key} rationale hover did not use a full-card source`);
+      const copyHoverTarget = await page.$('[data-card-rationale-section] .flavor-echo-why');
+      await copyHoverTarget.hover();
+      await delay(80);
+      const copyOpenedPreview = await page.evaluate(() => document.querySelector(".card-preview-overlay")?.classList.contains("is-visible") || false);
+      assert.equal(copyOpenedPreview, false, `${witness.identity_key} rationale copy incorrectly triggered a card preview`);
       if (witness.identity_key === "WU") {
         const rapidTargets = await page.evaluate(() => {
           const triggers = [...document.querySelectorAll("[data-card-preview-name]")]
@@ -248,7 +265,7 @@ async function replay(page, origin, witness) {
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
     await delay(50);
-    const restored = await page.evaluate(() => document.activeElement?.matches?.('[data-card-rationale-section] [data-action="open-card-detail"]') || false);
+    const restored = await page.evaluate(() => document.activeElement?.matches?.('[data-card-rationale-section] .flavor-echo-image-trigger') || false);
     assert.equal(restored, true, `${witness.identity_key} modal did not restore focus`);
   }
   const ui = await page.evaluate(() => {
@@ -348,6 +365,7 @@ try {
     page.on("request", (request) => {
       const url = request.url();
       if (url.startsWith(origin) || url.startsWith("data:") || url.startsWith("blob:")) request.continue();
+      else if (/^https:\/\/api\.scryfall\.com\/cards\/named(?:\?|$)/.test(url) && reviewMode) request.continue();
       else if (/^https:\/\/cards\.scryfall\.io\//.test(url)) reviewMode ? request.continue() : request.respond({ status: 200, contentType: "image/png", body: transparentPng });
       else request.abort();
     });
