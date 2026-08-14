@@ -169,23 +169,45 @@ async function replay(page, origin, witness) {
       await rationaleTrigger.evaluate((node) => {
         document.documentElement.style.scrollBehavior = "auto";
         node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
+        const rect = node.getBoundingClientRect();
+        const topbarBottom = document.querySelector(".vm-topbar")?.getBoundingClientRect().bottom || 0;
+        if (rect.top < topbarBottom + 24) window.scrollBy(0, rect.top - topbarBottom - 32);
       });
       await delay(300);
-      await page.mouse.move(1, 1);
-      await delay(50);
-      const rationaleBounds = await rationaleTrigger.boundingBox();
-      assert.ok(rationaleBounds, `${witness.identity_key} rationale trigger has no pointer bounds`);
-      await page.mouse.move(rationaleBounds.x + rationaleBounds.width / 2, rationaleBounds.y + rationaleBounds.height / 2);
-      await delay(250);
+      let realHoverReached = false;
+      for (let attempt = 0; attempt < 3 && !realHoverReached; attempt += 1) {
+        const pointerTarget = await rationaleTrigger.evaluate((node) => {
+          const rect = node.getBoundingClientRect();
+          const topbarBottom = document.querySelector(".vm-topbar")?.getBoundingClientRect().bottom || 0;
+          const top = Math.max(rect.top + 4, topbarBottom + 12);
+          const bottom = Math.min(rect.bottom - 4, window.innerHeight - 12);
+          return { x: rect.left + rect.width / 2, y: top < bottom ? (top + bottom) / 2 : rect.top + rect.height / 2 };
+        });
+        await page.mouse.move(1, 1);
+        await delay(50);
+        await page.mouse.move(pointerTarget.x, pointerTarget.y);
+        await delay(250);
+        realHoverReached = await page.evaluate(() => Boolean(document.querySelector('[data-card-rationale-section] [data-action="open-card-detail"]:hover')));
+        if (!realHoverReached) await rationaleTrigger.evaluate((node) => node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+      }
       const hoverState = await page.evaluate(() => ({
         hoverCapable: matchMedia("(hover: hover) and (pointer: fine)").matches,
         triggerHovered: Boolean(document.querySelector('[data-card-rationale-section] [data-action="open-card-detail"]:hover')),
         overlayExists: Boolean(document.querySelector(".card-preview-overlay")),
         overlayVisible: Boolean(document.querySelector(".card-preview-overlay")?.classList.contains("is-visible")),
+        triggerRect: (() => {
+          const rect = document.querySelector('[data-card-rationale-section] [data-action="open-card-detail"]')?.getBoundingClientRect();
+          return rect ? { top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left, width: rect.width, height: rect.height } : null;
+        })(),
+        topbarRect: (() => {
+          const rect = document.querySelector(".vm-topbar")?.getBoundingClientRect();
+          return rect ? { top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left, width: rect.width, height: rect.height } : null;
+        })(),
+        scrollY: window.scrollY,
         events: window.__vmHoverEvents,
       }));
       assert.equal(hoverState.hoverCapable, true, `${witness.identity_key} desktop pointer capability was not active`);
-      assert.equal(hoverState.triggerHovered, true, `${witness.identity_key} rationale trigger did not receive a real hover: ${JSON.stringify(hoverState)}`);
+      assert.equal(realHoverReached && hoverState.triggerHovered, true, `${witness.identity_key} rationale trigger did not receive a real hover: ${JSON.stringify(hoverState)}`);
       assert.equal(hoverState.overlayVisible, true, `${witness.identity_key} hover handler did not open the full-card preview: ${JSON.stringify({ hoverState, consoleErrors })}`);
       const previewSource = await page.$eval(".card-preview-overlay img", (image) => image.getAttribute("src") || "");
       assert.ok(previewSource && !/art_crop/i.test(previewSource), `${witness.identity_key} rationale hover did not use a full-card source`);

@@ -49,10 +49,10 @@ Complete every applicable public Archscry dossier surface for all 37 identities 
 - Deterministic dossier/recovery repair: implemented. Why This Fit now selects independent positive dependency groups; Test the Fit removes the repeated scaffold; page-level Oracle-ID usage reserves precon commanders before rationale, voice, and Card Signal surfaces; bounded results expose an approved targeted refinement or relevant answer revisit, and mixed results expose their supported directions. A 2,000-journey recovery test found 956 bounded readings and verified a valid unused targeted refinement for every one without mutating the original evidence ledger.
 - Packet 1 final authority: 52 approved rationale relationships produce 50 collision-safe runtime entries; all 37 identities have rationale and voice coverage; 82 weak voice candidates remain rejected; zero owner exceptions remain.
 - Packet 2 final authority: all 37 identity dossiers and 126 runtime-emittable bidirectional comparison pairs are approved with zero owner exceptions. The 123 mandatory confusion pairs remain intact, with three additional live-engine pairs covered explicitly.
-- Packet 3 final authority: 33 glossary definitions and four instructional records are approved with zero owner exceptions.
+- Packet 3 final authority: 39 glossary definitions and four instructional records are approved with zero owner exceptions.
 - Current-engine witness certification: 36 identities reach responsible named primary states and Yore retains its intentional bounded state. Colorless and WUBRG both have reproducible current-engine witnesses; authored preview routes were not used as evidence.
 - Live UI replay: all 37 witnesses pass at desktop, intermediate, and mobile widths. The completion matrix records 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL` cells across 629 checks.
-- Final automated regression is green, including 5,000 generated journeys, all 123 confusion pairs, 6,660 synthetic runs, 884 mutations, 155/155 exact provider destinations, full source/generated guards, legacy 37 golden paths, dossier integrity, and Git whitespace checks.
+- Final automated regression is green, including 5,000 generated journeys, all 123 confusion pairs, 6,660 synthetic runs, 881 mutations, 155/155 exact provider destinations, full source/generated guards, legacy 37 golden paths, dossier integrity, and Git whitespace checks.
 - Status: implementation and local certification are complete; awaiting the owner's final hands-on visual/product review before VM-551 closeout.
 
 ## Consolidated Visual Review Remediation
@@ -65,7 +65,15 @@ Owner testing superseded the prior local certification after reproducing systemi
 - Complete canonical glossary decoration, distinct card-surface presentation, stale-preview protection, and player-copy audit-language removal.
 - Enforce visible-intent/operator parity for every identity and every runtime-emittable Maze path.
 - Extend existing witnesses, pair data, bounded fixtures, and replay output into one deterministic owner visual-review manifest.
-- Replace the superseded 621-cell claim only after the new defect-class regression suite is green.
+- The exact Jund mixed/refinement journey is frozen as a real-ledger regression, and mixed, tied/close, clean-primary, insufficient, and conflicting recovery contracts now enforce one targeted question per action with immediate result re-evaluation.
+- Mixed directions render structured reason/orientation fields, while named-result sharpening is absent unless a real supported boundary remains.
+- Canonical glossary decoration now covers 39 terms, records explicit plain-language classifications, and preserves first-use, keyboard, hover, touch, and dismissal behavior.
+- The two card surfaces now have distinct player jobs; shared full-card previews clear stale content and reject late A-to-B-to-C completions.
+- All 147 runtime-emittable Maze paths across 37 identities pass complete visible-intent/operator parity with zero hidden restrictions.
+- All runtime-emittable co-leader comparisons retain pair-specific copy and pair-targeted refinement without field concatenation or generic fallback.
+- A compact 45-case deterministic visual-review manifest now exposes all 37 real-engine identity/bounded witnesses plus clean, tied/close, mixed, insufficient, conflicting, Colorless, WUBRG, and Yore cases.
+- The superseding live UI replay passes all 37 witnesses at desktop, intermediate, and mobile widths. The refreshed 629-cell matrix records 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL` cells.
+- Status: consolidated remediation and deterministic certification are complete; awaiting the owner's short targeted visual/product review before VM-551 closeout.
 
 ## Boundaries
 

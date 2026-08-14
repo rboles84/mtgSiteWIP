@@ -131,9 +131,9 @@ assert.deepEqual(
 assert.deepEqual(
   wubrgDossierMazePaths.map((entry) => entry.plainReadingQuery),
   [
-    "Five-Color commanders with exactly white-blue-black-red-green identity",
-    "Five-Color support cards in WUBRG Commander identity",
-    "Five-Color flavor and story echoes across all five colors",
+    "Five-Color Commander-legal commanders with exactly white-blue-black-red-green identity",
+    "Five-Color Commander-legal noncommander, nonland cards in WUBRG identity that mention domain, converge, sunburst, basic land types, or all five mana symbols",
+    "Five-Color Commander-legal cards in WUBRG identity whose flavor text mentions coalition, domain, spectrum, unite, or world",
   ],
   "expected WUBRG dossier Maze paths to carry plain-reading copy alongside operator queries"
 );
@@ -228,12 +228,12 @@ async function runMazeDomMetadataCases() {
   );
   const commanderPath = document.getElementById("reading-path-list").children[0];
   assert.match(commanderPath.dataset.query, /^id=bg is:commander f:commander$/);
-  assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College commanders with exactly black-green identity/i);
+  assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College Commander-legal commanders with exactly black-green identity/i);
   assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
   assert.equal(commanderPath.dataset.origin, "path");
   const supportPath = document.getElementById("reading-path-list").children[1];
-  assert.match(supportPath.dataset.query, /^id<=bg f:commander -is:commander -t:land /);
-  assert.match(supportPath.dataset.plainReadingQuery, /noncommander support cards/i);
+  assert.equal(supportPath.dataset.query, "id<=bg f:commander -is:commander -t:land");
+  assert.match(supportPath.dataset.plainReadingQuery, /Commander-legal noncommander, nonland support cards/i);
   assert.match(supportPath.dataset.plainReadingQuery, /Witherbloom College/i);
   assert.equal(document.getElementById("quick-search-list").children[0].dataset.origin, "maze");
   assert.equal(document.getElementById("discovery-path-list").children[0].dataset.origin, "maze");
@@ -851,10 +851,24 @@ async function runLiveShardDossierSidebarCases() {
     assert.match(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.identity} is:commander f:commander$`));
     assert.match(
       readingPaths[0].dataset.plainReadingQuery,
-      new RegExp(`${testCase.name} commanders with exactly ${testCase.words} identity`, "i")
+      new RegExp(`${testCase.name} Commander-legal commanders with exactly ${testCase.words} identity`, "i")
     );
-    assert.match(readingPaths[1].dataset.query, new RegExp(`^id<=${testCase.identity} f:commander -is:commander -t:land `));
-    assert.match(readingPaths[2].dataset.query, new RegExp(`^id<=${testCase.identity} f:commander \\(ft:`));
+    const supportBaseQuery = `id<=${testCase.identity} f:commander -is:commander -t:land`;
+    assert.match(readingPaths[1].dataset.query, new RegExp(`^${supportBaseQuery.replace(/[<]/g, "\\$&")}(?: |$)`));
+    if (readingPaths[1].dataset.query === supportBaseQuery) {
+      assert.doesNotMatch(readingPaths[1].dataset.plainReadingQuery, /whose Oracle text mentions/i);
+    } else {
+      assert.match(readingPaths[1].dataset.query, /\(o:/);
+      assert.match(readingPaths[1].dataset.plainReadingQuery, /whose Oracle text mentions/i);
+    }
+    const flavorBaseQuery = `id<=${testCase.identity} f:commander`;
+    assert.match(readingPaths[2].dataset.query, new RegExp(`^${flavorBaseQuery.replace(/[<]/g, "\\$&")}(?: |$)`));
+    if (readingPaths[2].dataset.query === flavorBaseQuery) {
+      assert.doesNotMatch(readingPaths[2].dataset.plainReadingQuery, /whose flavor text mentions/i);
+    } else {
+      assert.match(readingPaths[2].dataset.query, /\(ft:/);
+      assert.match(readingPaths[2].dataset.plainReadingQuery, /whose flavor text mentions/i);
+    }
     assert.doesNotMatch(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.storedKey.toLowerCase()}\\b`));
     assert.ok(
       [...readingPaths].every((path) => path.dataset.query && !new RegExp(`^id<=${testCase.storedKey.toLowerCase()}\\b`).test(path.dataset.query)),
@@ -935,7 +949,7 @@ async function runColorlessStaleWuRestoreCase() {
   assert.equal(document.body.dataset.mazeMode, "ai");
   assert.equal(
     document.getElementById("search-input").value,
-    "Colorless commanders with strict Colorless identity",
+    "Colorless Commander-legal commanders with exactly Colorless identity",
     "expected active Colorless launch to replace stale white-blue plain text"
   );
 
@@ -964,7 +978,7 @@ async function runColorlessStaleWuRestoreCase() {
   assert.equal(storedActiveHandoff.sourceFaction, "WU");
   assert.equal(storedActiveHandoff.operatorQuery, "id=c is:commander f:commander");
   assert.equal(storedActiveHandoff.pathType, "colorless-identity");
-  assert.equal(storedActiveHandoff.plainReadingQuery, "Colorless commanders with strict Colorless identity");
+  assert.equal(storedActiveHandoff.plainReadingQuery, "Colorless Commander-legal commanders with exactly Colorless identity");
   assert.equal(
     storedActiveHandoff.placementResult.faction,
     "WU",
@@ -1102,7 +1116,7 @@ async function runLiveFourColorArchscryCases() {
     assert.doesNotMatch(readingPaths[0].dataset.query, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
     assert.match(
       readingPaths[0].dataset.plainReadingQuery,
-      new RegExp(`${testCase.name} commanders with exactly ${testCase.words} identity`, "i")
+      new RegExp(`${testCase.name} Commander-legal commanders with exactly ${testCase.words} identity`, "i")
     );
     assert.ok(readingPaths.every((path) => path.dataset.pathType !== "weird-stretch-commanders"));
     assert.ok(
