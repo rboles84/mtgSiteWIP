@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -10,6 +11,29 @@ const outputPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-close
 const model = JSON.parse(fs.readFileSync(path.join(root, "data", "gate-b1-placement-model.json"), "utf8"));
 const factions = JSON.parse(fs.readFileSync(path.join(root, "data", "factions.json"), "utf8")).factions;
 const witnesses = JSON.parse(fs.readFileSync(path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json"), "utf8")).rows;
+
+function ledgerHash(result = {}) {
+  return createHash("sha256").update(JSON.stringify(result.evidence_ledger || result.evidence_trail || [])).digest("hex");
+}
+
+function compactCase(row) {
+  return {
+    case_id: row.case_id,
+    review_label: row.review_label,
+    identity_key: row.identity_key,
+    identity_name: row.identity_name,
+    expected_public_contract: row.expected_public_contract,
+    expected_state: row.expected_state,
+    result_faction: row.result_faction || null,
+    expected_direction_keys: (row.result?.top_matches || []).map((match) => match.faction).filter(Boolean),
+    focus_identity_keys: row.focus_identity_keys || [],
+    selections: row.selections.map(({ question_id, answer_id, refinement }) => ({ question_id, answer_id, ...(refinement ? { refinement: true } : {}) })),
+    evidence_ledger_entries: (row.result?.evidence_ledger || row.result?.evidence_trail || []).length,
+    evidence_ledger_sha256: ledgerHash(row.result),
+    witness_authority: row.witness_authority,
+    seed: row.seed || null,
+  };
+}
 
 function rng(seed) {
   let value = seed >>> 0;
@@ -92,7 +116,7 @@ const featured = [
 assert.equal(identityCases.length, 37);
 assert.equal(identityCases.filter((row) => row.expected_public_contract === "NAMED_DOSSIER").length, 36);
 assert.ok(featured.every((row) => row?.selections?.length));
-const cases = [...identityCases, ...featured];
+const cases = [...identityCases, ...featured].map(compactCase);
 const output = `${JSON.stringify({
   schema_version: "1.0.0",
   model_version: model._meta.model_version,
