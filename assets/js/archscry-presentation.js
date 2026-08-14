@@ -266,7 +266,7 @@ export const FACTION_PRESENTATION = {
     opponentRead: "Opponents feel the deck choosing one line, protecting it carefully, and making every support piece look like public trust made visible.",
     emotionalPressure: "Pressure through honor, refinement, protection, and the question of whether strength can remain worthy while others stand behind it.",
     loreRole: "Alara shard context read through source-grounded White-centered order, Blue refinement, Green belonging, sigils, exalted support, and communal honor",
-    mechanics: "Exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection as Commander support texture, not new lore-canon claims",
+    mechanics: "In Commander, this can show up through exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection",
     tableExperience: "one protected champion, refined support, living order, and communal trust becoming visible pressure",
     thesis: "Bant read your answers as strength that wants to stay answerable. White sets the public standard, Blue refines the line of action, and Green keeps that line alive through belonging and support.",
     closeReason: "public honor, refined protection, living support, communal trust, and champion responsibility",
@@ -280,7 +280,7 @@ export const FACTION_PRESENTATION = {
     opponentRead: "Opponents feel the deck making the future smaller and cleaner: cards turn into options, options turn into answers, and answers arrive exactly when the table thought it had room.",
     emotionalPressure: "Pressure through precision, planning, information advantage, and the sense that the game is being redesigned while it is still happening.",
     loreRole: "Alara shard context read through source-grounded Blue-centered perfectibility, White ordered improvement, and Black focused control",
-    mechanics: "Control, card advantage, library setup, artifacts, lifegain, reanimation value, tokens, and evasive pressure as Commander support texture for planned refinement and controlled change",
+    mechanics: "In Commander, this can show up through control, card advantage, library setup, artifacts, lifegain, reanimation value, tokens, and evasive pressure",
     tableExperience: "careful setup, protected engines, clean answers, and a future that narrows as Esper understands the table",
     thesis: "Esper read your answers as potential waiting for a better design. Blue looks for the pattern, White gives improvement a structure, and Black makes information useful enough to control the outcome.",
     closeReason: "perfectibility, planning, structured optimization, information advantage, and designed control",
@@ -294,7 +294,7 @@ export const FACTION_PRESENTATION = {
     opponentRead: "Opponents feel the deck measuring weak points, preserving the answer that matters, and taking the opening before the table can close it.",
     emotionalPressure: "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's advantage.",
     loreRole: "Alara shard context read through source-grounded Black-centered survival, Blue calculation, and Red immediacy",
-    mechanics: "Removal, discard, sacrifice, recursion, card draw, and spell pressure as Commander support texture, not lore-canon proof or the whole identity",
+    mechanics: "In Commander, this can show up through removal, discard, sacrifice, recursion, card draw, and spell pressure",
     tableExperience: "survival control, calculated pressure, and urgent openings that make each answer feel spent for a reason",
     thesis: "Grixis read you as someone who survives by seeing the weak point before the room admits it exists. Black keeps the self alive, Blue finds the angle, and Red moves before the opening closes.",
     closeReason: "survival, self-advocacy, calculated pressure, urgency, and volatility under pressure",
@@ -336,7 +336,7 @@ export const FACTION_PRESENTATION = {
     opponentRead: "Opponents feel the deck as a wall that keeps learning from every exchange: counters settle, life returns, bodies become resources, and the house is still standing after the first answer.",
     emotionalPressure: "Pressure through patience, obligation, defensive endurance, and the sense that the past and next generation are both present at the table.",
     loreRole: "Tarkir wedge, White-centered family endurance, Black ancestor obligation, Green perennation, and house continuity",
-    mechanics: "Counters, tokens, lifegain, sacrifice, graveyard enchantments, Food, proliferate, and defensive board texture as support-only ways to show endurance, not lore-canon proof",
+    mechanics: "In Commander, this can show up through counters, tokens, lifegain, sacrifice, graveyard enchantments, Food, proliferate, and defensive board play",
     tableExperience: "build a durable board, protect the family engine, let counters and life totals accumulate, and make the long game answerable only through real commitment",
     thesis: "Abzan reads your answers as survival becoming family memory. White keeps duty centered, Black remembers what obligation costs, and Green lets endurance pass through roots, bodies, and the next generation.",
     closeReason: "family endurance, ancestor obligation, perennation, defensive patience, and house continuity",
@@ -1250,7 +1250,7 @@ export function buildTagExplanationSummaries({ tagRefs = [], faction, taxonomy, 
     };
     const sourceCopy = sources.length
       ? sources.map((source) => sourceLabels[source] || source).join(" and ")
-      : "the bounded interpretation assembled for this dossier";
+      : "the way this reading connects to the deck";
     const limitation = ref.category === "mechanical"
       ? "A mechanic is an example of expression, not proof of identity or preference."
       : ref.category === "playstyle"

@@ -1180,7 +1180,7 @@ assert.deepEqual(
   "expected Bant starter search tags to be explicit display/search-assist metadata"
 );
 assert.match(bantGuidance.commanderPlan, /one worthy line of action/i);
-assert.match(bantGuidance.spellcraftIdentity, /Commander support texture for public trust and refined communal order/i);
+assert.match(bantGuidance.spellcraftIdentity, /reinforce public trust and refined communal order/i);
 assert.doesNotMatch(
   [
     bantGuidance.commanderPlan,
@@ -1234,7 +1234,7 @@ assert.doesNotMatch(
 const bantPresentation = presentationForFaction(bant);
 assert.equal(bantPresentation.tableRole, "The supported champion");
 assert.match(bantPresentation.thesis, /White sets the public standard, Blue refines the line of action, and Green keeps that line alive/i);
-assert.match(bantPresentation.mechanics, /Commander support texture, not new lore-canon claims/i);
+assert.match(bantPresentation.mechanics, /In Commander, this can show up through exalted/i);
 assert.doesNotMatch(
   [
     bantPresentation.thesis,
@@ -1289,7 +1289,7 @@ const bantDossierText = renderCommanderDossierText(bantDossier);
 const bantVisibleText = bantDossierText.replace(/https?:\/\/\S+/g, "");
 assert.match(bantDossierText, /Bant Commander decks/);
 assert.match(bantDossierText, /protects one worthy line of action/i);
-assert.match(bantDossierText, /Commander support texture for public trust and refined communal order/i);
+assert.match(bantDossierText, /reinforce public trust and refined communal order/i);
 assert.doesNotMatch(
   bantVisibleText,
   /\bWUG\b|Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|recognizable Commander table role|Commander mechanics that make the faction plan visible|playable pattern|personality label|\/bant\//i,
@@ -1358,7 +1358,7 @@ assert.doesNotMatch(
 const esperPresentation = presentationForFaction(esper);
 assert.equal(esperPresentation.tableRole, "The system refiner");
 assert.match(esperPresentation.thesis, /Blue looks for the pattern, White gives improvement a structure, and Black makes information useful enough to control the outcome/i);
-assert.match(esperPresentation.mechanics, /Commander support texture for planned refinement and controlled change/i);
+assert.match(esperPresentation.mechanics, /In Commander, this can show up through control/i);
 assert.doesNotMatch(
   [
     esperPresentation.thesis,
@@ -1622,7 +1622,7 @@ assert.deepEqual(
   "expected Grixis starter search tags to be explicit display/search-assist metadata"
 );
 assert.match(grixisGuidance.commanderPlan, /survives first, studies the weakness/i);
-assert.match(grixisGuidance.spellcraftIdentity, /Commander support texture/i);
+assert.match(grixisGuidance.spellcraftIdentity, /express survival, calculation, and urgency/i);
 assert.match(grixisGuidance.spellcraftIdentity, /not proof that any one mechanic is the whole Grixis identity/i);
 assert.doesNotMatch(
   grixisGuidance.spellcraftIdentity,
@@ -1633,7 +1633,7 @@ assert.doesNotMatch(
 const grixisPresentation = presentationForFaction(grixis);
 assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the angle, and Red moves/i);
 assert.match(grixisPresentation.loreRole, /source-grounded Black-centered survival/i);
-assert.match(grixisPresentation.mechanics, /Commander support texture, not lore-canon proof or the whole identity/i);
+assert.match(grixisPresentation.mechanics, /In Commander, this can show up through removal/i);
 assert.doesNotMatch(
   [
     grixisPresentation.thesis,
@@ -1686,7 +1686,7 @@ const grixisDossier = buildCommanderDossier({
 });
 const grixisDossierText = renderCommanderDossierText(grixisDossier);
 assert.match(grixisDossierText, /survives first, studies the weakness/i, "expected rendered Grixis dossier text to include hardened Commander plan copy");
-assert.match(grixisDossierText, /Commander support texture for survival, calculation, and urgency/i);
+assert.match(grixisDossierText, /express survival, calculation, and urgency/i);
 assert.match(grixisDossierText, /\[Grixis Commander decks\]\(https:\/\/archidekt\.com\/search\/decks\?colors=UBR/, "expected Grixis Archidekt link label to use Grixis while preserving UBR as query syntax");
 assert.doesNotMatch(
   grixisDossierText,

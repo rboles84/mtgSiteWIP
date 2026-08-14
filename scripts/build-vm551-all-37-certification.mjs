@@ -86,6 +86,7 @@ const rows = Object.values(factions).map((faction) => {
       if (sourceSignalCount > 0) assert.ok(row.signalCount >= 1, `${key} omitted all authored Card Signal References`);
       assert.deepEqual(row.duplicateCards, [], `${key} has a page-level card collision`);
       assert.deepEqual(row.internalLeaks, [], `${key} leaked internal vocabulary`);
+      assert.deepEqual(row.auditLanguageLeaks || [], [], `${key} leaked reviewer or implementation language`);
       assert.deepEqual(row.entityLeaks, [], `${key} leaked encoded entities`);
       assert.deepEqual(row.knownCopyDefects, [], `${key} retained a known copy defect`);
       assert.equal(row.documentOverflow, false, `${key} overflowed a certified viewport`);

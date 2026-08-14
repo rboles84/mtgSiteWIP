@@ -679,6 +679,28 @@ function buildSummaryTagRowHtml(tags = []) {
     </div>`;
 }
 
+function normalizedNarrativeWords(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((word) => word.length > 2);
+}
+
+function isNearDuplicateNarrative(primary, secondary) {
+  const left = normalizedNarrativeWords(primary);
+  const right = normalizedNarrativeWords(secondary);
+  if (!left.length || !right.length) return false;
+  const leftText = left.join(" ");
+  const rightText = right.join(" ");
+  if (leftText === rightText || leftText.includes(rightText) || rightText.includes(leftText)) return true;
+  const leftSet = new Set(left);
+  const rightSet = new Set(right);
+  const intersection = [...leftSet].filter((word) => rightSet.has(word)).length;
+  const union = new Set([...leftSet, ...rightSet]).size;
+  return union > 0 && intersection / union >= 0.82;
+}
+
 function shortIdentityTension(text) {
   const sentences = String(text || "")
     .split(/(?<=[.!?])\s+/)
@@ -3539,6 +3561,7 @@ function renderResult(viewKey) {
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);
   const heroNarrative = buildHeroNarrative({ dossier, faction, result, factions: APP_STATE.factions });
+  const heroLoreSummary = isNearDuplicateNarrative(heroNarrative, faction.philosophy) ? "" : faction.philosophy;
   const adjacentContextHtml = buildAdjacentContextHtml({ dossier, result });
   const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
     .filter((entry) => entry?.active !== false);
@@ -3900,7 +3923,7 @@ function renderResult(viewKey) {
       <div class="guild-tagline">${faction.tagline}</div>
       ${pipsHtml}
       <div class="guild-philosophy">${renderPlayerCopy(heroNarrative)}</div>
-      <div class="guild-lore-summary">${renderPlayerCopy(faction.philosophy)}</div>
+      ${heroLoreSummary ? `<div class="guild-lore-summary">${renderPlayerCopy(heroLoreSummary)}</div>` : ""}
     </div>
 
     ${placementSnapshotHtml}`;
@@ -4220,6 +4243,9 @@ async function showCardPreviewOverlay(trigger, event = null) {
   const requestId = ++cardPreviewRequestId;
   const overlay = ensureCardPreviewOverlay();
   const overlayImage = overlay.querySelector("img");
+  const previewTarget = trigger.cardName || trigger.image?.currentSrc || trigger.image?.src || "";
+  overlay.dataset.previewTarget = previewTarget;
+  delete overlay.dataset.previewResolvedTarget;
   overlay.classList.remove("is-visible");
   overlay.classList.add("is-loading");
   overlay.setAttribute("aria-busy", "true");
@@ -4259,6 +4285,7 @@ async function showCardPreviewOverlay(trigger, event = null) {
   }
   if (requestId !== cardPreviewRequestId) return;
   if (overlayImage) overlayImage.src = imageUrl;
+  overlay.dataset.previewResolvedTarget = previewTarget;
   positionCardPreviewOverlay(overlay, trigger.boundary, event);
   overlay.classList.remove("is-loading");
   overlay.removeAttribute("aria-busy");
@@ -4269,6 +4296,10 @@ function hideCardPreviewOverlay() {
   cardPreviewRequestId += 1;
   cardPreviewOverlay?.classList.remove("is-visible", "is-loading");
   cardPreviewOverlay?.removeAttribute("aria-busy");
+  if (cardPreviewOverlay) {
+    delete cardPreviewOverlay.dataset.previewTarget;
+    delete cardPreviewOverlay.dataset.previewResolvedTarget;
+  }
   const image = cardPreviewOverlay?.querySelector("img");
   image?.removeAttribute("src");
 }

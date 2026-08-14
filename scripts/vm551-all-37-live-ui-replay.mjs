@@ -18,13 +18,21 @@ const viewports = {
 const viewport = viewports[viewportName];
 assert.ok(viewport, `unknown viewport ${viewportName}`);
 const identityFilter = (process.argv.find((arg) => arg.startsWith("--identity=")) || "").split("=")[1] || "";
+const caseFilter = (process.argv.find((arg) => arg.startsWith("--case=")) || "").split("=")[1] || "";
+const reviewMode = process.argv.includes("--review");
 const collectFailures = process.argv.includes("--collect-failures");
 const witnessPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json");
 const reportPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-ui-witness-replay.json");
 const witnessArtifact = JSON.parse(fs.readFileSync(witnessPath, "utf8"));
-const witnesses = identityFilter
-  ? { ...witnessArtifact, rows: witnessArtifact.rows.filter((row) => row.identity_key === identityFilter) }
-  : witnessArtifact;
+const reviewManifestPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "visual-review-manifest.json");
+const reviewManifest = fs.existsSync(reviewManifestPath) ? JSON.parse(fs.readFileSync(reviewManifestPath, "utf8")) : { cases: [] };
+const witnesses = caseFilter
+  ? { rows: reviewManifest.cases.filter((row) => row.case_id === caseFilter) }
+  : identityFilter
+    ? { ...witnessArtifact, rows: witnessArtifact.rows.filter((row) => row.identity_key === identityFilter) }
+    : witnessArtifact;
+assert.ok(witnesses.rows.length, `No replay case matched ${caseFilter || identityFilter || "the witness inventory"}`);
+if (reviewMode) assert.equal(witnesses.rows.length, 1, "Visual review mode opens one deterministic case at a time");
 const model = JSON.parse(fs.readFileSync(path.join(root, "data", "gate-b1-placement-model.json"), "utf8"));
 const questions = Object.values(model.question_bank).flatMap((rows) => Array.isArray(rows) ? rows : []);
 const questionById = new Map(questions.map((question) => [question.id, question]));
@@ -141,6 +149,14 @@ async function replay(page, origin, witness) {
     }
     const rationaleTrigger = await page.$('[data-card-rationale-section] [data-action="open-card-detail"]');
     assert.ok(rationaleTrigger, `${witness.identity_key} has no rationale-card detail trigger`);
+    const rationalePanel = await rationaleTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
+    if (rationalePanel) {
+      const rationaleTab = await page.$(`[data-dossier-tab="${rationalePanel}"]`);
+      if (rationaleTab) {
+        await rationaleTab.evaluate((button) => button.click());
+        await page.waitForFunction((panelId) => document.querySelector(`[data-dossier-panel="${panelId}"]`)?.hidden === false, {}, rationalePanel);
+      }
+    }
     const tileRationale = await page.$eval('[data-card-rationale-section] .flavor-echo-why', (node) => node.textContent?.trim() || "");
     if (viewportName === "desktop") {
       await page.evaluate(() => {
@@ -173,6 +189,35 @@ async function replay(page, origin, witness) {
       assert.equal(hoverState.overlayVisible, true, `${witness.identity_key} hover handler did not open the full-card preview: ${JSON.stringify({ hoverState, consoleErrors })}`);
       const previewSource = await page.$eval(".card-preview-overlay img", (image) => image.getAttribute("src") || "");
       assert.ok(previewSource && !/art_crop/i.test(previewSource), `${witness.identity_key} rationale hover did not use a full-card source`);
+      if (witness.identity_key === "WU") {
+        const rapidTargets = await page.evaluate(() => {
+          const triggers = [...document.querySelectorAll("[data-card-preview-name]")]
+            .filter((node, index, rows) => rows.findIndex((candidate) => candidate.dataset.cardPreviewName === node.dataset.cardPreviewName) === index)
+            .slice(0, 3);
+          if (triggers.length < 3) return [];
+          for (const trigger of triggers) trigger.dispatchEvent(new PointerEvent("pointerover", { bubbles: true, pointerType: "mouse" }));
+          const overlay = document.querySelector(".card-preview-overlay");
+          if (overlay?.classList.contains("is-visible") || overlay?.querySelector("img")?.getAttribute("src")) {
+            throw new Error("Rapid target change retained stale visible card content.");
+          }
+          return triggers.map((trigger) => trigger.dataset.cardPreviewName);
+        });
+        assert.equal(rapidTargets.length, 3, "rapid-hover regression requires three distinct card targets");
+        await page.waitForFunction((expected) => {
+          const overlay = document.querySelector(".card-preview-overlay");
+          return !overlay?.classList.contains("is-visible") || overlay.dataset.previewResolvedTarget === expected;
+        }, { timeout: 15000 }, rapidTargets.at(-1));
+        const rapidState = await page.evaluate(() => {
+          const overlay = document.querySelector(".card-preview-overlay");
+          return {
+            target: overlay?.dataset.previewTarget || "",
+            resolved: overlay?.dataset.previewResolvedTarget || "",
+            visible: overlay?.classList.contains("is-visible") || false,
+          };
+        });
+        assert.equal(rapidState.target, rapidTargets.at(-1));
+        if (rapidState.visible) assert.equal(rapidState.resolved, rapidTargets.at(-1));
+      }
     }
     await rationaleTrigger.evaluate((button) => button.click());
     await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
@@ -195,8 +240,14 @@ async function replay(page, origin, witness) {
     };
     const all = Object.values(groups).flat().filter(Boolean);
     const guildName = document.querySelector(".guild-name")?.textContent?.trim() || "";
+    const normalizeNarrative = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    const heroNarrative = normalizeNarrative(document.querySelector(".guild-philosophy")?.textContent);
+    const loreSummary = normalizeNarrative(document.querySelector(".guild-lore-summary")?.textContent);
     return {
       state: guildName ? "named" : document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || "unknown",
+      publicResultState: document.querySelector('[data-summary-card="co-leader"]')
+        ? "tied"
+        : document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || (guildName ? "primary" : "unknown"),
       guildName,
       whyCount: document.querySelectorAll("[data-public-fit-reasons] .omen-card").length,
       whyFitRefinementAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
@@ -213,6 +264,7 @@ async function replay(page, origin, witness) {
       duplicateCards: [...new Set(all.filter((name, index) => all.indexOf(name) !== index))],
       cardGroups: groups,
       internalLeaks: text.match(/\b(?:SIG_|DG_|MAPPING_|naming qualification|mapping hypothesis|bounded observation)\S*/gi) || [],
+      auditLanguageLeaks: text.match(/\b(?:Commander support texture|lore-canon proof|approved relationship|approved card-to-identity explanation|source-backed|public-surface|guardrail|evidence-required|mapping|routing|taxonomy|bounded interpretation)\b/gi) || [],
       entityLeaks: text.match(/&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi) || [],
       knownCopyDefects: [
         /volatility Theater/gi,
@@ -223,6 +275,7 @@ async function replay(page, origin, witness) {
       literalColorlessNodes: [...document.querySelectorAll("#result-inner *")]
         .filter((node) => [...node.childNodes].some((child) => child.nodeType === Node.TEXT_NODE && child.textContent.includes("{C}")))
         .map((node) => ({ className: node.className || node.tagName, text: node.textContent.trim() })),
+      heroNarrativeDuplicate: Boolean(heroNarrative && loreSummary && (heroNarrative === loreSummary || heroNarrative.includes(loreSummary) || loreSummary.includes(heroNarrative))),
       documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
     };
   });
@@ -240,9 +293,12 @@ async function replay(page, origin, witness) {
     assert.ok(ui.glossaryHelpCount >= 1, `${witness.identity_key} rendered no Start Here teaching help`);
     assert.equal(ui.manaNotesPresent, true, `${witness.identity_key} omitted Mana Notes`);
     assert.deepEqual(ui.duplicateCards, [], `${witness.identity_key} repeated cards across public page roles: ${JSON.stringify(ui.cardGroups)}`);
+    assert.deepEqual(ui.auditLanguageLeaks, [], `${witness.identity_key} leaked reviewer or implementation language`);
+    assert.equal(ui.heroNarrativeDuplicate, false, `${witness.identity_key} repeated its hero thesis in the adjacent lore summary`);
   } else {
     assert.notEqual(ui.state, "named", "Yore must retain a bounded public state");
   }
+  if (witness.expected_state) assert.equal(ui.publicResultState, witness.expected_state, `${witness.case_id || witness.identity_key} result-state drift`);
   assert.deepEqual(ui.internalLeaks, []);
   assert.deepEqual(ui.entityLeaks, [], `${witness.identity_key} leaked encoded entities`);
   assert.deepEqual(ui.knownCopyDefects, [], `${witness.identity_key} retained a known copy defect`);
@@ -258,7 +314,7 @@ const origin = `http://${host}:${address.port}`;
 let chrome;
 let browser;
 try {
-  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
+  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: [...(reviewMode ? [] : ["--headless=new"]), "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
   browser = await puppeteer.connect({ browserURL: `http://${host}:${chrome.port}` });
   const rows = [];
   const failures = [];
@@ -270,10 +326,16 @@ try {
     page.on("request", (request) => {
       const url = request.url();
       if (url.startsWith(origin) || url.startsWith("data:") || url.startsWith("blob:")) request.continue();
-      else if (/^https:\/\/cards\.scryfall\.io\//.test(url)) request.respond({ status: 200, contentType: "image/png", body: transparentPng });
+      else if (/^https:\/\/cards\.scryfall\.io\//.test(url)) reviewMode ? request.continue() : request.respond({ status: 200, contentType: "image/png", body: transparentPng });
       else request.abort();
     });
-    try { rows.push(await replay(page, origin, witness)); }
+    try {
+      rows.push(await replay(page, origin, witness));
+      if (reviewMode) {
+        console.log(`Visual review ready for ${witness.case_id || witness.identity_key}. Press Enter in this terminal to close it.`);
+        await new Promise((resolve) => process.stdin.once("data", resolve));
+      }
+    }
     catch (error) {
       if (!collectFailures) throw error;
       failures.push({ identity_key: witness.identity_key, message: error.message });
@@ -281,9 +343,11 @@ try {
     }
     finally { await page.close(); }
   }
-  const previous = fs.existsSync(reportPath) ? JSON.parse(fs.readFileSync(reportPath, "utf8")) : { schema_version: "1.0.0", viewports: {} };
-  previous.viewports[viewportName] = { width: viewport.width, height: viewport.height, status: failures.length ? "FAIL" : "PASS", rows, failures };
-  fs.writeFileSync(reportPath, `${JSON.stringify(previous, null, 2)}\n`);
+  if (!reviewMode && !identityFilter && !caseFilter) {
+    const previous = fs.existsSync(reportPath) ? JSON.parse(fs.readFileSync(reportPath, "utf8")) : { schema_version: "1.0.0", viewports: {} };
+    previous.viewports[viewportName] = { width: viewport.width, height: viewport.height, status: failures.length ? "FAIL" : "PASS", rows, failures };
+    fs.writeFileSync(reportPath, `${JSON.stringify(previous, null, 2)}\n`);
+  }
   console.log(JSON.stringify({ status: failures.length ? "FAIL" : "PASS", viewport: viewportName, identities: rows.length, named: rows.filter((row) => row.state === "named").length, failures }, null, 2));
   if (failures.length) process.exitCode = 1;
 } finally {

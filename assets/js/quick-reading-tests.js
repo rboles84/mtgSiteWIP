@@ -1790,7 +1790,7 @@ assert.deepEqual(
   "expected Bant starter search tags to be explicit support/search-assist metadata"
 );
 assert.match(bantGuidance.commanderPlan, /one worthy line of action/);
-assert.match(bantGuidance.spellcraftIdentity, /Commander support texture for public trust and refined communal order/);
+assert.match(bantGuidance.spellcraftIdentity, /reinforce public trust and refined communal order/);
 assert.match(bantGuidance.tableCautionReviewRule, /VM-159A\/VM-168 source limits/);
 assert.doesNotMatch(
   [
@@ -1805,7 +1805,7 @@ const bantPresentation = presentationForFaction(factions.BANT);
 assert.equal(bantPresentation.tableRole, "The supported champion");
 assert.match(bantPresentation.thesis, /strength that wants to stay answerable/);
 assert.match(bantPresentation.thesis, /White sets the public standard, Blue refines the line of action, and Green keeps that line alive/);
-assert.match(bantPresentation.mechanics, /Commander support texture, not new lore-canon claims/);
+assert.match(bantPresentation.mechanics, /In Commander, this can show up through exalted/);
 assert.match(bantPresentation.selfCheck, /makes excellence feel accountable to the whole/);
 assert.doesNotMatch(
   [
@@ -1840,7 +1840,7 @@ const bantLaneText = [
 ].join(" ");
 assert.match(bantCommanderLane.copy, /protects one worthy line of action/);
 assert.match(bantLaneText, /Voltron, Counters Matter, Enchantments/);
-assert.match(bantLaneText, /Commander support texture for public trust and refined communal order/);
+assert.match(bantLaneText, /reinforce public trust and refined communal order/);
 assert.match(bantLaneText, /Protect the line that carries the table's trust/);
 assert.doesNotMatch(
   bantLaneText,
@@ -1884,7 +1884,7 @@ const bantHardeningText = renderCommanderDossierText(bantHardeningDossier);
 const bantVisibleText = bantHardeningText.replace(/https?:\/\/\S+/g, "");
 assert.match(bantHardeningText, /Bant Commander decks/);
 assert.match(bantHardeningText, /protects one worthy line of action/i);
-assert.match(bantHardeningText, /Commander support texture for public trust and refined communal order/i);
+assert.match(bantHardeningText, /reinforce public trust and refined communal order/i);
 assert.doesNotMatch(
   bantVisibleText,
   /\bWUG\b|Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|recognizable Commander table role|Commander mechanics that make the faction plan visible|playable pattern|personality label|\/bant\//i,
@@ -1913,7 +1913,7 @@ assert.doesNotMatch(
 const esperPresentation = presentationForFaction(factions.ESPER);
 assert.equal(esperPresentation.tableRole, "The system refiner");
 assert.match(esperPresentation.thesis, /Blue looks for the pattern, White gives improvement a structure, and Black makes information useful enough to control the outcome/);
-assert.match(esperPresentation.mechanics, /Commander support texture for planned refinement and controlled change/);
+assert.match(esperPresentation.mechanics, /In Commander, this can show up through control/);
 assert.doesNotMatch(
   [
     esperPresentation.thesis,
@@ -1990,7 +1990,7 @@ assert.doesNotMatch(
 const grixisPresentation = presentationForFaction(factions.GRIXIS);
 assert.match(grixisPresentation.thesis, /Black keeps the self alive, Blue finds the angle, and Red moves/);
 assert.match(grixisPresentation.loreRole, /source-grounded Black-centered survival/);
-assert.match(grixisPresentation.mechanics, /Commander support texture, not lore-canon proof or the whole identity/);
+assert.match(grixisPresentation.mechanics, /In Commander, this can show up through removal/);
 assert.doesNotMatch(
   [
     grixisPresentation.thesis,
@@ -2012,7 +2012,7 @@ const grixisLaneText = [
 ].join(" ");
 assert.match(grixisLaneText, /survives first, studies the weakness/);
 assert.match(grixisLaneText, /Control, Spellslinger, Aristocrats/);
-assert.match(grixisLaneText, /Commander support texture for survival, calculation, and urgency/);
+assert.match(grixisLaneText, /express survival, calculation, and urgency/);
 assert.doesNotMatch(
   grixisLaneText,
   /VM-166|raw claims beyond|manual-review material|playable pattern|personality label|recognizable Commander table role|Exact UBR|UBR Commander decks/i
@@ -2055,8 +2055,7 @@ const jundLaneText = [
 ].join(" ");
 assert.match(jundCommanderLane.copy, /pressure sets the clock, sacrifice pays the cost, attrition narrows the table, and drain turns appetite into consequence/);
 assert.match(jundLaneText, /Midrange, Aggro, Counters Matter/);
-assert.match(jundLaneText, /mechanical echoes of appetite, survival, and consequence/);
-assert.match(jundLaneText, /Commander support texture, not lore-canon proof/);
+assert.match(jundLaneText, /express appetite, survival, and consequence/);
 assert.doesNotMatch(jundLaneText, /VM-179|raw claims beyond|manual-review material/);
 assert.match(jundLaneText, /Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine/);
 assert.doesNotMatch(jundLaneText, /Exact BRG|playable pattern|personality label|recognizable Commander table role/i);
@@ -2096,7 +2095,7 @@ assert.doesNotMatch(
 const abzanPresentation = presentationForFaction(factions.ABZAN);
 assert.match(abzanPresentation.thesis, /survival becoming family memory/i);
 assert.match(abzanPresentation.tableExperience, /durable board/i);
-assert.match(abzanPresentation.mechanics, /support-only ways to show endurance/i);
+assert.match(abzanPresentation.mechanics, /In Commander, this can show up through counters/i);
 assert.doesNotMatch(
   [
     abzanPresentation.thesis,
