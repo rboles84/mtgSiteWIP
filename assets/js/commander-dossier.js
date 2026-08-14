@@ -2323,7 +2323,7 @@ export function buildCommanderStartingLane({
   const tableCaution = guidance?.tableCautionText ||
     "Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine.";
 
-  const copy = `One way to explore ${faction?.name || "this path"} is a Commander deck that ${plan}. Treat this as a color-legal starting direction, not a conclusion about your skill, motivation, budget, or preferred table role.`;
+  const copy = `One way to explore ${faction?.name || "this path"} is a Commander deck that ${plan}. Start here, then adjust the budget, complexity, and table role to fit your deck.`;
 
   return {
     title: "Start With This Commander Plan",
@@ -2339,11 +2339,11 @@ export function buildCommanderStartingLane({
       },
       {
         label: "Possible directions",
-        copy: `Explore ${researchLanes}. These are curated or dossier-supported search lanes, not claims that you already enjoy each strategy.`,
+        copy: `Explore ${researchLanes}. Compare these lanes to see which one matches the deck you want to build.`,
       },
       {
         label: "Why these appear",
-        copy: `The directions come from the ${institutionWord.toLowerCase()} Commander guidance and the tags surfaced in this dossier. Color access makes them possible; your recorded answers do not prove a deck preference.`,
+        copy: `These directions connect the ${institutionWord.toLowerCase()} Commander guidance with the themes shown in this dossier. Choose only the lanes that fit the deck you want to explore.`,
       },
       {
         label: `${institutionWord} spellcraft`,

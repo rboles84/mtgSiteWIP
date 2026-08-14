@@ -2,10 +2,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 import {
+  buildCommanderStartingLane,
   buildPublicPreconRationale,
   buildReadingOmens,
   buildWhatToLookFor,
 } from "../assets/js/commander-dossier.js";
+import { presentationForFaction } from "../assets/js/archscry-presentation.js";
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const factions = (await readJson("../data/factions.json")).factions;
@@ -16,6 +18,8 @@ const cardRationaleSource = await readJson("../data/dossier/card-rationale-relat
 const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-catalog.json");
 const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
 const radarSource = await readFile(new URL("../assets/js/dossier-radar.js", import.meta.url), "utf8");
+const matrixSource = await readFile(new URL("../assets/js/vm-radar.js", import.meta.url), "utf8");
+const commanderDossierSource = await readFile(new URL("../assets/js/commander-dossier.js", import.meta.url), "utf8");
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const preconSourceText = await readFile(new URL("../data/precons/vox-mana-precons.source.json", import.meta.url), "utf8");
 const factionsSourceText = await readFile(new URL("../data/factions.json", import.meta.url), "utf8");
@@ -214,6 +218,20 @@ assert.match(indexSource, /archscryGlossaryTooltip/);
 assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /aria-label="colorless mana"/);
 assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not generic mana/);
 assert.doesNotMatch(renderPlayerCopy("Spend true {C}."), /\{C\}/);
+assert.equal(
+  renderPlayerCopy("Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims."),
+  "Keeps five-color breadth focused by making every color and every included tool contribute to the plan.",
+  "the exact WUBRG boundary copy must render as player guidance rather than audit commentary"
+);
+assert.equal(
+  presentationForFaction("WUBRG").loreRole,
+  "The Five-Color expression: all five colors present, coalition and synthesis, with each color contributing to the whole plan"
+);
+const greenStart = buildCommanderStartingLane({ faction: factions.G, guidance: factions.G.commander_compass });
+assert.doesNotMatch(JSON.stringify(greenStart), /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);
+assert.doesNotMatch(indexSource, /identity-appropriate Commander exploration paths, not proof|Starter references are curated from faction data|one bounded path through it/i);
+assert.doesNotMatch(commanderDossierSource, /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);
+assert.doesNotMatch(matrixSource, /controlled expression|source-bound|without adding certainty to the result/i);
 assert.match(indexSource, /EDUCATION_SURFACE_PRIORITY[\s\S]*?"start-here"[\s\S]*?"why-this-fit"[\s\S]*?"test-the-fit"[\s\S]*?"what-to-look-for"/, "glossary allocation must follow the approved page-level surface priority");
 assert.match(indexSource, /educationalTermAllocation\.has\(help\.recordId\)/, "glossary allocation should assign each canonical record once per page");
 assert.match(indexSource, /renderedEducationalTerms\.has\(help\.recordId\)/, "glossary rendering should decorate each canonical record once per page");

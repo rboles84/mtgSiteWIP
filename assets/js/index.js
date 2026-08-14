@@ -190,6 +190,10 @@ const SYSTEM_COPY_REPLACEMENTS = [
   { pattern: systemCopyPattern(["specific", "grievance"]), replacement: "specific pressure" },
   { pattern: /\bCI\s+([WUBRG]{1,5})\b/g, replacement: "Color Identity: $1" },
   { pattern: systemCopyPattern(["Read", "In", "Apocrypha"], "g"), replacement: "Read in the source library" },
+  {
+    pattern: /Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims\./g,
+    replacement: "Keeps five-color breadth focused by making every color and every included tool contribute to the plan.",
+  },
   { pattern: /\u00e2\u20ac\u201d/g, replacement: "-" },
   { pattern: /\u00e2\u20ac\u0153|\u00e2\u20ac\u009d/g, replacement: '"' },
   { pattern: /\u00e2\u20ac\u2122/g, replacement: "'" },
@@ -3675,7 +3679,7 @@ function renderResult(viewKey) {
   const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
-  const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
+  const atlasFrontierCopy = `Explore the complete ${activeExpressionCount}-identity atlas whenever you want to compare this reading with other Commander paths.`;
   const archetypeHtml = archetypeItems
     .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${escapeHtml(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for")}</div></div>`)
     .join("");
@@ -3892,7 +3896,7 @@ function renderResult(viewKey) {
   const startPanelHtml = `
     <div class="starter-section" data-education-surface="start-here">
       <div class="section-label">Start Here</div>
-      <p class="signals-intro">These are identity-appropriate Commander exploration paths, not proof that this identity or any particular commander is correct for you.</p>
+      <p class="signals-intro">Use these Commander starting points to turn the reading into decks, cards, and searches you can compare.</p>
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
@@ -3982,7 +3986,7 @@ function renderResult(viewKey) {
     </div>`;
   const footerActionsHtml = `
     <div class="footer-actions">
-      <div class="footer-note">Card and land images via Scryfall API. Starter references are curated from faction data; deck links route out to EDHREC, Archidekt, and MTGDecks, while Maze stays inside the reading flow.</div>
+      <div class="footer-note">Card and land images via Scryfall. Deck links open EDHREC, Archidekt, or MTGDecks; Maze searches stay connected to this reading.</div>
       <div class="footer-button-row">
         <button class="btn-primary" type="button" ${buildActionAttrs("save-current-result")}>${saveButtonLabel}</button>
         ${returnToTerminalButton}

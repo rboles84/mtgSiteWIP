@@ -336,7 +336,18 @@ async function replay(page, origin, witness) {
       internalLeaks: text.match(/\b(?:SIG_|DG_|MAPPING_|naming qualification|mapping hypothesis|bounded observation)\S*/gi) || [],
       auditLanguageLeaks: text.match(/\b(?:Commander support texture|lore-canon proof|approved relationship|approved card-to-identity explanation|source-backed|source-bound|source-bounded|public-surface|guardrail|evidence-required|mapping|routing|taxonomy|bounded interpretation|support-only|support navigation|manually verified|unverified card claims|placement proof|result proof)\b/gi) || [],
       auditLanguageLeakLines: text.split(/\n+/).map((line) => line.trim()).filter((line) => /\b(?:support-only|support navigation|manually verified|unverified card claims|source-bound(?:ed)?|placement proof|result proof)\b/i.test(line)),
+      methodologyPhraseLeaks: [
+        /playable pattern, not a personality label/gi,
+        /controlled expression/gi,
+        /strict separation from official-faction/gi,
+        /color-legal starting direction/gi,
+        /curated or dossier-supported/gi,
+        /recorded answers do not prove a deck preference/gi,
+        /without adding certainty to the result/gi,
+        /unsupported Commander claims/gi,
+      ].flatMap((pattern) => text.match(pattern) || []),
       entityLeaks: text.match(/&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi) || [],
+      mojibakeLeaks: text.match(/(?:\u00e2\u20ac|\u00c2[\u0080-\u00bf]|\ufffd)/g) || [],
       knownCopyDefects: [
         /volatility Theater/gi,
         /spell magnitide/gi,
@@ -377,7 +388,9 @@ async function replay(page, origin, witness) {
   }
   if (witness.expected_state) assert.equal(ui.publicResultState, witness.expected_state, `${witness.case_id || witness.identity_key} result-state drift`);
   assert.deepEqual(ui.internalLeaks, []);
+  assert.deepEqual(ui.methodologyPhraseLeaks, [], `${witness.identity_key} retained scoped methodology copy`);
   assert.deepEqual(ui.entityLeaks, [], `${witness.identity_key} leaked encoded entities`);
+  assert.deepEqual(ui.mojibakeLeaks, [], `${witness.identity_key} rendered mojibake`);
   assert.deepEqual(ui.knownCopyDefects, [], `${witness.identity_key} retained a known copy defect`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.equal(ui.literalColorless, false, `literal Colorless token remained in ${JSON.stringify(ui.literalColorlessNodes)}`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Wastes"]);

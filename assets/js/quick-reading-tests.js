@@ -2361,7 +2361,7 @@ assert.match(yorePressureSummary[0].meaning, /forcing the table to answer/i);
 const yoreRadarProfile = getDossierRadarProfile({ faction: "YORE" }, factions.YORE, identityLayers);
 assert.deepEqual(yoreRadarProfile.data, [50, 58, 54, 56, 54]);
 assert.equal(yoreRadarProfile.note, globalThis.VMRadar.MATRIX_NOTE);
-assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /Identity context across Order, Knowledge, Ambition, Freedom, and Growth; it illustrates this reading without adding certainty to the result/i);
+assert.match(renderDossierRadarSection({ result: { faction: "YORE" }, faction: factions.YORE, identityLayers }), /See how this identity is expressed across Order, Knowledge, Ambition, Freedom, and Growth/i);
 const temurRadarProfile = getDossierRadarProfile({ faction: "TEMUR" }, factions.TEMUR, identityLayers);
 assert.deepEqual(temurRadarProfile.data, [45, 60, 44, 63, 71]);
 const temurHomeProfile = globalThis.VMRadar.resolveRadarProfile("TEMUR", identityLayers, factions.TEMUR);

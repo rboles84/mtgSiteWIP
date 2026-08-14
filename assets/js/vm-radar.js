@@ -3,7 +3,8 @@
 
   const SCORE_KEYS = ["order", "knowledge", "ambition", "freedom", "growth"];
   const AXIS_LABELS = ["Order", "Knowledge", "Ambition", "Freedom", "Growth"];
-const MATRIX_NOTE = "Identity context across Order, Knowledge, Ambition, Freedom, and Growth; it illustrates this reading without adding certainty to the result.";
+  const MATRIX_NOTE = "See how this identity is expressed across Order, Knowledge, Ambition, Freedom, and Growth.";
+  const WUBRG_LORE_SUMMARY = "Five-Color brings all five colors into one Commander plan: breadth, coalition, synthesis, and the responsibility to make every included tool earn its place.";
 
   const AXIS_MEANING = Object.freeze({
     Order: "Rules, protection, teamwork",
@@ -204,6 +205,9 @@ const MATRIX_NOTE = "Identity context across Order, Knowledge, Ambition, Freedom
   }
 
   function displayLore(expression, fallbackFaction) {
+    if (String(expression?.key || fallbackFaction?.key || "").toUpperCase() === "WUBRG") {
+      return WUBRG_LORE_SUMMARY;
+    }
     return fallbackFaction?.lore_summary ||
       fallbackFaction?.display?.lore_summary ||
       expression?.display?.lore_summary ||
