@@ -300,6 +300,11 @@ async function replay(page, origin, witness) {
       manaNotesPresent: Boolean(document.querySelector(".lands-section")),
       glossaryHelpCount: document.querySelectorAll(".archscry-term-help[data-gloss]").length,
       glossaryTerms: [...document.querySelectorAll(".archscry-term-help[data-gloss]")].map((node) => node.textContent?.trim() || ""),
+      glossaryRecordIds: [...document.querySelectorAll(".archscry-term-help[data-gloss-record]")].map((node) => node.getAttribute("data-gloss-record")),
+      glossaryOutsideApprovedSurfaces: [...document.querySelectorAll(".archscry-term-help[data-gloss-record]")]
+        .filter((node) => !node.closest('[data-education-surface="start-here"], [data-education-surface="why-this-fit"], [data-education-surface="test-the-fit"], [data-education-surface="what-to-look-for"]'))
+        .map((node) => node.textContent?.trim() || ""),
+      basicLandCards: [...document.querySelectorAll("[data-basic-land-cards] .land-name")].map((node) => node.textContent?.trim() || ""),
       duplicateCards: [...new Set(all.filter((name, index) => all.indexOf(name) !== index))],
       cardGroups: groups,
       internalLeaks: text.match(/\b(?:SIG_|DG_|MAPPING_|naming qualification|mapping hypothesis|bounded observation)\S*/gi) || [],
@@ -330,7 +335,10 @@ async function replay(page, origin, witness) {
     assert.ok(ui.preconCount >= 1, `${witness.identity_key} precon starting points missing`);
     assert.ok(ui.browseBuildCount >= ui.preconCount, `${witness.identity_key} displayed a precon without Browse Builds`);
     assert.ok(ui.glossaryHelpCount >= 1, `${witness.identity_key} rendered no Start Here teaching help`);
+    assert.equal(new Set(ui.glossaryRecordIds).size, ui.glossaryRecordIds.length, `${witness.identity_key} decorated a glossary record more than once`);
+    assert.deepEqual(ui.glossaryOutsideApprovedSurfaces, [], `${witness.identity_key} decorated glossary help outside the approved teaching surfaces`);
     assert.equal(ui.manaNotesPresent, true, `${witness.identity_key} omitted Mana Notes`);
+    assert.ok(ui.basicLandCards.length >= 1 && ui.basicLandCards.length <= 5, `${witness.identity_key} Basics cards were not rendered intentionally`);
     assert.deepEqual(ui.duplicateCards, [], `${witness.identity_key} repeated cards across public page roles: ${JSON.stringify(ui.cardGroups)}`);
     assert.deepEqual(ui.auditLanguageLeaks, [], `${witness.identity_key} leaked reviewer or implementation language`);
     assert.equal(ui.heroNarrativeDuplicate, false, `${witness.identity_key} repeated its hero thesis in the adjacent lore summary`);
@@ -342,6 +350,13 @@ async function replay(page, origin, witness) {
   assert.deepEqual(ui.entityLeaks, [], `${witness.identity_key} leaked encoded entities`);
   assert.deepEqual(ui.knownCopyDefects, [], `${witness.identity_key} retained a known copy defect`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.equal(ui.literalColorless, false, `literal Colorless token remained in ${JSON.stringify(ui.literalColorlessNodes)}`);
+  if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Wastes"]);
+  if (witness.identity_key === "WUBRG" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
+  if (witness.identity_key === "G" && ui.state === "named") {
+    const normalizedGlossary = ui.glossaryTerms.map((term) => term.toLowerCase());
+    for (const term of ["big mana", "graveyard", "landfall", "trample"]) assert.ok(normalizedGlossary.includes(term), `Green omitted ${term} glossary help`);
+    assert.ok(!normalizedGlossary.includes("counters"), "Green decorated ordinary bare counters");
+  }
   assert.equal(ui.documentOverflow, false);
   assert.deepEqual(consoleErrors.filter((message) => !/favicon|ERR_FAILED|Failed to load resource/i.test(message)), []);
   return { identity_key: witness.identity_key, ...ui, console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)) };

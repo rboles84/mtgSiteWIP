@@ -3319,6 +3319,8 @@ body.vm-archscry-route .saved-deck-link-note{
   margin-bottom:0.85rem;
 }
 .land-cards-row{display:flex;gap:8px;flex-wrap:wrap}
+.land-cards-row--basics{justify-content:center;margin-top:14px}
+.land-cards-row--basics .land-wrap{width:96px}
 .land-wrap{flex:0 0 auto;width:128px;position:relative;z-index:1}
 .land-wrap:hover{z-index:200}
 .land-img{
@@ -3424,6 +3426,7 @@ body.vm-archscry-route .saved-deck-link-note{
   .result-context-bar{align-items:flex-start;flex-direction:column}
   .context-actions{justify-content:flex-start}
   .land-wrap{width:105px}
+  .land-cards-row--basics .land-wrap{width:82px}
   .staple-wrap{width:120px}
   .commander-img:hover{transform:scale(1.7)}
   .service-chip{width:100%;justify-content:flex-start}

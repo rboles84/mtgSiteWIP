@@ -15,10 +15,13 @@ const required = [
   "protection", "aristocrats", "storm", "convoke", "populate", "goad", "voltron",
   "blink/flicker", "wastes", "colorless mana", "generic mana", "devoid", "mana rocks",
   "aggro", "counters matter", "sacrifice", "graveyard value", "devour", "equipment",
+  "big mana", "landfall", "trample",
 ];
 for (const term of required) assert(normalized.has(term), `missing required glossary term: ${term}`);
 
-const formal = new Set(["glossary_protection", "glossary_convoke", "glossary_populate", "glossary_goad", "glossary_wastes", "glossary_colorless_mana", "glossary_generic_mana", "glossary_devoid"]);
+assert(!normalized.has("counters"), "ordinary bare 'counters' must not be decorated as a specialist term");
+
+const formal = new Set(["glossary_protection", "glossary_convoke", "glossary_populate", "glossary_goad", "glossary_trample", "glossary_wastes", "glossary_colorless_mana", "glossary_generic_mana", "glossary_devoid"]);
 for (const record of source.records.filter((item) => formal.has(item.record_id))) {
   assert.equal(record.provenance.role, "official_game_rule");
   assert.match(record.provenance.locator, /^(https:\/\/magic\.wizards\.com\/|docs\/research\/colorless\/source-material\/official\/)/);

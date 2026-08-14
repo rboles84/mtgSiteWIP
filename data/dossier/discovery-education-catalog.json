@@ -27,6 +27,17 @@
       }
     },
     {
+      "record_id": "glossary_big_mana",
+      "term": "Big Mana",
+      "aliases": [],
+      "definition": "Producing very large amounts of mana for oversized plays.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#big-mana",
+        "supporting_locators": []
+      }
+    },
+    {
       "record_id": "glossary_big_spell_storm",
       "term": "Big Spell Storm",
       "aliases": [
@@ -103,8 +114,7 @@
       "record_id": "glossary_counters_matter",
       "term": "Counters Matter",
       "aliases": [
-        "counters matter",
-        "counters"
+        "counters matter"
       ],
       "definition": "Using counters on permanents or players as a scaling resource.",
       "provenance": {
@@ -226,7 +236,9 @@
     {
       "record_id": "glossary_graveyard_value",
       "term": "Graveyard value",
-      "aliases": [],
+      "aliases": [
+        "graveyard"
+      ],
       "definition": "Using the graveyard as an active game zone or resource.",
       "provenance": {
         "role": "vox_mana_commander_vocabulary",
@@ -247,6 +259,17 @@
         "supporting_locators": [
           "data/taxonomy/vox-mana-tags.json#hatebears"
         ]
+      }
+    },
+    {
+      "record_id": "glossary_landfall",
+      "term": "Landfall",
+      "aliases": [],
+      "definition": "Triggering effects when lands enter the battlefield under your control.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#landfall",
+        "supporting_locators": []
       }
     },
     {
@@ -498,6 +521,20 @@
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#tokens",
         "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_trample",
+      "term": "Trample",
+      "aliases": [],
+      "definition": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Current Magic Comprehensive Rules 702.19"
       }
     },
     {

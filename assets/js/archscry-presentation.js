@@ -473,16 +473,16 @@ export const FACTION_PRESENTATION = {
   COLORLESS: {
     shortName: "Colorless",
     tableRole: "The Engine Builder",
-    opponentRead: "Opponents see the deck assemble infrastructure before the threat: clean {C}, mana rocks, utility lands, and one payoff large enough to test every answer.",
+    opponentRead: "Opponents see the deck assemble infrastructure before the threat: reliable colorless mana, mana rocks, utility lands, and one payoff large enough to test every answer.",
     emotionalPressure: "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
     loreRole: "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
-    mechanics: "Reliable {C}, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
+    mechanics: "Reliable colorless mana, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
     tableExperience: "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time",
     thesis: "Build outside the wheel. Colorless reads your answers as chosen restriction: fewer shortcuts, stricter mana, and payoffs that make the absence of color visible.",
-    closeReason: "outside-WUBRG precision, strict true-{C} mana, Wastes, artifact engines, and clear separation from five-color Eldrazi",
+    closeReason: "outside-WUBRG precision, reliable colorless mana, Wastes, artifact engines, and clear separation from five-color Eldrazi",
     forkQuestion: "What limit is worth making into the structure of the whole deck?",
     direction: "moves toward strict outside-WUBRG construction, artifact engines, big mana, and clean colorless separation",
-    selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and true {C} serving the plan instead of generic costs or five-color Eldrazi blurring it.",
+    selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and reliable colorless sources serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
   WUBRG: {
     shortName: "Five-Color",
@@ -1087,11 +1087,11 @@ export function buildContrastCopy(primaryFaction, adjacentFaction) {
   }
 
   if (primaryKey === "COLORLESS" && adjacentKey === "ABZAN") {
-    return "Both paths recognized pressure, endurance, and the need for structure. Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless moves toward chosen restriction, true {C}, Wastes, artifact engines, and outside-WUBRG deckbuilding. Abzan moves toward endurance, obligation, inheritance, and defensive continuity.";
+    return "Both paths recognized pressure, endurance, and the need for structure. Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless moves toward chosen restriction, reliable colorless mana, Wastes, artifact engines, and outside-WUBRG deckbuilding. Abzan moves toward endurance, obligation, inheritance, and defensive continuity.";
   }
 
   if (primaryKey === "ABZAN" && adjacentKey === "COLORLESS") {
-    return "Both paths recognized pressure, endurance, and the need for structure. Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan moves toward endurance, obligation, inheritance, and defensive continuity. Colorless moves toward chosen restriction, true {C}, Wastes, artifact engines, and outside-WUBRG deckbuilding.";
+    return "Both paths recognized pressure, endurance, and the need for structure. Abzan asks: \"What duty is worth carrying into the next generation?\" Colorless asks: \"What limit is worth making into the structure of the whole deck?\" Abzan moves toward endurance, obligation, inheritance, and defensive continuity. Colorless moves toward chosen restriction, reliable colorless mana, Wastes, artifact engines, and outside-WUBRG deckbuilding.";
   }
 
   if (primaryKey === "GLINT" && adjacentKey === "B") {

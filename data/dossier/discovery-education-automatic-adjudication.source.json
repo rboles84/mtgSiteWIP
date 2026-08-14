@@ -66,6 +66,36 @@
       }
     },
     {
+      "record_id": "glossary_big_mana",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Big Mana",
+      "aliases": [],
+      "proposed_copy": "Producing very large amounts of mana for oversized plays.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#big-mana",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_big_mana",
+      "copy_sha256": "c99f69d95854804425c154dd9de8bf4801c2fe49a5f4e94f612bbf5888b1f4b6",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#big-mana"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_big_spell_storm",
       "record_type": "GLOSSARY_TERM",
       "term": "Big Spell Storm",
@@ -230,8 +260,7 @@
       "record_type": "GLOSSARY_TERM",
       "term": "Counters Matter",
       "aliases": [
-        "counters matter",
-        "counters"
+        "counters matter"
       ],
       "proposed_copy": "Using counters on permanents or players as a scaling resource.",
       "example": null,
@@ -504,7 +533,9 @@
       "record_id": "glossary_graveyard_value",
       "record_type": "GLOSSARY_TERM",
       "term": "Graveyard value",
-      "aliases": [],
+      "aliases": [
+        "graveyard"
+      ],
       "proposed_copy": "Using the graveyard as an active game zone or resource.",
       "example": null,
       "provenance": {
@@ -551,6 +582,36 @@
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_hatebears",
       "copy_sha256": "de8d3206310bc9eae508ca6d58d751053c39392c674b4a334084345cc75844fb"
+    },
+    {
+      "record_id": "glossary_landfall",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Landfall",
+      "aliases": [],
+      "proposed_copy": "Triggering effects when lands enter the battlefield under your control.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#landfall",
+        "supporting_locators": []
+      },
+      "limitations": "A teaching definition only; the term does not prove an identity, placement, power level, or player preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_landfall",
+      "copy_sha256": "c03b659ee7638b95106956b71fd443c00d2292de016fef5452483d0d0f42fb69",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#landfall"
+        ],
+        "identity_meaning_authorized": false
+      }
     },
     {
       "record_id": "glossary_mana_rocks",
@@ -1054,6 +1115,39 @@
         "content_class": "FACTUAL_EDUCATION",
         "fact_source_locators": [
           "data/taxonomy/vox-mana-tags.json#tokens"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_trample",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Trample",
+      "aliases": [],
+      "proposed_copy": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_rule",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "authority_note": "Current Magic Comprehensive Rules 702.19"
+      },
+      "limitations": "Explains the game term only; it does not establish an identity relationship or placement preference.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_trample",
+      "copy_sha256": "090226369b94a4ada54292063711b8bd907ce3fe74d251e525de2c5fb5c380bd",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/rules"
         ],
         "identity_meaning_authorized": false
       }

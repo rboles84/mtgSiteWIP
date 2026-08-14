@@ -54,9 +54,9 @@ const baselineTerms = [
 
 const taxonomyReview = [
   ["aggro", "Aggro", ["aggressive"], "aggro"],
-  ["counters_matter", "Counters Matter", ["counters matter", "counters"], "counters"],
+  ["counters_matter", "Counters Matter", ["counters matter"], "counters"],
   ["sacrifice", "Sacrifice", ["sacrificing"], "sacrifice"],
-  ["graveyard_value", "Graveyard value", [], "graveyard"],
+  ["graveyard_value", "Graveyard value", ["graveyard"], "graveyard"],
   ["equipment", "Equipment", [], "equipment"],
   ["spellslinger", "Spellslinger", [], "spellslinger"],
   ["tokens", "Tokens", ["token deck"], "tokens"],
@@ -67,6 +67,8 @@ const taxonomyReview = [
   ["blink_flicker", "Blink/Flicker", ["blink", "flicker"], "blink"],
   ["mana_rocks", "Mana rocks", ["mana rock"], "ramp"],
   ["ramp", "Ramp", ["mana acceleration"], "ramp"],
+  ["big_mana", "Big Mana", [], "big-mana"],
+  ["landfall", "Landfall", [], "landfall"],
   ["etb", "ETB", ["enters the battlefield", "enter-the-battlefield"], "etb"],
   ["self_mill", "Self-mill", ["self mill", "mill yourself", "stock the graveyard"], "self-mill"],
 ].map(([termId, term, aliases, tag]) => ({
@@ -117,6 +119,12 @@ const rulesReview = [
     copy: "Until your next turn, a goaded creature attacks each combat if able and attacks a player other than you if able.",
     locator: "https://magic.wizards.com/en/news/making-magic/its-another-conspiracy-2016-08-15#goad",
     rule: "Wizards Conspiracy mechanic explanation plus current Comprehensive Rules authority",
+  },
+  {
+    id: "trample", term: "Trample", aliases: [],
+    copy: "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+    locator: "https://magic.wizards.com/en/rules",
+    rule: "Current Magic Comprehensive Rules 702.19",
   },
   {
     id: "wastes", term: "Wastes", aliases: [],

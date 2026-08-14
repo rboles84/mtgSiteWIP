@@ -552,7 +552,7 @@ export function basicLandGuidanceCopy(colors) {
     .filter((color) => MANA_SYMBOL_NAMES[color]);
   const basics = basicLandNamesForColors(colorSymbols);
   if (!basics.length) {
-    return "Start with Wastes, true {C} sources, and mana rocks before utility lands. Generic costs are not colorless mana, effects that ask for a color will not make {C}, Command Tower cannot choose colorless, and Reflecting Pool-style effects need another {C} source before they help.";
+    return "Start with Wastes, reliable colorless sources, and mana rocks before utility lands. Generic costs are not colorless mana, effects that ask for a color will not make colorless mana, Command Tower cannot choose colorless, and Reflecting Pool-style effects need another colorless source before they help.";
   }
   if (basics.length === 1) {
     return `After choosing your nonbasic lands, fill the rest with ${basics[0]} unless your utility lands need more room.`;
@@ -565,10 +565,10 @@ export function basicLandGuidanceCopy(colors) {
 function landLaneCopyForFaction(faction = {}) {
   if (String(faction?.key || "").toUpperCase() === "COLORLESS") {
     return {
-      premium: "Best when you need true {C} early and enough speed to reach colorless finishers before the table stabilizes.",
+      premium: "Best when you need reliable colorless mana early and enough speed to reach colorless finishers before the table stabilizes.",
       midrange: "The practical upgrade lane: Wastes, proven colorless sources, utility lands, and artifact mana that keep the restriction consistent.",
-      budget: "Start with Wastes and reliable colorless production first; add utility lands only when they still help cast your actual {C} cards.",
-      utility: "Use utility lands as deck machinery, not decoration; Reflecting Pool-style effects need another source that can make {C} before they help the plan.",
+      budget: "Start with Wastes and reliable colorless production first; add utility lands only when they still help cast cards with colorless requirements.",
+      utility: "Use utility lands as deck machinery, not decoration; Reflecting Pool-style effects need another source that can make colorless mana before they help the plan.",
     };
   }
   return {
@@ -675,8 +675,22 @@ function buildSummaryTagRowHtml(tags = []) {
   }
   return `
     <div class="dossier-snapshot-tags" data-summary-tags-row>
-      ${tags.map((tag) => `<span class="dossier-snapshot-tag">${renderEducationalText(tag, "summary-tags")}</span>`).join("")}
+      ${tags.map((tag) => `<span class="dossier-snapshot-tag">${escapeHtml(tag)}</span>`).join("")}
     </div>`;
+}
+
+function basicLandCardsForColors(colors) {
+  const basicNames = {
+    W: "Plains",
+    U: "Island",
+    B: "Swamp",
+    R: "Mountain",
+    G: "Forest",
+  };
+  const cards = (Array.isArray(colors) ? colors : String(colors || "").split(""))
+    .map((color) => basicNames[color.toUpperCase()])
+    .filter(Boolean);
+  return cards.length ? cards : ["Wastes"];
 }
 
 function normalizedNarrativeWords(value) {
@@ -779,7 +793,7 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
   ].filter(Boolean);
   if (!cards.length) return "";
   return `
-    <div class="starter-section" data-test-the-fit>
+    <div class="starter-section" data-test-the-fit data-education-surface="test-the-fit">
       <div class="section-label">Test the Fit</div>
       <div class="identity-story-grid public-three-item-grid" data-item-count="${cards.length}">${cards.join("")}</div>
     </div>`;
@@ -792,9 +806,9 @@ function buildTableIdentityCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
-        <div><span>Role</span>${renderEducationalText(presentation.role, "how-this-plays")}</div>
-        <div><span>How opponents read it</span>${renderEducationalText(presentation.how_opponents_read_it, "how-this-plays")}</div>
-        <div><span>Emotional pressure</span>${renderEducationalText(presentation.emotional_pressure, "how-this-plays")}</div>
+        <div><span>Role</span>${renderPlayerCopy(presentation.role)}</div>
+        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.how_opponents_read_it)}</div>
+        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotional_pressure)}</div>
       </div>
     </div>`;
 }
@@ -806,9 +820,9 @@ function buildLoreToMechanicCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
-        <div><span>Lore role</span>${renderEducationalText(presentation.lore_role, "how-this-plays")}</div>
-        <div><span>Mechanical expression</span>${renderEducationalText(presentation.mechanical_expression, "how-this-plays")}</div>
-        <div><span>Table experience</span>${renderEducationalText(presentation.table_experience, "how-this-plays")}</div>
+        <div><span>Lore role</span>${renderPlayerCopy(presentation.lore_role)}</div>
+        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanical_expression)}</div>
+        <div><span>Table experience</span>${renderPlayerCopy(presentation.table_experience)}</div>
       </div>
     </div>`;
 }
@@ -1561,6 +1575,7 @@ export function buildDossierRenderState({
     starterCardSegments,
     hasStarterCardReferences: starterCardSegments.length > 0,
     basicLandCopy: basicLandGuidanceCopy(colors),
+    basicLandCards: basicLandCardsForColors(colors),
   };
 }
 
@@ -2696,7 +2711,33 @@ function archscryTermHelp() {
   return map;
 }
 
-let renderedEducationalTerms = new Map();
+const EDUCATION_SURFACE_PRIORITY = Object.freeze([
+  "start-here",
+  "why-this-fit",
+  "test-the-fit",
+  "what-to-look-for",
+]);
+
+let educationalTermAllocation = new Map();
+let renderedEducationalTerms = new Set();
+
+function termMatcher(label) {
+  const escaped = String(label || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`, "i");
+}
+
+function prepareEducationalTermAllocation(copyBySurface = {}) {
+  educationalTermAllocation = new Map();
+  const termHelp = archscryTermHelp();
+  for (const surface of EDUCATION_SURFACE_PRIORITY) {
+    const copy = (copyBySurface[surface] || []).filter(Boolean).join(" ");
+    if (!copy) continue;
+    for (const [label, help] of Object.entries(termHelp)) {
+      if (educationalTermAllocation.has(help.recordId)) continue;
+      if (termMatcher(label).test(copy)) educationalTermAllocation.set(help.recordId, surface);
+    }
+  }
+}
 
 function renderEducationalText(value, semanticBlock = "page") {
   const text = String(value || "");
@@ -2709,10 +2750,9 @@ function renderEducationalText(value, semanticBlock = "page") {
     const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
     if (!canonical) return renderPlayerCopy(part);
     const help = termHelp[canonical];
-    const blockTerms = renderedEducationalTerms.get(semanticBlock) || new Set();
-    if (blockTerms.has(help.recordId)) return renderPlayerCopy(part);
-    blockTerms.add(help.recordId);
-    renderedEducationalTerms.set(semanticBlock, blockTerms);
+    if (educationalTermAllocation.get(help.recordId) !== semanticBlock) return renderPlayerCopy(part);
+    if (renderedEducationalTerms.has(help.recordId)) return renderPlayerCopy(part);
+    renderedEducationalTerms.add(help.recordId);
     return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss-record="${escapeAttributeValue(help.recordId)}" data-gloss="${escapeAttributeValue(help.definition)}">${escapeHtml(part)}</span>`;
   }).join("");
 }
@@ -2914,7 +2954,7 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
   const observations = (dossier?.readingOmens || []).slice(0, 3);
   if (!observations.length) return "";
   return `
-    <div class="starter-section" data-public-fit-reasons>
+    <div class="starter-section" data-public-fit-reasons data-education-surface="why-this-fit">
       <div class="section-label">Why This Fit</div>
       <p class="signals-intro">These are the answer-derived observations that moved this reading toward ${escapeHtml(faction.name)}.</p>
       <div class="starter-grid public-three-item-grid" data-item-count="${observations.length}">
@@ -3449,7 +3489,8 @@ function renderResult(viewKey) {
   const activeKey = allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
   destroyDossierManaRadar();
-  renderedEducationalTerms = new Map();
+  educationalTermAllocation = new Map();
+  renderedEducationalTerms = new Set();
 
   if (!result) {
     document.getElementById("result-inner").innerHTML = `
@@ -3557,6 +3598,32 @@ function renderResult(viewKey) {
     mazeContext,
     window.location.href
   );
+  const dossierContent = dossierContentForFaction(faction);
+  const archetypeItems = dossierContent?.what_to_look_for.map((item) => ({
+    name: item.title,
+    desc: item.copy,
+    provenance: {
+      record_id: dossierContent?.provenance?.record_id,
+      item_id: item.item_id,
+      source_locator: item.source_locator,
+    },
+  })) || [];
+  const comparisonFaction = getFaction((tiedAlternative || closeAlternative?.match)?.faction);
+  prepareEducationalTermAllocation({
+    "start-here": [
+      commanderLane?.copy,
+      ...(commanderLane?.details || []).map((detail) => detail.copy),
+    ],
+    "why-this-fit": (dossier?.readingOmens || []).slice(0, 3).map((observation) => observation.copy),
+    "test-the-fit": [
+      dossierContent?.test_the_fit?.positive_self_check,
+      dossierContent?.test_the_fit?.tension_failure_mode,
+      comparisonFaction
+        ? approvedComparisonCopy(faction, comparisonFaction)
+        : dossierContent?.test_the_fit?.certified_boundary_self_check,
+    ],
+    "what-to-look-for": archetypeItems.map((item) => item.desc),
+  });
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
@@ -3571,17 +3638,8 @@ function renderResult(viewKey) {
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
   const atlasFrontierCopy = `The complete ${activeExpressionCount}-identity atlas is available for exploration. This reading is one bounded path through it, not a claim that every identity was equally tested by these answers.`;
-  const archetypeItems = dossierContentForFaction(faction)?.what_to_look_for.map((item) => ({
-    name: item.title,
-    desc: item.copy,
-    provenance: {
-      record_id: dossierContentForFaction(faction)?.provenance?.record_id,
-      item_id: item.item_id,
-      source_locator: item.source_locator,
-    },
-  })) || [];
   const archetypeHtml = archetypeItems
-    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name, "what-to-look-for")}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for")}</div></div>`)
+    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${escapeHtml(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for")}</div></div>`)
     .join("");
 
   function cardSlots(items, prefix, placeholderClass, imageClass) {
@@ -3635,6 +3693,7 @@ function renderResult(viewKey) {
   const starterCardSegments = renderState.starterCardSegments;
   const hasStarterCardReferences = renderState.hasStarterCardReferences;
   const basicLandCopy = renderState.basicLandCopy;
+  const basicLandCards = renderState.basicLandCards;
   const commanderPreviewHtml = commanderPreviewCandidates.length ? `
     <div class="commander-preview-block" data-commander-preview-block hidden>
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
@@ -3702,7 +3761,7 @@ function renderResult(viewKey) {
     <div class="starter-grid mana-primer-grid">
       <div class="starter-card">
         <div class="starter-title">Wastes First</div>
-        <div class="starter-copy">${renderPlayerCopy("Use Wastes and true {C} producers as the floor before adding utility lands.")}</div>
+        <div class="starter-copy">Use Wastes and reliable colorless producers as the floor before adding utility lands.</div>
       </div>
       <div class="starter-card">
         <div class="starter-title">Rocks And Sources</div>
@@ -3710,7 +3769,7 @@ function renderResult(viewKey) {
       </div>
       <div class="starter-card">
         <div class="starter-title">Color-Choice Caution</div>
-        <div class="starter-copy">${renderPlayerCopy("Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make {C}.")}</div>
+        <div class="starter-copy">Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana.</div>
       </div>
     </div>` : "";
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
@@ -3791,7 +3850,7 @@ function renderResult(viewKey) {
     ${cardVoicesHtml}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
-    <div class="starter-section">
+    <div class="starter-section" data-education-surface="start-here">
       <div class="section-label">Start Here</div>
       <p class="signals-intro">These are identity-appropriate Commander exploration paths, not proof that this identity or any particular commander is correct for you.</p>
       <div class="starter-grid starter-grid-start">
@@ -3801,7 +3860,7 @@ function renderResult(viewKey) {
           <div class="starter-notes">
             ${commanderLane.details.map((detail) => `
               <div class="starter-note">
-                <div class="starter-note-label">${renderEducationalText(detail.label, "start-here")}</div>
+                <div class="starter-note-label">${escapeHtml(detail.label)}</div>
                 <div class="starter-copy">${renderEducationalText(detail.copy, "start-here")}</div>
               </div>`).join("")}
           </div>
@@ -3816,7 +3875,7 @@ function renderResult(viewKey) {
       <div class="decks-grid">${decksHtml}</div>
     </div>
     ${archetypeHtml ? `
-      <div class="archetypes-section">
+      <div class="archetypes-section" data-education-surface="what-to-look-for">
         <div class="section-label">What to Look For</div>
         <div class="archetypes-grid public-three-item-grid" data-item-count="${archetypeItems.length}">${archetypeHtml}</div>
       </div>` : ""}`;
@@ -3858,10 +3917,11 @@ function renderResult(viewKey) {
           <div class="land-tier tier-basics">
             ${isColorlessFaction ? `<div class="land-tier-label">Wastes First</div>` : ""}
             <div class="land-tier-copy">${renderPlayerCopy(basicLandCopy)}</div>
+            <div class="land-cards-row land-cards-row--basics" data-basic-land-cards data-item-count="${basicLandCards.length}">${landSlots(basicLandCards, "lbas")}</div>
           </div>`)}
         ${hasRenderableLandTier(landRecommendations, "premium") ? buildSegmentPanelHtml("mana-base", "premium", manaBaseSegment, `
           <div class="land-tier tier-premium">
-            <div class="land-tier-label">${isColorlessFaction ? renderPlayerCopy("Fast {C} Lane") : "Premium"}</div>
+            <div class="land-tier-label">${isColorlessFaction ? "Fast Colorless Lane" : "Premium"}</div>
             <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.premium)}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.premium, "lp")}</div>
           </div>`) : ""}
@@ -3873,7 +3933,7 @@ function renderResult(viewKey) {
           </div>`) : ""}
         ${hasRenderableLandTier(landRecommendations, "budget") ? buildSegmentPanelHtml("mana-base", "budget", manaBaseSegment, `
           <div class="land-tier tier-budget">
-            <div class="land-tier-label">${isColorlessFaction ? renderPlayerCopy("Entry {C} Lane") : "Budget"}</div>
+            <div class="land-tier-label">${isColorlessFaction ? "Entry Colorless Lane" : "Budget"}</div>
             <div class="land-tier-copy">${renderPlayerCopy(landLaneCopy.budget)}</div>
             <div class="land-cards-row">${landSlots(landRecommendations.budget, "lb")}</div>
           </div>`) : ""}
@@ -3972,7 +4032,7 @@ function renderResult(viewKey) {
   if (!shouldDisableResultCardArt()) {
     const resultInner = document.getElementById("result-inner");
     if (resultInner) resultInner.dataset.cardArtState = "loading";
-    void loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets)
+    void loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, { ...landRecommendations, basics: basicLandCards }, matrixFlavorSnippets)
       .then(() => {
         if (resultInner?.isConnected) resultInner.dataset.cardArtState = "ready";
       })
@@ -4070,6 +4130,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
     ...(starterCards.creatures || []).map((name, index) => resultArtCandidate(name, `sc_${index}`, "staple-img")),
     ...(starterCards.spells || []).map((name, index) => resultArtCandidate(name, `ss_${index}`, "staple-img")),
     ...(starterCards.permanents || []).map((name, index) => resultArtCandidate(name, `sp_${index}`, "staple-img")),
+    ...(landRecommendations.basics || []).map((name, index) => ({ ...resultArtCandidate(name, `lbas_${index}`, "land-img"), recordType: "CARD", name })),
     ...(landRecommendations.premium || []).map((name, index) => ({ ...resultArtCandidate(name, `lp_${index}`, "land-img"), recordType: "CARD", name })),
     ...(landRecommendations.midrange || []).map((name, index) => ({ ...resultArtCandidate(name, `lm_${index}`, "land-img"), recordType: "CARD", name })),
     ...(landRecommendations.budget || []).map((name, index) => ({ ...resultArtCandidate(name, `lb_${index}`, "land-img"), recordType: "CARD", name })),
