@@ -5442,10 +5442,10 @@
         "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM",
         "identity_authority": "data/raw-factions/witherbloom/witherbloom.claims.json"
       },
-      "limitations": "Exact card text is verified, but Public use is limited to this validated voice relationship. Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.",
-      "disposition": "APPROVED_PUBLIC",
+      "limitations": "Rejected after owner testing because the Sultai-context excerpt shares generic death-and-renewal language and explicitly does not establish Witherbloom.",
+      "disposition": "REJECTED",
       "owner_decision": null,
-      "replacement_locator": "data/dossier/card-voice-relationships.source.json#pending-witherbloom",
+      "replacement_locator": "data/dossier/card-content-review-proposals.source.json#packet1_voice_witherbloom_6cd58a88_6434_4c55_bf93_a739b5ed9bc1_native",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
         "witherbloom_claim_0019",
@@ -5470,13 +5470,15 @@
       "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims witherbloom_claim_0019, witherbloom_claim_0020, witherbloom_claim_0023; the relationship does not arise from card color, product membership, tags, or mechanics.",
       "false_positive_analysis": "Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.",
       "adjacent_identity_confusion_risk": "Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.",
-      "agent_recommendation": "APPROVED_PUBLIC",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "agent_recommendation": "REJECTED",
+      "approval_basis": "NOT_APPLICABLE",
       "validation": {
         "validator_version": "vm551-evidence-validator-v1",
-        "passed": true,
-        "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "passed": false,
+        "failures": [
+          "SELF_DISQUALIFYING_RELATIONSHIP"
+        ],
+        "approval_basis": "NOT_APPLICABLE",
         "evidence_chain": {
           "identity_claim_ids": [
             "witherbloom_claim_0019",
@@ -5487,6 +5489,64 @@
             "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
             "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0020",
             "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023"
+          ],
+          "fact_source_locators": [
+            "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
+          ]
+        }
+      }
+    },
+    {
+      "proposal_id": "packet1_voice_witherbloom_6cd58a88_6434_4c55_bf93_a739b5ed9bc1_native",
+      "proposal_type": "CARD_VOICE",
+      "identity_key": "WITHERBLOOM",
+      "canonical_card_name": "Witherbloom Campus",
+      "canonical_card_id": "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
+      "proposed_copy": "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
+      "copy_sha256": "6ce91e688a58eb4e64002fa4f6f9f27f34e8fb800a5b8bde1b28720f03e56d2d",
+      "provenance": {
+        "candidate_inventory": "data/raw-factions/witherbloom/witherbloom.profile.json#canonical_flavor_text/0",
+        "canonical_card_data": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM",
+        "identity_authority": "data/raw-factions/witherbloom/witherbloom.claims.json"
+      },
+      "limitations": "Public use is limited to this exact native-location flavor line and its certified Witherbloom study relationship. It does not claim that every black-green land, life/death card, or player preference is Witherbloom.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/card-voice-relationships.source.json#cardvoice_witherbloom_6cd58a88_6434_4c55_bf93_a739b5ed9bc1",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "certified_identity_claim_ids": [
+        "witherbloom_claim_0018",
+        "witherbloom_claim_0019"
+      ],
+      "certified_identity_claims": [
+        {
+          "claim_id": "witherbloom_claim_0018",
+          "statement": "Local Scryfall card data verifies the selected WITHERBLOOM per-card flavor anchors by card name, set, collector number, and Scryfall URI."
+        },
+        {
+          "claim_id": "witherbloom_claim_0019",
+          "statement": "Witherbloom identity is practical life/death craft: living essence, natural components, healing, harm, medicine, toxicology, mortuary practice, and other embodied studies matter when they show life and death as usable forces rather than abstract mood."
+        }
+      ],
+      "why_voice_belongs": "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
+      "relationship_bridge": "The named native location and exact flavor line directly connect the voice to certified Witherbloom practical life-and-death study; the relationship does not arise from card color, land type, or a generic death-and-renewal theme.",
+      "false_positive_analysis": "The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship.",
+      "adjacent_identity_confusion_risk": "Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.",
+      "agent_recommendation": "APPROVED_PUBLIC",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-evidence-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "witherbloom_claim_0018",
+            "witherbloom_claim_0019"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0018",
+            "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019"
           ],
           "fact_source_locators": [
             "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"

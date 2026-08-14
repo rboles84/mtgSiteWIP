@@ -6,7 +6,7 @@
 - Approved rationale identity coverage: **37/37**
 - Automatically approved voice relationships: **37**
 - Approved voice identity coverage: **37/37**
-- Rejected voice candidates retained in audit trail: **83**
+- Rejected voice candidates retained in audit trail: **84**
 - Owner exceptions: **0**
 
 No human approval was fabricated. Every automatic approval records its evidence chain and validator result. The identity sections below are an audit view, not an approval workload.
@@ -322,17 +322,17 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Death Begets Life:** “"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form."
-—Kotis, the Fangkeeper”
-  - Relationship class: `CERTIFIED_SEMANTIC_ECHO`
-  - Certified claims: `witherbloom_claim_0019`, `witherbloom_claim_0020`, `witherbloom_claim_0023`
-  - Why it belongs: Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form.
-  - False-positive / neighbor limit: Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college. Golgari and Green also frame death as renewal. Witherbloom requires embodied life/death exchange and practical essence craft; the excerpt alone does not establish the college.
+- **Witherbloom Campus:** “Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.”
+  - Relationship class: `NATIVE_FIGURE_OR_LOCATION`
+  - Certified claims: `witherbloom_claim_0018`, `witherbloom_claim_0019`
+  - Why it belongs: The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.
+  - False-positive / neighbor limit: The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship. Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.
   - Source: `data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM`
 
 ### Other candidates considered and terminal disposition
 
 - **Blossoming Bogbeast:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
+- **Death Begets Life:** `REJECTED` — The excerpt is admissible for owner review only because its language corresponds to certified claims witherbloom_claim_0019, witherbloom_claim_0020, witherbloom_claim_0023; the relationship does not arise from card color, product membership, tags, or mechanics.
 - **Big Play:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 - **Blech, Loafing Pest:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 

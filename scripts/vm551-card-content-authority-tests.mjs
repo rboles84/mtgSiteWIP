@@ -18,7 +18,7 @@ assert.equal(packet.proposals.filter((row) => row.disposition === "EVIDENCE_NEED
 assert.equal(new Set(packet.proposals.map((row) => row.proposal_id)).size, packet.proposals.length, "Packet 1 proposal IDs must remain unique across supersession rebuilds");
 assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_RATIONALE" && row.disposition === "APPROVED_PUBLIC").length, 26);
 assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "APPROVED_PUBLIC").length, 37);
-assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "REJECTED").length, 83);
+assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "REJECTED").length, 84);
 assert.equal(new Set(rationales.records.filter((row) => row.review_status === "APPROVED_PUBLIC").map((row) => row.identity_key)).size, 37);
 assert.equal(new Set(rationaleCatalog.records.map((row) => row.identity_key)).size, 37);
 assert.equal(voices.records.length, 37);
@@ -62,6 +62,16 @@ assert.equal(wubrg.printing.set, "tdm");
 assert.equal(wubrg.printing.collector_number, "174");
 assert.equal(wubrg.exact_excerpt, "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.");
 assert(packet.proposals.some((row) => row.canonical_card_name === "Coalition Victory" && row.disposition === "REJECTED" && row.proposal_id.endsWith("_superseded")));
+
+const witherbloom = voices.records.find((row) => row.identity_key === "WITHERBLOOM");
+assert.equal(witherbloom.canonical_card_name, "Witherbloom Campus");
+assert.equal(witherbloom.canonical_card_id, "6cd58a88-6434-4c55-bf93-a739b5ed9bc1");
+assert.equal(witherbloom.scryfall_id, "e5af06c8-86ab-4731-aa4a-2eec2c664488");
+assert.equal(witherbloom.relationship_class, "NATIVE_FIGURE_OR_LOCATION");
+assert.equal(witherbloom.printing.set, "soc");
+assert.equal(witherbloom.printing.collector_number, "423");
+assert.equal(witherbloom.exact_excerpt, "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.");
+assert(packet.proposals.some((row) => row.canonical_card_name === "Death Begets Life" && row.disposition === "REJECTED" && row.validation?.failures?.includes("SELF_DISQUALIFYING_RELATIONSHIP")));
 
 console.log(JSON.stringify({
   status: "PASS",

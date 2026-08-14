@@ -44,6 +44,12 @@ assert.equal(validateAutomaticApproval({
   ...valid,
   fact_source_locators: ["assets/js/archscry-presentation.js#buildMazeRouteQuery"],
 }).passed, false);
+const selfDisqualifying = validateAutomaticApproval({
+  ...valid,
+  limitation: "The excerpt alone does not establish the college identity.",
+});
+assert.equal(selfDisqualifying.passed, false);
+assert(selfDisqualifying.failures.includes("SELF_DISQUALIFYING_RELATIONSHIP"));
 
 assert.equal(assertAutomaticEducationApproval({
   content_class: "FACTUAL_EDUCATION",
@@ -79,4 +85,4 @@ for (const [field, value, failure] of [
   assert(result.failures.includes(failure), `${field} should report ${failure}`);
 }
 
-console.log(JSON.stringify({ status: "PASS", validator_version: VM551_EVIDENCE_VALIDATOR_VERSION, negative_cases: 12 }, null, 2));
+console.log(JSON.stringify({ status: "PASS", validator_version: VM551_EVIDENCE_VALIDATOR_VERSION, negative_cases: 13 }, null, 2));

@@ -6,6 +6,7 @@ const CERTIFIED_IDENTITY_LOCATOR = /^(?:data\/raw-factions\/[^/]+\/[^/]+\.(?:cla
 const FACT_LOCATOR = /^(?:data\/scryfall\/|data\/dossier\/card-voice-printings\.source\.json|data\/taxonomy\/|data\/generated\/commander-provider-validation\.json|docs\/research\/[^/]+\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
 const RUNTIME_CONTRACT_LOCATOR = /^(?:assets\/js\/archscry-presentation\.js|data\/generated\/commander-provider-validation\.json)/;
 const VAGUE_BRIDGE = /\b(?:vibe|feels? like|sounds? like|because (?:it is|it's) [a-z -]+(?:colored|color)|generic overlap|mere(?:ly)? (?:color|mechanic|theme|product|tag))\b/i;
+const SELF_DISQUALIFYING_RELATIONSHIP = /\b(?:the\s+)?excerpt\s+alone\s+(?:does not|cannot|fails? to)\s+(?:establish|identify|support|justify)\b/i;
 const EDUCATION_FACT_LOCATOR = /^(?:data\/taxonomy\/vox-mana-tags\.json|docs\/research\/colorless\/source-material\/official\/|https:\/\/magic\.wizards\.com\/)/;
 const EDUCATION_RUNTIME_LOCATOR = /^(?:assets\/js\/archscry-presentation\.js|data\/placement\/commander-provider-validation\.json)/;
 
@@ -37,6 +38,8 @@ export function validateAutomaticApproval(record) {
   if (!nonEmpty(record.public_copy)) failures.push("EMPTY_PUBLIC_COPY");
   if (!nonEmpty(record.false_positive_analysis)) failures.push("MISSING_FALSE_POSITIVE_ANALYSIS");
   if (!nonEmpty(record.neighbor_analysis)) failures.push("MISSING_NEIGHBOR_ANALYSIS");
+  const relationshipCaveats = [record.false_positive_analysis, record.neighbor_analysis, record.limitation].filter(nonEmpty).join(" ");
+  if (SELF_DISQUALIFYING_RELATIONSHIP.test(relationshipCaveats)) failures.push("SELF_DISQUALIFYING_RELATIONSHIP");
   if (record.source_conflict) failures.push("UNRESOLVED_SOURCE_CONFLICT");
   if (record.generated_fallback) failures.push("GENERATED_FALLBACK");
   if (record.creates_new_identity_meaning) failures.push("NEW_IDENTITY_MEANING");

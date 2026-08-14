@@ -17,6 +17,21 @@ const WUBRG_PRINTING = Object.freeze({
   expected_flavor_text: "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.",
 });
 
+const WITHERBLOOM_PRINTING = Object.freeze({
+  identity_key: "WITHERBLOOM",
+  card_name: "Witherbloom Campus",
+  oracle_id: "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
+  scryfall_id: "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+  set: "soc",
+  collector_number: "423",
+  expected_flavor_text: "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
+});
+
+const PRINTING_OVERRIDES = new Map([
+  [WUBRG_PRINTING.identity_key, WUBRG_PRINTING],
+  [WITHERBLOOM_PRINTING.identity_key, WITHERBLOOM_PRINTING],
+]);
+
 async function loadPrinting(scryfallId) {
   const response = await fetch(`https://api.scryfall.com/cards/${encodeURIComponent(scryfallId)}`, {
     headers: { "User-Agent": "VoxMana-VM551-VoiceAuthority/1.0" },
@@ -34,7 +49,7 @@ function flavorTextForPrinting(card) {
 
 const records = [];
 for (const relationship of current.records) {
-  const override = relationship.identity_key === "WUBRG" ? WUBRG_PRINTING : null;
+  const override = PRINTING_OVERRIDES.get(relationship.identity_key) || null;
   const printing = await loadPrinting(override?.scryfall_id || relationship.scryfall_id);
   const flavor = flavorTextForPrinting(printing);
   if (override) {
@@ -45,9 +60,9 @@ for (const relationship of current.records) {
       set: override.set,
       collector_number: override.collector_number,
     })) {
-      if (String(printing[field]) !== expected) throw new Error(`Pinned WUBRG printing ${field} mismatch: ${printing[field]} != ${expected}`);
+      if (String(printing[field]) !== expected) throw new Error(`Pinned ${override.identity_key} printing ${field} mismatch: ${printing[field]} != ${expected}`);
     }
-    if (flavor.text !== override.expected_flavor_text) throw new Error("Pinned WUBRG printing flavor text changed");
+    if (flavor.text !== override.expected_flavor_text) throw new Error(`Pinned ${override.identity_key} printing flavor text changed`);
   } else {
     if (printing.name !== relationship.canonical_card_name) throw new Error(`Printing name mismatch for ${relationship.identity_key}`);
     if (printing.oracle_id !== relationship.canonical_card_id) throw new Error(`Printing Oracle ID mismatch for ${relationship.identity_key}`);
@@ -63,7 +78,7 @@ for (const relationship of current.records) {
     flavor_text_field: flavor.source,
     scryfall_uri: printing.scryfall_uri,
     source_locator: `https://api.scryfall.com/cards/${printing.id}#${flavor.source}`,
-    ...(override ? {
+    ...(override?.identity_key === "WUBRG" ? {
       relationship_override: {
         relationship_class: "CERTIFIED_SEMANTIC_ECHO",
         why_voice_belongs: "The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.",
@@ -77,6 +92,17 @@ for (const relationship of current.records) {
         ],
         supersedes_card_name: "Coalition Victory",
         supersession_reason: "The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice.",
+      },
+    } : override?.identity_key === "WITHERBLOOM" ? {
+      relationship_override: {
+        relationship_class: "NATIVE_FIGURE_OR_LOCATION",
+        why_voice_belongs: "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
+        relationship_bridge: "The named native location and exact flavor line directly connect the voice to certified Witherbloom practical life-and-death study; the relationship does not arise from card color, land type, or a generic death-and-renewal theme.",
+        false_positive_analysis: "The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship.",
+        adjacent_identity_confusion_risk: "Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.",
+        limitations: "Public use is limited to this exact native-location flavor line and its certified Witherbloom study relationship. It does not claim that every black-green land, life/death card, or player preference is Witherbloom.",
+        supersedes_card_name: "Death Begets Life",
+        supersession_reason: "The former Sultai-context excerpt shared generic death-and-renewal language and explicitly failed to establish Witherbloom; it remains rejected audit evidence.",
       },
     } : {}),
   });

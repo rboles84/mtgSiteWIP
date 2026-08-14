@@ -148,15 +148,25 @@
     },
     {
       "identity_key": "WITHERBLOOM",
-      "canonical_card_name": "Death Begets Life",
-      "oracle_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
-      "scryfall_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
-      "set": "tdm",
-      "collector_number": "176",
-      "exact_flavor_text": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\"\n—Kotis, the Fangkeeper",
+      "canonical_card_name": "Witherbloom Campus",
+      "oracle_id": "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
+      "scryfall_id": "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+      "set": "soc",
+      "collector_number": "423",
+      "exact_flavor_text": "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
       "flavor_text_field": "card.flavor_text",
-      "scryfall_uri": "https://scryfall.com/card/tdm/176/death-begets-life?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/1faab43d-587d-44f6-9516-c8e3965bbc20#card.flavor_text"
+      "scryfall_uri": "https://scryfall.com/card/soc/423/witherbloom-campus?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/e5af06c8-86ab-4731-aa4a-2eec2c664488#card.flavor_text",
+      "relationship_override": {
+        "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+        "why_voice_belongs": "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
+        "relationship_bridge": "The named native location and exact flavor line directly connect the voice to certified Witherbloom practical life-and-death study; the relationship does not arise from card color, land type, or a generic death-and-renewal theme.",
+        "false_positive_analysis": "The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship.",
+        "adjacent_identity_confusion_risk": "Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.",
+        "limitations": "Public use is limited to this exact native-location flavor line and its certified Witherbloom study relationship. It does not claim that every black-green land, life/death card, or player preference is Witherbloom.",
+        "supersedes_card_name": "Death Begets Life",
+        "supersession_reason": "The former Sultai-context excerpt shared generic death-and-renewal language and explicitly failed to establish Witherbloom; it remains rejected audit evidence."
+      }
     },
     {
       "identity_key": "QUANDRIX",

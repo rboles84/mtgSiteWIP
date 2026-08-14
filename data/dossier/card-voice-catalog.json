@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "44415acfb614e4887ff5591ad006b0602ecdb9b916e6b90b6e35abf74e5dfbb7",
+  "source_sha256": "e4562d978ddfe4c60e74e67d73c395e5828fa7a63a3fc18b4e232ed406122082",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
   "records": [
     {
@@ -440,19 +440,19 @@
       }
     },
     {
-      "relationship_id": "cardvoice_witherbloom_53e86135_3b24_4618_bcc0_af4d81e672dd",
+      "relationship_id": "cardvoice_witherbloom_6cd58a88_6434_4c55_bf93_a739b5ed9bc1",
       "identity_key": "WITHERBLOOM",
       "card": {
-        "name": "Death Begets Life",
-        "oracle_id": "53e86135-3b24-4618-bcc0-af4d81e672dd",
-        "scryfall_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
-        "set": "tdm",
-        "collector_number": "176",
+        "name": "Witherbloom Campus",
+        "oracle_id": "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
+        "scryfall_id": "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+        "set": "soc",
+        "collector_number": "423",
         "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
       },
-      "excerpt": "\"You need not mourn. Their life essence has returned to the earth, where it will eventually bloom into a new form.\"\n—Kotis, the Fangkeeper",
-      "why_it_echoes": "Death Begets Life's exact excerpt provides a bounded voice echo of life essence returning to the earth and blooming into another form.",
-      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "excerpt": "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
+      "why_it_echoes": "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -460,16 +460,16 @@
       },
       "provenance": {
         "claim_ids": [
-          "witherbloom_claim_0019",
-          "witherbloom_claim_0020",
-          "witherbloom_claim_0023"
+          "witherbloom_claim_0018",
+          "witherbloom_claim_0019"
         ],
         "source_ids": [
+          "src_scryfall_oracle_cards_local_strixhaven_20260613",
           "src_wotc_planeswalkers_guide_strixhaven_2021",
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
         ],
-        "printing_id": "1faab43d-587d-44f6-9516-c8e3965bbc20",
-        "printing_source_locator": "https://api.scryfall.com/cards/1faab43d-587d-44f6-9516-c8e3965bbc20#card.flavor_text",
+        "printing_id": "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+        "printing_source_locator": "https://api.scryfall.com/cards/e5af06c8-86ab-4731-aa4a-2eec2c664488#card.flavor_text",
         "validator_version": "vm551-evidence-validator-v1",
         "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
       }

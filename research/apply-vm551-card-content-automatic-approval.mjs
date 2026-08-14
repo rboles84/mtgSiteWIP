@@ -140,6 +140,7 @@ for (const proposalInput of packetInput.proposals) {
       ? "The relationship uses the verified card action only where it instantiates the cited certified behavior; color, mechanic, tag, product, and Commander popularity do not independently authorize it."
       : proposal.false_positive_analysis,
     neighbor_analysis: neighbor,
+    limitation: proposal.limitations,
     source_conflict: false,
     generated_fallback: false,
     creates_new_identity_meaning: false,
