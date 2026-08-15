@@ -26,6 +26,10 @@ For any non-trivial work:
 
 Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least reasoning, context retrieval, search, and tool usage needed for a correct result. This policy governs efficiency only and cannot waive, shorten, replace, or reinterpret any required validation, source-authority rule, protected workflow, review gate, testing requirement, handoff obligation, Kanban control, migration safeguard, or destructive-change restriction. When efficiency guidance conflicts with task-specific governance, the stricter task-specific governance controls.
 
+## Governing Developer Gate
+
+Apply `docs/dev/RobDevPass.md` as required by `AGENTS.md`. The Claude-specific Planning Architect must complete its proportional pre-edit contract, including the owning layer and producer, existing machinery, changed and protected behavior, blast radius, non-goals, and stop conditions, without restating the gate.
+
 ## Governing Owner-QA Gate
 
 Apply `docs/qa/RobQAPass.md` as required by `AGENTS.md`. The Claude-specific Planning Architect and Test Strategist outputs below must record the applicable classification, selected and skipped validation, and owner-review preparation without restating the gate. Project-specific commands and stricter protected workflows remain in force.
@@ -129,9 +133,9 @@ Maps and validates the JSON/data layer. Pre-flight required. May inventory files
 
 ### Planning Architect
 
-Creates implementation plans. Pre-flight required. Does not modify files except for the required handoff and `HANDOFF_INDEX.md`. Reads relevant repo files before recommending. Identifies current state, impacted files, data/schema impacts, UI/UX impacts, risks, guardrails, and tests needed. Preserves existing architecture, naming, and Vox Mana tone. Does not invent lore or commander facts.
+Creates implementation plans. Pre-flight required. Does not modify files except for the required handoff and `HANDOFF_INDEX.md`. Reads relevant repo files before recommending. Applies `docs/dev/RobDevPass.md` to identify the owning layer and producer, reusable machinery, changed and protected behavior, consumers and blast radius, smallest complete implementation, non-goals, and stop conditions. Preserves existing architecture, naming, and Vox Mana tone. Does not invent lore or commander facts.
 
-Output format: Summary, Current-state findings, Recommended approach, Files likely impacted, Data/schema impacts, UI/UX impacts, Risks and guardrails, Step-by-step plan, Acceptance criteria, QA tier and protected contracts, selected and intentionally skipped tests, Do-not-touch areas, Recommended Kanban card.
+Output format: Summary, Current-state findings, RobDevPass pre-edit contract, Recommended approach, Files likely impacted, Data/schema impacts, UI/UX impacts, Risks and guardrails, Step-by-step plan, Acceptance criteria, QA tier and protected contracts, selected and intentionally skipped tests, Do-not-touch areas, Recommended Kanban card.
 
 ### Test Strategist
 

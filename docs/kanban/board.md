@@ -41,7 +41,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- No cards currently ready.
+- [VM-557 - RobDevPass Workflow Integration](ready/VM-557-rob-dev-pass-workflow-integration.md) - implementation and QA-0 documentation checks pass locally; remains Ready until the governing v1 integration is durably committed.
 
 ## In Progress
 

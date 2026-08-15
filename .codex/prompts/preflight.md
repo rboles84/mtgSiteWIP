@@ -8,6 +8,7 @@ Review project memory before acting.
 
 Read:
 - `AGENTS.md`
+- `docs/dev/RobDevPass.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - recent relevant files in `docs/handoffs/`
 - `docs/kanban/board.md`
@@ -25,11 +26,13 @@ Provide:
 5. Decisions already made
 6. What should not be touched
 7. Recommended next action
-8. Proposed `RobQAPass` QA tier, changed behavior, and protected contracts; do not select test commands until these are identified
+8. `RobDevPass` pre-edit contract: owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions
+9. Proposed `RobQAPass` QA tier, changed behavior, and protected contracts; do not select test commands until these are identified
 
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
+- Apply `docs/dev/RobDevPass.md` proportionally to repository grounding and the pre-edit contract.
 - Apply `docs/qa/RobQAPass.md` to QA scope selection; project-specific and stricter protected workflows remain authoritative.
 - Do not modify files.
 - Do not implement.

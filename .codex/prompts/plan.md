@@ -6,6 +6,7 @@ Spawn a Planning Architect subagent.
 
 Before planning:
 - Read `AGENTS.md`
+- Read `docs/dev/RobDevPass.md`
 - Read `docs/handoffs/HANDOFF_INDEX.md`
 - Read recent/relevant handoffs
 - Read `docs/kanban/board.md`
@@ -20,6 +21,7 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
+- Apply `docs/dev/RobDevPass.md` before proposing implementation. Identify the owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions.
 - Read relevant repo files before recommending changes.
 - Do not modify files except for the required handoff file and `docs/handoffs/HANDOFF_INDEX.md`.
 - Identify current state.
@@ -40,17 +42,18 @@ Return Markdown with:
 
 1. Summary
 2. Current-state findings
-3. Recommended approach
-4. Files likely impacted
-5. Data/schema impacts
-6. UI/UX impacts
-7. Risks and guardrails
-8. Step-by-step implementation plan
-9. Acceptance criteria
-10. QA tier, protected contracts, tests to run, and expensive suites intentionally skipped
-11. Do-not-touch areas
-12. Recommended Kanban card
-13. Codex-ready implementation prompt
+3. RobDevPass pre-edit contract
+4. Recommended approach
+5. Files likely impacted
+6. Data/schema impacts
+7. UI/UX impacts
+8. Risks and guardrails
+9. Step-by-step implementation plan
+10. Acceptance criteria
+11. QA tier, protected contracts, tests to run, and expensive suites intentionally skipped
+12. Do-not-touch areas
+13. Recommended Kanban card
+14. Codex-ready implementation prompt
 
 ## Required Handoff
 

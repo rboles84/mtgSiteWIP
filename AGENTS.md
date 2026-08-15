@@ -42,6 +42,10 @@ This triage cannot weaken existing program, CRIT-001, source-authority, MTG fact
 
 Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least reasoning, context retrieval, search, and tool usage needed for a correct result. This policy governs efficiency only and cannot waive, shorten, replace, or reinterpret any required validation, source-authority rule, protected workflow, review gate, testing requirement, handoff obligation, Kanban control, migration safeguard, or destructive-change restriction. When efficiency guidance conflicts with task-specific governance, the stricter task-specific governance controls.
 
+## Governing Developer Gate
+
+Apply `docs/dev/RobDevPass.md` before implementation. Ground work proportionally, determine the owning authority and producer before editing, reuse existing machinery, and define changed behavior, protected behavior, consumers, realistic risks, the smallest complete implementation, non-goals, and stop conditions. Specialist source, data, route, evidence, placement, certification, and workflow authorities remain controlling within their domains; reference the gate rather than restating it.
+
 ## Governing Owner-QA Gate
 
 Apply `docs/qa/RobQAPass.md` before selecting tests for any change. Classify the QA tier and risk, name the changed behavior and protected contracts, then use the smallest deterministic validation set that protects the changed behavior. Project-specific test commands and stricter CRIT-001, exact-SHA, migration, security, accessibility, and release controls remain authoritative; `RobQAPass` governs scope selection and owner-acceptance preparation, not those product contracts.
@@ -119,7 +123,7 @@ Every handoff must include:
 - Next suggested agent
 - Related Kanban card, docs, or plans
 
-Implementation handoffs that claim owner-QA readiness must also use the readiness fields in `docs/qa/RobQAPass.md`; reference the gate rather than restating its policy.
+Implementation handoffs must transfer the compact implementation packet from `docs/dev/RobDevPass.md`. Handoffs that claim owner-QA readiness must also use the readiness fields in `docs/qa/RobQAPass.md`; reference both gates rather than restating their policies.
 
 Also update:
 
