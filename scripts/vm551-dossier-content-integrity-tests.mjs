@@ -183,6 +183,20 @@ assert.equal(validateDossierContentCatalogs({ ...dossierCatalogFixture, publicCo
 assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 original gap proposals, and the approved Colorless collision-repair rationale");
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
 assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
+for (const record of cardRationaleCatalog.records) {
+  const identityContent = identityDossierCatalog.records.find((entry) => entry.identity_key === record.identity_key);
+  const identityContext = identityContent?.how_this_plays?.mechanical_expression || "";
+  const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const tokens = (value) => new Set(normalize(value).split(" ").filter((token) => token.length > 2));
+  const rationaleTokens = tokens(record.rationale);
+  const contextTokens = tokens(identityContext);
+  const denominator = Math.min(rationaleTokens.size, contextTokens.size);
+  const overlap = denominator ? [...rationaleTokens].filter((token) => contextTokens.has(token)).length / denominator : 0;
+  assert.ok(record.provenance?.claim_ids?.length, `${record.relationship_id} lacks certified identity claim provenance`);
+  assert.ok(identityContext, `${record.identity_key} lacks approved modal identity context`);
+  assert.notEqual(normalize(record.rationale), normalize(identityContext), `${record.relationship_id} modal context duplicates its tile rationale`);
+  assert.ok(overlap < 0.8, `${record.relationship_id} modal context substantially repeats its tile rationale`);
+}
 const witherbloomPrinting = cardVoicePrintings.records.find((record) => record.identity_key === "WITHERBLOOM");
 assert.equal(witherbloomPrinting?.canonical_card_name, "Blossoming Bogbeast");
 assert.equal(witherbloomPrinting?.scryfall_id, "764054f1-e848-4cee-b623-4861ce15c370");
@@ -250,6 +264,10 @@ assert.match(indexSource, /if \(trigger\.cardName\)[\s\S]*?loadCachedScryfallNam
 assert.match(indexSource, /loadCachedScryfallNamedCard\(cardName, \{ requireDetails: true \}\)/, "card-detail clicks should request complete canonical card facts");
 assert.match(indexSource, /Oracle excerpt/, "committed Oracle excerpts should remain an offline card-detail fallback");
 assert.doesNotMatch(indexSource, /archscry-card-dialog-why/, "the detail modal must not repeat the rationale tile as its primary content");
+assert.match(indexSource, /archscry-card-dialog-identity-context/);
+assert.match(indexSource, /cardIdentityContext: record\.why_it_echoes/, "voice modals must reuse their approved relationship explanation");
+assert.match(indexSource, /cardIdentityContext: rationale\.identityContext/, "play-rationale modals must reuse approved identity context");
+assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use Archscry mana glyphs instead of raw brace notation");
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="2"\]/);

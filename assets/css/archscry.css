@@ -3846,6 +3846,26 @@ body.vm-archscry-route .precon-provider-links{
   font-size:0.78rem;
 }
 
+.archscry-card-dialog-mana{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:0.2rem;
+}
+
+.archscry-card-dialog-identity-context{
+  display:grid;
+  gap:0.4rem;
+  padding:0.9rem 1rem;
+  border:1px solid rgba(216,194,122,0.2);
+  border-radius:10px;
+  background:rgba(216,194,122,0.055);
+  color:rgba(242,237,223,0.92);
+  line-height:1.52;
+}
+
+.archscry-card-dialog-identity-context strong{color:var(--gold)}
+
 .archscry-card-dialog-rules{
   display:grid;
   gap:0.45rem;

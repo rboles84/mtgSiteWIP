@@ -43,6 +43,13 @@ const questionById = new Map(questions.map((question) => [question.id, question]
 const mime = new Map([[".html", "text/html"], [".js", "text/javascript"], [".css", "text/css"], [".json", "application/json"], [".svg", "image/svg+xml"], [".png", "image/png"], [".jpg", "image/jpeg"], [".woff2", "font/woff2"]]);
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const transparentPng = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
+const normalizeCopy = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const copyOverlap = (left, right) => {
+  const leftTokens = new Set(normalizeCopy(left).split(" ").filter((token) => token.length > 2));
+  const rightTokens = new Set(normalizeCopy(right).split(" ").filter((token) => token.length > 2));
+  const denominator = Math.min(leftTokens.size, rightTokens.size);
+  return denominator ? [...leftTokens].filter((token) => rightTokens.has(token)).length / denominator : 0;
+};
 
 function startServer() {
   const server = http.createServer(async (request, response) => {
@@ -306,6 +313,13 @@ async function replay(page, origin, witness) {
         oracleLabel: dialog?.querySelector(".archscry-card-dialog-rules strong")?.textContent?.trim() || "",
         hasScryfallAction: Boolean(dialog?.querySelector('.archscry-card-dialog-external[href^="https://scryfall.com/"]')),
         repeatedRationale: Boolean(dialog?.querySelector(".archscry-card-dialog-why")),
+        identityContext: dialog?.querySelector(".archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
+        identityContextHeading: dialog?.querySelector(".archscry-card-dialog-identity-context strong")?.textContent?.trim() || "",
+        manaText: dialog?.querySelector(".archscry-card-dialog-mana")?.textContent?.trim() || "",
+        rect: (() => {
+          const box = dialog?.getBoundingClientRect();
+          return box ? { left: box.left, top: box.top, right: box.right, bottom: box.bottom } : null;
+        })(),
       };
     });
     assert.equal(modalDetail.hasImage, true, `${witness.identity_key} detail modal omitted the canonical full-card image`);
@@ -314,11 +328,49 @@ async function replay(page, origin, witness) {
     assert.match(modalDetail.oracleLabel, /^Oracle (?:text|excerpt)$/);
     assert.equal(modalDetail.hasScryfallAction, true, `${witness.identity_key} detail modal omitted its Scryfall action`);
     assert.equal(modalDetail.repeatedRationale, false, `${witness.identity_key} detail modal repeated the tile rationale as primary content`);
+    assert.ok(modalDetail.identityContext, `${witness.identity_key} identity-linked detail modal omitted its approved identity context`);
+    assert.match(modalDetail.identityContextHeading, /^Why .+ helps explain .+$/);
+    assert.notEqual(normalizeCopy(modalDetail.identityContext), normalizeCopy(tileRationale), `${witness.identity_key} modal repeated its tile rationale verbatim`);
+    assert.ok(copyOverlap(modalDetail.identityContext, tileRationale) < 0.8, `${witness.identity_key} modal substantially repeated its tile rationale`);
+    assert.ok(modalDetail.rect && modalDetail.rect.left >= 0 && modalDetail.rect.top >= 0 && modalDetail.rect.right <= viewport.width && modalDetail.rect.bottom <= viewport.height, `${witness.identity_key} modal escaped the viewport`);
+    assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation`);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
     await delay(50);
     const restored = await page.evaluate(() => document.activeElement?.matches?.('[data-card-rationale-section] .flavor-echo-image-trigger') || false);
     assert.equal(restored, true, `${witness.identity_key} modal did not restore focus`);
+
+    if (["WUBRG", "WITHERBLOOM"].includes(witness.identity_key)) {
+      const voiceTrigger = await page.$('[data-card-voice-section] .flavor-echo-image-trigger');
+      assert.ok(voiceTrigger, `${witness.identity_key} has no voice-card detail trigger`);
+      const voicePanel = await voiceTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
+      if (voicePanel) {
+        const voiceTab = await page.$(`[data-dossier-tab="${voicePanel}"]`);
+        if (voiceTab) await voiceTab.evaluate((button) => button.click());
+      }
+      const voiceTile = await page.$eval('[data-card-voice-section] .flavor-echo-why', (node) => node.textContent?.trim() || "");
+      await voiceTrigger.evaluate((button) => button.click());
+      await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
+      const voiceModal = await page.evaluate(() => ({
+        card: document.querySelector(".archscry-card-dialog[open] h2")?.textContent?.trim() || "",
+        context: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
+        contextKind: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context")?.getAttribute("data-card-identity-context") || "",
+        manaText: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-mana")?.textContent?.trim() || "",
+        manaSymbols: [...document.querySelectorAll(".archscry-card-dialog[open] .archscry-card-dialog-mana .ms")].map((node) => node.className),
+      }));
+      assert.equal(voiceModal.contextKind, "voice");
+      assert.ok(voiceModal.context, `${witness.identity_key} voice modal omitted why-it-echoes context`);
+      assert.notEqual(normalizeCopy(voiceModal.context), normalizeCopy(voiceTile));
+      assert.ok(copyOverlap(voiceModal.context, voiceTile) < 0.8, `${witness.identity_key} voice modal repeated the exact voice as its explanation`);
+      assert.doesNotMatch(voiceModal.manaText, /\{[^}]+\}/, `${witness.identity_key} voice modal exposed raw mana notation`);
+      if (witness.identity_key === "WITHERBLOOM") {
+        assert.equal(voiceModal.card, "Blossoming Bogbeast");
+        if (voiceModal.manaText) assert.ok(voiceModal.manaSymbols.length, "Blossoming Bogbeast modal did not use shared mana glyphs");
+      }
+      await page.keyboard.press("Escape");
+      await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
+      assert.equal(await page.evaluate(() => document.activeElement?.matches?.('[data-card-voice-section] .flavor-echo-image-trigger') || false), true, `${witness.identity_key} voice modal did not restore focus`);
+    }
   }
   const ui = await page.evaluate(() => {
     const text = document.getElementById("result-inner")?.innerText || "";

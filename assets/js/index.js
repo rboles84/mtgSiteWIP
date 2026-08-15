@@ -2080,6 +2080,29 @@ export function renderPlayerCopy(value) {
     .join("");
 }
 
+function manaSymbolLabel(symbol) {
+  const labels = {
+    W: "white mana", U: "blue mana", B: "black mana", R: "red mana", G: "green mana",
+    C: "colorless mana", X: "X mana", Y: "Y mana", Z: "Z mana", S: "snow mana",
+  };
+  if (labels[symbol]) return labels[symbol];
+  if (/^\d+$/.test(symbol)) return `${symbol} generic mana`;
+  return `${symbol.replaceAll("/", " or ")} mana`;
+}
+
+function renderManaCost(value) {
+  const cost = String(value || "").trim();
+  if (!cost) return "";
+  return cost.split(/(\{[^}]+\})/g).map((part) => {
+    const match = part.match(/^\{([^}]+)\}$/);
+    if (!match) return escapeHtml(part);
+    const symbol = match[1].toUpperCase();
+    const manaClass = symbol.toLowerCase().replaceAll("/", "");
+    if (!/^(?:\d+|[WUBRGCSXYZ]|2?[WUBRG]P?|[WUBRG]{2})$/.test(manaClass.toUpperCase())) return escapeHtml(part);
+    return `<span class="vm-inline-mana-symbol archscry-card-cost-symbol" role="img" aria-label="${escapeAttributeValue(manaSymbolLabel(symbol))}"><i class="ms ms-${escapeAttributeValue(manaClass)} ms-cost" aria-hidden="true"></i></span>`;
+  }).join("");
+}
+
 function sanitizeUserFacingCopy(value) {
   return SYSTEM_COPY_REPLACEMENTS.reduce(
     (copy, rule) => copy.replace(rule.pattern, rule.replacement),
@@ -3092,6 +3115,7 @@ export function approvedCardRationaleForFaction(card, faction, catalog = APP_STA
   return {
     text: record.rationale,
     tags: Array.isArray(record.tags) ? record.tags : [],
+    identityContext: dossierContentForFaction(faction)?.how_this_plays?.mechanical_expression || "",
     provenance: {
       relationshipId: record.relationship_id,
       relationshipClass: record.relationship_class,
@@ -3177,7 +3201,7 @@ function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set
   ]));
 }
 
-export function buildCardVoicesHtml(voices = []) {
+export function buildCardVoicesHtml(voices = [], faction = {}) {
   if (!voices.length) return "";
   return `
     <div class="starter-section" data-card-voice-section>
@@ -3186,7 +3210,13 @@ export function buildCardVoicesHtml(voices = []) {
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${voices.length}">
         ${voices.map(({ card, record }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
-          const actionAttrs = buildActionAttrs("open-card-detail", { cardName: card.name });
+          const actionAttrs = buildActionAttrs("open-card-detail", {
+            cardName: card.name,
+            cardIdentityName: faction.name || record.identity_name || "this reading",
+            cardIdentityContext: record.why_it_echoes,
+            cardIdentityContextKind: "voice",
+            cardTileCopy: record.excerpt,
+          });
           return `
             <article class="flavor-echo-card vm-card-voice-card" data-card-preview-image-only data-card-voice-provenance="${escapeAttributeValue(JSON.stringify(record.provenance || {}))}">
               <button class="card-detail-image-trigger flavor-echo-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.name)} card details" data-card-preview-name="${escapeAttributeValue(card.name)}" ${actionAttrs}>
@@ -3239,6 +3269,10 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
             cardRationale: rationale.text,
             cardProvenance: JSON.stringify(rationale.provenance),
             cardTags: rationale.tags.join("|"),
+            cardIdentityName: faction.name || "this reading",
+            cardIdentityContext: rationale.identityContext,
+            cardIdentityContextKind: "play",
+            cardTileCopy: rationale.text,
           });
           return `
             <article class="flavor-echo-card" data-card-preview-image-only data-rationale-provenance="${escapeAttributeValue(JSON.stringify(rationale.provenance))}">
@@ -3697,7 +3731,7 @@ function renderResult(viewKey) {
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
-  const cardVoicesHtml = buildCardVoicesHtml(cardVoices);
+  const cardVoicesHtml = buildCardVoicesHtml(cardVoices, faction);
   const readingFindsHtml = buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);
@@ -4579,6 +4613,9 @@ function ensureCardDetailDialog() {
 
 async function openCardDetail(actionNode) {
   const cardName = String(actionNode?.dataset.cardName || "").trim();
+  const identityName = String(actionNode?.dataset.cardIdentityName || "").trim();
+  const identityContext = String(actionNode?.dataset.cardIdentityContext || "").trim();
+  const identityContextKind = String(actionNode?.dataset.cardIdentityContextKind || "").trim();
   if (!cardName) return;
   hideCardPreviewOverlay();
   const dialog = ensureCardDetailDialog();
@@ -4595,13 +4632,20 @@ async function openCardDetail(actionNode) {
     const typeLine = card.type_line || card.card_faces?.map((face) => face.type_line).filter(Boolean).join(" // ") || "";
     const rulesDetail = cardRulesDetail(card);
     const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
+    const identityContextHtml = identityName && identityContext
+      ? `<section class="archscry-card-dialog-identity-context" data-card-identity-context="${escapeAttributeValue(identityContextKind || "identity")}">
+          <strong>Why ${escapeHtml(card.name || cardName)} helps explain ${escapeHtml(identityName)}</strong>
+          <span>${escapeHtml(identityContext)}</span>
+        </section>`
+      : "";
     content.innerHTML = `
       <div class="archscry-card-dialog-grid" data-card-dialog-ready>
         ${image ? `<img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(`${card.name || cardName} card image`)}">` : ""}
         <div class="archscry-card-dialog-copy">
           <div class="section-label">Card Details</div>
           <h2 id="archscryCardDialogTitle">${escapeHtml(card.name || cardName)}</h2>
-          ${manaCost ? `<div class="archscry-card-dialog-mana">${escapeHtml(manaCost)}</div>` : ""}
+          ${identityContextHtml}
+          ${manaCost ? `<div class="archscry-card-dialog-mana" aria-label="Mana cost">${renderManaCost(manaCost)}</div>` : ""}
           ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
           ${rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${escapeHtml(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
           ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
