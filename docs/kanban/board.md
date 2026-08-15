@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - identity-card modal value repair is complete on the canonical branch: identity-linked modals omit redundant Oracle blocks, render deterministic relationship-backed explanations, preserve ordinary card details elsewhere, and await the two-case owner presentation review.
+- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - identity-card modal value repair and headed-review stabilization are complete on the canonical branch; the deterministic review page now blocks input while preparing and no longer races the owner's pointer before the two-case presentation review.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

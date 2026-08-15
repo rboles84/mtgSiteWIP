@@ -102,11 +102,31 @@ async function replay(page, origin, witness) {
         factions,
       })
     : null;
-  await page.evaluateOnNewDocument((enableDesktopHover, cachedResult) => {
+  await page.evaluateOnNewDocument((enableDesktopHover, cachedResult, lockReviewInput) => {
     localStorage.clear();
     sessionStorage.clear();
     if (cachedResult) sessionStorage.setItem("vm_last_result", JSON.stringify(cachedResult));
     window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
+    if (lockReviewInput) {
+      document.addEventListener("DOMContentLoaded", () => {
+        const guard = document.createElement("div");
+        guard.id = "vm-review-preparing";
+        guard.setAttribute("role", "status");
+        guard.textContent = "Preparing deterministic review...";
+        Object.assign(guard.style, {
+          position: "fixed",
+          inset: "0",
+          zIndex: "2147483647",
+          display: "grid",
+          placeItems: "center",
+          background: "#07090d",
+          color: "#d6b768",
+          font: "600 16px/1.4 system-ui, sans-serif",
+          letterSpacing: "0.08em",
+        });
+        document.documentElement.append(guard);
+      }, { once: true });
+    }
     if (enableDesktopHover) {
       const nativeMatchMedia = window.matchMedia.bind(window);
       window.matchMedia = (query) => {
@@ -121,7 +141,7 @@ async function replay(page, origin, witness) {
         });
       };
     }
-  }, viewportName === "desktop", preloadedResult);
+  }, viewportName === "desktop", preloadedResult, reviewMode);
   const consoleErrors = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
   const initialFocus = String(witness.initial_focus_identity_key || "").trim();
@@ -221,7 +241,7 @@ async function replay(page, origin, witness) {
     }
     const tileRationale = await rationaleTrigger.evaluate((node) => node.closest(".flavor-echo-card")?.querySelector(".flavor-echo-why")?.textContent?.trim() || "");
     assert.ok(tileRationale, `${witness.identity_key} rationale tile did not explain why the card fits in play`);
-    if (viewportName === "desktop") {
+    if (viewportName === "desktop" && !reviewMode) {
       await page.evaluate(() => {
         window.__vmHoverEvents = [];
         for (const type of ["pointerover", "pointerout", "pointermove"]) {
@@ -603,6 +623,7 @@ try {
     try {
       rows.push(await replay(page, origin, witness));
       if (reviewMode) {
+        await page.evaluate(() => document.getElementById("vm-review-preparing")?.remove());
         console.log(`Visual review ready for ${witness.case_id || witness.identity_key}. Press Enter in this terminal to close it.`);
         await new Promise((resolve) => process.stdin.once("data", resolve));
       }
@@ -612,7 +633,7 @@ try {
       failures.push({ identity_key: witness.identity_key, message: error.message });
       console.error(`${witness.identity_key} failed: ${error.message}`);
     }
-    finally { await page.close(); }
+    finally { await page.close().catch(() => { /* owner may close the headed browser before terminal handoff */ }); }
   }
   if (!reviewMode && !identityFilter && !caseFilter) {
     const previous = fs.existsSync(reportPath) ? JSON.parse(fs.readFileSync(reportPath, "utf8")) : { schema_version: "1.0.0", viewports: {} };
@@ -634,9 +655,18 @@ try {
   }, null, 2));
   if (failures.length) process.exitCode = 1;
 } finally {
-  if (browser) await browser.close().catch(() => browser.disconnect());
+  if (browser) await Promise.race([
+    browser.close().catch(() => browser.disconnect()),
+    delay(3000),
+  ]);
   if (chrome) {
-    try { await chrome.kill(); } catch { /* browser already closed */ }
+    await Promise.race([
+      Promise.resolve().then(() => chrome.kill()).catch(() => { /* browser already closed */ }),
+      delay(3000),
+    ]);
   }
+  server.closeIdleConnections?.();
+  server.closeAllConnections?.();
   await new Promise((resolve) => server.close(resolve));
 }
+if (reviewMode) process.exit(process.exitCode || 0);

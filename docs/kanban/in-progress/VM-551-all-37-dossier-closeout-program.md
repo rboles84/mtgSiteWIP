@@ -143,3 +143,11 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - Focused desktop/mobile replay passes for Witherbloom and WUBRG; an additional Azorius replay verifies Grand Arbiter and the Azorius Cluestone voice. Authority, source/generated, dossier, frontend, focus restoration, mobile containment, mana-glyph, and modal contracts are green.
 - Placement-engine and protected placement files were untouched. Per owner direction, no 5,000-journey, synthetic, mutation, recovery, or other exhaustive placement suite was run.
 - Status: ready for the final two-case owner presentation review; VM-551 remains open pending owner acceptance.
+
+### Headed review handoff stabilization
+
+- The visible `review:vm551` browser previously ran a synthetic `:hover` assertion while the owner could already move the mouse or open a card dialog. That race intermittently failed before the review page became usable even though the unchanged headless hover regression passed.
+- Headed review now shows a pointer-blocking `Preparing deterministic review...` guard while deterministic DOM/modal checks run, skips only the synthetic real-pointer hover assertion in headed mode, then removes the guard at `Visual review ready`.
+- Headless desktop replay retains the complete real-hover, full-card preview, copy-no-hover, and stale A-to-B-to-C regression checks.
+- Two consecutive headed Witherbloom review runs reached `Visual review ready` and returned `PASS`; the focused headless Witherbloom replay also passes. Review teardown now closes active local-server connections so Enter exits without a Windows batch-termination prompt.
+- Status: owner review command is stable; no product, placement, content-authority, or modal behavior changed.
