@@ -159,6 +159,7 @@ assert.equal(jundWitness.result.refinement.can_reduce_ambiguity, false);
 const visualReviewManifest = JSON.parse(fs.readFileSync(new URL("../docs/audits/vm551-all-37-dossier-closeout/visual-review-manifest.json", import.meta.url), "utf8"));
 const greenWitness = visualReviewManifest.cases.find((row) => row.case_id === "green-witherbloom-tied");
 assert.ok(greenWitness?.preload_saved_result, "preserved Green/Witherbloom owner ledger is missing from the review manifest");
+assert.equal(greenWitness.initial_focus_identity_key, "WITHERBLOOM", "the tied owner case must open on Witherbloom without changing its result authority");
 const greenState = replaySelections(model, greenWitness.selections.map((selection) => ({
   question_id: selection.question_id,
   answer_id: selection.answer_id,

@@ -34,6 +34,7 @@ function compactCase(row) {
     result_faction: row.result_faction || null,
     expected_direction_keys: (row.result?.top_matches || []).map((match) => match.faction).filter(Boolean),
     focus_identity_keys: row.focus_identity_keys || [],
+    initial_focus_identity_key: row.initial_focus_identity_key || null,
     selections: row.selections.map(({ question_id, answer_id, refinement }) => ({ question_id, answer_id, ...(refinement ? { refinement: true } : {}) })),
     evidence_ledger_entries: (row.result?.evidence_ledger || row.result?.evidence_trail || []).length,
     evidence_ledger_sha256: ledgerHash(row.result),
@@ -141,6 +142,7 @@ const greenWitherbloomTied = {
   selections: frozenGreenWitherbloomSelections.map(([question_id, answer_id]) => ({ question_id, answer_id })),
   result: frozenGreenWitherbloomResult,
   focus_identity_keys: ["G", "WITHERBLOOM"],
+  initial_focus_identity_key: "WITHERBLOOM",
   preload_saved_result: true,
   witness_authority: "Preserved real owner evidence ledger from the accepted pre-remediation session; render-only regression, not current routing reachability proof.",
 };

@@ -124,7 +124,9 @@ async function replay(page, origin, witness) {
   }, viewportName === "desktop", preloadedResult);
   const consoleErrors = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
-  await page.goto(`${origin}/archscry/`, { waitUntil: "networkidle0", timeout: 30000 });
+  const initialFocus = String(witness.initial_focus_identity_key || "").trim();
+  const reviewUrl = `${origin}/archscry/${initialFocus ? `?view=${encodeURIComponent(initialFocus)}` : ""}`;
+  await page.goto(reviewUrl, { waitUntil: "networkidle0", timeout: 30000 });
   if (!preloadedResult) {
     try {
       await page.waitForSelector('[data-action="start-quick-flow"]', { visible: true, timeout: 20000 });
@@ -420,6 +422,9 @@ async function replay(page, origin, witness) {
       publicResultState: document.querySelector('[data-summary-card="co-leader"]')
         ? "tied"
         : document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || (guildName ? "primary" : "unknown"),
+      storedResultState: (() => {
+        try { return JSON.parse(sessionStorage.getItem("vm_last_result") || "null")?.result_state || ""; } catch { return ""; }
+      })(),
       guildName,
       whyCount: document.querySelectorAll("[data-public-fit-reasons] .omen-card").length,
       whyFitRefinementAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
@@ -505,7 +510,24 @@ async function replay(page, origin, witness) {
     assert.notEqual(ui.state, "named", "Yore must retain a bounded public state");
   }
   if (witness.case_id === "green-witherbloom-tied") assert.equal(ui.resultRefinementAvailable, false, "unsafe Green/Witherbloom refinement remained visible");
-  if (witness.expected_state) assert.equal(ui.publicResultState, witness.expected_state, `${witness.case_id || witness.identity_key} result-state drift`);
+  if (witness.case_id === "green-witherbloom-tied") {
+    assert.equal(witness.initial_focus_identity_key, "WITHERBLOOM", "review manifest did not identify the requested Witherbloom focus");
+    assert.equal(ui.guildName, "Witherbloom College", "Green/Witherbloom tied review did not open on Witherbloom");
+    const beforeSwitch = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    const voiceName = async () => page.$eval('[data-card-voice-section] .flavor-echo-name', (node) => node.textContent?.trim() || "");
+    assert.equal(await voiceName(), "Blossoming Bogbeast", "Witherbloom focus lost its approved voice card");
+    await page.$eval('[data-action="return-primary-reading"]', (button) => button.click());
+    await page.waitForFunction(() => document.querySelector(".guild-name")?.textContent?.trim() === "Green");
+    assert.equal(await voiceName(), "Ghalta, Primal Hunger", "Green focus lost its approved voice card");
+    const afterGreen = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    assert.deepEqual(afterGreen, beforeSwitch, "switching tied focus mutated the original placement or evidence ledger");
+    await page.$eval('[data-action="switch-adjacent-view"]', (button) => button.click());
+    await page.waitForFunction(() => document.querySelector(".guild-name")?.textContent?.trim() === "Witherbloom College");
+    assert.equal(await voiceName(), "Blossoming Bogbeast");
+    const afterReturn = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    assert.deepEqual(afterReturn, beforeSwitch, "returning tied focus mutated the original placement or evidence ledger");
+  }
+  if (witness.expected_state) assert.equal(ui.storedResultState || ui.publicResultState, witness.expected_state, `${witness.case_id || witness.identity_key} result-state drift`);
   assert.deepEqual(ui.internalLeaks, []);
   assert.deepEqual(ui.methodologyPhraseLeaks, [], `${witness.identity_key} retained scoped methodology copy`);
   assert.deepEqual(ui.entityLeaks, [], `${witness.identity_key} leaked encoded entities`);
@@ -520,7 +542,7 @@ async function replay(page, origin, witness) {
     assert.equal(ui.wubrgOpeningIdentityLabels.length, 1, `WUBRG opening repeated the identity label: ${ui.wubrgOpeningText}`);
     assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
   }
-  if (witness.identity_key === "G" && ui.state === "named") {
+  if (witness.identity_key === "G" && ui.state === "named" && ui.guildName === "Green") {
     const normalizedGlossary = ui.glossaryTerms.map((term) => term.toLowerCase());
     for (const term of ["big mana", "landfall", "trample"]) assert.ok(normalizedGlossary.includes(term), `Green omitted ${term} glossary help`);
     assert.ok(!normalizedGlossary.includes("counters"), "Green decorated ordinary bare counters");
