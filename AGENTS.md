@@ -65,6 +65,27 @@ If no relevant handoffs exist, state:
 
 Do not begin implementation until this pre-flight review is complete.
 
+## Single Active Work Branch And Worktree
+
+The default is one active branch and one active worktree for a continuing task or initiative. Continue the existing related branch/worktree instead of creating a new branch for each prompt, remediation, test pass, review response, or closeout.
+
+Before running any branch- or worktree-creation command, the agent must:
+
+1. List the repository's registered worktrees and relevant local branches.
+2. Identify every existing branch/worktree associated with the same task, ticket, gate, or continuing initiative.
+3. State why the requested work cannot safely continue in the existing active worktree.
+
+If a related active branch or worktree already exists, this is a **HARD STOP**. Do not create another one. Report the existing branch/worktree set and ask the owner whether to:
+
+- continue one existing branch;
+- integrate completed work first;
+- close or clean up superseded work first; or
+- authorize a genuinely separate branch after explaining why isolation is required.
+
+A task prompt that supplies a new branch or worktree name does not by itself waive this hard stop when it would multiply branches for the same continuing work. The agent must surface the conflict and question why another branch is necessary before creating it.
+
+Do not create a replacement branch merely because the prior branch is completed but unintegrated. Do not delete, force-remove, merge, or consolidate existing branches/worktrees without explicit owner authority. Exact-SHA review, certification, or integration isolation may use another worktree only after the owner explicitly confirms that exception following the hard-stop review.
+
 ## Required Agent Handoff
 
 Every specialist subagent and every major main-agent task must create or update a handoff file.

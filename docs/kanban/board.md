@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-551 — Preservation Artifact Reconciliation](done/VM-551-preservation-artifact-reconciliation.md) - moved the only unrecoverable/useful preservation material into `main`, retained six superseded rejection records as an explicit archive, restored the one-worktree governance rule, and removed redundant external bundles after push verification.
+
 - [VM-551 — All-37 Dossier Implementation And Closeout](done/VM-551-all-37-dossier-closeout-program.md) - owner accepted exact implementation `ef4f8364a825c27ea5f80d03e452e2d4d8533922`; it was fast-forwarded to `main`, pushed, and production-verified with the dirty control material preserved externally before exact-path cleanup. VM-551 is closed.
 
 - [VM-551 — Card-Rationale Owner Approval Application](done/VM-551-card-rationale-owner-approval-application.md) - applied 25 direct approvals and the exact narrowed Isperia approval, rebuilt 24 displayed entries from 26 approved relationships, and recorded evidence-based 12 Full / 0 Partial / 25 Gap adjudications without researching remaining gaps or changing placement semantics.
