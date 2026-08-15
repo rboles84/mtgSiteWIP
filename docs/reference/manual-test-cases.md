@@ -1,5 +1,7 @@
 # Manual Test Cases
 
+Use these product-specific cases after applying the [RobQAPass owner-QA gate](../qa/RobQAPass.md). Select only cases that exercise the classified changed risk and protected behavior. Visible UI changes still require a real rendered-product self-QA pass; final owner review should be the shortest deterministic set that remains genuinely judgment-based.
+
 ## Setup
 
 1. Deploy the updated static files.

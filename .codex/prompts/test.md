@@ -18,10 +18,10 @@ Create or update the testing plan for the current Vox Mana enhancement.
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
-- Identify unit tests.
-- Identify parser tests.
-- Identify DOM/UI tests.
-- Identify data validation tests.
+- Apply `docs/qa/RobQAPass.md` before selecting tests: classify the QA tier, changed behavior, protected contracts, and realistic regressions.
+- Select the narrowest relevant unit, parser, DOM/UI, data, accessibility, and rendered-product checks.
+- Do not prescribe CPU-heavy or exhaustive engine, journey, synthetic, mutation, or recovery suites for small presentation, copy, styling, or ordinary component fixes unless the changed protected behavior concretely justifies them.
+- For visible UI changes, require rendered-product self-QA. Convert manual owner findings into the narrowest appropriate systemic regression invariant and bound final owner review to genuine product judgment.
 - Identify regression risks.
 - Recommend exact commands to run.
 - Do not implement unless explicitly asked, except for the required handoff and `docs/handoffs/HANDOFF_INDEX.md` updates.
@@ -37,8 +37,9 @@ Return Markdown with:
 4. Suggested test cases
 5. Regression checks
 6. Commands to run
-7. Manual checks
-8. Pass/fail expectations
+7. Expensive suites intentionally skipped or justified
+8. Rendered self-QA and bounded owner checks
+9. Pass/fail expectations
 
 ## Required Handoff
 

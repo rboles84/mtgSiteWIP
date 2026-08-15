@@ -27,7 +27,9 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 - Identify data/schema impacts.
 - Identify UI/UX impacts.
 - Identify risks and guardrails.
-- Identify tests needed.
+- Apply `docs/qa/RobQAPass.md`: classify the QA tier, name changed behavior and protected contracts, then identify the smallest risk-proportional tests needed.
+- Record expensive suites intentionally skipped and require concrete changed-risk justification for any CPU-heavy or exhaustive suite.
+- For visible UI changes, plan rendered-product self-QA and the shortest deterministic owner review.
 - Preserve existing architecture and naming.
 - Preserve Vox Mana tone and Commander-first direction.
 - Do not invent lore or commander facts.
@@ -45,7 +47,7 @@ Return Markdown with:
 7. Risks and guardrails
 8. Step-by-step implementation plan
 9. Acceptance criteria
-10. Tests to run
+10. QA tier, protected contracts, tests to run, and expensive suites intentionally skipped
 11. Do-not-touch areas
 12. Recommended Kanban card
 13. Codex-ready implementation prompt

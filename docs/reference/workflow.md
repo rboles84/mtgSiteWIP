@@ -22,12 +22,15 @@ For non-trivial work:
 1. Run the pre-flight review from `AGENTS.md`.
 2. Create or identify the relevant Kanban card.
 3. Plan from existing handoffs, cards, docs, and code.
-4. Implement the scoped change.
-5. Run the narrowest relevant checks.
-6. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
-7. Create or update a handoff in `docs/handoffs/` and update `docs/handoffs/HANDOFF_INDEX.md`.
+4. Apply the [RobQAPass owner-QA gate](../qa/RobQAPass.md): classify the QA tier, changed behavior, and protected contracts before selecting tests.
+5. Implement the scoped change.
+6. Run the narrowest risk-proportional checks, including rendered-product self-QA for visible UI changes.
+7. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
+8. Create or update a handoff in `docs/handoffs/` and update `docs/handoffs/HANDOFF_INDEX.md`.
 
 Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default, but run the full validation required by any task-specific workflow, prompt, card, gate, or governance record.
+
+`RobQAPass` governs how QA scope is selected and how owner acceptance is prepared. It does not replace project-specific commands or stricter protected contracts. The command lists in this workflow and the comprehensive test plan are catalogs, not automatic per-change checklists; CPU-heavy or exhaustive suites require a concrete changed-risk justification.
 
 Small read-only questions, quick status checks, and simple command lookups do not need a Kanban card or handoff unless they reveal follow-up work.
 

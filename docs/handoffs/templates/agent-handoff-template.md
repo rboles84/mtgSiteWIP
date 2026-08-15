@@ -41,6 +41,10 @@ Status:
 
 - 
 
+## RobQAPass Readiness
+
+For implementation handoffs, complete the required readiness fields in Section 23 of `docs/qa/RobQAPass.md`. For non-implementation handoffs, mark this section not applicable.
+
 ## Not Touched
 
 - 

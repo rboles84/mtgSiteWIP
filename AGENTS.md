@@ -42,6 +42,12 @@ This triage cannot weaken existing program, CRIT-001, source-authority, MTG fact
 
 Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least reasoning, context retrieval, search, and tool usage needed for a correct result. This policy governs efficiency only and cannot waive, shorten, replace, or reinterpret any required validation, source-authority rule, protected workflow, review gate, testing requirement, handoff obligation, Kanban control, migration safeguard, or destructive-change restriction. When efficiency guidance conflicts with task-specific governance, the stricter task-specific governance controls.
 
+## Governing Owner-QA Gate
+
+Apply `docs/qa/RobQAPass.md` before selecting tests for any change. Classify the QA tier and risk, name the changed behavior and protected contracts, then use the smallest deterministic validation set that protects the changed behavior. Project-specific test commands and stricter CRIT-001, exact-SHA, migration, security, accessibility, and release controls remain authoritative; `RobQAPass` governs scope selection and owner-acceptance preparation, not those product contracts.
+
+Do not run CPU-heavy or exhaustive engine, journey, synthetic, mutation, recovery, or equivalent suites for documentation, presentation, copy, styling, or ordinary component fixes unless the changed protected behavior concretely justifies them. Visible UI changes require rendered-product self-QA. Convert a real manual owner finding into the narrowest appropriate systemic regression invariant, and leave the owner only a short deterministic review of genuine product judgment.
+
 ## Mandatory Pre-Flight Review
 
 Before starting any planning, implementation, documentation, JSON/data, or testing task, review:
@@ -112,6 +118,8 @@ Every handoff must include:
 - Follow-up recommendations
 - Next suggested agent
 - Related Kanban card, docs, or plans
+
+Implementation handoffs that claim owner-QA readiness must also use the readiness fields in `docs/qa/RobQAPass.md`; reference the gate rather than restating its policy.
 
 Also update:
 

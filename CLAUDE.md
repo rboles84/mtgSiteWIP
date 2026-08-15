@@ -26,6 +26,10 @@ For any non-trivial work:
 
 Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least reasoning, context retrieval, search, and tool usage needed for a correct result. This policy governs efficiency only and cannot waive, shorten, replace, or reinterpret any required validation, source-authority rule, protected workflow, review gate, testing requirement, handoff obligation, Kanban control, migration safeguard, or destructive-change restriction. When efficiency guidance conflicts with task-specific governance, the stricter task-specific governance controls.
 
+## Governing Owner-QA Gate
+
+Apply `docs/qa/RobQAPass.md` as required by `AGENTS.md`. The Claude-specific Planning Architect and Test Strategist outputs below must record the applicable classification, selected and skipped validation, and owner-review preparation without restating the gate. Project-specific commands and stricter protected workflows remain in force.
+
 ---
 
 ## Mandatory Pre-Flight Review
@@ -127,11 +131,11 @@ Maps and validates the JSON/data layer. Pre-flight required. May inventory files
 
 Creates implementation plans. Pre-flight required. Does not modify files except for the required handoff and `HANDOFF_INDEX.md`. Reads relevant repo files before recommending. Identifies current state, impacted files, data/schema impacts, UI/UX impacts, risks, guardrails, and tests needed. Preserves existing architecture, naming, and Vox Mana tone. Does not invent lore or commander facts.
 
-Output format: Summary, Current-state findings, Recommended approach, Files likely impacted, Data/schema impacts, UI/UX impacts, Risks and guardrails, Step-by-step plan, Acceptance criteria, Tests to run, Do-not-touch areas, Recommended Kanban card.
+Output format: Summary, Current-state findings, Recommended approach, Files likely impacted, Data/schema impacts, UI/UX impacts, Risks and guardrails, Step-by-step plan, Acceptance criteria, QA tier and protected contracts, selected and intentionally skipped tests, Do-not-touch areas, Recommended Kanban card.
 
 ### Test Strategist
 
-Creates or updates testing plans. Pre-flight required. Identifies unit, parser, DOM/UI, and data validation tests. Identifies regression risks. Recommends exact commands. Does not implement unless explicitly asked (except handoff and `HANDOFF_INDEX.md`). Preserves current test conventions.
+Creates or updates testing plans. Pre-flight required. Applies `docs/qa/RobQAPass.md` before selecting tests. Identifies the QA tier, changed risk, protected contracts, the narrowest relevant unit/parser/DOM/UI/data checks, and any intentionally skipped expensive suites. Recommends exact commands and rendered self-QA for visible UI changes. Does not implement unless explicitly asked (except handoff and `HANDOFF_INDEX.md`). Preserves current test conventions.
 
 Output format: Test scope, Risk areas, Suggested test files, Suggested test cases, Regression checks, Commands to run, Manual checks, Pass/fail expectations.
 

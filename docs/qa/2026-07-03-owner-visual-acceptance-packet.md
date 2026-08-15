@@ -4,6 +4,8 @@ Date: 2026-07-03
 Related card: VM-462
 Status: Continued waiver / owner decision pending
 
+Historical scope note: this packet preserves the VM-462 visual-baseline decision and remains useful evidence. [RobQAPass](RobQAPass.md) governs QA scope selection and owner-acceptance preparation for new changes; use only the relevant deterministic route/state cases here rather than treating this historical packet as a universal checklist.
+
 ## Rule
 
 Only compare-only visual commands were run. No `test:visual:*:baseline` command was run, because the owner has not accepted the current route visuals.
