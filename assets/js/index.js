@@ -2090,7 +2090,7 @@ function manaSymbolLabel(symbol) {
   return `${symbol.replaceAll("/", " or ")} mana`;
 }
 
-function renderManaCost(value) {
+export function renderManaCost(value) {
   const cost = String(value || "").trim();
   if (!cost) return "";
   return cost.split(/(\{[^}]+\})/g).map((part) => {

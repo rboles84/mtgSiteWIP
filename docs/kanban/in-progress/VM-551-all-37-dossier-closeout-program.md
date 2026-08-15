@@ -116,8 +116,11 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 
 ## Final Presentation-Acceptance Remediation
 
-- In progress from `96e11103c0f1f185122788e009d5fa6f64dc6a13` on the existing canonical branch/worktree.
-- Enforce a single WUBRG identity label from the dossier eyebrow through the Play pattern summary; nearby labels, headings, tags, and body copy must remain contextual.
-- Preserve Blossoming Bogbeast and existing Witherbloom evidence dispositions while making identity-linked card details add approved explanatory value beyond tile copy.
-- Make the preserved Green/Witherbloom tied review case open on the Witherbloom co-leader without mutating its original result or evidence ledger.
-- Recertify only through the existing deterministic review/browser machinery and all-37 regression safety net; no placement, Gate A, research, push, merge, or deployment work is authorized.
+- Completed from `96e11103c0f1f185122788e009d5fa6f64dc6a13` on the existing canonical branch/worktree.
+- The WUBRG opening now establishes the identity once in the hero. Its nearby summary uses `Where this leads`, `Commander direction`, `Play pattern`, `At the table`, contextual body copy, and only `Ramp` / `Multicolor` tags; legitimate later five-color terminology remains intact.
+- Identity-linked card dialogs now add approved context beyond the tile: voice cards reuse `why_it_echoes`; play cards use approved identity mechanical-expression content alongside canonical image/type/Oracle/Scryfall facts. Exact and deterministic overlap guards reject duplicated tile copy, and card costs use the shared Mana glyph classes.
+- Blossoming Bogbeast remains Witherbloom's exact-printing public voice; Witherbloom Campus remains non-selected evidence and Death Begets Life remains rejected. No selection research or authority change occurred.
+- The preserved Green/Witherbloom tied case opens on Witherbloom, verifies Blossoming Bogbeast, switches to Green and verifies Ghalta, then returns without changing the cached tied result or evidence ledger.
+- Focused WUBRG, Witherbloom, Green/Witherbloom, and Azorius modal cases pass at the required desktop/mobile scopes. Packet 1/2 authority, dossier integrity, source/generated, visual-manifest freshness, and frontend lint/HTML checks are green.
+- Per owner direction, no further CPU-heavy placement simulations were run after the presentation-only scope was reaffirmed. The last successful placement-engine certification remains the unchanged baseline; no placement-engine or protected placement file changed.
+- Status: ready for the three-command final owner presentation check; VM-551 remains open until owner acceptance.

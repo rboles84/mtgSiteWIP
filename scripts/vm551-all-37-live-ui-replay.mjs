@@ -196,6 +196,8 @@ async function replay(page, origin, witness) {
       .map((slot) => slot.getAttribute("data-card-art-name"))
       .filter(Boolean),
   }));
+  let rationaleModalAudit = null;
+  let voiceModalAudit = null;
   if (witness.expected_public_contract === "NAMED_DOSSIER") {
     assert.equal(cardArtState.state, "ready", `${witness.identity_key} card-art resolver did not complete`);
     if (reviewMode) assert.deepEqual(cardArtState.unavailable, [], `${witness.identity_key} review card art unresolved`);
@@ -336,6 +338,12 @@ async function replay(page, origin, witness) {
     assert.ok(copyOverlap(modalDetail.identityContext, tileRationale) < 0.8, `${witness.identity_key} modal substantially repeated its tile rationale`);
     assert.ok(modalDetail.rect && modalDetail.rect.left >= 0 && modalDetail.rect.top >= 0 && modalDetail.rect.right <= viewport.width && modalDetail.rect.bottom <= viewport.height, `${witness.identity_key} modal escaped the viewport`);
     assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation`);
+    rationaleModalAudit = {
+      card: await rationaleTrigger.evaluate((node) => node.dataset.cardName || node.dataset.cardPreviewName || ""),
+      tile: tileRationale,
+      context_heading: modalDetail.identityContextHeading,
+      context: modalDetail.identityContext,
+    };
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
     await delay(50);
@@ -365,12 +373,14 @@ async function replay(page, origin, witness) {
       assert.notEqual(normalizeCopy(voiceModal.context), normalizeCopy(voiceTile));
       assert.ok(copyOverlap(voiceModal.context, voiceTile) < 0.8, `${witness.identity_key} voice modal repeated the exact voice as its explanation`);
       assert.doesNotMatch(voiceModal.manaText, /\{[^}]+\}/, `${witness.identity_key} voice modal exposed raw mana notation`);
+      voiceModalAudit = { card: voiceModal.card, tile: voiceTile, context: voiceModal.context };
       if (witness.identity_key === "WITHERBLOOM") {
         assert.equal(voiceModal.card, "Blossoming Bogbeast");
         if (voiceModal.manaText) assert.ok(voiceModal.manaSymbols.length, "Blossoming Bogbeast modal did not use shared mana glyphs");
       }
       await page.keyboard.press("Escape");
       await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
+      await delay(50);
       assert.equal(await page.evaluate(() => document.activeElement?.matches?.('[data-card-voice-section] .flavor-echo-image-trigger') || false), true, `${witness.identity_key} voice modal did not restore focus`);
     }
   }
@@ -393,6 +403,9 @@ async function replay(page, origin, witness) {
     ].filter(Boolean);
     const wubrgOpeningText = openingNodes.map((node) => node.textContent || "").join("\n");
     const wubrgOpeningIdentityLabels = wubrgOpeningText.match(/\bWUBRG\b/g) || [];
+    const wubrgOpeningBareFiveColorTags = [...document.querySelectorAll('[data-summary-card="where-this-leads"] .dossier-snapshot-tag')]
+      .map((node) => node.textContent?.trim() || "")
+      .filter((value) => /^Five-Color$/i.test(value));
     const normalizeNarrative = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
     const heroNarrative = normalizeNarrative(document.querySelector(".guild-philosophy")?.textContent);
     const loreSummary = normalizeNarrative(document.querySelector(".guild-lore-summary")?.textContent);
@@ -480,6 +493,7 @@ async function replay(page, origin, witness) {
       wubrgCatalogTerms: allResultText.match(/\bFive-color matters \/ Domain\b/g) || [],
       wubrgOpeningText,
       wubrgOpeningIdentityLabels,
+      wubrgOpeningBareFiveColorTags,
       heroNarrativeDuplicate: Boolean(heroNarrative && loreSummary && (heroNarrative === loreSummary || heroNarrative.includes(loreSummary) || loreSummary.includes(heroNarrative))),
       nearDuplicateNarratives,
       documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
@@ -540,6 +554,7 @@ async function replay(page, origin, witness) {
     assert.deepEqual(ui.wubrgLongIdentityLabels, [], "WUBRG emitted Five-Color / WUBRG as a public identity label");
     assert.ok(ui.wubrgCatalogTerms.length >= 1, "WUBRG normalization rewrote legitimate five-color matters catalog terminology");
     assert.equal(ui.wubrgOpeningIdentityLabels.length, 1, `WUBRG opening repeated the identity label: ${ui.wubrgOpeningText}`);
+    assert.deepEqual(ui.wubrgOpeningBareFiveColorTags, [], "WUBRG opening restated its identity as a bare Five-Color tag");
     assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
   }
   if (witness.identity_key === "G" && ui.state === "named" && ui.guildName === "Green") {
@@ -549,7 +564,7 @@ async function replay(page, origin, witness) {
   }
   assert.equal(ui.documentOverflow, false);
   assert.deepEqual(consoleErrors.filter((message) => !/favicon|ERR_FAILED|Failed to load resource/i.test(message)), []);
-  return { identity_key: witness.identity_key, ...ui, returnToPreviousReadingVerified, console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)) };
+  return { identity_key: witness.identity_key, ...ui, rationaleModalAudit, voiceModalAudit, returnToPreviousReadingVerified, console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)) };
 }
 
 const server = await startServer();
@@ -593,7 +608,19 @@ try {
     previous.viewports[viewportName] = { width: viewport.width, height: viewport.height, status: failures.length ? "FAIL" : "PASS", rows, failures };
     fs.writeFileSync(reportPath, `${JSON.stringify(previous, null, 2)}\n`);
   }
-  console.log(JSON.stringify({ status: failures.length ? "FAIL" : "PASS", viewport: viewportName, identities: rows.length, named: rows.filter((row) => row.state === "named").length, failures }, null, 2));
+  const focusedEvidence = rows.length === 1 && (caseFilter || identityFilter) ? {
+    opening: rows[0].wubrgOpeningText || "",
+    rationale_modal: rows[0].rationaleModalAudit,
+    voice_modal: rows[0].voiceModalAudit,
+  } : undefined;
+  console.log(JSON.stringify({
+    status: failures.length ? "FAIL" : "PASS",
+    viewport: viewportName,
+    identities: rows.length,
+    named: rows.filter((row) => row.state === "named").length,
+    ...(focusedEvidence ? { rendered_evidence: focusedEvidence } : {}),
+    failures,
+  }, null, 2));
   if (failures.length) process.exitCode = 1;
 } finally {
   if (browser) await browser.close().catch(() => browser.disconnect());

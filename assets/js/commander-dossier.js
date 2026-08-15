@@ -1044,6 +1044,7 @@ const SUMMARY_STRIP_DISPLAY_OVERRIDES = new Map([
     playPatternHeading: "At the table",
     playPatternBody: "In play, this deck wants full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift. Opponents feel it as breadth under discipline: every color is available, but each tool still has to justify its place.",
     tags: ["Ramp", "Multicolor"],
+    replaceTags: true,
   }],
 ]);
 
@@ -2765,6 +2766,7 @@ function cleanWhereThisLeadsBody({ text, faction, guidance, fallback }) {
 }
 
 function summaryTags({ guidance, override }) {
+  if (override?.replaceTags === true) return unique(override.tags || []).filter(Boolean).slice(0, 3);
   return unique([
     ...(override?.tags || []),
     ...((guidance?.starterSearchTags || []).length ? guidance.starterSearchTags : guidance?.preferredArchetypeTags || []),

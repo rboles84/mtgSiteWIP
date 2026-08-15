@@ -158,6 +158,7 @@ globalThis.document = {
 const {
   approvedCardRationaleForFaction,
   buildFlavorEchoesHtml,
+  renderManaCost,
   renderPlayerCopy,
   validateDossierContentCatalogs,
 } = await import("../assets/js/index.js");
@@ -244,7 +245,7 @@ assert.equal(
 );
 assert.equal(
   presentationForFaction("WUBRG").loreRole,
-  "The Five-Color expression: all five colors present, coalition and synthesis, with each color contributing to the whole plan"
+  "The all-five-color expression: coalition and synthesis, with each color contributing to the whole plan"
 );
 const greenStart = buildCommanderStartingLane({ faction: factions.G, guidance: factions.G.commander_compass });
 assert.doesNotMatch(JSON.stringify(greenStart), /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);
@@ -268,6 +269,10 @@ assert.match(indexSource, /archscry-card-dialog-identity-context/);
 assert.match(indexSource, /cardIdentityContext: record\.why_it_echoes/, "voice modals must reuse their approved relationship explanation");
 assert.match(indexSource, /cardIdentityContext: rationale\.identityContext/, "play-rationale modals must reuse approved identity context");
 assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use Archscry mana glyphs instead of raw brace notation");
+const renderedBogbeastCost = renderManaCost("{4}{G}");
+assert.match(renderedBogbeastCost, /\bms-4\b/);
+assert.match(renderedBogbeastCost, /\bms-g\b/);
+assert.doesNotMatch(renderedBogbeastCost, /\{4\}|\{G\}/);
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="2"\]/);
