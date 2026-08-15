@@ -132,3 +132,14 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - The canonical rationale builder carries these bounded modal explanations into runtime, rejects rationale duplication and methodology leakage, and leaves WUBRG, Blossoming Bogbeast, placement, and identity authority unchanged.
 - Focused card-authority, dossier-integrity, syntax, and deterministic Witherbloom replay checks pass. No exhaustive placement validation was run.
 - Status: the remaining modal contract miss is repaired; awaiting the same final owner presentation acceptance.
+
+## Identity-Card Modal Value Repair
+
+- Identity-linked voice and play dialogs now retain the canonical full-card image, shared mana glyphs, type line, and Scryfall action while omitting the redundant Oracle text/excerpt block. Unrelated card-detail callers retain their existing rules-detail behavior.
+- Voice dialogs use the type-specific heading `What this card's voice reveals about [identity]`; play dialogs use `Why [card] helps explain [identity] in play`.
+- The existing Packet/card provenance conventions now carry deterministic modal explanations for all 37 voice records and all 50 displayed play relationships. No new provenance schema, validator framework, runtime prose generator, or research phase was created.
+- Blossoming Bogbeast remains the exact-printing Witherbloom voice. Its dialog now says: `This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components.`
+- Dina and Grand Arbiter retain their approved card-specific relationship explanations, with an additive approved table-level takeaway generated from the existing identity dossier authority.
+- Focused desktop/mobile replay passes for Witherbloom and WUBRG; an additional Azorius replay verifies Grand Arbiter and the Azorius Cluestone voice. Authority, source/generated, dossier, frontend, focus restoration, mobile containment, mana-glyph, and modal contracts are green.
+- Placement-engine and protected placement files were untouched. Per owner direction, no 5,000-journey, synthetic, mutation, recovery, or other exhaustive placement suite was run.
+- Status: ready for the final two-case owner presentation review; VM-551 remains open pending owner acceptance.

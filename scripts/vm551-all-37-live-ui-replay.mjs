@@ -206,7 +206,10 @@ async function replay(page, origin, witness) {
       await whyTab.evaluate((button) => button.click());
       await page.waitForFunction(() => document.querySelector('[data-dossier-panel="why"]')?.hidden === false);
     }
-    const rationaleTrigger = await page.$('[data-card-rationale-section] .flavor-echo-image-trigger');
+    const rationaleSelector = witness.identity_key === "WU"
+      ? '[data-card-rationale-section] .flavor-echo-image-trigger[data-card-name="Grand Arbiter Augustin IV"]'
+      : '[data-card-rationale-section] .flavor-echo-image-trigger';
+    const rationaleTrigger = await page.$(rationaleSelector);
     assert.ok(rationaleTrigger, `${witness.identity_key} has no rationale-card detail trigger`);
     const rationalePanel = await rationaleTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
     if (rationalePanel) {
@@ -216,7 +219,7 @@ async function replay(page, origin, witness) {
         await page.waitForFunction((panelId) => document.querySelector(`[data-dossier-panel="${panelId}"]`)?.hidden === false, {}, rationalePanel);
       }
     }
-    const tileRationale = await page.$eval('[data-card-rationale-section] .flavor-echo-why', (node) => node.textContent?.trim() || "");
+    const tileRationale = await rationaleTrigger.evaluate((node) => node.closest(".flavor-echo-card")?.querySelector(".flavor-echo-why")?.textContent?.trim() || "");
     assert.ok(tileRationale, `${witness.identity_key} rationale tile did not explain why the card fits in play`);
     if (viewportName === "desktop") {
       await page.evaluate(() => {
@@ -313,8 +316,7 @@ async function replay(page, origin, witness) {
       return {
         hasImage: Boolean(dialog?.querySelector(".archscry-card-dialog-image")),
         typeLine: dialog?.querySelector(".archscry-card-dialog-type")?.textContent?.trim() || "",
-        oracleDetail: dialog?.querySelector(".archscry-card-dialog-rules span")?.textContent?.trim() || "",
-        oracleLabel: dialog?.querySelector(".archscry-card-dialog-rules strong")?.textContent?.trim() || "",
+        hasOracleBlock: Boolean(dialog?.querySelector(".archscry-card-dialog-rules")),
         hasScryfallAction: Boolean(dialog?.querySelector('.archscry-card-dialog-external[href^="https://scryfall.com/"]')),
         repeatedRationale: Boolean(dialog?.querySelector(".archscry-card-dialog-why")),
         identityContext: dialog?.querySelector(".archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
@@ -328,14 +330,13 @@ async function replay(page, origin, witness) {
     });
     assert.equal(modalDetail.hasImage, true, `${witness.identity_key} detail modal omitted the canonical full-card image`);
     assert.ok(modalDetail.typeLine, `${witness.identity_key} detail modal omitted the canonical type line`);
-    assert.ok(modalDetail.oracleDetail, `${witness.identity_key} detail modal omitted Oracle text or its committed excerpt`);
-    assert.match(modalDetail.oracleLabel, /^Oracle (?:text|excerpt)$/);
+    assert.equal(modalDetail.hasOracleBlock, false, `${witness.identity_key} identity-linked modal repeated readable Oracle text`);
     assert.equal(modalDetail.hasScryfallAction, true, `${witness.identity_key} detail modal omitted its Scryfall action`);
     assert.equal(modalDetail.repeatedRationale, false, `${witness.identity_key} detail modal repeated the tile rationale as primary content`);
     assert.ok(modalDetail.identityContext, `${witness.identity_key} identity-linked detail modal omitted its approved identity context`);
-    assert.match(modalDetail.identityContextHeading, /^Why .+ helps explain .+$/);
+    assert.match(modalDetail.identityContextHeading, /^Why .+ helps explain .+ in play$/);
     assert.notEqual(normalizeCopy(modalDetail.identityContext), normalizeCopy(tileRationale), `${witness.identity_key} modal repeated its tile rationale verbatim`);
-    assert.ok(copyOverlap(modalDetail.identityContext, tileRationale) < 0.8, `${witness.identity_key} modal substantially repeated its tile rationale`);
+    assert.ok(normalizeCopy(modalDetail.identityContext).length > normalizeCopy(tileRationale).length + 20, `${witness.identity_key} modal failed to add useful table context beyond its approved card relationship`);
     assert.ok(modalDetail.rect && modalDetail.rect.left >= 0 && modalDetail.rect.top >= 0 && modalDetail.rect.right <= viewport.width && modalDetail.rect.bottom <= viewport.height, `${witness.identity_key} modal escaped the viewport`);
     assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation`);
     rationaleModalAudit = {
@@ -345,10 +346,10 @@ async function replay(page, origin, witness) {
       context: modalDetail.identityContext,
     };
     if (rationaleModalAudit.card === "Dina, Essence Brewer") {
-      assert.equal(rationaleModalAudit.context, "Dina turns a sacrificed creature into a card, life, and growth through +1/+1 counters. That concrete exchange shows Witherbloom treating life and death as usable forces in play.");
+      assert.match(rationaleModalAudit.context, /^Dina turns a sacrificed creature into a card, life, and growth through \+1\/\+1 counters\. That concrete exchange shows Witherbloom treating life and death as usable forces in play\. At the table,/);
     }
     if (rationaleModalAudit.card === "Grand Arbiter Augustin IV") {
-      assert.equal(rationaleModalAudit.context, "Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells.");
+      assert.match(rationaleModalAudit.context, /^Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells\. At the table,/);
     }
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
@@ -356,7 +357,7 @@ async function replay(page, origin, witness) {
     const restored = await page.evaluate(() => document.activeElement?.matches?.('[data-card-rationale-section] .flavor-echo-image-trigger') || false);
     assert.equal(restored, true, `${witness.identity_key} modal did not restore focus`);
 
-    if (["WUBRG", "WITHERBLOOM"].includes(witness.identity_key)) {
+    if (["WUBRG", "WITHERBLOOM", "WU"].includes(witness.identity_key)) {
       const voiceTrigger = await page.$('[data-card-voice-section] .flavor-echo-image-trigger');
       assert.ok(voiceTrigger, `${witness.identity_key} has no voice-card detail trigger`);
       const voicePanel = await voiceTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
@@ -370,11 +371,15 @@ async function replay(page, origin, witness) {
       const voiceModal = await page.evaluate(() => ({
         card: document.querySelector(".archscry-card-dialog[open] h2")?.textContent?.trim() || "",
         context: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
+        contextHeading: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context strong")?.textContent?.trim() || "",
         contextKind: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context")?.getAttribute("data-card-identity-context") || "",
+        hasOracleBlock: Boolean(document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-rules")),
         manaText: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-mana")?.textContent?.trim() || "",
         manaSymbols: [...document.querySelectorAll(".archscry-card-dialog[open] .archscry-card-dialog-mana .ms")].map((node) => node.className),
       }));
       assert.equal(voiceModal.contextKind, "voice");
+      assert.match(voiceModal.contextHeading, /^What this card's voice reveals about .+$/);
+      assert.equal(voiceModal.hasOracleBlock, false, `${witness.identity_key} voice modal repeated readable Oracle text`);
       assert.ok(voiceModal.context, `${witness.identity_key} voice modal omitted why-it-echoes context`);
       assert.notEqual(normalizeCopy(voiceModal.context), normalizeCopy(voiceTile));
       assert.ok(copyOverlap(voiceModal.context, voiceTile) < 0.8, `${witness.identity_key} voice modal repeated the exact voice as its explanation`);

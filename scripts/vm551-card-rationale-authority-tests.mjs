@@ -38,12 +38,22 @@ assert.equal(isperiaSource.provenance_roles.card_behavior.verified_field, "oracl
 const quintoriusSource = source.records.find((record) => record.canonical_card_name === "Quintorius, History Chaser");
 assert.match(quintoriusSource.proposed_public_rationale, /^Represents\b/);
 assert.doesNotMatch(quintoriusSource.proposed_public_rationale, /Represent's/);
+for (const runtimeRecord of catalog.records) {
+  const sourceRecord = source.records.find((record) => record.relationship_id === runtimeRecord.relationship_id);
+  const approvedRelationshipCopy = sourceRecord?.modal_explanation || sourceRecord?.proposed_public_rationale || "";
+  assert.ok(sourceRecord, `${runtimeRecord.relationship_id} must resolve to its approved relationship`);
+  assert.ok(runtimeRecord.modal_explanation, `${runtimeRecord.card?.name} must have a card-specific modal explanation`);
+  assert.ok(runtimeRecord.modal_explanation.startsWith(approvedRelationshipCopy), `${runtimeRecord.card?.name} modal must preserve its approved card-specific relationship copy`);
+  assert.match(runtimeRecord.modal_explanation, /\bAt the table, this can mean\b/, `${runtimeRecord.card?.name} modal must add a table-level takeaway`);
+  assert.notEqual(runtimeRecord.modal_explanation, runtimeRecord.rationale, `${runtimeRecord.card?.name} modal explanation must add value beyond the tile rationale`);
+  assert.equal(runtimeRecord.relationship_id, sourceRecord.relationship_id, `${runtimeRecord.card?.name} modal must retain its relationship ID`);
+  assert.ok(runtimeRecord.provenance?.claim_ids?.length, `${runtimeRecord.card?.name} modal must retain certified claim provenance`);
+}
 for (const cardName of ["Dina, Essence Brewer", "Grand Arbiter Augustin IV"]) {
   const sourceRecord = source.records.find((record) => record.canonical_card_name === cardName);
   const runtimeRecord = catalog.records.find((record) => record.card?.name === cardName);
-  assert.ok(sourceRecord?.modal_explanation, `${cardName} must have a card-specific modal explanation`);
-  assert.equal(runtimeRecord?.modal_explanation, sourceRecord.modal_explanation, `${cardName} modal explanation must survive canonical generation`);
-  assert.notEqual(runtimeRecord.modal_explanation, runtimeRecord.rationale, `${cardName} modal explanation must add value beyond the tile rationale`);
+  assert.ok(sourceRecord?.modal_explanation, `${cardName} must retain its approved card-specific explanation`);
+  assert.ok(runtimeRecord?.modal_explanation.startsWith(sourceRecord.modal_explanation), `${cardName} modal must preserve its approved card-specific explanation`);
 }
 
 const coverage = Object.fromEntries([...new Set(audit.rows.map((row) => row.identityKey))].map((identityKey) => [identityKey, classifyIdentityCoverage(source, catalog, identityKey)]));

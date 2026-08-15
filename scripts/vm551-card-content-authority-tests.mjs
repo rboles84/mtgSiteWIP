@@ -28,6 +28,7 @@ assert.equal(new Set(voices.records.map((row) => row.identity_key)).size, 37);
 assert.equal(printings.records.length, 37);
 assert.equal(new Set(printings.records.map((row) => row.identity_key)).size, 37);
 const printingByIdentity = new Map(printings.records.map((row) => [row.identity_key, row]));
+const voiceSourceByRelationship = new Map(voices.records.map((row) => [row.relationship_id, row]));
 for (const row of packet.proposals.filter((proposal) => proposal.proposal_type === "CARD_VOICE" && proposal.disposition === "APPROVED_PUBLIC")) {
   assert.equal(row.copy_sha256, digest(row.proposed_copy), `${row.identity_key} voice copy hash is stale`);
 }
@@ -55,6 +56,17 @@ for (const row of voices.records) {
   assert(!/[â€ï¿½\uFFFD]/.test(row.exact_excerpt), `${row.identity_key} retained mojibake`);
 }
 
+for (const row of voiceCatalog.records) {
+  const sourceRecord = voiceSourceByRelationship.get(row.relationship_id);
+  assert(sourceRecord, `voice runtime relationship must resolve: ${row.relationship_id}`);
+  assert.ok(row.modal_explanation, `${row.identity_key} voice must have player-facing modal context`);
+  assert.notEqual(row.modal_explanation, row.excerpt, `${row.identity_key} voice modal cannot merely repeat the flavor excerpt`);
+  assert.doesNotMatch(row.modal_explanation, /\b(?:exact excerpt|bounded voice echo|approved relationship|provenance|claim[_ -]?id|source[_ -]?id|evidence status)\b/i, `${row.identity_key} voice modal leaks methodology`);
+  assert.equal(row.relationship_id, sourceRecord.relationship_id);
+  assert.deepEqual(row.provenance?.claim_ids, sourceRecord.certified_identity_claim_ids);
+  assert.equal(row.provenance?.validator_version, sourceRecord.validation?.validator_version);
+}
+
 const wubrg = voices.records.find((row) => row.identity_key === "WUBRG");
 assert.equal(wubrg.canonical_card_name, "Call the Spirit Dragons");
 assert.equal(wubrg.canonical_card_id, "3ceb23f5-abb1-4569-a1e4-1eed9a9babcf");
@@ -75,6 +87,14 @@ assert.equal(witherbloom.exact_excerpt, "As subtle as a bogbeast\n—Witherbloom
 assert.match(flavorIndex.cards.find((row) => row.oracle_id === witherbloom.canonical_card_id)?.type_line || "", /^Creature\b/);
 assert(packet.proposals.some((row) => row.canonical_card_name === "Witherbloom Campus" && row.disposition === "REJECTED" && row.proposal_id.endsWith("_superseded")));
 assert(packet.proposals.some((row) => row.canonical_card_name === "Death Begets Life" && row.disposition === "REJECTED" && row.validation?.failures?.includes("SELF_DISQUALIFYING_RELATIONSHIP")));
+assert.equal(
+  voiceCatalog.records.find((row) => row.identity_key === "WITHERBLOOM")?.modal_explanation,
+  "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components."
+);
+assert.equal(
+  voiceCatalog.records.find((row) => row.identity_key === "WUBRG")?.modal_explanation,
+  "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable."
+);
 
 console.log(JSON.stringify({
   status: "PASS",
