@@ -180,24 +180,37 @@ assert.equal(mergedLocalRecord.image_uris.art_crop, "fallback.jpg");
 assert.equal(mergedLocalRecord.mana_cost, "{3}");
 assert.equal(mergedLocalRecord.oracle_excerpt, "Retained canonical excerpt.", "A later slim index must not erase canonical detail fields from another local index.");
 const completeDetail = await detailLookup.lookup("Slim Local Card", { requireDetails: true });
-assert.equal(detailCalls, 1, "A detail lookup should enrich a slim local record through the canonical endpoint.");
-assert.equal(completeDetail.mana_cost, "{2}");
-assert.equal(completeDetail.oracle_text, "The complete canonical Oracle text.");
-assert.equal(detailLookup.inspect().records["slim local card"].card.oracle_text, "The complete canonical Oracle text.");
+assert.equal(detailCalls, 0, "A committed Oracle excerpt is a sufficient offline detail and must not trigger unnecessary enrichment.");
+assert.equal(completeDetail.oracle_excerpt, "A committed canonical excerpt.");
+
+let enrichmentCalls = 0;
+const enrichmentLookup = createScryfallNamedCardLookup({
+  storage: new MemoryStorage(),
+  now,
+  localResolver: (name) => name === "Undetailed Local Card" ? { ...slimLocalCard, name, oracle_excerpt: "" } : null,
+  fetchImpl: async () => {
+    enrichmentCalls += 1;
+    return response(200, { ...card("Undetailed Local Card"), oracle_text: "The complete canonical Oracle text." });
+  },
+});
+const enrichedDetail = await enrichmentLookup.lookup("Undetailed Local Card", { requireDetails: true });
+assert.equal(enrichmentCalls, 1, "A local card without Oracle text or excerpt should request canonical detail.");
+assert.equal(enrichedDetail.mana_cost, "{2}");
+assert.equal(enrichedDetail.oracle_text, "The complete canonical Oracle text.");
 
 let fallbackCalls = 0;
 const fallbackDetailLookup = createScryfallNamedCardLookup({
   storage: new MemoryStorage(),
   now,
-  localResolver: (name) => name === "Slim Local Card" ? slimLocalCard : null,
+  localResolver: (name) => name === "Undetailed Local Card" ? { ...slimLocalCard, name, oracle_excerpt: "" } : null,
   fetchImpl: async () => {
     fallbackCalls += 1;
     return response(500);
   },
 });
-const fallbackDetail = await fallbackDetailLookup.lookup("Slim Local Card", { requireDetails: true });
+const fallbackDetail = await fallbackDetailLookup.lookup("Undetailed Local Card", { requireDetails: true });
 assert.equal(fallbackCalls, 1);
-assert.equal(fallbackDetail.oracle_excerpt, "A committed canonical excerpt.", "Offline detail fallback must retain the committed Oracle excerpt.");
+assert.equal(fallbackDetail.type_line, "Creature — Test", "A failed enrichment may still return the verified local facts without generated copy.");
 
 const flavorStorage = new MemoryStorage();
 let flavorCalls = 0;

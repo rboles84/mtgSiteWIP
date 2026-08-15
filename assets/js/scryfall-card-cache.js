@@ -124,10 +124,11 @@ export function mergeScryfallCardRecords(preferred = {}, fallback = {}) {
   return merged;
 }
 
-function hasFullCardDetails(record = {}) {
+function hasUsableCardDetails(record = {}) {
   return Boolean(
     String(record.oracle_text || "").trim() ||
-    record.card_faces?.some?.((face) => String(face?.oracle_text || "").trim())
+    String(record.oracle_excerpt || "").trim() ||
+    record.card_faces?.some?.((face) => String(face?.oracle_text || face?.oracle_excerpt || "").trim())
   );
 }
 
@@ -179,13 +180,13 @@ export function createScryfallNamedCardLookup({
     if (recordType !== "CARD" || !key) return null;
 
     const local = sanitizeScryfallCardRecord(localResolver(requestedName));
-    if (local && (!requireDetails || hasFullCardDetails(local))) return local;
+    if (local && (!requireDetails || hasUsableCardDetails(local))) return local;
 
     const cached = readCache();
     const cachedRecord = cached.records[key];
     if (cachedRecord?.status === "success") {
       const card = sanitizeScryfallCardRecord(cachedRecord.card);
-      if (card && (!requireDetails || hasFullCardDetails(card))) {
+      if (card && (!requireDetails || hasUsableCardDetails(card))) {
         cachedRecord.last_accessed = now();
         safeStorageWrite(storage, cached);
         return card;
@@ -204,7 +205,7 @@ export function createScryfallNamedCardLookup({
       const latest = readCache();
       if (latest.records[key]?.status === "success") {
         const latestCard = sanitizeScryfallCardRecord(latest.records[key].card);
-        if (latestCard && (!requireDetails || hasFullCardDetails(latestCard))) return latestCard;
+        if (latestCard && (!requireDetails || hasUsableCardDetails(latestCard))) return latestCard;
       }
       if (latest.records[key]?.status === "not_found") return local;
       if (latest.backoff && now() < Number(latest.backoff.until || 0)) return local;
