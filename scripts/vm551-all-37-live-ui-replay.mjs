@@ -306,6 +306,7 @@ async function replay(page, origin, witness) {
   }
   const ui = await page.evaluate(() => {
     const text = document.getElementById("result-inner")?.innerText || "";
+    const allResultText = document.getElementById("result-inner")?.textContent || "";
     const cardName = (node) => (node?.getAttribute("data-card-preview-name") || node?.getAttribute("data-card-name") || node?.textContent || "").trim().toLowerCase();
     const groups = {
       precon: [...document.querySelectorAll(".precon-commander-trigger")].map(cardName),
@@ -394,6 +395,9 @@ async function replay(page, origin, witness) {
       literalColorlessNodes: [...document.querySelectorAll("#result-inner *")]
         .filter((node) => [...node.childNodes].some((child) => child.nodeType === Node.TEXT_NODE && child.textContent.includes("{C}")))
         .map((node) => ({ className: node.className || node.tagName, text: node.textContent.trim() })),
+      wubrgLongIdentityLabels: text.match(/Five-Color \/ WUBRG/g) || [],
+      wubrgCapitalizedIdentityRefs: text.match(/\bFive-Color\b/g) || [],
+      wubrgCatalogTerms: allResultText.match(/\bFive-color matters \/ Domain\b/g) || [],
       heroNarrativeDuplicate: Boolean(heroNarrative && loreSummary && (heroNarrative === loreSummary || heroNarrative.includes(loreSummary) || loreSummary.includes(heroNarrative))),
       nearDuplicateNarratives,
       documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
@@ -432,7 +436,13 @@ async function replay(page, origin, witness) {
   assert.deepEqual(ui.knownCopyDefects, [], `${witness.identity_key} retained a known copy defect`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.equal(ui.literalColorless, false, `literal Colorless token remained in ${JSON.stringify(ui.literalColorlessNodes)}`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Wastes"]);
-  if (witness.identity_key === "WUBRG" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
+  if (witness.identity_key === "WUBRG" && ui.state === "named") {
+    assert.equal(ui.guildName, "WUBRG", "WUBRG public hero retained the internal long identity name");
+    assert.deepEqual(ui.wubrgLongIdentityLabels, [], "WUBRG emitted Five-Color / WUBRG as a public identity label");
+    assert.deepEqual(ui.wubrgCapitalizedIdentityRefs, [], "WUBRG identity-directed copy retained a capitalized Five-Color name");
+    assert.ok(ui.wubrgCatalogTerms.length >= 1, "WUBRG normalization rewrote legitimate five-color matters catalog terminology");
+    assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
+  }
   if (witness.identity_key === "G" && ui.state === "named") {
     const normalizedGlossary = ui.glossaryTerms.map((term) => term.toLowerCase());
     for (const term of ["big mana", "landfall", "trample"]) assert.ok(normalizedGlossary.includes(term), `Green omitted ${term} glossary help`);

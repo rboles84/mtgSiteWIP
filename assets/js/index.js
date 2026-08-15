@@ -528,6 +528,38 @@ function getFaction(key) {
   return APP_STATE.factions[key] || null;
 }
 
+function normalizeWubrgPublicIdentityCopy(value = "") {
+  return String(value)
+    .replaceAll("Five-Color / WUBRG", "WUBRG")
+    .replace(/\bFive-Color\b/g, "WUBRG");
+}
+
+function resultIncludesWubrg(result = {}, activeKey = "") {
+  return [
+    activeKey,
+    result?.faction,
+    ...(result?.top_matches || []).map((match) => match?.faction),
+    ...(result?.adjacent_matches || []).map((match) => match?.faction),
+  ].some((key) => String(key || "").toUpperCase() === "WUBRG");
+}
+
+function normalizeRenderedWubrgIdentityCopy(root, result, activeKey) {
+  if (!root || !resultIncludesWubrg(result, activeKey)) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  for (const node of textNodes) {
+    node.nodeValue = normalizeWubrgPublicIdentityCopy(node.nodeValue);
+  }
+  for (const node of root.querySelectorAll("[aria-label], [title], [data-card-rationale]")) {
+    for (const attribute of ["aria-label", "title", "data-card-rationale"]) {
+      if (node.hasAttribute(attribute)) {
+        node.setAttribute(attribute, normalizeWubrgPublicIdentityCopy(node.getAttribute(attribute)));
+      }
+    }
+  }
+}
+
 /**
  * Returns the user-facing label for a faction's institution type.
  *
@@ -4080,7 +4112,9 @@ function renderResult(viewKey) {
       </div>
     </div>`;
   const identityContentHtml = `${identityIntroHtml}${dossierConsoleHtml}`;
-  document.getElementById("result-inner").innerHTML = identityContentHtml;
+  const resultInner = document.getElementById("result-inner");
+  resultInner.innerHTML = identityContentHtml;
+  normalizeRenderedWubrgIdentityCopy(resultInner, result, activeKey);
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;
@@ -4091,7 +4125,6 @@ function renderResult(viewKey) {
   void refreshAccountDeckLinks();
   initializeDossierRadarIfVisible(result, faction);
   if (!shouldDisableResultCardArt()) {
-    const resultInner = document.getElementById("result-inner");
     if (resultInner) resultInner.dataset.cardArtState = "loading";
     void loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, { ...landRecommendations, basics: basicLandCards }, matrixFlavorSnippets)
       .then(() => {
