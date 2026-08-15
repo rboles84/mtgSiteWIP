@@ -2,7 +2,7 @@
 
 ID: VM-556
 
-Status: Ready
+Status: Done
 
 Type: Documentation / workflow governance
 
@@ -72,7 +72,7 @@ Install the supplied document as the single QA scope-selection authority. Add on
 - Do not modify VM-552, runtime code, generated data, test implementations, or visual baselines.
 - Stop if the integration requires a second QA framework or a change to product behavior.
 
-## Implementation Complete; Durability Pending
+## Completion
 
 - Added the content-equivalent owner-supplied gate at `docs/qa/RobQAPass.md`.
 - Wired concise references into the primary agent instructions, preflight/planning/testing prompts, standard workflow, handoff template, comprehensive test-plan catalog, manual test cases, and historical owner visual-acceptance packet.
@@ -82,4 +82,4 @@ Install the supplied document as the single QA scope-selection authority. Add on
 - Verified `CLAUDE.md` is an intentionally maintained instruction surface with dedicated repository history and Claude-specific guidance.
 - Reviewed the 15-file change set for policy duplication and replaced three avoidable restatements with direct references.
 - Ran QA-0 documentation checks only; no runtime, browser, placement, journey, synthetic, mutation, recovery, or visual-baseline suite was run.
-- Do not mark Done until the intended 15-file governance/documentation integration is reviewed and committed.
+- The reviewed 15-file governance/documentation integration is durably committed as `b9db45b` (`docs(qa): add risk-proportional owner gate`).

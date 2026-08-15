@@ -41,7 +41,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- [VM-556 - RobQAPass Workflow Integration](ready/VM-556-rob-qa-pass-workflow-integration.md) - implementation is complete and QA-0 checks pass; pending one duplication review and durable Git commit before Done.
+- No cards currently ready.
 
 ## In Progress
 
@@ -52,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-556 - RobQAPass Workflow Integration](done/VM-556-rob-qa-pass-workflow-integration.md) - durably committed the single risk-proportional owner-QA authority and its concise workflow invocations after a 15-file duplication review; RobQAPass v1 pilot complete at `b9db45b`.
 
 - [VM-551 — Preservation Artifact Reconciliation](done/VM-551-preservation-artifact-reconciliation.md) - moved the only unrecoverable/useful preservation material into `main`, retained six superseded rejection records as an explicit archive, restored the one-worktree governance rule, and removed redundant external bundles after push verification.
 

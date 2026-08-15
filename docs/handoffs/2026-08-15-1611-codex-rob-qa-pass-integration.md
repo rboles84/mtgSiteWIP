@@ -6,7 +6,7 @@ Related Card: VM-556
 
 Related Plan: Owner-requested repo-grounded integration plan delivered before editing
 
-Status: Implementation complete; Ready pending durability commit
+Status: Complete; governance integration committed at `b9db45b`
 
 ## Task Requested
 
@@ -29,7 +29,7 @@ Add the supplied `RobQAPass.md` as Vox Mana's governing owner-QA gate and invoke
 - Updated `docs/reference/workflow.md` and `docs/reference/manual-test-cases.md`.
 - Updated `docs/handoffs/templates/agent-handoff-template.md`.
 - Updated `docs/qa/vox-mana-test-plan.md` and `docs/qa/2026-07-03-owner-visual-acceptance-packet.md`.
-- Added VM-556 and placed it in Ready pending durability in the Kanban card/board.
+- Added VM-556, held it in Ready until durability, and moved it to Done after commit `b9db45b`.
 - Added this handoff and updated `docs/handoffs/HANDOFF_INDEX.md`.
 
 ## What Changed
@@ -58,7 +58,7 @@ Recent owner-QA work showed that small presentation fixes were sometimes surroun
 
 ## Risks / Uncertainties
 
-- Durability commit is pending. Future instruction surfaces should link to the authority rather than restate it.
+- No blocking risk remains. Future instruction surfaces should link to the authority rather than restate it.
 - Existing stricter protected workflows continue to override any lighter default when applicable.
 
 ## Efficiency / Escalation Notes
@@ -96,7 +96,6 @@ Recent owner-QA work showed that small presentation fixes were sometimes surroun
 
 ## Follow-Up Recommendations
 
-- Commit the reviewed governance/documentation integration, then mark and commit VM-556 Done.
 - Use the VM-556 handoff and template on the next implementation task; do not create a separate QA framework.
 - Refine the authority only in response to repeated real owner behavior or a demonstrated gap.
 
@@ -106,6 +105,6 @@ Recent owner-QA work showed that small presentation fixes were sometimes surroun
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/ready/VM-556-rob-qa-pass-workflow-integration.md`
+- `docs/kanban/done/VM-556-rob-qa-pass-workflow-integration.md`
 - `docs/qa/RobQAPass.md`
 - `docs/reference/workflow.md`
