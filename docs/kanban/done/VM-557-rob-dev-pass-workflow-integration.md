@@ -2,7 +2,7 @@
 
 ID: VM-557
 
-Status: Ready - implementation complete locally; pending durability
+Status: Done
 
 Type: Documentation / workflow governance
 
@@ -84,4 +84,5 @@ Activate the approved RobDevPass draft as the single implementation authority. A
 - The approved draft is activated and the intended concise invocation surfaces are implemented locally.
 - QA-0 link/reference, scope, policy-duplication, unchanged-WebDev, and whitespace checks passed.
 - No runtime or heavyweight suite was run.
-- The integration remains Ready until committed durability exists.
+- The governing integration is durably committed as `bfbf436` (`docs(dev): add repository-grounded implementation gate`).
+- RobDevPass v1 and RobQAPass v1 are frozen for use until real project work demonstrates a repeated missing rule or unnecessary friction.

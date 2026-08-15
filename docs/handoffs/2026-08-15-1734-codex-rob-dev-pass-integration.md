@@ -6,7 +6,7 @@ Related Card: VM-557
 
 Related Plan: Owner-directed integration-only scope following the VM-556 durability pattern
 
-Status: Ready - implementation and QA-0 verification complete locally; pending durability
+Status: Complete; governing integration committed at `bfbf436`
 
 ## Task Requested
 
@@ -46,11 +46,11 @@ Vox Mana now has complementary single authorities for competent implementation j
 - Reused the exact VM-556 governance pattern on the existing synchronized `main` worktree.
 - Kept `.codex/prompts/webdev.md` unchanged because the WebDev Helper is a non-editing teaching role.
 - Kept test selection, suites, and owner-acceptance preparation entirely under RobQAPass.
-- Kept VM-557 Ready while the work is local and uncommitted.
+- Kept VM-557 Ready while the work was local and uncommitted, then moved it to Done only after integration commit `bfbf436` existed.
 
 ## Risks / Uncertainties
 
-- The remaining risk is durability only until the intended integration commit exists and is verified.
+- No blocking risk remains. Future changes to either v1 gate should be driven by demonstrated project work rather than anticipatory ceremony.
 
 ## Efficiency / Escalation Notes
 
@@ -91,8 +91,8 @@ Vox Mana now has complementary single authorities for competent implementation j
 
 ## Follow-Up Recommendations
 
-- Run the QA-0 checks, commit the intended integration, then move VM-557 to Done in a separate closeout commit and make both commits durable.
 - Use the frozen v1 sequence: `Request -> RobDevPass -> implementation -> RobQAPass -> owner judgment -> integration`.
+- Change either gate only when real work demonstrates a repeated missing rule or unnecessary friction.
 
 ## Next Suggested Agent
 
@@ -100,7 +100,7 @@ Vox Mana now has complementary single authorities for competent implementation j
 
 ## Related Kanban Card, Docs, Or Plans
 
-- `docs/kanban/ready/VM-557-rob-dev-pass-workflow-integration.md`
+- `docs/kanban/done/VM-557-rob-dev-pass-workflow-integration.md`
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`
 - `docs/reference/workflow.md`

@@ -41,7 +41,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- [VM-557 - RobDevPass Workflow Integration](ready/VM-557-rob-dev-pass-workflow-integration.md) - implementation and QA-0 documentation checks pass locally; remains Ready until the governing v1 integration is durably committed.
+- No cards currently ready.
 
 ## In Progress
 
@@ -52,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-557 - RobDevPass Workflow Integration](done/VM-557-rob-dev-pass-workflow-integration.md) - durably committed the single repository-grounded implementation authority and its concise workflow invocations at `bfbf436`; RobDevPass v1 and RobQAPass v1 are frozen for use.
 
 - [VM-556 - RobQAPass Workflow Integration](done/VM-556-rob-qa-pass-workflow-integration.md) - durably committed the single risk-proportional owner-QA authority and its concise workflow invocations after a 15-file duplication review; RobQAPass v1 pilot complete at `b9db45b`.
 
