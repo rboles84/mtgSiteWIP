@@ -19,12 +19,12 @@ const WUBRG_PRINTING = Object.freeze({
 
 const WITHERBLOOM_PRINTING = Object.freeze({
   identity_key: "WITHERBLOOM",
-  card_name: "Witherbloom Campus",
-  oracle_id: "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
-  scryfall_id: "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+  card_name: "Blossoming Bogbeast",
+  oracle_id: "30f3c3be-0fe9-463d-a245-e44701aec7f2",
+  scryfall_id: "764054f1-e848-4cee-b623-4861ce15c370",
   set: "soc",
-  collector_number: "423",
-  expected_flavor_text: "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
+  collector_number: "264",
+  expected_flavor_text: "As subtle as a bogbeast\n—Witherbloom expression meaning \"crude and clumsy\"",
 });
 
 const PRINTING_OVERRIDES = new Map([
@@ -101,14 +101,14 @@ for (const relationship of current.records) {
       },
     } : override?.identity_key === "WITHERBLOOM" ? {
       relationship_override: {
-        relationship_class: "NATIVE_FIGURE_OR_LOCATION",
-        why_voice_belongs: "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
-        relationship_bridge: "The named native location and exact flavor line directly connect the voice to certified Witherbloom practical life-and-death study; the relationship does not arise from card color, land type, or a generic death-and-renewal theme.",
-        false_positive_analysis: "The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship.",
-        adjacent_identity_confusion_risk: "Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.",
-        limitations: "Public use is limited to this exact native-location flavor line and its certified Witherbloom study relationship. It does not claim that every black-green land, life/death card, or player preference is Witherbloom.",
-        supersedes_card_name: "Death Begets Life",
-        supersession_reason: "The former Sultai-context excerpt shared generic death-and-renewal language and explicitly failed to establish Witherbloom; it remains rejected audit evidence.",
+        relationship_class: "EXPLICIT_IDENTITY_REFERENCE",
+        why_voice_belongs: "The exact creature flavor presents a proverb and explicitly identifies it as a Witherbloom expression.",
+        relationship_bridge: "The relationship is the printing's direct attribution of this line to Witherbloom culture; it does not arise from the creature's color, mechanics, set, or a generic nature theme.",
+        false_positive_analysis: "A generic bog creature, black-green card, or clumsy-beast joke would not satisfy this relationship. The exact printing explicitly calls the line a Witherbloom expression.",
+        adjacent_identity_confusion_risk: "Green and Golgari can also use bog or beast imagery, but neither is assigned this voice through that overlap; the exact text names Witherbloom.",
+        limitations: "Public use is limited to this exact Witherbloom-attributed expression. The line is a cultural voice sample, not a complete summary of Witherbloom's life-and-death studies.",
+        supersedes_card_name: "Witherbloom Campus",
+        supersession_reason: "The Campus relationship remains valid audit evidence, but owner testing selected a nonland native voice for the public card surface.",
       },
     } : {}),
   });

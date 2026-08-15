@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "e4562d978ddfe4c60e74e67d73c395e5828fa7a63a3fc18b4e232ed406122082",
+  "source_sha256": "52b1446b2d6fdd25f348866e9f412688f046bc13e008a76325b76c1330bb7ad9",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
   "records": [
     {
@@ -440,19 +440,19 @@
       }
     },
     {
-      "relationship_id": "cardvoice_witherbloom_6cd58a88_6434_4c55_bf93_a739b5ed9bc1",
+      "relationship_id": "cardvoice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2",
       "identity_key": "WITHERBLOOM",
       "card": {
-        "name": "Witherbloom Campus",
-        "oracle_id": "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
-        "scryfall_id": "e5af06c8-86ab-4731-aa4a-2eec2c664488",
+        "name": "Blossoming Bogbeast",
+        "oracle_id": "30f3c3be-0fe9-463d-a245-e44701aec7f2",
+        "scryfall_id": "764054f1-e848-4cee-b623-4861ce15c370",
         "set": "soc",
-        "collector_number": "423",
+        "collector_number": "264",
         "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
       },
-      "excerpt": "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
-      "why_it_echoes": "The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.",
-      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "excerpt": "As subtle as a bogbeast\n—Witherbloom expression meaning \"crude and clumsy\"",
+      "why_it_echoes": "The exact creature flavor presents a proverb and explicitly identifies it as a Witherbloom expression.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -468,8 +468,8 @@
           "src_wotc_planeswalkers_guide_strixhaven_2021",
           "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
         ],
-        "printing_id": "e5af06c8-86ab-4731-aa4a-2eec2c664488",
-        "printing_source_locator": "https://api.scryfall.com/cards/e5af06c8-86ab-4731-aa4a-2eec2c664488#card.flavor_text",
+        "printing_id": "764054f1-e848-4cee-b623-4861ce15c370",
+        "printing_source_locator": "https://api.scryfall.com/cards/764054f1-e848-4cee-b623-4861ce15c370#card.flavor_text",
         "validator_version": "vm551-evidence-validator-v1",
         "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
       }

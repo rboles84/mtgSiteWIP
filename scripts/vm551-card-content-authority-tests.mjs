@@ -4,13 +4,14 @@ import { readFile } from "node:fs/promises";
 
 const readJson = async (file) => JSON.parse(await readFile(new URL(`../${file}`, import.meta.url), "utf8"));
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
-const [packet, rationales, rationaleCatalog, voices, voiceCatalog, printings] = await Promise.all([
+const [packet, rationales, rationaleCatalog, voices, voiceCatalog, printings, flavorIndex] = await Promise.all([
   readJson("data/dossier/card-content-review-proposals.source.json"),
   readJson("data/dossier/card-rationale-relationships.source.json"),
   readJson("data/dossier/card-rationale-catalog.json"),
   readJson("data/dossier/card-voice-relationships.source.json"),
   readJson("data/dossier/card-voice-catalog.json"),
   readJson("data/dossier/card-voice-printings.source.json"),
+  readJson("data/scryfall/indexes/card-flavor-index.json"),
 ]);
 
 assert.equal(packet.proposals.filter((row) => row.disposition === "REVIEW_REQUIRED").length, 0);
@@ -18,7 +19,7 @@ assert.equal(packet.proposals.filter((row) => row.disposition === "EVIDENCE_NEED
 assert.equal(new Set(packet.proposals.map((row) => row.proposal_id)).size, packet.proposals.length, "Packet 1 proposal IDs must remain unique across supersession rebuilds");
 assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_RATIONALE" && row.disposition === "APPROVED_PUBLIC").length, 26);
 assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "APPROVED_PUBLIC").length, 37);
-assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "REJECTED").length, 84);
+assert.equal(packet.proposals.filter((row) => row.proposal_type === "CARD_VOICE" && row.disposition === "REJECTED").length, 85);
 assert.equal(new Set(rationales.records.filter((row) => row.review_status === "APPROVED_PUBLIC").map((row) => row.identity_key)).size, 37);
 assert.equal(new Set(rationaleCatalog.records.map((row) => row.identity_key)).size, 37);
 assert.equal(voices.records.length, 37);
@@ -64,13 +65,15 @@ assert.equal(wubrg.exact_excerpt, "The essence of Tarkir was shaped into draconi
 assert(packet.proposals.some((row) => row.canonical_card_name === "Coalition Victory" && row.disposition === "REJECTED" && row.proposal_id.endsWith("_superseded")));
 
 const witherbloom = voices.records.find((row) => row.identity_key === "WITHERBLOOM");
-assert.equal(witherbloom.canonical_card_name, "Witherbloom Campus");
-assert.equal(witherbloom.canonical_card_id, "6cd58a88-6434-4c55-bf93-a739b5ed9bc1");
-assert.equal(witherbloom.scryfall_id, "e5af06c8-86ab-4731-aa4a-2eec2c664488");
-assert.equal(witherbloom.relationship_class, "NATIVE_FIGURE_OR_LOCATION");
+assert.equal(witherbloom.canonical_card_name, "Blossoming Bogbeast");
+assert.equal(witherbloom.canonical_card_id, "30f3c3be-0fe9-463d-a245-e44701aec7f2");
+assert.equal(witherbloom.scryfall_id, "764054f1-e848-4cee-b623-4861ce15c370");
+assert.equal(witherbloom.relationship_class, "EXPLICIT_IDENTITY_REFERENCE");
 assert.equal(witherbloom.printing.set, "soc");
-assert.equal(witherbloom.printing.collector_number, "423");
-assert.equal(witherbloom.exact_excerpt, "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.");
+assert.equal(witherbloom.printing.collector_number, "264");
+assert.equal(witherbloom.exact_excerpt, "As subtle as a bogbeast\n—Witherbloom expression meaning \"crude and clumsy\"");
+assert.match(flavorIndex.cards.find((row) => row.oracle_id === witherbloom.canonical_card_id)?.type_line || "", /^Creature\b/);
+assert(packet.proposals.some((row) => row.canonical_card_name === "Witherbloom Campus" && row.disposition === "REJECTED" && row.proposal_id.endsWith("_superseded")));
 assert(packet.proposals.some((row) => row.canonical_card_name === "Death Begets Life" && row.disposition === "REJECTED" && row.validation?.failures?.includes("SELF_DISQUALIFYING_RELATIONSHIP")));
 
 console.log(JSON.stringify({

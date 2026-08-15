@@ -152,6 +152,9 @@ for (const proposalInput of packetInput.proposals) {
     ...proposal,
     disposition: "APPROVED_PUBLIC",
     ...(proposal.proposal_type === "CARD_VOICE" ? { agent_recommendation: "APPROVED_PUBLIC" } : {}),
+    ...(proposal.proposal_type === "CARD_VOICE" ? {
+      replacement_locator: `data/dossier/card-voice-relationships.source.json#${stableId("cardvoice", proposal.identity_key, proposal.canonical_card_id)}`,
+    } : {}),
     approval_basis: VM551_AUTOMATIC_APPROVAL_BASIS,
     validation,
     owner_decision: null,

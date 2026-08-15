@@ -184,8 +184,9 @@ assert.equal(cardRationaleSource.records.length, 52, "expected 26 retained, 25 o
 assert.ok(cardRationaleSource.records.every((record) => record.review_status === "APPROVED_PUBLIC"));
 assert.equal(cardRationaleCatalog.records.length, 50, "approved catalog must cover all identities while retaining the deterministic three-card display maximum");
 const witherbloomPrinting = cardVoicePrintings.records.find((record) => record.identity_key === "WITHERBLOOM");
-assert.equal(witherbloomPrinting?.scryfall_id, "e5af06c8-86ab-4731-aa4a-2eec2c664488");
-assert.match(witherbloomPrinting?.image_uris?.normal || "", /e5af06c8-86ab-4731-aa4a-2eec2c664488/);
+assert.equal(witherbloomPrinting?.canonical_card_name, "Blossoming Bogbeast");
+assert.equal(witherbloomPrinting?.scryfall_id, "764054f1-e848-4cee-b623-4861ce15c370");
+assert.match(witherbloomPrinting?.image_uris?.normal || "", /764054f1-e848-4cee-b623-4861ce15c370/);
 assert.match(indexSource, /dossier\/card-voice-printings\.source\.json/, "runtime must consume the exact-printing card voice authority");
 const isperia = commanderIndex.find((card) => card.name === "Isperia, Supreme Judge");
 const genericAzoriusCard = commanderIndex.find((card) => card.name === "Brago, King Eternal");

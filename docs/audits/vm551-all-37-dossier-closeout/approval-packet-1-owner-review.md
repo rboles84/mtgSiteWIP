@@ -6,7 +6,7 @@
 - Approved rationale identity coverage: **37/37**
 - Automatically approved voice relationships: **37**
 - Approved voice identity coverage: **37/37**
-- Rejected voice candidates retained in audit trail: **84**
+- Rejected voice candidates retained in audit trail: **85**
 - Owner exceptions: **0**
 
 No human approval was fabricated. Every automatic approval records its evidence chain and validator result. The identity sections below are an audit view, not an approval workload.
@@ -322,17 +322,19 @@ No human approval was fabricated. Every automatic approval records its evidence 
 
 ### Source-complete voice proposal(s)
 
-- **Witherbloom Campus:** “Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.”
-  - Relationship class: `NATIVE_FIGURE_OR_LOCATION`
+- **Blossoming Bogbeast:** “As subtle as a bogbeast
+—Witherbloom expression meaning "crude and clumsy"”
+  - Relationship class: `EXPLICIT_IDENTITY_REFERENCE`
   - Certified claims: `witherbloom_claim_0018`, `witherbloom_claim_0019`
-  - Why it belongs: The exact campus flavor explicitly identifies Witherbloom as the college chosen by mage-students studying the energies of life and death and essence studies.
-  - False-positive / neighbor limit: The line names Witherbloom and its essence-studies curriculum. A generic black-green land, life/death mechanic, or renewal theme would not satisfy this relationship. Golgari and Green can also use life-and-death or renewal language, but this exact printing names Witherbloom and its college of essence studies rather than those neighboring identities.
+  - Why it belongs: The exact creature flavor presents a proverb and explicitly identifies it as a Witherbloom expression.
+  - False-positive / neighbor limit: A generic bog creature, black-green card, or clumsy-beast joke would not satisfy this relationship. The exact printing explicitly calls the line a Witherbloom expression. Green and Golgari can also use bog or beast imagery, but neither is assigned this voice through that overlap; the exact text names Witherbloom.
   - Source: `data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM`
 
 ### Other candidates considered and terminal disposition
 
 - **Blossoming Bogbeast:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 - **Death Begets Life:** `REJECTED` — The excerpt is admissible for owner review only because its language corresponds to certified claims witherbloom_claim_0019, witherbloom_claim_0020, witherbloom_claim_0023; the relationship does not arise from card color, product membership, tags, or mechanics.
+- **Witherbloom Campus:** `REJECTED` — The Campus relationship remains valid audit evidence, but owner testing selected a nonland native voice for the public card surface.
 - **Big Play:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 - **Blech, Loafing Pest:** `REJECTED` — No certified claim authorizes this candidate strongly enough. Name, color, product, mechanic, or broad theme overlap cannot supply the missing bridge.
 
