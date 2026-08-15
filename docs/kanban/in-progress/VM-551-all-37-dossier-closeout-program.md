@@ -98,3 +98,18 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - The refreshed current-engine replay passes all 37 identities at desktop, intermediate, and mobile. Certification remains 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL`; the engine retains 36 responsible named primaries and intentionally bounded Yore.
 - Four deterministic owner cases are ready: `wubrg`, `green-witherbloom-tied`, `jund-mixed`, and `witherbloom`. The Green/Witherbloom case replays the preserved real owner evidence ledger as a cached-result regression; it is not represented as proof that current routing recreates that historical session.
 - Status: targeted remediation and local recertification are complete; awaiting the four-case owner visual acceptance before VM-551 closeout.
+
+## Final Owner Visual Findings
+
+- Normalize only WUBRG identity labels, headings, summaries, and identity-directed prose to `WUBRG`. Preserve legitimate Magic and catalog terminology such as `Five-color matters / Domain`; do not apply a global `Five-Color` ban or rewrite identity authority.
+- Replace the displayed Witherbloom Campus voice with the already indexed exact-printing `Blossoming Bogbeast` creature voice. Retain the prior Campus relationship and rejected `Death Begets Life` evidence in the audit trail; do not begin broader card research.
+- Make `View card details` provide incremental canonical value: full image, mana cost, type line, Oracle text, and Scryfall action when available, with committed `oracle_excerpt` as the offline fallback. The modal must not use the tile rationale as its primary content and must not introduce tags, a new rationale schema, or newly authored explanatory copy.
+- Recertify the deterministic `wubrg`, `green-witherbloom-tied`, and `witherbloom` cases plus the existing all-37 replay. Placement, Gate A, identity semantics, and the normal journey remain frozen.
+
+### Final visual-finding remediation result
+
+- WUBRG identity labels, headings, generated summaries, and identity-directed prose now render `WUBRG`; the approved catalog term `Five-color matters / Domain` remains unchanged and is covered by the replay contract.
+- Witherbloom now displays the exact `soc` collector 264 `Blossoming Bogbeast` printing and exact flavor line. The superseded Witherbloom Campus relationship and rejected Death Begets Life candidate remain traceable in the audit trail.
+- `View card details` now adds canonical card image, mana cost when present, type line, Oracle text or the committed Oracle excerpt, and the existing Scryfall action. It no longer repeats the tile rationale or adds a new tag/detail schema. Local index merging preserves richer canonical detail fields instead of letting a slimmer index erase them.
+- The three deterministic owner cases pass. The current-engine all-37 replay passes desktop, intermediate, and mobile with 36 named identities, intentionally bounded Yore, and zero failures. Certification remains 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL` across 629 cells.
+- Status: ready for the shortest final owner visual check using `wubrg`, `green-witherbloom-tied`, and `witherbloom`; VM-551 remains open until owner acceptance.
