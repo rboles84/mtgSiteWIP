@@ -6,6 +6,7 @@ import {
   SCRYFALL_NEGATIVE_TTL_MS,
   SCRYFALL_SUCCESS_TTL_MS,
   createScryfallNamedCardLookup,
+  mergeScryfallCardRecords,
 } from "../assets/js/scryfall-card-cache.js";
 
 class MemoryStorage {
@@ -169,6 +170,15 @@ const detailLookup = createScryfallNamedCardLookup({
     return response(200, { ...card("Slim Local Card"), oracle_text: "The complete canonical Oracle text." });
   },
 });
+
+const mergedLocalRecord = mergeScryfallCardRecords(
+  { name: "Merged Card", type_line: "Creature — Test", image_uris: { normal: "preferred.jpg" }, card_faces: [] },
+  { name: "Merged Card", mana_cost: "{3}", oracle_excerpt: "Retained canonical excerpt.", image_uris: { art_crop: "fallback.jpg" } },
+);
+assert.equal(mergedLocalRecord.image_uris.normal, "preferred.jpg");
+assert.equal(mergedLocalRecord.image_uris.art_crop, "fallback.jpg");
+assert.equal(mergedLocalRecord.mana_cost, "{3}");
+assert.equal(mergedLocalRecord.oracle_excerpt, "Retained canonical excerpt.", "A later slim index must not erase canonical detail fields from another local index.");
 const completeDetail = await detailLookup.lookup("Slim Local Card", { requireDetails: true });
 assert.equal(detailCalls, 1, "A detail lookup should enrich a slim local record through the canonical endpoint.");
 assert.equal(completeDetail.mana_cost, "{2}");

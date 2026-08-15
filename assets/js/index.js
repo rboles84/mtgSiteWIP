@@ -65,7 +65,7 @@ import {
   listUserDeckLinks,
   saveUserDeckLink,
 } from "./deck-link-service.js";
-import { createScryfallNamedCardLookup } from "./scryfall-card-cache.js";
+import { createScryfallNamedCardLookup, mergeScryfallCardRecords } from "./scryfall-card-cache.js";
 
 /*
  * Archscry route runtime ownership map (VM-147B)
@@ -459,7 +459,8 @@ function buildLocalScryfallCardLookup(indexes = []) {
       value.scryfall_uri
     );
     if (typeof value.name === "string" && hasUsableLocator) {
-      byName.set(normalizeCardName(value.name), value);
+      const key = normalizeCardName(value.name);
+      byName.set(key, mergeScryfallCardRecords(value, byName.get(key)));
     }
     pending.push(...Object.values(value).filter((entry) => entry && typeof entry === "object"));
   }

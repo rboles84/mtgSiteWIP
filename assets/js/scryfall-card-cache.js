@@ -106,6 +106,24 @@ export function sanitizeScryfallCardRecord(record) {
   };
 }
 
+export function mergeScryfallCardRecords(preferred = {}, fallback = {}) {
+  const merged = {
+    ...fallback,
+    ...preferred,
+    image_uris: {
+      ...(fallback.image_uris || {}),
+      ...(preferred.image_uris || {}),
+    },
+  };
+  for (const field of ["mana_cost", "oracle_text", "oracle_excerpt"]) {
+    if (!String(preferred[field] || "").trim() && String(fallback[field] || "").trim()) {
+      merged[field] = fallback[field];
+    }
+  }
+  if (!preferred.card_faces?.length && fallback.card_faces?.length) merged.card_faces = fallback.card_faces;
+  return merged;
+}
+
 function hasFullCardDetails(record = {}) {
   return Boolean(
     String(record.oracle_text || "").trim() ||
