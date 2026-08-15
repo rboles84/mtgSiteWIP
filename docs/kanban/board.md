@@ -45,8 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - identity-card modal value repair and headed-review stabilization are complete on the canonical branch; the deterministic review page now blocks input while preparing and no longer races the owner's pointer before the two-case presentation review.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -54,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — All-37 Dossier Implementation And Closeout](done/VM-551-all-37-dossier-closeout-program.md) - owner accepted exact implementation `ef4f8364a825c27ea5f80d03e452e2d4d8533922`; it was fast-forwarded to `main`, pushed, and production-verified with the dirty control material preserved externally before exact-path cleanup. VM-551 is closed.
 
 - [VM-551 — Card-Rationale Owner Approval Application](done/VM-551-card-rationale-owner-approval-application.md) - applied 25 direct approvals and the exact narrowed Isperia approval, rebuilt 24 displayed entries from 26 approved relationships, and recorded evidence-based 12 Full / 0 Partial / 25 Gap adjudications without researching remaining gaps or changing placement semantics.
 

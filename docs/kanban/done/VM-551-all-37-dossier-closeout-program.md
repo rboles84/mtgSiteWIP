@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress on the single canonical `codex/vm551` branch and `C:\dev\voxmana.io-vm551` worktree from `1099862fbf070c85039f6c94e60af89059e20085`.
+Done. Owner accepted the exact VM-551 implementation at `ef4f8364a825c27ea5f80d03e452e2d4d8533922`. The accepted history was fast-forwarded into `main`, pushed, and production-verified on 2026-08-15.
 
 ## Objective
 
@@ -151,3 +151,14 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - Headless desktop replay retains the complete real-hover, full-card preview, copy-no-hover, and stale A-to-B-to-C regression checks.
 - Two consecutive headed Witherbloom review runs reached `Visual review ready` and returned `PASS`; the focused headless Witherbloom replay also passes. Review teardown now closes active local-server connections so Enter exits without a Windows batch-termination prompt.
 - Status: owner review command is stable; no product, placement, content-authority, or modal behavior changed.
+
+## Final Owner Acceptance And Closeout
+
+- Owner disposition: **ACCEPTED AND CLOSED** at exact implementation SHA `ef4f8364a825c27ea5f80d03e452e2d4d8533922`.
+- Integration: local `main` fast-forwarded from `f44382271f94e9832526bbc10313f0f8c38533b9` to the accepted SHA with `--ff-only`; no merge, squash, cherry-pick, amendment, or implementation rewrite occurred.
+- Remote: the accepted SHA was pushed to `origin/main` and verified from the live remote ref at ahead/behind `0 0` before this documentation closeout.
+- Production: `https://voxmana.io/archscry/` rendered a complete live dossier with no stale-data state and no console errors. The deployed Gate B1 model reported 16 constructs, 36 questions, 124 answers, 37 identities, and 123 confusion pairs; the deployed card catalogs reported 37 voice and 50 rationale records.
+- Preservation: the pre-existing dirty control-worktree material was preserved outside the repository at `C:\dev\voxmana-control-preservation-20260815-070432` before exact-path cleanup. Verification covered all 18 files, the tracked patch, the manifest, and both authoritative SHAs with zero failures. The seven differing/absent files were not merged into VM-551.
+- Validation: lightweight frontend smoke, JavaScript lint, HTML validation, dossier integrity, source/generated guardrails, clean-tree checks, live remote verification, and production runtime checks passed. The accepted worktree passed the focused Packet 1 card-authority check; the control worktree's equivalent comparison was line-ending-sensitive after fast-forward (CRLF checkout versus LF committed blobs), while Git blob identity remained exact.
+- Heavyweight placement certification was not rerun. The last successful placement certification remains the accepted baseline, and no placement semantics were changed during integration or closeout.
+- Final state: VM-551 is owner-accepted, integrated, pushed, production-verified, and closed. Cleanup of the completed local VM-551 branch/worktree follows only after this closeout commit is pushed and reverified.
