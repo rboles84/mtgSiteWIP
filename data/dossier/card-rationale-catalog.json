@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "a2e05a29c972444f3016075d7af3bfbbd02acea8c820a87992e03f8e25afbe6d",
+  "source_sha256": "70307dc8b2cc8d79e3f390f6eb4dc50887d75fca2d462e07cfe9a3ba4973d4c6",
   "generated_policy": "APPROVED_PUBLIC only; no fallback or inferred relationship",
   "records": [
     {
@@ -181,6 +181,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1f8d4d5f-e82f-45f3-823e-1bb6b536eb18"
       },
       "rationale": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
+      "modal_explanation": "Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells.",
       "tags": [
         "Stax",
         "Taxing",
@@ -952,6 +953,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
       },
       "rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
+      "modal_explanation": "Dina turns a sacrificed creature into a card, life, and growth through +1/+1 counters. That concrete exchange shows Witherbloom treating life and death as usable forces in play.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,

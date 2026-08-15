@@ -168,6 +168,13 @@ const [placementModel, identityDossierCatalog, publicComparisonCatalog, discover
   readJson("../data/dossier/public-comparisons.catalog.json"),
   readJson("../data/dossier/discovery-education-catalog.json"),
 ]);
+const identityDossierByKey = Object.fromEntries(identityDossierCatalog.records.map((record) => [record.identity_key, record]));
+for (const [identityKey, cardName] of [["WITHERBLOOM", "Dina, Essence Brewer"], ["WU", "Grand Arbiter Augustin IV"]]) {
+  const card = commanderIndex.find((record) => record.name === cardName);
+  const runtimeRationale = approvedCardRationaleForFaction(card, factions[identityKey], cardRationaleCatalog);
+  const catalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === cardName);
+  assert.equal(runtimeRationale?.identityContext, catalogRecord?.modal_explanation, `${cardName} runtime modal must use its card-specific catalog explanation`);
+}
 const dossierCatalogFixture = {
   placementModel,
   identityDossierCatalog,
@@ -268,6 +275,18 @@ assert.doesNotMatch(indexSource, /archscry-card-dialog-why/, "the detail modal m
 assert.match(indexSource, /archscry-card-dialog-identity-context/);
 assert.match(indexSource, /cardIdentityContext: record\.why_it_echoes/, "voice modals must reuse their approved relationship explanation");
 assert.match(indexSource, /cardIdentityContext: rationale\.identityContext/, "play-rationale modals must reuse approved identity context");
+assert.match(indexSource, /record\.modal_explanation \|\| dossierContentForFaction\(faction\)\?\.how_this_plays\?\.mechanical_expression/, "card-specific modal context must take precedence over identity-wide profile copy");
+const dinaRelationship = cardRationaleSource.records.find((record) => record.canonical_card_name === "Dina, Essence Brewer");
+const dinaCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Dina, Essence Brewer");
+const arbiterRelationship = cardRationaleSource.records.find((record) => record.canonical_card_name === "Grand Arbiter Augustin IV");
+const arbiterCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Grand Arbiter Augustin IV");
+assert.equal(dinaCatalogRecord?.modal_explanation, dinaRelationship?.modal_explanation, "Dina modal context must come from her approved relationship record");
+assert.match(dinaCatalogRecord?.modal_explanation || "", /Dina turns a sacrificed creature into a card, life, and growth through \+1\/\+1 counters/);
+assert.match(dinaCatalogRecord?.modal_explanation || "", /Witherbloom treating life and death as usable forces/);
+assert.notEqual(dinaCatalogRecord?.modal_explanation, identityDossierByKey.WITHERBLOOM.how_this_plays.mechanical_expression, "Dina cannot fall back to a generic Witherbloom mechanics list");
+assert.equal(arbiterCatalogRecord?.modal_explanation, arbiterRelationship?.modal_explanation, "the additional Azorius regression must use its approved card relationship");
+assert.match(arbiterCatalogRecord?.modal_explanation || "", /Grand Arbiter.+reducing the cost of your white and blue spells.+increasing the cost of opponents' spells/);
+assert.notEqual(arbiterCatalogRecord?.modal_explanation, identityDossierByKey.WU.how_this_plays.mechanical_expression, "Grand Arbiter cannot fall back to a generic Azorius mechanics list");
 assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use Archscry mana glyphs instead of raw brace notation");
 const renderedBogbeastCost = renderManaCost("{4}{G}");
 assert.match(renderedBogbeastCost, /\bms-4\b/);

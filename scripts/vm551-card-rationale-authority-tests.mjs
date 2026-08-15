@@ -38,6 +38,13 @@ assert.equal(isperiaSource.provenance_roles.card_behavior.verified_field, "oracl
 const quintoriusSource = source.records.find((record) => record.canonical_card_name === "Quintorius, History Chaser");
 assert.match(quintoriusSource.proposed_public_rationale, /^Represents\b/);
 assert.doesNotMatch(quintoriusSource.proposed_public_rationale, /Represent's/);
+for (const cardName of ["Dina, Essence Brewer", "Grand Arbiter Augustin IV"]) {
+  const sourceRecord = source.records.find((record) => record.canonical_card_name === cardName);
+  const runtimeRecord = catalog.records.find((record) => record.card?.name === cardName);
+  assert.ok(sourceRecord?.modal_explanation, `${cardName} must have a card-specific modal explanation`);
+  assert.equal(runtimeRecord?.modal_explanation, sourceRecord.modal_explanation, `${cardName} modal explanation must survive canonical generation`);
+  assert.notEqual(runtimeRecord.modal_explanation, runtimeRecord.rationale, `${cardName} modal explanation must add value beyond the tile rationale`);
+}
 
 const coverage = Object.fromEntries([...new Set(audit.rows.map((row) => row.identityKey))].map((identityKey) => [identityKey, classifyIdentityCoverage(source, catalog, identityKey)]));
 assert.equal(Object.values(coverage).filter((value) => value === "Full").length, 37);

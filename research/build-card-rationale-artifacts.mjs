@@ -287,6 +287,10 @@ export function validateRelationshipSource(source, audit) {
       if (!automatic && (!record.owner_approval?.approved_by || !record.owner_approval?.decision_locator)) fail(`Approved record lacks explicit owner approval: ${record.relationship_id}`);
       if (!automatic && !["APPROVE", "APPROVE_AFTER_REVISION"].includes(record.owner_approval.decision)) fail(`Approved record lacks a valid owner decision: ${record.relationship_id}`);
       if (INTERNAL_PUBLIC_RE.test(record.proposed_public_rationale) || PUBLIC_METHOD_RE.test(record.proposed_public_rationale) || UNSAFE_PUBLIC_CLAIM_RE.test(record.proposed_public_rationale)) fail(`Approved rationale leaks internal or unsupported language: ${record.relationship_id}`);
+      if (record.modal_explanation) {
+        if (record.modal_explanation === record.proposed_public_rationale) fail(`Modal explanation duplicates the public rationale: ${record.relationship_id}`);
+        if (INTERNAL_PUBLIC_RE.test(record.modal_explanation) || PUBLIC_METHOD_RE.test(record.modal_explanation) || UNSAFE_PUBLIC_CLAIM_RE.test(record.modal_explanation)) fail(`Modal explanation leaks internal or unsupported language: ${record.relationship_id}`);
+      }
     }
   }
   const isperia = source.records.find((record) => record.canonical_card_name === "Isperia, Supreme Judge");
@@ -318,6 +322,7 @@ export function buildRuntimeCatalog(source) {
         data_locator: record.canonical_card_data_locator,
       },
       rationale: record.proposed_public_rationale,
+      ...(record.modal_explanation ? { modal_explanation: record.modal_explanation } : {}),
       tags: record.proposed_tags || [],
       relationship_class: record.relationship_class,
       display_priority: record.display_priority,

@@ -124,3 +124,11 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - Focused WUBRG, Witherbloom, Green/Witherbloom, and Azorius modal cases pass at the required desktop/mobile scopes. Packet 1/2 authority, dossier integrity, source/generated, visual-manifest freshness, and frontend lint/HTML checks are green.
 - Per owner direction, no further CPU-heavy placement simulations were run after the presentation-only scope was reaffirmed. The last successful placement-engine certification remains the unchanged baseline; no placement-engine or protected placement file changed.
 - Status: ready for the three-command final owner presentation check; VM-551 remains open until owner acceptance.
+
+### Card-specific modal invariant repair
+
+- Dina's play-card dialog now uses the approved relationship-level explanation that connects her creature-sacrifice conversion into a card, life, and +1/+1-counter growth to Witherbloom's practical life/death craft.
+- The additional Grand Arbiter regression now connects his own spell-cost changes to Azorius rule-setting instead of displaying an identity-wide mechanics list.
+- The canonical rationale builder carries these bounded modal explanations into runtime, rejects rationale duplication and methodology leakage, and leaves WUBRG, Blossoming Bogbeast, placement, and identity authority unchanged.
+- Focused card-authority, dossier-integrity, syntax, and deterministic Witherbloom replay checks pass. No exhaustive placement validation was run.
+- Status: the remaining modal contract miss is repaired; awaiting the same final owner presentation acceptance.

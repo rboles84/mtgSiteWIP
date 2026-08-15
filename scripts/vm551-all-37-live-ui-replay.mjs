@@ -344,6 +344,12 @@ async function replay(page, origin, witness) {
       context_heading: modalDetail.identityContextHeading,
       context: modalDetail.identityContext,
     };
+    if (rationaleModalAudit.card === "Dina, Essence Brewer") {
+      assert.equal(rationaleModalAudit.context, "Dina turns a sacrificed creature into a card, life, and growth through +1/+1 counters. That concrete exchange shows Witherbloom treating life and death as usable forces in play.");
+    }
+    if (rationaleModalAudit.card === "Grand Arbiter Augustin IV") {
+      assert.equal(rationaleModalAudit.context, "Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells.");
+    }
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
     await delay(50);

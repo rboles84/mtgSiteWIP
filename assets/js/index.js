@@ -3115,7 +3115,7 @@ export function approvedCardRationaleForFaction(card, faction, catalog = APP_STA
   return {
     text: record.rationale,
     tags: Array.isArray(record.tags) ? record.tags : [],
-    identityContext: dossierContentForFaction(faction)?.how_this_plays?.mechanical_expression || "",
+    identityContext: record.modal_explanation || dossierContentForFaction(faction)?.how_this_plays?.mechanical_expression || "",
     provenance: {
       relationshipId: record.relationship_id,
       relationshipClass: record.relationship_class,
