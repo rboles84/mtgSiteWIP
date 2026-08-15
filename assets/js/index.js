@@ -526,39 +526,10 @@ function matrixFlavorSnippetsForFaction(faction) {
  * @returns {object|null} Faction record when present.
  */
 function getFaction(key) {
-  return APP_STATE.factions[key] || null;
-}
-
-function normalizeWubrgPublicIdentityCopy(value = "") {
-  return String(value)
-    .replaceAll("Five-Color / WUBRG", "WUBRG")
-    .replace(/\bFive-Color\b/g, "WUBRG");
-}
-
-function resultIncludesWubrg(result = {}, activeKey = "") {
-  return [
-    activeKey,
-    result?.faction,
-    ...(result?.top_matches || []).map((match) => match?.faction),
-    ...(result?.adjacent_matches || []).map((match) => match?.faction),
-  ].some((key) => String(key || "").toUpperCase() === "WUBRG");
-}
-
-function normalizeRenderedWubrgIdentityCopy(root, result, activeKey) {
-  if (!root || !resultIncludesWubrg(result, activeKey)) return;
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  const textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
-  for (const node of textNodes) {
-    node.nodeValue = normalizeWubrgPublicIdentityCopy(node.nodeValue);
-  }
-  for (const node of root.querySelectorAll("[aria-label], [title], [data-card-rationale]")) {
-    for (const attribute of ["aria-label", "title", "data-card-rationale"]) {
-      if (node.hasAttribute(attribute)) {
-        node.setAttribute(attribute, normalizeWubrgPublicIdentityCopy(node.getAttribute(attribute)));
-      }
-    }
-  }
+  const faction = APP_STATE.factions[key] || null;
+  return String(faction?.key || key || "").toUpperCase() === "WUBRG"
+    ? { ...faction, name: "WUBRG" }
+    : faction;
 }
 
 /**
@@ -2434,6 +2405,13 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPe
   const whereThisLeads = summary.whereThisLeads || {};
   const playPattern = summary.playPattern || {};
   const activeIdentityName = dossier?.faction?.name || dossier?.targetFactionKey || "This identity";
+  const contextualOpening = String(dossier?.targetFactionKey || "").toUpperCase() === "WUBRG";
+  const whereThisLeadsLabel = contextualOpening
+    ? (whereThisLeads.label || "Where this leads")
+    : `${whereThisLeads.label || "Where this leads"} - ${activeIdentityName}`;
+  const playPatternLabel = contextualOpening
+    ? (playPattern.label || "Play pattern")
+    : `${playPattern.label || "Play pattern"} - ${activeIdentityName}`;
 
   const alternativeCard = includeAlternative && summary.adjacentFit ? `
       <div class="dossier-snapshot-card dossier-snapshot-card--adjacent" data-summary-card="adjacent-fit" data-signal-band="${escapeAttributeValue(adjacentFit.signalBand || "close")}">
@@ -2459,13 +2437,13 @@ function buildPlacementSnapshotHtml({ dossier, includeAlternative = true, tiedPe
     <div class="dossier-snapshot" aria-label="Result summary strip">
       ${alternativeCard}
       <div class="dossier-snapshot-card dossier-snapshot-card--narrative" data-summary-card="where-this-leads" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
-        <span>${escapeHtml(`${whereThisLeads.label || "Where this leads"} - ${activeIdentityName}`)}</span>
+        <span>${escapeHtml(whereThisLeadsLabel)}</span>
         <strong>${escapeHtml(whereThisLeads.heading || "Commander direction")}</strong>
         <div class="dossier-snapshot-copy">${renderPlayerCopy(whereThisLeads.body || "This reading points toward a Commander plan with a visible, repeatable pressure pattern.")}</div>
         ${buildSummaryTagRowHtml(whereThisLeads.tags || [])}
       </div>
       <div class="dossier-snapshot-card dossier-snapshot-card--play-pattern" data-summary-card="play-pattern" data-summary-identity-key="${escapeAttributeValue(dossier?.targetFactionKey || "")}">
-        <span>${escapeHtml(`${playPattern.label || "Play pattern"} - ${activeIdentityName}`)}</span>
+        <span>${escapeHtml(playPatternLabel)}</span>
         <strong>${escapeHtml(playPattern.heading || "At the table")}</strong>
         <div class="dossier-snapshot-copy">${renderPlayerCopy(playPattern.body || "Opponents usually read this identity through the pressure it keeps visible and the answers it makes them spend.")}</div>
       </div>
@@ -3724,7 +3702,7 @@ function renderResult(viewKey) {
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);
   const heroNarrative = buildHeroNarrative({ dossier, faction, result, factions: APP_STATE.factions });
-  const heroLoreSummary = isNearDuplicateNarrative(heroNarrative, faction.philosophy) ? "" : faction.philosophy;
+  const heroLoreSummary = activeKey === "WUBRG" || isNearDuplicateNarrative(heroNarrative, faction.philosophy) ? "" : faction.philosophy;
   const adjacentContextHtml = buildAdjacentContextHtml({ dossier, result });
   const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
     .filter((entry) => entry?.active !== false);
@@ -4071,7 +4049,7 @@ function renderResult(viewKey) {
   const publicEyebrow = isLegacyGateAResult(result)
     ? `Historical saved identity - ${institutionLabel}`
     : isPrimary
-      ? resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
+      ? activeKey === "WUBRG" ? "Placement dossier" : resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
       : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
 
   const identityIntroHtml = `
@@ -4115,7 +4093,6 @@ function renderResult(viewKey) {
   const identityContentHtml = `${identityIntroHtml}${dossierConsoleHtml}`;
   const resultInner = document.getElementById("result-inner");
   resultInner.innerHTML = identityContentHtml;
-  normalizeRenderedWubrgIdentityCopy(resultInner, result, activeKey);
   APP_STATE.activeResult = result;
   APP_STATE.activeViewKey = activeKey;
   APP_STATE.activeDossierRadarFaction = faction;

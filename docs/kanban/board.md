@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - final visual findings are locally remediated on the single canonical branch: WUBRG is the public identity label without disturbing legitimate five-color terminology, Witherbloom uses the exact-printing Blossoming Bogbeast voice, card details add canonical facts instead of repeating tile rationale, and all 37 UI witnesses plus 621 PASS / 8 contract-backed N/A / 0 FAIL matrix cells are green; awaiting the three-case owner visual review.
+- [VM-551 — All-37 Dossier Implementation And Closeout](in-progress/VM-551-all-37-dossier-closeout-program.md) - final presentation-acceptance remediation is in progress on the canonical branch: the WUBRG opening must establish the identity once, identity-linked card details must add approved explanatory value, and the Green/Witherbloom review case must open on the intended co-leader without changing placement.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

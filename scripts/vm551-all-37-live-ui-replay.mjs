@@ -332,6 +332,13 @@ async function replay(page, origin, witness) {
     };
     const all = Object.values(groups).flat().filter(Boolean);
     const guildName = document.querySelector(".guild-name")?.textContent?.trim() || "";
+    const openingNodes = [
+      document.querySelector(".guild-banner"),
+      document.querySelector('[data-summary-card="where-this-leads"]'),
+      document.querySelector('[data-summary-card="play-pattern"]'),
+    ].filter(Boolean);
+    const wubrgOpeningText = openingNodes.map((node) => node.textContent || "").join("\n");
+    const wubrgOpeningIdentityLabels = wubrgOpeningText.match(/\bWUBRG\b/g) || [];
     const normalizeNarrative = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
     const heroNarrative = normalizeNarrative(document.querySelector(".guild-philosophy")?.textContent);
     const loreSummary = normalizeNarrative(document.querySelector(".guild-lore-summary")?.textContent);
@@ -414,6 +421,8 @@ async function replay(page, origin, witness) {
       wubrgLongIdentityLabels: text.match(/Five-Color \/ WUBRG/g) || [],
       wubrgCapitalizedIdentityRefs: text.match(/\bFive-Color\b/g) || [],
       wubrgCatalogTerms: allResultText.match(/\bFive-color matters \/ Domain\b/g) || [],
+      wubrgOpeningText,
+      wubrgOpeningIdentityLabels,
       heroNarrativeDuplicate: Boolean(heroNarrative && loreSummary && (heroNarrative === loreSummary || heroNarrative.includes(loreSummary) || loreSummary.includes(heroNarrative))),
       nearDuplicateNarratives,
       documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
@@ -455,8 +464,8 @@ async function replay(page, origin, witness) {
   if (witness.identity_key === "WUBRG" && ui.state === "named") {
     assert.equal(ui.guildName, "WUBRG", "WUBRG public hero retained the internal long identity name");
     assert.deepEqual(ui.wubrgLongIdentityLabels, [], "WUBRG emitted Five-Color / WUBRG as a public identity label");
-    assert.deepEqual(ui.wubrgCapitalizedIdentityRefs, [], "WUBRG identity-directed copy retained a capitalized Five-Color name");
     assert.ok(ui.wubrgCatalogTerms.length >= 1, "WUBRG normalization rewrote legitimate five-color matters catalog terminology");
+    assert.equal(ui.wubrgOpeningIdentityLabels.length, 1, `WUBRG opening repeated the identity label: ${ui.wubrgOpeningText}`);
     assert.deepEqual(ui.basicLandCards, ["Plains", "Island", "Swamp", "Mountain", "Forest"]);
   }
   if (witness.identity_key === "G" && ui.state === "named") {

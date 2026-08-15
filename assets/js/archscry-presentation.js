@@ -485,14 +485,14 @@ export const FACTION_PRESENTATION = {
     selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and reliable colorless sources serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
   WUBRG: {
-    shortName: "Five-Color",
+    shortName: "WUBRG",
     tableRole: "The full-spectrum integrator",
     opponentRead: "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
     emotionalPressure: "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
-    loreRole: "The Five-Color expression: all five colors present, coalition and synthesis, with each color contributing to the whole plan",
+    loreRole: "The all-five-color expression: coalition and synthesis, with each color contributing to the whole plan",
     mechanics: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure that make all five colors matter in play",
     tableExperience: "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift",
-    thesis: "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.",
+    thesis: "Your answers point to a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.",
     closeReason: "all five colors present, full-spectrum integration, coalition, color breadth, and tradeoffs that keep access from becoming goodstuff",
     forkQuestion: "What does every color contribute that the others cannot carry alone?",
     direction: "moves toward all-five-color synthesis and full-spectrum Commander expression",
@@ -628,7 +628,10 @@ function applyLiveFourColorExactCommanderPolicy(entries = [], identity = "") {
 }
 
 function getFaction(factions, key) {
-  return factions?.[key] || null;
+  const faction = factions?.[key] || null;
+  return String(faction?.key || key || "").toUpperCase() === "WUBRG"
+    ? { ...faction, name: "WUBRG" }
+    : faction;
 }
 
 export function presentationForFaction(factionOrKey) {

@@ -1038,6 +1038,13 @@ const SUMMARY_STRIP_DISPLAY_OVERRIDES = new Map([
     playPatternHeading: "Make limits into structure",
     tags: ["Artifacts", "Big Mana", "Ramp"],
   }],
+  ["WUBRG", {
+    whereThisLeadsHeading: "Commander direction",
+    whereThisLeadsBody: "One way to explore this color combination is a Commander deck that uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep the deck focused on how those colors work together.",
+    playPatternHeading: "At the table",
+    playPatternBody: "In play, this deck wants full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift. Opponents feel it as breadth under discipline: every color is available, but each tool still has to justify its place.",
+    tags: ["Ramp", "Multicolor"],
+  }],
 ]);
 
 // Display fallbacks only. These entries keep mocked or incomplete reads renderable
@@ -2893,7 +2900,9 @@ export function buildWhereThisLeadsSummary({
     guidance,
     fallback,
   });
-  const body = hasUsableSummaryText(cleanedBody)
+  const body = hasUsableSummaryText(override?.whereThisLeadsBody)
+    ? compactSentence(override.whereThisLeadsBody)
+    : hasUsableSummaryText(cleanedBody)
     ? cleanedBody
     : (hasUsableSummaryText(fallback?.whereThisLeadsBody)
         ? compactSentence(fallback.whereThisLeadsBody)
@@ -2931,6 +2940,10 @@ export function buildPlayPatternSummary({
     compactSentence(tableCautionText),
   ].filter(hasUsableSummaryText);
   let body = compactSentence(bodyCandidates.slice(0, 2).join(" ").trim());
+
+  if (hasUsableSummaryText(override?.playPatternBody)) {
+    body = compactSentence(override.playPatternBody);
+  }
 
   if (!hasUsableSummaryText(body) || summaryTextsOverlap(whereThisLeads?.body, body)) {
     body = hasUsableSummaryText(fallback?.playPatternBody)
@@ -3016,8 +3029,14 @@ export function buildCommanderDossier({
 
   const primaryKey = placementResult.faction;
   const activeKey = targetFactionKey || primaryKey;
-  const faction = factions[activeKey];
-  const primaryFaction = factions[primaryKey] || faction;
+  const rawFaction = factions[activeKey];
+  const rawPrimaryFaction = factions[primaryKey] || rawFaction;
+  const faction = String(activeKey || "").toUpperCase() === "WUBRG"
+    ? { ...rawFaction, name: "WUBRG" }
+    : rawFaction;
+  const primaryFaction = String(primaryKey || "").toUpperCase() === "WUBRG"
+    ? { ...rawPrimaryFaction, name: "WUBRG" }
+    : rawPrimaryFaction;
 
   if (!faction) {
     throw new Error(`Cannot build Commander dossier for missing faction ${activeKey}.`);

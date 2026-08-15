@@ -113,3 +113,11 @@ Preserve placement scoring, ranking, naming qualification, public result-state s
 - `View card details` now adds canonical card image, mana cost when present, type line, Oracle text or the committed Oracle excerpt, and the existing Scryfall action. It no longer repeats the tile rationale or adds a new tag/detail schema. Local index merging preserves richer canonical detail fields instead of letting a slimmer index erase them.
 - The three deterministic owner cases pass. The current-engine all-37 replay passes desktop, intermediate, and mobile with 36 named identities, intentionally bounded Yore, and zero failures. Certification remains 621 `PASS`, eight contract-backed `NOT_APPLICABLE`, and zero `FAIL` across 629 cells.
 - Status: ready for the shortest final owner visual check using `wubrg`, `green-witherbloom-tied`, and `witherbloom`; VM-551 remains open until owner acceptance.
+
+## Final Presentation-Acceptance Remediation
+
+- In progress from `96e11103c0f1f185122788e009d5fa6f64dc6a13` on the existing canonical branch/worktree.
+- Enforce a single WUBRG identity label from the dossier eyebrow through the Play pattern summary; nearby labels, headings, tags, and body copy must remain contextual.
+- Preserve Blossoming Bogbeast and existing Witherbloom evidence dispositions while making identity-linked card details add approved explanatory value beyond tile copy.
+- Make the preserved Green/Witherbloom tied review case open on the Witherbloom co-leader without mutating its original result or evidence ledger.
+- Recertify only through the existing deterministic review/browser machinery and all-37 regression safety net; no placement, Gate A, research, push, merge, or deployment work is authorized.
