@@ -15,6 +15,26 @@ const readJson = async (relativePath) => JSON.parse(await readFile(path.join(roo
 const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const stableId = (prefix, ...parts) => `${prefix}_${parts.join("|").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`;
+const VOICE_MODAL_METHOD_RE = /\b(?:exact excerpt|bounded voice echo|approved relationship|provenance|claim[_ -]?id|source[_ -]?id|evidence status)\b/i;
+const VOICE_MODAL_OVERRIDES = new Map([
+  ["WITHERBLOOM", "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components."],
+  ["WUBRG", "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable."],
+]);
+
+function buildVoiceModalExplanation(record) {
+  const override = VOICE_MODAL_OVERRIDES.get(record.identity_key);
+  if (override) return override;
+  const prefix = `${record.canonical_card_name}'s exact excerpt provides a bounded voice echo of `;
+  if (!record.why_voice_belongs.startsWith(prefix)) throw new Error(`Approved voice cannot produce player modal copy: ${record.relationship_id}`);
+  const semanticTail = record.why_voice_belongs
+    .slice(prefix.length)
+    .replace(/\bnamed directly\s+/i, "")
+    .replace(/[.\s]+$/, "");
+  if (!semanticTail) throw new Error(`Approved voice lacks a semantic modal tail: ${record.relationship_id}`);
+  const explanation = `The line presents ${semanticTail}.`;
+  if (VOICE_MODAL_METHOD_RE.test(explanation)) throw new Error(`Voice modal copy leaks methodology: ${record.relationship_id}`);
+  return explanation;
+}
 
 const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions, voicePrintings] = await Promise.all([
   readJson("data/dossier/card-content-review-proposals.source.json"),
@@ -64,6 +84,7 @@ const selectedVoiceByIdentity = new Map(packetInput.proposals
 const automaticProposals = [];
 const newRationaleRecords = [];
 const voiceSourceRecords = [];
+const existingRationaleByIdentityCard = new Map(rationaleSourceInput.records.map((record) => [`${record.identity_key}|${record.canonical_card_id}`, record]));
 
 for (const proposalInput of packetInput.proposals) {
   if (proposalInput.disposition === "REJECTED") {
@@ -174,6 +195,7 @@ for (const proposalInput of packetInput.proposals) {
   if (!details.sourceIds.length || !details.sourceLocators.length) throw new Error(`Missing certified source chain: ${proposal.proposal_id}`);
 
   if (isRationale) {
+    const existingRationale = existingRationaleByIdentityCard.get(`${proposal.identity_key}|${proposal.canonical_card_id}`);
     newRationaleRecords.push({
       relationship_id: stableId("cardrel_auto", proposal.identity_key, proposal.canonical_card_id),
       identity_key: proposal.identity_key,
@@ -202,6 +224,7 @@ for (const proposalInput of packetInput.proposals) {
       validation,
       display_priority: 1,
       proposed_public_rationale: proposal.proposed_copy,
+      ...(existingRationale?.modal_explanation ? { modal_explanation: existingRationale.modal_explanation } : {}),
       proposal_origin: proposal.proposal_id,
       proposed_tags: [],
       rationale_support_note: "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -300,7 +323,7 @@ const voiceCatalog = {
   schema_version: "1.0.0",
   source_path: "data/dossier/card-voice-relationships.source.json",
   source_sha256: digest(pretty(voiceSource)),
-  generated_policy: "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
+  generated_policy: "APPROVED_PUBLIC only; exact excerpt plus deterministic player context from the approved relationship; no heuristic or fallback selection",
   records: voiceSource.records.map((record) => ({
     relationship_id: record.relationship_id,
     identity_key: record.identity_key,
@@ -314,6 +337,7 @@ const voiceCatalog = {
     },
     excerpt: record.exact_excerpt,
     why_it_echoes: record.why_voice_belongs,
+    modal_explanation: buildVoiceModalExplanation(record),
     relationship_class: record.relationship_class,
     display_priority: record.display_priority,
     critical_repeat: record.critical_repeat,

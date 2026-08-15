@@ -3115,7 +3115,7 @@ export function approvedCardRationaleForFaction(card, faction, catalog = APP_STA
   return {
     text: record.rationale,
     tags: Array.isArray(record.tags) ? record.tags : [],
-    identityContext: record.modal_explanation || dossierContentForFaction(faction)?.how_this_plays?.mechanical_expression || "",
+    identityContext: record.modal_explanation || "",
     provenance: {
       relationshipId: record.relationship_id,
       relationshipClass: record.relationship_class,
@@ -3213,7 +3213,7 @@ export function buildCardVoicesHtml(voices = [], faction = {}) {
           const actionAttrs = buildActionAttrs("open-card-detail", {
             cardName: card.name,
             cardIdentityName: faction.name || record.identity_name || "this reading",
-            cardIdentityContext: record.why_it_echoes,
+            cardIdentityContext: record.modal_explanation,
             cardIdentityContextKind: "voice",
             cardTileCopy: record.excerpt,
           });
@@ -4631,10 +4631,14 @@ async function openCardDetail(actionNode) {
     const manaCost = card.mana_cost || card.card_faces?.map((face) => face.mana_cost).filter(Boolean).join(" // ") || "";
     const typeLine = card.type_line || card.card_faces?.map((face) => face.type_line).filter(Boolean).join(" // ") || "";
     const rulesDetail = cardRulesDetail(card);
+    const isIdentityLinkedCard = ["voice", "play"].includes(identityContextKind);
     const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
+    const identityContextHeading = identityContextKind === "voice"
+      ? `What this card's voice reveals about ${identityName}`
+      : `Why ${card.name || cardName} helps explain ${identityName} in play`;
     const identityContextHtml = identityName && identityContext
       ? `<section class="archscry-card-dialog-identity-context" data-card-identity-context="${escapeAttributeValue(identityContextKind || "identity")}">
-          <strong>Why ${escapeHtml(card.name || cardName)} helps explain ${escapeHtml(identityName)}</strong>
+          <strong>${escapeHtml(identityContextHeading)}</strong>
           <span>${escapeHtml(identityContext)}</span>
         </section>`
       : "";
@@ -4647,7 +4651,7 @@ async function openCardDetail(actionNode) {
           ${identityContextHtml}
           ${manaCost ? `<div class="archscry-card-dialog-mana" aria-label="Mana cost">${renderManaCost(manaCost)}</div>` : ""}
           ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
-          ${rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${escapeHtml(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
+          ${!isIdentityLinkedCard && rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${escapeHtml(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
           ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
         </div>
       </div>`;

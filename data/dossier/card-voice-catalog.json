@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
   "source_sha256": "52b1446b2d6fdd25f348866e9f412688f046bc13e008a76325b76c1330bb7ad9",
-  "generated_policy": "APPROVED_PUBLIC only; exact excerpt and approved relationship bridge; no heuristic or fallback selection",
+  "generated_policy": "APPROVED_PUBLIC only; exact excerpt plus deterministic player context from the approved relationship; no heuristic or fallback selection",
   "records": [
     {
       "relationship_id": "cardvoice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64",
@@ -17,6 +17,7 @@
       },
       "excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
       "why_it_echoes": "Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages.",
+      "modal_explanation": "The line presents Azorius through its judges, scribes, and lawmages.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -54,6 +55,7 @@
       },
       "excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.",
       "why_it_echoes": "Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries.",
+      "modal_explanation": "The line presents Dimir through unseen hierarchy and orders delivered by mysterious intermediaries.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -89,6 +91,7 @@
       },
       "excerpt": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
       "why_it_echoes": "Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative.",
+      "modal_explanation": "The line presents Rakdos through cruelty made vivid and performative.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -124,6 +127,7 @@
       },
       "excerpt": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
       "why_it_echoes": "Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power.",
+      "modal_explanation": "The line presents the Gruul while rejecting the assumption that their wildness lacks subtle power.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -161,6 +165,7 @@
       },
       "excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\"\n—Heruj, Selesnya hierophant",
       "why_it_echoes": "Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice.",
+      "modal_explanation": "The line presents Mat'Selesnya through the individual becoming part of a communal voice.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -197,6 +202,7 @@
       },
       "excerpt": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
       "why_it_echoes": "Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death.",
+      "modal_explanation": "The line presents the Orzhov through a businesslike obligation extending beyond death.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -233,6 +239,7 @@
       },
       "excerpt": "The Izzet love replicating results.",
       "why_it_echoes": "Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results.",
+      "modal_explanation": "The line presents the Izzet through delight in replicating experimental results.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -271,6 +278,7 @@
       },
       "excerpt": "The Golgari support a vast army because death never ends its soldiers' service.",
       "why_it_echoes": "Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service.",
+      "modal_explanation": "The line presents the Golgari through death continuing as useful service.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -307,6 +315,7 @@
       },
       "excerpt": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
       "why_it_echoes": "Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress.",
+      "modal_explanation": "The line presents Simic as nature directed by thought and progress.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -342,6 +351,7 @@
       },
       "excerpt": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
       "why_it_echoes": "Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action.",
+      "modal_explanation": "The line presents a Boros commander explicitly addressing comrades through coordinated front-line action.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -379,6 +389,7 @@
       },
       "excerpt": "Reconstructing the past is Lorehold's specialty.",
       "why_it_echoes": "Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past.",
+      "modal_explanation": "The line presents Lorehold through reconstructing and actively using the past.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -417,6 +428,7 @@
       },
       "excerpt": "Prismari students are never afraid to let their imaginations run wild.",
       "why_it_echoes": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
+      "modal_explanation": "The line presents Prismari students through imagination allowed to run wild.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -452,6 +464,7 @@
       },
       "excerpt": "As subtle as a bogbeast\n—Witherbloom expression meaning \"crude and clumsy\"",
       "why_it_echoes": "The exact creature flavor presents a proverb and explicitly identifies it as a Witherbloom expression.",
+      "modal_explanation": "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -487,6 +500,7 @@
       },
       "excerpt": "\"Numbers have no limits. Why should nature?\"\n—Emil, Quandrix fourth-year",
       "why_it_echoes": "Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature.",
+      "modal_explanation": "The line presents a Quandrix student explicitly joining unbounded numbers to living nature.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -523,6 +537,7 @@
       },
       "excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\"\n—Killian, Silverquill mage-student",
       "why_it_echoes": "Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence.",
+      "modal_explanation": "The line presents a Silverquill student using language of shadow, light, self-definition, and visible presence.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -558,6 +573,7 @@
       },
       "excerpt": "When hearts and minds align, so too do actions.",
       "why_it_echoes": "Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action.",
+      "modal_explanation": "The line presents hearts and minds coordinating into shared action.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -593,6 +609,7 @@
       },
       "excerpt": "Knowledge demands sacrifice.",
       "why_it_echoes": "Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice.",
+      "modal_explanation": "The line presents knowledge made available through an explicit sacrifice.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -627,6 +644,7 @@
       },
       "excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
       "why_it_echoes": "Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course.",
+      "modal_explanation": "The line presents a constrained decision answered with information, planning, and a deliberate course.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -662,6 +680,7 @@
       },
       "excerpt": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
       "why_it_echoes": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
+      "modal_explanation": "The line presents freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -697,6 +716,7 @@
       },
       "excerpt": "The earth walks, strongest of all.",
       "why_it_echoes": "Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength.",
+      "modal_explanation": "The line presents the earth itself embodied as primal strength.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -732,6 +752,7 @@
       },
       "excerpt": "\"We must spread Bant's light before we are shadowed over.\"",
       "why_it_echoes": "Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard.",
+      "modal_explanation": "The line presents Bant through an idealized light meant to extend beyond the shard.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -768,6 +789,7 @@
       },
       "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information.",
+      "modal_explanation": "The line presents Esper through precise, controlled use of information.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -803,6 +825,7 @@
       },
       "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm.",
+      "modal_explanation": "The line presents Grixis as harsher than Esper in its use of information and harm.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -838,6 +861,7 @@
       },
       "excerpt": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
       "why_it_echoes": "Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival.",
+      "modal_explanation": "The line presents Jund through embodied succession, dominance, and survival.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -874,6 +898,7 @@
       },
       "excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.",
       "why_it_echoes": "Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering.",
+      "modal_explanation": "The line presents Naya through abundant natural growth and gathering.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -909,6 +934,7 @@
       },
       "excerpt": "Stone to endure, roots to remember.",
       "why_it_echoes": "Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity.",
+      "modal_explanation": "The line presents endurance joined to roots, memory, and Kin-Tree continuity.",
       "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
       "display_priority": 1,
       "critical_repeat": {
@@ -944,6 +970,7 @@
       },
       "excerpt": "\"Hold the high ground, then bring it to your enemy.\"\n—Surrak, khan of the Temur",
       "why_it_echoes": "Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force.",
+      "modal_explanation": "The line presents a Temur khan joining tactical knowledge to literal natural force.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -981,6 +1008,7 @@
       },
       "excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\"\n—Heng, Sultai ambassador",
       "why_it_echoes": "Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
+      "modal_explanation": "The line presents a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -1019,6 +1047,7 @@
       },
       "excerpt": "\"Death is merely another foe the Mardu will overcome.\"",
       "why_it_echoes": "Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent.",
+      "modal_explanation": "The line presents the Mardu through meeting death as another opponent.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -1058,6 +1087,7 @@
       },
       "excerpt": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
       "why_it_echoes": "Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame.",
+      "modal_explanation": "The line presents the Jeskai Way through discipline applied to innate flame.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
       "display_priority": 1,
       "critical_repeat": {
@@ -1094,6 +1124,7 @@
       },
       "excerpt": "The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.",
       "why_it_echoes": "Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance.",
+      "modal_explanation": "The line presents artificers pursuing perfection, progress, and designed elegance.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1128,6 +1159,7 @@
       },
       "excerpt": "Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.",
       "why_it_echoes": "Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile.",
+      "modal_explanation": "The line presents wild magic described as powerful and volatile.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1161,6 +1193,7 @@
       },
       "excerpt": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
       "why_it_echoes": "Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force.",
+      "modal_explanation": "The line presents front-line leadership, immediate action, and organized force.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1194,6 +1227,7 @@
       },
       "excerpt": "Knowledge is wasted if not shared.",
       "why_it_echoes": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
+      "modal_explanation": "The line presents knowledge treated as wasted unless it is shared.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1227,6 +1261,7 @@
       },
       "excerpt": "Design leads to progress.",
       "why_it_echoes": "Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation.",
+      "modal_explanation": "The line presents design producing progress through a modular object associated with counters and repeated accumulation.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1260,6 +1295,7 @@
       },
       "excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\"\n—Javad Nasrin, Ondu relic hunter",
       "why_it_echoes": "All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
+      "modal_explanation": "The line presents Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {
@@ -1298,6 +1334,7 @@
       },
       "excerpt": "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.",
       "why_it_echoes": "The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.",
+      "modal_explanation": "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "display_priority": 1,
       "critical_repeat": {

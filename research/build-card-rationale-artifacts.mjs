@@ -69,6 +69,24 @@ const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
 const normalizeName = (value) => String(value || "").trim().toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, " ");
 const tsvCell = (value) => String(value ?? "").replace(/\r?\n/g, " ").replace(/\t/g, " ");
+const identityDossierByKey = new Map((await readJson("data/dossier/identity-dossier-content.catalog.json")).records.map((record) => [record.identity_key, record]));
+
+function completeSentence(value) {
+  const text = String(value || "").trim().replace(/[.\s]+$/, "");
+  return text ? `${text}.` : "";
+}
+
+function lowerSentenceLead(value) {
+  const text = String(value || "").trim().replace(/[.\s]+$/, "");
+  return text ? `${text.charAt(0).toLowerCase()}${text.slice(1)}` : "";
+}
+
+function buildPlayModalExplanation(record) {
+  const relationshipCopy = completeSentence(record.modal_explanation || record.proposed_public_rationale);
+  const tableTakeaway = lowerSentenceLead(identityDossierByKey.get(record.identity_key)?.how_this_plays?.table_experience);
+  if (!relationshipCopy || !tableTakeaway) fail(`Approved relationship cannot produce card-specific modal copy: ${record.relationship_id}`);
+  return `${relationshipCopy} At the table, this can mean ${tableTakeaway}.`;
+}
 
 async function rawPacket(folder) {
   const directory = path.join(ROOT, "data/raw-factions", folder);
@@ -322,7 +340,7 @@ export function buildRuntimeCatalog(source) {
         data_locator: record.canonical_card_data_locator,
       },
       rationale: record.proposed_public_rationale,
-      ...(record.modal_explanation ? { modal_explanation: record.modal_explanation } : {}),
+      modal_explanation: buildPlayModalExplanation(record),
       tags: record.proposed_tags || [],
       relationship_class: record.relationship_class,
       display_priority: record.display_priority,
@@ -336,7 +354,7 @@ export function buildRuntimeCatalog(source) {
     schema_version: "1.0.0",
     source_path: SOURCE_PATH,
     source_sha256: sha256(pretty(source)),
-    generated_policy: "APPROVED_PUBLIC only; no fallback or inferred relationship",
+    generated_policy: "APPROVED_PUBLIC only; card-specific relationship plus approved identity table experience; no profile-only fallback",
     records,
   };
 }
