@@ -217,7 +217,6 @@ assert.match(indexSource, /event\.key === "Escape"/);
 assert.match(indexSource, /Open on Scryfall/);
 assert.match(indexSource, /card-detail-image-trigger/);
 assert.match(indexSource, /<blockquote class="flavor-echo-why">\$\{escapeHtml\(record\.excerpt\)\}<\/blockquote>/, "public card voice must render the exact printing text without synthetic quote wrappers");
-assert.match(indexSource, /rationale && provenance \?/);
 assert.doesNotMatch(indexSource, /function buildCommanderSpecificLinks/);
 assert.match(indexSource, /const repeatsServiceName = serviceLabel\.localeCompare\(actionLabel/, "provider chips must suppress a repeated provider/action label");
 assert.match(indexSource, /archscryGlossaryTooltip/);
@@ -248,6 +247,9 @@ assert.match(indexSource, /Refine these directions/, "mixed readings with an app
 assert.match(indexSource, /Try to separate/, "close and tied readings should name the distinction target");
 assert.match(indexSource, /show-bounded-direction/, "mixed readings should expose their independently supported directions");
 assert.match(indexSource, /if \(trigger\.cardName\)[\s\S]*?loadCachedScryfallNamedCard\(trigger\.cardName\)/, "named rationale previews should resolve the canonical full-card record before using a tile image");
+assert.match(indexSource, /loadCachedScryfallNamedCard\(cardName, \{ requireDetails: true \}\)/, "card-detail clicks should request complete canonical card facts");
+assert.match(indexSource, /Oracle excerpt/, "committed Oracle excerpts should remain an offline card-detail fallback");
+assert.doesNotMatch(indexSource, /archscry-card-dialog-why/, "the detail modal must not repeat the rationale tile as its primary content");
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="2"\]/);

@@ -20,7 +20,9 @@ const card = (name) => ({
   name,
   image_uris: { normal: `https://cards.scryfall.io/normal/${encodeURIComponent(name)}.jpg` },
   scryfall_uri: `https://scryfall.com/card/test/1/${name.toLowerCase().replace(/\s+/g, "-")}`,
+  mana_cost: "{2}",
   type_line: "Land",
+  oracle_text: "Add one mana of any color.",
   color_identity: [],
   legalities: { commander: "legal" },
 });
@@ -148,6 +150,44 @@ const localLookup = createScryfallNamedCardLookup({
 });
 assert.equal((await localLookup.lookup("Local Card")).name, "Local Card");
 assert.equal(localCalls, 0, "Committed local card data must precede persistent cache and network.");
+
+const slimLocalCard = {
+  id: "slim-local-card-id",
+  name: "Slim Local Card",
+  image_uris: { normal: "https://cards.scryfall.io/normal/slim-local-card.jpg" },
+  scryfall_uri: "https://scryfall.com/card/test/2/slim-local-card",
+  type_line: "Creature — Test",
+  oracle_excerpt: "A committed canonical excerpt.",
+};
+let detailCalls = 0;
+const detailLookup = createScryfallNamedCardLookup({
+  storage: new MemoryStorage(),
+  now,
+  localResolver: (name) => name === "Slim Local Card" ? slimLocalCard : null,
+  fetchImpl: async () => {
+    detailCalls += 1;
+    return response(200, { ...card("Slim Local Card"), oracle_text: "The complete canonical Oracle text." });
+  },
+});
+const completeDetail = await detailLookup.lookup("Slim Local Card", { requireDetails: true });
+assert.equal(detailCalls, 1, "A detail lookup should enrich a slim local record through the canonical endpoint.");
+assert.equal(completeDetail.mana_cost, "{2}");
+assert.equal(completeDetail.oracle_text, "The complete canonical Oracle text.");
+assert.equal(detailLookup.inspect().records["slim local card"].card.oracle_text, "The complete canonical Oracle text.");
+
+let fallbackCalls = 0;
+const fallbackDetailLookup = createScryfallNamedCardLookup({
+  storage: new MemoryStorage(),
+  now,
+  localResolver: (name) => name === "Slim Local Card" ? slimLocalCard : null,
+  fetchImpl: async () => {
+    fallbackCalls += 1;
+    return response(500);
+  },
+});
+const fallbackDetail = await fallbackDetailLookup.lookup("Slim Local Card", { requireDetails: true });
+assert.equal(fallbackCalls, 1);
+assert.equal(fallbackDetail.oracle_excerpt, "A committed canonical excerpt.", "Offline detail fallback must retain the committed Oracle excerpt.");
 
 const flavorStorage = new MemoryStorage();
 let flavorCalls = 0;

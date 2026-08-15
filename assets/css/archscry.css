@@ -3847,11 +3847,15 @@ body.vm-archscry-route .precon-provider-links{
 }
 
 .archscry-card-dialog-rules{
+  display:grid;
+  gap:0.45rem;
   border-block:1px solid rgba(184,149,74,0.14);
   padding-block:0.85rem;
   color:rgba(242,237,223,0.92);
   line-height:1.55;
 }
+
+.archscry-card-dialog-rules strong{color:var(--gold)}
 
 .archscry-card-dialog-why{
   display:grid;

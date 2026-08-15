@@ -121,7 +121,7 @@ const selected = selectApprovedCardRationales({ faction: fixtureFaction, catalog
 assert.equal(selected.length, 1);
 assert.equal(selected[0].rationale.text, fixtureRecord.rationale);
 const html = buildFlavorEchoesHtml(selected, fixtureFaction, approvedCatalog);
-assert.match(html, /Why These Cards Echo This Reading/);
+assert.match(html, /Cards That Play Like This/);
 assert.match(html, new RegExp(fixtureRecord.rationale.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 assert.match(html, /data-card-rationale=/);
 assert.equal(catalog.records.filter((record) => record.identity_key === "COLORLESS").length, 2);
@@ -137,5 +137,5 @@ console.log(JSON.stringify({
   coverage: { full: 37, partial: 0, gap: 0 },
   negative_fixtures: 14,
   partial_classification_reachable: true,
-  rendering_and_modal_rationale_parity: "PASS",
+  rationale_tile_authority: "PASS",
 }, null, 2));

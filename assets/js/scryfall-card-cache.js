@@ -1,5 +1,5 @@
-export const SCRYFALL_NAMED_CACHE_SCHEMA_VERSION = 2;
-export const SCRYFALL_NAMED_CACHE_KEY = "vm_scryfall_named_cache_v2";
+export const SCRYFALL_NAMED_CACHE_SCHEMA_VERSION = 3;
+export const SCRYFALL_NAMED_CACHE_KEY = "vm_scryfall_named_cache_v3";
 export const SCRYFALL_SUCCESS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 export const SCRYFALL_NEGATIVE_TTL_MS = 6 * 60 * 60 * 1000;
 export const SCRYFALL_BACKOFF_TTL_MS = 15 * 60 * 1000;
@@ -71,6 +71,9 @@ function sanitizeFace(face = {}) {
   return {
     name: typeof face.name === "string" ? face.name : "",
     type_line: typeof face.type_line === "string" ? face.type_line : "",
+    ...(typeof face.mana_cost === "string" ? { mana_cost: face.mana_cost } : {}),
+    ...(typeof face.oracle_text === "string" ? { oracle_text: face.oracle_text } : {}),
+    ...(typeof face.oracle_excerpt === "string" ? { oracle_excerpt: face.oracle_excerpt } : {}),
     ...(image_uris ? { image_uris } : {}),
   };
 }
@@ -93,11 +96,21 @@ export function sanitizeScryfallCardRecord(record) {
     ...(record.oracle_id ? { oracle_id: String(record.oracle_id) } : {}),
     ...(image_uris ? { image_uris } : {}),
     ...(scryfall_uri ? { scryfall_uri } : {}),
+    ...(typeof record.mana_cost === "string" ? { mana_cost: record.mana_cost } : {}),
     ...(typeof record.type_line === "string" ? { type_line: record.type_line } : {}),
+    ...(typeof record.oracle_text === "string" ? { oracle_text: record.oracle_text } : {}),
+    ...(typeof record.oracle_excerpt === "string" ? { oracle_excerpt: record.oracle_excerpt } : {}),
     ...(Array.isArray(record.color_identity) ? { color_identity: [...record.color_identity] } : {}),
     ...(record.legalities && typeof record.legalities === "object" ? { legalities: { ...record.legalities } } : {}),
     ...(card_faces.length ? { card_faces } : {}),
   };
+}
+
+function hasFullCardDetails(record = {}) {
+  return Boolean(
+    String(record.oracle_text || "").trim() ||
+    record.card_faces?.some?.((face) => String(face?.oracle_text || "").trim())
+  );
 }
 
 function recordExpiryMs(record) {
@@ -142,19 +155,19 @@ export function createScryfallNamedCardLookup({
     safeStorageWrite(storage, current);
   }
 
-  async function lookup(name, { recordType = "CARD" } = {}) {
+  async function lookup(name, { recordType = "CARD", requireDetails = false } = {}) {
     const requestedName = String(name || "").trim();
     const key = normalizeScryfallCardName(requestedName);
     if (recordType !== "CARD" || !key) return null;
 
     const local = sanitizeScryfallCardRecord(localResolver(requestedName));
-    if (local) return local;
+    if (local && (!requireDetails || hasFullCardDetails(local))) return local;
 
     const cached = readCache();
     const cachedRecord = cached.records[key];
     if (cachedRecord?.status === "success") {
       const card = sanitizeScryfallCardRecord(cachedRecord.card);
-      if (card) {
+      if (card && (!requireDetails || hasFullCardDetails(card))) {
         cachedRecord.last_accessed = now();
         safeStorageWrite(storage, cached);
         return card;
@@ -162,19 +175,21 @@ export function createScryfallNamedCardLookup({
       delete cached.records[key];
       safeStorageWrite(storage, cached);
     }
-    if (cachedRecord?.status === "not_found") return null;
-    if (cached.backoff && now() < Number(cached.backoff.until || 0)) return null;
-    if (failedThisPage.has(key)) return null;
-    if (!fetchImpl) return null;
+    if (cachedRecord?.status === "not_found") return local;
+    if (cached.backoff && now() < Number(cached.backoff.until || 0)) return local;
+    if (failedThisPage.has(key)) return local;
+    if (!fetchImpl) return local;
 
-    if (inFlight.has(key)) return inFlight.get(key);
+    const requestKey = requireDetails ? `${key}|details` : key;
+    if (inFlight.has(requestKey)) return inFlight.get(requestKey);
     const request = (async () => {
       const latest = readCache();
       if (latest.records[key]?.status === "success") {
-        return sanitizeScryfallCardRecord(latest.records[key].card);
+        const latestCard = sanitizeScryfallCardRecord(latest.records[key].card);
+        if (latestCard && (!requireDetails || hasFullCardDetails(latestCard))) return latestCard;
       }
-      if (latest.records[key]?.status === "not_found") return null;
-      if (latest.backoff && now() < Number(latest.backoff.until || 0)) return null;
+      if (latest.records[key]?.status === "not_found") return local;
+      if (latest.backoff && now() < Number(latest.backoff.until || 0)) return local;
 
       const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(requestedName)}`;
       let response;
@@ -182,34 +197,34 @@ export function createScryfallNamedCardLookup({
         response = await fetchImpl(url);
       } catch (_) {
         failedThisPage.add(key);
-        return null;
+        return local;
       }
       const timestamp = now();
       if (response.status === 429) {
         const current = readCache();
         current.backoff = { status: 429, timestamp, until: timestamp + SCRYFALL_BACKOFF_TTL_MS };
         safeStorageWrite(storage, current);
-        return null;
+        return local;
       }
       if (response.status === 404) {
         writeRecord(key, { status: "not_found", canonical_name: requestedName, timestamp, last_accessed: timestamp });
-        return null;
+        return local;
       }
       if (!response.ok) {
         failedThisPage.add(key);
-        return null;
+        return local;
       }
       let payload;
       try {
         payload = await response.json();
       } catch (_) {
         failedThisPage.add(key);
-        return null;
+        return local;
       }
       const card = sanitizeScryfallCardRecord(payload);
       if (!card) {
         failedThisPage.add(key);
-        return null;
+        return local;
       }
       writeRecord(key, {
         status: "success",
@@ -221,8 +236,8 @@ export function createScryfallNamedCardLookup({
         card,
       });
       return card;
-    })().finally(() => inFlight.delete(key));
-    inFlight.set(key, request);
+    })().finally(() => inFlight.delete(requestKey));
+    inFlight.set(requestKey, request);
     return request;
   }
 

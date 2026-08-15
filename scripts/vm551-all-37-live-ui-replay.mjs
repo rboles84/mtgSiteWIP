@@ -206,6 +206,7 @@ async function replay(page, origin, witness) {
       }
     }
     const tileRationale = await page.$eval('[data-card-rationale-section] .flavor-echo-why', (node) => node.textContent?.trim() || "");
+    assert.ok(tileRationale, `${witness.identity_key} rationale tile did not explain why the card fits in play`);
     if (viewportName === "desktop") {
       await page.evaluate(() => {
         window.__vmHoverEvents = [];
@@ -296,8 +297,23 @@ async function replay(page, origin, witness) {
     }
     await rationaleTrigger.evaluate((button) => button.click());
     await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
-    const modalRationale = await page.$eval(".archscry-card-dialog-why span", (node) => node.textContent?.trim() || "");
-    assert.equal(modalRationale, tileRationale, `${witness.identity_key} tile/modal rationale drift`);
+    const modalDetail = await page.evaluate(() => {
+      const dialog = document.querySelector(".archscry-card-dialog[open]");
+      return {
+        hasImage: Boolean(dialog?.querySelector(".archscry-card-dialog-image")),
+        typeLine: dialog?.querySelector(".archscry-card-dialog-type")?.textContent?.trim() || "",
+        oracleDetail: dialog?.querySelector(".archscry-card-dialog-rules span")?.textContent?.trim() || "",
+        oracleLabel: dialog?.querySelector(".archscry-card-dialog-rules strong")?.textContent?.trim() || "",
+        hasScryfallAction: Boolean(dialog?.querySelector('.archscry-card-dialog-external[href^="https://scryfall.com/"]')),
+        repeatedRationale: Boolean(dialog?.querySelector(".archscry-card-dialog-why")),
+      };
+    });
+    assert.equal(modalDetail.hasImage, true, `${witness.identity_key} detail modal omitted the canonical full-card image`);
+    assert.ok(modalDetail.typeLine, `${witness.identity_key} detail modal omitted the canonical type line`);
+    assert.ok(modalDetail.oracleDetail, `${witness.identity_key} detail modal omitted Oracle text or its committed excerpt`);
+    assert.match(modalDetail.oracleLabel, /^Oracle (?:text|excerpt)$/);
+    assert.equal(modalDetail.hasScryfallAction, true, `${witness.identity_key} detail modal omitted its Scryfall action`);
+    assert.equal(modalDetail.repeatedRationale, false, `${witness.identity_key} detail modal repeated the tile rationale as primary content`);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
     await delay(50);

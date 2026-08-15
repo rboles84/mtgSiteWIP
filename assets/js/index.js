@@ -4310,8 +4310,8 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
   }
 }
 
-export async function loadCachedScryfallNamedCard(name) {
-  const card = await ScryfallNamedCardLookup.lookup(name, { recordType: "CARD" });
+export async function loadCachedScryfallNamedCard(name, options = {}) {
+  const card = await ScryfallNamedCardLookup.lookup(name, { recordType: "CARD", ...options });
   if (!card) throw new Error("Scryfall card art is unavailable for this record.");
   return card;
 }
@@ -4551,12 +4551,19 @@ function handleCardPreviewFocusIn(event) {
   }
 }
 
-function cardRulesText(card = {}) {
-  if (card.oracle_text) return card.oracle_text;
-  return (card.card_faces || [])
+function cardRulesDetail(card = {}) {
+  if (card.oracle_text) return { label: "Oracle text", text: card.oracle_text };
+  const faceOracleText = (card.card_faces || [])
     .map((face) => [face.name, face.oracle_text].filter(Boolean).join(" — "))
     .filter(Boolean)
     .join("\n\n");
+  if (faceOracleText) return { label: "Oracle text", text: faceOracleText };
+  if (card.oracle_excerpt) return { label: "Oracle excerpt", text: card.oracle_excerpt };
+  const faceOracleExcerpt = (card.card_faces || [])
+    .map((face) => [face.name, face.oracle_excerpt].filter(Boolean).join(" — "))
+    .filter(Boolean)
+    .join("\n\n");
+  return { label: faceOracleExcerpt ? "Oracle excerpt" : "", text: faceOracleExcerpt };
 }
 
 function ensureCardDetailDialog() {
@@ -4594,8 +4601,6 @@ function ensureCardDetailDialog() {
 
 async function openCardDetail(actionNode) {
   const cardName = String(actionNode?.dataset.cardName || "").trim();
-  const rationale = String(actionNode?.dataset.cardRationale || "").trim();
-  const provenance = String(actionNode?.dataset.cardProvenance || "").trim();
   if (!cardName) return;
   hideCardPreviewOverlay();
   const dialog = ensureCardDetailDialog();
@@ -4606,13 +4611,12 @@ async function openCardDetail(actionNode) {
   if (!dialog.open) dialog.showModal();
 
   try {
-    const card = await loadCachedScryfallNamedCard(cardName);
+    const card = await loadCachedScryfallNamedCard(cardName, { requireDetails: true });
     const image = cardImageUrl(card);
     const manaCost = card.mana_cost || card.card_faces?.map((face) => face.mana_cost).filter(Boolean).join(" // ") || "";
     const typeLine = card.type_line || card.card_faces?.map((face) => face.type_line).filter(Boolean).join(" // ") || "";
-    const oracleText = cardRulesText(card);
+    const rulesDetail = cardRulesDetail(card);
     const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
-    const tags = String(actionNode.dataset.cardTags || "").split("|").map((tag) => tag.trim()).filter(Boolean);
     content.innerHTML = `
       <div class="archscry-card-dialog-grid" data-card-dialog-ready>
         ${image ? `<img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(`${card.name || cardName} card image`)}">` : ""}
@@ -4621,13 +4625,10 @@ async function openCardDetail(actionNode) {
           <h2 id="archscryCardDialogTitle">${escapeHtml(card.name || cardName)}</h2>
           ${manaCost ? `<div class="archscry-card-dialog-mana">${escapeHtml(manaCost)}</div>` : ""}
           ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
-          ${oracleText ? `<div class="archscry-card-dialog-rules">${escapeHtml(oracleText).replace(/\n/g, "<br>")}</div>` : ""}
-          ${rationale && provenance ? `<div class="archscry-card-dialog-why"><strong>Why it appears</strong><span>${escapeHtml(rationale)}</span></div>` : ""}
-          ${tags.length ? `<div class="vm-tag-row">${renderStaticTagChips(tags, 4)}</div>` : ""}
+          ${rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${escapeHtml(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
           ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
         </div>
       </div>`;
-    if (rationale && provenance) content.dataset.rationaleProvenance = provenance;
   } catch (_) {
     content.innerHTML = `<p class="archscry-card-dialog-status">Verified card details are unavailable. No fallback description was generated.</p>`;
   }
