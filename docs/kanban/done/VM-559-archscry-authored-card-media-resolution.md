@@ -2,9 +2,9 @@
 
 ID: VM-559
 
-Status: In Progress
+Status: Done
 
-Current gate: Owner rendered-product acceptance passed for exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`. QA-5 integration, GitHub Pages publication, focused production verification, and closeout are authorized; no further semantic or player-facing changes are permitted.
+Current gate: Closed after owner acceptance, fast-forward integration, GitHub validation/Pages success, and focused production verification. Accepted corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07` is integrated in product release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 
 Type: Production defect / generated media projection / shared resolver and rendering reliability
 
@@ -106,3 +106,12 @@ Ensure every governed authored Archscry card resolves deterministically to commi
 - The four expected non-rendered Play occurrences are Azorius / Isperia, Supreme Judge (`First Flight`); Izzet / Mizzix of the Izmagnus (`Seize Control`); Lorehold / Quintorius, History Chaser (`Lorehold Spirit`); and Colorless / Zhulodok, Void Gorger (`Eldrazi Unbound`).
 - Each relationship remains approved and is correctly included in the governed Play media projection. Each card is omitted only from the Play grid because it already appears as the visible commander of a recommended precon and its canonical ID is therefore present in `pageCardUsage` before Play selection.
 - Deterministic totals reconcile as `50 - 4 = 46` Play rows and `73 + 46 = 119` workbook rows. No runtime behavior, workbook content, relationship, selection, or prose changed.
+
+## 2026-08-16 Final Closeout
+
+- Owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`.
+- `main` fast-forwarded without semantic reconciliation to product release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f` and pushed to `origin/main`.
+- GitHub `Vox Mana Validation` run `31973451226` and Pages run `31973450385` both completed successfully at that exact SHA.
+- Production retained 37 identities, 1,178 governed authored occurrences, 572 resolver keys, zero unresolved records, and zero selection drift.
+- Live Mardu verified `Mardu Card Signals`, no unavailable/invalid visible media, untouched hidden tiers, first-hover recovery, tier hydration, and responsive modal containment. Cache-bypassed production assets verified the accepted Dune/Glint/Ulalek records and CDN delivery.
+- Remaining limitation: image binaries remain served by `cards.scryfall.io`; VM-559 does not guarantee image display during a Scryfall image-CDN outage.

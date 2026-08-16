@@ -45,10 +45,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; Sound/Play semantics are frozen while QA-5 integration, deployment, focused production verification, and closeout proceed.
-
-- [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - owner accepted exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 1,178-occurrence / 572-key / zero-unresolved projection is frozen while QA-5 integration, Pages publication, focused production verification, and closeout proceed.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -56,6 +52,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-563 - Archscry Sound/Play Final Corpus Remediation](done/VM-563-archscry-sound-play-final-corpus-remediation.md) - owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 37/119/73/46/4 corpus, Dune-Brood correction, and all accepted Glint rows are integrated and production-verified in release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
+
+- [VM-559 - Archscry Authored-Card Media Resolution](done/VM-559-archscry-authored-card-media-resolution.md) - owner accepted exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 1,178-occurrence / 572-key / zero-unresolved projection, identity headings, lazy hydration, and shared hover repair are integrated and production-verified in release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 
 - [VM-562 - Archscry Sound/Play Prose Calibration](done/VM-562-archscry-sound-play-prose-calibration.md) - frozen at `7f79efa3b7442a202db04e6b7013b701bffc4286`; its seven-identity proposal method passed final resulting-row QA and was explicitly authorized as VM-563's writing method.
 

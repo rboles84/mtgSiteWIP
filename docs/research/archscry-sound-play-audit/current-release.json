@@ -1,7 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "status": "ACCEPTED_AFTER_OWNER_REVIEW",
+  "status": "DEPLOYED_AND_OWNER_ACCEPTED",
   "accepted_candidate": "52fdd86155c8a47f5ac8650fe9d92a8f5010ca07",
+  "integrated_product_commit": "aec62fb54c59eed02842eebc8e34f89dddc80f5f",
+  "production_verification": {
+    "validation_run_id": 31973451226,
+    "pages_run_id": 31973450385,
+    "result": "PASS"
+  },
   "accepted_vm562_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286",
   "accepted_prior_vm563_candidate": "f5ede39a7f03caf6c0644c80142c201643605b85",
   "identities": 37,

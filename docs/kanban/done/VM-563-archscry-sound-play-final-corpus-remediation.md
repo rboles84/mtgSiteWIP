@@ -2,9 +2,9 @@
 
 ID: VM-563
 
-Status: In Progress
+Status: Done
 
-Current gate: Final owner rendered-product acceptance passed for exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`. Integration, deployment, focused production verification, and closeout are authorized with all Sound/Play semantics frozen.
+Current gate: Closed after final owner acceptance, fast-forward integration, GitHub validation/Pages success, and focused production verification. Accepted corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07` is integrated in product release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 
 Type: Source-grounded content implementation
 
@@ -79,3 +79,13 @@ Continue the existing single worktree on `codex/vm559-archscry-media-reliability
 - Dune-Brood Nephilim is accepted for Dune Sound; Scour from Existence is preserved only in historical evidence and is not an active Dune Sound relationship.
 - Glint and every other reviewed Sound/Play relationship remain accepted and frozen.
 - No hard owner blocker remains. The only remaining work is non-semantic QA-5 integration/deployment closeout.
+
+## Final Integration And Production Result
+
+- The final corpus remains exactly 37 identities / 119 rendered rows / 73 Sound / 46 rendered Play / four suppressed Play relationships.
+- Production Dune Sound uses Dune-Brood Nephilim at exact printing `15b4ee44-28c4-4a39-9c06-aca43787954f`; Scour from Existence is not active there.
+- Production Glint retains Aberrant Return, Atarka, World Render, and Yidris, Maelstrom Wielder.
+- Full corpus QA remains PASS with zero exact/near duplicates, shared skeletons, high tile/modal echoes, or methodology/shared-composer leaks.
+- GitHub `Vox Mana Validation` run `31973451226` and Pages run `31973450385` succeeded for product release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
+- The frozen VM-551 owner-review packet remains unchanged during closeout and is registered as historical rather than regenerated against current VM-563 authority.
+- VM-560 through VM-563 research remains preserved and discoverable through `docs/research/archscry-sound-play-audit/INDEX.md`, `artifact-registry.json`, and `current-release.json`.
