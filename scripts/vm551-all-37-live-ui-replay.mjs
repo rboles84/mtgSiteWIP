@@ -623,7 +623,7 @@ async function replay(page, origin, witness) {
     assert.match(modalDetail.identityContextHeading, /^Why .+ helps explain .+ in play$/);
     assert.equal(normalizeCopy(modalDetail.identityContext).includes(normalizeCopy(tileRationale)), false, `${witness.identity_key} modal retained the complete normalized tile rationale`);
     assert.ok(modalDetail.rect && modalDetail.rect.left >= 0 && modalDetail.rect.top >= 0 && modalDetail.rect.right <= viewport.width && modalDetail.rect.bottom <= viewport.height, `${witness.identity_key} modal escaped the viewport`);
-    assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation`);
+    assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation: ${modalDetail.manaText}`);
     rationaleModalAudit = {
       card: await rationaleTrigger.evaluate((node) => node.dataset.cardName || node.dataset.cardPreviewName || ""),
       tile: tileRationale,
@@ -631,10 +631,10 @@ async function replay(page, origin, witness) {
       context: modalDetail.identityContext,
     };
     if (rationaleModalAudit.card === "Dina, Essence Brewer") {
-      assert.match(rationaleModalAudit.context, /^Dina turns a sacrificed creature into a card, life, and growth through \+1\/\+1 counters\. That concrete exchange shows Witherbloom treating life and death as usable forces in play\. At the table,/);
+      assert.match(rationaleModalAudit.context, /^Dina's sacrifice ability asks which creature's power should become life and counters/);
     }
     if (rationaleModalAudit.card === "Grand Arbiter Augustin IV") {
-      assert.match(rationaleModalAudit.context, /^Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells\. At the table,/);
+      assert.match(rationaleModalAudit.context, /^The advantage is procedural rather than explosive/);
     }
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);

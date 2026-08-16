@@ -2,9 +2,9 @@
 
 ID: VM-562
 
-Status: In Progress
+Status: Complete
 
-Current gate: Owner review of the completed seven-identity proposal calibration. No production copy promotion is authorized.
+Current gate: Frozen at checkpoint `7f79efa3b7442a202db04e6b7013b701bffc4286`; the owner authorized VM-563 to apply the accepted method.
 
 Type: Documentation / source-grounded copy calibration
 

@@ -15,29 +15,36 @@ const readJson = async (relativePath) => JSON.parse(await readFile(path.join(roo
 const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const stableId = (prefix, ...parts) => `${prefix}_${parts.join("|").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`;
+function firstDifference(actual, expected, locator = "$") {
+  if (Object.is(actual, expected)) return null;
+  if (typeof actual !== typeof expected || actual === null || expected === null) return `${locator}: ${JSON.stringify(actual)} != ${JSON.stringify(expected)}`;
+  if (Array.isArray(actual) || Array.isArray(expected)) {
+    if (!Array.isArray(actual) || !Array.isArray(expected)) return `${locator}: collection type differs`;
+    if (actual.length !== expected.length) return `${locator}.length: ${actual.length} != ${expected.length}`;
+    for (let index = 0; index < actual.length; index += 1) {
+      const difference = firstDifference(actual[index], expected[index], `${locator}[${index}]`);
+      if (difference) return difference;
+    }
+    return null;
+  }
+  if (typeof actual === "object") {
+    const actualKeys = Object.keys(actual);
+    const expectedKeys = Object.keys(expected);
+    if (actualKeys.join("|") !== expectedKeys.join("|")) return `${locator} keys: ${actualKeys.join(",")} != ${expectedKeys.join(",")}`;
+    for (const key of actualKeys) {
+      const difference = firstDifference(actual[key], expected[key], `${locator}.${key}`);
+      if (difference) return difference;
+    }
+    return null;
+  }
+  return `${locator}: ${JSON.stringify(actual)} != ${JSON.stringify(expected)}`;
+}
 const VOICE_MODAL_METHOD_RE = /\b(?:exact excerpt|bounded voice echo|approved relationship|provenance|claim[_ -]?id|source[_ -]?id|evidence status)\b/i;
 const VM558_OWNER_APPROVAL_BASIS = "OWNER_SEMANTIC_APPROVAL";
 const VM558_OWNER_VALIDATOR_VERSION = "vm558-owner-semantic-approval-v1";
-const VOICE_MODAL_OVERRIDES = new Map([
-  ["WITHERBLOOM", "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components."],
-  ["WUBRG", "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable."],
-]);
-
 function buildVoiceModalExplanation(record) {
-  if (record.slot === 2 && record.proposed_modal_explanation) {
-    if (VOICE_MODAL_METHOD_RE.test(record.proposed_modal_explanation)) throw new Error(`Voice modal copy leaks methodology: ${record.relationship_id}`);
-    return record.proposed_modal_explanation;
-  }
-  const override = VOICE_MODAL_OVERRIDES.get(record.identity_key);
-  if (override) return override;
-  const prefix = `${record.canonical_card_name}'s exact excerpt provides a bounded voice echo of `;
-  if (!record.why_voice_belongs.startsWith(prefix)) throw new Error(`Approved voice cannot produce player modal copy: ${record.relationship_id}`);
-  const semanticTail = record.why_voice_belongs
-    .slice(prefix.length)
-    .replace(/\bnamed directly\s+/i, "")
-    .replace(/[.\s]+$/, "");
-  if (!semanticTail) throw new Error(`Approved voice lacks a semantic modal tail: ${record.relationship_id}`);
-  const explanation = `The line presents ${semanticTail}.`;
+  const explanation = String(record.modal_explanation || "").trim();
+  if (!explanation) throw new Error(`Approved voice lacks explicit relationship-owned modal copy: ${record.relationship_id}`);
   if (VOICE_MODAL_METHOD_RE.test(explanation)) throw new Error(`Voice modal copy leaks methodology: ${record.relationship_id}`);
   return explanation;
 }
@@ -54,6 +61,7 @@ const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions,
 
 const voicePrintingByRelationship = new Map((voicePrintings.records || []).map((record) => [record.relationship_id, record]));
 const voicePrintingByIdentitySlot = new Map((voicePrintings.records || []).map((record) => [`${record.identity_key}|${record.slot || 1}`, record]));
+const existingVoiceByRelationship = new Map((voiceSourceInput.records || []).map((record) => [record.relationship_id, record]));
 
 const cardByOracleId = new Map([
   ...(commanderIndex.commanders || []),
@@ -202,6 +210,13 @@ for (const proposalInput of packetInput.proposals) {
 
   if (isRationale) {
     const existingRationale = existingRationaleByIdentityCard.get(`${proposal.identity_key}|${proposal.canonical_card_id}`);
+    // Approved relationship records are now the public-copy authority. Revalidation
+    // must not reconstruct or reorder their explicit tile/modal fields from the
+    // historical proposal packet.
+    if (existingRationale?.review_status === "APPROVED_PUBLIC") {
+      newRationaleRecords.push(existingRationale);
+      continue;
+    }
     newRationaleRecords.push({
       relationship_id: stableId("cardrel_auto", proposal.identity_key, proposal.canonical_card_id),
       identity_key: proposal.identity_key,
@@ -242,6 +257,11 @@ for (const proposalInput of packetInput.proposals) {
     });
   } else {
     const relationshipId = stableId("cardvoice", proposal.identity_key, proposal.canonical_card_id);
+    const existingVoice = existingVoiceByRelationship.get(relationshipId);
+    if (existingVoice?.review_status === "APPROVED_PUBLIC") {
+      voiceSourceRecords.push(existingVoice);
+      continue;
+    }
     const printingLocator = `data/dossier/card-voice-printings.source.json#relationship_id=${relationshipId}`;
     voiceSourceRecords.push({
       relationship_id: relationshipId,
@@ -268,6 +288,7 @@ for (const proposalInput of packetInput.proposals) {
       supporting_official_locators: relationshipOverride.supporting_official_locators || [],
       canonical_card_data_locator: printingLocator,
       why_voice_belongs: proposal.why_voice_belongs,
+      modal_explanation: existingVoice?.modal_explanation || "",
       relationship_bridge: proposal.relationship_bridge,
       false_positive_analysis: proposal.false_positive_analysis,
       adjacent_identity_confusion_risk: proposal.adjacent_identity_confusion_risk,
@@ -327,7 +348,7 @@ function promoteOwnerApprovedVoice(record) {
   if (record.slot !== 2 || record.review_status === "APPROVED_PUBLIC") return record;
   if (record.owner_decision !== "APPROVE") return record;
   if (record.structural_validation?.passed !== true) throw new Error(`Owner-approved slot 2 lacks passing structural validation: ${record.relationship_id}`);
-  if (!record.proposed_modal_explanation) throw new Error(`Owner-approved slot 2 lacks modal copy: ${record.relationship_id}`);
+  if (!record.modal_explanation) throw new Error(`Owner-approved slot 2 lacks explicit relationship-owned modal copy: ${record.relationship_id}`);
   return {
     ...record,
     canonical_card_data_locator: `data/dossier/card-voice-printings.source.json#relationship_id=${record.relationship_id}`,
@@ -390,7 +411,7 @@ const voiceCatalog = {
   schema_version: "1.1.0",
   source_path: "data/dossier/card-voice-relationships.source.json",
   source_sha256: digest(pretty(voiceSource)),
-  generated_policy: "APPROVED_PUBLIC only; exact excerpt plus deterministic player context from the approved relationship; no heuristic or fallback selection",
+  generated_policy: "APPROVED_PUBLIC only; exact excerpt plus explicit relationship-owned player context; no heuristic, shared composer, or fallback copy",
   records: approvedVoiceSourceRecords.map((record) => ({
     relationship_id: record.relationship_id,
     identity_key: record.identity_key,
@@ -474,7 +495,9 @@ for (const [relativePath, content] of Object.entries(outputs)) {
   if (check) {
     const actual = await readFile(absolutePath, "utf8");
     if (actual.replace(/\r\n/g, "\n") !== content.replace(/\r\n/g, "\n")) {
-      throw new Error(`Stale Packet 1 automatic approval artifact: ${relativePath}`);
+      let detail = "text differs";
+      if (relativePath.endsWith(".json")) detail = firstDifference(JSON.parse(actual), JSON.parse(content)) || "formatting differs";
+      throw new Error(`Stale Packet 1 automatic approval artifact: ${relativePath} (${detail})`);
     }
   } else {
     await mkdir(path.dirname(absolutePath), { recursive: true });

@@ -117,7 +117,8 @@
           "canonical_card_data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c46718dc-24dc-4b77-b455-aa4c89570b8d",
           "verified_field": "oracle_excerpt"
         }
-      }
+      },
+      "modal_explanation": "Isperia turns an attack against you or your planeswalker into a possible card. Opponents can still act, but aggression now supplies the Azorius player with more information and more options."
     },
     {
       "relationship_id": "cardrel_wu_1f8d4d5f",
@@ -157,8 +158,8 @@
       "limitation": "High salt score on EDHREC. Use with caution. Your playgroup dislikes 'Stax' or games that take 3+ hours.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
-      "proposed_public_rationale": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
-      "modal_explanation": "Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells.",
+      "proposed_public_rationale": "Grand Arbiter makes your white and blue spells cost less while making every opponent's spell cost more.",
+      "modal_explanation": "The advantage is procedural rather than explosive: your own sequence becomes easier to execute while each opposing action asks for one more mana. The table has to plan around a rule you established simply by keeping him in play.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Stax",
@@ -171,6 +172,14 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WU-3-cardrel_wu_1f8d4d5f",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove unsupported superlatives and explain the asymmetric tax experience.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -211,7 +220,7 @@
       "limitation": "Commander/card/product material remains auxiliary and is not authoritative Dimir semantic proof. Skip if you want a transparent table plan or a commander whose appeal does not depend on opponents' graveyards.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Lazav appears because the certified House Dimir record identifies him as the guildmaster of the guild associated with secrecy, spies, assassins, and backroom deals.",
+      "proposed_public_rationale": "When an opponent's creature card reaches their graveyard, Lazav can copy it while keeping his name, legendary status, hexproof, and the ability to copy again.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
       "proposed_tags": [
         "Clones",
@@ -224,6 +233,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "You do not choose Lazav's next identity from your own deck; you wait for an opponent to reveal a useful creature, then turn that loss into your disguise. The table's information becomes Dimir material.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-UB-1-cardrel_ub_8027a610",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace certification language with Lazav's verified copy-and-disguise play pattern.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -279,6 +297,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Rakdos cannot enter until an opponent has lost life, so the turn begins with a performance that draws blood. The more life the table loses, the more dramatically he discounts the creatures that follow.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-BR-1-cardrel_br_143a269a",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate Lord of Riots through its life-loss gate and cost reduction.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -334,6 +361,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "His entrance makes every non-Demon, non-Devil, and non-Imp face its own coin flip. You invite the spectacle knowing your creatures may fall with everyone else's, which is precisely where the risk becomes part of the show.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-BR-6-cardrel_br_03a4b997",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate Showstopper through its creature-by-creature coin-flip risk.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -380,7 +416,7 @@
       "limitation": "You don't want to play an 8-mana commander.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Borborygmos appears because the certified Gruul record identifies him as the leader of the Burning-Tree clan.",
+      "proposed_public_rationale": "Borborygmos turns combat damage into lands in hand, then lets you discard those lands to deal 3 damage to any target.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
       "proposed_tags": [
         "Lands",
@@ -393,6 +429,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Connecting once stocks the next barrage: lands revealed from the top three become ammunition rather than future land drops. Gruul force continues after combat because the landscape itself gets thrown at the next target.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-RG-1-cardrel_rg_b7505737",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace internal identity-role wording with the card's land-fed combat loop.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -439,6 +484,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Nikya doubles the mana your lands produce, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-RG-3-cardrel_rg_ebf3fd80",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace the shared Gruul modal with Nikya's deck-building bargain.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -472,7 +526,7 @@
       "limitation": "You want to play a deck with more than 5-10 noncreature spells.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 4,
-      "proposed_public_rationale": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
+      "proposed_public_rationale": "Ruric Thar must attack when able and deals 6 damage to any player who casts a noncreature spell.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Hatebears",
@@ -485,7 +539,24 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Ruric Thar leaves little room to wait behind utility spells: he charges every combat, and each noncreature spell carries a six-damage price. His Ghor assault turns Gruul's hostility toward over-civilized solutions into a table rule.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-RG-4-cardrel_rg_6ed13a89",
+        "change_class": "SOURCE_INTAKE_RESOLVED",
+        "reason": "A newly inspectable official Gatecrash guide establishes Ruric Thar as Ghor leader and the clan's assault pattern; exact Oracle text supplies the play bridge.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
+      },
+      "vm563_source_intake": {
+        "inspection_status": "INSPECTED_OFFICIAL_WEB",
+        "locator": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2#the-gruul-clans",
+        "establishes": "The official guide identifies Ruric Thar as Ghor leader and describes the clan's frequent savage assaults."
+      },
+      "supporting_official_locators": [
+        "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2#the-gruul-clans"
+      ]
     },
     {
       "relationship_id": "cardrel_wg_e94ef397",
@@ -531,7 +602,7 @@
       "limitation": "Skip if you dislike token bookkeeping, longer board-development games, or populate needing good token targets.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Trostani appears because the certified Selesnya record identifies the three dryads as Mat'Selesnya's speaker for Life, Order, and Harmony.",
+      "proposed_public_rationale": "Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
       "proposed_tags": [
         "Tokens",
@@ -544,6 +615,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. Wider creature development also restores life according to each new creature's toughness.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WG-1-cardrel_wg_e94ef397",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace office/authority language with Trostani's creature-and-populate play pattern.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -585,7 +665,7 @@
       "limitation": "Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you dislike sacrifice loops, death-trigger stacks, or incremental value engines.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce.",
+      "proposed_public_rationale": "Teysa Karlov makes your permanents' death triggers happen twice, while giving your creature tokens vigilance and lifelink.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Aristocrats",
@@ -598,6 +678,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "A creature dying is no longer a single transaction: every eligible trigger pays twice. Meanwhile, token creatures can attack without giving up defense and can return life, so the workforce remains useful before and after death.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WB-1-cardrel_wb_644eeefd",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove product-fit language and explain Teysa Karlov's doubled death economy.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -653,6 +742,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "A black creature's death leaves a white Spirit behind, and three white creatures can then be sacrificed to exile a threat. Teysa keeps moving bodies between roles until enough small obligations become removal.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WB-2-cardrel_wb_8191342b",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate this Teysa through her death-to-token-to-exile sequence.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -694,7 +792,7 @@
       "limitation": "Can become removal-heavy and commander-centric. Discovery-only story-corpus claim IDs removed from this auxiliary support chain. Commander/card/product material remains auxiliary and is not authoritative Orzhov semantic proof. Skip if you want a token-sacrifice deck or dislike commander-damage pressure backed by cheap lifegain triggers.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 5,
-      "proposed_public_rationale": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence.",
+      "proposed_public_rationale": "Each lifegain event puts two +1/+1 counters on Karlov, and removing six of those counters exiles a creature.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Lifegain",
@@ -707,6 +805,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Many small lifegain events can build Karlov faster than one large gain. Once he has six counters to spend, the accumulated payments become a sentence against the creature you choose.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WB-5-cardrel_wb_647d7988",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate Karlov through repeated lifegain events and counter expenditure while removing abstract methodology-adjacent wording.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -761,7 +868,8 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Obzedat drains one opponent on arrival, then can leave before your end step and return with haste on your next upkeep. The Ghost Council collects its payment while repeatedly stepping beyond the table's ordinary timing for removal."
     },
     {
       "relationship_id": "cardrel_ur_33666a98",
@@ -819,7 +927,7 @@
       "limitation": "Skip if your table dislikes compact draw-damage combos, repeated triggers, or commanders that become the whole deck plan.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage.",
+      "proposed_public_rationale": "Niv-Mizzet draws whenever any player casts an instant or sorcery, then turns every card you draw into 1 damage to a target.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Spellslinger",
@@ -832,6 +940,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "A spell on either side of the table feeds the experiment. Each new card becomes a precise point of damage, so a long exchange of instants and sorceries lets Niv-Mizzet keep observing and answering at the same time.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-UR-1-cardrel_ur_33666a98",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace native-bridge wording and the shared modal with the spell-draw-damage loop.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -877,6 +994,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Everyone sees the top card, but only you can turn a revealed instant or sorcery into two casts. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-UR-2-cardrel_ur_095d9719",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate Melek through public information and top-of-library spell copying.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -922,7 +1048,8 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Casting a spell above your current experience earns a counter, and every counter reduces later instant and sorcery costs. Mizzix rewards choosing a sequence that keeps reaching just beyond what the last experiment taught you."
     },
     {
       "relationship_id": "cardrel_ur_899d58dc",
@@ -993,7 +1120,8 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Every two mana becomes a point of precisely aimed damage, and hitting a player can replace the spent action with a card. Niv-Mizzet lets the Izzet player alternate between testing targets and drawing the next possibility."
     },
     {
       "relationship_id": "cardrel_bg_87e65e36",
@@ -1051,6 +1179,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to drain each opponent by its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-BG-1-cardrel_bg_87e65e36",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain Jarad's distinct graveyard growth, sacrifice, and return costs.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1090,7 +1227,7 @@
       "limitation": "Skip if you want a low-curve commander or a deck that does not rely on having another large creature first.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "Prime Speaker Zegana appears because the certified Simic record identifies her as the former Prime Speaker associated with Utopian incremental change.",
+      "proposed_public_rationale": "Zegana measures your strongest other creature, enters with that many +1/+1 counters, then draws cards equal to her resulting power.",
       "proposal_origin": "NEW_SOURCE_BOUNDED_DRAFT",
       "proposed_tags": [
         "Big Creatures",
@@ -1103,6 +1240,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Casting Zegana too early leaves both halves small. Waiting until one of your other creatures has grown turns that earlier investment into a much larger Zegana and a deeper refill, so Simic improvement happens in stages rather than all at once.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-UG-1-cardrel_ug_311e9368",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace internal role evidence in the tile with the promised play sequence, then replace the surviving shared-composer modal because final QA evaluates the resulting pair rather than only newly proposed strings.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1142,7 +1288,7 @@
       "limitation": "Discovery-only story-corpus claims removed from this support chain during Gate 3. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You prefer a slow, reactive deck or don't enjoy the combat phase.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 1,
-      "proposed_public_rationale": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force.",
+      "proposed_public_rationale": "Aurelia attacks with haste, untaps your creatures, and creates a second combat the first time she attacks each turn.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Extra Combats",
@@ -1154,6 +1300,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "The first charge prepares the second one. Creatures that attacked stand ready again, letting the Legion correct targets, press a weakened defender, or commit a new formation before the turn ends.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WR-1-cardrel_wr_0f5a3a09",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove unsupported definitive language and explain Aurelia's coordinated two-combat sequence.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1200,6 +1355,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Tajic wants to join the attack: mentor strengthens a smaller attacker, while his prevention shield keeps the rest of your creatures safe from noncombat damage. Advancing the team and protecting it happen in the same formation.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WR-3-cardrel_wr_ae6f21a2",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Differentiate Tajic through mentor plus team protection.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1237,7 +1401,7 @@
       "limitation": "Feather is retained only through bounded leadership-transition support; story-corpus claims removed. Commander/card/product material remains auxiliary and is not authoritative Boros semantic proof. You dislike tracking many triggers per turn.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 4,
-      "proposed_public_rationale": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value.",
+      "proposed_public_rationale": "Feather returns an instant or sorcery that targeted one of your creatures to your hand at the next end step instead of letting it stay in the graveyard.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Spellslinger",
@@ -1249,7 +1413,24 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Targeting one creature becomes preparation for another coordinated attack: the spell resolves now, then returns for a later turn. Feather keeps Boros combat tricks in service instead of treating them as one-use bursts.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WR-4-cardrel_wr_aa219936",
+        "change_class": "SOURCE_INTAKE_RESOLVED",
+        "reason": "Official Wizards design notes establish Feather as Boros and describe the combat-oriented recurring-target spell mechanic.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
+      },
+      "vm563_source_intake": {
+        "inspection_status": "INSPECTED_OFFICIAL_WEB",
+        "locator": "https://magic.wizards.com/en/news/making-magic/war-games-2019-04-22#feather-the-redeemed",
+        "establishes": "Mark Rosewater identifies Feather as a Boros Legion member and describes her combat-oriented recurring-target spell design."
+      },
+      "supporting_official_locators": [
+        "https://magic.wizards.com/en/news/making-magic/war-games-2019-04-22#feather-the-redeemed"
+      ]
     },
     {
       "relationship_id": "cardrel_lorehold_61a41cf1",
@@ -1309,6 +1490,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "The play pattern is a series of discoveries: on each opponent's upkeep, you can trade away a card for a new first draw, and an instant or sorcery found that way can be cast for its {2} miracle cost.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-LOREHOLD-1-cardrel_lorehold_61a41cf1",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace the identity-local shared modal with the exact discard, first-draw, and miracle sequence that makes this card's discovery theme playable.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1384,7 +1574,8 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
-      }
+      },
+      "modal_explanation": "Cards leaving your graveyard create Spirits, while Quintorius can discard, draw, and mill to keep that history moving. The graveyard is not a sealed archive; its contents repeatedly return as present action."
     },
     {
       "relationship_id": "cardrel_lorehold_43832745",
@@ -1431,7 +1622,7 @@
       "limitation": "You want a lower mana-value commander; 7 mana is a steep investment in Boros.",
       "review_status": "APPROVED_PUBLIC",
       "display_priority": 3,
-      "proposed_public_rationale": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity.",
+      "proposed_public_rationale": "When Velomachus attacks, it looks seven cards deep and can cast an instant or sorcery with mana value no greater than its power without paying that spell's mana cost.",
       "proposal_origin": "EXISTING_REPOSITORY_COPY",
       "proposed_tags": [
         "Spellslinger",
@@ -1443,6 +1634,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Each attack searches seven cards deep for a spell Velomachus can put to work immediately. Its power sets the limit, so making the Dragon larger also expands what the next attack can uncover.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-LOREHOLD-3-cardrel_lorehold_43832745",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Keep the repaired tile, but replace deck-tech optimization detail with the card-specific attack, discovery, and immediate-use loop that teaches Lorehold through play.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1539,6 +1739,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a"
         }
+      },
+      "modal_explanation": "The largest instant or sorcery you cast before combat sets the Elemental's size. Choosing when to spend the showpiece spell also chooses how large, fast, and visible Rootha's performance will be.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-PRISMARI-1-cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer and explain Rootha's spell-to-performance timing.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1602,7 +1811,7 @@
       },
       "display_priority": 1,
       "proposed_public_rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
-      "modal_explanation": "Dina turns a sacrificed creature into a card, life, and growth through +1/+1 counters. That concrete exchange shows Witherbloom treating life and death as usable forces in play.",
+      "modal_explanation": "Dina's sacrifice ability asks which creature's power should become life and counters, while her separate draw trigger rewards the first sacrifice each turn. One body can nourish several parts of the board, but timing decides when every benefit is available.",
       "proposal_origin": "packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -1623,6 +1832,14 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072"
         }
+      },
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WITHERBLOOM-1-cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove tile-level mechanical repetition while retaining the approved life-and-death exchange.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1715,6 +1932,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972"
         }
+      },
+      "modal_explanation": "The first X spell each turn adds two counters, and those counters reduce the cost of the next turn's first X spell. Zimone turns one solved equation into better terms for solving the next.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-QUANDRIX-1-cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer and explain Zimone's recursive X-spell scaling.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1807,6 +2033,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba"
         }
+      },
+      "modal_explanation": "Breena changes whom the table is willing to attack. Swinging at a player with the highest life can pay the attacker a card, while you decide which creature receives the counters and turns that public argument into your advantage.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-SILVERQUILL-1-cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain the political choice and asymmetric reward created by Breena.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1900,6 +2135,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02"
         }
+      },
+      "modal_explanation": "Giada asks you to build the flock in order. Every Angel already in play makes the next arrival larger, while her mana ability helps keep that sequence moving.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-W-1-cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace generic White language with Giada's cumulative Angel sequence.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -1993,6 +2237,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd"
         }
+      },
+      "modal_explanation": "Each {B} in a cost becomes a choice between mana and two life. K'rrik asks how far you can spend your life total now and whether lifelink will earn enough of it back.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-B-1-cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace the shared composer with the card's actual resource decision and its built-in route for recovering some of the life spent. The final wording tracks the Oracle phrase 'for each {B} in a cost' rather than generalizing to every black mana symbol.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2086,6 +2339,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_u_ea1eb902_a23c_44ff_9169_19baf71de238"
         }
+      },
+      "modal_explanation": "Holding an instant for the right moment no longer means giving up board development: after the spell resolves, Talrand leaves a flying Drake behind. Blue's patience becomes a growing air force.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-U-1-cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain the card-specific reward for holding and timing spells.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2158,7 +2420,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
+      "proposed_public_rationale": "Torbran adds 2 damage whenever a red source you control would damage an opponent or one of their permanents.",
       "proposal_origin": "packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -2179,6 +2441,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a"
         }
+      },
+      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Small red sources become meaningful threats, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-R-1-cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Ground Red's direct action in Torbran's damage replacement effect and remove a repeated example scaffold.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2272,6 +2543,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51"
         }
+      },
+      "modal_explanation": "Azusa asks you to have lands ready in hand and rewards doing the natural thing more often. Two extra land plays accelerate every later creature and mana commitment without changing what the deck is built from.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-G-1-cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer while preserving the land-growth example.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2325,6 +2605,15 @@
         "approved_by": "Vox Mana owner",
         "decision_locator": "docs/plans/vm551-gate-b1-product-fit/card-rationale-owner-approval.md#owner-decision",
         "applied_on": "2026-08-12"
+      },
+      "modal_explanation": "Rafiq asks the rest of your board to stay back while one creature attacks alone. Exalted support and double strike concentrate the whole formation's strength in a single chosen champion.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-BANT-1-cardrel_bant_c6e17443",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace broad Bant language with the attack-alone commitment.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2416,6 +2705,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_esper_3268251a_8292_44f9_9267_c961b182f739"
         }
+      },
+      "modal_explanation": "A noncreature spell costing three or more drains every opponent for 2, immediately meeting part of the four-life threshold that can draw a card at the end step. Esper planning becomes a repeatable question of how to cross that known line each turn.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-ESPER-1-cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain the interaction between Y'shtola's two thresholds.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2519,6 +2817,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb"
         }
+      },
+      "modal_explanation": "Kess gives one spent spell a second and final use on each of your turns. Choosing the right card from the graveyard means yesterday's answer can become today's removal, protection, or finishing move.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-GRIXIS-1-cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer and explain Kess's once-per-turn reuse choice.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2615,6 +2922,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_jund_868882d2_ed4e_4171_a17c_478a341080fb"
         }
+      },
+      "modal_explanation": "Paying more commander tax makes Prossh bring more Kobolds, so repeated casts rebuild the food supply. Any one of those bodies can be sacrificed at once to increase his power for the current turn.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-JUND-1-cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain Prossh's cast scaling and immediate sacrifice conversion.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2718,6 +3034,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209"
         }
+      },
+      "modal_explanation": "Every counter event on your creatures can become damage to an opponent. Shalai and Hallar make growing the board and pressuring the table the same act, so abundance never has to remain passive.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-NAYA-1-cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer and explain counter growth becoming direct pressure.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2806,6 +3131,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121"
         }
+      },
+      "modal_explanation": "High toughness stops being merely defensive: Felothar lets those creatures attack and deal combat damage with the same stat that kept them alive. If a creature must be spent, its toughness also sets how many cards you draw before discarding by power.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-ABZAN-1-cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain how Felothar converts defensive investment into combat and cards.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -2906,6 +3240,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d"
         }
+      },
+      "modal_explanation": "Every creature spell grows Eshki, but power four and power six are the important thresholds. Sequencing larger creatures turns the same instinctive act—casting the next beast—into cards first and table-wide damage later.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-TEMUR-1-cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain Eshki's escalating power thresholds.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3002,6 +3345,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_sultai_0177b410_b559_491f_b393_ac3ed774653c"
         }
+      },
+      "modal_explanation": "Each creature you cast back costs three other graveyard cards, and the return puts two +1/+1 counters on Kotis. The choice is which dead card is worth saving and which three you are willing to exile to use it.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-SULTAI-1-cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove leaked research language and replace it with the exact graveyard trade the player repeatedly makes.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3065,7 +3417,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks.",
+      "proposed_public_rationale": "Whenever Zurgo attacks, mobilize creates a temporary tapped and attacking Warrior token.",
       "proposal_origin": "packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3086,6 +3438,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb"
         }
+      },
+      "modal_explanation": "Zurgo's mobilized Warrior is meant to be temporary. When it leaves after attacking, you draw a card, so each charge spends a body now and returns material for the next attack.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-MARDU-1-cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain the temporary attacker and leave-the-battlefield payoff without a repeated identity-example scaffold.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3182,6 +3543,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212"
         }
+      },
+      "modal_explanation": "The first spell prepares the flurry; the second earns either a copy when it has a target or a card when it does not. Jeskai timing appears in the decision about which effect should occupy that second-spell position.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-JESKAI-1-cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer and explain the second-spell sequencing choice.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3248,7 +3618,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects.",
+      "proposed_public_rationale": "Breya enters with two Thopter artifact tokens, then can sacrifice two artifacts for damage, creature removal, or life.",
       "proposal_origin": "packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3269,6 +3639,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_yore_d460a9e2_5a7d_4562_880e_45174be19a9d"
         }
+      },
+      "modal_explanation": "Breya arrives with the two artifacts her activation needs, then asks which result matters now: damage, creature removal, or life. The invention is useful because its pieces can be converted into different answers on demand.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-YORE-1-cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain Breya's enter-then-convert choice without generic engine or identity-example language.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3360,6 +3739,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f"
         }
+      },
+      "modal_explanation": "Yidris must connect in combat before the turn changes shape. Once he does, each spell from your hand can uncover a cheaper spell, rewarding you for using the opening immediately and accepting that the exact chain cannot be planned in advance.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-GLINT-1-cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain the combat gate and cascade uncertainty.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3447,6 +3835,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_dune_e54d207c_51b8_458e_86a1_2633ac064c8e"
         }
+      },
+      "modal_explanation": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-DUNE-1-cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Explain Saskia's chosen-player commitment and repeated combat damage.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3534,6 +3931,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_ink_53ee4254_fef7_49ec_aafc_0320987764e6"
         }
+      },
+      "modal_explanation": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-INK-1-cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Replace abstract commons language with the exact asymmetric table choice created by the end-step trigger.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3600,7 +4006,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps.",
+      "proposed_public_rationale": "At the beginning of each of your end steps, Atraxa proliferates the counters you choose to advance.",
       "proposal_origin": "packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3621,6 +4027,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb"
         }
+      },
+      "modal_explanation": "Atraxa does not create the first counter; she rewards you for placing counters where they will matter before your end step. Proliferate then advances every chosen counter-bearing permanent or player together.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WITCH-1-cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove methodology language and explain Atraxa's setup-then-proliferate sequence.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3696,7 +4111,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
+      "proposed_public_rationale": "Omarthis shows one way Colorless can support +1/+1 counter growth: it grows when another colorless creature receives counters, then manifests cards equal to its counters when it dies.",
       "proposal_origin": "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3717,6 +4132,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_colorless_50676eba_a55a_4749_bb07_74a30e015781"
         }
+      },
+      "modal_explanation": "Choose X when you cast Omarthis, then let counter events on your other colorless creatures keep adding to it. Its size and its eventual manifest payout grow from the same accumulated counters, so one colorless counter system does both jobs.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-COLORLESS-1-cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+        "change_class": "SEMANTIC_REMEDIATION",
+        "reason": "Remove the internal word 'bounded' from the otherwise accepted tile, and replace the generic modal infrastructure list with the exact counter sequence and death payoff.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     },
     {
@@ -3792,7 +4216,7 @@
         }
       },
       "display_priority": 2,
-      "proposed_public_rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
+      "proposed_public_rationale": "Zhulodok shows the Eldrazi-scale side of Colorless: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
       "proposal_origin": "packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",
@@ -3813,7 +4237,8 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333"
         }
-      }
+      },
+      "modal_explanation": "The work happens before the seven-mana spell: you build enough colorless mana, keep the large spell in hand, and then accept two unpredictable chains when it is cast. Zhulodok makes scale the trigger for abundance."
     },
     {
       "relationship_id": "cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
@@ -3927,6 +4352,15 @@
           "role": "bounded_deterministic_composition",
           "proposal_id": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
         }
+      },
+      "modal_explanation": "Ulalek's five-color identity opens the deck's breadth, but the trigger still asks for two colorless mana at the precise moment an Eldrazi is cast. Keeping that payment available turns one spell and the abilities around it into a coordinated wave of copies.",
+      "copy_revision": {
+        "task": "VM-563",
+        "ledger_id": "PLAY-WUBRG-1-cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
+        "change_class": "STYLE_ONLY_CORPUS_CLEANUP",
+        "reason": "Remove the shared composer while keeping Five-Color breadth non-doctrinal and the colorless payment exact.",
+        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }
     }
   ],

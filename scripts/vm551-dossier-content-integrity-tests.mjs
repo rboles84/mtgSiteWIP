@@ -301,11 +301,13 @@ const arbiterRelationship = cardRationaleSource.records.find((record) => record.
 const arbiterCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Grand Arbiter Augustin IV");
 const ulalekCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Ulalek, Fused Atrocity");
 assert.ok(dinaCatalogRecord?.modal_explanation.startsWith(dinaRelationship?.modal_explanation || "__missing__"), "Dina modal context must preserve her approved relationship explanation");
-assert.match(dinaCatalogRecord?.modal_explanation || "", /Dina turns a sacrificed creature into a card, life, and growth through \+1\/\+1 counters/);
-assert.match(dinaCatalogRecord?.modal_explanation || "", /Witherbloom treating life and death as usable forces/);
+assert.match(dinaCatalogRecord?.rationale || "", /turning a sacrificed creature into a card, life, and \+1\/\+1 counters/);
+assert.match(dinaCatalogRecord?.modal_explanation || "", /which creature's power should become life and counters/i);
+assert.match(dinaCatalogRecord?.modal_explanation || "", /separate draw trigger rewards the first sacrifice each turn/i);
 assert.notEqual(dinaCatalogRecord?.modal_explanation, identityDossierByKey.WITHERBLOOM.how_this_plays.mechanical_expression, "Dina cannot fall back to a generic Witherbloom mechanics list");
 assert.ok(arbiterCatalogRecord?.modal_explanation.startsWith(arbiterRelationship?.modal_explanation || "__missing__"), "the additional Azorius regression must preserve its approved card relationship");
-assert.match(arbiterCatalogRecord?.modal_explanation || "", /Grand Arbiter.+reducing the cost of your white and blue spells.+increasing the cost of opponents' spells/);
+assert.match(arbiterCatalogRecord?.rationale || "", /white and blue spells cost less.+opponent.+spell cost more/i);
+assert.match(arbiterCatalogRecord?.modal_explanation || "", /each opposing action asks for one more mana/i);
 assert.notEqual(arbiterCatalogRecord?.modal_explanation, identityDossierByKey.WU.how_this_plays.mechanical_expression, "Grand Arbiter cannot fall back to a generic Azorius mechanics list");
 assert.match(ulalekCatalogRecord?.rationale || "", /access to all five colors/);
 assert.doesNotMatch(ulalekCatalogRecord?.rationale || "", /Five-Color access/);
@@ -313,6 +315,9 @@ assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use A
 const renderedBogbeastCost = renderManaCost("{4}{G}");
 assert.match(renderedBogbeastCost, /\bms-4\b/);
 assert.match(renderedBogbeastCost, /\bms-g\b/);
+const renderedUlalekCost = renderManaCost("{C/W}{C/U}{C/B}{C/R}{C/G}");
+for (const manaClass of ["cw", "cu", "cb", "cr", "cg"]) assert.match(renderedUlalekCost, new RegExp(`\\bms-${manaClass}\\b`));
+assert.doesNotMatch(renderedUlalekCost, /\{[^}]+\}/, "colorless-hybrid mana costs must not leak raw brace notation in Sound/Play card details");
 assert.doesNotMatch(renderedBogbeastCost, /\{4\}|\{G\}/);
 assert.match(cssSource, /\.public-three-item-grid\{\s*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);

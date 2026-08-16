@@ -17,7 +17,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 ### Existing approved rationale(s)
 
 - **Isperia, Supreme Judge:** Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers. (`OWNER_APPROVED`)
-- **Grand Arbiter Augustin IV:** The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl. (`OWNER_APPROVED`)
+- **Grand Arbiter Augustin IV:** Grand Arbiter makes your white and blue spells cost less while making every opponent's spell cost more. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -50,7 +50,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Lazav, Dimir Mastermind:** Lazav appears because the certified House Dimir record identifies him as the guildmaster of the guild associated with secrecy, spies, assassins, and backroom deals. (`OWNER_APPROVED`)
+- **Lazav, Dimir Mastermind:** When an opponent's creature card reaches their graveyard, Lazav can copy it while keeping his name, legendary status, hexproof, and the ability to copy again. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -117,9 +117,9 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Borborygmos Enraged:** Borborygmos appears because the certified Gruul record identifies him as the leader of the Burning-Tree clan. (`OWNER_APPROVED`)
+- **Borborygmos Enraged:** Borborygmos turns combat damage into lands in hand, then lets you discard those lands to deal 3 damage to any target. (`OWNER_APPROVED`)
 - **Nikya of the Old Ways:** She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters. (`OWNER_APPROVED`)
-- **Ruric Thar, the Unbowed:** A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells. (`OWNER_APPROVED`)
+- **Ruric Thar, the Unbowed:** Ruric Thar must attack when able and deals 6 damage to any player who casts a noncreature spell. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -152,7 +152,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Trostani, Selesnya's Voice:** Trostani appears because the certified Selesnya record identifies the three dryads as Mat'Selesnya's speaker for Life, Order, and Harmony. (`OWNER_APPROVED`)
+- **Trostani, Selesnya's Voice:** Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -186,9 +186,9 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Teysa Karlov:** Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce. (`OWNER_APPROVED`)
+- **Teysa Karlov:** Teysa Karlov makes your permanents' death triggers happen twice, while giving your creature tokens vigilance and lifelink. (`OWNER_APPROVED`)
 - **Teysa, Orzhov Scion:** This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine. (`OWNER_APPROVED`)
-- **Karlov of the Ghost Council:** Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence. (`OWNER_APPROVED`)
+- **Karlov of the Ghost Council:** Each lifegain event puts two +1/+1 counters on Karlov, and removing six of those counters exiles a creature. (`OWNER_APPROVED`)
 - **Obzedat, Ghost Council:** Obzedat is the iconic old Orzhov power structure: deathless elites draining value, dodging consequences, and returning to collect again. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
@@ -222,7 +222,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Niv-Mizzet, Parun:** He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage. (`OWNER_APPROVED`)
+- **Niv-Mizzet, Parun:** Niv-Mizzet draws whenever any player casts an instant or sorcery, then turns every card you draw into 1 damage to a target. (`OWNER_APPROVED`)
 - **Melek, Izzet Paragon:** Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique. (`OWNER_APPROVED`)
 - **Mizzix of the Izmagnus:** Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous. (`OWNER_APPROVED`)
 - **Niv-Mizzet, Dracogenius:** This is a slower, more table-readable way to center Niv-Mizzet as Izzet identity: intellect, fire, and repeatable resource conversion. (`OWNER_APPROVED`)
@@ -291,7 +291,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Prime Speaker Zegana:** Prime Speaker Zegana appears because the certified Simic record identifies her as the former Prime Speaker associated with Utopian incremental change. (`OWNER_APPROVED`)
+- **Prime Speaker Zegana:** Zegana measures your strongest other creature, enters with that many +1/+1 counters, then draws cards equal to her resulting power. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -324,9 +324,9 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Aurelia, the Warleader:** She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force. (`OWNER_APPROVED`)
+- **Aurelia, the Warleader:** Aurelia attacks with haste, untaps your creatures, and creates a second combat the first time she attacks each turn. (`OWNER_APPROVED`)
 - **Tajic, Legion's Edge:** A low-cost commander that protects your team from damage and encourages offensive growth. (`OWNER_APPROVED`)
-- **Feather, the Redeemed:** A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value. (`OWNER_APPROVED`)
+- **Feather, the Redeemed:** Feather returns an instant or sorcery that targeted one of your creatures to your hand at the next end step instead of letting it stay in the graveyard. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -361,7 +361,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 - **Lorehold, the Historian:** Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand. (`OWNER_APPROVED`)
 - **Quintorius, History Chaser:** Represents the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research. (`OWNER_APPROVED`)
-- **Velomachus Lorehold:** The founder of the college and the original face of Lorehold's spellslinger-aggro identity. (`OWNER_APPROVED`)
+- **Velomachus Lorehold:** When Velomachus attacks, it looks seven cards deep and can cast an instant or sorcery with mana value no greater than its power without paying that spell's mana cost. (`OWNER_APPROVED`)
 
 ### Source-complete public voice relationship(s)
 
@@ -634,7 +634,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Torbran, Thane of Red Fell:** Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Torbran, Thane of Red Fell:** Torbran adds 2 damage whenever a red source you control would damage an opponent or one of their permanents. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete public voice relationship(s)
 
@@ -967,7 +967,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Zurgo Stormrender:** Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Zurgo Stormrender:** Whenever Zurgo attacks, mobilize creates a temporary tapped and attacking Warrior token. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete public voice relationship(s)
 
@@ -1033,7 +1033,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Breya, Etherium Shaper:** Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Breya, Etherium Shaper:** Breya enters with two Thopter artifact tokens, then can sacrifice two artifacts for damage, creature removal, or life. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete public voice relationship(s)
 
@@ -1169,7 +1169,7 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Atraxa, Praetors' Voice:** Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Atraxa, Praetors' Voice:** At the beginning of each of your end steps, Atraxa proliferates the counters you choose to advance. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete public voice relationship(s)
 
@@ -1204,8 +1204,8 @@ Automatic slot-1 approvals retain their evidence chain and validator result. VM-
 
 ### Existing approved rationale(s)
 
-- **Omarthis, Ghostfire Initiate:** Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies. (`EVIDENCE_VALIDATED_AUTOMATIC`)
-- **Zhulodok, Void Gorger:** Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Omarthis, Ghostfire Initiate:** Omarthis shows one way Colorless can support +1/+1 counter growth: it grows when another colorless creature receives counters, then manifests cards equal to its counters when it dies. (`EVIDENCE_VALIDATED_AUTOMATIC`)
+- **Zhulodok, Void Gorger:** Zhulodok shows the Eldrazi-scale side of Colorless: colorless spells cast from hand with mana value seven or greater receive cascade twice. (`EVIDENCE_VALIDATED_AUTOMATIC`)
 
 ### Source-complete public voice relationship(s)
 

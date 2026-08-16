@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_path": "data/dossier/card-rationale-relationships.source.json",
-  "source_sha256": "982741c4463120c74642dcae5da5a9caea4fd0f832aaea6bc1453680d32bae7b",
+  "source_sha256": "d8f4909a6da710501a8458160e2a4eef107e4655b4726d5f4af79d052dac8f9c",
   "generated_policy": "APPROVED_PUBLIC only; card-specific relationship plus approved identity table experience; no profile-only fallback",
   "records": [
     {
@@ -14,7 +14,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=48e6d3d8-2f27-4017-acdd-40bce8cdbc02"
       },
       "rationale": "Giada gives White's coordinated creature growth a direct example: she helps cast Angels, and each later Angel enters with counters for the Angels already assembled.",
-      "modal_explanation": "At the table, Giada, Font of Hope carries that card action into this reading's larger plan: reliable protection, disciplined pressure, and structure that keeps returning to the board.",
+      "modal_explanation": "Giada asks you to build the flock in order. Every Angel already in play makes the next arrival larger, while her mana ability helps keep that sequence moving.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -42,7 +42,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ea1eb902-a23c-44ff-9169-19baf71de238"
       },
       "rationale": "Talrand turns Blue's instant-and-sorcery plan into a visible board by creating a flying Drake whenever you cast one of those spells.",
-      "modal_explanation": "At the table, Talrand, Sky Summoner carries that card action into this reading's larger plan: held mana, careful selection, flexible interaction, and turns shaped by timing rather than raw force.",
+      "modal_explanation": "Holding an instant for the right moment no longer means giving up board development: after the spell resolves, Talrand leaves a flying Drake behind. Blue's patience becomes a growing air force.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -70,7 +70,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=cbe3a4e7-5dbe-4f58-8ee6-a1762b65acfd"
       },
       "rationale": "K'rrik makes Black's resource-conversion pattern literal by letting life pay for black mana symbols and rewarding additional black spells with +1/+1 counters.",
-      "modal_explanation": "At the table, K'rrik, Son of Yawgmoth carries that card action into this reading's larger plan: costs converted into options, lost pieces returned to use, and leverage preserved through difficult exchanges.",
+      "modal_explanation": "Each {B} in a cost becomes a choice between mana and two life. K'rrik asks how far you can spend your life total now and whether lifelink will earn enough of it back.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -97,8 +97,8 @@
         "scryfall_id": "79f591cd-d277-4ba5-b1bf-1c09cac9cb8a",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8c3495bf-02e7-4ad9-949d-92eb3d2b662a"
       },
-      "rationale": "Torbran gives Red's direct-action pressure a clear example by increasing damage from red sources to opponents and their permanents.",
-      "modal_explanation": "At the table, Torbran, Thane of Red Fell carries that card action into this reading's larger plan: fast commitment, visible momentum, and turns that use the available opening before it closes.",
+      "rationale": "Torbran adds 2 damage whenever a red source you control would damage an opponent or one of their permanents.",
+      "modal_explanation": "Torbran changes the arithmetic before damage is dealt. Small red sources become meaningful threats, rewarding a turn where several modest hits arrive together instead of waiting for one oversized play.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -126,7 +126,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6c2c8bf3-9bf8-4a86-89d3-3bb36260dc51"
       },
       "rationale": "Azusa gives Green's land-based growth a direct Commander example by allowing two additional land plays on each of your turns.",
-      "modal_explanation": "At the table, Azusa, Lost but Seeking carries that card action into this reading's larger plan: land-fed development, creature-centered value, and patient growth becoming visible board strength.",
+      "modal_explanation": "Azusa asks you to have lands ready in hand and rewards doing the natural thing more often. Two extra land plays accelerate every later creature and mana commitment without changing what the deck is built from.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -154,7 +154,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c46718dc-24dc-4b77-b455-aa4c89570b8d"
       },
       "rationale": "Isperia represents Azorius leadership, and her card rewards you with additional information when opponents attack you or your planeswalkers.",
-      "modal_explanation": "At the table, Isperia, Supreme Judge carries that card action into this reading's larger plan: restricted action, procedural pressure, and clean enforcement.",
+      "modal_explanation": "Isperia turns an attack against you or your planeswalker into a possible card. Opponents can still act, but aggression now supplies the Azorius player with more information and more options.",
       "tags": [
         "Control",
         "Card Draw",
@@ -186,8 +186,8 @@
         "scryfall_id": "f43748ea-1d65-4ee8-9c66-221412a284c0",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1f8d4d5f-e82f-45f3-823e-1bb6b536eb18"
       },
-      "rationale": "The ultimate expression of Azorius tax-based gameplay; he slows the game down to a crawl.",
-      "modal_explanation": "Grand Arbiter makes Azorius rule-setting concrete by reducing the cost of your white and blue spells while increasing the cost of opponents' spells. At the table, this can mean restricted action, procedural pressure, and clean enforcement.",
+      "rationale": "Grand Arbiter makes your white and blue spells cost less while making every opponent's spell cost more.",
+      "modal_explanation": "The advantage is procedural rather than explosive: your own sequence becomes easier to execute while each opposing action asks for one more mana. The table has to plan around a rule you established simply by keeping him in play.",
       "tags": [
         "Stax",
         "Taxing",
@@ -218,8 +218,8 @@
         "scryfall_id": "003dc436-a3af-4e65-b4f8-387155fbcb85",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8027a610-613e-4640-9840-c8778694f312"
       },
-      "rationale": "Lazav appears because the certified House Dimir record identifies him as the guildmaster of the guild associated with secrecy, spies, assassins, and backroom deals.",
-      "modal_explanation": "At the table, Lazav, Dimir Mastermind carries that card action into this reading's larger plan: hidden pressure, information advantage, and wins that arrive before the table understands them.",
+      "rationale": "When an opponent's creature card reaches their graveyard, Lazav can copy it while keeping his name, legendary status, hexproof, and the ability to copy again.",
+      "modal_explanation": "You do not choose Lazav's next identity from your own deck; you wait for an opponent to reveal a useful creature, then turn that loss into your disguise. The table's information becomes Dimir material.",
       "tags": [
         "Clones",
         "Hidden information",
@@ -251,7 +251,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=143a269a-b9ee-48ba-bd7b-4aa46eb36778"
       },
       "rationale": "Rakdos is the native demon-headliner choice: opponents must lose life before the show begins, then life-loss discounts enormous creatures.",
-      "modal_explanation": "At the table, Rakdos, Lord of Riots carries that card action into this reading's larger plan: volatile pressure, public risk, and turns that make the room react.",
+      "modal_explanation": "Rakdos cannot enter until an opponent has lost life, so the turn begins with a performance that draws blood. The more life the table loses, the more dramatically he discounts the creatures that follow.",
       "tags": [
         "Demons",
         "Big Mana",
@@ -285,7 +285,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=03a4b997-4738-41a9-933f-e1f765e3a75a"
       },
       "rationale": "This is a pure flavor-forward Rakdos performance: the demon arrives, the stage erupts, and survival becomes a coin-flip spectacle.",
-      "modal_explanation": "At the table, Rakdos, the Showstopper carries that card action into this reading's larger plan: volatile pressure, public risk, and turns that make the room react.",
+      "modal_explanation": "His entrance makes every non-Demon, non-Devil, and non-Imp face its own coin flip. You invite the spectacle knowing your creatures may fall with everyone else's, which is precisely where the risk becomes part of the show.",
       "tags": [
         "Demons",
         "volatility",
@@ -318,8 +318,8 @@
         "scryfall_id": "02df18c5-07b9-4e85-9c4b-58b63fa59437",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=b7505737-1fc8-4ee8-8b1d-5dde73b6a76d"
       },
-      "rationale": "Borborygmos appears because the certified Gruul record identifies him as the leader of the Burning-Tree clan.",
-      "modal_explanation": "At the table, Borborygmos Enraged carries that card action into this reading's larger plan: immediate combat, land-fed force, and damage that refuses delay.",
+      "rationale": "Borborygmos turns combat damage into lands in hand, then lets you discard those lands to deal 3 damage to any target.",
+      "modal_explanation": "Connecting once stocks the next barrage: lands revealed from the top three become ammunition rather than future land drops. Gruul force continues after combat because the landscape itself gets thrown at the next target.",
       "tags": [
         "Lands",
         "Discard",
@@ -353,7 +353,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ebf3fd80-9574-489b-9428-f4251834bdc4"
       },
       "rationale": "She forces you to abandon 'civilized' noncreature spells in exchange for massive mana for monsters.",
-      "modal_explanation": "At the table, Nikya of the Old Ways carries that card action into this reading's larger plan: immediate combat, land-fed force, and damage that refuses delay.",
+      "modal_explanation": "Nikya doubles the mana your lands produce, but only while you accept her ban on noncreature spells. Building around her means choosing creatures to perform jobs that another deck would give to instants, sorceries, or artifacts.",
       "tags": [
         "Creatures Only",
         "Big Mana"
@@ -381,8 +381,8 @@
         "scryfall_id": "aa828bdc-221e-4e81-9e71-6f288690ddcd",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=6ed13a89-4284-4c01-8099-75e2d68c8c63"
       },
-      "rationale": "A severe Gruul pressure piece against noncreature spell plans; creature-first tables punish players who try to solve everything with spells.",
-      "modal_explanation": "At the table, Ruric Thar, the Unbowed carries that card action into this reading's larger plan: immediate combat, land-fed force, and damage that refuses delay.",
+      "rationale": "Ruric Thar must attack when able and deals 6 damage to any player who casts a noncreature spell.",
+      "modal_explanation": "Ruric Thar leaves little room to wait behind utility spells: he charges every combat, and each noncreature spell carries a six-damage price. His Ghor assault turns Gruul's hostility toward over-civilized solutions into a table rule.",
       "tags": [
         "Hatebears",
         "Punisher",
@@ -410,8 +410,8 @@
         "scryfall_id": "34ea44f2-cb2f-4b86-83fc-fe507f05bb9d",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e94ef397-f5c5-4b8d-ae27-528352fa1d1e"
       },
-      "rationale": "Trostani appears because the certified Selesnya record identifies the three dryads as Mat'Selesnya's speaker for Life, Order, and Harmony.",
-      "modal_explanation": "At the table, Trostani, Selesnya's Voice carries that card action into this reading's larger plan: collective momentum, shared growth, and combat math that multiplies.",
+      "rationale": "Trostani gains life from each other creature that enters under your control, then populate copies a creature token you already have.",
+      "modal_explanation": "The first token establishes what the community can become; populate lets Trostani repeat that body instead of starting over. Wider creature development also restores life according to each new creature's toughness.",
       "tags": [
         "Tokens",
         "Populate",
@@ -444,8 +444,8 @@
         "scryfall_id": "cd14f1ce-7fcd-485c-b7ca-01c5b45fdc01",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=644eeefd-e684-4ca8-8aef-a892ca130c07"
       },
-      "rationale": "Teysa is the clearest native Orzhov product fit: she doubles death-trigger value and turns token bodies into a more threatening spiritual workforce.",
-      "modal_explanation": "At the table, Teysa Karlov carries that card action into this reading's larger plan: transactional pressure, slow drain, and resource exchanges that stop being equal.",
+      "rationale": "Teysa Karlov makes your permanents' death triggers happen twice, while giving your creature tokens vigilance and lifelink.",
+      "modal_explanation": "A creature dying is no longer a single transaction: every eligible trigger pays twice. Meanwhile, token creatures can attack without giving up defense and can return life, so the workforce remains useful before and after death.",
       "tags": [
         "Aristocrats",
         "Death Triggers",
@@ -478,7 +478,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=8191342b-b25e-4c4d-8f69-aee662148ff4"
       },
       "rationale": "This version of Teysa strongly expresses Orzhov transaction logic: sacrifice, death, replacement bodies, and exile removal all feed the same contract engine.",
-      "modal_explanation": "At the table, Teysa, Orzhov Scion carries that card action into this reading's larger plan: transactional pressure, slow drain, and resource exchanges that stop being equal.",
+      "modal_explanation": "A black creature's death leaves a white Spirit behind, and three white creatures can then be sacrificed to exile a threat. Teysa keeps moving bodies between roles until enough small obligations become removal.",
       "tags": [
         "Aristocrats",
         "Tokens",
@@ -511,8 +511,8 @@
         "scryfall_id": "f7c41011-a9eb-451c-a76d-67d2dcf47c52",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=647d7988-9a5d-4700-9238-938d0d5fae12"
       },
-      "rationale": "Karlov converts lifegain into visible authority: counters become removal, making every payment and tithe a future sentence.",
-      "modal_explanation": "At the table, Karlov of the Ghost Council carries that card action into this reading's larger plan: transactional pressure, slow drain, and resource exchanges that stop being equal.",
+      "rationale": "Each lifegain event puts two +1/+1 counters on Karlov, and removing six of those counters exiles a creature.",
+      "modal_explanation": "Many small lifegain events can build Karlov faster than one large gain. Once he has six counters to spend, the accumulated payments become a sentence against the creature you choose.",
       "tags": [
         "Lifegain",
         "Counters",
@@ -544,8 +544,8 @@
         "scryfall_id": "86c5c337-d25f-4c3e-9762-09ed0c2d36d7",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=33666a98-812f-4892-9f8d-33e0cbecc340"
       },
-      "rationale": "He is the cleanest native Izzet bridge: a Ravnican Izzet leader whose gameplay rewards instant/sorcery exchanges with cards and turns card draw into precise damage.",
-      "modal_explanation": "At the table, Niv-Mizzet, Parun carries that card action into this reading's larger plan: spell velocity, explosive pivots, and the sense that the device is running while it is built.",
+      "rationale": "Niv-Mizzet draws whenever any player casts an instant or sorcery, then turns every card you draw into 1 damage to a target.",
+      "modal_explanation": "A spell on either side of the table feeds the experiment. Each new card becomes a precise point of damage, so a long exchange of instants and sorceries lets Niv-Mizzet keep observing and answering at the same time.",
       "tags": [
         "Spellslinger",
         "Draw-Burn",
@@ -583,7 +583,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=095d9719-0db6-43de-8e4f-a0035a4c65ed"
       },
       "rationale": "Melek preserves the lab-experiment feel without defaulting to the dragon. Revealing the top card and copying spells feels like an unstable experiment becoming repeatable technique.",
-      "modal_explanation": "At the table, Melek, Izzet Paragon carries that card action into this reading's larger plan: spell velocity, explosive pivots, and the sense that the device is running while it is built.",
+      "modal_explanation": "Everyone sees the top card, but only you can turn a revealed instant or sorcery into two casts. Melek makes the experiment public, then rewards you for arranging the library so the next result is one worth copying.",
       "tags": [
         "Spellslinger",
         "Spell Copy",
@@ -611,7 +611,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f787c6cf-a4ff-487b-a7b0-0f516e68510a"
       },
       "rationale": "Mizzix captures the escalating experiment: every correctly sequenced spell makes the next experiment cheaper and more dangerous.",
-      "modal_explanation": "At the table, Mizzix of the Izmagnus carries that card action into this reading's larger plan: spell velocity, explosive pivots, and the sense that the device is running while it is built.",
+      "modal_explanation": "Casting a spell above your current experience earns a counter, and every counter reduces later instant and sorcery costs. Mizzix rewards choosing a sequence that keeps reaching just beyond what the last experiment taught you.",
       "tags": [
         "Experience Counters",
         "Spellslinger",
@@ -639,7 +639,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=87e65e36-9483-49fe-b644-2caca092107f"
       },
       "rationale": "A classic Golgari leader who scales with the size of your graveyard and allows you to 'recycle' creatures into direct damage.",
-      "modal_explanation": "At the table, Jarad, Golgari Lich Lord carries that card action into this reading's larger plan: loss converted into future pressure and a board that keeps returning.",
+      "modal_explanation": "Jarad grows with every creature card already in your graveyard, then can sacrifice another creature to drain each opponent by its power. Even Jarad's own return asks for a Swamp and Forest, so recovery keeps consuming living resources.",
       "tags": [
         "Sacrifice",
         "Graveyard Matters"
@@ -671,8 +671,8 @@
         "scryfall_id": "d2f007b0-b578-44f8-be65-cd9e2ac56e09",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=311e9368-696a-47e7-aa2f-3ef1b1a92e2b"
       },
-      "rationale": "Prime Speaker Zegana appears because the certified Simic record identifies her as the former Prime Speaker associated with Utopian incremental change.",
-      "modal_explanation": "At the table, Prime Speaker Zegana carries that card action into this reading's larger plan: incremental growth, biological scaling, and threats that outgrow old answers.",
+      "rationale": "Zegana measures your strongest other creature, enters with that many +1/+1 counters, then draws cards equal to her resulting power.",
+      "modal_explanation": "Casting Zegana too early leaves both halves small. Waiting until one of your other creatures has grown turns that earlier investment into a much larger Zegana and a deeper refill, so Simic improvement happens in stages rather than all at once.",
       "tags": [
         "Big Creatures",
         "Card Draw",
@@ -702,8 +702,8 @@
         "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f5a3a09-2f07-4774-9e0f-e99d9a444166"
       },
-      "rationale": "She is the definitive Boros Guildmaster, focused on overwhelming the opponent through sheer military force.",
-      "modal_explanation": "At the table, Aurelia, the Warleader carries that card action into this reading's larger plan: coordinated pressure, righteous retaliation, and visible action.",
+      "rationale": "Aurelia attacks with haste, untaps your creatures, and creates a second combat the first time she attacks each turn.",
+      "modal_explanation": "The first charge prepares the second one. Creatures that attacked stand ready again, letting the Legion correct targets, press a weakened defender, or commit a new formation before the turn ends.",
       "tags": [
         "Extra Combats",
         "Aggro"
@@ -733,7 +733,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ae6f21a2-e6b6-4793-8343-e27310c0bea1"
       },
       "rationale": "A low-cost commander that protects your team from damage and encourages offensive growth.",
-      "modal_explanation": "At the table, Tajic, Legion's Edge carries that card action into this reading's larger plan: coordinated pressure, righteous retaliation, and visible action.",
+      "modal_explanation": "Tajic wants to join the attack: mentor strengthens a smaller attacker, while his prevention shield keeps the rest of your creatures safe from noncombat damage. Advancing the team and protecting it happen in the same formation.",
       "tags": [
         "Aggro",
         "Protection",
@@ -761,8 +761,8 @@
         "scryfall_id": "e4a2d2c6-8eaa-4760-b620-921b807baa2e",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=aa219936-661b-4ccb-8741-78b70cff2b1a"
       },
-      "rationale": "A unique Boros 'spellslinger' engine that turns single-target buffs into recurring value.",
-      "modal_explanation": "At the table, Feather, the Redeemed carries that card action into this reading's larger plan: coordinated pressure, righteous retaliation, and visible action.",
+      "rationale": "Feather returns an instant or sorcery that targeted one of your creatures to your hand at the next end step instead of letting it stay in the graveyard.",
+      "modal_explanation": "Targeting one creature becomes preparation for another coordinated attack: the spell resolves now, then returns for a later turn. Feather keeps Boros combat tricks in service instead of treating them as one-use bursts.",
       "tags": [
         "Spellslinger",
         "Voltron"
@@ -790,7 +790,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=61a41cf1-60cc-45ba-aa98-493c14e87d9d"
       },
       "rationale": "Directly embodies the 'Eureka' moment of discovery by granting Miracle to all instants and sorceries in hand.",
-      "modal_explanation": "At the table, Lorehold, the Historian carries that card action into this reading's larger plan: history fighting back and old resources becoming live pressure.",
+      "modal_explanation": "The play pattern is a series of discoveries: on each opponent's upkeep, you can trade away a card for a new first draw, and an instant or sorcery found that way can be cast for its {2} miracle cost.",
       "tags": [
         "Miracle",
         "Spellslinger",
@@ -825,7 +825,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=5c40a8d4-6969-4d71-aba5-5c7e4109b7d5"
       },
       "rationale": "Represents the college's main protagonist in his 2026 iteration, focusing on the spirit-driven historical research.",
-      "modal_explanation": "At the table, Quintorius, History Chaser carries that card action into this reading's larger plan: history fighting back and old resources becoming live pressure.",
+      "modal_explanation": "Cards leaving your graveyard create Spirits, while Quintorius can discard, draw, and mill to keep that history moving. The graveyard is not a sealed archive; its contents repeatedly return as present action.",
       "tags": [
         "Spirit Tribal",
         "Recursion"
@@ -862,8 +862,8 @@
         "scryfall_id": "523d8fe6-1efd-4278-82fe-ea4517e6665c",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=43832745-5d7d-4957-8e30-2072ad012564"
       },
-      "rationale": "The founder of the college and the original face of Lorehold's spellslinger-aggro identity.",
-      "modal_explanation": "At the table, Velomachus Lorehold carries that card action into this reading's larger plan: history fighting back and old resources becoming live pressure.",
+      "rationale": "When Velomachus attacks, it looks seven cards deep and can cast an instant or sorcery with mana value no greater than its power without paying that spell's mana cost.",
+      "modal_explanation": "Each attack searches seven cards deep for a spell Velomachus can put to work immediately. Its power sets the limit, so making the Dragon larger also expands what the next attack can uncover.",
       "tags": [
         "Spellslinger",
         "Attack Triggers"
@@ -897,7 +897,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=348c67ef-9ccc-4651-9038-efdf1ad1b36a"
       },
       "rationale": "Rootha turns an instant or sorcery into a visible elemental performance by creating a flying, hasty Elemental whose size follows that spell's mana value.",
-      "modal_explanation": "At the table, Rootha, Mastering the Moment carries that card action into this reading's larger plan: performance pressure, elemental swing turns, and spells that announce themselves.",
+      "modal_explanation": "The largest instant or sorcery you cast before combat sets the Elemental's size. Choosing when to spend the showpiece spell also chooses how large, fast, and visible Rootha's performance will be.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -926,7 +926,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=977f9390-e01d-4e9d-8e9c-e543b1266972"
       },
       "rationale": "Zimone makes mathematical scaling visible: +1/+1 counters reduce an X spell's cost, and casting that spell adds more counters and creates a flying Fractal token.",
-      "modal_explanation": "At the table, Zimone, Infinite Analyst carries that card action into this reading's larger plan: mathematical inevitability and advantages that compound past ordinary answers.",
+      "modal_explanation": "The first X spell each turn adds two counters, and those counters reduce the cost of the next turn's first X spell. Zimone turns one solved equation into better terms for solving the next.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -955,7 +955,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d11e627b-8a48-411d-a261-2c9a02a758ba"
       },
       "rationale": "Breena makes social influence change combat: attacks against a leading opponent can reward the attacker with a card while making Breena larger.",
-      "modal_explanation": "At the table, Breena, the Demagogue carries that card action into this reading's larger plan: public pressure, sharpened alliances, and words that become damage.",
+      "modal_explanation": "Breena changes whom the table is willing to attack. Swinging at a player with the highest life can pay the attacker a card, while you decide which creature receives the counters and turns that public argument into your advantage.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -983,7 +983,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f61c1dc4-2f09-4b50-957f-ee656c659072"
       },
       "rationale": "Dina makes Witherbloom's practical life-and-death exchange visible by turning a sacrificed creature into a card, life, and +1/+1 counters.",
-      "modal_explanation": "Dina turns a sacrificed creature into a card, life, and growth through +1/+1 counters. That concrete exchange shows Witherbloom treating life and death as usable forces in play. At the table, this can mean metabolic pressure where every gain, loss, and small body feeds the engine.",
+      "modal_explanation": "Dina's sacrifice ability asks which creature's power should become life and counters, while her separate draw trigger rewards the first sacrifice each turn. One body can nourish several parts of the board, but timing decides when every benefit is available.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1009,7 +1009,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=c6e17443-2379-419d-8c32-13ea9bf52993"
       },
       "rationale": "Rafiq is the clearest Bant champion expression: one worthy attacker receives the force and recognition of the whole.",
-      "modal_explanation": "At the table, Rafiq of the Many carries that card action into this reading's larger plan: one protected champion, refined support, living order, and communal trust becoming visible pressure.",
+      "modal_explanation": "Rafiq asks the rest of your board to stay back while one creature attacks alone. Exalted support and double strike concentrate the whole formation's strength in a single chosen champion.",
       "tags": [
         "Exalted",
         "Voltron",
@@ -1039,7 +1039,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=3268251a-8292-44f9-9267-c961b182f739"
       },
       "rationale": "Y'shtola links planned noncreature spells and a known life-loss threshold to repeatable card access and pressure.",
-      "modal_explanation": "At the table, Y'shtola, Night's Blessed carries that card action into this reading's larger plan: careful setup, protected engines, clean answers, and a future that narrows as Esper understands the table.",
+      "modal_explanation": "A noncreature spell costing three or more drains every opponent for 2, immediately meeting part of the four-life threshold that can draw a card at the end step. Esper planning becomes a repeatable question of how to cross that known line each turn.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1065,7 +1065,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=f5092c14-eec4-472c-999c-ba96c36b2fbb"
       },
       "rationale": "Kess turns a spent instant or sorcery into one more planned option by letting you cast one such card from your graveyard during each of your turns.",
-      "modal_explanation": "At the table, Kess, Dissident Mage carries that card action into this reading's larger plan: survival control, calculated pressure, and urgent openings that make each answer feel spent for a reason.",
+      "modal_explanation": "Kess gives one spent spell a second and final use on each of your turns. Choosing the right card from the graveyard means yesterday's answer can become today's removal, protection, or finishing move.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1092,7 +1092,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=868882d2-ed4e-4171-a17c-478a341080fb"
       },
       "rationale": "Prossh turns each cast into a larger visible board, then lets those creatures be sacrificed for immediate power.",
-      "modal_explanation": "At the table, Prossh, Skyraider of Kher carries that card action into this reading's larger plan: pressure becoming visible through attacks, spent resources, graveyards, and consequences that force the table to show what it can survive.",
+      "modal_explanation": "Paying more commander tax makes Prossh bring more Kobolds, so repeated casts rebuild the food supply. Any one of those bodies can be sacrificed at once to increase his power for the current turn.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1119,7 +1119,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e7604cd9-d00d-4957-82c9-46a7cdb88209"
       },
       "rationale": "Shalai and Hallar turn creature growth into immediate table pressure by dealing damage when +1/+1 counters are put on your creatures.",
-      "modal_explanation": "At the table, Shalai and Hallar carries that card action into this reading's larger plan: grow mana, guard the living whole, build a protected board, and let creature-forward scale make the table answer abundance.",
+      "modal_explanation": "Every counter event on your creatures can become damage to an opponent. Shalai and Hallar make growing the board and pressuring the table the same act, so abundance never has to remain passive.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1146,7 +1146,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=2b3f791a-d672-46fb-a03a-96e19f2c3121"
       },
       "rationale": "Felothar makes an Abzan defensive board matter in combat: creatures assign combat damage using toughness, and defenders can attack.",
-      "modal_explanation": "At the table, Felothar the Steadfast carries that card action into this reading's larger plan: build a durable board, protect the family engine, let counters and life totals accumulate, and make the long game answerable only through real commitment.",
+      "modal_explanation": "High toughness stops being merely defensive: Felothar lets those creatures attack and deal combat damage with the same stat that kept them alive. If a creature must be spent, its toughness also sets how many cards you draw before discarding by power.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1173,7 +1173,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=1b162dd3-3be6-406d-bf86-f7cc9eff098d"
       },
       "rationale": "Eshki rewards increasingly large creature spells with visible growth, then cards and damage as the creatures cross higher power thresholds.",
-      "modal_explanation": "At the table, Eshki, Temur's Roar carries that card action into this reading's larger plan: listen for the opening, grow the mana and board, then let instinct and elemental force make one clean turn matter.",
+      "modal_explanation": "Every creature spell grows Eshki, but power four and power six are the important thresholds. Sequencing larger creatures turns the same instinctive act—casting the next beast—into cards first and table-wide damage later.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1201,7 +1201,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0177b410-b559-491f-b393-ac3ed774653c"
       },
       "rationale": "Kotis turns the graveyard into a constrained resource: one creature can be cast from it each turn by exiling three other graveyard cards as an additional cost.",
-      "modal_explanation": "At the table, Kotis, Sibsig Champion carries that card action into this reading's larger plan: convert graveyards, stolen options, and hidden costs into table advantage while keeping the table story anchored in Sultai source notes.",
+      "modal_explanation": "Each creature you cast back costs three other graveyard cards, and the return puts two +1/+1 counters on Kotis. The choice is which dead card is worth saving and which three you are willing to exile to use it.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1228,8 +1228,8 @@
         "scryfall_id": "dc8eb325-75c9-4331-830d-3f7d62d77290",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=0f93d88c-9d2e-416d-a10b-99483360b1fb"
       },
-      "rationale": "Zurgo makes Mardu's speed-and-pressure frame concrete by creating a temporary attacking creature whenever he attacks.",
-      "modal_explanation": "At the table, Zurgo Stormrender carries that card action into this reading's larger plan: commit early, keep the attack coordinated, convert each opening into pressure, and make the table answer the charge before it can settle.",
+      "rationale": "Whenever Zurgo attacks, mobilize creates a temporary tapped and attacking Warrior token.",
+      "modal_explanation": "Zurgo's mobilized Warrior is meant to be temporary. When it leaves after attacking, you draw a card, so each charge spends a body now and returns material for the next attack.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1256,7 +1256,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=40ed32a6-ad56-48c7-aecf-b4238c34c212"
       },
       "rationale": "Shiko and Narset reward deliberate spell sequencing: the second spell each turn can be copied when it targets a permanent or player.",
-      "modal_explanation": "At the table, Shiko and Narset, Unified carries that card action into this reading's larger plan: study the line, protect the stance, turn spells and timing into pressure, and move only when the action can keep its form.",
+      "modal_explanation": "The first spell prepares the flurry; the second earns either a copy when it has a target or a card when it does not. Jeskai timing appears in the decision about which effect should occupy that second-spell position.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1283,8 +1283,8 @@
         "scryfall_id": "8bf3929c-957f-4ea2-a27d-7d53979844af",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=d460a9e2-5a7d-4562-880e-45174be19a9d"
       },
-      "rationale": "Breya makes Yore's artifice frame concrete by creating artifact creatures, then converting artifacts through several selectable effects.",
-      "modal_explanation": "At the table, Breya, Etherium Shaper carries that card action into this reading's larger plan: build a system that keeps choice alive, protect the archive, turn loss into a reusable engine, and make the table answer a constructed future.",
+      "rationale": "Breya enters with two Thopter artifact tokens, then can sacrifice two artifacts for damage, creature removal, or life.",
+      "modal_explanation": "Breya arrives with the two artifacts her activation needs, then asks which result matters now: damage, creature removal, or life. The invention is useful because its pieces can be converted into different answers on demand.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1310,7 +1310,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f"
       },
       "rationale": "Yidris converts successful combat into volatile follow-up routes by giving spells cast from hand cascade for the rest of that turn.",
-      "modal_explanation": "At the table, Yidris, Maelstrom Wielder carries that card action into this reading's larger plan: a live surge that keeps learning, feeds on the opening, and forces the table to answer before order turns it harmless.",
+      "modal_explanation": "Yidris must connect in combat before the turn changes shape. Once he does, each spell from your hand can uncover a cheaper spell, rewarding you for using the opening immediately and accepting that the exact chain cannot be planned in advance.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1336,7 +1336,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=e54d207c-51b8-458e-86a1-2633ac064c8e"
       },
       "rationale": "Saskia turns visible combat into concentrated pressure: you choose a player, and combat damage dealt elsewhere is repeated against that player.",
-      "modal_explanation": "At the table, Saskia the Unyielding carries that card action into this reading's larger plan: take the field early, keep the line moving, and make the table answer force-backed solidarity before distance can cool it.",
+      "modal_explanation": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1362,7 +1362,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=53ee4254-fef7-49ec-aafc-0320987764e6"
       },
       "rationale": "Kynaios and Tiro make Ink's shared-resource frame visible: their end-step ability gives every player a chance to develop mana or draw, while their controller also draws.",
-      "modal_explanation": "At the table, Kynaios and Tiro of Meletis carries that card action into this reading's larger plan: guard the commons, keep the gift moving, and make the table answer whether shared abundance can stay open without becoming private control.",
+      "modal_explanation": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1387,8 +1387,8 @@
         "scryfall_id": "d0d33d52-3d28-4635-b985-51e126289259",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=7e6b9b59-cd68-4e3c-827b-38833c92d6eb"
       },
-      "rationale": "Atraxa gives Witch's systematic-accumulation frame a bounded example by proliferating at each of your end steps.",
-      "modal_explanation": "At the table, Atraxa, Praetors' Voice carries that card action into this reading's larger plan: cultivate the board patiently, protect the growing engine, and make every small counter, card, and resource become part of a plan too rooted to uproot.",
+      "rationale": "At the beginning of each of your end steps, Atraxa proliferates the counters you choose to advance.",
+      "modal_explanation": "Atraxa does not create the first counter; she rewards you for placing counters where they will matter before your end step. Proliferate then advances every chosen counter-bearing permanent or player together.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1413,8 +1413,8 @@
         "scryfall_id": "985e16ac-8e0f-4e2e-9b74-d6a77dddf274",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=50676eba-a55a-4749-bb07-74a30e015781"
       },
-      "rationale": "Omarthis is a bounded example of Colorless growth support: it grows when another colorless creature receives +1/+1 counters, then manifests cards equal to its counters when it dies.",
-      "modal_explanation": "At the table, Omarthis, Ghostfire Initiate carries that card action into this reading's larger plan: infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time.",
+      "rationale": "Omarthis shows one way Colorless can support +1/+1 counter growth: it grows when another colorless creature receives counters, then manifests cards equal to its counters when it dies.",
+      "modal_explanation": "Choose X when you cast Omarthis, then let counter events on your other colorless creatures keep adding to it. Its size and its eventual manifest payout grow from the same accumulated counters, so one colorless counter system does both jobs.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,
@@ -1440,8 +1440,8 @@
         "scryfall_id": "a015461d-4214-4feb-8b04-519c537759eb",
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=ec726c54-987b-48ed-8ffa-ec73a5e35333"
       },
-      "rationale": "Zhulodok is a bounded example of Colorless's Eldrazi-scale branch: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
-      "modal_explanation": "At the table, Zhulodok, Void Gorger carries that card action into this reading's larger plan: infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time.",
+      "rationale": "Zhulodok shows the Eldrazi-scale side of Colorless: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
+      "modal_explanation": "The work happens before the seven-mana spell: you build enough colorless mana, keep the large spell in hand, and then accept two unpredictable chains when it is cast. Zhulodok makes scale the trigger for abundance.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 2,
@@ -1468,7 +1468,7 @@
         "data_locator": "data/scryfall/indexes/commander-index.json#oracle_id=9f6828e3-39d9-45d9-9bf1-0e3737a0321e"
       },
       "rationale": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
-      "modal_explanation": "At the table, Ulalek, Fused Atrocity carries that card action into this reading's larger plan: full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift.",
+      "modal_explanation": "Ulalek's five-color identity opens the deck's breadth, but the trigger still asks for two colorless mana at the precise moment an Eldrazi is cast. Keeping that payment available turns one spell and the abilities around it into a coordinated wave of copies.",
       "tags": [],
       "relationship_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
       "display_priority": 1,

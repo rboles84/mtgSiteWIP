@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-562 - Archscry Sound/Play Prose Calibration](in-progress/VM-562-archscry-sound-play-prose-calibration.md) - building a proposal-only seven-identity corpus calibration from frozen VM-561 evidence, with production copy, relationships, printings, runtime, placement, canon, and VM-559 release state untouched.
+- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - applying the frozen VM-561 evidence and accepted VM-562 writing method to the complete governed Sound/Play corpus, with final all-identity review artifacts and unrelated Archscry behavior protected.
 
 - [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - media projection implementation is under owner QA; bounded remediation now restores a focused Start Here handoff, fixes fresh no-click shared card hover, and produces an exactly 37-sheet Sound/Play testing workbook without changing authored prose, card selections, or placement.
 
@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-562 - Archscry Sound/Play Prose Calibration](done/VM-562-archscry-sound-play-prose-calibration.md) - frozen at `7f79efa3b7442a202db04e6b7013b701bffc4286`; its seven-identity proposal method passed final resulting-row QA and was explicitly authorized as VM-563's writing method.
 
 - [VM-561 - Archscry Sound/Play Evidence Audit](done/VM-561-archscry-sound-play-evidence-audit.md) - completed 37 identity packets and the exact 119-row evidence ledger, reconciled four suppressed Play records and two unusable official routes, delivered the evidence workbook, and stopped before prose proposals with runtime, current content, generated product data, placement, and canon sources frozen.
 

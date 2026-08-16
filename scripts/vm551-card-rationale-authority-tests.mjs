@@ -44,12 +44,8 @@ for (const runtimeRecord of catalog.records) {
   assert.ok(sourceRecord, `${runtimeRecord.relationship_id} must resolve to its approved relationship`);
   assert.ok(runtimeRecord.modal_explanation, `${runtimeRecord.card?.name} must have a card-specific modal explanation`);
   assert.equal(normalizeCopy(runtimeRecord.modal_explanation).includes(normalizeCopy(runtimeRecord.rationale)), false, `${runtimeRecord.card?.name} modal must not retain the complete normalized tile rationale`);
-  if (sourceRecord.modal_explanation) {
-    assert.ok(runtimeRecord.modal_explanation.startsWith(sourceRecord.modal_explanation), `${runtimeRecord.card?.name} modal must preserve its approved card-specific deepening`);
-    assert.match(runtimeRecord.modal_explanation, /\bAt the table, this can mean\b/, `${runtimeRecord.card?.name} authored modal must add a table-level takeaway`);
-  } else {
-    assert.ok(runtimeRecord.modal_explanation.startsWith(`At the table, ${runtimeRecord.card.name} carries that card action into this reading's larger plan:`), `${runtimeRecord.card?.name} modal must transition directly into additive card-specific identity context`);
-  }
+  assert.equal(runtimeRecord.modal_explanation, sourceRecord.modal_explanation, `${runtimeRecord.card?.name} modal must preserve its explicit relationship-owned copy exactly`);
+  assert.doesNotMatch(runtimeRecord.modal_explanation, /At the table|carries that card action|this reading's larger plan/i, `${runtimeRecord.card?.name} modal must not restore the retired shared composer`);
   assert.equal(runtimeRecord.relationship_id, sourceRecord.relationship_id, `${runtimeRecord.card?.name} modal must retain its relationship ID`);
   assert.ok(runtimeRecord.provenance?.claim_ids?.length, `${runtimeRecord.card?.name} modal must retain certified claim provenance`);
 }

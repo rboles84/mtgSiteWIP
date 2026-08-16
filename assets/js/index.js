@@ -2143,7 +2143,7 @@ export function renderManaCost(value) {
     if (!match) return escapeHtml(part);
     const symbol = match[1].toUpperCase();
     const manaClass = symbol.toLowerCase().replaceAll("/", "");
-    if (!/^(?:\d+|[WUBRGCSXYZ]|2?[WUBRG]P?|[WUBRG]{2})$/.test(manaClass.toUpperCase())) return escapeHtml(part);
+    if (!/^(?:\d+|[WUBRGCSXYZ]|2?[WUBRG]P?|[WUBRGC]{2})$/.test(manaClass.toUpperCase())) return escapeHtml(part);
     return `<span class="vm-inline-mana-symbol archscry-card-cost-symbol" role="img" aria-label="${escapeAttributeValue(manaSymbolLabel(symbol))}"><i class="ms ms-${escapeAttributeValue(manaClass)} ms-cost" aria-hidden="true"></i></span>`;
   }).join("");
 }

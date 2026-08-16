@@ -88,12 +88,8 @@ function normalizeCompleteCopy(value) {
 
 function buildPlayModalExplanation(record) {
   const tileCopy = completeSentence(record.proposed_public_rationale);
-  const authoredDeepening = completeSentence(record.modal_explanation);
-  const tableTakeaway = lowerSentenceLead(identityDossierByKey.get(record.identity_key)?.how_this_plays?.table_experience);
-  if (!tileCopy || !tableTakeaway || !record.canonical_card_name) fail(`Approved relationship cannot produce card-specific modal copy: ${record.relationship_id}`);
-  const explanation = authoredDeepening
-    ? `${authoredDeepening} At the table, this can mean ${tableTakeaway}.`
-    : `At the table, ${record.canonical_card_name} carries that card action into this reading's larger plan: ${tableTakeaway}.`;
+  const explanation = completeSentence(record.modal_explanation);
+  if (!tileCopy || !explanation || !record.canonical_card_name) fail(`Approved relationship lacks explicit card-specific tile or modal copy: ${record.relationship_id}`);
   if (normalizeCompleteCopy(explanation).includes(normalizeCompleteCopy(tileCopy))) {
     fail(`Modal explanation repeats the complete tile rationale: ${record.relationship_id}`);
   }
