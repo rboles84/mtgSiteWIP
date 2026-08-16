@@ -68,8 +68,28 @@ The repository already contained art locators, but most historical Mana Notes an
 - Production verification must rerun against the published exact SHA with cache bypass and API lookup blocked.
 - White, Azorius, and Lorehold wording observations remain deferred owner evidence. This bounded pass did not authorize or perform Sound/Play prose remediation.
 
+## Play inventory versus rendered review count
+
+The VM-559 media inventory and the review workbook intentionally count different stages of the same pipeline:
+
+- `Play: 50` is the governed authored-media occurrence count. `deriveArchscryAuthoredMediaInventory` inventories every record in `data/dossier/card-rationale-catalog.json` so every approved Play relationship remains covered by committed card metadata and image candidates even when presentation composition suppresses a duplicate tile.
+- `Play: 46` is the rendered `Cards That Play Like This` count reproduced by the testing workbook. Production selects visible precon recommendations first, adds their main-commanders to `pageCardUsage`, and then excludes those same canonical card IDs from Play tiles. This is cross-surface presentation deduplication, not loss of relationship or media coverage.
+
+Exactly four approved Play occurrences are suppressed because the same card is already the visible commander of a recommended precon:
+
+| Identity | Approved Play occurrence | Governed Play source | Visible precon source | Rendered disposition |
+| --- | --- | --- | --- | --- |
+| Azorius (`WU`) | Isperia, Supreme Judge | `data/dossier/card-rationale-catalog.json#cardrel_wu_c46718dc` | `data/precons/vox-mana-precon-catalog.json#first-flight-isperia-supreme-judge` (`First Flight`) | Inventoried for Play media coverage; omitted from the dedicated Play grid after its canonical ID enters `pageCardUsage` through the visible precon. |
+| Izzet (`UR`) | Mizzix of the Izmagnus | `data/dossier/card-rationale-catalog.json#cardrel_ur_f787c6cf` | `data/precons/vox-mana-precon-catalog.json#seize-control-mizzix-of-the-izmagnus` (`Seize Control`) | Inventoried for Play media coverage; omitted from the dedicated Play grid after its canonical ID enters `pageCardUsage` through the visible precon. |
+| Lorehold (`LOREHOLD`) | Quintorius, History Chaser | `data/dossier/card-rationale-catalog.json#cardrel_lorehold_5c40a8d4` | `data/precons/vox-mana-precon-catalog.json#lorehold-spirit-quintorius-history-chaser` (`Lorehold Spirit`) | Inventoried for Play media coverage; omitted from the dedicated Play grid after its canonical ID enters `pageCardUsage` through the visible precon. |
+| Colorless (`COLORLESS`) | Zhulodok, Void Gorger | `data/dossier/card-rationale-catalog.json#cardrel_auto_colorless_ec726c54_987b_48ed_8ffa_ec73a5e35333` | `data/precons/vox-mana-precon-catalog.json#eldrazi-unbound-zhulodok-void-gorger` (`Eldrazi Unbound`) | Inventoried for Play media coverage; omitted from the dedicated Play grid after its canonical ID enters `pageCardUsage` through the visible precon. |
+
+Deterministic reconciliation: `50 approved Play occurrences - 4 visible-precon overlaps = 46 rendered Play rows`; `73 Sound + 46 Play = 119 workbook rows`. No runtime or workbook defect was found, so neither artifact was changed.
+
 ## Tests run
 
+- Deterministic catalog/render diff — PASS; 50 approved Play records versus 46 rendered export rows produced exactly the four documented visible-precon overlaps and no other omission.
+- Read-only workbook inspection with the bundled spreadsheet runtime — PASS; exactly 37 sheets, 73 Sound rows, 46 Play rows, and 119 total review rows. The workbook was not rewritten.
 - `npm.cmd run test:vm559-media-projection` — PASS; zero unresolved, aliases/regressions/multiface, byte stability, drift stop/authorization guard.
 - `npm.cmd run scryfall:index:check` twice — PASS; byte-identical committed artifacts.
 - `npm.cmd run scryfall:inspect` — PASS; 572 unique / 1,178 occurrences.

@@ -101,3 +101,10 @@ Ensure every governed authored Archscry card resolves deterministically to commi
 - The testing artifact contains exactly 37 identity sheets, no summary sheet, and 119 currently rendered Sound/Play rows. It was generated from current production catalogs/composition, cross-checked against rendered dossier output, formula-scanned, and rendered sheet-by-sheet for visual inspection.
 - `test:vm551-dossier-integrity`, `test:frontend-smoke`, and `lint:js` pass. No Sound/Play prose, relationship, selection, printing, panel ownership, or modal semantics changed.
 - Stop point reached. Owner acceptance, prose/content remediation, integration, push, deployment, and closeout remain unclaimed and unstarted.
+
+## 2026-08-16 Testing Count Reconciliation
+
+- Media inventory `Play: 50` counts all approved records in `data/dossier/card-rationale-catalog.json` before page composition; the workbook `Play: 46` counts only rendered dedicated-panel tiles after cross-surface usage deduplication.
+- The four expected non-rendered Play occurrences are Azorius / Isperia, Supreme Judge (`First Flight`); Izzet / Mizzix of the Izmagnus (`Seize Control`); Lorehold / Quintorius, History Chaser (`Lorehold Spirit`); and Colorless / Zhulodok, Void Gorger (`Eldrazi Unbound`).
+- Each relationship remains approved and is correctly included in the governed Play media projection. Each card is omitted only from the Play grid because it already appears as the visible commander of a recommended precon and its canonical ID is therefore present in `pageCardUsage` before Play selection.
+- Deterministic totals reconcile as `50 - 4 = 46` Play rows and `73 + 46 = 119` workbook rows. No runtime behavior, workbook content, relationship, selection, or prose changed.
