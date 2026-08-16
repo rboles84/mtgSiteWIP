@@ -4,7 +4,7 @@ ID: VM-558
 
 Status: Done
 
-Current gate: Complete. The owner approved all 36 complementary slot-2 decisions and authorized their bounded promotion; Colorless remains the intentional one-voice exception.
+Current gate: Integrated and production-verified. The owner approved all 36 complementary slot-2 decisions and their shared presentation repairs; Colorless remains the intentional one-voice exception.
 
 Type: Curated semantic data / generated-data contract / bounded presentation readiness
 
@@ -152,3 +152,12 @@ RobQAPass result: QA-2 for the review-harness control flow with QA-1 data assert
 - Kept the automatic approval producer deterministic by preventing an unrelated rejected voice-candidate caveat from being borrowed as Play-rationale neighbor analysis.
 
 RobQAPass result: QA-2 for the shared compositor and runtime consumer, with full deterministic coverage of 50 records / 37 identities and representative rendered PASS cases for Dune, Witch, WUBRG, Yore/mobile, and Witherbloom/mobile. No placement, journey, synthetic, mutation-suite, recovery, or all-37 rendered certification was run.
+
+## 2026-08-15 Owner-Accepted Integration Completion
+
+- Reviewed the complete branch against exact base `bb104110a0db62cb9ac9a206fc037b9a45dd4fea`, committed the accepted initiative at `b0ce7683fab703cf8bb7550b6ee19ffd5e74914d`, and fast-forwarded `main` without conflict.
+- Integration verification found and repaired two audit/freshness defects only: Packet 1 now derives its rejected-voice count from the retained 85-row audit trail while preserving Death Begets Life and Witherbloom Campus, and the two affected freshness checks normalize CRLF/LF differences on clean Windows checkouts.
+- Final integrated product SHA `c9055d316f5d59dc83782248e4532563dc98be09` passed the focused QA-5 integration set on clean `main` and was pushed to `origin/main`.
+- GitHub validation and Pages deployment succeeded for that exact SHA. Production Archscry rendered two ordered Mardu Sound cards with loaded art, no overflow or console errors, and a Zurgo Play modal whose additive context does not contain the normalized tile rationale.
+
+No card choice, modal copy, placement, scoring, qualification, or identity authority was reopened during integration. Placement journeys, synthetic runs, mutation suites, recovery, and all-37 rendered recertification remained intentionally excluded because their protected behavior did not change.

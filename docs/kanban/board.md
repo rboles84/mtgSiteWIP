@@ -53,7 +53,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
-- [VM-558 - Complementary Card-Voice Proposals](done/VM-558-complementary-card-voice-proposals.md) - semantic owner gate complete at 36/36 and exactly those complements promoted; the deterministic review harness is unblocked, and the shared Play-modal compositor now enforces additive modal value across all 50 records / 37 identities while preserving bounded Yore placement, Colorless, Sound authority, and production behavior.
+- [VM-558 - Complementary Card-Voice Proposals](done/VM-558-complementary-card-voice-proposals.md) - owner accepted, integrated, pushed, and production-verified at `c9055d3`; 36 normal identities have two approved complementary Sound voices, Colorless remains single-voice, and the shared Play-modal invariant covers all 50 records / 37 identities without placement or identity-authority changes.
 
 - [VM-557 - RobDevPass Workflow Integration](done/VM-557-rob-dev-pass-workflow-integration.md) - durably committed the single repository-grounded implementation authority and its concise workflow invocations at `bfbf436`; RobDevPass v1 and RobQAPass v1 are frozen for use.
 
