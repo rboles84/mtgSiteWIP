@@ -1,0 +1,536 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Testing/research artifact only; not semantic authority and not runtime input.",
+  "checkpoint_base_sha": "b7c808029421668f4b947759c467a250230b5592",
+  "coverage": {
+    "identities": 37,
+    "rendered_rows": 119,
+    "sound": 73,
+    "play": 46,
+    "suppressed_play_appendix": 4
+  },
+  "source_validation": {
+    "readable_local_underlying_sources_and_ledgers": 76,
+    "unique_official_wizards_urls_evaluated": 28,
+    "successfully_inspected_official_wizards_urls": 26,
+    "unavailable_or_inadequate_official_wizards_urls": 2,
+    "exact_row_level_consequences": {
+      "boros_legion": {
+        "retained_current_disposition": [
+          "SOUND-WR-1-cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678",
+          "SOUND-WR-2-cardvoice_vm558_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501",
+          "PLAY-WR-1-cardrel_wr_0f5a3a09",
+          "PLAY-WR-3-cardrel_wr_ae6f21a2"
+        ],
+        "source_intake_required": [
+          "PLAY-WR-4-cardrel_wr_aa219936"
+        ]
+      },
+      "gatecrash_part_2": {
+        "retained_current_disposition": [
+          "SOUND-RG-1-cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd",
+          "SOUND-RG-2-cardvoice_vm558_rg_a4e5693f_12a0_451e_818d_d6efc7b4ed25",
+          "PLAY-RG-1-cardrel_rg_b7505737",
+          "PLAY-RG-3-cardrel_rg_ebf3fd80"
+        ],
+        "source_intake_required": [
+          "PLAY-RG-4-cardrel_rg_6ed13a89"
+        ]
+      }
+    }
+  },
+  "disposition_counts": {
+    "INSUFFICIENT_VOX_MANA_AUTHORITY": 2,
+    "NO_CHANGE_INDICATED": 65,
+    "REMEDIATION_LIKELY": 49,
+    "SOURCE_INTAKE_REQUIRED": 3
+  },
+  "claim_classification_counts": {
+    "DIRECT_FACT_PLUS_SUPPORTED_INTERPRETATION": 67,
+    "SUPPORTED_INTERPRETATION": 37,
+    "VOX_MANA_INTERPRETATION": 15
+  },
+  "identities_with_source_limitations": [
+    "WG",
+    "BANT",
+    "ESPER",
+    "GRIXIS",
+    "JUND",
+    "NAYA",
+    "YORE",
+    "GLINT",
+    "DUNE",
+    "INK",
+    "WITCH",
+    "WUBRG",
+    "COLORLESS"
+  ],
+  "unsupported_or_overclaimed_rows": [
+    {
+      "ledger_id": "SOUND-W-1-cardvoice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e",
+      "identity": "W",
+      "card": "Aligned Heart",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal restates the same coordination image with little additional White-specific explanatory value."
+    },
+    {
+      "ledger_id": "PLAY-W-1-cardrel_auto_w_48e6d3d8_2f27_4017_acdd_40bce8cdbc02",
+      "identity": "W",
+      "card": "Giada, Font of Hope",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The tile is well grounded in Giada's rules. The modal moves to generic protection/pressure/recurrence without showing how Giada specifically supplies those facets."
+    },
+    {
+      "ledger_id": "PLAY-U-1-cardrel_auto_u_ea1eb902_a23c_44ff_9169_19baf71de238",
+      "identity": "U",
+      "card": "Talrand, Sky Summoner",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-B-1-cardvoice_b_78725353_9274_420a_b722_add0f43c444e",
+      "identity": "B",
+      "card": "Ancient Craving",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "PLAY-B-1-cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+      "identity": "B",
+      "card": "K'rrik, Son of Yawgmoth",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-R-1-cardrel_auto_r_8c3495bf_02e7_4ad9_949d_92eb3d2b662a",
+      "identity": "R",
+      "card": "Torbran, Thane of Red Fell",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-WU-3-cardrel_wu_1f8d4d5f",
+      "identity": "WU",
+      "card": "Grand Arbiter Augustin IV",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal accurately describes the cost effects; the tile's 'ultimate' and 'crawl' claims are evaluative overstatement rather than sourced card facts."
+    },
+    {
+      "ledger_id": "PLAY-UB-1-cardrel_ub_8027a610",
+      "identity": "UB",
+      "card": "Lazav, Dimir Mastermind",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-BR-1-cardrel_br_143a269a",
+      "identity": "BR",
+      "card": "Rakdos, Lord of Riots",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-BR-6-cardrel_br_03a4b997",
+      "identity": "BR",
+      "card": "Rakdos, the Showstopper",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-RG-1-cardrel_rg_b7505737",
+      "identity": "RG",
+      "card": "Borborygmos Enraged",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-RG-3-cardrel_rg_ebf3fd80",
+      "identity": "RG",
+      "card": "Nikya of the Old Ways",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-RG-4-cardrel_rg_6ed13a89",
+      "identity": "RG",
+      "card": "Ruric Thar, the Unbowed",
+      "disposition": "SOURCE_INTAKE_REQUIRED",
+      "notes": "Both routed facets—Ruric Thar as Ghor leader and the Ghor clan's assault pattern—depend on the unusable Gatecrash guide. Inspected broader Gruul sources support anti-civilization generally but do not establish these narrower Ruric/Ghor facts."
+    },
+    {
+      "ledger_id": "PLAY-WG-1-cardrel_wg_e94ef397",
+      "identity": "WG",
+      "card": "Trostani, Selesnya's Voice",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The tile explains why Trostani belongs to Selesnya, not what her verified play pattern teaches in the Play section."
+    },
+    {
+      "ledger_id": "PLAY-WB-1-cardrel_wb_644eeefd",
+      "identity": "WB",
+      "card": "Teysa Karlov",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-WB-2-cardrel_wb_8191342b",
+      "identity": "WB",
+      "card": "Teysa, Orzhov Scion",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-WB-5-cardrel_wb_647d7988",
+      "identity": "WB",
+      "card": "Karlov of the Ghost Council",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "SOUND-UR-1-cardvoice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063",
+      "identity": "UR",
+      "card": "Beamsplitter Mage",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "SOUND-UR-2-cardvoice_vm558_ur_2dfad8c3_1973_4fc8_971d_f66cacd88070",
+      "identity": "UR",
+      "card": "Blustersquall",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "PLAY-UR-1-cardrel_ur_33666a98",
+      "identity": "UR",
+      "card": "Niv-Mizzet, Parun",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-UR-2-cardrel_ur_095d9719",
+      "identity": "UR",
+      "card": "Melek, Izzet Paragon",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-BG-1-cardrel_bg_87e65e36",
+      "identity": "BG",
+      "card": "Jarad, Golgari Lich Lord",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-WR-1-cardrel_wr_0f5a3a09",
+      "identity": "WR",
+      "card": "Aurelia, the Warleader",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-WR-3-cardrel_wr_ae6f21a2",
+      "identity": "WR",
+      "card": "Tajic, Legion's Edge",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-WR-4-cardrel_wr_aa219936",
+      "identity": "WR",
+      "card": "Feather, the Redeemed",
+      "disposition": "SOURCE_INTAKE_REQUIRED",
+      "notes": "The only routed facet for this row is the Razia–Feather–Aurelia leadership transition. The inspected 2018 Boros guide independently establishes Razia and Aurelia but does not establish Feather; the unavailable Boros Legion route is therefore necessary for this card-specific identity bridge."
+    },
+    {
+      "ledger_id": "SOUND-UG-1-cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f",
+      "identity": "UG",
+      "card": "Coiling Oracle",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "PLAY-UG-1-cardrel_ug_311e9368",
+      "identity": "UG",
+      "card": "Prime Speaker Zegana",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The tile establishes Zegana's Simic office and philosophy but omits the card behavior promised by the Play section."
+    },
+    {
+      "ledger_id": "PLAY-SILVERQUILL-1-cardrel_auto_silverquill_d11e627b_8a48_411d_a261_2c9a02a758ba",
+      "identity": "SILVERQUILL",
+      "card": "Breena, the Demagogue",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-LOREHOLD-1-cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04",
+      "identity": "LOREHOLD",
+      "card": "Campus Renovation",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "PLAY-LOREHOLD-1-cardrel_lorehold_61a41cf1",
+      "identity": "LOREHOLD",
+      "card": "Lorehold, the Historian",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-LOREHOLD-3-cardrel_lorehold_43832745",
+      "identity": "LOREHOLD",
+      "card": "Velomachus Lorehold",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Multiple Play cards for this identity receive the same modal takeaway after only the card name changes."
+    },
+    {
+      "ledger_id": "PLAY-BANT-1-cardrel_bant_c6e17443",
+      "identity": "BANT",
+      "card": "Rafiq of the Many",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-ESPER-1-cardrel_auto_esper_3268251a_8292_44f9_9267_c961b182f739",
+      "identity": "ESPER",
+      "card": "Y'shtola, Night's Blessed",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-JUND-1-cardrel_auto_jund_868882d2_ed4e_4171_a17c_478a341080fb",
+      "identity": "JUND",
+      "card": "Prossh, Skyraider of Kher",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-ABZAN-1-cardrel_auto_abzan_2b3f791a_d672_46fb_a03a_96e19f2c3121",
+      "identity": "ABZAN",
+      "card": "Felothar the Steadfast",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-SULTAI-1-cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+      "identity": "SULTAI",
+      "card": "Kotis, Sibsig Champion",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The phrase 'anchored in Sultai source notes' exposes research methodology in player-facing modal copy."
+    },
+    {
+      "ledger_id": "PLAY-MARDU-1-cardrel_auto_mardu_0f93d88c_9d2e_416d_a10b_99483360b1fb",
+      "identity": "MARDU",
+      "card": "Zurgo Stormrender",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-TEMUR-1-cardrel_auto_temur_1b162dd3_3be6_406d_bf86_f7cc9eff098d",
+      "identity": "TEMUR",
+      "card": "Eshki, Temur's Roar",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "PLAY-YORE-1-cardrel_auto_yore_d460a9e2_5a7d_4562_880e_45174be19a9d",
+      "identity": "YORE",
+      "card": "Breya, Etherium Shaper",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-GLINT-1-cardvoice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36",
+      "identity": "GLINT",
+      "card": "Aberrant Return",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Powerful and volatile magic can also fit Red, Izzet, Prismari, or Temur; the line does not itself establish the Glint-specific bridge."
+    },
+    {
+      "ledger_id": "SOUND-GLINT-2-cardvoice_vm558_glint_c0b3bbce_977c_42a9_afcb_dabdfc717c97",
+      "identity": "GLINT",
+      "card": "Atarka, World Render",
+      "disposition": "SOURCE_INTAKE_REQUIRED",
+      "notes": "The current Vox synthesis permits a bounded appetite/force frame, but stronger official Glint/Yidris/Commander 2016 intake is required before presenting unbounded appetite as a durable identity trait."
+    },
+    {
+      "ledger_id": "PLAY-GLINT-1-cardrel_auto_glint_9efe8aff_9a7d_4397_b5fd_c1a0fad7c15f",
+      "identity": "GLINT",
+      "card": "Yidris, Maelstrom Wielder",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-DUNE-1-cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166",
+      "identity": "DUNE",
+      "card": "Aurelia, the Warleader",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Front-line leadership and organized force are compatible with Dune's bounded frame but are not distinctive enough by themselves to survive the adjacent Boros/Mardu echo test."
+    },
+    {
+      "ledger_id": "SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+      "identity": "DUNE",
+      "card": "Scour from Existence",
+      "disposition": "INSUFFICIENT_VOX_MANA_AUTHORITY",
+      "notes": "The modal's shared-territorial-survival reading goes beyond the bounded Dune source floor and is not established by this card's own line alone."
+    },
+    {
+      "ledger_id": "PLAY-DUNE-1-cardrel_auto_dune_e54d207c_51b8_458e_86a1_2633ac064c8e",
+      "identity": "DUNE",
+      "card": "Saskia the Unyielding",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-INK-1-cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "identity": "INK",
+      "card": "Command Tower",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "LIMITED_TO_VOX_MANA_SYNTHESIS; HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "SOUND-INK-2-cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+      "identity": "INK",
+      "card": "Danitha Capashen, Paragon",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "LIMITED_TO_VOX_MANA_SYNTHESIS; HIGH_TILE_MODAL_TOKEN_ECHO; LEGITIMATE_SHARED_CONCEPT; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "PLAY-INK-1-cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+      "identity": "INK",
+      "card": "Kynaios and Tiro of Meletis",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-WITCH-1-cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9",
+      "identity": "WITCH",
+      "card": "Animation Module",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "Counter accumulation is allowed Witch texture, but a modular design line plus card mechanics does not automatically establish a strong identity voice."
+    },
+    {
+      "ledger_id": "SOUND-WITCH-2-cardvoice_vm558_witch_e766a5eb_684b_4939_b164_6093d15600c9",
+      "identity": "WITCH",
+      "card": "Amphin Cutthroat",
+      "disposition": "INSUFFICIENT_VOX_MANA_AUTHORITY",
+      "notes": "The approved Witch frame permits patient development, but the modal turns one species vignette into a concrete missing-Red psychology beyond the current evidence floor."
+    },
+    {
+      "ledger_id": "PLAY-WITCH-1-cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb",
+      "identity": "WITCH",
+      "card": "Atraxa, Praetors' Voice",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    },
+    {
+      "ledger_id": "SOUND-WUBRG-1-cardvoice_wubrg_3ceb23f5_abb1_4569_a1e4_1eed9a9babcf",
+      "identity": "WUBRG",
+      "card": "Call the Spirit Dragons",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "SUPPORTED_WITH_LIMITATIONS; HIGH_TILE_MODAL_TOKEN_ECHO; MODAL_REDUNDANT"
+    },
+    {
+      "ledger_id": "SOUND-COLORLESS-1-cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20",
+      "identity": "COLORLESS",
+      "card": "All Is Dust",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The card is a valid Eldrazi/colorless branch fact, but that branch cannot automatically represent the whole Colorless identity or imply opposition to WUBRG."
+    },
+    {
+      "ledger_id": "PLAY-COLORLESS-1-cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "identity": "COLORLESS",
+      "card": "Omarthis, Ghostfire Initiate",
+      "disposition": "REMEDIATION_LIKELY",
+      "notes": "The modal adds a general identity plan but does not deepen why this particular card teaches that facet beyond the already-visible tile."
+    }
+  ],
+  "repetition_findings": {
+    "sound_formulaic_modal_count": 36,
+    "play_shared_composer_frame_count": 44,
+    "play_identity_local_repeated_modal_count": 15,
+    "cross_card_classification_counts": {
+      "EVIDENCE_LIMITATION": 4,
+      "GENERIC_TEMPLATE_REUSE": 15,
+      "LEGITIMATE_SHARED_CONCEPT": 60,
+      "NO_MATERIAL_CROSS_CARD_REPETITION": 40
+    },
+    "modal_value_counts": {
+      "ADDITIVE_IDENTITY_INTERPRETATION": 62,
+      "ADDITIVE_IDENTITY_PLAY_CONTEXT": 9,
+      "GENERIC_WHITE_PLAN_NOT_GIADA_SPECIFIC": 1,
+      "LOW_ADDITIVE_VALUE": 1,
+      "MODAL_IMPORTS_GENERAL_TAZRI_AND_AURELIA_CONTEXT": 1,
+      "MODAL_REDUNDANT": 42,
+      "PLAYER_MODAL_LEAKS_SOURCE_NOTES": 1,
+      "PLAY_SECTION_TILE_DOES_NOT_EXPLAIN_CARD_PLAY": 2
+    }
+  },
+  "rows_sound_as_written": [
+    "SOUND-W-2-cardvoice_vm558_w_4a782bf9_4051_4613_8852_33b0d85a0edd",
+    "SOUND-U-1-cardvoice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159",
+    "SOUND-U-2-cardvoice_vm558_u_4900c157_8d9f_4f92_aaca_5246b6e2832e",
+    "SOUND-B-2-cardvoice_vm558_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6",
+    "SOUND-R-1-cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a",
+    "SOUND-R-2-cardvoice_vm558_r_104baa4e_a3f3_45dc_979d_4c58b659ba1a",
+    "SOUND-G-1-cardvoice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3",
+    "SOUND-G-2-cardvoice_vm558_g_f652c593_e8fa_42ff_a8b4_206556b273de",
+    "PLAY-G-1-cardrel_auto_g_6c2c8bf3_9bf8_4a86_89d3_3bb36260dc51",
+    "SOUND-WU-1-cardvoice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64",
+    "SOUND-WU-2-cardvoice_vm558_wu_12971527_aa8e_4517_9b00_71474caebfd0",
+    "SOUND-UB-1-cardvoice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f",
+    "SOUND-UB-2-cardvoice_vm558_ub_4f25b125_1ded_4a34_9ed1_e6ce087ec48d",
+    "SOUND-BR-1-cardvoice_br_3f806353_592e_431c_a7dd_a4c64034f94d",
+    "SOUND-BR-2-cardvoice_vm558_br_c01516e0_eec3_4370_b935_7674982e8850",
+    "SOUND-RG-1-cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd",
+    "SOUND-RG-2-cardvoice_vm558_rg_a4e5693f_12a0_451e_818d_d6efc7b4ed25",
+    "SOUND-WG-1-cardvoice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1",
+    "SOUND-WG-2-cardvoice_vm558_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b",
+    "SOUND-WB-1-cardvoice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b",
+    "SOUND-WB-2-cardvoice_vm558_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25",
+    "SOUND-BG-1-cardvoice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5",
+    "SOUND-BG-2-cardvoice_vm558_bg_55e04860_f4f5_445b_81f2_b500fa9b456a",
+    "SOUND-WR-1-cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678",
+    "SOUND-WR-2-cardvoice_vm558_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501",
+    "SOUND-UG-2-cardvoice_vm558_ug_3da604fc_68e9_4749_98f9_6fbcebcab9b6",
+    "SOUND-SILVERQUILL-1-cardvoice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518",
+    "SOUND-SILVERQUILL-2-cardvoice_vm558_silverquill_901eb916_f318_4a30_a43e_8e7f9eef358b",
+    "SOUND-PRISMARI-1-cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77",
+    "SOUND-PRISMARI-2-cardvoice_vm558_prismari_d4e124af_d335_4c42_b60a_fe578f69f7ed",
+    "PLAY-PRISMARI-1-cardrel_auto_prismari_348c67ef_9ccc_4651_9038_efdf1ad1b36a",
+    "SOUND-WITHERBLOOM-1-cardvoice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2",
+    "SOUND-WITHERBLOOM-2-cardvoice_vm558_witherbloom_b831d3f8_07ce_4172_ba29_213cac414c9a",
+    "PLAY-WITHERBLOOM-1-cardrel_auto_witherbloom_f61c1dc4_2f09_4b50_957f_ee656c659072",
+    "SOUND-LOREHOLD-2-cardvoice_vm558_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242",
+    "SOUND-QUANDRIX-1-cardvoice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7",
+    "SOUND-QUANDRIX-2-cardvoice_vm558_quandrix_724700ad_1e4e_4cbc_af7f_0b3b87ed4bc8",
+    "PLAY-QUANDRIX-1-cardrel_auto_quandrix_977f9390_e01d_4e9d_8e9c_e543b1266972",
+    "SOUND-BANT-1-cardvoice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59",
+    "SOUND-BANT-2-cardvoice_vm558_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552",
+    "SOUND-ESPER-1-cardvoice_esper_fef94125_aa8d_4147_a609_1e990961bde2",
+    "SOUND-ESPER-2-cardvoice_vm558_esper_518115c9_0f0f_4249_81ff_e79b27dda1be",
+    "SOUND-GRIXIS-1-cardvoice_grixis_fef94125_aa8d_4147_a609_1e990961bde2",
+    "SOUND-GRIXIS-2-cardvoice_vm558_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6",
+    "PLAY-GRIXIS-1-cardrel_auto_grixis_f5092c14_eec4_472c_999c_ba96c36b2fbb",
+    "SOUND-JUND-1-cardvoice_jund_9b984236_39cf_4552_827b_e81c26cfb388",
+    "SOUND-JUND-2-cardvoice_vm558_jund_4a430fa3_e693_424b_9981_d7d8193445e3",
+    "SOUND-NAYA-1-cardvoice_naya_956250da_532a_4457_8696_73915be56943",
+    "SOUND-NAYA-2-cardvoice_vm558_naya_2f47661e_a107_4d98_8773_0a068a63df49",
+    "PLAY-NAYA-1-cardrel_auto_naya_e7604cd9_d00d_4957_82c9_46a7cdb88209",
+    "SOUND-ABZAN-1-cardvoice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8",
+    "SOUND-ABZAN-2-cardvoice_vm558_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0",
+    "SOUND-JESKAI-1-cardvoice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0",
+    "SOUND-JESKAI-2-cardvoice_vm558_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184",
+    "PLAY-JESKAI-1-cardrel_auto_jeskai_40ed32a6_ad56_48c7_aecf_b4238c34c212",
+    "SOUND-SULTAI-1-cardvoice_sultai_c469133e_174d_476b_b135_bbf15e415e72",
+    "SOUND-SULTAI-2-cardvoice_vm558_sultai_88ce2017_83a6_4b55_afba_371875bf2172",
+    "SOUND-MARDU-1-cardvoice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191",
+    "SOUND-MARDU-2-cardvoice_vm558_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9",
+    "SOUND-TEMUR-1-cardvoice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875",
+    "SOUND-TEMUR-2-cardvoice_vm558_temur_bf84a598_12d3_406d_8eeb_40592e782b87",
+    "SOUND-YORE-1-cardvoice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078",
+    "SOUND-YORE-2-cardvoice_vm558_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f",
+    "SOUND-WUBRG-2-cardvoice_vm558_wubrg_70dbe8a9_505d_41c2_9b5b_a991d13ab459",
+    "PLAY-WUBRG-1-cardrel_auto_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e"
+  ]
+}

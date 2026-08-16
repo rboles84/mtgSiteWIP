@@ -1,0 +1,687 @@
+{
+  "schema_version": "1.1.0",
+  "local_sources": [
+    {
+      "path": "data/scryfall/raw/oracle-cards.json",
+      "sha256": "551c9ba0552eb5c523ff5093b5e5f315504aca7a90a21a895792692eaa276340",
+      "bytes": 206425820,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/analysis/canon-inventory-three-color-reference-audit.md",
+      "sha256": "d22511843d4847f03bdde58d09a4333df25c9b169bb9e1ef9db3e17a5d2ff433",
+      "bytes": 38480,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/architecture/colors/bant/identity.md",
+      "sha256": "3a3bd58a64c98776b8e9d1971a0affb427e5f87f6c3080770aba690c9c4c7115",
+      "bytes": 33169,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/architecture/colors/bant/metaphysics.md",
+      "sha256": "afb5fa6d98c07efb5901deaecddf187fc61a87e762a688bc866824161e900196",
+      "bytes": 11327,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/architecture/colors/colorless/product-decision-gate.md",
+      "sha256": "d88d1d628b24123e2e79d057503386ae80f8172d6edf87b1e9fc781a761484f2",
+      "bytes": 10306,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-234-jeskai-way-controlled-runtime-promotion.md",
+      "sha256": "9dc76bd18818d6ef843f730fe766c3c1a12b636deebbfa36a2aa049da0f33769",
+      "bytes": 3431,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-240-yore-source-packet-and-evidence-ledger.md",
+      "sha256": "0a07bbb7a0d3fd926fba286cda3b8faa4c07cbfe384baa2b77b0863d20010ef1",
+      "bytes": 4360,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-245-yore-controlled-runtime-promotion.md",
+      "sha256": "fc521954a7f9eeb0b3d676d046a9a9bbe7f85d91db8cff4e0f4fff8924e84ccd",
+      "bytes": 3401,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-246-glint-source-packet-and-evidence-ledger.md",
+      "sha256": "e6b20a745d22ff9f32b2a638a7cf1a12b021c2fe74c507427e21da0c7905f44a",
+      "bytes": 3703,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-251-glint-controlled-runtime-promotion.md",
+      "sha256": "dfe8e7cf857968609b671b29345e398060bf6d401c7edeaffab43a82c9ab86bc",
+      "bytes": 3934,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-252-dune-source-packet-and-evidence-ledger.md",
+      "sha256": "0555965e37b584207984d62b0f6c5fd26de49dd40c5262d7e082621cde846260",
+      "bytes": 4441,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-257-dune-controlled-runtime-promotion.md",
+      "sha256": "a8e061dffea08e3444e9aefe4e0d390443c11c38547d467c25ef6afd710515ab",
+      "bytes": 5049,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-258-ink-source-packet-and-evidence-ledger.md",
+      "sha256": "18168b80668f265e336a295f147132285addb8207c4384e9a7e590554a7f8c09",
+      "bytes": 4407,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-263-ink-controlled-runtime-promotion.md",
+      "sha256": "afe9df0850ebdf66f6b835f161181ea0f6552b56823f388779983b97c99b109b",
+      "bytes": 4312,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-264-witch-source-packet-and-evidence-ledger.md",
+      "sha256": "60b78e5a3bfafff701be999f14691340c1d0cf6aeea0d0e998d7a72d819f8e36",
+      "bytes": 5359,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-367-wubrg-gold-layer1-layer2.md",
+      "sha256": "d59b948696cec5e528f9b08de48b41a26b38f6fc804416ad0fde5f45423a2720",
+      "bytes": 3799,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-377-mono-gold-source-intake-planning.md",
+      "sha256": "8fa20bed9175abe789fbf439d3058e96bac090844cb7ac5c1996d8229dc7ecde",
+      "bytes": 9045,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/kanban/done/VM-389-v1-home-identity-signal-promotion.md",
+      "sha256": "371c7ecbecc518eeb3ae0045a86a9998f26228d6feb5a1c95d26237fbe98971c",
+      "bytes": 5171,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/reference/source-generated-guardrails.md",
+      "sha256": "53169d2f8a68874760f073925462d4b00c745305f795178f382b6f9375b8d378",
+      "bytes": 10109,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/abzan/abzan-evidence-ledger.md",
+      "sha256": "7890f99040a33fcb77af41ff07ed897f632dab6c98ebf2bd5ab746a0798524ef",
+      "bytes": 10453,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/bant/bant-evidence-ledger.md",
+      "sha256": "a63d8e422a26df529e8a35bb0e2a76c1691733165e17dd60b90e62c0a0af14e4",
+      "bytes": 14114,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/bant/bant-lore-source-packet.md",
+      "sha256": "965ad699e1bb2e5480cb6a832b7620142d9ce6af138904154377106e9d9ea388",
+      "bytes": 72132,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/bant/bant-reliability-audit.md",
+      "sha256": "f46ef53a3e9d62c52241a7d1dbefa5eddd54baa54595da690ea0b5a995a2e02b",
+      "bytes": 14069,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/bant/bant-research-dossier.md",
+      "sha256": "47c57371993c38d2468c210837fc20186d970683d9e58ff1e0560364edfae47e",
+      "bytes": 28974,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/bant/source-material/Bant_Lore_Reference.docx",
+      "sha256": "b2ad18b648385a5cdd45410dc7a002e75bc5d6666e52e725ff347dd09ecc5783",
+      "bytes": 15423,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/canon-inventory-four-color-reference-audit.md",
+      "sha256": "36823e33565a60303a9e46f17e1f17887fce1087cbb4e52e7ee97adcaa1c86ef",
+      "bytes": 12946,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/five-color-reference-audit.md",
+      "sha256": "0194c6a9fa5cc02b27f887c46fcdfe09039bf5428d5d57e889aa1d2b3bab2ffe",
+      "bytes": 12139,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/guild_research/Alara Shards Lore Dossier Protocol.rtf",
+      "sha256": "470aa497d31f43c2b72b6d37a2ab2055ae6915f14991a2438b5d73a85f01176a",
+      "bytes": 2301507,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Abzan_We Will Survive _ MAGIC_ THE GATHERING.md",
+      "sha256": "12f5dd4242d890262bef330a9e1131998891385d1ccfa23d91b848dfc5fe5a8d",
+      "bytes": 25840,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Bant_Peace, Love and Understanding _ MAGIC_ THE GATHERING.md",
+      "sha256": "267690ba8a5c63ca56ee86dd3171aca359a0db5a715934c700f342cda9aed2b3",
+      "bytes": 16995,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Esper_Striving For Perfection _ Magic_ The Gathering.md",
+      "sha256": "83eecb3f89b5edb1ab3d2d6804bff5f6e21a2e297ff93ec727e03144deafb305",
+      "bytes": 15165,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Grixis_Looking Out For Number One _ MAGIC_ THE GATHERING.md",
+      "sha256": "7a0add5f6b67663b3c495b02aa5a80ce7e5039dfabf358b025696a1bb7bcf892",
+      "bytes": 14958,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Jeskai_Smart Thinking _ MAGIC_ THE GATHERING.md",
+      "sha256": "145f2cf3d15472eb3aedb4212c7bba71c3e16583f98e734d8ecd3c8c2eb4658a",
+      "bytes": 22187,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Jund_Following Your Heart _ MAGIC_ THE GATHERING.md",
+      "sha256": "9168f2ed2c047a3833e83283f22e20290e68e6955de1cc5e5d2c48e34f56c6a9",
+      "bytes": 15016,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Mardu_Finishing First _ MAGIC_ THE GATHERING.md",
+      "sha256": "e85f649f3f05d89669ec64d6cdbaf558e4ad5a7d29ccee3027be05fb5d602b94",
+      "bytes": 18641,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Naya_Searching Within _ MAGIC_ THE GATHERING.md",
+      "sha256": "c6666a2a7deb4339c30c6144465cdeec919d58efd2d42410915883837e2dd99c",
+      "bytes": 15472,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Sultai_Whatever It Takes _ MAGIC_ THE GATHERING.md",
+      "sha256": "ee157eabdec8bbb6ceef67f823959267071b801a94e79d3bf8c8994edcb51d87",
+      "bytes": 17826,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_three_color/Temur_What Doesn't Kill You Makes You Stronger _ MAGIC_ THE GATHERING.md",
+      "sha256": "3235922bd874a3e7e6cdb196be733901e4df43786f96d36d65590e0e416206a7",
+      "bytes": 17309,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/mark_rosewater_official_two_color/azorius_Slow and Steady _ MAGIC_ THE GATHERING.md",
+      "sha256": "533217c4e32a30d96f55c3f481361d772bbca20192f925947657955a2cd31a5d",
+      "bytes": 15337,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/misc/mtg_five_color_and_colorless_dossier.md",
+      "sha256": "12b78eef503997f50a1ef5d21ee524c084f73f9576f2971fbf3d2b09861d4ad6",
+      "bytes": 88468,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-1.md",
+      "sha256": "0eb6610e7ab6bc7f523a76d0b6dd9cb5cd6631ceb27981f8aa2b57b03fa43e96",
+      "bytes": 30698,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragons-part-2.md",
+      "sha256": "b59205c596045c724761b77809c7b45e6cd9a24a921dbcd7849ea6fa00fcf961",
+      "bytes": 33715,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-dragonstorm-part-1.md",
+      "sha256": "16b6a558e777a191e586601a1678b5573d7d2d5dbab69316e524875a851aa7e3",
+      "bytes": 44657,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-fate-reforged.md",
+      "sha256": "e6bfa19a6ba0a0c1a19be45b2b654ec42fc80e8f743b4857ece6e4fefb002104",
+      "bytes": 17709,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-1.md",
+      "sha256": "57e4e9ce1040558cd6dcd8aa3418cb468ec3beb001f588ae173bbc2687d43200",
+      "bytes": 47213,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/planeswalkers-guide-khans-part-2.md",
+      "sha256": "80b63ebc1f1331982f3982e2339f5987b1f341da29d2fa891cfad8ae953f48f3",
+      "bytes": 44262,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/story-awakening-the-bear.md",
+      "sha256": "9f4eb3eb26811ef12031e9e02bc2d462ea18ee6b6117eff8269dd9a1ad3439e3",
+      "bytes": 14173,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/story-khanfall.md",
+      "sha256": "61b2b2db0872147966a3389c8e4b0509187a6708bb976cb04175ad3387fa4b71",
+      "bytes": 42128,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/canon/source-material/tarkir/story-truth-of-names.md",
+      "sha256": "fc8310f0e606728ba374e6f1a332eb827e5021581c649de5c7e31389445d7de4",
+      "bytes": 17853,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/colorless/source-material/Colorless - Concept vs. Execution _ MAGIC_ THE GATHERING_markRosewater.md",
+      "sha256": "5786132ae6d2c0f81a1585a57c14e4a0401bf6f1bb0f179fc415d5cca20d69f8",
+      "bytes": 27288,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/colorless/source-material/colorless_magic_cleaned.md",
+      "sha256": "2353c7c6b10a42acd9740b1f8079a045ec26a7cdaff29a3fb950492d11022669",
+      "bytes": 16152,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/colorless/source-material/colorless_mtg_notes_sourced_v2.md",
+      "sha256": "ac070a339ad1b175fb91fcdb7a79f175068b5c33c2c4f68dc7d58a6917c8024b",
+      "bytes": 30668,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/dune/dune-evidence-ledger.md",
+      "sha256": "f6e176117bff369e402a7b73c6f8e9cedb73cdc11c9e6529c5f02575135c111f",
+      "bytes": 7072,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/esper/esper-evidence-ledger.md",
+      "sha256": "4d57b2f56dee506e38d6564db895ca663ec25968d9c047418213cd33e1285cd9",
+      "bytes": 11580,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/glint/glint-evidence-ledger.md",
+      "sha256": "cb7c52de064a5d14f403e157cebac95ac7f2f87181907a2e67093a26e7ce9dbf",
+      "bytes": 7427,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/grixis/grixis-evidence-ledger.md",
+      "sha256": "f8b7ab4169f97e5b95229e51f00ee3e87607c9ddd35b02ef6a063c604cd5c7b8",
+      "bytes": 15689,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/ink/ink-evidence-ledger.md",
+      "sha256": "fd855c4135e34fd9562be7bfa8b26a110d720aa6aab61df80a61a86aa92efb7e",
+      "bytes": 6946,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/jeskai/jeskai-evidence-ledger.md",
+      "sha256": "b49cdda697c6b58a2aead0d7795ef37958f3a5cf8a4d0f0952b6facab92590ec",
+      "bytes": 8523,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/jund/jund-evidence-ledger.md",
+      "sha256": "c041ad3817914aa3c72972b4cd14f9505a0a4f3c9efc322e7ac9cdad916d14b0",
+      "bytes": 9990,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/jund/jund-reliability-audit.md",
+      "sha256": "2770d3a04bf8607df0d8239fe1ca09945525cc3e47aec33676a7abd80dda55e1",
+      "bytes": 5044,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mardu/mardu-evidence-ledger.md",
+      "sha256": "6e359d260eda51a8d6a691a573680783de44cef0bb87b36b8880cf817d8dffde",
+      "bytes": 11571,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/10_white.md",
+      "sha256": "58aec9874176de20ecf616a92c9fcfd686adcd7443682944712cabd59b9d416c",
+      "bytes": 6147,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/11_blue.md",
+      "sha256": "b6835fa94f09529578bfd8aaee31c545f11eb68eaf01b0bac8f4901198db55f5",
+      "bytes": 5942,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/12_black.md",
+      "sha256": "5649482cb95d7801ac2eca035c0a775949f8d1e95735db4c7988eb1051ffe127",
+      "bytes": 6311,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/13_red.md",
+      "sha256": "8921f6249a0b978a10d46c21b4bd0208c284f75f4db3b81741b9bbb4beebe91d",
+      "bytes": 5605,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/14_green.md",
+      "sha256": "96c5d6498df9214fe8cbfdd0d65c58011e0d1b48638160070ae456a4f356fe4b",
+      "bytes": 6462,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/20_mechanical_color_pie_2021.md",
+      "sha256": "1138f632b06f02b6cca5929f8c163d9132abd7156d9740f4d852ad53effe93b1",
+      "bytes": 12240,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/21_mechanical_color_pie_2021_changes.md",
+      "sha256": "ead9f71e348fdc5b496245615a2842226ea94287360816858b61487176d78c95",
+      "bytes": 4083,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/mono_upgrade/22_council_of_colors.md",
+      "sha256": "5aa2fd1f6d68fb8923e252e47d58422c6afa18256d37709ece84c5ce533a6fa7",
+      "bytes": 4003,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/naya/naya-evidence-ledger.md",
+      "sha256": "39ac0a8201c1b4820930c92ad899becfd85e2455a6f6a132864dec786c37a23d",
+      "bytes": 7152,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/sultai/sultai-evidence-ledger.md",
+      "sha256": "17153fee69566abf546398f4636eccd0eb5ca511a27b83b31cc8c72676269554",
+      "bytes": 11919,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/temur/temur-evidence-ledger.md",
+      "sha256": "d4644fa4a15d32a725915081db3d8403b92522922047004732c6dc7877f02fb8",
+      "bytes": 10358,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/VM-378-379-380_source-intake.md",
+      "sha256": "14ffd05bf075927e28a478307aaeec63970bd7b60a93d74e1d1f397217cb3f34",
+      "bytes": 29682,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/witch/witch-evidence-ledger.md",
+      "sha256": "1021a3ace3a49b8bbd03150c3c0532d8eeee40db4a26407296b8b1d01379d5a7",
+      "bytes": 8532,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/wubrg/WUBRG Identity Research Prompt.md",
+      "sha256": "849f513755ada600d71c014dc72f6204d506f71a6922b9aa720e3c9fccb23b85",
+      "bytes": 30994,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    },
+    {
+      "path": "docs/research/yore/yore-evidence-ledger.md",
+      "sha256": "b75182b178f8d116bfc7ed4b3f11d7806e5295d9630b6eed40386778690232ce",
+      "bytes": 5427,
+      "inspection_status": "FULL_LOCAL_SOURCE_READ"
+    }
+  ],
+  "official_web_sources": [
+    {
+      "requested_url": "https://magic.wizards.com/en/articles/archive/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "final_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "title": "Planeswalker's Guide to Strixhaven | MAGIC: THE GATHERING",
+      "body_chars": 33417,
+      "body_sha256": "11456aa5bf8d3bb4094ae4d6e3fa368338af032c1fe051b36badfaf3c60d819e",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/formats/commander",
+      "final_url": "https://magic.wizards.com/en/formats/commander",
+      "title": "MTG Commander Format | Magic: The Gathering",
+      "body_chars": 8057,
+      "body_sha256": "ce4f5f6e83986f73cbb976bb5db4f8255bb358900268c442f9fd75e909459d76",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+      "final_url": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
+      "title": "Commander Masters Commander Decklists",
+      "body_chars": 11901,
+      "body_sha256": "d9a5eaaa0b223eb36b3def1de714478caa67ce198f949e73cb30c0e055c62965",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "final_url": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
+      "title": "Secrets of Strixhaven Commander Decklists",
+      "body_chars": 12266,
+      "body_sha256": "a7a744c5e7ff85f883eba36a062024179ac44b4f4d632776c6ba29a2ca27cd03",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "final_url": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
+      "title": "Tarkir: Dragonstorm Commander Decklists",
+      "body_chars": 14394,
+      "body_sha256": "7a0fb9141c7709bdeee9e234f528e3673528bd2f18498953a0ea0b1845e647b5",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/boros-legion",
+      "final_url": "https://magic.wizards.com/en/news/feature/boros-legion",
+      "title": "404 | Magic: The Gathering",
+      "body_chars": 1470,
+      "body_sha256": "c6bf7032bcd80b450a129a03864c143376e0a2cd7693a30d26ac53ec0c5e6bfa",
+      "inspection_status": "SOURCE_INTAKE_REQUIRED"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+      "final_url": "https://magic.wizards.com/en/news/feature/commanding-guilds-ravnica-2018-10-18",
+      "title": "Commanding the Guilds of Ravnica | MAGIC: THE GATHERING",
+      "body_chars": 13129,
+      "body_sha256": "2e188716181ab365313015f19c8308489fc219384779ba851d7e9c8588489161",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+      "final_url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-2018-10-03",
+      "title": "A Flavorful Guide to the Guilds of Ravnica | MAGIC: THE GATHERING",
+      "body_chars": 13161,
+      "body_sha256": "ec7acfd847f1a581e85b1f8eaa67391d3ad2e97d6f1e366931af57ac990acfd3",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "final_url": "https://magic.wizards.com/en/news/feature/flavorful-guide-guilds-ravnica-allegiance-2019-02-07",
+      "title": "A Flavorful Guide to the Guilds of Ravnica Allegiance | MAGIC: THE GATHERING",
+      "body_chars": 15532,
+      "body_sha256": "08f65dc0ce2464bfca68a6d420f6f057d0df28c5e781928123a47d081ff8e98c",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/guilds-of-ravnica-prerelease-primer",
+      "final_url": "https://magic.wizards.com/en/news/feature/guilds-of-ravnica-prerelease-primer",
+      "title": "Guilds of Ravnica Prerelease Primer | Magic: The Gathering",
+      "body_chars": 16219,
+      "body_sha256": "3e00b8836b265f1a127c72d89174687c12ecb8302f57f8dd9ba3fb4992fb4329",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "final_url": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "title": "Guilds of Ravnica Mechanics | MAGIC: THE GATHERING",
+      "body_chars": 11622,
+      "body_sha256": "f02da196f96614b4d383d1ef97ca4e924a6c8a7bb579ee1f73cfa75689631dd7",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "final_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-strixhaven-2021-04-01",
+      "title": "Planeswalker's Guide to Strixhaven | MAGIC: THE GATHERING",
+      "body_chars": 33417,
+      "body_sha256": "11456aa5bf8d3bb4094ae4d6e3fa368338af032c1fe051b36badfaf3c60d819e",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2",
+      "final_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2",
+      "title": "Planeswalker's Guide to Gatecrash: Part 2",
+      "body_chars": 140,
+      "body_sha256": "c41f50e187149f659a805b36d93b2ed6d4257cf72319b76150b55d690ee456e6",
+      "inspection_status": "SOURCE_INTAKE_REQUIRED"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-murders-at-karlov-manor",
+      "final_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-murders-at-karlov-manor",
+      "title": "Planeswalker's Guide to Murders at Karlov Manor",
+      "body_chars": 35197,
+      "body_sha256": "3ce38ce4ffb5118c4ce9979397bb7b52e8f47ba61f0a0d4a591fe440336627ff",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-return-to-ravnica-part-2",
+      "final_url": "https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-return-to-ravnica-part-2",
+      "title": "Planeswalker's Guide to Return to Ravnica: Part 2 | Magic: The Gathering",
+      "body_chars": 16203,
+      "body_sha256": "aa92c8b570e3ab02ec97dfe98bcf0a5c0b457798ada4eb7b8091efc1e62cc45b",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+      "final_url": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+      "title": "Ravnica Allegiance Mechanics | Magic: The Gathering",
+      "body_chars": 10721,
+      "body_sha256": "d52b0996b6e6c716fc688a4305148f871f5433fb0523054abd318667a79f3785",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/return-to-ravnica-mechanics",
+      "final_url": "https://magic.wizards.com/en/news/feature/return-to-ravnica-mechanics",
+      "title": "Return to Ravnica Mechanics",
+      "body_chars": 10938,
+      "body_sha256": "ed8f673ea022961151b8d0c5e68168b692ebc58400548eff1cd9fd9aaa1ded7d",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16",
+      "final_url": "https://magic.wizards.com/en/news/feature/strixhaven-school-mages-and-commander-2021-edition-release-notes-2021-04-16",
+      "title": "Strixhaven: School of Mages and Commander (2021 Edition) Release Notes | MAGIC: THE GATHERING",
+      "body_chars": 187745,
+      "body_sha256": "a2e85745603d3738b8a3eeb6a7b7c3ff34691ae38a3d8f611e930f6f9b8b0455",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/feature/the-legends-and-characters-of-murders-at-karlov-manor",
+      "final_url": "https://magic.wizards.com/en/news/feature/the-legends-and-characters-of-murders-at-karlov-manor",
+      "title": "The Legends (and Characters) of Murders at Karlov Manor",
+      "body_chars": 27044,
+      "body_sha256": "6bed031255af8e1575f89bd3272aa69ee15ff00cc0c8f34cf18146b752e1c07d",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-to-secrets-of-strixhaven",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-to-secrets-of-strixhaven",
+      "title": "Planeswalker's Guide to Secrets of Strixhaven",
+      "body_chars": 50395,
+      "body_sha256": "aea0c0811461e768535099bc1ac1ac259d13cf14eb6db5dd7d9b3e71779b4ec3",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/project-lightning-bug-2015-05-27",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/project-lightning-bug-2015-05-27",
+      "title": "Project Lightning Bug | MAGIC: THE GATHERING",
+      "body_chars": 25936,
+      "body_sha256": "6d48d2ffcd20b0ef453a2bad1a08439d2fce61757187cd76dc536db92b502064",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/secrets-of-strixhaven-field-studies-in-a-future-tense",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/secrets-of-strixhaven-field-studies-in-a-future-tense",
+      "title": "Secrets of Strixhaven | Field Studies in a Future Tense",
+      "body_chars": 32728,
+      "body_sha256": "214d45f37bc06bdc371bc4ed1c902b0b848cfa7777fdc88aab5bea258ca8cf53",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/the-legends-of-secrets-of-strixhaven",
+      "title": "The Legends of Secrets of Strixhaven",
+      "body_chars": 29611,
+      "body_sha256": "c0ec843d667e2225b2a6a033b33ff1cf43d3f0e75bb49671c4604532787a832b",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-operation-desperation-2019-06-05",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-operation-desperation-2019-06-05",
+      "title": "War of the Spark: Ravnica—Operation Desperation | MAGIC: THE GATHERING",
+      "body_chars": 44088,
+      "body_sha256": "318b276d6e206d85df7788d3b95ea743a8f25ed9a084b06d6b4b798db106baef",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-path-opulent-2019-05-15",
+      "final_url": "https://magic.wizards.com/en/news/magic-story/war-spark-ravnica-path-opulent-2019-05-15",
+      "title": "War of the Spark: Ravnica – The Path to Opulent | MAGIC: THE GATHERING",
+      "body_chars": 28638,
+      "body_sha256": "9cefa5f78ce6dac6e8856354edf7a12665f475bd5c000e6156928bb035389f47",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "final_url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+      "title": "Mechanical Color Pie 2021",
+      "body_chars": 7304,
+      "body_sha256": "e6c124267ef889aeeaa2e7c10141c7de7694d2bc073afd97990eea528da77e08",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/products/strixhaven",
+      "final_url": "https://magic.wizards.com/en/products/strixhaven",
+      "title": "Strixhaven Available Now | Magic: The Gathering",
+      "body_chars": 5682,
+      "body_sha256": "d2eda0dc9f159f9c3c0aa88c2ba020bb4f31c3d536f42772446e19cc3dca6c7e",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    },
+    {
+      "requested_url": "https://magic.wizards.com/en/story/ravnica-plane",
+      "final_url": "https://magic.wizards.com/en/story/ravnica-plane",
+      "title": "Ravnica | Magic: The Gathering",
+      "body_chars": 3384,
+      "body_sha256": "6cfc0029ec8fed4ff20673bd4f2c7cb24979fba4030180dc2f12f9cd72bf35c5",
+      "inspection_status": "INSPECTED_OFFICIAL_WEB"
+    }
+  ]
+}
