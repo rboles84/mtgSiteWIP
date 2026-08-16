@@ -17,6 +17,8 @@ const viewportName = (process.argv.find((arg) => arg.startsWith("--viewport=")) 
 const identityFilter = (process.argv.find((arg) => arg.startsWith("--identity=")) || "").split("=")[1] || "";
 const transientDeliveryMode = process.argv.includes("--transient-delivery");
 const reviewMode = process.argv.includes("--review");
+const firstHoverMode = process.argv.includes("--first-hover-regression");
+const soundPlayExportPath = (process.argv.find((arg) => arg.startsWith("--export-sound-play=")) || "").slice("--export-sound-play=".length);
 const viewports = {
   desktop: { width: 1440, height: 1100 },
   mobile: { width: 390, height: 900 },
@@ -191,6 +193,14 @@ async function exerciseIdentity(page, origin, witness) {
     assert.equal(heading, "", `${witness.identity_key} rendered a Card Signals heading without authored signals`);
   }
 
+  const editorialPanelOwnership = await page.evaluate(() => ({
+    startVoice: document.querySelectorAll('[data-dossier-panel="start"] [data-card-voice-section]').length,
+    startPlay: document.querySelectorAll('[data-dossier-panel="start"] [data-card-rationale-section]').length,
+    whyVoice: document.querySelectorAll('[data-dossier-panel="why"] [data-card-voice-section]').length,
+    whyPlay: document.querySelectorAll('[data-dossier-panel="why"] [data-card-rationale-section]').length,
+  }));
+  assert.deepEqual(editorialPanelOwnership, { startVoice: 0, startPlay: 0, whyVoice: 1, whyPlay: 1 }, `${witness.identity_key} Sound/Play panel ownership drifted`);
+
   const initialSuppression = await page.evaluate(() => [...document.querySelectorAll("[data-dossier-segment-panel][hidden]")].every((panel) =>
     !panel.querySelector("img.staple-img, img.land-img") &&
     ![...panel.querySelectorAll('[id^="sc_"], [id^="ss_"], [id^="sp_"], [id^="lbas_"], [id^="lp_"], [id^="lm_"], [id^="lb_"], [id^="lu_"]')]
@@ -264,8 +274,146 @@ async function exerciseIdentity(page, origin, witness) {
     const attemptCount = await page.$eval('[data-card-art-name="Swamp"]', (slot) => Number(slot.dataset.cardArtDeliveryAttempts || 0));
     assert.equal(attemptCount, 2, "Swamp transient delivery retry bound drifted");
   }
+  if (reviewMode) {
+    await page.$eval('.dossier-view-toggle', (button) => {
+      if (button.getAttribute('aria-pressed') === 'true') button.click();
+    });
+    await page.$eval('[data-dossier-tab="start"]', (button) => button.click());
+    await page.waitForFunction(() => (
+      document.querySelector('[data-dossier-console]')?.getAttribute('data-dossier-layout') === 'focus' &&
+      document.querySelector('[data-dossier-panel="start"]')?.hidden === false &&
+      document.querySelector('[data-dossier-panel="why"]')?.hidden === true
+    ));
+    await page.$eval('[data-dossier-panel="start"]', (panel) => panel.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' }));
+  }
   assert.deepEqual(consoleErrors.filter((message) => !/favicon|ERR_FAILED|Failed to load resource/i.test(message)), []);
-  return { identity_key: witness.identity_key, heading, cdn_request_count: cdnRequests.length };
+  const soundPlay = await page.evaluate(() => ({
+    voice: [...document.querySelectorAll('[data-dossier-panel="why"] [data-card-voice-section] .flavor-echo-card')].map((card) => ({
+      cardName: card.querySelector('[data-card-name]')?.getAttribute('data-card-name') || '',
+      tileLabel: card.querySelector('.flavor-echo-kicker')?.textContent?.trim() || '',
+      tileText: card.querySelector('.flavor-echo-why')?.textContent?.trim() || '',
+      modalText: card.querySelector('[data-card-identity-context]')?.getAttribute('data-card-identity-context') || '',
+    })),
+    play: [...document.querySelectorAll('[data-dossier-panel="why"] [data-card-rationale-section] .flavor-echo-card')].map((card) => ({
+      cardName: card.querySelector('[data-card-name]')?.getAttribute('data-card-name') || '',
+      tileLabel: card.querySelector('.flavor-echo-kicker')?.textContent?.trim() || '',
+      tileText: card.querySelector('.flavor-echo-why')?.textContent?.trim() || '',
+      tags: [...card.querySelectorAll('.vm-tag-chip')].map((tag) => tag.textContent?.trim() || '').filter(Boolean),
+      modalText: card.querySelector('[data-card-identity-context]')?.getAttribute('data-card-identity-context') || '',
+    })),
+  }));
+  return { identity_key: witness.identity_key, heading, cdn_request_count: cdnRequests.length, sound_play: soundPlay };
+}
+
+async function exerciseFirstHoverRegression(browser, origin, witness) {
+  const cases = [
+    ["starter-cards", "creatures", "#sc_0 img"],
+    ["starter-cards", "spells", "#ss_0 img"],
+    ["starter-cards", "permanents", "#sp_0 img"],
+    ["mana-base", "basics", "#lbas_0 img"],
+    ["mana-base", "premium", "#lp_0 img"],
+    ["mana-base", "midrange", "#lm_0 img"],
+    ["mana-base", "budget", "#lb_0 img"],
+    ["mana-base", "utility", "#lu_0 img"],
+  ];
+  const result = deterministicResult(witness);
+  for (const [panel, segment, selector] of cases) {
+    const page = await browser.newPage();
+    await page.setViewport(viewports.desktop);
+    await page.evaluateOnNewDocument((savedResult) => {
+      localStorage.clear();
+      sessionStorage.clear();
+      sessionStorage.setItem("vm_last_result", JSON.stringify(savedResult));
+      window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
+    }, result);
+    await page.setRequestInterception(true);
+    page.on("request", (request) => {
+      const url = request.url();
+      if (url.startsWith(origin) || url.startsWith("data:") || url.startsWith("blob:")) return request.continue();
+      if (/^https:\/\/api\.scryfall\.com\//.test(url)) return request.abort();
+      if (/^https:\/\/cards\.scryfall\.io\//.test(url)) return request.respond({ status: 200, contentType: "image/png", body: imageFixture });
+      return request.abort();
+    });
+    try {
+      await page.goto(`${origin}/archscry/?panel=${panel}&layout=focus`, { waitUntil: "networkidle0", timeout: 30000 });
+      await page.waitForSelector("#result:not(.hidden)", { timeout: 20000 });
+      const defaultSegment = panel === "starter-cards" ? "creatures" : "basics";
+      if (segment !== defaultSegment) {
+        await page.$eval(`[data-dossier-segment="${panel}:${segment}"]`, (button) => button.focus());
+        await page.keyboard.press("Enter");
+      }
+      await page.waitForSelector(selector, { visible: true, timeout: 30000 });
+      await page.evaluate(() => {
+        window.__vm559ClickTargets = [];
+        document.addEventListener("click", (event) => window.__vm559ClickTargets.push(event.target?.closest?.("[data-dossier-segment]")?.getAttribute("data-dossier-segment") || "other"), true);
+      });
+      await page.$eval(selector, (image) => {
+        const rect = image.getBoundingClientRect();
+        image.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2, pointerType: "mouse" }));
+      });
+      await page.waitForSelector(".card-preview-overlay.is-visible", { visible: true, timeout: 15000 });
+      const clicks = await page.evaluate(() => window.__vm559ClickTargets);
+      assert.deepEqual(clicks, [], `${panel}/${segment} required a click before first qualifying hover`);
+      const firstPreview = await page.evaluate((imageSelector) => ({
+        target: document.querySelector(imageSelector)?.closest("[data-card-preview-name]")?.getAttribute("data-card-preview-name") || "",
+        resolved: document.querySelector(".card-preview-overlay")?.getAttribute("data-preview-resolved-target") || "",
+        overlays: document.querySelectorAll(".card-preview-overlay").length,
+      }), selector);
+      assert.equal(firstPreview.resolved, firstPreview.target, `${panel}/${segment} opened the wrong first-hover preview`);
+      assert.equal(firstPreview.overlays, 1, `${panel}/${segment} created duplicate preview overlays`);
+      if (panel === "starter-cards" && segment === "creatures") {
+        await page.waitForSelector("#sc_1 img", { visible: true, timeout: 15000 });
+        await page.$eval("#sc_1 img", (image) => {
+          const rect = image.getBoundingClientRect();
+          for (let index = 0; index < 4; index += 1) image.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, clientX: rect.left + rect.width / 2 + index, clientY: rect.top + rect.height / 2, pointerType: "mouse" }));
+        });
+        await page.waitForFunction(() => {
+          const target = document.querySelector("#sc_1")?.getAttribute("data-card-preview-name") || "";
+          return document.querySelector(".card-preview-overlay")?.getAttribute("data-preview-resolved-target") === target;
+        }, { timeout: 15000 });
+        assert.equal(await page.$eval("body", () => document.querySelectorAll(".card-preview-overlay").length), 1, "neighbor movement duplicated the shared preview overlay");
+      }
+      await page.$eval(selector, (image) => image.dispatchEvent(new PointerEvent("pointerout", { bubbles: true, relatedTarget: document.body, pointerType: "mouse" })));
+      await page.waitForFunction(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"), { timeout: 5000 });
+      assert.deepEqual(await page.evaluate(() => ({ target: document.querySelector(".card-preview-overlay")?.dataset.previewTarget || "", resolved: document.querySelector(".card-preview-overlay")?.dataset.previewResolvedTarget || "" })), { target: "", resolved: "" }, `${panel}/${segment} pointer leave retained stale preview state`);
+      await page.$eval(selector, (image) => image.closest("button, [tabindex], a")?.focus());
+      await page.waitForSelector(".card-preview-overlay.is-visible", { visible: true, timeout: 15000 });
+    } finally {
+      await page.close();
+    }
+  }
+
+  const touchPage = await browser.newPage();
+  await touchPage.setViewport(viewports.mobile);
+  await touchPage.evaluateOnNewDocument((savedResult) => {
+    localStorage.clear();
+    sessionStorage.clear();
+    sessionStorage.setItem("vm_last_result", JSON.stringify(savedResult));
+    const nativeMatchMedia = window.matchMedia.bind(window);
+    window.matchMedia = (query) => query === "(hover: hover) and (pointer: fine)"
+      ? { matches: false, media: query, onchange: null, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {}, dispatchEvent() { return false; } }
+      : nativeMatchMedia(query);
+    window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
+  }, result);
+  await touchPage.setRequestInterception(true);
+  touchPage.on("request", (request) => {
+    const url = request.url();
+    if (url.startsWith(origin) || url.startsWith("data:") || url.startsWith("blob:")) return request.continue();
+    if (/^https:\/\/api\.scryfall\.com\//.test(url)) return request.abort();
+    if (/^https:\/\/cards\.scryfall\.io\//.test(url)) return request.respond({ status: 200, contentType: "image/png", body: imageFixture });
+    return request.abort();
+  });
+  try {
+    await touchPage.goto(`${origin}/archscry/?panel=starter-cards&layout=focus`, { waitUntil: "networkidle0", timeout: 30000 });
+    await touchPage.waitForSelector("#sc_0 img", { visible: true, timeout: 30000 });
+    await touchPage.$eval("#sc_0 img", (image) => image.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, pointerType: "touch" })));
+    assert.equal(await touchPage.$eval("body", () => Boolean(document.querySelector(".card-preview-overlay.is-visible"))), false, "touch/mobile pointer unexpectedly opened hover preview");
+    await touchPage.$eval("#sc_0", (button) => button.click());
+    await touchPage.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { visible: true, timeout: 15000 });
+  } finally {
+    await touchPage.close();
+  }
+  return { identity_key: witness.identity_key, hover_cases: cases.length, keyboard: "PASS", touch: "PASS" };
 }
 
 const server = await startServer();
@@ -277,6 +425,11 @@ try {
   chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: [...(!reviewMode ? ["--headless=new"] : []), "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
   browser = await puppeteer.connect({ browserURL: `http://${host}:${chrome.port}` });
   const rows = [];
+  if (firstHoverMode) {
+    assert.equal(witnesses.length, 1, "First-hover regression requires one identity witness");
+    rows.push(await exerciseFirstHoverRegression(browser, origin, witnesses[0]));
+    console.log(JSON.stringify({ status: "PASS", mode: "first-hover", rows }, null, 2));
+  } else {
   for (const witness of witnesses) {
     console.log(`VM-559 media replay ${witness.identity_key} at ${viewportName}`);
     const page = await browser.newPage();
@@ -291,6 +444,8 @@ try {
     finally { await page.close(); }
   }
   console.log(JSON.stringify({ status: "PASS", viewport: viewportName, identities: rows.length, rows }, null, 2));
+  if (soundPlayExportPath) fs.writeFileSync(soundPlayExportPath, `${JSON.stringify({ schema: "vm559-rendered-sound-play-v1", rows: rows.map((row) => ({ identity_key: row.identity_key, ...row.sound_play })) }, null, 2)}\n`);
+  }
 } finally {
   if (browser) {
     if (reviewMode) browser.disconnect();

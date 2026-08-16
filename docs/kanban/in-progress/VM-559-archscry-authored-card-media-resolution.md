@@ -6,6 +6,8 @@ Status: In Progress
 
 Current gate: Implementation and agent QA complete on the VM-559 branch; RobQAPass classifies the integration/deployment risk as QA-5. Awaiting the short owner visual review before integration, push, production replay, and closeout.
 
+Owner-QA remediation is active after the 2026-08-16 review. The stop point is limited to: restore a truthful focused Start Here handoff with Sound/Play retained only in their dedicated panel; repair the shared first-hover interaction from a fresh no-click state; and deliver an exactly 37-sheet Sound/Play testing workbook generated from current production catalogs/composition rules. Do not rewrite Sound/Play prose or begin all-identity semantic remediation in this pass.
+
 Type: Production defect / generated media projection / shared resolver and rendering reliability
 
 Area: Archscry dossier, Card Signals, Matrix, Sound, Play, and Mana Notes
@@ -83,3 +85,19 @@ Ensure every governed authored Archscry card resolves deterministically to commi
 - Owner acceptance is not claimed.
 - Do not merge, push to `main`, deploy, close the card, or claim production reliability until owner review accepts the exact candidate.
 - After acceptance, integrate the exact tested SHA, wait for GitHub Pages to publish it, rerun the cache-bypassed all-37 production replay with `api.scryfall.com` blocked and `cards.scryfall.io` permitted, then record deployed SHA/evidence and close VM-559.
+
+## 2026-08-16 Owner-QA Findings
+
+- The headed review command leaves the dossier in View All, visually obscuring the panel boundary and making the dedicated Sound/Play blocks appear to belong to Start Here. The review handoff must end in focused Start Here, and a regression must prove Start Here contains neither block while the dedicated Why This Fits panel retains both.
+- First hover can fail until an unrelated page click. The shared preview owner must work from a fresh dossier before any click for Card Signals creatures/spells/permanents and Mana Notes basics/premium/midrange/budget/utility, while preserving keyboard focus and touch/mobile behavior.
+- Owner semantic review needs one testing-only workbook with exactly 37 identity sheets and no summary sheet. Each sheet must reproduce current Sound/Play tile and modal text plus identifiers, editable Review Status, and Owner Notes from the same production sources/composition rules.
+- White, Azorius, and Lorehold copy observations are evidence for the later semantic review, not authorization to edit prose now.
+
+## 2026-08-16 Bounded Owner-QA Remediation Evidence
+
+- Production ownership was already correct and remains unchanged: deterministic all-37 assertions prove `Start Here` contains zero Sound/Play blocks while `Why This Fits` contains both. The headed review handoff now exits View All and opens focused Start Here so the boundary is visible.
+- The shared card-preview owner now recovers the first qualifying pointer movement without any prior page click, updates directly between neighboring cards, clears on leave, and suppresses duplicate loading/resolution for the same target.
+- `npm.cmd run test:vm559-first-hover` passes fresh-page cases for Azorius Card Signals creatures/spells/permanents plus Mana Notes basics/premium/midrange/budget/utility, with keyboard focus, fine-hover gating, and touch/mobile behavior preserved.
+- The testing artifact contains exactly 37 identity sheets, no summary sheet, and 119 currently rendered Sound/Play rows. It was generated from current production catalogs/composition, cross-checked against rendered dossier output, formula-scanned, and rendered sheet-by-sheet for visual inspection.
+- `test:vm551-dossier-integrity`, `test:frontend-smoke`, and `lint:js` pass. No Sound/Play prose, relationship, selection, printing, panel ownership, or modal semantics changed.
+- Stop point reached. Owner acceptance, prose/content remediation, integration, push, deployment, and closeout remain unclaimed and unstarted.

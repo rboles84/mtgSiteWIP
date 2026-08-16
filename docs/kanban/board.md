@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - eliminating runtime name lookup for governed Archscry cards through a deterministic local projection, visible-surface hydration, isolated image delivery, exact identity Card Signals headings, and all-37 drift/reliability validation without changing placement or authored card selections.
+- [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - media projection implementation is under owner QA; bounded remediation now restores a focused Start Here handoff, fixes fresh no-click shared card hover, and produces an exactly 37-sheet Sound/Play testing workbook without changing authored prose, card selections, or placement.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

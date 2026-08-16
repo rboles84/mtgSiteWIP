@@ -67,6 +67,13 @@ import {
   saveUserDeckLink,
 } from "./deck-link-service.js";
 import { createScryfallNamedCardLookup, mergeScryfallCardRecords } from "./scryfall-card-cache.js";
+import {
+  CARD_PLAY_SECTION_INTRO,
+  CARD_PLAY_TILE_LABEL,
+  CARD_VOICE_SECTION_INTRO,
+  CARD_VOICE_TILE_LABEL,
+  buildIdentityCardModalHeading,
+} from "./dossier-card-review-text.js";
 
 /*
  * Archscry route runtime ownership map (VM-147B)
@@ -3280,7 +3287,7 @@ export function buildCardVoicesHtml(voices = [], faction = {}, { availability = 
   return `
     <div class="starter-section" data-card-voice-section>
       <div class="section-label">Cards That Sound Like This</div>
-      <p class="flavor-echo-intro">Lines of Magic flavor that sound like this reading.</p>
+      <p class="flavor-echo-intro">${CARD_VOICE_SECTION_INTRO}</p>
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${voices.length}">
         ${voices.map(({ card, record }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
@@ -3298,7 +3305,7 @@ export function buildCardVoicesHtml(voices = [], faction = {}, { availability = 
               </button>
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Exact card voice</span>
+                <span class="flavor-echo-kicker">${CARD_VOICE_TILE_LABEL}</span>
                 <blockquote class="flavor-echo-why">${escapeHtml(record.excerpt)}</blockquote>
                 <button class="flavor-echo-action" type="button" ${actionAttrs}>View card details</button>
               </span>
@@ -3334,7 +3341,7 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
   return `
     <div class="starter-section" data-card-rationale-section>
       <div class="section-label">Cards That Play Like This</div>
-      <div class="flavor-echo-intro">Cards whose verified play patterns give you a concrete way to explore this reading.</div>
+      <div class="flavor-echo-intro">${CARD_PLAY_SECTION_INTRO}</div>
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${groundedEchoes.length}">
         ${groundedEchoes.map(({ card, rationale }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
@@ -3355,7 +3362,7 @@ export function buildFlavorEchoesHtml(flavorEchoes = [], faction = {}, catalog =
               </button>
               <span class="flavor-echo-body">
                 <span class="flavor-echo-name">${escapeHtml(card.name)}</span>
-                <span class="flavor-echo-kicker">Why it fits in play</span>
+                <span class="flavor-echo-kicker">${CARD_PLAY_TILE_LABEL}</span>
                 <span class="flavor-echo-why">${escapeHtml(rationale.text)}</span>
                 ${rationale.tags.length ? `<span class="vm-tag-row">${renderStaticTagChips(rationale.tags, 3)}</span>` : ""}
                 <button class="flavor-echo-action" type="button" ${actionAttrs}>View card details</button>
@@ -4728,11 +4735,16 @@ function handleCardPreviewPointerOver(event) {
 }
 
 function handleCardPreviewPointerMove(event) {
+  const trigger = cardPreviewTriggerFromEvent(event);
+  const requestedTarget = trigger?.cardName || trigger?.image?.currentSrc || trigger?.image?.src || "";
   if (!cardPreviewOverlay?.classList.contains("is-visible")) {
+    const sameTargetIsLoading = cardPreviewOverlay?.classList.contains("is-loading") &&
+      cardPreviewOverlay.dataset.previewTarget === requestedTarget;
+    if (trigger && !sameTargetIsLoading) void showCardPreviewOverlay(trigger, event);
     return;
   }
-  const trigger = cardPreviewTriggerFromEvent(event);
-  if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.boundary, event);
+  if (trigger && cardPreviewOverlay.dataset.previewResolvedTarget !== requestedTarget) void showCardPreviewOverlay(trigger, event);
+  else if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.boundary, event);
   else hideCardPreviewOverlay();
 }
 
@@ -4825,9 +4837,11 @@ async function openCardDetail(actionNode) {
     const rulesDetail = cardRulesDetail(card);
     const isIdentityLinkedCard = ["voice", "play"].includes(identityContextKind);
     const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
-    const identityContextHeading = identityContextKind === "voice"
-      ? `What this card's voice reveals about ${identityName}`
-      : `Why ${card.name || cardName} helps explain ${identityName} in play`;
+    const identityContextHeading = buildIdentityCardModalHeading({
+      kind: identityContextKind,
+      cardName: card.name || cardName,
+      identityName,
+    });
     const identityContextHtml = identityName && identityContext
       ? `<section class="archscry-card-dialog-identity-context" data-card-identity-context="${escapeAttributeValue(identityContextKind || "identity")}">
           <strong>${escapeHtml(identityContextHeading)}</strong>

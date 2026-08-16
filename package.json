@@ -22,6 +22,7 @@
     "test:vm559-ui": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=desktop",
     "test:vm559-mobile": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=MARDU && node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=GLINT && node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=WU",
     "test:vm559-delivery-failure": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=desktop --identity=MARDU --transient-delivery",
+    "test:vm559-first-hover": "node scripts/vm559-authored-media-ui-replay.mjs --identity=WU --first-hover-regression",
     "review:vm559": "node scripts/vm559-authored-media-ui-replay.mjs --review",
     "scryfall:refresh": "npm run scryfall:download && npm run scryfall:index && npm run scryfall:inspect",
     "lint:js": "node scripts/lint-frontend-js.mjs",

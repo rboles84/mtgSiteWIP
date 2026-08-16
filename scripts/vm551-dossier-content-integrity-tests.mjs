@@ -8,6 +8,10 @@ import {
   buildWhatToLookFor,
 } from "../assets/js/commander-dossier.js";
 import { presentationForFaction } from "../assets/js/archscry-presentation.js";
+import {
+  CARD_VOICE_SECTION_INTRO,
+  buildIdentityCardModalHeading,
+} from "../assets/js/dossier-card-review-text.js";
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const factions = (await readJson("../data/factions.json")).factions;
@@ -225,7 +229,8 @@ assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds
 assert.match(indexSource, /Number\(left\.slot \|\| 1\) - Number\(right\.slot \|\| 1\)/, "card voices must preserve explicit slot order before presentation priority");
 assert.match(indexSource, /cardVoiceAvailabilityForFaction\(\{ faction \}\)/, "card voice resolution must expose an explicit availability state");
 assert.match(indexSource, /data-card-voice-unavailable/, "missing or malformed card voice authority must render an intentional unavailable state");
-assert.match(indexSource, /Lines of Magic flavor that sound like this reading\./, "card voice introduction must remain accurate for one- and two-slot states");
+assert.equal(CARD_VOICE_SECTION_INTRO, "Lines of Magic flavor that sound like this reading.", "card voice introduction must remain accurate for one- and two-slot states");
+assert.match(indexSource, /CARD_VOICE_SECTION_INTRO/, "runtime must consume the shared review/display copy contract");
 assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
 assert.match(indexSource, /visiblePrecons\.map\(\(precon\) => precon\.mainCommander\)/, "precon commanders must reserve their canonical card identity first");
 assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, pageCardUsage\)/, "Card Signal References must consume the page-level usage plan");
@@ -281,8 +286,15 @@ assert.match(indexSource, /archscry-card-dialog-identity-context/);
 assert.match(indexSource, /cardIdentityContext: record\.modal_explanation/, "voice modals must use their generated player-facing relationship explanation");
 assert.match(indexSource, /cardIdentityContext: rationale\.identityContext/, "play-rationale modals must reuse approved identity context");
 assert.match(indexSource, /identityContext: record\.modal_explanation \|\| ""/, "play-rationale modals must fail closed instead of using an identity-wide profile fallback");
-assert.match(indexSource, /What this card's voice reveals about/);
-assert.match(indexSource, /helps explain \$\{identityName\} in play/);
+assert.equal(
+  buildIdentityCardModalHeading({ kind: "voice", cardName: "Azorius Cluestone", identityName: "Azorius Senate" }),
+  "What this card's voice reveals about Azorius Senate",
+);
+assert.equal(
+  buildIdentityCardModalHeading({ kind: "play", cardName: "Grand Arbiter Augustin IV", identityName: "Azorius Senate" }),
+  "Why Grand Arbiter Augustin IV helps explain Azorius Senate in play",
+);
+assert.match(indexSource, /buildIdentityCardModalHeading/);
 const dinaRelationship = cardRationaleSource.records.find((record) => record.canonical_card_name === "Dina, Essence Brewer");
 const dinaCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Dina, Essence Brewer");
 const arbiterRelationship = cardRationaleSource.records.find((record) => record.canonical_card_name === "Grand Arbiter Augustin IV");

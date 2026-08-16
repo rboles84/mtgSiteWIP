@@ -33,6 +33,9 @@ Implement VM-559 as the systemic Archscry authored-card media reliability repair
 - Changed governed dossier art to visible panel/active-tier hydration, successful revisit reuse, retryable transient delivery, and slot-local ordered candidate fallback.
 - Changed Card Signals headings to normalized player-facing identity labels such as `Mardu Card Signals`, `Glint Card Signals`, `Lorehold Card Signals`, and `WUBRG Card Signals`.
 - Preserved precon display labels while using their classified canonical card proxy for image/detail resolution.
+- Preserved the existing production ownership of Sound/Play in `Why This Fits`; no runtime relocation or deletion was made. The headed review handoff now exits View All, focuses `Start Here`, and exposes the true panel boundary.
+- Repaired the shared pointer-preview owner so the first qualifying movement can recover a missed initial pointerover, direct movement between neighboring cards updates the preview, and repeat movement over the same loading/resolved target does not create duplicate work.
+- Generated the testing-only `VM-559-Sound-Play-37-Identity-Review.xlsx` workbook with exactly 37 identity sheets, 119 currently rendered Sound/Play rows, editable review fields, exact identifiers where available, and no summary sheet.
 
 ## Why it changed
 
@@ -63,6 +66,7 @@ The repository already contained art locators, but most historical Mana Notes an
 - Owner acceptance is not claimed. No merge/deployment/closeout is authorized yet.
 - Yore's machine replay uses the existing presentation-only fixture because its certified natural witness remains intentionally bounded; production placement is unchanged.
 - Production verification must rerun against the published exact SHA with cache bypass and API lookup blocked.
+- White, Azorius, and Lorehold wording observations remain deferred owner evidence. This bounded pass did not authorize or perform Sound/Play prose remediation.
 
 ## Tests run
 
@@ -77,6 +81,11 @@ The repository already contained art locators, but most historical Mana Notes an
 - `node --check` on changed modules — PASS.
 - In-app rendered review — PASS for Mardu Card Signals and Mana Notes Basics including Swamp; no unavailable tile or layout defect.
 - `npm.cmd run review:vm559 -- --identity=MARDU --viewport=desktop` — PASS with real CDN delivery and API lookup blocked; the headed browser remained open for judgment and exited cleanly on Enter.
+- `npm.cmd run review:vm559 -- --identity=WU --viewport=desktop` — PASS after owner-QA remediation; all panels prechecked, API lookup blocked, the owner handoff opened focused Start Here with the true panel boundary, and the session exited cleanly on Enter.
+- `npm.cmd run test:vm559-first-hover` — PASS across fresh, no-prior-click Azorius Card Signals creatures/spells/permanents and Mana Notes basics/premium/midrange/budget/utility; neighbor movement, leave cleanup, single-overlay behavior, keyboard focus, fine-hover gating, and touch modal behavior passed.
+- All-37 desktop replay with rendered Sound/Play export — PASS twice; every identity proved `Start Here` owns zero Sound/Play blocks and `Why This Fits` owns both blocks.
+- Workbook verification — PASS; exactly 37 sheets / 119 rows / no summary, no formula-error cells, and all 37 sheets rendered for visual inspection. Representative rendered values were cross-checked against the production dossier output.
+- `npm.cmd run test:vm551-dossier-integrity`, `npm.cmd run test:frontend-smoke`, and `npm.cmd run lint:js` — PASS after the bounded owner-QA remediation.
 
 ## RobQAPass readiness
 
@@ -93,13 +102,15 @@ The repository already contained art locators, but most historical Mana Notes an
 - VM-551/VM-558 authored approval decisions
 - Local image hosting, service worker, proxy, backend, database, or public route/storage APIs
 - `main`, GitHub Pages, production deployment, or certification
+- Sound/Play wording, approved relationships, exact-printing records, card selections, modal semantics, or dedicated-panel ownership
 
 ## Follow-up recommendations
 
-1. Owner performs the short Mardu/Glint/ordinary identity review.
-2. If accepted, integrate the exact tested SHA, push, and wait for GitHub Pages.
-3. Run the cache-bypassed production all-37 replay with API blocked and CDN allowed.
-4. Record deployed SHA/evidence/CDN limitation, move VM-559 to done, and update card/handoff/index.
+1. Owner reviews the delivered 37-sheet Sound/Play workbook and the corrected focused-panel handoff.
+2. Treat any prose/content findings as a later separately authorized remediation; do not fold them into this interaction/artifact pass.
+3. If the VM-559 candidate is accepted, integrate the exact tested SHA, push, and wait for GitHub Pages.
+4. Run the cache-bypassed production all-37 replay with API blocked and CDN allowed.
+5. Record deployed SHA/evidence/CDN limitation, move VM-559 to done, and update card/handoff/index.
 
 ## Next suggested agent
 
