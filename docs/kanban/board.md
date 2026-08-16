@@ -45,7 +45,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - applying the frozen VM-561 evidence and accepted VM-562 writing method to the complete governed Sound/Play corpus, with final all-identity review artifacts and unrelated Archscry behavior protected.
+- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - final owner-correction candidate replaces only Dune/Scour with exact-printing Dune-Brood Nephilim, preserves the 37/119/73/46/4 structure and every other Sound/Play relationship, and awaits final Dune rendered acceptance.
 
 - [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - media projection implementation is under owner QA; bounded remediation now restores a focused Start Here handoff, fixes fresh no-click shared card hover, and produces an exactly 37-sheet Sound/Play testing workbook without changing authored prose, card selections, or placement.
 

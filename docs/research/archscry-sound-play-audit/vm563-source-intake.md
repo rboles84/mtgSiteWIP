@@ -18,7 +18,15 @@
 - The guide establishes Atarka's endless hunger and destructive appetite. It does not establish a universal four-color philosophy.
 - Result: `SOURCE_INTAKE_RESOLVED`; exact flavor retained, while the modal stays at Vox Mana synthesis altitude.
 
-## Dune and Witch authority exceptions
+## Dune owner-acceptance correction
 
-- No new doctrine was introduced. Scour from Existence was narrowed to Dune's already-governed direct action, territorial pressure, and organized-force facets. Amphin Cutthroat was narrowed to Witch's already-governed patient development and calculated expansion facets.
-- Result: both relationships retained; unsupported missing-color psychology and overbroad territorial-survival language removed.
+- Owner rendered review rejected Scour from Existence at candidate `f5ede39a7f03caf6c0644c80142c201643605b85`: its cross-identity voice still required too much explanation and the authority bridge remained insufficient.
+- The replacement is Dune-Brood Nephilim, exact printing `15b4ee44-28c4-4a39-9c06-aca43787954f`. The committed Scryfall record verifies both the exact line and the combat-damage trigger that creates one Sand for each land controlled.
+- Dune-Brood is already the governed card anchor in `dune_claim_0004`; `dune_claim_0005` and DUNE-EVID-009 bound the interpretation to physical momentum and territorial-swarm synthesis. The relationship does not treat the Nephilim as a faction or doctrine.
+- The older VM-558 rejection of a generic Dune-Brood swarm bridge and the VM-563 owner rejection of Scour both remain in the relationship revision history.
+- Result: `RELATIONSHIP_REPLACED`; evidence status `PASS_GOVERNED_DUNE_ANCHOR_AND_EXACT_CARD_EVIDENCE`.
+
+## Witch authority exception
+
+- No new doctrine was introduced. Amphin Cutthroat remains narrowed to Witch's already-governed patient development and calculated expansion facets.
+- Result: relationship retained; unsupported missing-color psychology removed.

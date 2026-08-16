@@ -24,10 +24,11 @@ const ngrams = (value, size) => {
 
 const manifestPath = "docs/research/archscry-sound-play-audit/vm563-final-remediation-manifest.json";
 const qaPath = "docs/research/archscry-sound-play-audit/vm563-full-corpus-qa.json";
-const [manifest, ledger, voiceSource, voiceCatalog, playSource, playCatalog, calibration] = await Promise.all([
+const [manifest, ledger, voiceSource, voicePrintings, voiceCatalog, playSource, playCatalog, calibration] = await Promise.all([
   readJson(manifestPath),
   readJson("docs/research/archscry-sound-play-audit/card-evidence-ledger.json"),
   readJson("data/dossier/card-voice-relationships.source.json"),
+  readJson("data/dossier/card-voice-printings.source.json"),
   readJson("data/dossier/card-voice-catalog.json"),
   readJson("data/dossier/card-rationale-relationships.source.json"),
   readJson("data/dossier/card-rationale-catalog.json"),
@@ -41,30 +42,53 @@ assert.deepEqual(
 );
 assert.equal(rows.filter((row) => row.vm561_disposition === "REMEDIATION_LIKELY" && row.action !== "UNCHANGED").length, 49);
 assert.equal(rows.filter((row) => row.change_class === "HARD_OWNER_BLOCKER").length, 0);
-assert.equal(rows.filter((row) => row.change_class === "RELATIONSHIP_REPLACED").length, 0);
+assert.equal(rows.filter((row) => row.change_class === "RELATIONSHIP_REPLACED").length, 1);
 assert.equal(rows.filter((row) => row.modal_content_model_review).length, 0);
 
 const baselineByLedger = new Map(ledger.rendered_rows.map((row) => [row.ledger_id, row]));
 const voiceByRelationship = new Map(voiceCatalog.records.map((record) => [record.relationship_id, record]));
 const playByRelationship = new Map(playCatalog.records.map((record) => [record.relationship_id, record]));
+const duneLedgerId = "SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1";
+const duneRelationshipId = "cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355";
+const dunePrintingId = "15b4ee44-28c4-4a39-9c06-aca43787954f";
 for (const row of rows) {
   const baseline = baselineByLedger.get(row.ledger_id);
   assert(baseline, `${row.ledger_id} missing from VM-561`);
-  assert.equal(row.card_name, baseline.card_name);
-  assert.equal(row.oracle_id, baseline.oracle_id);
-  assert.equal(row.exact_printing_id, baseline.exact_printing_id);
+  if (row.ledger_id === duneLedgerId) {
+    assert.equal(row.change_class, "RELATIONSHIP_REPLACED");
+    assert.equal(row.relationship_id, duneRelationshipId);
+    assert.equal(row.prior_relationship_id, baseline.relationship_id);
+    assert.equal(row.card_name, "Dune-Brood Nephilim");
+    assert.equal(row.oracle_id, "634bd800-8caa-47ae-8b70-2c66baf9a355");
+    assert.equal(row.exact_printing_id, dunePrintingId);
+    assert.equal(row.prior_card_name, "Scour from Existence");
+    assert.equal(row.evidence_status, "PASS_GOVERNED_DUNE_ANCHOR_AND_EXACT_CARD_EVIDENCE");
+  } else {
+    assert.equal(row.card_name, baseline.card_name);
+    assert.equal(row.oracle_id, baseline.oracle_id);
+    assert.equal(row.exact_printing_id, baseline.exact_printing_id);
+    assert.equal(row.relationship_id, baseline.relationship_id);
+  }
   const catalog = row.surface === "SOUND" ? voiceByRelationship.get(row.relationship_id) : playByRelationship.get(row.relationship_id);
   assert(catalog, `${row.relationship_id} missing from final catalog`);
   assert.equal(row.final_tile_text, row.surface === "SOUND" ? catalog.excerpt : catalog.rationale);
   assert.equal(row.final_modal_text, catalog.modal_explanation);
-  if (row.surface === "SOUND") assert.equal(row.final_tile_text, baseline.current_tile_text, `${row.ledger_id} changed exact flavor`);
+  if (row.surface === "SOUND" && row.ledger_id !== duneLedgerId) assert.equal(row.final_tile_text, baseline.current_tile_text, `${row.ledger_id} changed exact flavor`);
 }
 assert.equal(voiceSource.records.length, 73);
 assert.equal(voiceCatalog.records.length, 73);
+assert.equal(voicePrintings.records.length, 73);
 assert.equal(playSource.records.length, 52);
 assert.equal(playCatalog.records.length, 50);
 assert(voiceSource.records.every((record) => record.modal_explanation));
 assert(playSource.records.every((record) => record.modal_explanation));
+assert(!voiceSource.records.some((record) => record.relationship_id === "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1"));
+assert(!voiceCatalog.records.some((record) => record.card.name === "Scour from Existence" && record.identity_key === "DUNE"));
+assert(!voicePrintings.records.some((record) => record.canonical_card_name === "Scour from Existence" && record.identity_key === "DUNE"));
+const duneVoice = voiceByRelationship.get(duneRelationshipId);
+assert(duneVoice);
+assert.equal(duneVoice.excerpt, "When it awoke, it spawned nameless thousands to herald its arrival.");
+assert.equal(duneVoice.modal_explanation, "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.");
 
 for (const proposal of calibration.proposals) {
   const row = rows.find((candidate) => candidate.ledger_id === proposal.ledger_id);

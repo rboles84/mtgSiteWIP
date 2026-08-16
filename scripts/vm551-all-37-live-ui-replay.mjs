@@ -642,15 +642,34 @@ async function replay(page, origin, witness) {
     const restored = await page.evaluate(() => document.activeElement?.matches?.('[data-card-rationale-section] .flavor-echo-image-trigger') || false);
     assert.equal(restored, true, `${witness.identity_key} modal did not restore focus`);
 
-    if (["WUBRG", "WITHERBLOOM", "WU"].includes(witness.identity_key)) {
-      const voiceTrigger = await page.$('[data-card-voice-section] .flavor-echo-image-trigger');
+    if (["WUBRG", "WITHERBLOOM", "WU", "DUNE"].includes(witness.identity_key)) {
+      const voiceSelector = witness.identity_key === "DUNE"
+        ? '[data-card-voice-section] .flavor-echo-image-trigger[data-card-name="Dune-Brood Nephilim"]'
+        : '[data-card-voice-section] .flavor-echo-image-trigger';
+      const voiceTrigger = await page.$(voiceSelector);
       assert.ok(voiceTrigger, `${witness.identity_key} has no voice-card detail trigger`);
       const voicePanel = await voiceTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
       if (voicePanel) {
         const voiceTab = await page.$(`[data-dossier-tab="${voicePanel}"]`);
         if (voiceTab) await voiceTab.evaluate((button) => button.click());
       }
-      const voiceTile = await page.$eval('[data-card-voice-section] .flavor-echo-why', (node) => node.textContent?.trim() || "");
+      const voiceTile = await voiceTrigger.evaluate((node) => node.closest(".flavor-echo-card")?.querySelector(".flavor-echo-why")?.textContent?.trim() || "");
+      if (witness.identity_key === "DUNE" && viewportName === "desktop") {
+        await voiceTrigger.evaluate((node) => node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+        await page.mouse.move(1, 1);
+        await voiceTrigger.hover();
+        await delay(250);
+        const voiceHover = await page.evaluate((selector) => ({
+          triggerHovered: Boolean(document.querySelector(selector)?.matches(":hover")),
+          overlayVisible: Boolean(document.querySelector(".card-preview-overlay")?.classList.contains("is-visible")),
+          previewSource: document.querySelector(".card-preview-overlay img")?.getAttribute("src") || "",
+        }), voiceSelector);
+        assert.equal(voiceHover.triggerHovered, true, "DUNE replacement did not receive a real hover");
+        assert.equal(voiceHover.overlayVisible, true, "DUNE replacement hover did not open the full-card preview");
+        assert.match(voiceHover.previewSource, /15b4ee44-28c4-4a39-9c06-aca43787954f/);
+        await page.mouse.move(1, 1);
+        await delay(80);
+      }
       await voiceTrigger.evaluate((button) => button.click());
       await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
       const voiceModal = await page.evaluate(() => ({
@@ -659,12 +678,19 @@ async function replay(page, origin, witness) {
         contextHeading: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context strong")?.textContent?.trim() || "",
         contextKind: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context")?.getAttribute("data-card-identity-context") || "",
         hasOracleBlock: Boolean(document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-rules")),
+        hasImage: Boolean(document.querySelector(".archscry-card-dialog[open] img[src]")),
+        rect: (() => {
+          const rect = document.querySelector(".archscry-card-dialog[open]")?.getBoundingClientRect();
+          return rect ? { top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left } : null;
+        })(),
         manaText: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-mana")?.textContent?.trim() || "",
         manaSymbols: [...document.querySelectorAll(".archscry-card-dialog[open] .archscry-card-dialog-mana .ms")].map((node) => node.className),
       }));
       assert.equal(voiceModal.contextKind, "voice");
       assert.match(voiceModal.contextHeading, /^What this card's voice reveals about .+$/);
       assert.equal(voiceModal.hasOracleBlock, false, `${witness.identity_key} voice modal repeated readable Oracle text`);
+      assert.equal(voiceModal.hasImage, true, `${witness.identity_key} voice modal omitted the canonical image`);
+      assert.ok(voiceModal.rect && voiceModal.rect.left >= 0 && voiceModal.rect.top >= 0 && voiceModal.rect.right <= viewport.width && voiceModal.rect.bottom <= viewport.height, `${witness.identity_key} voice modal escaped the viewport`);
       assert.ok(voiceModal.context, `${witness.identity_key} voice modal omitted why-it-echoes context`);
       assert.notEqual(normalizeCopy(voiceModal.context), normalizeCopy(voiceTile));
       assert.ok(copyOverlap(voiceModal.context, voiceTile) < 0.8, `${witness.identity_key} voice modal repeated the exact voice as its explanation`);
@@ -673,6 +699,11 @@ async function replay(page, origin, witness) {
       if (witness.identity_key === "WITHERBLOOM") {
         assert.equal(voiceModal.card, "Blossoming Bogbeast");
         if (voiceModal.manaText) assert.ok(voiceModal.manaSymbols.length, "Blossoming Bogbeast modal did not use shared mana glyphs");
+      }
+      if (witness.identity_key === "DUNE") {
+        assert.equal(voiceModal.card, "Dune-Brood Nephilim");
+        assert.equal(voiceTile, "When it awoke, it spawned nameless thousands to herald its arrival.");
+        assert.equal(voiceModal.context, "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.");
       }
       await page.keyboard.press("Escape");
       await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);

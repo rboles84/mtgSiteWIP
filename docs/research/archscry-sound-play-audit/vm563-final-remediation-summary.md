@@ -3,10 +3,10 @@
 - Structure: **37/37 identities**, **119/119 rows**, **73/73 Sound**, **46/46 Play**, **4/4 suppressed Play reconciliations**.
 - VM-561 remediation rows resolved: **49/49**.
 - Style-only corpus cleanup rows: **38**.
-- Tile changes: **17**.
+- Tile changes: **18**.
 - Modal changes: **92**.
 - Source-intake resolutions: **3**.
-- Relationship replacements: **0**.
+- Relationship replacements: **1**.
 - Hard owner blockers: **0**.
 - Modal content-model reviews: **0**.
 

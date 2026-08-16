@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "cb2494ce66d73c5c02caa81e4bda7c2eb075238b511f98a5057ce637669239a5",
+  "source_sha256": "334aa0d640393c4ca4f38ee2ce415e316ecc52b9f80d844f27b4728f71498f88",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt plus explicit relationship-owned player context; no heuristic, shared composer, or fallback copy",
   "records": [
     {
@@ -2523,19 +2523,19 @@
       }
     },
     {
-      "relationship_id": "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+      "relationship_id": "cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355",
       "identity_key": "DUNE",
       "card": {
-        "name": "Scour from Existence",
-        "oracle_id": "241a50c5-f65f-4847-89c7-5c0ef6025dc1",
-        "scryfall_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
-        "set": "bfz",
-        "collector_number": "13",
-        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1"
+        "name": "Dune-Brood Nephilim",
+        "oracle_id": "634bd800-8caa-47ae-8b70-2c66baf9a355",
+        "scryfall_id": "15b4ee44-28c4-4a39-9c06-aca43787954f",
+        "set": "gpt",
+        "collector_number": "110",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355"
       },
-      "excerpt": "\"Our people and our very lands disappear as if they never were. We no longer fight for glory, or honor. We battle now for the right to exist.\"\n—General Tazri, allied commander",
-      "why_it_echoes": "Scour from Existence gives Dune a second voice in which people and land under existential pressure make immediate common-front battle a condition of survival rather than a pursuit of glory.",
-      "modal_explanation": "The speaker rejects glory and honor once people and land are being erased. What remains is immediate collective action for continued existence, a narrow echo of Dune's territorial pressure and organized force.",
+      "excerpt": "When it awoke, it spawned nameless thousands to herald its arrival.",
+      "why_it_echoes": "Dune-Brood's arrival produces nameless thousands, giving Dune a voice of physical momentum that multiplies through the land rather than another voice of front-line command.",
+      "modal_explanation": "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "slot": 2,
       "pair_role": "COMPLEMENT",
@@ -2546,17 +2546,17 @@
       },
       "provenance": {
         "claim_ids": [
-          "dune_claim_0003",
+          "dune_claim_0004",
           "dune_claim_0005"
         ],
         "source_ids": [
           "src_vm_dune_evidence_ledger_20260603",
           "src_vm_four_color_reference_audit_20260603"
         ],
-        "printing_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
-        "printing_source_locator": "https://api.scryfall.com/cards/6e47edb2-e43d-479f-a911-e72b67a06c3b#card.flavor_text",
-        "validator_version": "vm558-owner-semantic-approval-v1",
-        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+        "printing_id": "15b4ee44-28c4-4a39-9c06-aca43787954f",
+        "printing_source_locator": "data/scryfall/raw/oracle-cards.json#id=15b4ee44-28c4-4a39-9c06-aca43787954f",
+        "validator_version": "vm563-dune-owner-correction-v1",
+        "approval_basis": "OWNER_AUTHORIZED_VM563_CORRECTION_PENDING_FINAL_ACCEPTANCE"
       }
     },
     {

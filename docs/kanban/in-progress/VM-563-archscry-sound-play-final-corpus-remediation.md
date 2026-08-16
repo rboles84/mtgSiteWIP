@@ -4,7 +4,7 @@ ID: VM-563
 
 Status: In Progress
 
-Current gate: Implementation and machine acceptance complete; awaiting final owner rendered-product acceptance only.
+Current gate: Final Dune owner-acceptance correction implemented and machine-validated; awaiting final owner rendered-product acceptance only.
 
 Type: Source-grounded content implementation
 
@@ -51,14 +51,14 @@ Continue the existing single worktree on `codex/vm559-archscry-media-reliability
 
 - Structure preserved: 37 identities, 119 rendered rows, 73 Sound, 46 Play, and four separately reconciled suppressed Play relationships.
 - Resolved 49/49 `REMEDIATION_LIKELY` rows and 38 genuine `STYLE_ONLY_CORPUS_CLEANUP` rows.
-- Final field changes: 17 tiles and 92 modals; no card, relationship, identity, order, or exact-printing replacement.
-- Evidence exceptions: Feather, Ruric Thar, and Glint/Atarka are `SOURCE_INTAKE_RESOLVED`; Dune/Scour and Witch/Amphin retain their cards under narrower governed Vox Mana bridges.
+- Final field changes: 18 tiles and 92 modals; exactly one authorized card/relationship/exact-printing replacement, with identity, slot, order, and all other relationships preserved.
+- Evidence exceptions: Feather, Ruric Thar, and Glint/Atarka are `SOURCE_INTAKE_RESOLVED`; Witch/Amphin retains its card under a narrower governed Vox Mana bridge. Owner rendered review rejected Dune/Scour, so slot 2 now uses Dune-Brood Nephilim under the governed Dune-Brood anchor plus exact printing/rules evidence.
 - Remaining `HARD_OWNER_BLOCKER`: 0. `MODAL_CONTENT_MODEL_REVIEW`: 0.
 - Full-corpus copy QA: zero exact/near duplicates, repeated openings, shared skeletons, high tile/modal echoes, or methodology/shared-composer leaks. The documented residual n-grams are legitimate card/rules vocabulary.
 - Rendered QA: all 37 identities pass desktop replay; White, Azorius, Lorehold, Mardu, Glint, WUBRG, and Colorless pass focused mobile replay; fresh no-click hover, keyboard, and touch regressions pass.
 - Review workbook: `outputs/01a007e0-b631-7ca1-a18c-9f6e6ff6ff29/VM-563-Sound-Play-Final-Review.xlsx` (exactly 37 identity sheets).
 - Machine manifest: `docs/research/archscry-sound-play-audit/vm563-final-remediation-manifest.json`.
-- Final owner review command: `npm.cmd run review:vm559 -- --identity=WUBRG --viewport=desktop`.
+- Final owner review command: `npm.cmd run review:vm559 -- --identity=DUNE --viewport=desktop`.
 
 ## Tests
 
@@ -69,3 +69,4 @@ Continue the existing single worktree on `codex/vm559-archscry-media-reliability
 - Focused mobile replay for `W`, `WU`, `LOREHOLD`, `MARDU`, `GLINT`, `WUBRG`, and `COLORLESS` — PASS, 7/7.
 - `npm.cmd run test:vm559-first-hover` — PASS, eight fresh-state hover cases plus keyboard/touch.
 - `npm.cmd run lint:js`, `npm.cmd run lint:html`, `npm.cmd run test:copy-boundaries`, and `git diff --check` — PASS.
+- Dune corrective checks: deterministic VM-563 generation, exact-printing/catalog parity, VM-559 projection byte check, full 119-row corpus QA, focused Dune desktop/mobile replay, workbook-only-Dune-sheet comparison, and in-app rendered modal/focus review — PASS.

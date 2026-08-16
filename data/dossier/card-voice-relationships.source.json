@@ -6674,43 +6674,43 @@
       }
     },
     {
-      "relationship_id": "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
-      "proposal_id": "vm558_slot2_dune",
+      "relationship_id": "cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355",
+      "proposal_id": "vm563_owner_correction_dune",
       "identity_key": "DUNE",
       "identity_name": "Dune / Aggression",
       "slot": 2,
       "pair_role": "COMPLEMENT",
       "complements_relationship_id": "cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166",
-      "teaching_facet": "territorial survival making common-front commitment necessary",
-      "complementarity_rationale": "Aurelia supplies the front-line caller; Scour from Existence supplies the reason a whole people accepts the cost of battle when both community and land face erasure.",
-      "canonical_card_name": "Scour from Existence",
-      "canonical_card_id": "241a50c5-f65f-4847-89c7-5c0ef6025dc1",
-      "scryfall_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
-      "exact_excerpt": "\"Our people and our very lands disappear as if they never were. We no longer fight for glory, or honor. We battle now for the right to exist.\"\n—General Tazri, allied commander",
+      "teaching_facet": "physical momentum multiplying across the land",
+      "complementarity_rationale": "Aurelia supplies visible front-line command; Dune-Brood supplies the multiplying mass that follows an arrival and spreads through land-scaled Sand tokens.",
+      "canonical_card_name": "Dune-Brood Nephilim",
+      "canonical_card_id": "634bd800-8caa-47ae-8b70-2c66baf9a355",
+      "scryfall_id": "15b4ee44-28c4-4a39-9c06-aca43787954f",
+      "exact_excerpt": "When it awoke, it spawned nameless thousands to herald its arrival.",
       "printing": {
-        "scryfall_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
-        "oracle_id": "241a50c5-f65f-4847-89c7-5c0ef6025dc1",
-        "set": "bfz",
-        "collector_number": "13",
+        "scryfall_id": "15b4ee44-28c4-4a39-9c06-aca43787954f",
+        "oracle_id": "634bd800-8caa-47ae-8b70-2c66baf9a355",
+        "set": "gpt",
+        "collector_number": "110",
         "flavor_text_field": "card.flavor_text",
-        "source_locator": "https://api.scryfall.com/cards/6e47edb2-e43d-479f-a911-e72b67a06c3b#card.flavor_text",
-        "scryfall_uri": "https://scryfall.com/card/bfz/13/scour-from-existence?utm_source=api",
+        "source_locator": "data/scryfall/raw/oracle-cards.json#id=15b4ee44-28c4-4a39-9c06-aca43787954f",
+        "scryfall_uri": "https://scryfall.com/card/gpt/110/dune-brood-nephilim?utm_source=api",
         "image_uris": {
-          "small": "https://cards.scryfall.io/small/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977",
-          "normal": "https://cards.scryfall.io/normal/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977",
-          "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977"
+          "small": "https://cards.scryfall.io/small/front/1/5/15b4ee44-28c4-4a39-9c06-aca43787954f.jpg?1593272643",
+          "normal": "https://cards.scryfall.io/normal/front/1/5/15b4ee44-28c4-4a39-9c06-aca43787954f.jpg?1593272643",
+          "art_crop": "https://cards.scryfall.io/art_crop/front/1/5/15b4ee44-28c4-4a39-9c06-aca43787954f.jpg?1593272643"
         },
         "card_faces": [],
-        "type_line": "Instant"
+        "type_line": "Creature — Nephilim"
       },
-      "type_line": "Instant",
+      "type_line": "Creature — Nephilim",
       "type_policy": {
         "status": "PASS",
         "reason": "The proposal is neither a land nor an ordinary nonlegendary artifact."
       },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
-        "dune_claim_0003",
+        "dune_claim_0004",
         "dune_claim_0005"
       ],
       "source_ids": [
@@ -6720,23 +6720,27 @@
       "source_locators": [
         {
           "source_id": "src_vm_dune_evidence_ledger_20260603",
-          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-003-DUNE-EVID-007"
+          "locator": "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-004-DUNE-EVID-007-DUNE-EVID-009"
         },
         {
           "source_id": "src_vm_four_color_reference_audit_20260603",
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune"
+        },
+        {
+          "source_id": "src_vm_dune_evidence_ledger_20260603",
+          "locator": "data/scryfall/raw/oracle-cards.json#id=15b4ee44-28c4-4a39-9c06-aca43787954f"
         }
       ],
-      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
-      "why_voice_belongs": "Scour from Existence gives Dune a second voice in which people and land under existential pressure make immediate common-front battle a condition of survival rather than a pursuit of glory.",
-      "relationship_bridge": "The exact line joins Dune's certified missing-Blue and pressure frame: a people, their land, existential cost, and immediate organized resistance are all present without relying on generic attack or momentum language. The proposal is limited to certified claims dune_claim_0003 and dune_claim_0005 and does not arise from card color, type, product membership, tags, or mechanics alone.",
-      "false_positive_analysis": "Naya can defend people and land, but the line accepts existential loss rather than celebrating abundance; Mardu can battle as a people, but the land and survival frame are indispensable; Abzan can endure erasure, but General Tazri's 'battle now' commitment supplies the missing immediate pressure. The line is still a cross-identity echo, not Dune lore or placement proof.",
-      "adjacent_identity_confusion_risk": "Naya can defend people and land, but the line accepts existential loss rather than celebrating abundance; Mardu can battle as a people, but the land and survival frame are indispensable; Abzan can endure erasure, but General Tazri's 'battle now' commitment supplies the missing immediate pressure. The line is still a cross-identity echo, not Dune lore or placement proof.",
-      "limitation": "Owner-approved complementary card voice. Public use remains limited to this exact printing and bounded identity relationship; it does not prove placement, play style, or identity from card color, mechanics, tags, or product membership.",
-      "proposed_modal_explanation": "Aurelia shows Dune at the front of the advance. General Tazri supplies the complementary reason the line holds: when both people and land can be erased, battle becomes shared territorial survival—not glory, spectacle, or aggression for its own sake.",
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355",
+      "why_voice_belongs": "Dune-Brood's arrival produces nameless thousands, giving Dune a voice of physical momentum that multiplies through the land rather than another voice of front-line command.",
+      "relationship_bridge": "Dune-Brood is the governed card anchor for Dune. Its exact printing describes a mass arrival, and its verified combat trigger creates one Sand for each land you control; together they support the bounded Dune facets of physical momentum and territorial swarm without turning the Nephilim into a faction or doctrine.",
+      "false_positive_analysis": "A generic token or combat card would drift toward Naya, Jund, Mardu, or Boros. This relationship instead depends on Dune's governed Dune-Brood anchor, the exact 'nameless thousands' voice, and the land-scaled Sand-token action together.",
+      "adjacent_identity_confusion_risk": "Do not use the relationship as generic combat, token, four-color, or Nephilim proof. Its Dune specificity comes from the governed anchor and exact mass-through-land evidence.",
+      "limitation": "Dune-Brood is a bounded card anchor and does not establish an official faction, doctrine, universal four-color philosophy, or missing-Blue psychology.",
+      "proposed_modal_explanation": "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.",
       "review_status": "APPROVED_PUBLIC",
-      "approval_basis": "OWNER_SEMANTIC_APPROVAL",
-      "owner_decision": "APPROVE",
+      "approval_basis": "OWNER_AUTHORIZED_VM563_CORRECTION_PENDING_FINAL_ACCEPTANCE",
+      "owner_decision": "AUTHORIZED_REPLACEMENT",
       "owner_revision_history": [
         {
           "decided_at": "2026-08-15",
@@ -6751,6 +6755,14 @@
           "previous_relationship_id": "cardvoice_vm558_dune_634bd800_8caa_47ae_8b70_2c66baf9a355",
           "previous_card_name": "Dune-Brood Nephilim",
           "instruction": "Apply hidden-identity and neighbor-confusion tests strictly; exact flavor must express a complementary Dune facet without generic aggression, momentum, swarm, or overwhelming-force language."
+        },
+        {
+          "decided_at": "2026-08-16",
+          "decision": "REJECT_RENDERED_RELATIONSHIP",
+          "previous_relationship_id": "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+          "previous_card_name": "Scour from Existence",
+          "candidate_sha": "f5ede39a7f03caf6c0644c80142c201643605b85",
+          "instruction": "Replace Scour from Existence because its rendered Dune relationship is not sufficiently intentional or identity-specific."
         }
       ],
       "public_eligible": true,
@@ -6765,8 +6777,8 @@
         "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
       },
       "proposal_origin": {
-        "kind": "COMMITTED_SCRYFALL_DISCOVERY",
-        "locator": "data/scryfall/raw/oracle-cards.json#oracle_id=241a50c5-f65f-4847-89c7-5c0ef6025dc1"
+        "kind": "COMMITTED_SCRYFALL_EXACT_PRINTING",
+        "locator": "data/scryfall/raw/oracle-cards.json#id=15b4ee44-28c4-4a39-9c06-aca43787954f"
       },
       "overlap_review": {
         "sound_play": {
@@ -6782,17 +6794,17 @@
         "material_redundancy_finding": "No current Sound/Play, Precon, or identity-local Card Signal overlap was detected."
       },
       "validation": {
-        "validator_version": "vm558-owner-semantic-approval-v1",
+        "validator_version": "vm563-dune-owner-correction-v1",
         "passed": true,
         "failures": [],
-        "owner_decision": "APPROVE"
+        "owner_decision": "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE"
       },
-      "modal_explanation": "The speaker rejects glory and honor once people and land are being erased. What remains is immediate collective action for continued existence, a narrow echo of Dune's territorial pressure and organized force.",
+      "modal_explanation": "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.",
       "copy_revision": {
         "task": "VM-563",
         "ledger_id": "SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
-        "change_class": "SEMANTIC_REMEDIATION",
-        "reason": "Narrow the bridge to the already-approved direct-action and territorial-pressure facets without importing missing-color psychology.",
+        "change_class": "RELATIONSHIP_REPLACED",
+        "reason": "Replace the owner-rejected Scour echo with Dune's governed card anchor and its exact land-scaled Sand-token multiplication, while preserving the boundary that the Nephilim is an anchor rather than a doctrine.",
         "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
         "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
       }

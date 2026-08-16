@@ -13,6 +13,7 @@ const fail = (message) => { throw new Error(message); };
 
 const paths = {
   voiceSource: "data/dossier/card-voice-relationships.source.json",
+  voicePrintings: "data/dossier/card-voice-printings.source.json",
   voiceCatalog: "data/dossier/card-voice-catalog.json",
   playSource: "data/dossier/card-rationale-relationships.source.json",
   playCatalog: "data/dossier/card-rationale-catalog.json",
@@ -21,11 +22,28 @@ const paths = {
   manifest: "docs/research/archscry-sound-play-audit/vm563-final-remediation-manifest.json",
   summary: "docs/research/archscry-sound-play-audit/vm563-final-remediation-summary.md",
   intake: "docs/research/archscry-sound-play-audit/vm563-source-intake.md",
+  scryfall: "data/scryfall/raw/oracle-cards.json",
 };
 
-const [voiceSourceInput, voiceCatalogInput, playSourceInput, playCatalogInput, ledger, calibration] = await Promise.all([
-  readJson(paths.voiceSource), readJson(paths.voiceCatalog), readJson(paths.playSource), readJson(paths.playCatalog), readJson(paths.ledger), readJson(paths.calibration),
+const [voiceSourceInput, voicePrintingsInput, voiceCatalogInput, playSourceInput, playCatalogInput, ledger, calibration, scryfall] = await Promise.all([
+  readJson(paths.voiceSource), readJson(paths.voicePrintings), readJson(paths.voiceCatalog), readJson(paths.playSource), readJson(paths.playCatalog), readJson(paths.ledger), readJson(paths.calibration), readJson(paths.scryfall),
 ]);
+
+const duneReplacement = {
+  ledger_id: "SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+  prior_relationship_id: "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+  relationship_id: "cardvoice_vm563_dune_634bd800_8caa_47ae_8b70_2c66baf9a355",
+  scryfall_id: "15b4ee44-28c4-4a39-9c06-aca43787954f",
+  oracle_id: "634bd800-8caa-47ae-8b70-2c66baf9a355",
+  card_name: "Dune-Brood Nephilim",
+  exact_flavor_text: "When it awoke, it spawned nameless thousands to herald its arrival.",
+  modal_explanation: "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command.",
+};
+const duneCard = scryfall.find((card) => card.id === duneReplacement.scryfall_id);
+if (!duneCard) fail(`Missing committed Scryfall printing: ${duneReplacement.scryfall_id}`);
+for (const [field, expected] of Object.entries({ name: duneReplacement.card_name, oracle_id: duneReplacement.oracle_id, flavor_text: duneReplacement.exact_flavor_text, set: "gpt", collector_number: "110", type_line: "Creature — Nephilim" })) {
+  if (duneCard[field] !== expected) fail(`Dune replacement ${field} drifted: expected ${JSON.stringify(expected)}, found ${JSON.stringify(duneCard[field])}`);
+}
 
 const overrides = new Map();
 const set = (ledgerId, values) => overrides.set(ledgerId, values);
@@ -80,7 +98,7 @@ set("PLAY-WITCH-1-cardrel_auto_witch_7e6b9b59_cd68_4e3c_827b_38833c92d6eb", { ti
 set("PLAY-RG-4-cardrel_rg_6ed13a89", { tile: "Ruric Thar must attack when able and deals 6 damage to any player who casts a noncreature spell.", modal: "Ruric Thar leaves little room to wait behind utility spells: he charges every combat, and each noncreature spell carries a six-damage price. His Ghor assault turns Gruul's hostility toward over-civilized solutions into a table rule.", reason: "A newly inspectable official Gatecrash guide establishes Ruric Thar as Ghor leader and the clan's assault pattern; exact Oracle text supplies the play bridge.", change_class: "SOURCE_INTAKE_RESOLVED" });
 set("PLAY-WR-4-cardrel_wr_aa219936", { tile: "Feather returns an instant or sorcery that targeted one of your creatures to your hand at the next end step instead of letting it stay in the graveyard.", modal: "Targeting one creature becomes preparation for another coordinated attack: the spell resolves now, then returns for a later turn. Feather keeps Boros combat tricks in service instead of treating them as one-use bursts.", reason: "Official Wizards design notes establish Feather as Boros and describe the combat-oriented recurring-target spell mechanic.", change_class: "SOURCE_INTAKE_RESOLVED" });
 set("SOUND-GLINT-2-cardvoice_vm558_glint_c0b3bbce_977c_42a9_afcb_dabdfc717c97", { modal: "Atarka's hunger is not figurative; unchecked, it threatens an entire plane. That appetite gives Glint a voice of force that keeps consuming the next available limit rather than settling into restraint.", reason: "Official Atarka material verifies endless hunger and plane-stripping appetite; the Glint interpretation remains explicitly Vox Mana synthesis.", change_class: "SOURCE_INTAKE_RESOLVED" });
-set("SOUND-DUNE-2-cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1", { modal: "The speaker rejects glory and honor once people and land are being erased. What remains is immediate collective action for continued existence, a narrow echo of Dune's territorial pressure and organized force.", reason: "Narrow the bridge to the already-approved direct-action and territorial-pressure facets without importing missing-color psychology.", change_class: "SEMANTIC_REMEDIATION" });
+set(duneReplacement.ledger_id, { modal: duneReplacement.modal_explanation, reason: "Replace the owner-rejected Scour echo with Dune's governed card anchor and its exact land-scaled Sand-token multiplication, while preserving the boundary that the Nephilim is an anchor rather than a doctrine.", change_class: "RELATIONSHIP_REPLACED" });
 set("SOUND-WITCH-2-cardvoice_vm558_witch_e766a5eb_684b_4939_b164_6093d15600c9", { modal: "The amphin spend years building out of sight before they turn toward the shore. Their patience makes preparation itself feel ambitious: growth accumulates quietly until the society is ready to act.", reason: "Narrow the bridge to governed patient development and calculated expansion; remove the unsupported missing-Red inference.", change_class: "SEMANTIC_REMEDIATION" });
 
 // Genuine corpus-level style artifacts on VM-561 NO_CHANGE_INDICATED rows.
@@ -131,10 +149,91 @@ const baselineByRelationship = new Map(baselineRows.map((row) => [row.relationsh
 const voiceCatalogByRelationship = new Map(voiceCatalogInput.records.map((record) => [record.relationship_id, record]));
 const playCatalogByRelationship = new Map(playCatalogInput.records.map((record) => [record.relationship_id, record]));
 
-const voiceRecords = voiceSourceInput.records.map((record) => ({
-  ...record,
-  modal_explanation: record.modal_explanation || voiceCatalogByRelationship.get(record.relationship_id)?.modal_explanation || "",
-}));
+const voiceRecords = voiceSourceInput.records.map((record) => {
+  if (record.relationship_id !== duneReplacement.prior_relationship_id) return {
+    ...record,
+    modal_explanation: record.modal_explanation || voiceCatalogByRelationship.get(record.relationship_id)?.modal_explanation || "",
+  };
+  return {
+    ...record,
+    relationship_id: duneReplacement.relationship_id,
+    proposal_id: "vm563_owner_correction_dune",
+    teaching_facet: "physical momentum multiplying across the land",
+    complementarity_rationale: "Aurelia supplies visible front-line command; Dune-Brood supplies the multiplying mass that follows an arrival and spreads through land-scaled Sand tokens.",
+    canonical_card_name: duneReplacement.card_name,
+    canonical_card_id: duneReplacement.oracle_id,
+    scryfall_id: duneReplacement.scryfall_id,
+    exact_excerpt: duneReplacement.exact_flavor_text,
+    printing: {
+      scryfall_id: duneCard.id,
+      oracle_id: duneCard.oracle_id,
+      set: duneCard.set,
+      collector_number: duneCard.collector_number,
+      flavor_text_field: "card.flavor_text",
+      source_locator: `data/scryfall/raw/oracle-cards.json#id=${duneCard.id}`,
+      scryfall_uri: duneCard.scryfall_uri,
+      image_uris: { small: duneCard.image_uris.small, normal: duneCard.image_uris.normal, art_crop: duneCard.image_uris.art_crop },
+      card_faces: duneCard.card_faces || [],
+      type_line: duneCard.type_line,
+    },
+    type_line: duneCard.type_line,
+    certified_identity_claim_ids: ["dune_claim_0004", "dune_claim_0005"],
+    source_ids: ["src_vm_dune_evidence_ledger_20260603", "src_vm_four_color_reference_audit_20260603", "src_scryfall_oracle_cards_local"],
+    source_locators: [
+      { source_id: "src_vm_dune_evidence_ledger_20260603", locator: "docs/research/dune/dune-evidence-ledger.md#DUNE-EVID-004-DUNE-EVID-007-DUNE-EVID-009" },
+      { source_id: "src_vm_four_color_reference_audit_20260603", locator: "docs/research/canon/canon-inventory-four-color-reference-audit.md#brgw-aggression-dune" },
+      { source_id: "src_scryfall_oracle_cards_local", locator: `data/scryfall/raw/oracle-cards.json#id=${duneCard.id}` },
+    ],
+    canonical_card_data_locator: `data/dossier/card-voice-printings.source.json#relationship_id=${duneReplacement.relationship_id}`,
+    why_voice_belongs: "Dune-Brood's arrival produces nameless thousands, giving Dune a voice of physical momentum that multiplies through the land rather than another voice of front-line command.",
+    relationship_bridge: "Dune-Brood is the governed card anchor for Dune. Its exact printing describes a mass arrival, and its verified combat trigger creates one Sand for each land you control; together they support the bounded Dune facets of physical momentum and territorial swarm without turning the Nephilim into a faction or doctrine.",
+    false_positive_analysis: "A generic token or combat card would drift toward Naya, Jund, Mardu, or Boros. This relationship instead depends on Dune's governed Dune-Brood anchor, the exact 'nameless thousands' voice, and the land-scaled Sand-token action together.",
+    adjacent_identity_confusion_risk: "Do not use the relationship as generic combat, token, four-color, or Nephilim proof. Its Dune specificity comes from the governed anchor and exact mass-through-land evidence.",
+    limitation: "Dune-Brood is a bounded card anchor and does not establish an official faction, doctrine, universal four-color philosophy, or missing-Blue psychology.",
+    proposed_modal_explanation: duneReplacement.modal_explanation,
+    modal_explanation: duneReplacement.modal_explanation,
+    approval_basis: "OWNER_AUTHORIZED_VM563_CORRECTION_PENDING_FINAL_ACCEPTANCE",
+    owner_decision: "AUTHORIZED_REPLACEMENT",
+    owner_revision_history: [
+      ...(record.owner_revision_history || []),
+      {
+        decided_at: "2026-08-16",
+        decision: "REJECT_RENDERED_RELATIONSHIP",
+        previous_relationship_id: duneReplacement.prior_relationship_id,
+        previous_card_name: "Scour from Existence",
+        candidate_sha: "f5ede39a7f03caf6c0644c80142c201643605b85",
+        instruction: "Replace Scour from Existence because its rendered Dune relationship is not sufficiently intentional or identity-specific.",
+      },
+    ],
+    proposal_origin: { kind: "COMMITTED_SCRYFALL_EXACT_PRINTING", locator: `data/scryfall/raw/oracle-cards.json#id=${duneCard.id}` },
+    validation: {
+      validator_version: "vm563-dune-owner-correction-v1",
+      passed: true,
+      failures: [],
+      owner_decision: "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE",
+    },
+  };
+});
+const voicePrintings = {
+  ...voicePrintingsInput,
+  records: voicePrintingsInput.records.map((record) => record.relationship_id === duneReplacement.prior_relationship_id ? {
+    identity_key: "DUNE",
+    canonical_card_name: duneCard.name,
+    oracle_id: duneCard.oracle_id,
+    scryfall_id: duneCard.id,
+    set: duneCard.set,
+    collector_number: duneCard.collector_number,
+    exact_flavor_text: duneCard.flavor_text,
+    flavor_text_field: "card.flavor_text",
+    scryfall_uri: duneCard.scryfall_uri,
+    source_locator: `data/scryfall/raw/oracle-cards.json#id=${duneCard.id}`,
+    image_uris: { small: duneCard.image_uris.small, normal: duneCard.image_uris.normal, art_crop: duneCard.image_uris.art_crop },
+    card_faces: duneCard.card_faces || [],
+    type_line: duneCard.type_line,
+    relationship_id: duneReplacement.relationship_id,
+    slot: 2,
+  } : record),
+};
 const playRecords = playSourceInput.records.map((record) => ({
   ...record,
   modal_explanation: record.modal_explanation || playCatalogByRelationship.get(record.relationship_id)?.modal_explanation || "",
@@ -167,7 +266,8 @@ Object.assign(playByRelationship.get("cardrel_ur_899d58dc"), {
 for (const [ledgerId, change] of overrides) {
   const baseline = baselineRows.find((row) => row.ledger_id === ledgerId);
   if (!baseline) fail(`Unknown VM-561 ledger row: ${ledgerId}`);
-  const record = baseline.surface === "SOUND" ? voiceByRelationship.get(baseline.relationship_id) : playByRelationship.get(baseline.relationship_id);
+  const relationshipId = ledgerId === duneReplacement.ledger_id ? duneReplacement.relationship_id : baseline.relationship_id;
+  const record = baseline.surface === "SOUND" ? voiceByRelationship.get(relationshipId) : playByRelationship.get(relationshipId);
   if (!record) fail(`Missing source relationship: ${baseline.relationship_id}`);
   if (baseline.surface === "SOUND" && change.tile) fail(`Sound flavor tiles may not be rewritten: ${ledgerId}`);
   if (change.tile) record.proposed_public_rationale = change.tile;
@@ -233,7 +333,8 @@ const playCatalog = buildRuntimeCatalog(playSource);
 const finalVoiceByRelationship = new Map(voiceCatalog.records.map((record) => [record.relationship_id, record]));
 const finalPlayByRelationship = new Map(playCatalog.records.map((record) => [record.relationship_id, record]));
 const finalRows = baselineRows.map((row) => {
-  const final = row.surface === "SOUND" ? finalVoiceByRelationship.get(row.relationship_id) : finalPlayByRelationship.get(row.relationship_id);
+  const finalRelationshipId = row.ledger_id === duneReplacement.ledger_id ? duneReplacement.relationship_id : row.relationship_id;
+  const final = row.surface === "SOUND" ? finalVoiceByRelationship.get(finalRelationshipId) : finalPlayByRelationship.get(finalRelationshipId);
   if (!final) fail(`Final catalog lost rendered row: ${row.ledger_id}`);
   const finalTile = row.surface === "SOUND" ? final.excerpt : final.rationale;
   const finalModal = final.modal_explanation;
@@ -246,10 +347,12 @@ const finalRows = baselineRows.map((row) => {
     identity_name: row.identity_name,
     surface: row.surface,
     slot_order: row.slot_order,
-    relationship_id: row.relationship_id,
-    card_name: row.card_name,
-    oracle_id: row.oracle_id,
-    exact_printing_id: row.exact_printing_id,
+    relationship_id: finalRelationshipId,
+    ...(finalRelationshipId !== row.relationship_id ? { prior_relationship_id: row.relationship_id } : {}),
+    card_name: final.card.name,
+    oracle_id: final.card.oracle_id,
+    exact_printing_id: final.card.scryfall_id,
+    ...(finalRelationshipId !== row.relationship_id ? { prior_card_name: row.card_name, prior_oracle_id: row.oracle_id, prior_exact_printing_id: row.exact_printing_id } : {}),
     prior_tile_text: row.current_tile_text,
     final_tile_text: finalTile,
     prior_modal_text: row.current_modal_text,
@@ -261,7 +364,7 @@ const finalRows = baselineRows.map((row) => {
     reason: decision?.reason || "VM-561 found no semantic or corpus-level style change necessary.",
     vm561_disposition: row.findings.disposition,
     claim_classification: row.audit_inference.classification,
-    evidence_status: decision?.change_class === "SOURCE_INTAKE_RESOLVED" ? "INSPECTED_PRIMARY_SOURCE_RESOLVED" : row.findings.authority_finding,
+    evidence_status: decision?.change_class === "SOURCE_INTAKE_RESOLVED" ? "INSPECTED_PRIMARY_SOURCE_RESOLVED" : decision?.change_class === "RELATIONSHIP_REPLACED" ? "PASS_GOVERNED_DUNE_ANCHOR_AND_EXACT_CARD_EVIDENCE" : row.findings.authority_finding,
     modal_content_model_review: false,
   };
 });
@@ -309,10 +412,11 @@ const manifest = {
 
 const summary = `# VM-563 Final Sound/Play Remediation\n\n- Structure: **${counts.identities}/37 identities**, **${counts.rendered_rows}/119 rows**, **${counts.sound}/73 Sound**, **${counts.play}/46 Play**, **${counts.suppressed_play_relationships}/4 suppressed Play reconciliations**.\n- VM-561 remediation rows resolved: **${counts.remediation_likely_resolved}/49**.\n- Style-only corpus cleanup rows: **${counts.style_only_rows}**.\n- Tile changes: **${counts.tile_changes}**.\n- Modal changes: **${counts.modal_changes}**.\n- Source-intake resolutions: **${counts.source_intake_resolved}**.\n- Relationship replacements: **${counts.relationship_replacements}**.\n- Hard owner blockers: **${counts.hard_owner_blockers}**.\n- Modal content-model reviews: **${counts.modal_content_model_review}**.\n\nThe production generators now require explicit relationship-owned modal copy. They no longer manufacture the shared Play composer or the Sound \`The line presents ...\` scaffold.\n`;
 
-const intake = `# VM-563 Targeted Source Intake\n\n## Feather, the Redeemed / Boros Legion\n\n- Inspected primary source: https://magic.wizards.com/en/news/making-magic/war-games-2019-04-22#feather-the-redeemed\n- The source explicitly identifies Feather as a Boros Legion member and explains the combat-oriented design that returns a resolved instant or sorcery which targeted your creature.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; card retained and copy narrowed to the verified recurrence play pattern.\n\n## Ruric Thar, the Unbowed / Gruul Clans\n\n- Inspected primary source: https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2#the-gruul-clans\n- The now-readable guide identifies Ruric Thar as Ghor leader and the Ghor as conducting frequent savage assaults. Exact Oracle text separately verifies mandatory attacks and the six-damage noncreature-spell trigger.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; card retained.\n\n## Atarka, World Render / Glint\n\n- Inspected primary source: https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-dragons-tarkir-part-2-2015-03-18#the-atarka-clan\n- The guide establishes Atarka's endless hunger and destructive appetite. It does not establish a universal four-color philosophy.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; exact flavor retained, while the modal stays at Vox Mana synthesis altitude.\n\n## Dune and Witch authority exceptions\n\n- No new doctrine was introduced. Scour from Existence was narrowed to Dune's already-governed direct action, territorial pressure, and organized-force facets. Amphin Cutthroat was narrowed to Witch's already-governed patient development and calculated expansion facets.\n- Result: both relationships retained; unsupported missing-color psychology and overbroad territorial-survival language removed.\n`;
+const intake = `# VM-563 Targeted Source Intake\n\n## Feather, the Redeemed / Boros Legion\n\n- Inspected primary source: https://magic.wizards.com/en/news/making-magic/war-games-2019-04-22#feather-the-redeemed\n- The source explicitly identifies Feather as a Boros Legion member and explains the combat-oriented design that returns a resolved instant or sorcery which targeted your creature.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; card retained and copy narrowed to the verified recurrence play pattern.\n\n## Ruric Thar, the Unbowed / Gruul Clans\n\n- Inspected primary source: https://magic.wizards.com/en/news/feature/planeswalkers-guide-to-gatecrash-part-2#the-gruul-clans\n- The now-readable guide identifies Ruric Thar as Ghor leader and the Ghor as conducting frequent savage assaults. Exact Oracle text separately verifies mandatory attacks and the six-damage noncreature-spell trigger.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; card retained.\n\n## Atarka, World Render / Glint\n\n- Inspected primary source: https://magic.wizards.com/en/news/magic-story/planeswalkers-guide-dragons-tarkir-part-2-2015-03-18#the-atarka-clan\n- The guide establishes Atarka's endless hunger and destructive appetite. It does not establish a universal four-color philosophy.\n- Result: \`SOURCE_INTAKE_RESOLVED\`; exact flavor retained, while the modal stays at Vox Mana synthesis altitude.\n\n## Dune owner-acceptance correction\n\n- Owner rendered review rejected Scour from Existence at candidate \`f5ede39a7f03caf6c0644c80142c201643605b85\`: its cross-identity voice still required too much explanation and the authority bridge remained insufficient.\n- The replacement is Dune-Brood Nephilim, exact printing \`15b4ee44-28c4-4a39-9c06-aca43787954f\`. The committed Scryfall record verifies both the exact line and the combat-damage trigger that creates one Sand for each land controlled.\n- Dune-Brood is already the governed card anchor in \`dune_claim_0004\`; \`dune_claim_0005\` and DUNE-EVID-009 bound the interpretation to physical momentum and territorial-swarm synthesis. The relationship does not treat the Nephilim as a faction or doctrine.\n- The older VM-558 rejection of a generic Dune-Brood swarm bridge and the VM-563 owner rejection of Scour both remain in the relationship revision history.\n- Result: \`RELATIONSHIP_REPLACED\`; evidence status \`PASS_GOVERNED_DUNE_ANCHOR_AND_EXACT_CARD_EVIDENCE\`.\n\n## Witch authority exception\n\n- No new doctrine was introduced. Amphin Cutthroat remains narrowed to Witch's already-governed patient development and calculated expansion facets.\n- Result: relationship retained; unsupported missing-color psychology removed.\n`;
 
 const outputs = {
   [paths.voiceSource]: pretty(voiceSource),
+  [paths.voicePrintings]: pretty(voicePrintings),
   [paths.voiceCatalog]: pretty(voiceCatalog),
   [paths.playSource]: pretty(playSource),
   [paths.playCatalog]: pretty(playCatalog),
