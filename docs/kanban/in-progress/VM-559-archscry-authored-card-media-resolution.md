@@ -76,6 +76,7 @@ Ensure every governed authored Archscry card resolves deterministically to commi
 - Implementation checks: focused producer, projection, resolver-state, cache, lazy hydration, desktop all-identity, focused mobile, frontend lint/HTML, source-generated, and rendered-product QA.
 - Final tier: QA-5 applies to integration/deployment because the exact built candidate and published SHA must be verified with API lookup blocked. Placement certification and all-viewport dossier certification are outside the changed risk.
 - Owner review remains limited to Mardu, Glint, and one ordinary identity at desktop/mobile, one tier switch, View All, one card-detail interaction, and visual judgment of heading/readability/order.
+- Headed review command: `npm.cmd run review:vm559 -- --identity=MARDU --viewport=desktop` (substitute `GLINT`/`WU` and `mobile`). It blocks API lookup, permits the real image CDN, prechecks all panels/tiers, and leaves the verified dossier open for owner judgment.
 
 ## Remaining Release Gates
 

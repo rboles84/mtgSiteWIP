@@ -16,6 +16,7 @@ const host = "127.0.0.1";
 const viewportName = (process.argv.find((arg) => arg.startsWith("--viewport=")) || "--viewport=desktop").split("=")[1];
 const identityFilter = (process.argv.find((arg) => arg.startsWith("--identity=")) || "").split("=")[1] || "";
 const transientDeliveryMode = process.argv.includes("--transient-delivery");
+const reviewMode = process.argv.includes("--review");
 const viewports = {
   desktop: { width: 1440, height: 1100 },
   mobile: { width: 390, height: 900 },
@@ -26,6 +27,7 @@ assert.ok(viewport, `Unknown viewport ${viewportName}`);
 const witnesses = JSON.parse(fs.readFileSync(path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json"), "utf8")).rows
   .filter((row) => !identityFilter || row.identity_key === identityFilter);
 assert.ok(witnesses.length, `No VM-559 witness matched ${identityFilter || "the governed inventory"}`);
+if (reviewMode) assert.equal(witnesses.length, 1, "VM-559 owner review opens one identity at a time; pass --identity");
 const model = JSON.parse(fs.readFileSync(path.join(root, "data", "gate-b1-placement-model.json"), "utf8"));
 const factions = JSON.parse(fs.readFileSync(path.join(root, "data", "factions.json"), "utf8")).factions;
 const mediaIndex = JSON.parse(fs.readFileSync(path.join(root, "data", "scryfall", "indexes", "archscry-media-index.json"), "utf8"));
@@ -143,7 +145,7 @@ async function exerciseIdentity(page, origin, witness) {
   const cdnRequests = [];
   const consoleErrors = [];
   const swamp = mediaByKey.get(normalize("Swamp"));
-  const failFirstCandidate = witness.identity_key === "MARDU" && !transientDeliveryMode ? swamp?.image_candidates?.[0]?.url : "";
+  const failFirstCandidate = witness.identity_key === "MARDU" && !transientDeliveryMode && !reviewMode ? swamp?.image_candidates?.[0]?.url : "";
   const transientCandidateUrls = new Set(transientDeliveryMode && witness.identity_key === "MARDU" ? swamp?.image_candidates?.map((candidate) => candidate.url) : []);
   let failedCandidateOnce = false;
 
@@ -164,6 +166,7 @@ async function exerciseIdentity(page, origin, witness) {
     }
     if (/^https:\/\/cards\.scryfall\.io\//.test(url)) {
       cdnRequests.push(url);
+      if (reviewMode) return request.continue();
       if (transientCandidateUrls.has(url)) {
         return request.respond({ status: 503, contentType: "text/plain", body: "transient delivery outage" });
       }
@@ -251,7 +254,7 @@ async function exerciseIdentity(page, origin, witness) {
   await page.$eval('[data-action="close-card-detail"]', (button) => button.click());
 
   assert.deepEqual(apiRequests, [], `${witness.identity_key} made an authored api.scryfall.com lookup`);
-  if (witness.identity_key === "MARDU" && !transientDeliveryMode) {
+  if (witness.identity_key === "MARDU" && !transientDeliveryMode && !reviewMode) {
     assert.equal(failedCandidateOnce, true, "Mardu Swamp did not exercise first-candidate failure");
     assert.ok(swamp.image_candidates.slice(1).some((candidate) => cdnRequests.includes(candidate.url)), "Mardu Swamp did not advance to an ordered fallback candidate");
   }
@@ -271,21 +274,32 @@ const origin = `http://${host}:${address.port}`;
 let chrome;
 let browser;
 try {
-  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
+  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: [...(!reviewMode ? ["--headless=new"] : []), "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
   browser = await puppeteer.connect({ browserURL: `http://${host}:${chrome.port}` });
   const rows = [];
   for (const witness of witnesses) {
     console.log(`VM-559 media replay ${witness.identity_key} at ${viewportName}`);
     const page = await browser.newPage();
     await page.setViewport(viewport);
-    try { rows.push(await exerciseIdentity(page, origin, witness)); }
+    try {
+      rows.push(await exerciseIdentity(page, origin, witness));
+      if (reviewMode) {
+        console.log(`VM-559 owner review ready for ${witness.identity_key} at ${viewportName}. Press Enter to close.`);
+        await new Promise((resolve) => process.stdin.once("data", resolve));
+      }
+    }
     finally { await page.close(); }
   }
   console.log(JSON.stringify({ status: "PASS", viewport: viewportName, identities: rows.length, rows }, null, 2));
 } finally {
-  if (browser) await browser.close().catch(() => browser.disconnect());
+  if (browser) {
+    if (reviewMode) browser.disconnect();
+    else await browser.close().catch(() => browser.disconnect());
+  }
   if (chrome) await Promise.resolve().then(() => chrome.kill()).catch(() => {});
   server.closeIdleConnections?.();
   server.closeAllConnections?.();
-  await new Promise((resolve) => server.close(resolve));
+  if (reviewMode) server.close();
+  else await new Promise((resolve) => server.close(resolve));
 }
+if (reviewMode) process.exit(0);

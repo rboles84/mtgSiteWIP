@@ -76,12 +76,14 @@ The repository already contained art locators, but most historical Mana Notes an
 - `npm.cmd run test:vm551-dossier-integrity`, `test:frontend-smoke`, `validate:source-generated`, `lint:js`, and `lint:html` — PASS; source-generated retained two existing model-owned warnings.
 - `node --check` on changed modules — PASS.
 - In-app rendered review — PASS for Mardu Card Signals and Mana Notes Basics including Swamp; no unavailable tile or layout defect.
+- `npm.cmd run review:vm559 -- --identity=MARDU --viewport=desktop` — PASS with real CDN delivery and API lookup blocked; the headed browser remained open for judgment and exited cleanly on Enter.
 
 ## RobQAPass readiness
 
 - Changed behavior and protected contracts are named above.
 - Deterministic agent evidence covers producer/check mode, resolver states, all-37 desktop, focused mobile, failure isolation, request suppression, and rendered UI.
 - Owner package: Mardu, Glint, and one ordinary identity; desktop/mobile; one tier switch; View All; one card detail; heading/readability/order judgment.
+- Headed command: `npm.cmd run review:vm559 -- --identity=MARDU --viewport=desktop`; substitute `GLINT`/`WU` and `mobile`. API lookup stays blocked while the real image CDN remains permitted.
 - Deployment gate: exact accepted SHA only, published-SHA verification, blocked API/permitted CDN, no closeout before production replay.
 
 ## Not touched
