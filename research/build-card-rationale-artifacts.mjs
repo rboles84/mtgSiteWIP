@@ -67,6 +67,7 @@ const SOURCE_BOUNDED_NEW_PROPOSALS = new Map([
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(ROOT, relativePath), "utf8"));
 const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+const normalizeLineEndings = (value) => String(value || "").replace(/\r\n/g, "\n");
 const normalizeName = (value) => String(value || "").trim().toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, " ");
 const tsvCell = (value) => String(value ?? "").replace(/\r?\n/g, " ").replace(/\t/g, " ");
 const identityDossierByKey = new Map((await readJson("data/dossier/identity-dossier-content.catalog.json")).records.map((record) => [record.identity_key, record]));
@@ -554,7 +555,7 @@ async function main() {
     if (check) {
       let existing = "";
       try { existing = await readFile(target, "utf8"); } catch {}
-      if (existing !== content) mismatches.push(relativePath);
+      if (normalizeLineEndings(existing) !== normalizeLineEndings(content)) mismatches.push(relativePath);
     } else {
       await mkdir(path.dirname(target), { recursive: true });
       await writeFile(target, content, "utf8");

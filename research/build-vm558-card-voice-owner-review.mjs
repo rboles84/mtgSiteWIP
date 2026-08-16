@@ -9,6 +9,7 @@ const check = process.argv.includes("--check");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+const normalizeLineEndings = (value) => String(value || "").replace(/\r\n/g, "\n");
 const esc = (value) => String(value || "").replace(/\|/g, "\\|").replace(/\r?\n/g, "<br>");
 
 const [source, printings, catalog, flavorIndex, commanderIndex, rationaleCatalog, preconCatalog, factions, rawOracleCards] = await Promise.all([
@@ -131,7 +132,7 @@ const markdown = `# VM-558 Complementary Card-Voice Owner Approval Record\n\nSta
 const outputPath = path.join(root, "docs/reports/VM-558-card-voice-semantic-owner-review.md");
 if (check) {
   const actual = await readFile(outputPath, "utf8");
-  assert.equal(actual, markdown, "Stale VM-558 owner-approval record");
+  assert.equal(normalizeLineEndings(actual), normalizeLineEndings(markdown), "Stale VM-558 owner-approval record");
 } else {
   await writeFile(outputPath, markdown);
 }
