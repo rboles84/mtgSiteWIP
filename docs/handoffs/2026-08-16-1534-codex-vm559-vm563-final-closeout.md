@@ -59,7 +59,7 @@ The accepted product needed a truthful QA-5 release record and a durable way for
 - `npm.cmd run test:vm559-media-projection` — PASS: 1,178 / 572 / 37 / zero unresolved.
 - `npm.cmd run test:vm559-resolution` — PASS.
 - `npm.cmd run test:vm559-first-hover` — PASS: eight fresh-state surfaces plus keyboard/touch.
-- Artifact registry/current-release validation — PASS: 16 artifacts, all paths present, authority enums valid, IDs unique, accepted SHA/counts exact, historical VM-551 checksum exact.
+- Artifact registry/current-release validation — PASS: 16 artifacts, all paths present, authority enums valid, IDs unique, accepted SHA/counts exact, and the historical VM-551 Git blob plus LF-normalized checksum exact across Windows checkout line endings.
 - `git diff --check` — PASS before integration.
 - GitHub `Vox Mana Validation` run `31973451226` — PASS at exact SHA `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 - GitHub Pages run `31973450385` — PASS at exact SHA `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.

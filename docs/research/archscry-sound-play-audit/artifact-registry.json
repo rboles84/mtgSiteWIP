@@ -282,8 +282,9 @@
       "consumers": ["Historical audit and decision reconstruction only"],
       "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
-      "sha256": "fb61c5c3c34226b0ccf55f1b98591c677aa1677fd008c9d2eb874558127462f7",
-      "notes": "Do not regenerate this snapshot from current active sources. Its Dune / Scour state is intentionally historical and must not be made equal to current VM-563 production."
+      "git_blob_oid": "cb9499da6daf194581d3b27c8f02359083a909ca",
+      "lf_normalized_sha256": "fb61c5c3c34226b0ccf55f1b98591c677aa1677fd008c9d2eb874558127462f7",
+      "notes": "Do not regenerate this snapshot from current active sources. Its Dune / Scour state is intentionally historical and must not be made equal to current VM-563 production. Validate the Git blob or the LF-normalized content checksum so Windows CRLF checkout does not create false historical drift."
     }
   ]
 }
