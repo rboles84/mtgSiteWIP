@@ -4052,7 +4052,6 @@ function renderResult(viewKey) {
                 <div class="starter-copy">${renderEducationalText(detail.copy, "start-here")}</div>
               </div>`).join("")}
           </div>
-          ${commanderPreviewHtml}
         </div>
       </div>
     </div>`;

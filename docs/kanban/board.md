@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-567 - Remove Start Here Commander Card Previews](done/VM-567-remove-start-here-commander-card-previews.md) - removed only the shared Start Here preview insertion, proved zero card-bearing descendants across all 37 identities, preserved guidance/recommendation/media authority and every other dossier surface, and stopped at a local owner-review candidate.
+
 - [VM-563 - Archscry Sound/Play Final Corpus Remediation](done/VM-563-archscry-sound-play-final-corpus-remediation.md) - owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 37/119/73/46/4 corpus, Dune-Brood correction, and all accepted Glint rows are integrated and production-verified in release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 
 - [VM-559 - Archscry Authored-Card Media Resolution](done/VM-559-archscry-authored-card-media-resolution.md) - owner accepted exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 1,178-occurrence / 572-key / zero-unresolved projection, identity headings, lazy hydration, and shared hover repair are integrated and production-verified in release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.

@@ -666,7 +666,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 3. On `/strategium/`, confirm the `Commander Focused` cards, entry-point rows, and `Choose your next move` cards reflow cleanly from desktop to mobile without clipped text, broken spacing, or horizontal overflow.
 4. On `/strategium/`, switch through every Strategium Console tab and confirm the Commander-specific content swaps cleanly with no dead buttons or console errors.
 5. On `/strategium/`, toggle several `Commander Readiness Checklist` items by mouse and keyboard; confirm the summary text updates and every touched control keeps a visible focus state.
-6. On `/archscry/`, complete a reading, then narrow the dossier area; confirm `lands-tiers`, `commander-preview-grid`, and `flavor-echo-card` layouts respond to their wrapper width without text overlap, clipped art, or broken card spacing.
+6. On `/archscry/`, complete a reading, then narrow the dossier area; confirm Start Here retains its guidance with zero card tiles, images, card-detail triggers, or preview media slots, while `lands-tiers` and `flavor-echo-card` layouts respond to their wrapper width without text overlap, clipped art, or broken card spacing.
 7. On `/apocrypha/`, confirm the archive cards and footer show no visual regression after the shared responsive pass.
 
 ## Strategium targeted portal lift

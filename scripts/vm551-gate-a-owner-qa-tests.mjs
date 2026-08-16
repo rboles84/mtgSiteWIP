@@ -22,6 +22,10 @@ import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js
 
 const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
 const indexSource = await readText("../assets/js/index.js");
+const startPanelSource = indexSource.slice(
+  indexSource.indexOf("const startPanelHtml ="),
+  indexSource.indexOf("const deckStartsPanelHtml =")
+);
 const htmlSource = await readText("../archscry/index.html");
 const cssSource = await readText("../assets/css/archscry.css");
 const radarSource = await readText("../assets/js/dossier-radar.js");
@@ -298,9 +302,10 @@ assert.match(indexSource, /matrixFlavorSnippetsForFaction/);
 assert.match(indexSource, /APP_STATE\.scryfallLocalCardByName\.get/);
 assert.match(indexSource, /loadResultCardArt\(faction, commanderPreviewCandidates, renderableStarterCards, landRecommendations, matrixFlavorSnippets\)/);
 assert.doesNotMatch(indexSource, /commander-preview-label|Commander starting points/);
-assert.match(indexSource, /data-commander-preview-block hidden/);
-assert.match(indexSource, /closest\("\[data-commander-preview-block\]"\)\?\.removeAttribute\("hidden"\)/);
-assert.match(indexSource, /previewGrid\?\.closest\("\[data-commander-preview-block\]"\)\?\.remove\(\)/);
+assert.match(startPanelSource, /<div class="section-label">Start Here<\/div>/);
+assert.match(startPanelSource, /\$\{commanderLane\.title\}/);
+assert.match(startPanelSource, /commanderLane\.details\.map/);
+assert.doesNotMatch(startPanelSource, /commanderPreviewHtml|commander-preview-grid|data-commander-card|id="cmd_/);
 assert.match(indexSource, /matrixCardVoice: true/);
 assert.match(radarSource, /class="vm-card-voice-image"/);
 assert.match(radarSource, /class="vm-card-voice-name"[\s\S]*href="\$\{escapeDossierHtml\(snippet\.scryfall_uri\)\}"/);
