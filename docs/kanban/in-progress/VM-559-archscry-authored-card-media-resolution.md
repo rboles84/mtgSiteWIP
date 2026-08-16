@@ -4,9 +4,7 @@ ID: VM-559
 
 Status: In Progress
 
-Current gate: Implementation and agent QA complete on the VM-559 branch; RobQAPass classifies the integration/deployment risk as QA-5. Awaiting the short owner visual review before integration, push, production replay, and closeout.
-
-Owner-QA remediation is active after the 2026-08-16 review. The stop point is limited to: restore a truthful focused Start Here handoff with Sound/Play retained only in their dedicated panel; repair the shared first-hover interaction from a fresh no-click state; and deliver an exactly 37-sheet Sound/Play testing workbook generated from current production catalogs/composition rules. Do not rewrite Sound/Play prose or begin all-identity semantic remediation in this pass.
+Current gate: Owner rendered-product acceptance passed for exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`. QA-5 integration, GitHub Pages publication, focused production verification, and closeout are authorized; no further semantic or player-facing changes are permitted.
 
 Type: Production defect / generated media projection / shared resolver and rendering reliability
 
@@ -82,9 +80,9 @@ Ensure every governed authored Archscry card resolves deterministically to commi
 
 ## Remaining Release Gates
 
-- Owner acceptance is not claimed.
-- Do not merge, push to `main`, deploy, close the card, or claim production reliability until owner review accepts the exact candidate.
-- After acceptance, integrate the exact tested SHA, wait for GitHub Pages to publish it, rerun the cache-bypassed all-37 production replay with `api.scryfall.com` blocked and `cards.scryfall.io` permitted, then record deployed SHA/evidence and close VM-559.
+- Owner acceptance is recorded for exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`.
+- Integrate only that accepted product lineage plus non-semantic closeout/catalog records, wait for GitHub Pages to publish the integrated SHA, run the focused production checks, and then close VM-559.
+- Do not reopen card choices, Sound/Play prose, placement, scoring, routing, identity semantics, or the external-CDN architecture during closeout.
 
 ## 2026-08-16 Owner-QA Findings
 

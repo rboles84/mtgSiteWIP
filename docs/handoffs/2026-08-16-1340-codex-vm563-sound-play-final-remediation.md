@@ -110,3 +110,13 @@ Owner rendered-product reviewer, then an integration/release agent only after ex
 - `docs/research/archscry-sound-play-audit/vm563-final-remediation-manifest.json`
 - `docs/research/archscry-sound-play-audit/vm563-full-corpus-qa.json`
 - `outputs/01a007e0-b631-7ca1-a18c-9f6e6ff6ff29/VM-563-Sound-Play-Final-Review.xlsx`
+
+## 2026-08-16 Owner Acceptance Addendum
+
+- Owner rendered-product acceptance passed for exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`.
+- Dune-Brood Nephilim is accepted for Dune Sound; Scour from Existence is no longer active there and remains preserved in the historical evidence trail.
+- Glint and every other reviewed Sound/Play row remain accepted and frozen.
+- No hard owner blocker or modal-content-model review remains.
+- VM-560 through VM-563 research is cataloged by authority at `docs/research/archscry-sound-play-audit/INDEX.md`, with machine discovery through `artifact-registry.json` and the accepted-state pointer in `current-release.json`.
+- The frozen VM-551 owner-review packet remains historical even where later active source differs; it must not be regenerated to erase the Dune / Scour rejection history.
+- Remaining work is QA-5 integration, Pages deployment, focused live verification, governance closeout, and safe merged-branch cleanup. No semantic change is authorized.

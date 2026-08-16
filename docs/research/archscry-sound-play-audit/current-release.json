@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "status": "ACCEPTED_AFTER_OWNER_REVIEW",
+  "accepted_candidate": "52fdd86155c8a47f5ac8650fe9d92a8f5010ca07",
+  "accepted_vm562_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286",
+  "accepted_prior_vm563_candidate": "f5ede39a7f03caf6c0644c80142c201643605b85",
+  "identities": 37,
+  "rendered_rows": 119,
+  "sound_rows": 73,
+  "play_rows": 46,
+  "suppressed_play": 4,
+  "authored_media_occurrences": 1178,
+  "authored_media_resolver_keys": 572,
+  "authored_media_unresolved": 0,
+  "source_router": "docs/research/archscry-sound-play-audit/source-router.md",
+  "evidence_ledger": "docs/research/archscry-sound-play-audit/card-evidence-ledger.json",
+  "final_manifest": "docs/research/archscry-sound-play-audit/vm563-final-remediation-manifest.json",
+  "review_workbook": "outputs/01a007e0-b631-7ca1-a18c-9f6e6ff6ff29/VM-563-Sound-Play-Final-Review.xlsx",
+  "calibration": "docs/research/archscry-sound-play-audit/prose-calibration.md",
+  "artifact_registry": "docs/research/archscry-sound-play-audit/artifact-registry.json",
+  "historical_snapshot_boundary": {
+    "path": "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md",
+    "status": "FROZEN_HISTORICAL",
+    "current_authority": "data/dossier/card-voice-relationships.source.json",
+    "known_intentional_difference": "The historical VM-551 Dune / Scour from Existence review state is superseded by the owner-accepted VM-563 Dune-Brood Nephilim relationship."
+  },
+  "notes": "This is a discovery pointer, not semantic or production authority. Update it only after a later candidate is explicitly accepted; preserve older manifests and decision history."
+}

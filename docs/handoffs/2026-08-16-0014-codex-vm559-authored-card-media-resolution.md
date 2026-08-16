@@ -143,3 +143,11 @@ Codex continuing the same VM-559 branch after owner acceptance; do not create an
 - `docs/qa/RobQAPass.md`
 - `docs/reference/data-contracts.md`
 - VM-558 completion handoff/card
+
+## 2026-08-16 Owner Acceptance Addendum
+
+- Owner rendered-product acceptance passed for exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`.
+- The VM-559 product contract is frozen for QA-5 integration and production verification: 1,178 governed occurrences, 572 resolver keys, 37 identities, and zero unresolved records.
+- The accepted external limitation remains unchanged: `cards.scryfall.io` is still the image-delivery dependency.
+- Sound/Play remediation history is cataloged under `docs/research/archscry-sound-play-audit/`; its manifests and workbooks remain traceability/review artifacts rather than production authority.
+- No further media, heading, hover, Sound/Play, card, placement, routing, or identity-semantic change is authorized during closeout.

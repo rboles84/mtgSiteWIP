@@ -4,7 +4,7 @@ ID: VM-563
 
 Status: In Progress
 
-Current gate: Final Dune owner-acceptance correction implemented and machine-validated; awaiting final owner rendered-product acceptance only.
+Current gate: Final owner rendered-product acceptance passed for exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`. Integration, deployment, focused production verification, and closeout are authorized with all Sound/Play semantics frozen.
 
 Type: Source-grounded content implementation
 
@@ -70,3 +70,12 @@ Continue the existing single worktree on `codex/vm559-archscry-media-reliability
 - `npm.cmd run test:vm559-first-hover` — PASS, eight fresh-state hover cases plus keyboard/touch.
 - `npm.cmd run lint:js`, `npm.cmd run lint:html`, `npm.cmd run test:copy-boundaries`, and `git diff --check` — PASS.
 - Dune corrective checks: deterministic VM-563 generation, exact-printing/catalog parity, VM-559 projection byte check, full 119-row corpus QA, focused Dune desktop/mobile replay, workbook-only-Dune-sheet comparison, and in-app rendered modal/focus review — PASS.
+
+## Final Owner Acceptance
+
+- Accepted corrective candidate: `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`.
+- Accepted VM-562 checkpoint: `7f79efa3b7442a202db04e6b7013b701bffc4286`.
+- Accepted prior VM-563 implementation candidate: `f5ede39a7f03caf6c0644c80142c201643605b85`.
+- Dune-Brood Nephilim is accepted for Dune Sound; Scour from Existence is preserved only in historical evidence and is not an active Dune Sound relationship.
+- Glint and every other reviewed Sound/Play relationship remain accepted and frozen.
+- No hard owner blocker remains. The only remaining work is non-semantic QA-5 integration/deployment closeout.

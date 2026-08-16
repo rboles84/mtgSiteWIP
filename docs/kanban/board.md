@@ -45,9 +45,9 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - final owner-correction candidate replaces only Dune/Scour with exact-printing Dune-Brood Nephilim, preserves the 37/119/73/46/4 structure and every other Sound/Play relationship, and awaits final Dune rendered acceptance.
+- [VM-563 - Archscry Sound/Play Final Corpus Remediation](in-progress/VM-563-archscry-sound-play-final-corpus-remediation.md) - owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; Sound/Play semantics are frozen while QA-5 integration, deployment, focused production verification, and closeout proceed.
 
-- [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - media projection implementation is under owner QA; bounded remediation now restores a focused Start Here handoff, fixes fresh no-click shared card hover, and produces an exactly 37-sheet Sound/Play testing workbook without changing authored prose, card selections, or placement.
+- [VM-559 - Archscry Authored-Card Media Resolution](in-progress/VM-559-archscry-authored-card-media-resolution.md) - owner accepted exact candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 1,178-occurrence / 572-key / zero-unresolved projection is frozen while QA-5 integration, Pages publication, focused production verification, and closeout proceed.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
