@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "authority": "Exact Scryfall printing facts for selected public card voices. Oracle ID identifies rules identity; printing ID identifies the exact flavor evidence.",
+  "schema_version": "1.1.0",
+  "authority": "Exact Scryfall printing facts for APPROVED_PUBLIC Archscry card voices, keyed by relationship and slot. Oracle ID identifies rules identity; printing ID identifies the exact flavor evidence.",
   "records": [
     {
       "identity_key": "WU",
@@ -12,7 +12,29 @@
       "exact_flavor_text": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/dgm/136/azorius-cluestone?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/09eeb301-bc28-4515-ad69-0b1b5164a5bc#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/09eeb301-bc28-4515-ad69-0b1b5164a5bc#card.flavor_text",
+      "relationship_id": "cardvoice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64",
+      "slot": 1
+    },
+    {
+      "identity_key": "WU",
+      "canonical_card_name": "Azorius Aethermage",
+      "oracle_id": "12971527-aa8e-4517-9b00-71474caebfd0",
+      "scryfall_id": "6b640ff8-8baa-4069-b5a9-8a4fb22a056e",
+      "set": "dis",
+      "collector_number": "104",
+      "exact_flavor_text": "In her single metasphere are bound the records of every Ætheric transaction since the time of Azor.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/dis/104/azorius-aethermage?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/6b640ff8-8baa-4069-b5a9-8a4fb22a056e#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/b/6b640ff8-8baa-4069-b5a9-8a4fb22a056e.jpg?1593273554",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/b/6b640ff8-8baa-4069-b5a9-8a4fb22a056e.jpg?1593273554"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Human Wizard",
+      "relationship_id": "cardvoice_vm558_wu_12971527_aa8e_4517_9b00_71474caebfd0",
+      "slot": 2
     },
     {
       "identity_key": "UB",
@@ -24,7 +46,29 @@
       "exact_flavor_text": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/rav/199/consult-the-necrosages?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/6f51484b-3bad-4332-87f8-61924e153799#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/6f51484b-3bad-4332-87f8-61924e153799#card.flavor_text",
+      "relationship_id": "cardvoice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f",
+      "slot": 1
+    },
+    {
+      "identity_key": "UB",
+      "canonical_card_name": "Barrier of Bones",
+      "oracle_id": "4f25b125-1ded-4a34-9ed1-e6ce087ec48d",
+      "scryfall_id": "28129aaf-aaff-47f4-8dd2-8c576c55052c",
+      "set": "grn",
+      "collector_number": "61",
+      "exact_flavor_text": "The Dimir rarely make statements, but when they do, the message is clear.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/grn/61/barrier-of-bones?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/28129aaf-aaff-47f4-8dd2-8c576c55052c#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/2/8/28129aaf-aaff-47f4-8dd2-8c576c55052c.jpg?1572892888",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/8/28129aaf-aaff-47f4-8dd2-8c576c55052c.jpg?1572892888"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Skeleton Wall",
+      "relationship_id": "cardvoice_vm558_ub_4f25b125_1ded_4a34_9ed1_e6ce087ec48d",
+      "slot": 2
     },
     {
       "identity_key": "BR",
@@ -36,7 +80,30 @@
       "exact_flavor_text": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/arc/79/avatar-of-discord?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/adf2a1fd-eb1e-46aa-b715-6e6fb5195e42#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/adf2a1fd-eb1e-46aa-b715-6e6fb5195e42#card.flavor_text",
+      "relationship_id": "cardvoice_br_3f806353_592e_431c_a7dd_a4c64034f94d",
+      "slot": 1
+    },
+    {
+      "identity_key": "BR",
+      "canonical_card_name": "Judith, the Scourge Diva",
+      "oracle_id": "c01516e0-eec3-4370-b935-7674982e8850",
+      "scryfall_id": "d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf",
+      "set": "cmm",
+      "collector_number": "341",
+      "exact_flavor_text": "At the end of the show, she stands alone on a stage brilliant with blood.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/cmm/341/judith-the-scourge-diva?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/d/6/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf.jpg?1690016831",
+        "normal": "https://cards.scryfall.io/normal/front/d/6/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf.jpg?1690016831",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/d/6/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf.jpg?1690016831"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Human Shaman",
+      "relationship_id": "cardvoice_vm558_br_c01516e0_eec3_4370_b935_7674982e8850",
+      "slot": 2
     },
     {
       "identity_key": "RG",
@@ -48,7 +115,29 @@
       "exact_flavor_text": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/2x2/189/burning-tree-emissary?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/ba327a5e-bd57-4e24-b4b4-062202df30e1#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/ba327a5e-bd57-4e24-b4b4-062202df30e1#card.flavor_text",
+      "relationship_id": "cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd",
+      "slot": 1
+    },
+    {
+      "identity_key": "RG",
+      "canonical_card_name": "Decimate",
+      "oracle_id": "a4e5693f-12a0-451e-818d-d6efc7b4ed25",
+      "scryfall_id": "cf0e68bc-8de8-4ff8-a39a-8da95f71d843",
+      "set": "otc",
+      "collector_number": "220",
+      "exact_flavor_text": "Anarchy comes in many forms: social, individual, Gruul . . .",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/otc/220/decimate?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/cf0e68bc-8de8-4ff8-a39a-8da95f71d843#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/c/f/cf0e68bc-8de8-4ff8-a39a-8da95f71d843.jpg?1712354688",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/f/cf0e68bc-8de8-4ff8-a39a-8da95f71d843.jpg?1712354688"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_rg_a4e5693f_12a0_451e_818d_d6efc7b4ed25",
+      "slot": 2
     },
     {
       "identity_key": "WG",
@@ -60,7 +149,29 @@
       "exact_flavor_text": "\"Within the song of Mat'Selesnya, one becomes all.\"\n—Heruj, Selesnya hierophant",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ncc/334/camaraderie?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/ca18b625-6767-45b9-bc2c-765f1ba7bd44#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/ca18b625-6767-45b9-bc2c-765f1ba7bd44#card.flavor_text",
+      "relationship_id": "cardvoice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1",
+      "slot": 1
+    },
+    {
+      "identity_key": "WG",
+      "canonical_card_name": "Advent of the Wurm",
+      "oracle_id": "eb62aa4b-c11b-4195-ae85-cff8f78ce17b",
+      "scryfall_id": "ba3b5e35-5448-4115-a9c5-6ac14013c904",
+      "set": "mm3",
+      "collector_number": "147",
+      "exact_flavor_text": "The consciousness of Mat'Selesnya does not always spread in peaceful ways.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/mm3/147/advent-of-the-wurm?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/ba3b5e35-5448-4115-a9c5-6ac14013c904#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/b/a/ba3b5e35-5448-4115-a9c5-6ac14013c904.jpg?1593814046",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/b/a/ba3b5e35-5448-4115-a9c5-6ac14013c904.jpg?1593814046"
+      },
+      "card_faces": [],
+      "type_line": "Instant",
+      "relationship_id": "cardvoice_vm558_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b",
+      "slot": 2
     },
     {
       "identity_key": "WB",
@@ -72,7 +183,29 @@
       "exact_flavor_text": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/clu/23/afterlife-insurance?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/2fa47810-ba83-4a6e-9940-7315ee7e44a5#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/2fa47810-ba83-4a6e-9940-7315ee7e44a5#card.flavor_text",
+      "relationship_id": "cardvoice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b",
+      "slot": 1
+    },
+    {
+      "identity_key": "WB",
+      "canonical_card_name": "Covetous Elegy",
+      "oracle_id": "dd69ef80-d30c-4b15-aec8-4154dc20cb25",
+      "scryfall_id": "f8f1f5e8-c1bf-405f-b8e3-655d5558e18d",
+      "set": "clu",
+      "collector_number": "29",
+      "exact_flavor_text": "Wealthier than ever thanks to exorbitant interest on wartime loans, the Orzhov only grew hungrier for more.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/clu/29/covetous-elegy?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/f8f1f5e8-c1bf-405f-b8e3-655d5558e18d#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/f/8/f8f1f5e8-c1bf-405f-b8e3-655d5558e18d.jpg?1706239641",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/8/f8f1f5e8-c1bf-405f-b8e3-655d5558e18d.jpg?1706239641"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25",
+      "slot": 2
     },
     {
       "identity_key": "UR",
@@ -84,7 +217,29 @@
       "exact_flavor_text": "The Izzet love replicating results.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/grn/155/beamsplitter-mage?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/8f1801f2-ea6e-4196-858e-2afc456cf6a0#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/8f1801f2-ea6e-4196-858e-2afc456cf6a0#card.flavor_text",
+      "relationship_id": "cardvoice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063",
+      "slot": 1
+    },
+    {
+      "identity_key": "UR",
+      "canonical_card_name": "Blustersquall",
+      "oracle_id": "2dfad8c3-1973-4fc8-971d-f66cacd88070",
+      "scryfall_id": "1736aaf7-b61d-426e-af5e-f70272e7b07e",
+      "set": "c15",
+      "collector_number": "89",
+      "exact_flavor_text": "Weather is more predictable than the Izzet.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/c15/89/blustersquall?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/1736aaf7-b61d-426e-af5e-f70272e7b07e#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/1/7/1736aaf7-b61d-426e-af5e-f70272e7b07e.jpg?1562701714",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/1/7/1736aaf7-b61d-426e-af5e-f70272e7b07e.jpg?1562701714"
+      },
+      "card_faces": [],
+      "type_line": "Instant",
+      "relationship_id": "cardvoice_vm558_ur_2dfad8c3_1973_4fc8_971d_f66cacd88070",
+      "slot": 2
     },
     {
       "identity_key": "BG",
@@ -96,7 +251,29 @@
       "exact_flavor_text": "The Golgari support a vast army because death never ends its soldiers' service.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/rav/192/bloodbond-march?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/fb977f5b-2202-43c1-a8c0-7fba8c093fa2#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/fb977f5b-2202-43c1-a8c0-7fba8c093fa2#card.flavor_text",
+      "relationship_id": "cardvoice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5",
+      "slot": 1
+    },
+    {
+      "identity_key": "BG",
+      "canonical_card_name": "Contaminated Ground",
+      "oracle_id": "55e04860-f4f5-445b-81f2-b500fa9b456a",
+      "scryfall_id": "c2384356-0a62-499a-8b28-085974331368",
+      "set": "gtc",
+      "collector_number": "59",
+      "exact_flavor_text": "\"No one cares about pollution until they can see it.\" —Gurras, Golgari rot farmer",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/gtc/59/contaminated-ground?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/c2384356-0a62-499a-8b28-085974331368#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/c/2/c2384356-0a62-499a-8b28-085974331368.jpg?1561844572",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/2/c2384356-0a62-499a-8b28-085974331368.jpg?1561844572"
+      },
+      "card_faces": [],
+      "type_line": "Enchantment — Aura",
+      "relationship_id": "cardvoice_vm558_bg_55e04860_f4f5_445b_81f2_b500fa9b456a",
+      "slot": 2
     },
     {
       "identity_key": "UG",
@@ -108,7 +285,29 @@
       "exact_flavor_text": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/rvr/172/coiling-oracle?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/559ff1b1-018c-4e08-9531-8af20af47d05#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/559ff1b1-018c-4e08-9531-8af20af47d05#card.flavor_text",
+      "relationship_id": "cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f",
+      "slot": 1
+    },
+    {
+      "identity_key": "UG",
+      "canonical_card_name": "Bioshift",
+      "oracle_id": "3da604fc-68e9-4749-98f9-6fbcebcab9b6",
+      "scryfall_id": "6e18f7a9-2af6-467a-8f62-5f7da83a3c92",
+      "set": "gtc",
+      "collector_number": "214",
+      "exact_flavor_text": "\"It's all right if you change your mind. There's always a chance we can rearrange parts later.\" —Zija, Simic mutationist",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/gtc/214/bioshift?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/6e18f7a9-2af6-467a-8f62-5f7da83a3c92#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/e/6e18f7a9-2af6-467a-8f62-5f7da83a3c92.jpg?1561831048",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e18f7a9-2af6-467a-8f62-5f7da83a3c92.jpg?1561831048"
+      },
+      "card_faces": [],
+      "type_line": "Instant",
+      "relationship_id": "cardvoice_vm558_ug_3da604fc_68e9_4749_98f9_6fbcebcab9b6",
+      "slot": 2
     },
     {
       "identity_key": "WR",
@@ -120,7 +319,29 @@
       "exact_flavor_text": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/clu/25/boros-strike-captain?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/11fab2c1-250a-44f7-a187-ee0352b81569#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/11fab2c1-250a-44f7-a187-ee0352b81569#card.flavor_text",
+      "relationship_id": "cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678",
+      "slot": 1
+    },
+    {
+      "identity_key": "WR",
+      "canonical_card_name": "Boros Battleshaper",
+      "oracle_id": "cf5bf1ef-e40b-4fb5-8148-d4ca7a307501",
+      "scryfall_id": "6c43e449-acf2-4e94-b7cf-8c84d70191da",
+      "set": "dgm",
+      "collector_number": "58",
+      "exact_flavor_text": "Leaders shape the minds of their allies. It takes a master to shape the minds of enemies.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/dgm/58/boros-battleshaper?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/6c43e449-acf2-4e94-b7cf-8c84d70191da#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/c/6c43e449-acf2-4e94-b7cf-8c84d70191da.jpg?1562915094",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/c/6c43e449-acf2-4e94-b7cf-8c84d70191da.jpg?1562915094"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Minotaur Soldier",
+      "relationship_id": "cardvoice_vm558_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501",
+      "slot": 2
     },
     {
       "identity_key": "LOREHOLD",
@@ -132,7 +353,29 @@
       "exact_flavor_text": "Reconstructing the past is Lorehold's specialty.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/mat/27/campus-renovation?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/6d925d13-fcd6-417b-b2b2-bbdd114aae78#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/6d925d13-fcd6-417b-b2b2-bbdd114aae78#card.flavor_text",
+      "relationship_id": "cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04",
+      "slot": 1
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "canonical_card_name": "Ancestral Anger",
+      "oracle_id": "e0828e8d-f01f-4088-9123-6d923ddb3242",
+      "scryfall_id": "6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad",
+      "set": "sos",
+      "collector_number": "106",
+      "exact_flavor_text": "An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/sos/106/ancestral-anger?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/c/6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad.jpg?1775937666",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/c/6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad.jpg?1775937666"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242",
+      "slot": 2
     },
     {
       "identity_key": "PRISMARI",
@@ -144,7 +387,29 @@
       "exact_flavor_text": "Prismari students are never afraid to let their imaginations run wild.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/sos/180/colorstorm-stallion?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/f5b54d46-2caf-4d1b-8be1-dbd9e9dce058#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/f5b54d46-2caf-4d1b-8be1-dbd9e9dce058#card.flavor_text",
+      "relationship_id": "cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77",
+      "slot": 1
+    },
+    {
+      "identity_key": "PRISMARI",
+      "canonical_card_name": "Culmination of Studies",
+      "oracle_id": "d4e124af-d335-4c42-b60a-fe578f69f7ed",
+      "scryfall_id": "2483060e-9d3f-48ae-80ea-0119bf6b4d67",
+      "set": "stx",
+      "collector_number": "173",
+      "exact_flavor_text": "Will's quick thinking meshed with Rowan's raw power to bring down the Blood Avatar.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/stx/173/culmination-of-studies?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/2483060e-9d3f-48ae-80ea-0119bf6b4d67#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/2/4/2483060e-9d3f-48ae-80ea-0119bf6b4d67.jpg?1627428427",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/2/4/2483060e-9d3f-48ae-80ea-0119bf6b4d67.jpg?1627428427"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_prismari_d4e124af_d335_4c42_b60a_fe578f69f7ed",
+      "slot": 2
     },
     {
       "identity_key": "WITHERBLOOM",
@@ -170,7 +435,29 @@
         "limitations": "Public use is limited to this exact Witherbloom-attributed expression. The line is a cultural voice sample, not a complete summary of Witherbloom's life-and-death studies.",
         "supersedes_card_name": "Witherbloom Campus",
         "supersession_reason": "The Campus relationship remains valid audit evidence, but owner testing selected a nonland native voice for the public card surface."
-      }
+      },
+      "relationship_id": "cardvoice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2",
+      "slot": 1
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "canonical_card_name": "Deadly Brew",
+      "oracle_id": "b831d3f8-07ce-4172-ba29-213cac414c9a",
+      "scryfall_id": "3e5493c3-0be2-467c-82f0-3ee1ca909d0c",
+      "set": "soc",
+      "collector_number": "303",
+      "exact_flavor_text": "No one ever asked what was in Dina's concoctions, so long as they worked.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/soc/303/deadly-brew?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/3e5493c3-0be2-467c-82f0-3ee1ca909d0c#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/3/e/3e5493c3-0be2-467c-82f0-3ee1ca909d0c.jpg?1775941710",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/3/e/3e5493c3-0be2-467c-82f0-3ee1ca909d0c.jpg?1775941710"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_witherbloom_b831d3f8_07ce_4172_ba29_213cac414c9a",
+      "slot": 2
     },
     {
       "identity_key": "QUANDRIX",
@@ -182,7 +469,29 @@
       "exact_flavor_text": "\"Numbers have no limits. Why should nature?\"\n—Emil, Quandrix fourth-year",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/sos/139/additive-evolution?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/b44ec684-d558-45eb-bcd6-8119428634c2#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/b44ec684-d558-45eb-bcd6-8119428634c2#card.flavor_text",
+      "relationship_id": "cardvoice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7",
+      "slot": 1
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "canonical_card_name": "Golden Ratio",
+      "oracle_id": "724700ad-1e4e-4cbc-af7f-0b3b87ed4bc8",
+      "scryfall_id": "626fbddb-3963-4dd2-8507-9777ed66bbbc",
+      "set": "stx",
+      "collector_number": "190",
+      "exact_flavor_text": "\"When I look around, I see a world defined by patterns that still manages to defy them.\" —Kianne, Quandrix dean",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/stx/190/golden-ratio?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/626fbddb-3963-4dd2-8507-9777ed66bbbc#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/2/626fbddb-3963-4dd2-8507-9777ed66bbbc.jpg?1627429110",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/2/626fbddb-3963-4dd2-8507-9777ed66bbbc.jpg?1627429110"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_quandrix_724700ad_1e4e_4cbc_af7f_0b3b87ed4bc8",
+      "slot": 2
     },
     {
       "identity_key": "SILVERQUILL",
@@ -194,7 +503,29 @@
       "exact_flavor_text": "\"I've lived too long in my father's shadow. It's time to find my own light.\"\n—Killian, Silverquill mage-student",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/stx/9/beaming-defiance?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/7e22411c-11c1-4770-8491-7952dd406e01#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/7e22411c-11c1-4770-8491-7952dd406e01#card.flavor_text",
+      "relationship_id": "cardvoice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518",
+      "slot": 1
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "canonical_card_name": "Clever Lumimancer",
+      "oracle_id": "901eb916-f318-4a30-a43e-8e7f9eef358b",
+      "scryfall_id": "69957656-cfdf-4001-8e84-0ef29e4a468d",
+      "set": "stx",
+      "collector_number": "10",
+      "exact_flavor_text": "\"You're too dim to realize it, but you've already lost.\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/stx/10/clever-lumimancer?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/69957656-cfdf-4001-8e84-0ef29e4a468d#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/9/69957656-cfdf-4001-8e84-0ef29e4a468d.jpg?1624589246",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/9/69957656-cfdf-4001-8e84-0ef29e4a468d.jpg?1624589246"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Human Wizard",
+      "relationship_id": "cardvoice_vm558_silverquill_901eb916_f318_4a30_a43e_8e7f9eef358b",
+      "slot": 2
     },
     {
       "identity_key": "W",
@@ -206,7 +537,29 @@
       "exact_flavor_text": "When hearts and minds align, so too do actions.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/tdc/12/aligned-heart?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/a235cbda-3dc3-4aed-a911-90f26c330157#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/a235cbda-3dc3-4aed-a911-90f26c330157#card.flavor_text",
+      "relationship_id": "cardvoice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e",
+      "slot": 1
+    },
+    {
+      "identity_key": "W",
+      "canonical_card_name": "Ajani's Welcome",
+      "oracle_id": "4a782bf9-4051-4613-8852-33b0d85a0edd",
+      "scryfall_id": "c9045fcb-b633-4c35-8058-6234311551ae",
+      "set": "m19",
+      "collector_number": "6",
+      "exact_flavor_text": "\"You cannot defend others if your own well-being is neglected.\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/m19/6/ajanis-welcome?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/c9045fcb-b633-4c35-8058-6234311551ae#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/c/9/c9045fcb-b633-4c35-8058-6234311551ae.jpg?1562304330",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/9/c9045fcb-b633-4c35-8058-6234311551ae.jpg?1562304330"
+      },
+      "card_faces": [],
+      "type_line": "Enchantment",
+      "relationship_id": "cardvoice_vm558_w_4a782bf9_4051_4613_8852_33b0d85a0edd",
+      "slot": 2
     },
     {
       "identity_key": "B",
@@ -218,7 +571,30 @@
       "exact_flavor_text": "Knowledge demands sacrifice.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/voc/117/ancient-craving?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78#card.flavor_text",
+      "relationship_id": "cardvoice_b_78725353_9274_420a_b722_add0f43c444e",
+      "slot": 1
+    },
+    {
+      "identity_key": "B",
+      "canonical_card_name": "Ayara, First of Locthwain",
+      "oracle_id": "388168b3-ec68-4af2-b88c-6a5ec88c15f6",
+      "scryfall_id": "ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1",
+      "set": "eld",
+      "collector_number": "75",
+      "exact_flavor_text": "Mourning shifts seamlessly to celebration as she chooses her next suitor.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/eld/75/ayara-first-of-locthwain?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/e/d/ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1.jpg?1572490057",
+        "normal": "https://cards.scryfall.io/normal/front/e/d/ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1.jpg?1572490057",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/d/ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1.jpg?1572490057"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Elf Noble",
+      "relationship_id": "cardvoice_vm558_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6",
+      "slot": 2
     },
     {
       "identity_key": "U",
@@ -230,7 +606,30 @@
       "exact_flavor_text": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/cmm/74/azami-lady-of-scrolls?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/fa727656-fb33-485b-9378-18b80cad42b9#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/fa727656-fb33-485b-9378-18b80cad42b9#card.flavor_text",
+      "relationship_id": "cardvoice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159",
+      "slot": 1
+    },
+    {
+      "identity_key": "U",
+      "canonical_card_name": "April O'Neil, Live on the Scene",
+      "oracle_id": "4900c157-8d9f-4f92-aaca-5246b6e2832e",
+      "scryfall_id": "7265ab42-5434-4127-acd6-8905ab63d62d",
+      "set": "tmc",
+      "collector_number": "9",
+      "exact_flavor_text": "\"This is great! I must really be onto something hot if they're trying to kill me!\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/tmc/9/april-oneil-live-on-the-scene?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/7265ab42-5434-4127-acd6-8905ab63d62d#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/7/2/7265ab42-5434-4127-acd6-8905ab63d62d.jpg?1773509685",
+        "normal": "https://cards.scryfall.io/normal/front/7/2/7265ab42-5434-4127-acd6-8905ab63d62d.jpg?1773509685",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/7/2/7265ab42-5434-4127-acd6-8905ab63d62d.jpg?1773509685"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Human Detective",
+      "relationship_id": "cardvoice_vm558_u_4900c157_8d9f_4f92_aaca_5246b6e2832e",
+      "slot": 2
     },
     {
       "identity_key": "R",
@@ -242,7 +641,29 @@
       "exact_flavor_text": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/kld/108/built-to-smash?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/6f054978-446c-4565-b51e-8f1f0e0f01e2#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/6f054978-446c-4565-b51e-8f1f0e0f01e2#card.flavor_text",
+      "relationship_id": "cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a",
+      "slot": 1
+    },
+    {
+      "identity_key": "R",
+      "canonical_card_name": "Brambleguard Captain",
+      "oracle_id": "104baa4e-a3f3-45dc-979d-4c58b659ba1a",
+      "scryfall_id": "e200b8bf-f2f3-4157-8e04-02baf07a963e",
+      "set": "blb",
+      "collector_number": "127",
+      "exact_flavor_text": "\"We sought adventure and found calamity. Forward, so we may meet both with courage!\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/blb/127/brambleguard-captain?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/e200b8bf-f2f3-4157-8e04-02baf07a963e#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/e/2/e200b8bf-f2f3-4157-8e04-02baf07a963e.jpg?1721426582",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/e/2/e200b8bf-f2f3-4157-8e04-02baf07a963e.jpg?1721426582"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Mouse Soldier",
+      "relationship_id": "cardvoice_vm558_r_104baa4e_a3f3_45dc_979d_4c58b659ba1a",
+      "slot": 2
     },
     {
       "identity_key": "G",
@@ -254,7 +675,29 @@
       "exact_flavor_text": "The earth walks, strongest of all.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/fdn/222/ghalta-primal-hunger?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/6a9c39e4-a8cf-42dd-8d0e-45634b335546#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/6a9c39e4-a8cf-42dd-8d0e-45634b335546#card.flavor_text",
+      "relationship_id": "cardvoice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3",
+      "slot": 1
+    },
+    {
+      "identity_key": "G",
+      "canonical_card_name": "Attuned Hunter",
+      "oracle_id": "f652c593-e8fa-42ff-a8b4-206556b273de",
+      "scryfall_id": "d1a4f502-86a9-49fb-9cb9-7918d13c5313",
+      "set": "tdm",
+      "collector_number": "135",
+      "exact_flavor_text": "\"Sokran is no mere bear. She is friend, family, and confidante—and more intelligent than some of my blood relatives.\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/tdm/135/attuned-hunter?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/d1a4f502-86a9-49fb-9cb9-7918d13c5313#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/d/1/d1a4f502-86a9-49fb-9cb9-7918d13c5313.jpg?1743204506",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/d/1/d1a4f502-86a9-49fb-9cb9-7918d13c5313.jpg?1743204506"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Human Ranger",
+      "relationship_id": "cardvoice_vm558_g_f652c593_e8fa_42ff_a8b4_206556b273de",
+      "slot": 2
     },
     {
       "identity_key": "BANT",
@@ -266,7 +709,29 @@
       "exact_flavor_text": "\"We must spread Bant's light before we are shadowed over.\"",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/arb/125/bant-sojourners?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/eff007af-0329-4872-8621-41e90d9f06e6#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/eff007af-0329-4872-8621-41e90d9f06e6#card.flavor_text",
+      "relationship_id": "cardvoice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59",
+      "slot": 1
+    },
+    {
+      "identity_key": "BANT",
+      "canonical_card_name": "Bant Sureblade",
+      "oracle_id": "610adb2b-9d52-4b70-92d1-0c7adeb93552",
+      "scryfall_id": "162feb2b-e641-4338-bcf1-1f7e7a11bb9d",
+      "set": "arb",
+      "collector_number": "143",
+      "exact_flavor_text": "Soldiers who fought through Grixis learned to hit first, recite the prayer of Asha later.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/arb/143/bant-sureblade?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/162feb2b-e641-4338-bcf1-1f7e7a11bb9d#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/1/6/162feb2b-e641-4338-bcf1-1f7e7a11bb9d.jpg?1562639838",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/1/6/162feb2b-e641-4338-bcf1-1f7e7a11bb9d.jpg?1562639838"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Human Soldier",
+      "relationship_id": "cardvoice_vm558_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552",
+      "slot": 2
     },
     {
       "identity_key": "ESPER",
@@ -278,7 +743,29 @@
       "exact_flavor_text": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/arb/18/brainbite?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text",
+      "relationship_id": "cardvoice_esper_fef94125_aa8d_4147_a609_1e990961bde2",
+      "slot": 1
+    },
+    {
+      "identity_key": "ESPER",
+      "canonical_card_name": "Aven Trailblazer",
+      "oracle_id": "518115c9-0f0f-4249-81ff-e79b27dda1be",
+      "scryfall_id": "cb032cd3-96a4-4cef-bb89-0843f2ed8189",
+      "set": "con",
+      "collector_number": "4",
+      "exact_flavor_text": "\"The bird wore the form of a man, bereft of filigree. Why do the Texts not speak of it?\" —Belator of Esper",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/con/4/aven-trailblazer?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/cb032cd3-96a4-4cef-bb89-0843f2ed8189#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/c/b/cb032cd3-96a4-4cef-bb89-0843f2ed8189.jpg?1562803798",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/b/cb032cd3-96a4-4cef-bb89-0843f2ed8189.jpg?1562803798"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Bird Soldier",
+      "relationship_id": "cardvoice_vm558_esper_518115c9_0f0f_4249_81ff_e79b27dda1be",
+      "slot": 2
     },
     {
       "identity_key": "GRIXIS",
@@ -290,7 +777,30 @@
       "exact_flavor_text": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/arb/18/brainbite?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/925c08bd-120d-49a5-a258-bda3859c1d4c#card.flavor_text",
+      "relationship_id": "cardvoice_grixis_fef94125_aa8d_4147_a609_1e990961bde2",
+      "slot": 1
+    },
+    {
+      "identity_key": "GRIXIS",
+      "canonical_card_name": "Nekusar, the Mindrazer",
+      "oracle_id": "8a5e3c8e-8e22-49b9-8ee5-4a36361f0da6",
+      "scryfall_id": "4afdc65d-3c97-47af-83fa-df340389802e",
+      "set": "cmm",
+      "collector_number": "349",
+      "exact_flavor_text": "His enemies wondered if the lich king's brutal death and unnatural rebirth had been his plan all along.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/cmm/349/nekusar-the-mindrazer?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/4afdc65d-3c97-47af-83fa-df340389802e#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/4/a/4afdc65d-3c97-47af-83fa-df340389802e.jpg?1689999186",
+        "normal": "https://cards.scryfall.io/normal/front/4/a/4afdc65d-3c97-47af-83fa-df340389802e.jpg?1689999186",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/4/a/4afdc65d-3c97-47af-83fa-df340389802e.jpg?1689999186"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Zombie Wizard",
+      "relationship_id": "cardvoice_vm558_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6",
+      "slot": 2
     },
     {
       "identity_key": "JUND",
@@ -302,7 +812,29 @@
       "exact_flavor_text": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/m3c/71/broodmate-tyrant?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/b46d498b-dac3-4ab0-bcd6-514025a046aa#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/b46d498b-dac3-4ab0-bcd6-514025a046aa#card.flavor_text",
+      "relationship_id": "cardvoice_jund_9b984236_39cf_4552_827b_e81c26cfb388",
+      "slot": 1
+    },
+    {
+      "identity_key": "JUND",
+      "canonical_card_name": "Charnelhoard Wurm",
+      "oracle_id": "4a430fa3-e693-424b-9981-d7d8193445e3",
+      "scryfall_id": "10b936dd-fbec-4d03-8f6f-71e5e21029cb",
+      "set": "c18",
+      "collector_number": "171",
+      "exact_flavor_text": "Jund's dragons hoard only sangrite crystals. Its wurms aren't so picky.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/c18/171/charnelhoard-wurm?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/10b936dd-fbec-4d03-8f6f-71e5e21029cb#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/1/0/10b936dd-fbec-4d03-8f6f-71e5e21029cb.jpg?1592711045",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/1/0/10b936dd-fbec-4d03-8f6f-71e5e21029cb.jpg?1592711045"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Wurm",
+      "relationship_id": "cardvoice_vm558_jund_4a430fa3_e693_424b_9981_d7d8193445e3",
+      "slot": 2
     },
     {
       "identity_key": "NAYA",
@@ -314,7 +846,29 @@
       "exact_flavor_text": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/jmp/98/cradle-of-vitality?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/4caae1f4-dfb0-466f-9fa6-eb014767e3c8#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/4caae1f4-dfb0-466f-9fa6-eb014767e3c8#card.flavor_text",
+      "relationship_id": "cardvoice_naya_956250da_532a_4457_8696_73915be56943",
+      "slot": 1
+    },
+    {
+      "identity_key": "NAYA",
+      "canonical_card_name": "Ajani's Mantra",
+      "oracle_id": "2f47661e-a107-4d98-8773-0a068a63df49",
+      "scryfall_id": "de4da30d-5c72-4323-b305-7277038b4a05",
+      "set": "ddh",
+      "collector_number": "22",
+      "exact_flavor_text": "\"He hasn't returned to the Cloud Forest. But I can still sense his calming presence.\" —Zaliki of Naya",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/ddh/22/ajanis-mantra?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/de4da30d-5c72-4323-b305-7277038b4a05#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/d/e/de4da30d-5c72-4323-b305-7277038b4a05.jpg?1562947893",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/d/e/de4da30d-5c72-4323-b305-7277038b4a05.jpg?1562947893"
+      },
+      "card_faces": [],
+      "type_line": "Enchantment",
+      "relationship_id": "cardvoice_vm558_naya_2f47661e_a107_4d98_8773_0a068a63df49",
+      "slot": 2
     },
     {
       "identity_key": "ABZAN",
@@ -326,7 +880,29 @@
       "exact_flavor_text": "Stone to endure, roots to remember.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ktk/215/abzan-banner?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/7855528a-ede9-49a9-8749-795a004fd927#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/7855528a-ede9-49a9-8749-795a004fd927#card.flavor_text",
+      "relationship_id": "cardvoice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8",
+      "slot": 1
+    },
+    {
+      "identity_key": "ABZAN",
+      "canonical_card_name": "Abzan Devotee",
+      "oracle_id": "3d02ee2f-b7bd-40b0-b9be-2420991b2be0",
+      "scryfall_id": "66555946-e747-46fa-b1ac-b103a8edcd93",
+      "set": "tdm",
+      "collector_number": "68",
+      "exact_flavor_text": "The Kin-Trees rediscovered after Dromoka's fall are tended by carefully chosen wardens.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/tdm/68/abzan-devotee?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/66555946-e747-46fa-b1ac-b103a8edcd93#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/6/6/66555946-e747-46fa-b1ac-b103a8edcd93.jpg?1743204231",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/6/66555946-e747-46fa-b1ac-b103a8edcd93.jpg?1743204231"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Dog Cleric",
+      "relationship_id": "cardvoice_vm558_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0",
+      "slot": 2
     },
     {
       "identity_key": "TEMUR",
@@ -338,7 +914,29 @@
       "exact_flavor_text": "\"Hold the high ground, then bring it to your enemy.\"\n—Surrak, khan of the Temur",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ktk/166/avalanche-tusker?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe#card.flavor_text",
+      "relationship_id": "cardvoice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875",
+      "slot": 1
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_card_name": "Ainok Tracker",
+      "oracle_id": "bf84a598-12d3-406d-8eeb-40592e782b87",
+      "scryfall_id": "0ff9400d-4842-471f-bf7e-3b21df352e0a",
+      "set": "ktk",
+      "collector_number": "96",
+      "exact_flavor_text": "Some ainok of the mountains are accepted among the Temur as trusted hunt-mates.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/ktk/96/ainok-tracker?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/0ff9400d-4842-471f-bf7e-3b21df352e0a#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/0/f/0ff9400d-4842-471f-bf7e-3b21df352e0a.jpg?1562782629",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/0/f/0ff9400d-4842-471f-bf7e-3b21df352e0a.jpg?1562782629"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Dog Scout",
+      "relationship_id": "cardvoice_vm558_temur_bf84a598_12d3_406d_8eeb_40592e782b87",
+      "slot": 2
     },
     {
       "identity_key": "SULTAI",
@@ -350,7 +948,29 @@
       "exact_flavor_text": "\"When an alliance outlasts its usefulness it's best to end it quickly.\"\n—Heng, Sultai ambassador",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/tdm/70/aggressive-negotiations?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/993ade84-031f-4a3e-bd68-55f61b559248#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/993ade84-031f-4a3e-bd68-55f61b559248#card.flavor_text",
+      "relationship_id": "cardvoice_sultai_c469133e_174d_476b_b135_bbf15e415e72",
+      "slot": 1
+    },
+    {
+      "identity_key": "SULTAI",
+      "canonical_card_name": "Blinding Spray",
+      "oracle_id": "88ce2017-83a6-4b55-afba-371875bf2172",
+      "scryfall_id": "9b588355-c349-458d-aeb7-0e2780caa3f9",
+      "set": "ktk",
+      "collector_number": "32",
+      "exact_flavor_text": "\"The stronger our enemies seem, the more vulnerable they are.\" —Sultai secret",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/ktk/32/blinding-spray?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/9b588355-c349-458d-aeb7-0e2780caa3f9#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/9/b/9b588355-c349-458d-aeb7-0e2780caa3f9.jpg?1562790980",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/9/b/9b588355-c349-458d-aeb7-0e2780caa3f9.jpg?1562790980"
+      },
+      "card_faces": [],
+      "type_line": "Instant",
+      "relationship_id": "cardvoice_vm558_sultai_88ce2017_83a6_4b55_afba_371875bf2172",
+      "slot": 2
     },
     {
       "identity_key": "MARDU",
@@ -362,7 +982,29 @@
       "exact_flavor_text": "\"Death is merely another foe the Mardu will overcome.\"",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/clb/740/bloodsoaked-champion?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/275d6137-5eff-4e82-8232-64e8679bc11c#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/275d6137-5eff-4e82-8232-64e8679bc11c#card.flavor_text",
+      "relationship_id": "cardvoice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191",
+      "slot": 1
+    },
+    {
+      "identity_key": "MARDU",
+      "canonical_card_name": "Defibrillating Current",
+      "oracle_id": "5a96b93b-bae6-48fb-87f5-05f3ffcf7ba9",
+      "scryfall_id": "bf3a18cf-03db-4eb0-8d53-0c1a71e184da",
+      "set": "tdm",
+      "collector_number": "177",
+      "exact_flavor_text": "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/tdm/177/defibrillating-current?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/bf3a18cf-03db-4eb0-8d53-0c1a71e184da#card.flavor_text",
+      "image_uris": {
+        "normal": "https://cards.scryfall.io/normal/front/b/f/bf3a18cf-03db-4eb0-8d53-0c1a71e184da.jpg?1743204687",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/b/f/bf3a18cf-03db-4eb0-8d53-0c1a71e184da.jpg?1743204687"
+      },
+      "card_faces": [],
+      "type_line": "Sorcery",
+      "relationship_id": "cardvoice_vm558_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9",
+      "slot": 2
     },
     {
       "identity_key": "JESKAI",
@@ -374,7 +1016,30 @@
       "exact_flavor_text": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ktk/101/bloodfire-expert?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/0742564e-f7a7-4107-b9ed-63703ca4702c#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/0742564e-f7a7-4107-b9ed-63703ca4702c#card.flavor_text",
+      "relationship_id": "cardvoice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0",
+      "slot": 1
+    },
+    {
+      "identity_key": "JESKAI",
+      "canonical_card_name": "Narset, Enlightened Exile",
+      "oracle_id": "d92725de-ead0-4a6c-83db-55ec3acc7184",
+      "scryfall_id": "827ecc44-0b00-4515-8953-bc91fa03705a",
+      "set": "mat",
+      "collector_number": "38",
+      "exact_flavor_text": "They called her unique insight a \"gift.\" Then she saw the truth, and suddenly it was a \"threat.\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/mat/38/narset-enlightened-exile?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/827ecc44-0b00-4515-8953-bc91fa03705a#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/8/2/827ecc44-0b00-4515-8953-bc91fa03705a.jpg?1684340776",
+        "normal": "https://cards.scryfall.io/normal/front/8/2/827ecc44-0b00-4515-8953-bc91fa03705a.jpg?1684340776",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/8/2/827ecc44-0b00-4515-8953-bc91fa03705a.jpg?1684340776"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Human Monk",
+      "relationship_id": "cardvoice_vm558_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184",
+      "slot": 2
     },
     {
       "identity_key": "YORE",
@@ -386,7 +1051,53 @@
       "exact_flavor_text": "The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ddu/36/artificers-epiphany?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/f4e6f89d-c73b-4105-9743-95504f0fd866#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/f4e6f89d-c73b-4105-9743-95504f0fd866#card.flavor_text",
+      "relationship_id": "cardvoice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078",
+      "slot": 1
+    },
+    {
+      "identity_key": "YORE",
+      "canonical_card_name": "Ayara, Widow of the Realm // Ayara, Furnace Queen",
+      "oracle_id": "f9ef90b9-a2b4-4a5b-92fb-2268ea7d709f",
+      "scryfall_id": "a21b1734-a773-4107-95c1-b44d5ccdfd82",
+      "set": "mom",
+      "collector_number": "90",
+      "exact_flavor_text": "Ayara cherished her new machine servitors just as much as she once did her many suitors: not at all.",
+      "flavor_text_field": "card.card_faces[].flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/mom/90/ayara-widow-of-the-realm-ayara-furnace-queen?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/a21b1734-a773-4107-95c1-b44d5ccdfd82#card.flavor_text",
+      "image_uris": {
+        "small": "",
+        "normal": "",
+        "art_crop": ""
+      },
+      "card_faces": [
+        {
+          "name": "Ayara, Widow of the Realm",
+          "type_line": "Legendary Creature — Elf Noble",
+          "oracle_excerpt": "{T}, Sacrifice another creature or artifact: Ayara deals X damage to target opponent or battle and you gain X life, where X is the sacrificed permanent's mana value. {5}{R/P}: T...",
+          "flavor_excerpt": "",
+          "image_uris": {
+            "small": "https://cards.scryfall.io/small/front/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576",
+            "normal": "https://cards.scryfall.io/normal/front/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576",
+            "art_crop": "https://cards.scryfall.io/art_crop/front/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576"
+          }
+        },
+        {
+          "name": "Ayara, Furnace Queen",
+          "type_line": "Legendary Creature — Phyrexian Elf Noble",
+          "oracle_excerpt": "At the beginning of combat on your turn, return up to one target artifact or creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of t...",
+          "flavor_excerpt": "Ayara cherished her new machine servitors just as much as she once did her many suitors: not at all.",
+          "image_uris": {
+            "small": "https://cards.scryfall.io/small/back/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576",
+            "normal": "https://cards.scryfall.io/normal/back/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576",
+            "art_crop": "https://cards.scryfall.io/art_crop/back/a/2/a21b1734-a773-4107-95c1-b44d5ccdfd82.jpg?1682203576"
+          }
+        }
+      ],
+      "type_line": "Legendary Creature — Elf Noble // Legendary Creature — Phyrexian Elf Noble",
+      "relationship_id": "cardvoice_vm558_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f",
+      "slot": 2
     },
     {
       "identity_key": "GLINT",
@@ -398,7 +1109,30 @@
       "exact_flavor_text": "Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/ecc/7/aberrant-return?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d#card.flavor_text",
+      "relationship_id": "cardvoice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36",
+      "slot": 1
+    },
+    {
+      "identity_key": "GLINT",
+      "canonical_card_name": "Atarka, World Render",
+      "oracle_id": "c0b3bbce-977c-42a9-afcb-dabdfc717c97",
+      "scryfall_id": "c569fab1-6901-40ab-b958-001698819585",
+      "set": "tdc",
+      "collector_number": "281",
+      "exact_flavor_text": "\"Her hunger knows no limit. Left unchecked, she would feast on all of Tarkir.\" —Yasova Dragonclaw",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/tdc/281/atarka-world-render?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/c569fab1-6901-40ab-b958-001698819585#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/c/5/c569fab1-6901-40ab-b958-001698819585.jpg?1743207078",
+        "normal": "https://cards.scryfall.io/normal/front/c/5/c569fab1-6901-40ab-b958-001698819585.jpg?1743207078",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/c/5/c569fab1-6901-40ab-b958-001698819585.jpg?1743207078"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Dragon",
+      "relationship_id": "cardvoice_vm558_glint_c0b3bbce_977c_42a9_afcb_dabdfc717c97",
+      "slot": 2
     },
     {
       "identity_key": "DUNE",
@@ -410,7 +1144,30 @@
       "exact_flavor_text": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/fdn/651/aurelia-the-warleader?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/bc6ffc1c-575b-4116-83c9-d13b29886c35#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/bc6ffc1c-575b-4116-83c9-d13b29886c35#card.flavor_text",
+      "relationship_id": "cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166",
+      "slot": 1
+    },
+    {
+      "identity_key": "DUNE",
+      "canonical_card_name": "Scour from Existence",
+      "oracle_id": "241a50c5-f65f-4847-89c7-5c0ef6025dc1",
+      "scryfall_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
+      "set": "bfz",
+      "collector_number": "13",
+      "exact_flavor_text": "\"Our people and our very lands disappear as if they never were. We no longer fight for glory, or honor. We battle now for the right to exist.\"\n—General Tazri, allied commander",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/bfz/13/scour-from-existence?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/6e47edb2-e43d-479f-a911-e72b67a06c3b#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977",
+        "normal": "https://cards.scryfall.io/normal/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e47edb2-e43d-479f-a911-e72b67a06c3b.jpg?1562920977"
+      },
+      "card_faces": [],
+      "type_line": "Instant",
+      "relationship_id": "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+      "slot": 2
     },
     {
       "identity_key": "INK",
@@ -422,7 +1179,30 @@
       "exact_flavor_text": "Knowledge is wasted if not shared.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/soc/129/command-tower?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3#card.flavor_text",
+      "relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "slot": 1
+    },
+    {
+      "identity_key": "INK",
+      "canonical_card_name": "Danitha Capashen, Paragon",
+      "oracle_id": "4b6377da-83e7-4519-9582-16a9c16b8faa",
+      "scryfall_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
+      "set": "cmm",
+      "collector_number": "20",
+      "exact_flavor_text": "\"I will protect the less fortunate. I will love bravely. I will face despair and fight on. As a Capashen, I can do no less.\"",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/cmm/20/danitha-capashen-paragon?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626",
+        "normal": "https://cards.scryfall.io/normal/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Human Knight",
+      "relationship_id": "cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+      "slot": 2
     },
     {
       "identity_key": "WITCH",
@@ -434,7 +1214,30 @@
       "exact_flavor_text": "Design leads to progress.",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/kld/194/animation-module?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/34bdc973-db45-46a6-ac48-ce88fb59920a#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/34bdc973-db45-46a6-ac48-ce88fb59920a#card.flavor_text",
+      "relationship_id": "cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9",
+      "slot": 1
+    },
+    {
+      "identity_key": "WITCH",
+      "canonical_card_name": "Amphin Cutthroat",
+      "oracle_id": "e766a5eb-684b-4939-b164-6093d15600c9",
+      "scryfall_id": "fd169064-9c7b-40bd-8be0-a89fcb28ae2f",
+      "set": "m12",
+      "collector_number": "43",
+      "exact_flavor_text": "\"The amphin have long built their society in secret. While surface dwellers squabbled over trivial borders, they patiently expanded, building their ammonite temple-caves. Now amphin priests eye the shore, and amphin hunters gird for war.\"\n—Gor Muldrak, *Cryptohistories*",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/m12/43/amphin-cutthroat?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/fd169064-9c7b-40bd-8be0-a89fcb28ae2f#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/f/d/fd169064-9c7b-40bd-8be0-a89fcb28ae2f.jpg?1593860820",
+        "normal": "https://cards.scryfall.io/normal/front/f/d/fd169064-9c7b-40bd-8be0-a89fcb28ae2f.jpg?1593860820",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/f/d/fd169064-9c7b-40bd-8be0-a89fcb28ae2f.jpg?1593860820"
+      },
+      "card_faces": [],
+      "type_line": "Creature — Salamander Rogue",
+      "relationship_id": "cardvoice_vm558_witch_e766a5eb_684b_4939_b164_6093d15600c9",
+      "slot": 2
     },
     {
       "identity_key": "COLORLESS",
@@ -446,7 +1249,9 @@
       "exact_flavor_text": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\"\n—Javad Nasrin, Ondu relic hunter",
       "flavor_text_field": "card.flavor_text",
       "scryfall_uri": "https://scryfall.com/card/cmm/800/all-is-dust?utm_source=api",
-      "source_locator": "https://api.scryfall.com/cards/4210c54e-89fd-4971-ab6a-ca8f4e7fe97a#card.flavor_text"
+      "source_locator": "https://api.scryfall.com/cards/4210c54e-89fd-4971-ab6a-ca8f4e7fe97a#card.flavor_text",
+      "relationship_id": "cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20",
+      "slot": 1
     },
     {
       "identity_key": "WUBRG",
@@ -472,7 +1277,30 @@
         ],
         "supersedes_card_name": "Coalition Victory",
         "supersession_reason": "The former machine metaphor carried avoidable Yore, artifact, and completion false positives; it remains historical audit evidence but is not the public WUBRG voice."
-      }
+      },
+      "relationship_id": "cardvoice_wubrg_3ceb23f5_abb1_4569_a1e4_1eed9a9babcf",
+      "slot": 1
+    },
+    {
+      "identity_key": "WUBRG",
+      "canonical_card_name": "Child of Alara",
+      "oracle_id": "70dbe8a9-505d-41c2-9b5b-a991d13ab459",
+      "scryfall_id": "b2373625-af3c-4c2a-a1d1-5288c446955d",
+      "set": "2x2",
+      "collector_number": "192",
+      "exact_flavor_text": "The progeny of the Maelstrom shows no allegiance—and no mercy—to any of the five shards.",
+      "flavor_text_field": "card.flavor_text",
+      "scryfall_uri": "https://scryfall.com/card/2x2/192/child-of-alara?utm_source=api",
+      "source_locator": "https://api.scryfall.com/cards/b2373625-af3c-4c2a-a1d1-5288c446955d#card.flavor_text",
+      "image_uris": {
+        "small": "https://cards.scryfall.io/small/front/b/2/b2373625-af3c-4c2a-a1d1-5288c446955d.jpg?1673148447",
+        "normal": "https://cards.scryfall.io/normal/front/b/2/b2373625-af3c-4c2a-a1d1-5288c446955d.jpg?1673148447",
+        "art_crop": "https://cards.scryfall.io/art_crop/front/b/2/b2373625-af3c-4c2a-a1d1-5288c446955d.jpg?1673148447"
+      },
+      "card_faces": [],
+      "type_line": "Legendary Creature — Avatar",
+      "relationship_id": "cardvoice_vm558_wubrg_70dbe8a9_505d_41c2_9b5b_a991d13ab459",
+      "slot": 2
     }
   ]
 }

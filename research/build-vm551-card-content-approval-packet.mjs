@@ -226,7 +226,7 @@ const specialRationaleCandidates = {
   },
   WUBRG: {
     name: "Ulalek, Fused Atrocity",
-    copy: "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+    copy: "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
     claim_ids: ["wubrg_claim_0002", "wubrg_claim_0006", "wubrg_claim_0008"],
     locator: "data/raw-factions/wubrg/wubrg.claims.json#wubrg_claim_0006",
   },

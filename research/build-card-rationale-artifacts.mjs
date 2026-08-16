@@ -81,11 +81,22 @@ function lowerSentenceLead(value) {
   return text ? `${text.charAt(0).toLowerCase()}${text.slice(1)}` : "";
 }
 
+function normalizeCompleteCopy(value) {
+  return String(value || "").normalize("NFKC").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
 function buildPlayModalExplanation(record) {
-  const relationshipCopy = completeSentence(record.modal_explanation || record.proposed_public_rationale);
+  const tileCopy = completeSentence(record.proposed_public_rationale);
+  const authoredDeepening = completeSentence(record.modal_explanation);
   const tableTakeaway = lowerSentenceLead(identityDossierByKey.get(record.identity_key)?.how_this_plays?.table_experience);
-  if (!relationshipCopy || !tableTakeaway) fail(`Approved relationship cannot produce card-specific modal copy: ${record.relationship_id}`);
-  return `${relationshipCopy} At the table, this can mean ${tableTakeaway}.`;
+  if (!tileCopy || !tableTakeaway || !record.canonical_card_name) fail(`Approved relationship cannot produce card-specific modal copy: ${record.relationship_id}`);
+  const explanation = authoredDeepening
+    ? `${authoredDeepening} At the table, this can mean ${tableTakeaway}.`
+    : `At the table, ${record.canonical_card_name} carries that card action into this reading's larger plan: ${tableTakeaway}.`;
+  if (normalizeCompleteCopy(explanation).includes(normalizeCompleteCopy(tileCopy))) {
+    fail(`Modal explanation repeats the complete tile rationale: ${record.relationship_id}`);
+  }
+  return explanation;
 }
 
 async function rawPacket(folder) {
@@ -307,6 +318,7 @@ export function validateRelationshipSource(source, audit) {
       if (INTERNAL_PUBLIC_RE.test(record.proposed_public_rationale) || PUBLIC_METHOD_RE.test(record.proposed_public_rationale) || UNSAFE_PUBLIC_CLAIM_RE.test(record.proposed_public_rationale)) fail(`Approved rationale leaks internal or unsupported language: ${record.relationship_id}`);
       if (record.modal_explanation) {
         if (record.modal_explanation === record.proposed_public_rationale) fail(`Modal explanation duplicates the public rationale: ${record.relationship_id}`);
+        if (normalizeCompleteCopy(record.modal_explanation).includes(normalizeCompleteCopy(record.proposed_public_rationale))) fail(`Modal explanation repeats the complete public rationale: ${record.relationship_id}`);
         if (INTERNAL_PUBLIC_RE.test(record.modal_explanation) || PUBLIC_METHOD_RE.test(record.modal_explanation) || UNSAFE_PUBLIC_CLAIM_RE.test(record.modal_explanation)) fail(`Modal explanation leaks internal or unsupported language: ${record.relationship_id}`);
       }
     }

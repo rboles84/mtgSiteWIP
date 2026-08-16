@@ -202,6 +202,7 @@ for (const record of cardRationaleCatalog.records) {
   const overlap = denominator ? [...rationaleTokens].filter((token) => contextTokens.has(token)).length / denominator : 0;
   assert.ok(record.provenance?.claim_ids?.length, `${record.relationship_id} lacks certified identity claim provenance`);
   assert.ok(identityContext, `${record.identity_key} lacks approved modal identity context`);
+  assert.equal(normalize(record.modal_explanation).includes(normalize(record.rationale)), false, `${record.relationship_id} modal retains the complete normalized tile rationale`);
   assert.notEqual(normalize(record.rationale), normalize(identityContext), `${record.relationship_id} modal context duplicates its tile rationale`);
   assert.ok(overlap < 0.8, `${record.relationship_id} modal context substantially repeats its tile rationale`);
 }
@@ -221,6 +222,10 @@ assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
 assert.match(indexSource, /dossier\/card-voice-catalog\.json/);
 assert.match(indexSource, /Cards That Sound Like This/);
 assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
+assert.match(indexSource, /Number\(left\.slot \|\| 1\) - Number\(right\.slot \|\| 1\)/, "card voices must preserve explicit slot order before presentation priority");
+assert.match(indexSource, /cardVoiceAvailabilityForFaction\(\{ faction \}\)/, "card voice resolution must expose an explicit availability state");
+assert.match(indexSource, /data-card-voice-unavailable/, "missing or malformed card voice authority must render an intentional unavailable state");
+assert.match(indexSource, /Lines of Magic flavor that sound like this reading\./, "card voice introduction must remain accurate for one- and two-slot states");
 assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
 assert.match(indexSource, /visiblePrecons\.map\(\(precon\) => precon\.mainCommander\)/, "precon commanders must reserve their canonical card identity first");
 assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, pageCardUsage\)/, "Card Signal References must consume the page-level usage plan");
@@ -282,6 +287,7 @@ const dinaRelationship = cardRationaleSource.records.find((record) => record.can
 const dinaCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Dina, Essence Brewer");
 const arbiterRelationship = cardRationaleSource.records.find((record) => record.canonical_card_name === "Grand Arbiter Augustin IV");
 const arbiterCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Grand Arbiter Augustin IV");
+const ulalekCatalogRecord = cardRationaleCatalog.records.find((record) => record.card?.name === "Ulalek, Fused Atrocity");
 assert.ok(dinaCatalogRecord?.modal_explanation.startsWith(dinaRelationship?.modal_explanation || "__missing__"), "Dina modal context must preserve her approved relationship explanation");
 assert.match(dinaCatalogRecord?.modal_explanation || "", /Dina turns a sacrificed creature into a card, life, and growth through \+1\/\+1 counters/);
 assert.match(dinaCatalogRecord?.modal_explanation || "", /Witherbloom treating life and death as usable forces/);
@@ -289,6 +295,8 @@ assert.notEqual(dinaCatalogRecord?.modal_explanation, identityDossierByKey.WITHE
 assert.ok(arbiterCatalogRecord?.modal_explanation.startsWith(arbiterRelationship?.modal_explanation || "__missing__"), "the additional Azorius regression must preserve its approved card relationship");
 assert.match(arbiterCatalogRecord?.modal_explanation || "", /Grand Arbiter.+reducing the cost of your white and blue spells.+increasing the cost of opponents' spells/);
 assert.notEqual(arbiterCatalogRecord?.modal_explanation, identityDossierByKey.WU.how_this_plays.mechanical_expression, "Grand Arbiter cannot fall back to a generic Azorius mechanics list");
+assert.match(ulalekCatalogRecord?.rationale || "", /access to all five colors/);
+assert.doesNotMatch(ulalekCatalogRecord?.rationale || "", /Five-Color access/);
 assert.match(indexSource, /renderManaCost\(manaCost\)/, "card details must use Archscry mana glyphs instead of raw brace notation");
 const renderedBogbeastCost = renderManaCost("{4}{G}");
 assert.match(renderedBogbeastCost, /\bms-4\b/);
@@ -299,7 +307,7 @@ assert.match(cssSource, /public-three-item-grid\[data-item-count="1"\]/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="2"\]/);
 assert.match(cssSource, /@media\(max-width:980px\) and \(min-width:701px\)[\s\S]*?public-three-item-grid\{\s*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
 assert.match(cssSource, /public-three-item-grid\[data-item-count="3"\] > :last-child/);
-assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*?public-three-item-grid\{\s*grid-template-columns:1fr/);
+assert.match(cssSource, /@media\(max-width:700px\)[\s\S]*?public-three-item-grid\[data-item-count="2"\]\{\s*grid-template-columns:1fr/);
 assert.match(cssSource, /\.archscry-card-dialog\{[\s\S]*?position:fixed;[\s\S]*?inset:0;[\s\S]*?margin:auto;/);
 assert.doesNotMatch(indexSource, /length\s*[<=>]+\s*4[^\n]*reason/i, "layout must not require a fourth reason");
 

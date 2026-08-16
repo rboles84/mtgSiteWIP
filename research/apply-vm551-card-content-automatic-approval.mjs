@@ -16,12 +16,18 @@ const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 const stableId = (prefix, ...parts) => `${prefix}_${parts.join("|").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "")}`;
 const VOICE_MODAL_METHOD_RE = /\b(?:exact excerpt|bounded voice echo|approved relationship|provenance|claim[_ -]?id|source[_ -]?id|evidence status)\b/i;
+const VM558_OWNER_APPROVAL_BASIS = "OWNER_SEMANTIC_APPROVAL";
+const VM558_OWNER_VALIDATOR_VERSION = "vm558-owner-semantic-approval-v1";
 const VOICE_MODAL_OVERRIDES = new Map([
   ["WITHERBLOOM", "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components."],
   ["WUBRG", "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable."],
 ]);
 
 function buildVoiceModalExplanation(record) {
+  if (record.slot === 2 && record.proposed_modal_explanation) {
+    if (VOICE_MODAL_METHOD_RE.test(record.proposed_modal_explanation)) throw new Error(`Voice modal copy leaks methodology: ${record.relationship_id}`);
+    return record.proposed_modal_explanation;
+  }
   const override = VOICE_MODAL_OVERRIDES.get(record.identity_key);
   if (override) return override;
   const prefix = `${record.canonical_card_name}'s exact excerpt provides a bounded voice echo of `;
@@ -36,16 +42,18 @@ function buildVoiceModalExplanation(record) {
   return explanation;
 }
 
-const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions, voicePrintings] = await Promise.all([
+const [packetInput, rationaleSourceInput, commanderIndex, flavorIndex, factions, voicePrintings, voiceSourceInput] = await Promise.all([
   readJson("data/dossier/card-content-review-proposals.source.json"),
   readJson("data/dossier/card-rationale-relationships.source.json"),
   readJson("data/scryfall/indexes/commander-index.json"),
   readJson("data/scryfall/indexes/card-flavor-index.json"),
   readJson("data/factions.json"),
   readJson("data/dossier/card-voice-printings.source.json"),
+  readJson("data/dossier/card-voice-relationships.source.json"),
 ]);
 
-const voicePrintingByIdentity = new Map((voicePrintings.records || []).map((record) => [record.identity_key, record]));
+const voicePrintingByRelationship = new Map((voicePrintings.records || []).map((record) => [record.relationship_id, record]));
+const voicePrintingByIdentitySlot = new Map((voicePrintings.records || []).map((record) => [`${record.identity_key}|${record.slot || 1}`, record]));
 
 const cardByOracleId = new Map([
   ...(commanderIndex.commanders || []),
@@ -93,7 +101,8 @@ for (const proposalInput of packetInput.proposals) {
   }
 
   const voicePrinting = proposalInput.proposal_type === "CARD_VOICE"
-    ? voicePrintingByIdentity.get(proposalInput.identity_key)
+    ? voicePrintingByRelationship.get(stableId("cardvoice", proposalInput.identity_key, proposalInput.canonical_card_id))
+      || voicePrintingByIdentitySlot.get(`${proposalInput.identity_key}|1`)
     : null;
   if (proposalInput.proposal_type === "CARD_VOICE" && !voicePrinting) {
     throw new Error(`Missing exact printing authority: ${proposalInput.identity_key}`);
@@ -105,10 +114,7 @@ for (const proposalInput of packetInput.proposals) {
     canonical_card_id: voicePrinting.oracle_id,
     proposed_copy: voicePrinting.exact_flavor_text,
     copy_sha256: digest(voicePrinting.exact_flavor_text),
-    provenance: {
-      ...proposalInput.provenance,
-      canonical_card_data: `data/dossier/card-voice-printings.source.json#identity_key=${voicePrinting.identity_key}`,
-    },
+    provenance: proposalInput.provenance,
     ...Object.fromEntries([
       "relationship_class",
       "why_voice_belongs",
@@ -145,7 +151,7 @@ for (const proposalInput of packetInput.proposals) {
   const factLocator = proposal.provenance.canonical_card_data;
   const factLocators = [factLocator, ...(relationshipOverride.supporting_official_locators || [])];
   const neighbor = isRationale
-    ? selectedVoiceByIdentity.get(proposal.identity_key)?.adjacent_identity_confusion_risk || "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
+    ? "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
     : proposal.adjacent_identity_confusion_risk;
   const relationshipBridge = isRationale
     ? `${proposal.proposed_copy} The relationship is limited to the verified card action and certified claims ${claimIds.join(", ")}.`
@@ -235,10 +241,14 @@ for (const proposalInput of packetInput.proposals) {
       },
     });
   } else {
+    const relationshipId = stableId("cardvoice", proposal.identity_key, proposal.canonical_card_id);
+    const printingLocator = `data/dossier/card-voice-printings.source.json#relationship_id=${relationshipId}`;
     voiceSourceRecords.push({
-      relationship_id: stableId("cardvoice", proposal.identity_key, proposal.canonical_card_id),
+      relationship_id: relationshipId,
       identity_key: proposal.identity_key,
       identity_name: factions.factions[proposal.identity_key].name,
+      slot: 1,
+      pair_role: "ANCHOR",
       canonical_card_name: proposal.canonical_card_name,
       canonical_card_id: proposal.canonical_card_id,
       scryfall_id: card.scryfall_id,
@@ -256,7 +266,7 @@ for (const proposalInput of packetInput.proposals) {
       source_ids: details.sourceIds,
       source_locators: details.sourceLocators,
       supporting_official_locators: relationshipOverride.supporting_official_locators || [],
-      canonical_card_data_locator: factLocator,
+      canonical_card_data_locator: printingLocator,
       why_voice_belongs: proposal.why_voice_belongs,
       relationship_bridge: proposal.relationship_bridge,
       false_positive_analysis: proposal.false_positive_analysis,
@@ -313,18 +323,75 @@ const rationaleSource = {
 };
 const rationaleCatalog = buildRuntimeCatalog(rationaleSource);
 
+function promoteOwnerApprovedVoice(record) {
+  if (record.slot !== 2 || record.review_status === "APPROVED_PUBLIC") return record;
+  if (record.owner_decision !== "APPROVE") return record;
+  if (record.structural_validation?.passed !== true) throw new Error(`Owner-approved slot 2 lacks passing structural validation: ${record.relationship_id}`);
+  if (!record.proposed_modal_explanation) throw new Error(`Owner-approved slot 2 lacks modal copy: ${record.relationship_id}`);
+  return {
+    ...record,
+    canonical_card_data_locator: `data/dossier/card-voice-printings.source.json#relationship_id=${record.relationship_id}`,
+    limitation: "Owner-approved complementary card voice. Public use remains limited to this exact printing and bounded identity relationship; it does not prove placement, play style, or identity from card color, mechanics, tags, or product membership.",
+    review_status: "APPROVED_PUBLIC",
+    approval_basis: VM558_OWNER_APPROVAL_BASIS,
+    public_eligible: true,
+    validation: {
+      validator_version: VM558_OWNER_VALIDATOR_VERSION,
+      passed: true,
+      failures: [],
+      owner_decision: "APPROVE",
+    },
+  };
+}
+
+const retainedSlot2Records = (voiceSourceInput.records || [])
+  .filter((record) => record.slot === 2)
+  .map(promoteOwnerApprovedVoice);
+
 const voiceSource = {
-  schema_version: "1.0.0",
-  authority: "Certified Vox Mana identity claims plus exact committed canonical card flavor text and a validated bounded relationship bridge.",
-  review_policy: "APPROVED_PUBLIC only after evidence validation; generic thematic analogy is rejected.",
-  records: voiceSourceRecords.sort((a, b) => Object.keys(factions.factions).indexOf(a.identity_key) - Object.keys(factions.factions).indexOf(b.identity_key)),
+  schema_version: "1.1.0",
+  authority: "Certified Vox Mana identity claims plus exact committed canonical card flavor text and a curated bounded relationship bridge. APPROVED_PUBLIC records alone are runtime authority.",
+  review_policy: "APPROVED_PUBLIC only after evidence validation and required owner semantic judgment. REVIEW_REQUIRED proposals remain non-public; generic thematic analogy is rejected.",
+  records: [
+    ...voiceSourceRecords,
+    ...retainedSlot2Records,
+  ].sort((a, b) => Object.keys(factions.factions).indexOf(a.identity_key) - Object.keys(factions.factions).indexOf(b.identity_key) || Number(a.slot || 1) - Number(b.slot || 1) || a.canonical_card_name.localeCompare(b.canonical_card_name)),
+};
+const approvedVoiceSourceRecords = voiceSource.records.filter((record) => record.review_status === "APPROVED_PUBLIC");
+const voicePrintingSource = {
+  schema_version: "1.1.0",
+  authority: "Exact Scryfall printing facts for APPROVED_PUBLIC Archscry card voices, keyed by relationship and slot. Oracle ID identifies rules identity; printing ID identifies the exact flavor evidence.",
+  records: approvedVoiceSourceRecords.map((record) => {
+    const existing = voicePrintingByRelationship.get(record.relationship_id);
+    if (existing) return { ...existing, relationship_id: record.relationship_id, slot: record.slot };
+    const hasDirectImage = Boolean(record.printing?.image_uris?.normal);
+    const hasFaceImage = Boolean(record.printing?.card_faces?.some((face) => face.image_uris?.normal));
+    if (!record.printing?.scryfall_uri || (!hasDirectImage && !hasFaceImage)) throw new Error(`Owner-approved slot 2 lacks complete exact-printing projection: ${record.relationship_id}`);
+    return {
+      identity_key: record.identity_key,
+      canonical_card_name: record.canonical_card_name,
+      oracle_id: record.canonical_card_id,
+      scryfall_id: record.scryfall_id,
+      set: record.printing.set,
+      collector_number: record.printing.collector_number,
+      exact_flavor_text: record.exact_excerpt,
+      flavor_text_field: record.printing.flavor_text_field,
+      scryfall_uri: record.printing.scryfall_uri,
+      source_locator: record.printing.source_locator,
+      image_uris: record.printing.image_uris,
+      card_faces: record.printing.card_faces || [],
+      type_line: record.printing.type_line || record.type_line,
+      relationship_id: record.relationship_id,
+      slot: record.slot,
+    };
+  }),
 };
 const voiceCatalog = {
-  schema_version: "1.0.0",
+  schema_version: "1.1.0",
   source_path: "data/dossier/card-voice-relationships.source.json",
   source_sha256: digest(pretty(voiceSource)),
   generated_policy: "APPROVED_PUBLIC only; exact excerpt plus deterministic player context from the approved relationship; no heuristic or fallback selection",
-  records: voiceSource.records.map((record) => ({
+  records: approvedVoiceSourceRecords.map((record) => ({
     relationship_id: record.relationship_id,
     identity_key: record.identity_key,
     card: {
@@ -339,6 +406,8 @@ const voiceCatalog = {
     why_it_echoes: record.why_voice_belongs,
     modal_explanation: buildVoiceModalExplanation(record),
     relationship_class: record.relationship_class,
+    slot: record.slot,
+    pair_role: record.pair_role,
     display_priority: record.display_priority,
     critical_repeat: record.critical_repeat,
     provenance: {
@@ -360,9 +429,10 @@ const packet = {
   voice_adjudication: {
     ...packetInput.voice_adjudication,
     review_required: 0,
-    approved_public: voiceSource.records.length,
+    rejected: automaticProposals.filter((proposal) => proposal.proposal_type === "CARD_VOICE" && proposal.disposition === "REJECTED").length,
+    approved_public: approvedVoiceSourceRecords.length,
     review_identity_coverage: 0,
-    approved_identity_coverage: new Set(voiceSource.records.map((record) => record.identity_key)).size,
+    approved_identity_coverage: new Set(approvedVoiceSourceRecords.map((record) => record.identity_key)).size,
   },
   proposals: automaticProposals,
 };
@@ -382,17 +452,18 @@ const auditRows = packet.proposals.filter((proposal) => proposal.disposition !==
 const tsv = [auditHeaders, ...auditRows].map((row) => row.join("\t")).join("\n") + "\n";
 const identityAudit = Object.entries(factions.factions).map(([identityKey, faction]) => {
   const identityRationales = rationaleRecords.filter((record) => record.identity_key === identityKey);
-  const identityVoices = voiceSource.records.filter((record) => record.identity_key === identityKey);
+  const identityVoices = approvedVoiceSourceRecords.filter((record) => record.identity_key === identityKey);
   const rejectedVoices = packet.proposals.filter((proposal) => proposal.identity_key === identityKey && proposal.proposal_type === "CARD_VOICE" && proposal.disposition === "REJECTED");
-  return `## ${faction.name} (\`${identityKey}\`)\n\n### Existing approved rationale(s)\n\n${identityRationales.map((record) => `- **${record.canonical_card_name}:** ${record.proposed_public_rationale} (\`${record.approval_basis || "OWNER_APPROVED"}\`)`).join("\n")}\n\n### Source-complete voice proposal(s)\n\n${identityVoices.map((record) => `- **${record.canonical_card_name}:** “${record.exact_excerpt}”\n  - Relationship class: \`${record.relationship_class}\`\n  - Certified claims: ${record.certified_identity_claim_ids.map((id) => `\`${id}\``).join(", ")}\n  - Why it belongs: ${record.why_voice_belongs}\n  - False-positive / neighbor limit: ${record.false_positive_analysis} ${record.adjacent_identity_confusion_risk}\n  - Source: \`${record.canonical_card_data_locator}\``).join("\n")}\n\n### Other candidates considered and terminal disposition\n\n${rejectedVoices.length ? rejectedVoices.map((record) => `- **${record.canonical_card_name}:** \`REJECTED\` — ${record.relationship_bridge}`).join("\n") : "- None."}\n\n### Automatic disposition\n\n- \`APPROVED_PUBLIC\` under \`${VM551_EVIDENCE_VALIDATOR_VERSION}\`; owner exception: none.\n`;
+  return `## ${faction.name} (\`${identityKey}\`)\n\n### Existing approved rationale(s)\n\n${identityRationales.map((record) => `- **${record.canonical_card_name}:** ${record.proposed_public_rationale} (\`${record.approval_basis || "OWNER_APPROVED"}\`)`).join("\n")}\n\n### Source-complete public voice relationship(s)\n\n${identityVoices.map((record) => `- **${record.canonical_card_name}:** “${record.exact_excerpt}”\n  - Slot / approval: \`${record.slot}\` / \`${record.approval_basis}\`\n  - Relationship class: \`${record.relationship_class}\`\n  - Certified claims: ${record.certified_identity_claim_ids.map((id) => `\`${id}\``).join(", ")}\n  - Why it belongs: ${record.why_voice_belongs}\n  - False-positive / neighbor limit: ${record.false_positive_analysis} ${record.adjacent_identity_confusion_risk}\n  - Source: \`${record.canonical_card_data_locator}\``).join("\n")}\n\n### Other candidates considered and terminal disposition\n\n${rejectedVoices.length ? rejectedVoices.map((record) => `- **${record.canonical_card_name}:** \`REJECTED\` — ${record.relationship_bridge}`).join("\n") : "- None."}\n\n### Public disposition\n\n${identityVoices.map((record) => `- Slot ${record.slot}: \`APPROVED_PUBLIC\` under \`${record.validation.validator_version}\` (\`${record.approval_basis}\`).`).join("\n")}\n`;
 }).join("\n");
-const exceptionMarkdown = `# VM-551 Packet 1 Automatic Adjudication\n\n- Validator: \`${VM551_EVIDENCE_VALIDATOR_VERSION}\`\n- Automatically approved rationale proposals: **${newRationaleRecords.length}**\n- Previously approved rationale relationships retained: **${retainedRationaleRecords.length}**\n- Approved rationale identity coverage: **${new Set(rationaleRecords.map((record) => record.identity_key)).size}/37**\n- Automatically approved voice relationships: **${voiceSource.records.length}**\n- Approved voice identity coverage: **${new Set(voiceSource.records.map((record) => record.identity_key)).size}/37**\n- Rejected voice candidates retained in audit trail: **${packet.proposals.filter((proposal) => proposal.disposition === "REJECTED").length}**\n- Owner exceptions: **${exceptionRows.length}**\n\nNo human approval was fabricated. Every automatic approval records its evidence chain and validator result. The identity sections below are an audit view, not an approval workload.\n\n${identityAudit.trimEnd()}\n`;
+const exceptionMarkdown = `# VM-551 Packet 1 Automatic Adjudication\n\n- Validator: \`${VM551_EVIDENCE_VALIDATOR_VERSION}\`\n- Automatically approved rationale proposals: **${newRationaleRecords.length}**\n- Previously approved rationale relationships retained: **${retainedRationaleRecords.length}**\n- Approved rationale identity coverage: **${new Set(rationaleRecords.map((record) => record.identity_key)).size}/37**\n- Approved public voice relationships: **${approvedVoiceSourceRecords.length}**\n- Owner-approved VM-558 complementary voices: **${approvedVoiceSourceRecords.filter((record) => record.approval_basis === VM558_OWNER_APPROVAL_BASIS).length}**\n- Approved voice identity coverage: **${new Set(approvedVoiceSourceRecords.map((record) => record.identity_key)).size}/37**\n- Rejected voice candidates retained in audit trail: **${packet.proposals.filter((proposal) => proposal.disposition === "REJECTED").length}**\n- Owner exceptions: **${exceptionRows.length}**\n\nAutomatic slot-1 approvals retain their evidence chain and validator result. VM-558 slot-2 approvals retain the owner's explicit semantic decision plus structural validation. The identity sections below are an audit view, not an approval workload.\n\n${identityAudit.trimEnd()}\n`;
 
 const outputs = {
   "data/dossier/card-content-review-proposals.source.json": pretty(packet),
   "data/dossier/card-rationale-relationships.source.json": pretty(rationaleSource),
   "data/dossier/card-rationale-catalog.json": pretty(rationaleCatalog),
   "data/dossier/card-voice-relationships.source.json": pretty(voiceSource),
+  "data/dossier/card-voice-printings.source.json": pretty(voicePrintingSource),
   "data/dossier/card-voice-catalog.json": pretty(voiceCatalog),
   "docs/audits/vm551-all-37-dossier-closeout/packet-1-automatic-adjudication.tsv": tsv,
   "docs/audits/vm551-all-37-dossier-closeout/approval-packet-1-owner-review.md": exceptionMarkdown,
@@ -402,7 +473,9 @@ for (const [relativePath, content] of Object.entries(outputs)) {
   const absolutePath = path.join(root, relativePath);
   if (check) {
     const actual = await readFile(absolutePath, "utf8");
-    if (actual !== content) throw new Error(`Stale Packet 1 automatic approval artifact: ${relativePath}`);
+    if (actual.replace(/\r\n/g, "\n") !== content.replace(/\r\n/g, "\n")) {
+      throw new Error(`Stale Packet 1 automatic approval artifact: ${relativePath}`);
+    }
   } else {
     await mkdir(path.dirname(absolutePath), { recursive: true });
     await writeFile(absolutePath, content);
@@ -415,8 +488,8 @@ console.log(JSON.stringify({
   existing_rationales_retained: retainedRationaleRecords.length,
   rationale_promoted: newRationaleRecords.length,
   rationale_coverage: new Set(rationaleRecords.map((record) => record.identity_key)).size,
-  voice_promoted: voiceSource.records.length,
-  voice_coverage: new Set(voiceSource.records.map((record) => record.identity_key)).size,
+  voice_promoted: approvedVoiceSourceRecords.length,
+  voice_coverage: new Set(approvedVoiceSourceRecords.map((record) => record.identity_key)).size,
   rejected_voice_candidates: packet.proposals.filter((proposal) => proposal.disposition === "REJECTED").length,
   review_required: exceptionRows.length,
 }, null, 2));

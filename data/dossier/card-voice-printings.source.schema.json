@@ -5,17 +5,19 @@
   "type": "object",
   "required": ["schema_version", "authority", "records"],
   "properties": {
-    "schema_version": { "const": "1.0.0" },
+    "schema_version": { "const": "1.1.0" },
     "authority": { "type": "string", "minLength": 1 },
     "records": {
       "type": "array",
       "minItems": 37,
-      "maxItems": 37,
+      "maxItems": 73,
       "items": {
         "type": "object",
-        "required": ["identity_key", "canonical_card_name", "oracle_id", "scryfall_id", "set", "collector_number", "exact_flavor_text", "flavor_text_field", "scryfall_uri", "source_locator"],
+        "required": ["relationship_id", "identity_key", "slot", "canonical_card_name", "oracle_id", "scryfall_id", "set", "collector_number", "exact_flavor_text", "flavor_text_field", "scryfall_uri", "source_locator"],
         "properties": {
+          "relationship_id": { "type": "string", "minLength": 1 },
           "identity_key": { "type": "string", "minLength": 1 },
+          "slot": { "type": "integer", "minimum": 1, "maximum": 2 },
           "canonical_card_name": { "type": "string", "minLength": 1 },
           "oracle_id": { "type": "string", "format": "uuid" },
           "scryfall_id": { "type": "string", "format": "uuid" },
@@ -23,7 +25,7 @@
           "collector_number": { "type": "string", "minLength": 1 },
           "exact_flavor_text": { "type": "string", "minLength": 1 },
           "flavor_text_field": { "type": "string", "minLength": 1 },
-          "scryfall_uri": { "type": "string", "pattern": "^https://api\\.scryfall\\.com/cards/" },
+          "scryfall_uri": { "type": "string", "pattern": "^https://scryfall\\.com/card/" },
           "source_locator": { "type": "string", "pattern": "^https://api\\.scryfall\\.com/cards/" }
         },
         "additionalProperties": true

@@ -3916,7 +3916,8 @@ body.vm-archscry-route .precon-provider-links{
 }
 
 @media(max-width:700px){
-  body.vm-archscry-route .public-three-item-grid{
+  body.vm-archscry-route .public-three-item-grid,
+  body.vm-archscry-route .public-three-item-grid[data-item-count="2"]{
     grid-template-columns:1fr;
   }
   .archscry-card-dialog-grid{grid-template-columns:1fr}

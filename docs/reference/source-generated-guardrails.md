@@ -31,6 +31,8 @@ Generated/runtime display surfaces may be inspected to identify symptoms, drift,
 
 Archscry card rationales use the same boundary. `data/dossier/card-rationale-relationships.source.json` may consolidate only relationships whose raw identity claims, raw source IDs, committed canonical card record, direct relationship evidence, limitation, and review state resolve. `data/dossier/card-rationale-catalog.json` is generated output and may contain only explicit `APPROVED_PUBLIC` records. Flavor snippets, generated faction Commander Compass output, same-color legality, generic mechanics, tags, and product membership are never relationship authority.
 
+Archscry card voices follow an additional publication boundary. `data/dossier/card-voice-relationships.source.json` may retain structurally valid `REVIEW_REQUIRED` slot proposals beside accepted relationships, but `data/dossier/card-voice-printings.source.json` and the generated `data/dossier/card-voice-catalog.json` remain approved-public only. The producer must preserve unresolved review-required source rows while filtering them from the runtime catalog; it may promote a complementary row only when structural validation passes and `owner_decision` is explicitly `APPROVE`. Approved slot-2 rows retain `OWNER_SEMANTIC_APPROVAL` provenance. Exact-printing facts, pair metadata, local image resolution, public cardinality, and Sound/Play isolation are checked by `research/build-vm558-card-voice-owner-review.mjs`; semantic approval remains an owner decision.
+
 Non-canonical comparison targets include:
 
 - `data/factions.json`

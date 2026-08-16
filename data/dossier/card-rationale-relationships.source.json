@@ -3874,9 +3874,9 @@
       "relationship_evidence": {
         "evidence_class": "CERTIFIED_BEHAVIORAL_EXAMPLE",
         "locator": "data/dossier/card-content-review-proposals.source.json#packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
-        "exact_text": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+        "exact_text": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
         "verified_card_observation": "Devoid (This card has no color.) Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abil...",
-        "relationship_bridge": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008.",
+        "relationship_bridge": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities. The relationship is limited to the verified card action and certified claims wubrg_claim_0002, wubrg_claim_0006, wubrg_claim_0008.",
         "false_positive_analysis": "Color, mechanic, tag, product, and popularity are excluded as independent proof.",
         "adjacent_identity_analysis": "Adjacent identities may share a mechanic; the cited certified claim remains the required boundary."
       },
@@ -3905,7 +3905,7 @@
         }
       },
       "display_priority": 1,
-      "proposed_public_rationale": "Ulalek is a deckbuilding example of Five-Color access: its verified color identity includes all five colors, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
+      "proposed_public_rationale": "Ulalek demonstrates access to all five colors through its verified color identity, while its ability uses colorless mana to copy Eldrazi spells and abilities.",
       "proposal_origin": "packet1_rationale_wubrg_9f6828e3_39d9_45d9_9bf1_0e3737a0321e",
       "proposed_tags": [],
       "rationale_support_note": "Automatically approved only because the certified identity claims, canonical card observation, bounded bridge, false-positive analysis, and neighbor analysis all pass the shared validator.",

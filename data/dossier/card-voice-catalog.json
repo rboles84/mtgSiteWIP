@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "52b1446b2d6fdd25f348866e9f412688f046bc13e008a76325b76c1330bb7ad9",
+  "source_sha256": "7f510aae284fe3fedadb5c0c6bcf2c85f5f6d16eb29635c14831b46fdfe6500e",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt plus deterministic player context from the approved relationship; no heuristic or fallback selection",
   "records": [
     {
@@ -13,12 +13,14 @@
         "scryfall_id": "09eeb301-bc28-4515-ad69-0b1b5164a5bc",
         "set": "dgm",
         "collector_number": "136",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WU"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_wu_27e04c41_f42c_4d60_8a71_ec2d7c326f64"
       },
       "excerpt": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
       "why_it_echoes": "Azorius Cluestone's exact excerpt provides a bounded voice echo of Azorius named directly through its judges, scribes, and lawmages.",
       "modal_explanation": "The line presents Azorius through its judges, scribes, and lawmages.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -43,6 +45,46 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_wu_12971527_aa8e_4517_9b00_71474caebfd0",
+      "identity_key": "WU",
+      "card": {
+        "name": "Azorius Aethermage",
+        "oracle_id": "12971527-aa8e-4517-9b00-71474caebfd0",
+        "scryfall_id": "6b640ff8-8baa-4069-b5a9-8a4fb22a056e",
+        "set": "dis",
+        "collector_number": "104",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_wu_12971527_aa8e_4517_9b00_71474caebfd0"
+      },
+      "excerpt": "In her single metasphere are bound the records of every Ætheric transaction since the time of Azor.",
+      "why_it_echoes": "Azorius Aethermage's record of every aetheric transaction gives Azorius a second voice of traceability and institutional memory.",
+      "modal_explanation": "The line turns every aetheric transaction into a record kept since Azor, making Azorius sound procedural, documented, and institutionally continuous.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "azorius_senate_claim_001",
+          "azorius_senate_claim_002",
+          "azorius_senate_claim_003",
+          "azorius_senate_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018",
+          "src_mark_rosewater_slow_and_steady_2006"
+        ],
+        "printing_id": "6b640ff8-8baa-4069-b5a9-8a4fb22a056e",
+        "printing_source_locator": "https://api.scryfall.com/cards/6b640ff8-8baa-4069-b5a9-8a4fb22a056e#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f",
       "identity_key": "UB",
       "card": {
@@ -51,12 +93,14 @@
         "scryfall_id": "6f51484b-3bad-4332-87f8-61924e153799",
         "set": "rav",
         "collector_number": "199",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UB"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ub_c9edddb4_0d60_4d21_8887_51d943c6a31f"
       },
       "excerpt": "Dimir rank and file never see nor hear their guildmaster. All orders are given through mysterious necrosages who appear from the shadows, tersely toss out a command, and then melt into the darkness.",
       "why_it_echoes": "Consult the Necrosages's exact excerpt provides a bounded voice echo of Dimir named directly through unseen hierarchy and orders delivered by mysterious intermediaries.",
       "modal_explanation": "The line presents Dimir through unseen hierarchy and orders delivered by mysterious intermediaries.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -79,6 +123,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_ub_4f25b125_1ded_4a34_9ed1_e6ce087ec48d",
+      "identity_key": "UB",
+      "card": {
+        "name": "Barrier of Bones",
+        "oracle_id": "4f25b125-1ded-4a34-9ed1-e6ce087ec48d",
+        "scryfall_id": "28129aaf-aaff-47f4-8dd2-8c576c55052c",
+        "set": "grn",
+        "collector_number": "61",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ub_4f25b125_1ded_4a34_9ed1_e6ce087ec48d"
+      },
+      "excerpt": "The Dimir rarely make statements, but when they do, the message is clear.",
+      "why_it_echoes": "Barrier of Bones gives Dimir a second voice of silence used as controlled communication.",
+      "modal_explanation": "The line makes Dimir restraint communicative: when the guild finally speaks, the statement is deliberate and unmistakable.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "house_dimir_claim_0017",
+          "house_dimir_claim_0018",
+          "house_dimir_claim_0019"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "printing_id": "28129aaf-aaff-47f4-8dd2-8c576c55052c",
+        "printing_source_locator": "https://api.scryfall.com/cards/28129aaf-aaff-47f4-8dd2-8c576c55052c#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_br_3f806353_592e_431c_a7dd_a4c64034f94d",
       "identity_key": "BR",
       "card": {
@@ -87,12 +169,14 @@
         "scryfall_id": "adf2a1fd-eb1e-46aa-b715-6e6fb5195e42",
         "set": "arc",
         "collector_number": "79",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BR"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_br_3f806353_592e_431c_a7dd_a4c64034f94d"
       },
       "excerpt": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
       "why_it_echoes": "Avatar of Discord's exact excerpt provides a bounded voice echo of Rakdos named directly through cruelty made vivid and performative.",
       "modal_explanation": "The line presents Rakdos through cruelty made vivid and performative.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -115,6 +199,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_br_c01516e0_eec3_4370_b935_7674982e8850",
+      "identity_key": "BR",
+      "card": {
+        "name": "Judith, the Scourge Diva",
+        "oracle_id": "c01516e0-eec3-4370-b935-7674982e8850",
+        "scryfall_id": "d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf",
+        "set": "cmm",
+        "collector_number": "341",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_br_c01516e0_eec3_4370_b935_7674982e8850"
+      },
+      "excerpt": "At the end of the show, she stands alone on a stage brilliant with blood.",
+      "why_it_echoes": "Judith's stage aftermath gives Rakdos a second voice of dangerous public performance.",
+      "modal_explanation": "The line leaves Judith alone on a blood-bright stage, making Rakdos sound like spectacle whose danger and cost are part of the performance.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "cult_of_rakdos_claim_001",
+          "cult_of_rakdos_claim_002",
+          "cult_of_rakdos_claim_006"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "printing_id": "d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf",
+        "printing_source_locator": "https://api.scryfall.com/cards/d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd",
       "identity_key": "RG",
       "card": {
@@ -123,12 +245,14 @@
         "scryfall_id": "ba327a5e-bd57-4e24-b4b4-062202df30e1",
         "set": "2x2",
         "collector_number": "189",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=RG"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_rg_327d9679_0049_4401_8dab_e0fb362306bd"
       },
       "excerpt": "Those who regard the Gruul as savage simpletons underestimate the subtle power of their shamans.",
       "why_it_echoes": "Burning-Tree Emissary's exact excerpt provides a bounded voice echo of the Gruul named directly while rejecting the assumption that their wildness lacks subtle power.",
       "modal_explanation": "The line presents the Gruul while rejecting the assumption that their wildness lacks subtle power.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -153,6 +277,46 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_rg_a4e5693f_12a0_451e_818d_d6efc7b4ed25",
+      "identity_key": "RG",
+      "card": {
+        "name": "Decimate",
+        "oracle_id": "a4e5693f-12a0-451e-818d-d6efc7b4ed25",
+        "scryfall_id": "cf0e68bc-8de8-4ff8-a39a-8da95f71d843",
+        "set": "otc",
+        "collector_number": "220",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_rg_a4e5693f_12a0_451e_818d_d6efc7b4ed25"
+      },
+      "excerpt": "Anarchy comes in many forms: social, individual, Gruul . . .",
+      "why_it_echoes": "Decimate gives Gruul a second voice of explicit anarchic resistance.",
+      "modal_explanation": "The line names Gruul as one form of anarchy, giving the identity a blunt refusal of imposed civic order.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_gruul_clans_core_identity_0002",
+          "claim_gruul_clans_philosophy_0004",
+          "claim_gruul_clans_placement_0001"
+        ],
+        "source_ids": [
+          "src_gruul_clans_0001",
+          "src_gruul_clans_0002",
+          "src_gruul_clans_0003",
+          "src_gruul_clans_0004"
+        ],
+        "printing_id": "cf0e68bc-8de8-4ff8-a39a-8da95f71d843",
+        "printing_source_locator": "https://api.scryfall.com/cards/cf0e68bc-8de8-4ff8-a39a-8da95f71d843#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1",
       "identity_key": "WG",
       "card": {
@@ -161,12 +325,14 @@
         "scryfall_id": "ca18b625-6767-45b9-bc2c-765f1ba7bd44",
         "set": "ncc",
         "collector_number": "334",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WG"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_wg_9aab386c_d48c_4611_b757_aa69b26cc1b1"
       },
       "excerpt": "\"Within the song of Mat'Selesnya, one becomes all.\"\n—Heruj, Selesnya hierophant",
       "why_it_echoes": "Camaraderie's exact excerpt provides a bounded voice echo of Mat'Selesnya named directly through the individual becoming part of a communal voice.",
       "modal_explanation": "The line presents Mat'Selesnya through the individual becoming part of a communal voice.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -190,6 +356,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b",
+      "identity_key": "WG",
+      "card": {
+        "name": "Advent of the Wurm",
+        "oracle_id": "eb62aa4b-c11b-4195-ae85-cff8f78ce17b",
+        "scryfall_id": "ba3b5e35-5448-4115-a9c5-6ac14013c904",
+        "set": "mm3",
+        "collector_number": "147",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_wg_eb62aa4b_c11b_4195_ae85_cff8f78ce17b"
+      },
+      "excerpt": "The consciousness of Mat'Selesnya does not always spread in peaceful ways.",
+      "why_it_echoes": "Advent of the Wurm gives Selesnya a second voice of unity willing to mobilize.",
+      "modal_explanation": "The line warns that Mat'Selesnya's shared consciousness is not merely pacifist, revealing communal preservation with real force behind it.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "selesnya_conclave_claim_001",
+          "selesnya_conclave_claim_002",
+          "selesnya_conclave_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "printing_id": "ba3b5e35-5448-4115-a9c5-6ac14013c904",
+        "printing_source_locator": "https://api.scryfall.com/cards/ba3b5e35-5448-4115-a9c5-6ac14013c904#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b",
       "identity_key": "WB",
       "card": {
@@ -198,12 +403,14 @@
         "scryfall_id": "2fa47810-ba83-4a6e-9940-7315ee7e44a5",
         "set": "clu",
         "collector_number": "23",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WB"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_wb_05501e88_d4c3_4474_92a9_c02ab15b107b"
       },
       "excerpt": "As far as the Orzhov Syndicate is concerned, it is the height of irresponsibility not to have a plan for your own ghost.",
       "why_it_echoes": "Afterlife Insurance's exact excerpt provides a bounded voice echo of the Orzhov named directly through a businesslike obligation extending beyond death.",
       "modal_explanation": "The line presents the Orzhov through a businesslike obligation extending beyond death.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -227,6 +434,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25",
+      "identity_key": "WB",
+      "card": {
+        "name": "Covetous Elegy",
+        "oracle_id": "dd69ef80-d30c-4b15-aec8-4154dc20cb25",
+        "scryfall_id": "f8f1f5e8-c1bf-405f-b8e3-655d5558e18d",
+        "set": "clu",
+        "collector_number": "29",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_wb_dd69ef80_d30c_4b15_aec8_4154dc20cb25"
+      },
+      "excerpt": "Wealthier than ever thanks to exorbitant interest on wartime loans, the Orzhov only grew hungrier for more.",
+      "why_it_echoes": "Covetous Elegy gives Orzhov a second voice of institutional greed feeding on its own success.",
+      "modal_explanation": "The line shows Orzhov wealth compounding through wartime loans and immediately becoming appetite for still more.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "orzhov_syndicate_claim_001",
+          "orzhov_syndicate_claim_002",
+          "orzhov_syndicate_claim_007",
+          "orzhov_syndicate_claim_0018"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "printing_id": "f8f1f5e8-c1bf-405f-b8e3-655d5558e18d",
+        "printing_source_locator": "https://api.scryfall.com/cards/f8f1f5e8-c1bf-405f-b8e3-655d5558e18d#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063",
       "identity_key": "UR",
       "card": {
@@ -235,12 +481,14 @@
         "scryfall_id": "8f1801f2-ea6e-4196-858e-2afc456cf6a0",
         "set": "grn",
         "collector_number": "155",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UR"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ur_fa09e18c_e7cf_4f08_9cc4_324e36594063"
       },
       "excerpt": "The Izzet love replicating results.",
       "why_it_echoes": "Beamsplitter Mage's exact excerpt provides a bounded voice echo of the Izzet named directly through delight in replicating experimental results.",
       "modal_explanation": "The line presents the Izzet through delight in replicating experimental results.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -266,6 +514,47 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_ur_2dfad8c3_1973_4fc8_971d_f66cacd88070",
+      "identity_key": "UR",
+      "card": {
+        "name": "Blustersquall",
+        "oracle_id": "2dfad8c3-1973-4fc8-971d-f66cacd88070",
+        "scryfall_id": "1736aaf7-b61d-426e-af5e-f70272e7b07e",
+        "set": "c15",
+        "collector_number": "89",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ur_2dfad8c3_1973_4fc8_971d_f66cacd88070"
+      },
+      "excerpt": "Weather is more predictable than the Izzet.",
+      "why_it_echoes": "Blustersquall gives Izzet a second voice of technical energy outrunning predictability.",
+      "modal_explanation": "The joke that weather is more predictable than the Izzet makes their inventive process sound brilliant, restless, and difficult to contain.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_izzet_league_0001",
+          "claim_izzet_league_0003",
+          "claim_izzet_league_0004",
+          "claim_izzet_league_0006"
+        ],
+        "source_ids": [
+          "src_izzet_league_0001",
+          "src_izzet_league_0005",
+          "src_izzet_league_0007",
+          "src_izzet_league_0002"
+        ],
+        "printing_id": "1736aaf7-b61d-426e-af5e-f70272e7b07e",
+        "printing_source_locator": "https://api.scryfall.com/cards/1736aaf7-b61d-426e-af5e-f70272e7b07e#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5",
       "identity_key": "BG",
       "card": {
@@ -274,12 +563,14 @@
         "scryfall_id": "fb977f5b-2202-43c1-a8c0-7fba8c093fa2",
         "set": "rav",
         "collector_number": "192",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BG"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_bg_fc17d8dd_887f_405e_a195_777aa3da36f5"
       },
       "excerpt": "The Golgari support a vast army because death never ends its soldiers' service.",
       "why_it_echoes": "Bloodbond March's exact excerpt provides a bounded voice echo of the Golgari named directly through death continuing as useful service.",
       "modal_explanation": "The line presents the Golgari through death continuing as useful service.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -303,6 +594,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_bg_55e04860_f4f5_445b_81f2_b500fa9b456a",
+      "identity_key": "BG",
+      "card": {
+        "name": "Contaminated Ground",
+        "oracle_id": "55e04860-f4f5-445b-81f2-b500fa9b456a",
+        "scryfall_id": "c2384356-0a62-499a-8b28-085974331368",
+        "set": "gtc",
+        "collector_number": "59",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_bg_55e04860_f4f5_445b_81f2_b500fa9b456a"
+      },
+      "excerpt": "\"No one cares about pollution until they can see it.\" —Gurras, Golgari rot farmer",
+      "why_it_echoes": "Contaminated Ground gives Golgari a second voice of rot labor and visible ecological consequence.",
+      "modal_explanation": "The line sounds like a Golgari worker who notices the material cycle everyone else avoids until decay becomes visible.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "golgari_swarm_claim_001",
+          "golgari_swarm_claim_007",
+          "golgari_swarm_claim_0018"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_prerelease_primer_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018"
+        ],
+        "printing_id": "c2384356-0a62-499a-8b28-085974331368",
+        "printing_source_locator": "https://api.scryfall.com/cards/c2384356-0a62-499a-8b28-085974331368#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f",
       "identity_key": "UG",
       "card": {
@@ -311,12 +641,14 @@
         "scryfall_id": "559ff1b1-018c-4e08-9531-8af20af47d05",
         "set": "rvr",
         "collector_number": "172",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=UG"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f"
       },
       "excerpt": "Snaking remnants of nature directed by a body of thought and progress, the oracles embody all that is Simic.",
       "why_it_echoes": "Coiling Oracle's exact excerpt provides a bounded voice echo of Simic named directly as nature directed by thought and progress.",
       "modal_explanation": "The line presents Simic as nature directed by thought and progress.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -339,6 +671,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_ug_3da604fc_68e9_4749_98f9_6fbcebcab9b6",
+      "identity_key": "UG",
+      "card": {
+        "name": "Bioshift",
+        "oracle_id": "3da604fc-68e9-4749-98f9-6fbcebcab9b6",
+        "scryfall_id": "6e18f7a9-2af6-467a-8f62-5f7da83a3c92",
+        "set": "gtc",
+        "collector_number": "214",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ug_3da604fc_68e9_4749_98f9_6fbcebcab9b6"
+      },
+      "excerpt": "\"It's all right if you change your mind. There's always a chance we can rearrange parts later.\" —Zija, Simic mutationist",
+      "why_it_echoes": "Bioshift gives Simic a second voice of iterative biological optimization.",
+      "modal_explanation": "The mutationist treats body design as revisable work, capturing Simic adaptation as an ongoing experiment rather than a finished ideal.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "simic_combine_claim_001",
+          "simic_combine_claim_002",
+          "simic_combine_claim_007"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_ravnica_allegiance_2019",
+          "src_wotc_ravnica_allegiance_mechanics_2018"
+        ],
+        "printing_id": "6e18f7a9-2af6-467a-8f62-5f7da83a3c92",
+        "printing_source_locator": "https://api.scryfall.com/cards/6e18f7a9-2af6-467a-8f62-5f7da83a3c92#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678",
       "identity_key": "WR",
       "card": {
@@ -347,12 +717,14 @@
         "scryfall_id": "11fab2c1-250a-44f7-a187-ee0352b81569",
         "set": "clu",
         "collector_number": "25",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WR"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_wr_30b20932_0d9a_447f_b934_1daa8c44a678"
       },
       "excerpt": "\"Keep up with me, comrades, or I cannot guarantee you a fair share of the fracas.\"",
       "why_it_echoes": "Boros Strike-Captain's exact excerpt provides a bounded voice echo of a Boros commander explicitly addressing comrades through coordinated front-line action.",
       "modal_explanation": "The line presents a Boros commander explicitly addressing comrades through coordinated front-line action.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -377,6 +749,46 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501",
+      "identity_key": "WR",
+      "card": {
+        "name": "Boros Battleshaper",
+        "oracle_id": "cf5bf1ef-e40b-4fb5-8148-d4ca7a307501",
+        "scryfall_id": "6c43e449-acf2-4e94-b7cf-8c84d70191da",
+        "set": "dgm",
+        "collector_number": "58",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_wr_cf5bf1ef_e40b_4fb5_8148_d4ca7a307501"
+      },
+      "excerpt": "Leaders shape the minds of their allies. It takes a master to shape the minds of enemies.",
+      "why_it_echoes": "Boros Battleshaper gives Boros a second voice of accountable martial command.",
+      "modal_explanation": "The line distinguishes ordinary leadership from mastery that shapes both allied resolve and enemy action.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "boros_legion_claim_001",
+          "boros_legion_claim_004",
+          "boros_legion_claim_007",
+          "boros_legion_claim_012"
+        ],
+        "source_ids": [
+          "src_wotc_flavorful_guide_guilds_ravnica_2018",
+          "src_wotc_guilds_ravnica_mechanics_2018",
+          "src_wotc_gatecrash_boros_lore_2013"
+        ],
+        "printing_id": "6c43e449-acf2-4e94-b7cf-8c84d70191da",
+        "printing_source_locator": "https://api.scryfall.com/cards/6c43e449-acf2-4e94-b7cf-8c84d70191da#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04",
       "identity_key": "LOREHOLD",
       "card": {
@@ -385,12 +797,14 @@
         "scryfall_id": "6d925d13-fcd6-417b-b2b2-bbdd114aae78",
         "set": "mat",
         "collector_number": "27",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=LOREHOLD"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04"
       },
       "excerpt": "Reconstructing the past is Lorehold's specialty.",
       "why_it_echoes": "Campus Renovation's exact excerpt provides a bounded voice echo of Lorehold named directly through reconstructing and actively using the past.",
       "modal_explanation": "The line presents Lorehold through reconstructing and actively using the past.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -416,6 +830,47 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242",
+      "identity_key": "LOREHOLD",
+      "card": {
+        "name": "Ancestral Anger",
+        "oracle_id": "e0828e8d-f01f-4088-9123-6d923ddb3242",
+        "scryfall_id": "6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad",
+        "set": "sos",
+        "collector_number": "106",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_lorehold_e0828e8d_f01f_4088_9123_6d923ddb3242"
+      },
+      "excerpt": "An incautious Lorehold student may learn more about the unbound rage of the Blood Age than they wanted to.",
+      "why_it_echoes": "Ancestral Anger gives Lorehold a second voice of the past becoming present and dangerous.",
+      "modal_explanation": "The line makes history active and risky: studying the Blood Age can release an ancestral rage that refuses to stay academic.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "claim_lorehold_placement_0001",
+          "claim_lorehold_placement_0002",
+          "claim_lorehold_placement_0009"
+        ],
+        "source_ids": [
+          "src_lorehold_0002",
+          "src_lorehold_0008",
+          "src_lorehold_0009",
+          "src_lorehold_0010",
+          "src_lorehold_0014"
+        ],
+        "printing_id": "6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad",
+        "printing_source_locator": "https://api.scryfall.com/cards/6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77",
       "identity_key": "PRISMARI",
       "card": {
@@ -424,12 +879,14 @@
         "scryfall_id": "f5b54d46-2caf-4d1b-8be1-dbd9e9dce058",
         "set": "sos",
         "collector_number": "180",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=PRISMARI"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_prismari_47ee6837_2e2f_4344_ab9f_6b8887874f77"
       },
       "excerpt": "Prismari students are never afraid to let their imaginations run wild.",
       "why_it_echoes": "Colorstorm Stallion's exact excerpt provides a bounded voice echo of Prismari students named directly through imagination allowed to run wild.",
       "modal_explanation": "The line presents Prismari students through imagination allowed to run wild.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -452,6 +909,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_prismari_d4e124af_d335_4c42_b60a_fe578f69f7ed",
+      "identity_key": "PRISMARI",
+      "card": {
+        "name": "Culmination of Studies",
+        "oracle_id": "d4e124af-d335-4c42-b60a-fe578f69f7ed",
+        "scryfall_id": "2483060e-9d3f-48ae-80ea-0119bf6b4d67",
+        "set": "stx",
+        "collector_number": "173",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_prismari_d4e124af_d335_4c42_b60a_fe578f69f7ed"
+      },
+      "excerpt": "Will's quick thinking meshed with Rowan's raw power to bring down the Blood Avatar.",
+      "why_it_echoes": "Culmination of Studies gives Prismari a second voice of disciplined craft carrying expressive force.",
+      "modal_explanation": "The line brings Will's quick thinking and Rowan's raw power together, making Prismari sound like technique and passion becoming one performance.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "prismari_claim_002",
+          "prismari_claim_004",
+          "prismari_claim_006"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "printing_id": "2483060e-9d3f-48ae-80ea-0119bf6b4d67",
+        "printing_source_locator": "https://api.scryfall.com/cards/2483060e-9d3f-48ae-80ea-0119bf6b4d67#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2",
       "identity_key": "WITHERBLOOM",
       "card": {
@@ -460,12 +955,14 @@
         "scryfall_id": "764054f1-e848-4cee-b623-4861ce15c370",
         "set": "soc",
         "collector_number": "264",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITHERBLOOM"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_witherbloom_30f3c3be_0fe9_463d_a245_e44701aec7f2"
       },
       "excerpt": "As subtle as a bogbeast\n—Witherbloom expression meaning \"crude and clumsy\"",
       "why_it_echoes": "The exact creature flavor presents a proverb and explicitly identifies it as a Witherbloom expression.",
       "modal_explanation": "This earthy proverb turns a bog creature into everyday Witherbloom shorthand for clumsiness. It reflects a culture whose language is rooted in bodies, living essence, and natural components.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -488,6 +985,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_witherbloom_b831d3f8_07ce_4172_ba29_213cac414c9a",
+      "identity_key": "WITHERBLOOM",
+      "card": {
+        "name": "Deadly Brew",
+        "oracle_id": "b831d3f8-07ce-4172-ba29-213cac414c9a",
+        "scryfall_id": "3e5493c3-0be2-467c-82f0-3ee1ca909d0c",
+        "set": "soc",
+        "collector_number": "303",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_witherbloom_b831d3f8_07ce_4172_ba29_213cac414c9a"
+      },
+      "excerpt": "No one ever asked what was in Dina's concoctions, so long as they worked.",
+      "why_it_echoes": "Deadly Brew gives Witherbloom a second voice of applied life-and-death craft.",
+      "modal_explanation": "The line presents Dina's concoctions as practical craft: nobody asks what is in them so long as bodies prove the result.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "witherbloom_claim_0018",
+          "witherbloom_claim_0019"
+        ],
+        "source_ids": [
+          "src_scryfall_oracle_cards_local_strixhaven_20260613",
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "printing_id": "3e5493c3-0be2-467c-82f0-3ee1ca909d0c",
+        "printing_source_locator": "https://api.scryfall.com/cards/3e5493c3-0be2-467c-82f0-3ee1ca909d0c#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7",
       "identity_key": "QUANDRIX",
       "card": {
@@ -496,12 +1031,14 @@
         "scryfall_id": "b44ec684-d558-45eb-bcd6-8119428634c2",
         "set": "sos",
         "collector_number": "139",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=QUANDRIX"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_quandrix_ce1a6c1f_6b4e_4d19_b256_48d073b359b7"
       },
       "excerpt": "\"Numbers have no limits. Why should nature?\"\n—Emil, Quandrix fourth-year",
       "why_it_echoes": "Additive Evolution's exact excerpt provides a bounded voice echo of a Quandrix student explicitly joining unbounded numbers to living nature.",
       "modal_explanation": "The line presents a Quandrix student explicitly joining unbounded numbers to living nature.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -525,6 +1062,47 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_quandrix_724700ad_1e4e_4cbc_af7f_0b3b87ed4bc8",
+      "identity_key": "QUANDRIX",
+      "card": {
+        "name": "Golden Ratio",
+        "oracle_id": "724700ad-1e4e-4cbc-af7f-0b3b87ed4bc8",
+        "scryfall_id": "626fbddb-3963-4dd2-8507-9777ed66bbbc",
+        "set": "stx",
+        "collector_number": "190",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_quandrix_724700ad_1e4e_4cbc_af7f_0b3b87ed4bc8"
+      },
+      "excerpt": "\"When I look around, I see a world defined by patterns that still manages to defy them.\" —Kianne, Quandrix dean",
+      "why_it_echoes": "Golden Ratio gives Quandrix a second voice that recognizes mathematical pattern in nature without reducing nature to a solved equation.",
+      "modal_explanation": "Kianne sees mathematics in the living world without mistaking a pattern for total control. That tension—nature revealing symmetry while still surprising the model—is distinctly Quandrix, not Izzet invention or Simic experimentation.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "quandrix_claim_002",
+          "quandrix_claim_003",
+          "quandrix_claim_006",
+          "quandrix_claim_0019",
+          "quandrix_claim_0020",
+          "quandrix_claim_0028"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "printing_id": "626fbddb-3963-4dd2-8507-9777ed66bbbc",
+        "printing_source_locator": "https://api.scryfall.com/cards/626fbddb-3963-4dd2-8507-9777ed66bbbc#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518",
       "identity_key": "SILVERQUILL",
       "card": {
@@ -533,12 +1111,14 @@
         "scryfall_id": "7e22411c-11c1-4770-8491-7952dd406e01",
         "set": "stx",
         "collector_number": "9",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=SILVERQUILL"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_silverquill_f88eeb04_4b8e_4c76_a8c6_90887b94d518"
       },
       "excerpt": "\"I've lived too long in my father's shadow. It's time to find my own light.\"\n—Killian, Silverquill mage-student",
       "why_it_echoes": "Beaming Defiance's exact excerpt provides a bounded voice echo of a Silverquill student using language of shadow, light, self-definition, and visible presence.",
       "modal_explanation": "The line presents a Silverquill student using language of shadow, light, self-definition, and visible presence.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -561,6 +1141,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_silverquill_901eb916_f318_4a30_a43e_8e7f9eef358b",
+      "identity_key": "SILVERQUILL",
+      "card": {
+        "name": "Clever Lumimancer",
+        "oracle_id": "901eb916-f318-4a30-a43e-8e7f9eef358b",
+        "scryfall_id": "69957656-cfdf-4001-8e84-0ef29e4a468d",
+        "set": "stx",
+        "collector_number": "10",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_silverquill_901eb916_f318_4a30_a43e_8e7f9eef358b"
+      },
+      "excerpt": "\"You're too dim to realize it, but you've already lost.\"",
+      "why_it_echoes": "Clever Lumimancer gives Silverquill a second voice of rhetoric used to intimidate and win status.",
+      "modal_explanation": "The insult declares the contest over before the opponent recognizes it, making Silverquill language feel like visible social force.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "silverquill_claim_0019",
+          "silverquill_claim_0020",
+          "silverquill_claim_0021"
+        ],
+        "source_ids": [
+          "src_wotc_planeswalkers_guide_strixhaven_2021",
+          "src_wotc_planeswalkers_guide_secrets_strixhaven_2026"
+        ],
+        "printing_id": "69957656-cfdf-4001-8e84-0ef29e4a468d",
+        "printing_source_locator": "https://api.scryfall.com/cards/69957656-cfdf-4001-8e84-0ef29e4a468d#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e",
       "identity_key": "W",
       "card": {
@@ -569,12 +1187,14 @@
         "scryfall_id": "a235cbda-3dc3-4aed-a911-90f26c330157",
         "set": "tdc",
         "collector_number": "12",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=W"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_w_ae61b2ef_2e60_499a_8708_e37b9bd5620e"
       },
       "excerpt": "When hearts and minds align, so too do actions.",
       "why_it_echoes": "Aligned Heart's exact excerpt provides a bounded voice echo of hearts and minds coordinating into shared action.",
       "modal_explanation": "The line presents hearts and minds coordinating into shared action.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -597,6 +1217,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_w_4a782bf9_4051_4613_8852_33b0d85a0edd",
+      "identity_key": "W",
+      "card": {
+        "name": "Ajani's Welcome",
+        "oracle_id": "4a782bf9-4051-4613-8852-33b0d85a0edd",
+        "scryfall_id": "c9045fcb-b633-4c35-8058-6234311551ae",
+        "set": "m19",
+        "collector_number": "6",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_w_4a782bf9_4051_4613_8852_33b0d85a0edd"
+      },
+      "excerpt": "\"You cannot defend others if your own well-being is neglected.\"",
+      "why_it_echoes": "Ajani's Welcome gives White a second voice of care sustaining responsibility to others.",
+      "modal_explanation": "The line frames self-care as a duty to the people one protects, joining individual well-being to durable service.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "white_claim_0002",
+          "white_claim_0004",
+          "white_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-W-2015",
+          "MONO-W-2025"
+        ],
+        "printing_id": "c9045fcb-b633-4c35-8058-6234311551ae",
+        "printing_source_locator": "https://api.scryfall.com/cards/c9045fcb-b633-4c35-8058-6234311551ae#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_b_78725353_9274_420a_b722_add0f43c444e",
       "identity_key": "B",
       "card": {
@@ -605,12 +1263,14 @@
         "scryfall_id": "f9b3ad9c-ef51-4ba6-a126-ec25d8f25b78",
         "set": "voc",
         "collector_number": "117",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=B"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_b_78725353_9274_420a_b722_add0f43c444e"
       },
       "excerpt": "Knowledge demands sacrifice.",
       "why_it_echoes": "Ancient Craving's exact excerpt provides a bounded voice echo of knowledge made available through an explicit sacrifice.",
       "modal_explanation": "The line presents knowledge made available through an explicit sacrifice.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -632,6 +1292,43 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6",
+      "identity_key": "B",
+      "card": {
+        "name": "Ayara, First of Locthwain",
+        "oracle_id": "388168b3-ec68-4af2-b88c-6a5ec88c15f6",
+        "scryfall_id": "ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1",
+        "set": "eld",
+        "collector_number": "75",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_b_388168b3_ec68_4af2_b88c_6a5ec88c15f6"
+      },
+      "excerpt": "Mourning shifts seamlessly to celebration as she chooses her next suitor.",
+      "why_it_echoes": "Ayara gives Black a second voice of ambition moving on as soon as an opening appears.",
+      "modal_explanation": "The line moves seamlessly from mourning to celebration and a new suitor, making Black sound unsentimental, self-directed, and opportunity-seeking.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "black_claim_0003",
+          "black_claim_0004"
+        ],
+        "source_ids": [
+          "MONO-B-2015",
+          "MONO-B-2025"
+        ],
+        "printing_id": "ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1",
+        "printing_source_locator": "https://api.scryfall.com/cards/ed0ace28-9a33-4f0d-b8c8-f5517f20ccf1#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159",
       "identity_key": "U",
       "card": {
@@ -640,12 +1337,14 @@
         "scryfall_id": "fa727656-fb33-485b-9378-18b80cad42b9",
         "set": "cmm",
         "collector_number": "74",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=U"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_u_0f8b97fe_3e5e_47c2_9a9d_7f77482aa159"
       },
       "excerpt": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
       "why_it_echoes": "Azami, Lady of Scrolls's exact excerpt provides a bounded voice echo of a constrained decision answered with information, planning, and a deliberate course.",
       "modal_explanation": "The line presents a constrained decision answered with information, planning, and a deliberate course.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -668,6 +1367,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_u_4900c157_8d9f_4f92_aaca_5246b6e2832e",
+      "identity_key": "U",
+      "card": {
+        "name": "April O'Neil, Live on the Scene",
+        "oracle_id": "4900c157-8d9f-4f92-aaca-5246b6e2832e",
+        "scryfall_id": "7265ab42-5434-4127-acd6-8905ab63d62d",
+        "set": "tmc",
+        "collector_number": "9",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_u_4900c157_8d9f_4f92_aaca_5246b6e2832e"
+      },
+      "excerpt": "\"This is great! I must really be onto something hot if they're trying to kill me!\"",
+      "why_it_echoes": "April O'Neil gives Blue a second voice of inquiry that becomes more determined as the evidence gets dangerous.",
+      "modal_explanation": "April reads the threat against her as confirmation that she has found something worth knowing, capturing Blue curiosity in motion.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "blue_claim_0002",
+          "blue_claim_0003",
+          "blue_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-U-2015",
+          "MONO-U-2025"
+        ],
+        "printing_id": "7265ab42-5434-4127-acd6-8905ab63d62d",
+        "printing_source_locator": "https://api.scryfall.com/cards/7265ab42-5434-4127-acd6-8905ab63d62d#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a",
       "identity_key": "R",
       "card": {
@@ -676,12 +1413,14 @@
         "scryfall_id": "6f054978-446c-4565-b51e-8f1f0e0f01e2",
         "set": "kld",
         "collector_number": "108",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=R"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_r_c363f338_0777_45e6_b13c_f15ba026b63a"
       },
       "excerpt": "Free from Consulate regulations, renegade-built automatons push performance to the limit.",
       "why_it_echoes": "Built to Smash's exact excerpt provides a bounded voice echo of freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
       "modal_explanation": "The line presents freedom from imposed regulation joined to immediate action and pushing performance to its limit.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -704,6 +1443,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_r_104baa4e_a3f3_45dc_979d_4c58b659ba1a",
+      "identity_key": "R",
+      "card": {
+        "name": "Brambleguard Captain",
+        "oracle_id": "104baa4e-a3f3-45dc-979d-4c58b659ba1a",
+        "scryfall_id": "e200b8bf-f2f3-4157-8e04-02baf07a963e",
+        "set": "blb",
+        "collector_number": "127",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_r_104baa4e_a3f3_45dc_979d_4c58b659ba1a"
+      },
+      "excerpt": "\"We sought adventure and found calamity. Forward, so we may meet both with courage!\"",
+      "why_it_echoes": "Brambleguard Captain gives Red a second voice of vivid experience accepted through action.",
+      "modal_explanation": "The captain accepts that adventure and disaster arrive together and chooses forward motion with courage.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "red_claim_0002",
+          "red_claim_0003",
+          "red_claim_0005"
+        ],
+        "source_ids": [
+          "MONO-R-2015",
+          "MONO-R-2025"
+        ],
+        "printing_id": "e200b8bf-f2f3-4157-8e04-02baf07a963e",
+        "printing_source_locator": "https://api.scryfall.com/cards/e200b8bf-f2f3-4157-8e04-02baf07a963e#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3",
       "identity_key": "G",
       "card": {
@@ -712,12 +1489,14 @@
         "scryfall_id": "6a9c39e4-a8cf-42dd-8d0e-45634b335546",
         "set": "fdn",
         "collector_number": "222",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=G"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_g_b0b6be0c_41cf_4757_9f0e_87227b6ba6b3"
       },
       "excerpt": "The earth walks, strongest of all.",
       "why_it_echoes": "Ghalta, Primal Hunger's exact excerpt provides a bounded voice echo of the earth itself embodied as primal strength.",
       "modal_explanation": "The line presents the earth itself embodied as primal strength.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -740,6 +1519,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_g_f652c593_e8fa_42ff_a8b4_206556b273de",
+      "identity_key": "G",
+      "card": {
+        "name": "Attuned Hunter",
+        "oracle_id": "f652c593-e8fa-42ff-a8b4-206556b273de",
+        "scryfall_id": "d1a4f502-86a9-49fb-9cb9-7918d13c5313",
+        "set": "tdm",
+        "collector_number": "135",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_g_f652c593_e8fa_42ff_a8b4_206556b273de"
+      },
+      "excerpt": "\"Sokran is no mere bear. She is friend, family, and confidante—and more intelligent than some of my blood relatives.\"",
+      "why_it_echoes": "Attuned Hunter gives Green a second voice of innate kinship within the living world.",
+      "modal_explanation": "The line treats Sokran not as a tool but as family and confidante, making Green interdependence intimate and lived.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "green_claim_0002",
+          "green_claim_0004",
+          "green_claim_0006"
+        ],
+        "source_ids": [
+          "MONO-G-2015",
+          "MONO-G-2025"
+        ],
+        "printing_id": "d1a4f502-86a9-49fb-9cb9-7918d13c5313",
+        "printing_source_locator": "https://api.scryfall.com/cards/d1a4f502-86a9-49fb-9cb9-7918d13c5313#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59",
       "identity_key": "BANT",
       "card": {
@@ -748,12 +1565,14 @@
         "scryfall_id": "eff007af-0329-4872-8621-41e90d9f06e6",
         "set": "arb",
         "collector_number": "125",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=BANT"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_bant_67ceffa4_2fdb_499c_88cd_49fb5eb9be59"
       },
       "excerpt": "\"We must spread Bant's light before we are shadowed over.\"",
       "why_it_echoes": "Bant Sojourners's exact excerpt provides a bounded voice echo of Bant named directly through an idealized light meant to extend beyond the shard.",
       "modal_explanation": "The line presents Bant through an idealized light meant to extend beyond the shard.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -777,6 +1596,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552",
+      "identity_key": "BANT",
+      "card": {
+        "name": "Bant Sureblade",
+        "oracle_id": "610adb2b-9d52-4b70-92d1-0c7adeb93552",
+        "scryfall_id": "162feb2b-e641-4338-bcf1-1f7e7a11bb9d",
+        "set": "arb",
+        "collector_number": "143",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_bant_610adb2b_9d52_4b70_92d1_0c7adeb93552"
+      },
+      "excerpt": "Soldiers who fought through Grixis learned to hit first, recite the prayer of Asha later.",
+      "why_it_echoes": "Bant Sureblade gives Bant a second voice of public honor adapting when the utopia breaks.",
+      "modal_explanation": "The line lets a Bant idealist carry faith into a harsher world while learning to strike before ceremony.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "bant_claim_0004",
+          "bant_claim_0007"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_bant_20081006",
+          "src_vm_bant_metaphysics_md_20260529",
+          "src_vm_bant_evidence_ledger_20260528",
+          "src_vm_bant_research_dossier_20260528"
+        ],
+        "printing_id": "162feb2b-e641-4338-bcf1-1f7e7a11bb9d",
+        "printing_source_locator": "https://api.scryfall.com/cards/162feb2b-e641-4338-bcf1-1f7e7a11bb9d#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_esper_fef94125_aa8d_4147_a609_1e990961bde2",
       "identity_key": "ESPER",
       "card": {
@@ -785,12 +1643,14 @@
         "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
         "set": "arb",
         "collector_number": "18",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=ESPER"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_esper_fef94125_aa8d_4147_a609_1e990961bde2"
       },
       "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Esper named directly through precise, controlled use of information.",
       "modal_explanation": "The line presents Esper through precise, controlled use of information.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -813,6 +1673,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_esper_518115c9_0f0f_4249_81ff_e79b27dda1be",
+      "identity_key": "ESPER",
+      "card": {
+        "name": "Aven Trailblazer",
+        "oracle_id": "518115c9-0f0f-4249-81ff-e79b27dda1be",
+        "scryfall_id": "cb032cd3-96a4-4cef-bb89-0843f2ed8189",
+        "set": "con",
+        "collector_number": "4",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_esper_518115c9_0f0f_4249_81ff_e79b27dda1be"
+      },
+      "excerpt": "\"The bird wore the form of a man, bereft of filigree. Why do the Texts not speak of it?\" —Belator of Esper",
+      "why_it_echoes": "Aven Trailblazer gives Esper a second voice of artifice and textual order defining what counts as complete.",
+      "modal_explanation": "The speaker is disturbed by a humanlike form without filigree and by the Texts' silence, revealing Esper's engineered norm and need for ordered explanation.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "esper_claim_0003",
+          "esper_claim_0004",
+          "esper_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_esper_evidence_ledger_20260529",
+          "src_wotc_rosewater_esper_striving_for_perfection"
+        ],
+        "printing_id": "cb032cd3-96a4-4cef-bb89-0843f2ed8189",
+        "printing_source_locator": "https://api.scryfall.com/cards/cb032cd3-96a4-4cef-bb89-0843f2ed8189#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_grixis_fef94125_aa8d_4147_a609_1e990961bde2",
       "identity_key": "GRIXIS",
       "card": {
@@ -821,12 +1719,14 @@
         "scryfall_id": "925c08bd-120d-49a5-a258-bda3859c1d4c",
         "set": "arb",
         "collector_number": "18",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=GRIXIS"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_grixis_fef94125_aa8d_4147_a609_1e990961bde2"
       },
       "excerpt": "An Esper mage will leave a hole in your memory with surgical precision. A Grixis mage sees no reason to be so kind.",
       "why_it_echoes": "Brainbite's exact excerpt provides a bounded voice echo of Grixis named directly as harsher than Esper in its use of information and harm.",
       "modal_explanation": "The line presents Grixis as harsher than Esper in its use of information and harm.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -849,6 +1749,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6",
+      "identity_key": "GRIXIS",
+      "card": {
+        "name": "Nekusar, the Mindrazer",
+        "oracle_id": "8a5e3c8e-8e22-49b9-8ee5-4a36361f0da6",
+        "scryfall_id": "4afdc65d-3c97-47af-83fa-df340389802e",
+        "set": "cmm",
+        "collector_number": "349",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_grixis_8a5e3c8e_8e22_49b9_8ee5_4a36361f0da6"
+      },
+      "excerpt": "His enemies wondered if the lich king's brutal death and unnatural rebirth had been his plan all along.",
+      "why_it_echoes": "Nekusar gives Grixis a second voice of agency preserved through a brutal death-and-rebirth scheme.",
+      "modal_explanation": "The line makes death itself look like a move in Nekusar's plan, capturing Grixis survival through manipulation and necromantic reuse.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "grixis_claim_0003",
+          "grixis_claim_0004",
+          "grixis_claim_0006"
+        ],
+        "source_ids": [
+          "src_vm_grixis_evidence_ledger_20260530",
+          "src_wotc_rosewater_grixis_looking_out_for_number_one"
+        ],
+        "printing_id": "4afdc65d-3c97-47af-83fa-df340389802e",
+        "printing_source_locator": "https://api.scryfall.com/cards/4afdc65d-3c97-47af-83fa-df340389802e#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_jund_9b984236_39cf_4552_827b_e81c26cfb388",
       "identity_key": "JUND",
       "card": {
@@ -857,12 +1795,14 @@
         "scryfall_id": "b46d498b-dac3-4ab0-bcd6-514025a046aa",
         "set": "m3c",
         "collector_number": "71",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=JUND"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_jund_9b984236_39cf_4552_827b_e81c26cfb388"
       },
       "excerpt": "Karrthus was not the first Tyrant of Jund, nor will he be the last.",
       "why_it_echoes": "Broodmate Tyrant's exact excerpt provides a bounded voice echo of Jund named directly through embodied succession, dominance, and survival.",
       "modal_explanation": "The line presents Jund through embodied succession, dominance, and survival.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -886,6 +1826,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_jund_4a430fa3_e693_424b_9981_d7d8193445e3",
+      "identity_key": "JUND",
+      "card": {
+        "name": "Charnelhoard Wurm",
+        "oracle_id": "4a430fa3-e693-424b-9981-d7d8193445e3",
+        "scryfall_id": "10b936dd-fbec-4d03-8f6f-71e5e21029cb",
+        "set": "c18",
+        "collector_number": "171",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_jund_4a430fa3_e693_424b_9981_d7d8193445e3"
+      },
+      "excerpt": "Jund's dragons hoard only sangrite crystals. Its wurms aren't so picky.",
+      "why_it_echoes": "Charnelhoard Wurm gives Jund a second voice of embodied appetite in a predatory world.",
+      "modal_explanation": "The joke makes Jund appetite physical and unsentimental: dragons choose crystals, while wurms will hoard almost anything.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "jund_claim_0003",
+          "jund_claim_0005",
+          "jund_claim_0007"
+        ],
+        "source_ids": [
+          "src_wotc_rosewater_jund_following_your_heart",
+          "src_vm_jund_evidence_ledger_20260530",
+          "src_vm_jund_reliability_audit_20260530"
+        ],
+        "printing_id": "10b936dd-fbec-4d03-8f6f-71e5e21029cb",
+        "printing_source_locator": "https://api.scryfall.com/cards/10b936dd-fbec-4d03-8f6f-71e5e21029cb#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_naya_956250da_532a_4457_8696_73915be56943",
       "identity_key": "NAYA",
       "card": {
@@ -894,12 +1873,14 @@
         "scryfall_id": "4caae1f4-dfb0-466f-9fa6-eb014767e3c8",
         "set": "jmp",
         "collector_number": "98",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=NAYA"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_naya_956250da_532a_4457_8696_73915be56943"
       },
       "excerpt": "Naya's trees grow tall and sturdy. Their foliage intertwines to form dewcups, rainwater pools where the elves gather to celebrate life.",
       "why_it_echoes": "Cradle of Vitality's exact excerpt provides a bounded voice echo of Naya named directly through abundant natural growth and gathering.",
       "modal_explanation": "The line presents Naya through abundant natural growth and gathering.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -922,6 +1903,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_naya_2f47661e_a107_4d98_8773_0a068a63df49",
+      "identity_key": "NAYA",
+      "card": {
+        "name": "Ajani's Mantra",
+        "oracle_id": "2f47661e-a107-4d98-8773-0a068a63df49",
+        "scryfall_id": "de4da30d-5c72-4323-b305-7277038b4a05",
+        "set": "ddh",
+        "collector_number": "22",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_naya_2f47661e_a107_4d98_8773_0a068a63df49"
+      },
+      "excerpt": "\"He hasn't returned to the Cloud Forest. But I can still sense his calming presence.\" —Zaliki of Naya",
+      "why_it_echoes": "Ajani's Mantra gives Naya a second voice of life-connected belonging rather than scale alone.",
+      "modal_explanation": "Zaliki senses Ajani's calming presence even in his absence, making Naya belonging feel ecological, spiritual, and relational.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "naya_claim_0003",
+          "naya_claim_0004",
+          "naya_claim_0007"
+        ],
+        "source_ids": [
+          "src_vm_naya_evidence_ledger_20260530",
+          "src_wotc_rosewater_naya_searching_within"
+        ],
+        "printing_id": "de4da30d-5c72-4323-b305-7277038b4a05",
+        "printing_source_locator": "https://api.scryfall.com/cards/de4da30d-5c72-4323-b305-7277038b4a05#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8",
       "identity_key": "ABZAN",
       "card": {
@@ -930,12 +1949,14 @@
         "scryfall_id": "7855528a-ede9-49a9-8749-795a004fd927",
         "set": "ktk",
         "collector_number": "215",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=ABZAN"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_abzan_46535f8e_1bcd_4588_ac6c_a4bc89c379c8"
       },
       "excerpt": "Stone to endure, roots to remember.",
       "why_it_echoes": "Abzan Banner's exact excerpt provides a bounded voice echo of endurance joined to roots, memory, and Kin-Tree continuity.",
       "modal_explanation": "The line presents endurance joined to roots, memory, and Kin-Tree continuity.",
       "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -958,6 +1979,44 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0",
+      "identity_key": "ABZAN",
+      "card": {
+        "name": "Abzan Devotee",
+        "oracle_id": "3d02ee2f-b7bd-40b0-b9be-2420991b2be0",
+        "scryfall_id": "66555946-e747-46fa-b1ac-b103a8edcd93",
+        "set": "tdm",
+        "collector_number": "68",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_abzan_3d02ee2f_b7bd_40b0_b9be_2420991b2be0"
+      },
+      "excerpt": "The Kin-Trees rediscovered after Dromoka's fall are tended by carefully chosen wardens.",
+      "why_it_echoes": "Abzan Devotee gives Abzan a second voice of family memory maintained through duty.",
+      "modal_explanation": "The line makes Abzan continuity active: rediscovered Kin-Trees survive because chosen wardens accept responsibility for them.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "abzan_claim_0003",
+          "abzan_claim_0008"
+        ],
+        "source_ids": [
+          "src_vm_abzan_evidence_ledger_20260531",
+          "src_wotc_tarkir_khans_pg_part_1",
+          "src_wotc_tarkir_dragonstorm_pg_part_1"
+        ],
+        "printing_id": "66555946-e747-46fa-b1ac-b103a8edcd93",
+        "printing_source_locator": "https://api.scryfall.com/cards/66555946-e747-46fa-b1ac-b103a8edcd93#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875",
       "identity_key": "TEMUR",
       "card": {
@@ -966,12 +2025,14 @@
         "scryfall_id": "408e3f12-53d5-45f4-8ccc-6c00f8a9c6fe",
         "set": "ktk",
         "collector_number": "166",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=TEMUR"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_temur_ccad8b03_5ff1_4895_94e0_0c96883cb875"
       },
       "excerpt": "\"Hold the high ground, then bring it to your enemy.\"\n—Surrak, khan of the Temur",
       "why_it_echoes": "Avalanche Tusker's exact excerpt provides a bounded voice echo of a Temur khan joining tactical knowledge to literal natural force.",
       "modal_explanation": "The line presents a Temur khan joining tactical knowledge to literal natural force.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -996,6 +2057,46 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_temur_bf84a598_12d3_406d_8eeb_40592e782b87",
+      "identity_key": "TEMUR",
+      "card": {
+        "name": "Ainok Tracker",
+        "oracle_id": "bf84a598-12d3-406d-8eeb-40592e782b87",
+        "scryfall_id": "0ff9400d-4842-471f-bf7e-3b21df352e0a",
+        "set": "ktk",
+        "collector_number": "96",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_temur_bf84a598_12d3_406d_8eeb_40592e782b87"
+      },
+      "excerpt": "Some ainok of the mountains are accepted among the Temur as trusted hunt-mates.",
+      "why_it_echoes": "Ainok Tracker gives Temur a second voice of kinship earned through shared survival.",
+      "modal_explanation": "The line shows Temur belonging as practical trust formed in the mountains and the hunt.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "temur_claim_0002",
+          "temur_claim_0003",
+          "temur_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_temur_evidence_ledger_20260531",
+          "src_wotc_rosewater_temur_what_doesnt_kill_you",
+          "src_wotc_tarkir_khans_pg_part_2",
+          "src_wotc_tarkir_story_awakening_the_bear"
+        ],
+        "printing_id": "0ff9400d-4842-471f-bf7e-3b21df352e0a",
+        "printing_source_locator": "https://api.scryfall.com/cards/0ff9400d-4842-471f-bf7e-3b21df352e0a#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_sultai_c469133e_174d_476b_b135_bbf15e415e72",
       "identity_key": "SULTAI",
       "card": {
@@ -1004,12 +2105,14 @@
         "scryfall_id": "993ade84-031f-4a3e-bd68-55f61b559248",
         "set": "tdm",
         "collector_number": "70",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=SULTAI"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_sultai_c469133e_174d_476b_b135_bbf15e415e72"
       },
       "excerpt": "\"When an alliance outlasts its usefulness it's best to end it quickly.\"\n—Heng, Sultai ambassador",
       "why_it_echoes": "Aggressive Negotiations's exact excerpt provides a bounded voice echo of a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
       "modal_explanation": "The line presents a Sultai ambassador explicitly treating alliances as tools with an expiration point.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1035,6 +2138,47 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_sultai_88ce2017_83a6_4b55_afba_371875bf2172",
+      "identity_key": "SULTAI",
+      "card": {
+        "name": "Blinding Spray",
+        "oracle_id": "88ce2017-83a6-4b55-afba-371875bf2172",
+        "scryfall_id": "9b588355-c349-458d-aeb7-0e2780caa3f9",
+        "set": "ktk",
+        "collector_number": "32",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_sultai_88ce2017_83a6_4b55_afba_371875bf2172"
+      },
+      "excerpt": "\"The stronger our enemies seem, the more vulnerable they are.\" —Sultai secret",
+      "why_it_echoes": "Blinding Spray gives Sultai a second voice of weakness analysis used as leverage.",
+      "modal_explanation": "The Sultai secret turns intimidating strength into an exploitable weakness, making power sound observant and opportunistic.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "sultai_claim_0002",
+          "sultai_claim_0004",
+          "sultai_claim_0007"
+        ],
+        "source_ids": [
+          "src_vm_sultai_evidence_ledger_20260531",
+          "src_wotc_rosewater_sultai_whatever_it_takes",
+          "src_wotc_tarkir_khans_pg_part_1",
+          "src_wotc_tarkir_fate_reforged_pg",
+          "src_wotc_tarkir_story_khanfall"
+        ],
+        "printing_id": "9b588355-c349-458d-aeb7-0e2780caa3f9",
+        "printing_source_locator": "https://api.scryfall.com/cards/9b588355-c349-458d-aeb7-0e2780caa3f9#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191",
       "identity_key": "MARDU",
       "card": {
@@ -1043,12 +2187,14 @@
         "scryfall_id": "275d6137-5eff-4e82-8232-64e8679bc11c",
         "set": "clb",
         "collector_number": "740",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=MARDU"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_mardu_cad09970_14c8_4d80_82fe_6c855efb0191"
       },
       "excerpt": "\"Death is merely another foe the Mardu will overcome.\"",
       "why_it_echoes": "Bloodsoaked Champion's exact excerpt provides a bounded voice echo of the Mardu named directly through meeting death as another opponent.",
       "modal_explanation": "The line presents the Mardu through meeting death as another opponent.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1075,6 +2221,48 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9",
+      "identity_key": "MARDU",
+      "card": {
+        "name": "Defibrillating Current",
+        "oracle_id": "5a96b93b-bae6-48fb-87f5-05f3ffcf7ba9",
+        "scryfall_id": "bf3a18cf-03db-4eb0-8d53-0c1a71e184da",
+        "set": "tdm",
+        "collector_number": "177",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_mardu_5a96b93b_bae6_48fb_87f5_05f3ffcf7ba9"
+      },
+      "excerpt": "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
+      "why_it_echoes": "Defibrillating Current gives Mardu a second voice of decisive force calibrated to the need.",
+      "modal_explanation": "The healer's adage makes action practical and unsentimental: the size of the shock decides whether force rescues or destroys.",
+      "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "mardu_claim_0002",
+          "mardu_claim_0003",
+          "mardu_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_mardu_evidence_ledger_20260531",
+          "src_wotc_rosewater_mardu_finishing_first",
+          "src_wotc_tarkir_khans_pg_part_2",
+          "src_wotc_tarkir_fate_reforged_pg",
+          "src_wotc_tarkir_story_truth_of_names",
+          "src_wotc_tarkir_story_khanfall"
+        ],
+        "printing_id": "bf3a18cf-03db-4eb0-8d53-0c1a71e184da",
+        "printing_source_locator": "https://api.scryfall.com/cards/bf3a18cf-03db-4eb0-8d53-0c1a71e184da#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0",
       "identity_key": "JESKAI",
       "card": {
@@ -1083,12 +2271,14 @@
         "scryfall_id": "0742564e-f7a7-4107-b9ed-63703ca4702c",
         "set": "ktk",
         "collector_number": "101",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=JESKAI"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_jeskai_341cf654_faf7_4db9_bd9a_70783f1ccff0"
       },
       "excerpt": "Some efreet abandon their homes in the volcanic Fire Rim to embrace the Jeskai Way and discipline their innate flames.",
       "why_it_echoes": "Bloodfire Expert's exact excerpt provides a bounded voice echo of the Jeskai Way named directly through discipline applied to innate flame.",
       "modal_explanation": "The line presents the Jeskai Way through discipline applied to innate flame.",
       "relationship_class": "EXPLICIT_IDENTITY_REFERENCE",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1112,6 +2302,45 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184",
+      "identity_key": "JESKAI",
+      "card": {
+        "name": "Narset, Enlightened Exile",
+        "oracle_id": "d92725de-ead0-4a6c-83db-55ec3acc7184",
+        "scryfall_id": "827ecc44-0b00-4515-8953-bc91fa03705a",
+        "set": "mat",
+        "collector_number": "38",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_jeskai_d92725de_ead0_4a6c_83db_55ec3acc7184"
+      },
+      "excerpt": "They called her unique insight a \"gift.\" Then she saw the truth, and suddenly it was a \"threat.\"",
+      "why_it_echoes": "Narset gives Jeskai a second voice of disciplined understanding that challenges authority.",
+      "modal_explanation": "Narset's insight changes from gift to threat the moment it reveals an unwelcome truth, making Jeskai knowledge active rather than merely contemplative.",
+      "relationship_class": "NATIVE_FIGURE_OR_LOCATION",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "jeskai_claim_0002",
+          "jeskai_claim_0004",
+          "jeskai_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_jeskai_evidence_ledger_20260531",
+          "src_wotc_rosewater_jeskai_smart_thinking",
+          "src_wotc_tarkir_khans_pg_part_1"
+        ],
+        "printing_id": "827ecc44-0b00-4515-8953-bc91fa03705a",
+        "printing_source_locator": "https://api.scryfall.com/cards/827ecc44-0b00-4515-8953-bc91fa03705a#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078",
       "identity_key": "YORE",
       "card": {
@@ -1120,12 +2349,14 @@
         "scryfall_id": "f4e6f89d-c73b-4105-9743-95504f0fd866",
         "set": "ddu",
         "collector_number": "36",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=YORE"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_yore_ed10bb4c_f7ef_4046_8dde_465041b55078"
       },
       "excerpt": "The artificers of Kaladesh strive ceaselessly for perfection, progress, and the ultimate expression of elegance.",
       "why_it_echoes": "Artificer's Epiphany's exact excerpt provides a bounded voice echo of artificers pursuing perfection, progress, and designed elegance.",
       "modal_explanation": "The line presents artificers pursuing perfection, progress, and designed elegance.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1147,6 +2378,43 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f",
+      "identity_key": "YORE",
+      "card": {
+        "name": "Ayara, Widow of the Realm // Ayara, Furnace Queen",
+        "oracle_id": "f9ef90b9-a2b4-4a5b-92fb-2268ea7d709f",
+        "scryfall_id": "a21b1734-a773-4107-95c1-b44d5ccdfd82",
+        "set": "mom",
+        "collector_number": "90",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_yore_f9ef90b9_a2b4_4a5b_92fb_2268ea7d709f"
+      },
+      "excerpt": "Ayara cherished her new machine servitors just as much as she once did her many suitors: not at all.",
+      "why_it_echoes": "Ayara's machine servitors give Yore a second voice of civilization and artifice used without organic obligation.",
+      "modal_explanation": "The transformed Ayara regards machine servitors with the same cold instrumentality she brought to people, making artifice powerful but stripped of natural reciprocity.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "yore_claim_0002",
+          "yore_claim_0004"
+        ],
+        "source_ids": [
+          "src_vm_yore_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "printing_id": "a21b1734-a773-4107-95c1-b44d5ccdfd82",
+        "printing_source_locator": "https://api.scryfall.com/cards/a21b1734-a773-4107-95c1-b44d5ccdfd82#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36",
       "identity_key": "GLINT",
       "card": {
@@ -1155,12 +2423,14 @@
         "scryfall_id": "a27a3d4b-caa7-4c5e-b1f3-aa607d3b157d",
         "set": "ecc",
         "collector_number": "7",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=GLINT"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_glint_3a92b235_196b_4f46_9d20_06f4d3653d36"
       },
       "excerpt": "Shadowmoor is rife with wild magic—powerful but as volatile as the plane itself.",
       "why_it_echoes": "Aberrant Return's exact excerpt provides a bounded voice echo of wild magic described as powerful and volatile.",
       "modal_explanation": "The line presents wild magic described as powerful and volatile.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1181,6 +2451,42 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_glint_c0b3bbce_977c_42a9_afcb_dabdfc717c97",
+      "identity_key": "GLINT",
+      "card": {
+        "name": "Atarka, World Render",
+        "oracle_id": "c0b3bbce-977c-42a9-afcb-dabdfc717c97",
+        "scryfall_id": "c569fab1-6901-40ab-b958-001698819585",
+        "set": "tdc",
+        "collector_number": "281",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_glint_c0b3bbce_977c_42a9_afcb_dabdfc717c97"
+      },
+      "excerpt": "\"Her hunger knows no limit. Left unchecked, she would feast on all of Tarkir.\" —Yasova Dragonclaw",
+      "why_it_echoes": "Atarka gives Glint a second voice of appetite pushing past every limit.",
+      "modal_explanation": "Atarka's limitless hunger threatens to feast on all of Tarkir, making Glint's force and appetite feel materially unbounded.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "glint_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_glint_evidence_ledger_20260602",
+          "src_vm_four_color_reference_audit_20260602"
+        ],
+        "printing_id": "c569fab1-6901-40ab-b958-001698819585",
+        "printing_source_locator": "https://api.scryfall.com/cards/c569fab1-6901-40ab-b958-001698819585#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166",
       "identity_key": "DUNE",
       "card": {
@@ -1189,12 +2495,14 @@
         "scryfall_id": "bc6ffc1c-575b-4116-83c9-d13b29886c35",
         "set": "fdn",
         "collector_number": "651",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=DUNE"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_dune_0f5a3a09_2f07_4774_9e0f_e99d9a444166"
       },
       "excerpt": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
       "why_it_echoes": "Aurelia, the Warleader's exact excerpt provides a bounded voice echo of front-line leadership, immediate action, and organized force.",
       "modal_explanation": "The line presents front-line leadership, immediate action, and organized force.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1215,6 +2523,43 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1",
+      "identity_key": "DUNE",
+      "card": {
+        "name": "Scour from Existence",
+        "oracle_id": "241a50c5-f65f-4847-89c7-5c0ef6025dc1",
+        "scryfall_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
+        "set": "bfz",
+        "collector_number": "13",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_dune_241a50c5_f65f_4847_89c7_5c0ef6025dc1"
+      },
+      "excerpt": "\"Our people and our very lands disappear as if they never were. We no longer fight for glory, or honor. We battle now for the right to exist.\"\n—General Tazri, allied commander",
+      "why_it_echoes": "Scour from Existence gives Dune a second voice in which people and land under existential pressure make immediate common-front battle a condition of survival rather than a pursuit of glory.",
+      "modal_explanation": "Aurelia shows Dune at the front of the advance. General Tazri supplies the complementary reason the line holds: when both people and land can be erased, battle becomes shared territorial survival—not glory, spectacle, or aggression for its own sake.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "dune_claim_0003",
+          "dune_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_dune_evidence_ledger_20260603",
+          "src_vm_four_color_reference_audit_20260603"
+        ],
+        "printing_id": "6e47edb2-e43d-479f-a911-e72b67a06c3b",
+        "printing_source_locator": "https://api.scryfall.com/cards/6e47edb2-e43d-479f-a911-e72b67a06c3b#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
       "identity_key": "INK",
       "card": {
@@ -1223,12 +2568,14 @@
         "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
         "set": "soc",
         "collector_number": "129",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=INK"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25"
       },
       "excerpt": "Knowledge is wasted if not shared.",
       "why_it_echoes": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
       "modal_explanation": "The line presents knowledge treated as wasted unless it is shared.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1249,6 +2596,42 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+      "identity_key": "INK",
+      "card": {
+        "name": "Danitha Capashen, Paragon",
+        "oracle_id": "4b6377da-83e7-4519-9582-16a9c16b8faa",
+        "scryfall_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
+        "set": "cmm",
+        "collector_number": "20",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa"
+      },
+      "excerpt": "\"I will protect the less fortunate. I will love bravely. I will face despair and fight on. As a Capashen, I can do no less.\"",
+      "why_it_echoes": "Danitha gives Ink a second voice of community benefit defended through duty.",
+      "modal_explanation": "Danitha commits to protect the less fortunate, love bravely, and fight through despair, making altruism sound active rather than merely generous.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "ink_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_ink_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "printing_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
+        "printing_source_locator": "https://api.scryfall.com/cards/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9",
       "identity_key": "WITCH",
       "card": {
@@ -1257,12 +2640,14 @@
         "scryfall_id": "34bdc973-db45-46a6-ac48-ce88fb59920a",
         "set": "kld",
         "collector_number": "194",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WITCH"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9"
       },
       "excerpt": "Design leads to progress.",
       "why_it_echoes": "Animation Module's exact excerpt provides a bounded voice echo of design producing progress through a modular object associated with counters and repeated accumulation.",
       "modal_explanation": "The line presents design producing progress through a modular object associated with counters and repeated accumulation.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1283,6 +2668,43 @@
       }
     },
     {
+      "relationship_id": "cardvoice_vm558_witch_e766a5eb_684b_4939_b164_6093d15600c9",
+      "identity_key": "WITCH",
+      "card": {
+        "name": "Amphin Cutthroat",
+        "oracle_id": "e766a5eb-684b-4939-b164-6093d15600c9",
+        "scryfall_id": "fd169064-9c7b-40bd-8be0-a89fcb28ae2f",
+        "set": "m12",
+        "collector_number": "43",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_witch_e766a5eb_684b_4939_b164_6093d15600c9"
+      },
+      "excerpt": "\"The amphin have long built their society in secret. While surface dwellers squabbled over trivial borders, they patiently expanded, building their ammonite temple-caves. Now amphin priests eye the shore, and amphin hunters gird for war.\"\n—Gor Muldrak, *Cryptohistories*",
+      "why_it_echoes": "Amphin Cutthroat gives Witch a second voice of a protected society developing patiently until accumulated preparation becomes outward ambition.",
+      "modal_explanation": "The amphin do not rush toward the shore. They build a society out of sight, enlarge it patiently, and let preparation mature into ambition. Beside Animation Module, the line makes Witch's missing-Red character concrete: structure, time, and guarded development become power before action begins.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "witch_claim_0003",
+          "witch_claim_0005"
+        ],
+        "source_ids": [
+          "src_vm_witch_evidence_ledger_20260604",
+          "src_vm_four_color_reference_audit_20260604"
+        ],
+        "printing_id": "fd169064-9c7b-40bd-8be0-a89fcb28ae2f",
+        "printing_source_locator": "https://api.scryfall.com/cards/fd169064-9c7b-40bd-8be0-a89fcb28ae2f#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+      }
+    },
+    {
       "relationship_id": "cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20",
       "identity_key": "COLORLESS",
       "card": {
@@ -1291,12 +2713,14 @@
         "scryfall_id": "4210c54e-89fd-4971-ab6a-ca8f4e7fe97a",
         "set": "cmm",
         "collector_number": "800",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=COLORLESS"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20"
       },
       "excerpt": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\"\n—Javad Nasrin, Ondu relic hunter",
       "why_it_echoes": "All Is Dust's exact excerpt provides a bounded voice echo of Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
       "modal_explanation": "The line presents Eldrazi-scale emergence and an outside-WUBRG sense of completion and erasure.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1330,12 +2754,14 @@
         "scryfall_id": "b1ad91db-5f16-4392-baf1-f8400ec11e0a",
         "set": "tdm",
         "collector_number": "174",
-        "data_locator": "data/dossier/card-voice-printings.source.json#identity_key=WUBRG"
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_wubrg_3ceb23f5_abb1_4569_a1e4_1eed9a9babcf"
       },
       "excerpt": "The essence of Tarkir was shaped into draconic embodiments of the re-formed clans.",
       "why_it_echoes": "The regular Tarkir: Dragonstorm printing names the re-formed clans as distinct draconic embodiments, while the card itself requires all five colors and cares about Dragons of each color.",
       "modal_explanation": "The line imagines Tarkir's re-formed clans as distinct draconic embodiments. It gives this reading a voice of distinct traditions present together without becoming interchangeable.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 1,
+      "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
@@ -1361,6 +2787,48 @@
         "printing_source_locator": "https://api.scryfall.com/cards/b1ad91db-5f16-4392-baf1-f8400ec11e0a#card.flavor_text",
         "validator_version": "vm551-evidence-validator-v1",
         "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+      }
+    },
+    {
+      "relationship_id": "cardvoice_vm558_wubrg_70dbe8a9_505d_41c2_9b5b_a991d13ab459",
+      "identity_key": "WUBRG",
+      "card": {
+        "name": "Child of Alara",
+        "oracle_id": "70dbe8a9-505d-41c2-9b5b-a991d13ab459",
+        "scryfall_id": "b2373625-af3c-4c2a-a1d1-5288c446955d",
+        "set": "2x2",
+        "collector_number": "192",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_wubrg_70dbe8a9_505d_41c2_9b5b_a991d13ab459"
+      },
+      "excerpt": "The progeny of the Maelstrom shows no allegiance—and no mercy—to any of the five shards.",
+      "why_it_echoes": "Child of Alara gives WUBRG a second voice in which all five shards remain present without one claiming the whole.",
+      "modal_explanation": "The Child comes from Alara's Maelstrom yet belongs to none of its five shards. For WUBRG, that makes breadth meaningful: every color can contribute, but no single constituent worldview has to become the whole answer.",
+      "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
+      "slot": 2,
+      "pair_role": "COMPLEMENT",
+      "display_priority": 2,
+      "critical_repeat": {
+        "allowed": false,
+        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+      },
+      "provenance": {
+        "claim_ids": [
+          "wubrg_claim_0002",
+          "wubrg_claim_0003",
+          "wubrg_claim_0007"
+        ],
+        "source_ids": [
+          "WUBRG-OFF-001",
+          "WUBRG-LOCAL-001",
+          "WUBRG-OFF-003",
+          "WUBRG-CANON-001",
+          "WUBRG-CANON-002",
+          "WUBRG-SCOPE-001"
+        ],
+        "printing_id": "b2373625-af3c-4c2a-a1d1-5288c446955d",
+        "printing_source_locator": "https://api.scryfall.com/cards/b2373625-af3c-4c2a-a1d1-5288c446955d#card.flavor_text",
+        "validator_version": "vm558-owner-semantic-approval-v1",
+        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
       }
     }
   ]

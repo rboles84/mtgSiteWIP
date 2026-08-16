@@ -411,7 +411,7 @@ async function loadDiscoveryData() {
   APP_STATE.tagTaxonomy = taxonomy;
   APP_STATE.archscryFlavorSnippets = archscryFlavorSnippets;
   APP_STATE.cardRationaleCatalog = cardRationaleCatalog;
-  APP_STATE.cardVoiceCatalog = cardVoiceCatalog;
+  APP_STATE.cardVoiceCatalog = isUsableCardVoiceCatalog(cardVoiceCatalog) ? cardVoiceCatalog : null;
   APP_STATE.preconCatalog = preconCatalog;
   APP_STATE.preconThemeTaxonomy = preconThemeTaxonomy;
   APP_STATE.commanderProviderValidation = commanderProviderValidation;
@@ -437,6 +437,8 @@ async function loadDiscoveryData() {
       collector_number: record.collector_number,
       flavor_text: record.exact_flavor_text,
       image_uris: record.image_uris,
+      card_faces: record.card_faces || [],
+      type_line: record.type_line || "",
       scryfall_uri: record.scryfall_uri,
     })),
   ]);
@@ -3157,7 +3159,7 @@ export function selectApprovedCardVoices({
   const key = faction?.key || faction?.identity?.expression_key || "";
   return (catalog?.records || [])
     .filter((record) => record.identity_key === key)
-    .sort((left, right) => Number(left.display_priority || 0) - Number(right.display_priority || 0) || String(left.card?.name || "").localeCompare(String(right.card?.name || "")))
+    .sort((left, right) => Number(left.slot || 1) - Number(right.slot || 1) || Number(left.display_priority || 0) - Number(right.display_priority || 0) || String(left.card?.name || "").localeCompare(String(right.card?.name || "")))
     .map((record) => {
       const card = cardByName?.get?.(normalizeCardName(record.card?.name || "")) || null;
       if (!card || (record.card?.oracle_id && card.oracle_id !== record.card.oracle_id)) return null;
@@ -3166,6 +3168,32 @@ export function selectApprovedCardVoices({
       return { card, record };
     })
     .filter(Boolean);
+}
+
+function isUsableCardVoiceCatalog(catalog) {
+  return Array.isArray(catalog?.records) && catalog.records.length > 0 && catalog.records.every((record) => (
+    record?.relationship_id &&
+    record?.identity_key &&
+    Number.isInteger(record?.slot) &&
+    record.slot >= 1 &&
+    record?.card?.name &&
+    record?.card?.oracle_id &&
+    record?.card?.scryfall_id
+  ));
+}
+
+export function cardVoiceAvailabilityForFaction({
+  faction,
+  catalog = APP_STATE.cardVoiceCatalog,
+  cardByName = APP_STATE.scryfallLocalCardByName,
+} = {}) {
+  if (!isUsableCardVoiceCatalog(catalog)) return "unavailable";
+  const key = faction?.key || faction?.identity?.expression_key || "";
+  const expected = catalog.records.filter((record) => record.identity_key === key);
+  if (!expected.length) return "unavailable";
+  return selectApprovedCardVoices({ faction, catalog, cardByName }).length === expected.length
+    ? "available"
+    : "unavailable";
 }
 
 function canonicalUsageCardId(cardOrName) {
@@ -3201,12 +3229,19 @@ function filterStarterCardsForUsage(starterCards = {}, excludedCardIds = new Set
   ]));
 }
 
-export function buildCardVoicesHtml(voices = [], faction = {}) {
+export function buildCardVoicesHtml(voices = [], faction = {}, { availability = "available" } = {}) {
+  if (availability !== "available") {
+    return `
+      <div class="starter-section" data-card-voice-section data-card-voice-unavailable>
+        <div class="section-label">Cards That Sound Like This</div>
+        <p class="flavor-echo-intro" role="status">Card voices are unavailable right now. The identity reading remains available.</p>
+      </div>`;
+  }
   if (!voices.length) return "";
   return `
     <div class="starter-section" data-card-voice-section>
       <div class="section-label">Cards That Sound Like This</div>
-      <p class="flavor-echo-intro">A line of Magic flavor that sounds like this reading.</p>
+      <p class="flavor-echo-intro">Lines of Magic flavor that sound like this reading.</p>
       <div class="flavor-echo-grid public-three-item-grid" data-item-count="${voices.length}">
         ${voices.map(({ card, record }) => {
           const image = card.image_uris?.art_crop || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.art_crop || "";
@@ -3690,6 +3725,7 @@ function renderResult(viewKey) {
   const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: pageCardUsage });
   addUsageCards(pageCardUsage, flavorEchoes.map((entry) => entry.card));
   const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: pageCardUsage });
+  const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(pageCardUsage, cardVoices.map((entry) => entry.card));
   addUsageCards(pageCardUsage, preconPreview.remaining
     .filter((precon) => !pageCardUsage.has(canonicalUsageCardId(precon.mainCommander)))
@@ -3731,7 +3767,7 @@ function renderResult(viewKey) {
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
-  const cardVoicesHtml = buildCardVoicesHtml(cardVoices, faction);
+  const cardVoicesHtml = buildCardVoicesHtml(cardVoices, faction, { availability: cardVoiceAvailability });
   const readingFindsHtml = buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);

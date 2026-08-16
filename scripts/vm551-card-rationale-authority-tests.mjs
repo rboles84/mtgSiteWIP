@@ -38,14 +38,18 @@ assert.equal(isperiaSource.provenance_roles.card_behavior.verified_field, "oracl
 const quintoriusSource = source.records.find((record) => record.canonical_card_name === "Quintorius, History Chaser");
 assert.match(quintoriusSource.proposed_public_rationale, /^Represents\b/);
 assert.doesNotMatch(quintoriusSource.proposed_public_rationale, /Represent's/);
+const normalizeCopy = (value) => String(value || "").normalize("NFKC").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 for (const runtimeRecord of catalog.records) {
   const sourceRecord = source.records.find((record) => record.relationship_id === runtimeRecord.relationship_id);
-  const approvedRelationshipCopy = sourceRecord?.modal_explanation || sourceRecord?.proposed_public_rationale || "";
   assert.ok(sourceRecord, `${runtimeRecord.relationship_id} must resolve to its approved relationship`);
   assert.ok(runtimeRecord.modal_explanation, `${runtimeRecord.card?.name} must have a card-specific modal explanation`);
-  assert.ok(runtimeRecord.modal_explanation.startsWith(approvedRelationshipCopy), `${runtimeRecord.card?.name} modal must preserve its approved card-specific relationship copy`);
-  assert.match(runtimeRecord.modal_explanation, /\bAt the table, this can mean\b/, `${runtimeRecord.card?.name} modal must add a table-level takeaway`);
-  assert.notEqual(runtimeRecord.modal_explanation, runtimeRecord.rationale, `${runtimeRecord.card?.name} modal explanation must add value beyond the tile rationale`);
+  assert.equal(normalizeCopy(runtimeRecord.modal_explanation).includes(normalizeCopy(runtimeRecord.rationale)), false, `${runtimeRecord.card?.name} modal must not retain the complete normalized tile rationale`);
+  if (sourceRecord.modal_explanation) {
+    assert.ok(runtimeRecord.modal_explanation.startsWith(sourceRecord.modal_explanation), `${runtimeRecord.card?.name} modal must preserve its approved card-specific deepening`);
+    assert.match(runtimeRecord.modal_explanation, /\bAt the table, this can mean\b/, `${runtimeRecord.card?.name} authored modal must add a table-level takeaway`);
+  } else {
+    assert.ok(runtimeRecord.modal_explanation.startsWith(`At the table, ${runtimeRecord.card.name} carries that card action into this reading's larger plan:`), `${runtimeRecord.card?.name} modal must transition directly into additive card-specific identity context`);
+  }
   assert.equal(runtimeRecord.relationship_id, sourceRecord.relationship_id, `${runtimeRecord.card?.name} modal must retain its relationship ID`);
   assert.ok(runtimeRecord.provenance?.claim_ids?.length, `${runtimeRecord.card?.name} modal must retain certified claim provenance`);
 }
@@ -87,6 +91,10 @@ expectFailure((fixture) => {
   fixture.records[0].owner_approval = { decision: "APPROVE", approved_by: "owner", decision_locator: "fixture" };
   fixture.records[0].proposed_public_rationale = "This card proves you are this identity.";
 }, /unsupported language/);
+expectFailure((fixture) => {
+  const record = fixture.records.find((candidate) => candidate.review_status === "APPROVED_PUBLIC");
+  record.modal_explanation = `${record.proposed_public_rationale} Additional context.`;
+}, /repeats the complete public rationale/);
 
 const approvedFixture = clone(source);
 for (const record of approvedFixture.records) {

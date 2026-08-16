@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
@@ -22,7 +23,9 @@ const viewport = viewports[viewportName];
 assert.ok(viewport, `unknown viewport ${viewportName}`);
 const identityFilter = (process.argv.find((arg) => arg.startsWith("--identity=")) || "").split("=")[1] || "";
 const caseFilter = (process.argv.find((arg) => arg.startsWith("--case=")) || "").split("=")[1] || "";
-const reviewMode = process.argv.includes("--review");
+const vm558ReviewMode = process.argv.includes("--vm558-review");
+const reviewCheckMode = process.argv.includes("--review-check");
+const reviewMode = process.argv.includes("--review") || vm558ReviewMode;
 const collectFailures = process.argv.includes("--collect-failures");
 const witnessPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json");
 const reportPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-ui-witness-replay.json");
@@ -36,13 +39,24 @@ const witnesses = caseFilter
     : witnessArtifact;
 assert.ok(witnesses.rows.length, `No replay case matched ${caseFilter || identityFilter || "the witness inventory"}`);
 if (reviewMode) assert.equal(witnesses.rows.length, 1, "Visual review mode opens one deterministic case at a time");
+const vm558ReviewIdentityKeys = new Set(["DUNE", "WITCH", "WUBRG", "YORE"]);
+if (vm558ReviewMode) {
+  assert.ok(identityFilter, "VM-558 owner review requires --identity");
+  assert.ok(vm558ReviewIdentityKeys.has(identityFilter), `VM-558 owner review does not define ${identityFilter}`);
+  assert.ok(!caseFilter, "VM-558 owner review uses certified identity witnesses, not general review cases");
+}
 const model = JSON.parse(fs.readFileSync(path.join(root, "data", "gate-b1-placement-model.json"), "utf8"));
 const factions = JSON.parse(fs.readFileSync(path.join(root, "data", "factions.json"), "utf8")).factions;
+const cardVoiceCatalog = JSON.parse(fs.readFileSync(path.join(root, "data", "dossier", "card-voice-catalog.json"), "utf8"));
+const cardVoicePrintings = JSON.parse(fs.readFileSync(path.join(root, "data", "dossier", "card-voice-printings.source.json"), "utf8"));
+const cardRationaleCatalog = JSON.parse(fs.readFileSync(path.join(root, "data", "dossier", "card-rationale-catalog.json"), "utf8"));
+const scryfallFlavorIndex = JSON.parse(fs.readFileSync(path.join(root, "data", "scryfall", "indexes", "card-flavor-index.json"), "utf8"));
 const questions = Object.values(model.question_bank).flatMap((rows) => Array.isArray(rows) ? rows : []);
 const questionById = new Map(questions.map((question) => [question.id, question]));
 const mime = new Map([[".html", "text/html"], [".js", "text/javascript"], [".css", "text/css"], [".json", "application/json"], [".svg", "image/svg+xml"], [".png", "image/png"], [".jpg", "image/jpeg"], [".woff2", "font/woff2"]]);
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const transparentPng = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
+const vm558ArtFixtureDirectory = path.join(root, "docs", "audits", "vm558-card-voice-owner-review", "art-fixtures");
 const normalizeCopy = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const copyOverlap = (left, right) => {
   const leftTokens = new Set(normalizeCopy(left).split(" ").filter((token) => token.length > 2));
@@ -50,6 +64,95 @@ const copyOverlap = (left, right) => {
   const denominator = Math.min(leftTokens.size, rightTokens.size);
   return denominator ? [...leftTokens].filter((token) => rightTokens.has(token)).length / denominator : 0;
 };
+
+const normalizeCardName = (value) => String(value || "").normalize("NFKC").trim().replace(/\s+/g, " ").toLocaleLowerCase("en-US");
+const indexedCardByScryfallId = new Map((scryfallFlavorIndex.cards || []).map((card) => [card.scryfall_id, card]));
+const vm558PrintingIds = new Set(vm558ReviewMode
+  ? cardVoiceCatalog.records
+      .filter((record) => vm558ReviewIdentityKeys.has(record.identity_key))
+      .map((record) => record.card?.scryfall_id)
+      .filter(Boolean)
+  : []);
+const vm558RawCardByName = new Map();
+const vm558ArtFixtureByUrl = new Map();
+if (vm558ReviewMode) {
+  const rawCards = JSON.parse(fs.readFileSync(path.join(root, "data", "scryfall", "raw", "oracle-cards.json"), "utf8"));
+  for (const card of rawCards) {
+    if (!vm558PrintingIds.has(card.id)) continue;
+    vm558RawCardByName.set(normalizeCardName(card.name), card);
+    for (const face of card.card_faces || []) vm558RawCardByName.set(normalizeCardName(face.name), card);
+  }
+  assert.equal(vm558RawCardByName.size >= vm558PrintingIds.size, true, "Committed Scryfall records do not cover the VM-558 review cards");
+  const manifest = JSON.parse(fs.readFileSync(path.join(vm558ArtFixtureDirectory, "manifest.json"), "utf8"));
+  for (const record of manifest.records || []) {
+    assert.ok(vm558PrintingIds.has(record.scryfall_id), `Unexpected printing ${record.scryfall_id} in VM-558 art fixtures`);
+    for (const variant of Object.values(record.images || {})) {
+      const fixture = path.join(vm558ArtFixtureDirectory, variant.file);
+      const body = fs.readFileSync(fixture);
+      assert.equal(createHash("sha256").update(body).digest("hex"), variant.sha256, `VM-558 art fixture checksum drifted for ${variant.file}`);
+      vm558ArtFixtureByUrl.set(variant.source_url, body);
+    }
+  }
+  assert.equal(vm558ArtFixtureByUrl.size, vm558PrintingIds.size * 2, "VM-558 exact art fixture inventory is incomplete");
+}
+
+function vm558ReviewCards(identityKey) {
+  const records = cardVoiceCatalog.records
+    .filter((record) => record.identity_key === identityKey)
+    .sort((left, right) => Number(left.slot) - Number(right.slot));
+  assert.equal(records.length, 2, `${identityKey} must expose exactly two approved Sound cards for VM-558 review`);
+  assert.deepEqual(records.map((record) => record.slot), [1, 2], `${identityKey} VM-558 review slots drifted`);
+  return records.map((record) => {
+    const printing = cardVoicePrintings.records.find((candidate) => candidate.relationship_id === record.relationship_id);
+    assert.ok(printing, `${identityKey} ${record.card.name} lacks exact printing authority`);
+    assert.equal(printing.scryfall_id, record.card.scryfall_id, `${identityKey} ${record.card.name} printing id drifted`);
+    const indexed = indexedCardByScryfallId.get(printing.scryfall_id) || {};
+    const merged = {
+      ...indexed,
+      ...printing,
+      image_uris: { ...(indexed.image_uris || {}), ...(printing.image_uris || {}) },
+      card_faces: printing.card_faces?.length ? printing.card_faces : indexed.card_faces || [],
+    };
+    const tileImage = merged.image_uris?.art_crop || merged.image_uris?.normal || merged.card_faces?.[0]?.image_uris?.art_crop || merged.card_faces?.[0]?.image_uris?.normal || "";
+    const modalCard = vm558RawCardByName.get(normalizeCardName(record.card.name));
+    assert.ok(tileImage && vm558ArtFixtureByUrl.has(tileImage), `${identityKey} ${record.card.name} lacks exact review art`);
+    assert.equal(modalCard?.id, printing.scryfall_id, `${identityKey} ${record.card.name} lacks committed exact modal detail`);
+    return { record, printing, tileImage, modalCard };
+  });
+}
+
+function vm558ArtFixtureForUrl(url) {
+  return vm558ReviewMode ? vm558ArtFixtureByUrl.get(String(url)) || null : null;
+}
+
+function vm558YorePresentationFixture(result) {
+  assert.equal(result.result_state, "insufficient", "Yore bounded placement state drifted before presentation review");
+  assert.equal(result.faction, "UB", "Yore bounded witness direction drifted before presentation review");
+  const faction = factions.YORE;
+  const candidate = (result.internal_candidate_order || []).find((entry) => entry.identity === "YORE");
+  assert.ok(faction && candidate, "Yore presentation fixture cannot be grounded in the certified witness and faction record");
+  return {
+    ...result,
+    faction: "YORE",
+    faction_name: faction.name,
+    institution_type: faction.institution_type,
+    world: faction.world,
+    identity: faction.identity,
+    result_state: "primary",
+    public_confidence_state: "current-best-fit",
+    alternative_state: "none",
+    top_matches: [{ ...candidate, faction: "YORE", rank: 1 }],
+    adjacent_matches: [],
+    alternatives: [],
+    model_kind: "vm558-review-presentation-fixture",
+    vm558_review_context: {
+      purpose: "approved-card-voice-presentation-only",
+      placement_contract: "INTENTIONAL_BOUNDED_STATE",
+      source_result_state: result.result_state,
+      source_faction: result.faction,
+    },
+  };
+}
 
 function startServer() {
   const server = http.createServer(async (request, response) => {
@@ -94,18 +197,180 @@ async function clickTransitionIfVisible(page, expectedKind = "") {
   return true;
 }
 
+async function reviewVm558CardVoiceSurface(page, witness, cardArtState, consoleErrors) {
+  const expectedCards = vm558ReviewCards(witness.identity_key);
+  assert.equal(cardArtState.state, "not-requested", `${witness.identity_key} VM-558 review started the unrelated dossier-art resolver`);
+  assert.deepEqual(cardArtState.unavailable, [], `${witness.identity_key} VM-558 review inherited unrelated unavailable-art state`);
+
+  if (witness.identity_key === "YORE") {
+    const context = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null")?.vm558_review_context || null);
+    assert.deepEqual(context, {
+      purpose: "approved-card-voice-presentation-only",
+      placement_contract: "INTENTIONAL_BOUNDED_STATE",
+      source_result_state: "insufficient",
+      source_faction: "UB",
+    }, "Yore review fixture lost its bounded placement context");
+    await page.evaluate(() => {
+      const result = document.getElementById("result-inner");
+      if (!result || document.querySelector("[data-vm558-review-context]")) return;
+      const notice = document.createElement("div");
+      notice.dataset.vm558ReviewContext = "yore-presentation-only";
+      notice.setAttribute("role", "note");
+      notice.textContent = "VM-558 presentation fixture: Yore remains an intentionally bounded placement. This view opens only its approved card-voice dossier surface.";
+      Object.assign(notice.style, {
+        margin: "0 0 1rem",
+        padding: "0.8rem 1rem",
+        border: "1px solid rgba(214, 183, 104, 0.45)",
+        borderRadius: "0.7rem",
+        background: "rgba(12, 14, 18, 0.96)",
+        color: "#e5cf92",
+        font: "600 0.82rem/1.45 system-ui, sans-serif",
+      });
+      result.prepend(notice);
+    });
+  }
+
+  const voicePanel = await page.$eval("[data-card-voice-section]", (section) => section.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
+  if (voicePanel) {
+    const tab = await page.$(`[data-dossier-tab="${voicePanel}"]`);
+    if (tab) await tab.evaluate((button) => button.click());
+    await page.waitForFunction((panelId) => document.querySelector(`[data-dossier-panel="${panelId}"]`)?.hidden === false, {}, voicePanel);
+  }
+  await page.$eval("[data-card-voice-section]", (section) => section.scrollIntoView({ block: "start", inline: "nearest", behavior: "instant" }));
+  await page.waitForFunction(() => [...document.querySelectorAll("[data-card-voice-section] .vm-card-voice-image")]
+    .every((image) => image.complete && image.naturalWidth > 0), { timeout: 30000 });
+
+  const rendered = await page.evaluate(() => {
+    const cards = [...document.querySelectorAll("[data-card-voice-section] .vm-card-voice-card")];
+    const rect = (node) => {
+      const box = node.getBoundingClientRect();
+      return { top: box.top, left: box.left, right: box.right, bottom: box.bottom, width: box.width, height: box.height };
+    };
+    return {
+      identityKey: document.querySelector("[data-dossier-console]")?.getAttribute("data-dossier-identity-key") || "",
+      identityName: document.querySelector(".guild-name")?.textContent?.trim() || "",
+      notice: document.querySelector("[data-vm558-review-context]")?.textContent?.trim() || "",
+      cards: cards.map((card) => ({
+        name: card.querySelector(".flavor-echo-name")?.textContent?.trim() || "",
+        image: card.querySelector(".vm-card-voice-image")?.getAttribute("src") || "",
+        provenance: JSON.parse(card.getAttribute("data-card-voice-provenance") || "{}"),
+        rect: rect(card),
+      })),
+      grid: rect(document.querySelector("[data-card-voice-section] .flavor-echo-grid")),
+      documentOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      viewportWidth: window.innerWidth,
+    };
+  });
+  assert.equal(rendered.identityKey, witness.identity_key, `${witness.identity_key} review opened the wrong dossier focus`);
+  assert.deepEqual(rendered.cards.map((card) => card.name), expectedCards.map(({ record }) => record.card.name), `${witness.identity_key} approved card pair drifted`);
+  assert.deepEqual(rendered.cards.map((card) => card.provenance.printing_id), expectedCards.map(({ printing }) => printing.scryfall_id), `${witness.identity_key} exact printing provenance drifted`);
+  assert.deepEqual(rendered.cards.map((card) => card.image), expectedCards.map(({ tileImage }) => tileImage), `${witness.identity_key} exact card art drifted`);
+  assert.equal(rendered.documentOverflow, false, `${witness.identity_key} VM-558 review surface overflowed the viewport`);
+  assert.ok(rendered.grid.left >= -1 && rendered.grid.right <= rendered.viewportWidth + 1, `${witness.identity_key} card grid escaped the viewport`);
+  if (viewport.width <= 700) assert.ok(rendered.cards[1].rect.top > rendered.cards[0].rect.bottom - 1, `${witness.identity_key} mobile pair did not stack`);
+  else assert.ok(rendered.cards[1].rect.left > rendered.cards[0].rect.left && Math.abs(rendered.cards[1].rect.top - rendered.cards[0].rect.top) < 2, `${witness.identity_key} desktop pair did not form two complementary columns`);
+  if (witness.identity_key === "YORE") assert.match(rendered.notice, /intentionally bounded placement/i, "Yore presentation review did not disclose its bounded placement semantics");
+
+  const modalAudits = [];
+  for (let index = 0; index < expectedCards.length; index += 1) {
+    const triggers = await page.$$("[data-card-voice-section] .flavor-echo-image-trigger");
+    assert.equal(triggers.length, 2, `${witness.identity_key} card-voice modal triggers drifted`);
+    await triggers[index].evaluate((button) => button.click());
+    await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
+    const modal = await page.evaluate(() => ({
+      card: document.querySelector(".archscry-card-dialog[open] h2")?.textContent?.trim() || "",
+      image: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-image")?.getAttribute("src") || "",
+      context: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
+      contextKind: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context")?.getAttribute("data-card-identity-context") || "",
+      hasOracleBlock: Boolean(document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-rules")),
+    }));
+    const expected = expectedCards[index];
+    const modalImage = expected.modalCard.image_uris?.normal || expected.modalCard.card_faces?.[0]?.image_uris?.normal || "";
+    assert.ok(vm558ArtFixtureByUrl.has(modalImage), `${witness.identity_key} ${expected.record.card.name} lacks exact modal art fixture`);
+    assert.equal(modal.card, expected.modalCard.name, `${witness.identity_key} modal opened the wrong exact card`);
+    assert.equal(modal.image, modalImage, `${witness.identity_key} modal art drifted from the exact printing`);
+    assert.equal(modal.context, expected.record.modal_explanation, `${witness.identity_key} modal teaching explanation drifted`);
+    assert.equal(modal.contextKind, "voice", `${witness.identity_key} modal lost Sound-versus-Play isolation`);
+    assert.equal(modal.hasOracleBlock, false, `${witness.identity_key} voice modal repeated Oracle rules text`);
+    modalAudits.push(modal);
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
+    await delay(50);
+    assert.equal(await page.evaluate((triggerIndex) => document.activeElement === document.querySelectorAll("[data-card-voice-section] .flavor-echo-image-trigger")[triggerIndex], index), true, `${witness.identity_key} modal did not restore focus`);
+  }
+  const expectedPlayCardNames = {
+    DUNE: "Saskia the Unyielding",
+    WITCH: "Atraxa, Praetors' Voice",
+    WUBRG: "Ulalek, Fused Atrocity",
+    YORE: "Breya, Etherium Shaper",
+  };
+  const expectedPlayRecord = cardRationaleCatalog.records.find((record) => record.identity_key === witness.identity_key && record.card?.name === expectedPlayCardNames[witness.identity_key]);
+  assert.ok(expectedPlayRecord, `${witness.identity_key} lacks its expected approved play-card record`);
+  const playTrigger = await page.$(`[data-card-rationale-section] .flavor-echo-image-trigger[data-card-name="${expectedPlayRecord.card.name}"]`);
+  assert.ok(playTrigger, `${witness.identity_key} did not render ${expectedPlayRecord.card.name}`);
+  const playPanel = await playTrigger.evaluate((node) => node.closest("[data-dossier-panel]")?.getAttribute("data-dossier-panel") || "");
+  if (playPanel) {
+    const tab = await page.$(`[data-dossier-tab="${playPanel}"]`);
+    if (tab) await tab.evaluate((button) => button.click());
+    await page.waitForFunction((panelId) => document.querySelector(`[data-dossier-panel="${panelId}"]`)?.hidden === false, {}, playPanel);
+  }
+  const playTile = await playTrigger.evaluate((node) => node.closest(".flavor-echo-card")?.querySelector(".flavor-echo-why")?.textContent?.trim() || "");
+  await playTrigger.evaluate((button) => button.click());
+  await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
+  const playModal = await page.evaluate(() => ({
+    card: document.querySelector(".archscry-card-dialog[open] h2")?.textContent?.trim() || "",
+    context: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context span")?.textContent?.trim() || "",
+    contextKind: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context")?.getAttribute("data-card-identity-context") || "",
+    heading: document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-identity-context strong")?.textContent?.trim() || "",
+    hasOracleBlock: Boolean(document.querySelector(".archscry-card-dialog[open] .archscry-card-dialog-rules")),
+  }));
+  assert.equal(playModal.card, expectedPlayRecord.card.name, `${witness.identity_key} opened the wrong play card`);
+  assert.equal(playModal.context, expectedPlayRecord.modal_explanation, `${witness.identity_key} rendered stale play-modal copy`);
+  assert.equal(normalizeCopy(playModal.context).includes(normalizeCopy(playTile)), false, `${witness.identity_key} play modal retained the complete normalized tile rationale`);
+  assert.equal(playModal.contextKind, "play", `${witness.identity_key} play modal lost Sound-versus-Play isolation`);
+  assert.match(playModal.heading, /^Why .+ helps explain .+ in play$/);
+  assert.equal(playModal.hasOracleBlock, false, `${witness.identity_key} play modal repeated Oracle rules text`);
+  const rationaleModalAudit = { card: playModal.card, tile: playTile, context_heading: playModal.heading, context: playModal.context };
+  await page.keyboard.press("Escape");
+  await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
+  await delay(50);
+  assert.equal(await playTrigger.evaluate((node) => document.activeElement === node), true, `${witness.identity_key} play modal did not restore focus`);
+  await page.$eval("[data-card-voice-section]", (section) => section.scrollIntoView({ block: "start", inline: "nearest", behavior: "instant" }));
+  assert.deepEqual(consoleErrors.filter((message) => !/favicon|ERR_FAILED|Failed to load resource/i.test(message)), []);
+  return {
+    identity_key: witness.identity_key,
+    state: "vm558-owner-review",
+    guildName: rendered.identityName,
+    voiceCount: rendered.cards.length,
+    exactPrintingIds: rendered.cards.map((card) => card.provenance.printing_id),
+    modalAudits,
+    rationaleModalAudit,
+    boundedPlacementPreserved: witness.identity_key === "YORE",
+    documentOverflow: rendered.documentOverflow,
+    console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)),
+  };
+}
+
 async function replay(page, origin, witness) {
-  const preloadedResult = witness.preload_saved_result
-    ? withGateAPublicState({
-        result: finalizeReading({ state: replaySelections(model, witness.selections), model, factions }),
-        placementModel: model,
-        factions,
-      })
-    : null;
-  await page.evaluateOnNewDocument((enableDesktopHover, cachedResult, lockReviewInput) => {
+  const certifiedResult = withGateAPublicState({
+    result: finalizeReading({ state: replaySelections(model, witness.selections), model, factions }),
+    placementModel: model,
+    factions,
+  });
+  if (vm558ReviewMode && witness.identity_key !== "YORE") {
+    assert.equal(certifiedResult.faction, witness.identity_key, `${witness.identity_key} certified review witness no longer opens its identity`);
+    assert.ok(["primary", "close", "tied"].includes(certifiedResult.result_state), `${witness.identity_key} certified review witness is no longer named`);
+  }
+  const preloadedResult = vm558ReviewMode
+    ? witness.identity_key === "YORE" ? vm558YorePresentationFixture(certifiedResult) : certifiedResult
+    : witness.preload_saved_result
+      ? certifiedResult
+      : null;
+  await page.evaluateOnNewDocument((enableDesktopHover, cachedResult, lockReviewInput, disableAncillaryCardArt) => {
     localStorage.clear();
     sessionStorage.clear();
     if (cachedResult) sessionStorage.setItem("vm_last_result", JSON.stringify(cachedResult));
+    if (disableAncillaryCardArt) window.__vmVisualRegressionDisableCardArt = true;
     window.supabase = { createClient: () => ({ auth: { getSession: async () => ({ data: { session: null }, error: null }) } }) };
     if (lockReviewInput) {
       document.addEventListener("DOMContentLoaded", () => {
@@ -141,7 +406,7 @@ async function replay(page, origin, witness) {
         });
       };
     }
-  }, viewportName === "desktop", preloadedResult, reviewMode);
+  }, viewportName === "desktop", preloadedResult, reviewMode, vm558ReviewMode);
   const consoleErrors = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
   const initialFocus = String(witness.initial_focus_identity_key || "").trim();
@@ -216,6 +481,7 @@ async function replay(page, origin, witness) {
       .map((slot) => slot.getAttribute("data-card-art-name"))
       .filter(Boolean),
   }));
+  if (vm558ReviewMode) return reviewVm558CardVoiceSurface(page, witness, cardArtState, consoleErrors);
   let rationaleModalAudit = null;
   let voiceModalAudit = null;
   if (witness.expected_public_contract === "NAMED_DOSSIER") {
@@ -355,8 +621,7 @@ async function replay(page, origin, witness) {
     assert.equal(modalDetail.repeatedRationale, false, `${witness.identity_key} detail modal repeated the tile rationale as primary content`);
     assert.ok(modalDetail.identityContext, `${witness.identity_key} identity-linked detail modal omitted its approved identity context`);
     assert.match(modalDetail.identityContextHeading, /^Why .+ helps explain .+ in play$/);
-    assert.notEqual(normalizeCopy(modalDetail.identityContext), normalizeCopy(tileRationale), `${witness.identity_key} modal repeated its tile rationale verbatim`);
-    assert.ok(normalizeCopy(modalDetail.identityContext).length > normalizeCopy(tileRationale).length + 20, `${witness.identity_key} modal failed to add useful table context beyond its approved card relationship`);
+    assert.equal(normalizeCopy(modalDetail.identityContext).includes(normalizeCopy(tileRationale)), false, `${witness.identity_key} modal retained the complete normalized tile rationale`);
     assert.ok(modalDetail.rect && modalDetail.rect.left >= 0 && modalDetail.rect.top >= 0 && modalDetail.rect.right <= viewport.width && modalDetail.rect.bottom <= viewport.height, `${witness.identity_key} modal escaped the viewport`);
     assert.doesNotMatch(modalDetail.manaText, /\{[^}]+\}/, `${witness.identity_key} modal exposed raw mana notation`);
     rationaleModalAudit = {
@@ -604,7 +869,7 @@ const origin = `http://${host}:${address.port}`;
 let chrome;
 let browser;
 try {
-  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: [...(reviewMode ? [] : ["--headless=new"]), "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
+  chrome = await ChromeLauncher.launch({ chromePath: await browserPath(), chromeFlags: [...(!reviewMode || reviewCheckMode ? ["--headless=new"] : []), "--no-sandbox", "--disable-gpu"], logLevel: "silent" });
   browser = await puppeteer.connect({ browserURL: `http://${host}:${chrome.port}` });
   const rows = [];
   const failures = [];
@@ -616,13 +881,26 @@ try {
     page.on("request", (request) => {
       const url = request.url();
       if (url.startsWith(origin) || url.startsWith("data:") || url.startsWith("blob:")) request.continue();
+      else if (/^https:\/\/api\.scryfall\.com\/cards\/named(?:\?|$)/.test(url) && vm558ReviewMode) {
+        const parsed = new URL(url);
+        const requestedName = parsed.searchParams.get("exact") || parsed.searchParams.get("fuzzy") || "";
+        const card = vm558RawCardByName.get(normalizeCardName(requestedName));
+        if (card) request.respond({
+          status: 200,
+          contentType: "application/json",
+          headers: { "access-control-allow-origin": "*" },
+          body: Buffer.from(JSON.stringify(card)),
+        });
+        else request.abort();
+      }
       else if (/^https:\/\/api\.scryfall\.com\/cards\/named(?:\?|$)/.test(url) && reviewMode) request.continue();
+      else if (/^https:\/\/cards\.scryfall\.io\//.test(url) && vm558ArtFixtureForUrl(url)) request.respond({ status: 200, contentType: "image/jpeg", body: vm558ArtFixtureForUrl(url) });
       else if (/^https:\/\/cards\.scryfall\.io\//.test(url)) reviewMode ? request.continue() : request.respond({ status: 200, contentType: "image/png", body: transparentPng });
       else request.abort();
     });
     try {
       rows.push(await replay(page, origin, witness));
-      if (reviewMode) {
+      if (reviewMode && !reviewCheckMode) {
         await page.evaluate(() => document.getElementById("vm-review-preparing")?.remove());
         console.log(`Visual review ready for ${witness.case_id || witness.identity_key}. Press Enter in this terminal to close it.`);
         await new Promise((resolve) => process.stdin.once("data", resolve));

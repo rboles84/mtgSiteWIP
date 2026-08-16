@@ -5,11 +5,24 @@
   "type": "object",
   "required": ["schema_version", "source_path", "source_sha256", "generated_policy", "records"],
   "properties": {
-    "schema_version": { "const": "1.0.0" },
+    "schema_version": { "const": "1.1.0" },
     "source_path": { "const": "data/dossier/card-voice-relationships.source.json" },
     "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "generated_policy": { "type": "string", "minLength": 1 },
-    "records": { "type": "array", "minItems": 37, "maxItems": 37 }
+    "records": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 73,
+      "items": {
+        "type": "object",
+        "required": ["relationship_id", "identity_key", "slot", "pair_role", "card", "excerpt", "modal_explanation", "provenance"],
+        "properties": {
+          "slot": { "type": "integer", "minimum": 1, "maximum": 2 },
+          "pair_role": { "enum": ["ANCHOR", "COMPLEMENT"] }
+        },
+        "additionalProperties": true
+      }
+    }
   },
   "additionalProperties": false
 }
