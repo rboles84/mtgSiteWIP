@@ -1,0 +1,228 @@
+{
+  "schema_version": "vm562-proposal-source-v1",
+  "authority_notice": "Proposal-only owner-review material. Nothing in this file is APPROVED_PUBLIC or production authority.",
+  "vm561_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
+  "required_family_classes": [
+    "mono_color",
+    "ravnica_guild",
+    "strixhaven_college",
+    "three_color_identity",
+    "four_color_vox_mana",
+    "wubrg",
+    "colorless"
+  ],
+  "selections": [
+    {
+      "identity_key": "B",
+      "identity_display_name": "Black",
+      "identity_family": "mono_color",
+      "reason": "Tests a redundant Sound bridge and a generic Play modal against a strong mono-color evidence floor without selecting White because it was encountered first."
+    },
+    {
+      "identity_key": "UG",
+      "identity_display_name": "Simic Combine",
+      "identity_family": "ravnica_guild",
+      "reason": "Combines Sound echo with the explicit Play-tile-does-not-explain-play defect and preserves the Simic-versus-Quandrix boundary."
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "identity_display_name": "Lorehold College",
+      "identity_family": "strixhaven_college",
+      "reason": "Covers Sound redundancy, identity-local Play template reuse, and unsupported evaluative language while testing the college-versus-guild-twin boundary."
+    },
+    {
+      "identity_key": "SULTAI",
+      "identity_display_name": "Sultai Brood",
+      "identity_family": "three_color_identity",
+      "reason": "Carries the corpus's explicit player-facing research/process-language leak on an identity-specific three-color evidence route."
+    },
+    {
+      "identity_key": "INK",
+      "identity_display_name": "Ink / Altruism",
+      "identity_family": "four_color_vox_mana",
+      "reason": "Provides three unblocked synthesis-altitude rows and tests bounded four-color explanation without summing colors or treating the missing color as a personality proof."
+    },
+    {
+      "identity_key": "WUBRG",
+      "identity_display_name": "Five-Color / WUBRG",
+      "identity_family": "wubrg",
+      "reason": "Tests whether distinct traditions can remain present together without inventing a single universal Five-Color ideology."
+    },
+    {
+      "identity_key": "COLORLESS",
+      "identity_display_name": "Colorless",
+      "identity_family": "colorless",
+      "reason": "Tests whether Eldrazi and counter-engine examples remain branch-local instead of defining artifacts, Wastes, colorless mana, or Colorless as a whole."
+    }
+  ],
+  "manual_corpus_assessments": {
+    "repeated_grammatical_skeletons": "No new universal sentence scaffold is used. Sentence length and function vary with quotation analysis, card sequencing, resource choice, authority boundary, or branch distinction.",
+    "generic_identity_name_insertion": "Identity names appear only where they carry a boundary or supported facet; removing the card-specific evidence from any proposal would break the explanation.",
+    "cross_card_swapability": "Each proposed field depends on its row's exact flavor line or Oracle sequence. No proposal can move to another calibration card while preserving most of its meaning.",
+    "same_facet_clusters": [
+      "Black rows overlap B-F02 but separate a Sound bargain about sacrifice from K'rrik's repeated life-payment decisions.",
+      "Lorehold Play rows share F04-F09 but distinguish upkeep rummage plus miracle from an attack-triggered top-seven cast.",
+      "Ink rows share F01 but test three different bounded axes: open knowledge, protection as duty, and an asymmetric shared-resource trigger.",
+      "Colorless rows overlap F02/F03 but keep an Eldrazi flavor branch separate from a colorless counter-engine play example."
+    ],
+    "ngram_cluster_review": "Two repeated 4-grams remain and neither is a template: 'an instant or sorcery' is exact Magic rules vocabulary shared by two mechanically different Lorehold cards, while 'three other graveyard cards' repeats Kotis's exact additional cost so the modal can explain the preserve-versus-exile choice built on that cost. No repeated 5-gram remains.",
+    "rhetorical_device_review": "Colons appear in 10 of 28 resulting fields, but introduce materially different card-specific functions: bargain, reconstruction, discovery sequence, graveyard cost, quoted-word emphasis, duty, shared-resource choice, Eldrazi-scale joke, and counter growth. They do not form a repeated sentence skeleton. The sole em dash is part of the exact All Is Dust flavor attribution; no proposed explanatory sentence uses an em dash.",
+    "unchanged_shared_composer_note": "No selected resulting row retains the shared composer. Prime Speaker Zegana's modal is now replaced because final calibration QA evaluates the complete hypothetical tile-plus-modal pair, including fields previously left unchanged."
+  },
+  "proposals": [
+    {
+      "ledger_id": "SOUND-B-1-cardvoice_b_78725353_9274_420a_b722_add0f43c444e",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "The bargain is the Black part: knowledge is worth having, and sacrifice is an acceptable price for access to it.",
+      "reason_for_change": "Replace the modal's synonym-level restatement with the supported Black-specific judgment that sacrifice is an acceptable price for access to knowledge.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The exact flavor line supplies knowledge and sacrifice; B-F01 and B-F02 support Black's willingness to accept a real cost for a desired opportunity, distinct from secrecy or institutional debt.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-B-1-cardrel_auto_b_cbe3a4e7_5dbe_4f58_8ee6_a1762b65acfd",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "Each {B} in a cost becomes a choice between mana and two life. K'rrik asks how far you can spend your life total now and whether lifelink will earn enough of it back.",
+      "reason_for_change": "Replace the shared composer with the card's actual resource decision and its built-in route for recovering some of the life spent. The final wording tracks the Oracle phrase 'for each {B} in a cost' rather than generalizing to every black mana symbol.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "K'rrik's verified life-for-black-mana option and lifelink turn B-F02/B-F03 resource conversion into repeated play decisions about spending and recovering life.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-UG-1-cardvoice_ug_69fd4ddf_9ed8_4c56_bef3_9944daf05e4f",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "\"Directed\" is the key. The oracle is still a living thing, but the Simic treat nature as something they can study and deliberately improve.",
+      "reason_for_change": "Use one exact word from the line to explain managed biological improvement in natural player language, without narrating the underlying anti-drift comparison.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The flavor line explicitly joins nature, direction, thought, and progress; UG-F01 through UG-F03 authorize the narrower Simic bridge to managed biological improvement rather than generic Blue-Green intellect.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-UG-1-cardrel_ug_311e9368",
+      "proposed_tile_text": "Zegana measures your strongest other creature, enters with that many +1/+1 counters, then draws cards equal to her resulting power.",
+      "proposed_modal_text": "Casting Zegana too early leaves both halves small. Waiting until one of your other creatures has grown turns that earlier investment into a much larger Zegana and a deeper refill, so Simic improvement happens in stages rather than all at once.",
+      "reason_for_change": "Replace internal role evidence in the tile with the promised play sequence, then replace the surviving shared-composer modal because final QA evaluates the resulting pair rather than only newly proposed strings.",
+      "old_copy_tests_failed": ["BRIDGE", "MODAL_VALUE", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "Zegana's exact enters-with-counters and draw-equal-to-power rules make timing matter: an established large creature increases both her arrival size and the refill, turning prior biological growth into the next stage of Simic development.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-LOREHOLD-1-cardvoice_lorehold_d34a3b58_a905_4e90_b35c_9f5c21149b04",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "\"Reconstructing\" makes Lorehold's relationship with history hands-on: the past is something to restore and put back into the present, not something left sealed in an archive.",
+      "reason_for_change": "Replace a direct paraphrase with the supported distinction between Lorehold's active reconstruction and passive archival distance.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The exact word reconstructing supplies the card-side fact; LOREHOLD-F01 through F03 support restoring and actively using the past as the college-specific implication.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-LOREHOLD-1-cardrel_lorehold_61a41cf1",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "The play pattern is a series of discoveries: on each opponent's upkeep, you can trade away a card for a new first draw, and an instant or sorcery found that way can be cast for its {2} miracle cost.",
+      "reason_for_change": "Replace the identity-local shared modal with the exact discard, first-draw, and miracle sequence that makes this card's discovery theme playable.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "SWAP", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The upkeep rummage can create the first draw of that turn, while the card grants miracle {2} to instants and sorceries in hand; the sequence supplies a card-specific Lorehold discovery experience.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-LOREHOLD-3-cardrel_lorehold_43832745",
+      "proposed_tile_text": "When Velomachus attacks, it looks seven cards deep and can cast an instant or sorcery with mana value no greater than its power without paying that spell's mana cost.",
+      "proposed_modal_text": "Each attack searches seven cards deep for a spell Velomachus can put to work immediately. Its power sets the limit, so making the Dragon larger also expands what the next attack can uncover.",
+      "reason_for_change": "Keep the repaired tile, but replace deck-tech optimization detail with the card-specific attack, discovery, and immediate-use loop that teaches Lorehold through play.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "SWAP", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "Velomachus's attack trigger searches seven cards, its power sets the eligible spell ceiling, and the chosen spell is cast immediately; those verified details make Lorehold's active discovery/use facet a repeated combat experience.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-SULTAI-1-cardrel_auto_sultai_0177b410_b559_491f_b393_ac3ed774653c",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "Each creature you cast back costs three other graveyard cards, and the return puts two +1/+1 counters on Kotis. The choice is which dead card is worth saving and which three you are willing to exile to use it.",
+      "reason_for_change": "Remove leaked research language and replace it with the exact graveyard trade the player repeatedly makes.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "Kotis's verified additional exile cost and counter reward turn SULTAI-F01/F04/F05 ruthlessness and graveyard use into a specific preserve-versus-spend decision.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-INK-1-cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "The sting is in \"wasted\": knowledge that stays private has failed its purpose. Its value comes from reaching other people.",
+      "reason_for_change": "Keep the narrow open-knowledge implication while removing research-annotation language from the player-facing modal.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The exact flavor line calls unshared knowledge wasted; INK-F01 permits only the bounded Vox Mana interpretation of open knowledge and community benefit.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-INK-2-cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "The final sentence changes the voice from aspiration to duty: Danitha believes her family name obliges her to protect others even when love and endurance cost her.",
+      "reason_for_change": "Explain how the Capashen obligation deepens the line instead of repeating its list of commitments.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The flavor line explicitly binds protection, brave love, and endurance to Danitha's Capashen identity; INK-F01 supports only the bounded community-benefit-through-duty reading.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-INK-1-cardrel_auto_ink_53ee4254_fef7_49ec_aafc_0320987764e6",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "Their end step shares the choice but not the reward evenly: every player may develop a land or draw, while you draw regardless. Playing them means opening resources to the table without giving up your own return.",
+      "reason_for_change": "Replace abstract commons language with the exact asymmetric table choice created by the end-step trigger.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The controller always draws while every player may put in a land and each opponent who declines draws; INK-F01 supports a bounded shared-resource example without using the missing-color frame as personality proof.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-WUBRG-1-cardvoice_wubrg_3ceb23f5_abb1_4569_a1e4_1eed9a9babcf",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "Each clan keeps its own shape even when all five are present. Their coexistence gives Five-Color breadth without asking every tradition to become the same thing.",
+      "reason_for_change": "Express the supported positive Five-Color insight—distinct traditions present together—without reciting the universal-philosophy guardrail in player copy.",
+      "old_copy_tests_failed": ["ECHO", "MODAL_VALUE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The exact printing names plural re-formed clans and distinct embodiments; WUBRG-F01 through F04 permit several color traditions together but prohibit inventing one official or superior Five-Color doctrine.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "SOUND-COLORLESS-1-cardvoice_colorless_14693689_d087_43b6_9c3f_63ab0648fc20",
+      "proposed_tile_text": null,
+      "proposed_modal_text": "Javad's joke is specifically Eldrazi: the threat is so enormous that the only comfort left is whether you had a good life before it arrived. That fatalistic scale gives the line its Colorless voice.",
+      "reason_for_change": "Keep the verified Eldrazi-scale resignation while moving the wider branch taxonomy into the evidence note instead of the player-facing modal.",
+      "old_copy_tests_failed": ["BRIDGE", "FACET_COLLAPSE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "The flavor text verifies an Eldrazi-scale, mortality-facing joke; COLORLESS-F01 through F03 authorize only that branch-local interpretation and require artifacts, Wastes, {C} mana, and WUBRG to remain distinct.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    },
+    {
+      "ledger_id": "PLAY-COLORLESS-1-cardrel_auto_colorless_50676eba_a55a_4749_bb07_74a30e015781",
+      "proposed_tile_text": "Omarthis shows one way Colorless can support +1/+1 counter growth: it grows when another colorless creature receives counters, then manifests cards equal to its counters when it dies.",
+      "proposed_modal_text": "Choose X when you cast Omarthis, then let counter events on your other colorless creatures keep adding to it. Its size and its eventual manifest payout grow from the same accumulated counters, so one colorless counter system does both jobs.",
+      "reason_for_change": "Remove the internal word 'bounded' from the otherwise accepted tile, and replace the generic modal infrastructure list with the exact counter sequence and death payoff.",
+      "old_copy_tests_failed": ["MODAL_VALUE", "HUMAN_LANGUAGE"],
+      "proposed_copy_tests_passed": ["ACCURACY", "AUTHORITY", "BRIDGE", "ECHO", "DELETION", "SWAP", "MODAL_VALUE", "NEIGHBOR_ANTI_DRIFT", "OVERCLAIM", "HUMAN_LANGUAGE"],
+      "proposal_bridge": "Omarthis enters with chosen counters, gains one when another colorless creature receives counters, and manifests according to its counters on death; COLORLESS-F02/F03 permit this counter-engine example without generalizing to all Colorless branches.",
+      "modal_content_model_review": false,
+      "owner_decision": "PENDING_OWNER_REVIEW"
+    }
+  ]
+}
