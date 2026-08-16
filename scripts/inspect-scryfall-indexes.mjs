@@ -1,6 +1,14 @@
 import { readFile, stat } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  ARCHSCRY_MEDIA_INDEX_FILE,
+  ARCHSCRY_MEDIA_MANIFEST_FILE,
+  ARCHSCRY_MEDIA_UNRESOLVED_FILE,
+  deriveArchscryAuthoredMediaInventory,
+  sha256File,
+  validateArchscryMediaArtifacts,
+} from "./archscry-media-projection-core.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const INDEX_DIR = join(ROOT, "data", "scryfall", "indexes");
@@ -11,6 +19,9 @@ const REQUIRED_INDEXES = [
   "commander-index.json",
   "color-theme-index.json",
   "mechanic-theme-index.json",
+  ARCHSCRY_MEDIA_INDEX_FILE,
+  ARCHSCRY_MEDIA_MANIFEST_FILE,
+  ARCHSCRY_MEDIA_UNRESOLVED_FILE,
   "scryfall-index-manifest.json"
 ];
 
@@ -91,6 +102,25 @@ for (const file of REQUIRED_INDEXES) {
   } catch (error) {
     errors.push(`Could not inspect ${file}: ${error.message}`);
   }
+}
+
+try {
+  const [inventory, rawBulkSha256, rawManifest] = await Promise.all([
+    deriveArchscryAuthoredMediaInventory(ROOT),
+    sha256File(RAW_CARDS_PATH),
+    readJson(RAW_MANIFEST_PATH, "bulk-manifest.json"),
+  ]);
+  errors.push(...validateArchscryMediaArtifacts({
+    index: indexes[ARCHSCRY_MEDIA_INDEX_FILE],
+    manifest: indexes[ARCHSCRY_MEDIA_MANIFEST_FILE],
+    unresolvedReport: indexes[ARCHSCRY_MEDIA_UNRESOLVED_FILE],
+    inventory,
+    rawBulkSha256,
+    rawManifest,
+  }));
+  console.log(`Archscry governed media: ${indexes[ARCHSCRY_MEDIA_INDEX_FILE]?.records?.length || 0} unique records / ${inventory.occurrences.length} occurrences`);
+} catch (error) {
+  errors.push(`Archscry governed media validation failed: ${error.message}`);
 }
 
 try {

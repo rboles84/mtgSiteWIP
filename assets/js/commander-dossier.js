@@ -1291,6 +1291,20 @@ function basicLandGuidance(colors = []) {
   return `Tune ${basics.join(" and ")} to your early pips after the nonbasic shell, ramp package, and utility lands are chosen.`;
 }
 
+export function buildBasicLandCards(colors = []) {
+  const basicNames = {
+    W: "Plains",
+    U: "Island",
+    B: "Swamp",
+    R: "Mountain",
+    G: "Forest",
+  };
+  const cards = (Array.isArray(colors) ? colors : String(colors || "").split(""))
+    .map((color) => basicNames[String(color || "").toUpperCase()])
+    .filter(Boolean);
+  return cards.length ? cards : ["Wastes"];
+}
+
 export function buildCommanderLandRecommendations(faction) {
   const landBase = faction?.land_base || {};
   const suppressedQuantities = [];
@@ -2403,7 +2417,7 @@ function activeMatchForResult(result, activeKey) {
   );
 }
 
-function buildStarterCards(faction) {
+export function buildCommanderStarterCards(faction) {
   return {
     creatures: uniqueByDisplayName(faction?.staples?.creatures || []),
     spells: uniqueByDisplayName(faction?.staples?.spells || []),
@@ -3067,7 +3081,7 @@ export function buildCommanderDossier({
   });
   const packageLinks = buildCommanderPackageLinks(faction);
   const commanderStartLinks = buildCommanderDirectoryLinks(faction);
-  const starterCards = buildStarterCards(faction);
+  const starterCards = buildCommanderStarterCards(faction);
   const auditContract = buildDossierAuditSectionContract({
     faction,
     starterCards,

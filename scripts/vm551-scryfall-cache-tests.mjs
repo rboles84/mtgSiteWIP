@@ -5,9 +5,14 @@ import {
   SCRYFALL_NAMED_CACHE_KEY,
   SCRYFALL_NEGATIVE_TTL_MS,
   SCRYFALL_SUCCESS_TTL_MS,
-  createScryfallNamedCardLookup,
+  createScryfallNamedCardLookup as createRawScryfallNamedCardLookup,
   mergeScryfallCardRecords,
 } from "../assets/js/scryfall-card-cache.js";
+
+const createScryfallNamedCardLookup = (options = {}) => createRawScryfallNamedCardLookup({
+  wait: async () => {},
+  ...options,
+});
 
 class MemoryStorage {
   #values = new Map();
@@ -106,17 +111,17 @@ const backoffLookup = createScryfallNamedCardLookup({
 });
 assert.equal(await backoffLookup.lookup("Exotic Orchard"), null);
 assert.equal(await backoffLookup.lookup("Myriad Landscape"), null);
-assert.equal(rateLimitCalls, 1, "A 429 must prevent an immediate retry storm across card names.");
+assert.equal(rateLimitCalls, 2, "A 429 may receive one bounded retry before opening shared backoff.");
 const backoffReload = createScryfallNamedCardLookup({
   storage: backoffStorage,
   now,
   fetchImpl: async () => { rateLimitCalls += 1; return response(429); },
 });
 assert.equal(await backoffReload.lookup("Command Tower"), null);
-assert.equal(rateLimitCalls, 1, "The 429 backoff must survive reloads.");
+assert.equal(rateLimitCalls, 2, "The 429 backoff must survive reloads.");
 clock += SCRYFALL_BACKOFF_TTL_MS + 1;
 await backoffReload.lookup("Command Tower");
-assert.equal(rateLimitCalls, 2, "The temporary backoff must expire.");
+assert.equal(rateLimitCalls, 4, "The temporary backoff must expire and again permit one bounded retry.");
 
 const expiredStorage = new MemoryStorage();
 let expiryCalls = 0;
@@ -209,7 +214,7 @@ const fallbackDetailLookup = createScryfallNamedCardLookup({
   },
 });
 const fallbackDetail = await fallbackDetailLookup.lookup("Undetailed Local Card", { requireDetails: true });
-assert.equal(fallbackCalls, 1);
+assert.equal(fallbackCalls, 2, "A transient enrichment failure receives one isolated retry.");
 assert.equal(fallbackDetail.type_line, "Creature — Test", "A failed enrichment may still return the verified local facts without generated copy.");
 
 const flavorStorage = new MemoryStorage();
@@ -277,7 +282,7 @@ const malformedLookup = createScryfallNamedCardLookup({
 });
 assert.equal(await malformedLookup.lookup("Malformed without locators"), null);
 assert.equal(await malformedLookup.lookup("Malformed without locators"), null);
-assert.equal(malformedCalls, 1, "A malformed response must not retry repeatedly during one page instance.");
+assert.equal(malformedCalls, 2, "Malformed responses remain retryable and are not cached as authoritative misses.");
 assert.deepEqual(malformedLookup.inspect().records, {});
 const malformedReload = createScryfallNamedCardLookup({
   storage: malformedStorage,
@@ -285,7 +290,7 @@ const malformedReload = createScryfallNamedCardLookup({
   fetchImpl: async () => { malformedCalls += 1; return response(200, { name: "Malformed without locators" }); },
 });
 assert.equal(await malformedReload.lookup("Malformed without locators"), null);
-assert.equal(malformedCalls, 2, "Malformed responses must not enter persistent cache; a later reload may recover.");
+assert.equal(malformedCalls, 3, "Malformed responses must not enter persistent cache; a later reload may recover.");
 
 const boundedStorage = new MemoryStorage();
 const boundedLookup = createScryfallNamedCardLookup({

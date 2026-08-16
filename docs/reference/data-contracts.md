@@ -135,6 +135,22 @@ The dossier presenter layer decides `nativeExact`, `otherExact`, and `stretch` l
 
 Newly surfaced or newly written rationale remains `REVIEW_REQUIRED` until an explicit owner decision is recorded in the source record. Runtime ordering is deterministic and limited to three approved records per identity; zero is valid and causes the section to omit safely.
 
+## Archscry governed card-media projection
+
+VM-559 adds a generated projection for every card occurrence already authored into the production Archscry dossier. The projection is a resolver artifact, not card-selection authority:
+
+- dossier/faction sources continue to own identity, surface, tier/segment, position, raw card name, and order;
+- committed Scryfall Oracle bulk data owns canonical card facts and image locators;
+- `scripts/archscry-media-projection-core.mjs` derives inventory from the same structured renderer inputs and resolves each normalized key to one Oracle identity and one exact bulk-selected printing;
+- `scripts/build-scryfall-indexes.mjs` emits `archscry-media-index.json`, `archscry-media-manifest.json`, and the zero-record `archscry-media-unresolved.json` report;
+- `scripts/inspect-scryfall-indexes.mjs` and `npm run test:vm559-media-projection` fail stale, malformed, incomplete, unresolved, or selection-drifted artifacts.
+
+The authored inventory checksum contains identity, surface, segment/tier, position, explicit order, raw authored name, and normalized resolver key. It deliberately excludes Scryfall IDs so authored-content preservation and canonical-resolution correctness remain separate proofs. The manifest also pins the projection schema, Scryfall bulk identity and checksum, generated index checksum, occurrence/unique counts, and resolved/unresolved totals.
+
+Ordinary regeneration must preserve each existing Oracle ID, exact Scryfall object, layout/face association, and ordered image candidates. `--accept-selection-drift` requires explicit owner-authorization evidence and is not an agent remediation path. Identical authored data, resolver rules, and Scryfall bulk input must produce byte-identical governed artifacts.
+
+At runtime, governed authored slots use `authored_projection` resolution and may not call `api.scryfall.com`. Explicitly dynamic consumers may use `dynamic_fallback`, which remains paced, deduplicated, retry-bounded, and circuit-breaker protected. `cards.scryfall.io` remains the permitted external image-delivery dependency; VM-559 does not host bitmap copies or guarantee delivery during a Scryfall image-CDN outage.
+
 ## Adaptive placement model
 
 `data/placement-model.json` contains:

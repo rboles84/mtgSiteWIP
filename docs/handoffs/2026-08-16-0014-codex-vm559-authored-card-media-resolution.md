@@ -1,0 +1,112 @@
+# VM-559 Archscry Authored-Card Media Resolution Handoff
+
+## Agent name
+
+Codex
+
+## Task requested
+
+Implement VM-559 as the systemic Archscry authored-card media reliability repair after VM-558 owner acceptance/integration: deterministic governed projection, projection-only runtime resolution, isolated image delivery, lazy visible-surface hydration, identity-specific Card Signals headings, focused all-identity/mobile QA, documentation, and owner-review handoff.
+
+## Files reviewed
+
+- `docs/handoffs/HANDOFF_INDEX.md` and the VM-551/VM-558 handoffs
+- `docs/kanban/board.md`, completed VM-558 card, and related VM-551 cards/audits
+- `docs/dev/RobDevPass.md`, `docs/qa/RobQAPass.md`, and `docs/reference/data-contracts.md`
+- Archscry renderer, dossier producer, Scryfall cache/producer/inspector, and existing cache/UI replay tests
+- Structured faction, Matrix, Sound, Play, precon, and Scryfall bulk/index inputs
+
+## Files changed
+
+- Runtime: `assets/css/archscry.css`, `assets/js/commander-dossier.js`, `assets/js/index.js`, `assets/js/scryfall-card-cache.js`
+- Generated media: `data/scryfall/indexes/archscry-media-index.json`, `archscry-media-manifest.json`, `archscry-media-unresolved.json`, and `scryfall-index-manifest.json`
+- Producer/validation: `scripts/archscry-media-projection-core.mjs`, `build-scryfall-indexes.mjs`, `inspect-scryfall-indexes.mjs`, `vm551-scryfall-cache-tests.mjs`, and three `vm559-*` test/replay scripts
+- Workflow/docs: `package.json`, `docs/reference/data-contracts.md`, VM-559 card/board, this handoff, and `docs/handoffs/HANDOFF_INDEX.md`
+
+## What changed
+
+- Derived one deterministic governed inventory from the same structured data/functions used by production rendering. Current truth is 1,178 occurrences / 572 unique keys / 37 identities: Matrix 111, Sound 73, Play 50, commander 101, Card Signals 283, Mana Notes 560.
+- Extended the existing Scryfall generator with committed projection, manifest, unresolved report, exact selection baseline, stale/checksum validation, byte-stable `--check`, and owner-gated selection-drift reporting.
+- Added canonical/printing/layout/face/candidate metadata and deterministic aliases needed by current authored names.
+- Added `authored_projection` and `dynamic_fallback` policies with explicit `resolved`, `projection_missing`, `not_found`, `deferred`, and `transient_error` outcomes.
+- Added paced/deduplicated/bounded dynamic fallback and stale-generation suppression; governed media never uses it.
+- Changed governed dossier art to visible panel/active-tier hydration, successful revisit reuse, retryable transient delivery, and slot-local ordered candidate fallback.
+- Changed Card Signals headings to normalized player-facing identity labels such as `Mardu Card Signals`, `Glint Card Signals`, `Lorehold Card Signals`, and `WUBRG Card Signals`.
+- Preserved precon display labels while using their classified canonical card proxy for image/detail resolution.
+
+## Why it changed
+
+The repository already contained art locators, but most historical Mana Notes and many Card Signals depended on live Scryfall name lookup. Rate limits, transient API failures, cache state, and fuzzy punctuation matching therefore appeared as widespread `Image unavailable` tiles. RobDevPass places the repair at the earliest authorized producer/resolver layer instead of individual Mardu/Glint content.
+
+## RobDevPass implementation packet
+
+- Product outcome: authored dossier cards no longer depend on runtime name lookup; headings use identity labels.
+- Owning authority: dossier/faction sources own choice/tier/order; committed Scryfall bulk owns canonical facts; the projection owns no semantics.
+- Changed behavior: projection/freshness, resolver policy/states, hydration, candidate delivery, headings.
+- Protected behavior: placement, scoring, qualification, result states, identity meaning, Matrix association, selected cards, tiers/order, VM-558 Sound/Play, card-detail meaning.
+- Consumers: renderer, shared card detail, cache, generator/inspector, replay, deployment validation.
+- Smallest complete fix: one projection, one resolver, visible hydration, slot-local delivery, exact headings, deterministic validation.
+- Non-goals: no content/ranking change, placement reopening, local bitmap archive, service worker, proxy, database, or parallel media subsystem.
+- Stop conditions: selection/authority/image-hosting/Scryfall-policy changes or unexpected selection drift without owner authorization.
+
+## Decisions made
+
+- Historical 406 unique / 469 Mana Notes / 37 Sound figures remain evidence, not invariants; VM-558-integrated structured truth controls generation.
+- Governed misses fail closed and never call the API. Only explicit dynamic consumers retain fallback.
+- `cards.scryfall.io` remains permitted; CDN failure yields retryable media state, not missing card metadata.
+- `--accept-selection-drift` requires owner-authorization evidence and is not an ordinary remediation path.
+- RobQAPass is QA-5 for integration/deployment because the shared artifact and published exact SHA must be verified; implementation tests remain focused on changed risk.
+
+## Risks / uncertainties
+
+- Image binaries are not vendored; Scryfall image-CDN outages remain an explicit external limitation.
+- Owner acceptance is not claimed. No merge/deployment/closeout is authorized yet.
+- Yore's machine replay uses the existing presentation-only fixture because its certified natural witness remains intentionally bounded; production placement is unchanged.
+- Production verification must rerun against the published exact SHA with cache bypass and API lookup blocked.
+
+## Tests run
+
+- `npm.cmd run test:vm559-media-projection` — PASS; zero unresolved, aliases/regressions/multiface, byte stability, drift stop/authorization guard.
+- `npm.cmd run scryfall:index:check` twice — PASS; byte-identical committed artifacts.
+- `npm.cmd run scryfall:inspect` — PASS; 572 unique / 1,178 occurrences.
+- `npm.cmd run test:vm559-resolution` and `node scripts/vm551-scryfall-cache-tests.mjs` — PASS.
+- `npm.cmd run test:vm559-ui` — PASS; 37 identities at 1440px, all panels/tiers, View All/revisit/modal, zero API/misses/unavailable/retryable/invalid images/overflow.
+- `npm.cmd run test:vm559-mobile` — PASS; Mardu, Glint, Azorius at 390px.
+- `npm.cmd run test:vm559-delivery-failure` — PASS; forced Swamp candidate exhaustion remained slot-local and retryable, retried exactly once on later activation, and did not become `not_found` or poison other slots.
+- `npm.cmd run test:vm551-dossier-integrity`, `test:frontend-smoke`, `validate:source-generated`, `lint:js`, and `lint:html` — PASS; source-generated retained two existing model-owned warnings.
+- `node --check` on changed modules — PASS.
+- In-app rendered review — PASS for Mardu Card Signals and Mana Notes Basics including Swamp; no unavailable tile or layout defect.
+
+## RobQAPass readiness
+
+- Changed behavior and protected contracts are named above.
+- Deterministic agent evidence covers producer/check mode, resolver states, all-37 desktop, focused mobile, failure isolation, request suppression, and rendered UI.
+- Owner package: Mardu, Glint, and one ordinary identity; desktop/mobile; one tier switch; View All; one card detail; heading/readability/order judgment.
+- Deployment gate: exact accepted SHA only, published-SHA verification, blocked API/permitted CDN, no closeout before production replay.
+
+## Not touched
+
+- Placement/scoring/question/evidence/qualification logic
+- Identity authority, faction semantics, Matrix associations, card choices, tier membership, or ordering
+- VM-551/VM-558 authored approval decisions
+- Local image hosting, service worker, proxy, backend, database, or public route/storage APIs
+- `main`, GitHub Pages, production deployment, or certification
+
+## Follow-up recommendations
+
+1. Owner performs the short Mardu/Glint/ordinary identity review.
+2. If accepted, integrate the exact tested SHA, push, and wait for GitHub Pages.
+3. Run the cache-bypassed production all-37 replay with API blocked and CDN allowed.
+4. Record deployed SHA/evidence/CDN limitation, move VM-559 to done, and update card/handoff/index.
+
+## Next suggested agent
+
+Codex continuing the same VM-559 branch after owner acceptance; do not create another worktree or branch.
+
+## Related Kanban card, docs, or plans
+
+- `docs/kanban/in-progress/VM-559-archscry-authored-card-media-resolution.md`
+- `docs/dev/RobDevPass.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reference/data-contracts.md`
+- VM-558 completion handoff/card

@@ -17,6 +17,7 @@ import {
 } from "./archscry-question-presentation.js";
 import {
   buildCommanderDossier,
+  buildBasicLandCards,
   buildPreconRecommendations,
   createArchidektTagCatalog,
   getExternalDeckRoutingAlias,
@@ -122,6 +123,10 @@ const APP_STATE = {
   scryfallLocalCardByName: new Map(),
   scryfallColorThemeIndex: null,
   scryfallMechanicThemeIndex: null,
+  archscryMediaIndex: null,
+  archscryAuthoredCardByName: new Map(),
+  resultCardArtContext: null,
+  resultCardArtGeneration: 0,
   previousViewKey: null,
   mazeReturnUrl: "",
   mazeReturnAnchor: "",
@@ -393,6 +398,7 @@ async function loadDiscoveryData() {
     commanderIndex,
     colorThemeIndex,
     mechanicThemeIndex,
+    archscryMediaIndex,
   ] = await Promise.all([
     loadOptionalJson(resolveDataUrl("taxonomy/vox-mana-tags.json"), "tag taxonomy"),
     loadOptionalJson(resolveDataUrl("archscry-flavor-snippets.json"), "Archscry flavor snippets"),
@@ -406,6 +412,7 @@ async function loadDiscoveryData() {
     loadOptionalJson(resolveDataUrl("scryfall/indexes/commander-index.json"), "Scryfall commander index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/color-theme-index.json"), "Scryfall color theme index"),
     loadOptionalJson(resolveDataUrl("scryfall/indexes/mechanic-theme-index.json"), "Scryfall mechanic theme index"),
+    loadOptionalJson(resolveDataUrl("scryfall/indexes/archscry-media-index.json"), "Archscry governed media projection"),
   ]);
 
   APP_STATE.tagTaxonomy = taxonomy;
@@ -420,6 +427,8 @@ async function loadDiscoveryData() {
   APP_STATE.scryfallCommanderIndex = commanderIndex;
   APP_STATE.scryfallColorThemeIndex = colorThemeIndex;
   APP_STATE.scryfallMechanicThemeIndex = mechanicThemeIndex;
+  APP_STATE.archscryMediaIndex = archscryMediaIndex;
+  APP_STATE.archscryAuthoredCardByName = buildArchscryAuthoredCardLookup(archscryMediaIndex);
   APP_STATE.scryfallCommanderByName = new Map(
     (commanderIndex?.commanders || []).map((card) => [normalizeCardName(card.name), card])
   );
@@ -442,6 +451,9 @@ async function loadDiscoveryData() {
       scryfall_uri: record.scryfall_uri,
     })),
   ]);
+  for (const [key, card] of APP_STATE.archscryAuthoredCardByName) {
+    APP_STATE.scryfallLocalCardByName.set(key, mergeScryfallCardRecords(card, APP_STATE.scryfallLocalCardByName.get(key)));
+  }
 }
 
 function buildLocalScryfallCardLookup(indexes = []) {
@@ -467,6 +479,44 @@ function buildLocalScryfallCardLookup(indexes = []) {
     pending.push(...Object.values(value).filter((entry) => entry && typeof entry === "object"));
   }
   return byName;
+}
+
+function buildArchscryAuthoredCardLookup(index) {
+  const byName = new Map();
+  for (const record of index?.records || []) {
+    const card = {
+      name: record.canonical_name,
+      id: record.scryfall_id,
+      scryfall_id: record.scryfall_id,
+      oracle_id: record.oracle_id,
+      layout: record.layout,
+      selected_face_name: record.selected_face_name || "",
+      type_line: record.type_line || "",
+      mana_cost: record.mana_cost || "",
+      oracle_excerpt: record.oracle_excerpt || "",
+      color_identity: record.color_identity || [],
+      legalities: record.legalities || {},
+      scryfall_uri: record.scryfall_uri || "",
+      image_uris: record.image_uris || {},
+      card_faces: record.card_faces || [],
+      image_candidates: record.image_candidates || [],
+      resolver_key: record.resolver_key,
+      governed_authored_media: true,
+    };
+    for (const name of [record.canonical_name, ...(record.raw_authored_names || [])]) {
+      const key = normalizeCardName(name);
+      if (key) byName.set(key, card);
+    }
+    if (record.resolver_key) byName.set(record.resolver_key, card);
+  }
+  return byName;
+}
+
+function playerFacingIdentityDisplayLabel(faction = {}) {
+  const expressionKind = String(faction.identity?.expression_kind || "").toLowerCase();
+  if (String(faction.key || "").toUpperCase() === "WUBRG") return "WUBRG";
+  if (expressionKind === "college") return String(faction.name || "").replace(/\s+College$/i, "").trim();
+  return String(faction.identity?.routing?.label || faction.name || faction.key || "").trim();
 }
 
 /**
@@ -704,20 +754,6 @@ function buildSummaryTagRowHtml(tags = []) {
     <div class="dossier-snapshot-tags" data-summary-tags-row>
       ${tags.map((tag) => `<span class="dossier-snapshot-tag">${escapeHtml(tag)}</span>`).join("")}
     </div>`;
-}
-
-function basicLandCardsForColors(colors) {
-  const basicNames = {
-    W: "Plains",
-    U: "Island",
-    B: "Swamp",
-    R: "Mountain",
-    G: "Forest",
-  };
-  const cards = (Array.isArray(colors) ? colors : String(colors || "").split(""))
-    .map((color) => basicNames[color.toUpperCase()])
-    .filter(Boolean);
-  return cards.length ? cards : ["Wastes"];
 }
 
 function normalizedNarrativeWords(value) {
@@ -1638,7 +1674,7 @@ export function buildDossierRenderState({
     starterCardSegments,
     hasStarterCardReferences: starterCardSegments.length > 0,
     basicLandCopy: basicLandGuidanceCopy(colors),
-    basicLandCards: basicLandCardsForColors(colors),
+    basicLandCards: buildBasicLandCards(colors),
   };
 }
 
@@ -2535,6 +2571,7 @@ function setDossierSegment(group, segment) {
   const segments = availableDossierSegments(group);
   APP_STATE.dossierSegments[group] = normalizeDossierSegment(group, segment, segments);
   applyDossierSegmentState(group);
+  void hydrateVisibleResultCardArt();
 }
 
 function applyDossierConsoleState() {
@@ -2709,6 +2746,7 @@ function setDossierPanel(panelId, { updateUrl = true } = {}) {
     updateDossierUrlState();
   }
   initializeDossierRadarIfVisible();
+  void hydrateVisibleResultCardArt();
 }
 
 function setDossierLayoutMode(layoutMode, { updateUrl = true } = {}) {
@@ -2720,6 +2758,7 @@ function setDossierLayoutMode(layoutMode, { updateUrl = true } = {}) {
     updateDossierUrlState();
   }
   initializeDossierRadarIfVisible();
+  void hydrateVisibleResultCardArt();
 }
 
 function isDossierRadarMeasurable() {
@@ -4043,7 +4082,7 @@ function renderResult(viewKey) {
   };
   const starterCardsPanelHtml = hasStarterCardReferences ? `
     <div class="staples-section">
-      <div class="section-label">${institutionLabel} Card Signal References</div>
+      <div class="section-label">${escapeHtml(playerFacingIdentityDisplayLabel(faction))} Card Signals</div>
       ${buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Card signal groups")}
       ${starterCardSegments.map((segment) =>
         buildSegmentPanelHtml("starter-cards", segment.id, starterSegment, starterCardPanelContent[segment.id])
@@ -4172,16 +4211,16 @@ function renderResult(viewKey) {
   updateTopbar();
   void refreshAccountDeckLinks();
   initializeDossierRadarIfVisible(result, faction);
-  if (!shouldDisableResultCardArt()) {
-    if (resultInner) resultInner.dataset.cardArtState = "loading";
-    void loadResultCardArt(faction, commanderPreviewCandidates, renderableStarterCards, { ...landRecommendations, basics: basicLandCards }, matrixFlavorSnippets)
-      .then(() => {
-        if (resultInner?.isConnected) resultInner.dataset.cardArtState = "ready";
-      })
-      .catch(() => {
-        if (resultInner?.isConnected) resultInner.dataset.cardArtState = "failed";
-      });
-  }
+  APP_STATE.resultCardArtGeneration += 1;
+  APP_STATE.resultCardArtContext = {
+    generation: APP_STATE.resultCardArtGeneration,
+    faction,
+    commanderCandidates: commanderPreviewCandidates,
+    starterCards: renderableStarterCards,
+    landRecommendations: { ...landRecommendations, basics: basicLandCards },
+    matrixFlavorSnippets,
+  };
+  if (!shouldDisableResultCardArt()) void hydrateVisibleResultCardArt();
 }
 
 /**
@@ -4238,19 +4277,72 @@ function resultArtCandidate(name, id, imageClass) {
 function renderUnavailableCardArt(slot) {
   if (!slot) return;
   slot.classList.add("is-unavailable");
+  slot.dataset.cardArtStatus = "not_found";
   slot.setAttribute("aria-label", "Card image unavailable");
   slot.innerHTML = '<span aria-hidden="true">Image unavailable</span>';
 }
 
-async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}, matrixFlavorSnippets = []) {
+function renderRetryableCardArt(slot) {
+  if (!slot) return;
+  slot.classList.remove("is-unavailable");
+  slot.classList.add("is-retryable");
+  slot.dataset.cardArtStatus = "transient_error";
+  slot.setAttribute("aria-label", "Card image temporarily unavailable");
+  slot.innerHTML = '<span aria-hidden="true">Image temporarily unavailable</span>';
+}
+
+function isResultArtSlotVisible(slot) {
+  if (!slot?.isConnected) return false;
+  for (let node = slot; node instanceof HTMLElement; node = node.parentElement) {
+    if (node.hidden && !node.matches("[data-commander-preview-block]")) return false;
+  }
+  return true;
+}
+
+function orderedImageCandidates(card = {}) {
+  const candidates = Array.isArray(card.image_candidates)
+    ? card.image_candidates.map((candidate) => candidate?.url).filter(Boolean)
+    : [];
+  const fallback = [
+    card.image_uris?.normal,
+    card.card_faces?.[0]?.image_uris?.normal,
+    card.image_uris?.art_crop,
+    card.card_faces?.[0]?.image_uris?.art_crop,
+    card.image_uris?.small,
+    card.card_faces?.[0]?.image_uris?.small,
+  ].filter(Boolean);
+  return [...new Set([...candidates, ...fallback])].filter((url) => /^https:\/\/cards\.scryfall\.io\//i.test(url));
+}
+
+function installSlotLocalImageDelivery(slot, image, candidates) {
+  let candidateIndex = 0;
+  slot.dataset.cardArtStatus = "delivery_pending";
+  const loadCandidate = () => {
+    image.src = candidates[candidateIndex];
+  };
+  image.addEventListener("load", () => {
+    slot.classList.remove("is-retryable", "is-unavailable");
+    slot.dataset.cardArtStatus = "resolved";
+  });
+  image.addEventListener("error", () => {
+    candidateIndex += 1;
+    if (candidateIndex < candidates.length) {
+      loadCandidate();
+      return;
+    }
+    renderRetryableCardArt(slot);
+  });
+  loadCandidate();
+}
+
+async function loadResultCardArt(faction, commanderCandidates = [], starterCards = {}, landRecommendations = {}, matrixFlavorSnippets = [], { generation = APP_STATE.resultCardArtGeneration } = {}) {
   const factionIdentity = new Set(faction?.colors || []);
   let verifiedCommanders = 0;
+  let visibleCommanderSlots = 0;
   const commanderCards = (commanderCandidates || []).map((candidate, index) => ({
     ...candidate,
+    ...resultArtCandidate(candidate.name, `cmd_${index}`, "commander-img"),
     displayName: candidate.name,
-    recordType: "CARD",
-    id: `cmd_${index}`,
-    imageClass: "commander-img",
     commanderPreview: true,
   }));
   const matrixVoiceCards = (matrixFlavorSnippets || []).map((snippet, index) => {
@@ -4280,27 +4372,55 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
   ];
 
   for (const card of allCards) {
+    if (generation !== APP_STATE.resultCardArtGeneration) return;
     const slot = document.getElementById(card.id);
-    if (!slot) {
+    if (!slot || !isResultArtSlotVisible(slot)) {
       continue;
     }
     slot.dataset.cardArtName = card.displayName || card.name || "";
+
+    if (["loading", "delivery_pending", "resolved", "not_found", "projection_missing"].includes(slot.dataset.cardArtStatus || "")) {
+      if (card.commanderPreview) {
+        visibleCommanderSlots += 1;
+        if (slot.dataset.cardArtStatus === "resolved") verifiedCommanders += 1;
+      }
+      continue;
+    }
+    if (slot.dataset.cardArtStatus === "transient_error" && Number(slot.dataset.cardArtDeliveryAttempts || 0) >= 2) {
+      continue;
+    }
 
     if (card.matrixCardVoice && card.resolvedLocally) {
       continue;
     }
 
     if (card.recordType !== "CARD" || !card.name) {
-      renderUnavailableCardArt(slot);
+      if (card.commanderPreview) slot.closest("[data-commander-card]")?.remove();
+      else renderUnavailableCardArt(slot);
       continue;
     }
 
     try {
-      const data = await loadCachedScryfallNamedCard(card.name);
-      const imageUrl =
-        data.image_uris?.normal ||
-        data.card_faces?.[0]?.image_uris?.normal ||
-        null;
+      slot.dataset.cardArtStatus = "loading";
+      if (card.commanderPreview) visibleCommanderSlots += 1;
+      const resolution = await resolveScryfallNamedCard(card.name, {
+        policy: "authored_projection",
+        shouldDispatch: () => generation === APP_STATE.resultCardArtGeneration,
+      });
+      if (generation !== APP_STATE.resultCardArtGeneration || !slot.isConnected) return;
+      if (resolution.status !== "resolved" || !resolution.card) {
+        if (resolution.status === "projection_missing") {
+          slot.dataset.cardArtStatus = "projection_missing";
+          console.error(`Governed Archscry media projection is missing ${card.name}.`);
+          renderUnavailableCardArt(slot);
+          slot.dataset.cardArtStatus = "projection_missing";
+        } else {
+          renderRetryableCardArt(slot);
+        }
+        continue;
+      }
+      const data = resolution.card;
+      const imageCandidates = orderedImageCandidates(data);
       const linkUrl = data.scryfall_uri || "#";
       const typeLine = [
         data.type_line || "",
@@ -4319,7 +4439,7 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
         continue;
       }
 
-      if (imageUrl) {
+      if (imageCandidates.length) {
         const commanderCard = slot.closest("[data-commander-card]");
         commanderCard?.classList.add("is-verified");
         commanderCard?.closest("[data-commander-preview-block]")?.removeAttribute("hidden");
@@ -4327,41 +4447,76 @@ async function loadResultCardArt(faction, commanderCandidates = [], starterCards
         const rationale = groundedRationale?.rationale || "";
         const provenance = groundedRationale ? JSON.stringify(groundedRationale.provenance) : "";
         const tags = groundedRationale?.tags?.join("|") || "";
-        slot.outerHTML = `<button class="card-detail-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.displayName || data.name)} card details" data-card-preview-name="${escapeAttributeValue(card.displayName || data.name)}" data-action="open-card-detail" data-card-name="${escapeAttributeValue(card.displayName || data.name)}" data-card-rationale="${escapeAttributeValue(rationale)}" data-card-provenance="${escapeAttributeValue(provenance)}" data-card-tags="${escapeAttributeValue(tags)}"><img class="${card.imageClass}" src="${imageUrl}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"></button>`;
+        const deliveryAttempts = Number(slot.dataset.cardArtDeliveryAttempts || 0) + 1;
+        slot.outerHTML = `<button id="${escapeAttributeValue(card.id)}" class="card-detail-image-trigger" type="button" aria-label="View ${escapeAttributeValue(card.displayName || data.name)} card details" data-card-preview-name="${escapeAttributeValue(card.displayName || data.name)}" data-card-art-name="${escapeAttributeValue(card.displayName || data.name)}" data-card-art-delivery-attempts="${deliveryAttempts}" data-action="open-card-detail" data-card-name="${escapeAttributeValue(data.name)}" data-card-rationale="${escapeAttributeValue(rationale)}" data-card-provenance="${escapeAttributeValue(provenance)}" data-card-tags="${escapeAttributeValue(tags)}"><img class="${card.imageClass}" alt="${escapeAttributeValue(`${data.name} card image`)}" loading="lazy"></button>`;
+        const resolvedSlot = document.getElementById(card.id);
+        const resolvedImage = resolvedSlot?.querySelector("img");
+        if (resolvedSlot && resolvedImage) installSlotLocalImageDelivery(resolvedSlot, resolvedImage, imageCandidates);
         const nameLink = card.nameLinkId ? document.getElementById(card.nameLinkId) : null;
         if (nameLink instanceof HTMLAnchorElement) nameLink.href = linkUrl;
         if (card.commanderPreview) {
           verifiedCommanders += 1;
         }
-      } else if (card.commanderPreview) {
-        slot.closest("[data-commander-card]")?.remove();
       } else {
+        slot.dataset.cardArtStatus = "projection_missing";
+        console.error(`Governed Archscry media projection has no usable image candidates for ${card.name}.`);
         renderUnavailableCardArt(slot);
+        slot.dataset.cardArtStatus = "projection_missing";
       }
     } catch (_) {
       const fallback = document.getElementById(card.id);
-      if (card.commanderPreview) {
-        fallback?.closest("[data-commander-card]")?.remove();
-      } else if (fallback) {
-        renderUnavailableCardArt(fallback);
-      }
+      if (fallback) renderRetryableCardArt(fallback);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 90));
   }
 
   const previewGrid = document.getElementById("commander-preview-grid");
   const fallback = document.getElementById("commander-preview-fallback");
-  if (commanderCandidates.length && verifiedCommanders < 1) {
+  if (visibleCommanderSlots && verifiedCommanders < 1) {
     previewGrid?.closest("[data-commander-preview-block]")?.remove();
     fallback?.classList.add("is-visible");
   }
 }
 
+let resultCardArtHydrationQueue = Promise.resolve();
+
+function hydrateVisibleResultCardArt() {
+  const context = APP_STATE.resultCardArtContext;
+  if (!context || shouldDisableResultCardArt()) return Promise.resolve();
+  const resultInner = document.getElementById("result-inner");
+  if (resultInner) resultInner.dataset.cardArtState = "loading";
+  resultCardArtHydrationQueue = resultCardArtHydrationQueue
+    .catch(() => {})
+    .then(async () => {
+      if (context.generation !== APP_STATE.resultCardArtGeneration) return;
+      await loadResultCardArt(
+        context.faction,
+        context.commanderCandidates,
+        context.starterCards,
+        context.landRecommendations,
+        context.matrixFlavorSnippets,
+        { generation: context.generation },
+      );
+      if (context.generation === APP_STATE.resultCardArtGeneration && resultInner?.isConnected) {
+        resultInner.dataset.cardArtState = "ready";
+      }
+    })
+    .catch(() => {
+      if (context.generation === APP_STATE.resultCardArtGeneration && resultInner?.isConnected) {
+        resultInner.dataset.cardArtState = "failed";
+      }
+    });
+  return resultCardArtHydrationQueue;
+}
+
+export function resolveScryfallNamedCard(name, options = {}) {
+  return ScryfallNamedCardLookup.lookupResult(name, { recordType: "CARD", ...options });
+}
+
 export async function loadCachedScryfallNamedCard(name, options = {}) {
-  const card = await ScryfallNamedCardLookup.lookup(name, { recordType: "CARD", ...options });
-  if (!card) throw new Error("Scryfall card art is unavailable for this record.");
-  return card;
+  const result = await resolveScryfallNamedCard(name, options);
+  if (!result.card) throw new Error("Scryfall card art is unavailable for this record.");
+  return result.card;
 }
 
 function getScryfallNamedCardStorage() {
@@ -4376,6 +4531,7 @@ const ScryfallNamedCardLookup = createScryfallNamedCardLookup({
   storage: getScryfallNamedCardStorage(),
   fetchImpl: (...args) => fetch(...args),
   localResolver: (name) => APP_STATE.scryfallLocalCardByName.get(normalizeCardName(name)) || null,
+  authoredResolver: (name) => APP_STATE.archscryAuthoredCardByName.get(normalizeCardName(name)) || null,
 });
 
 /**

@@ -1,9 +1,10 @@
-export const SCRYFALL_NAMED_CACHE_SCHEMA_VERSION = 3;
-export const SCRYFALL_NAMED_CACHE_KEY = "vm_scryfall_named_cache_v3";
+export const SCRYFALL_NAMED_CACHE_SCHEMA_VERSION = 4;
+export const SCRYFALL_NAMED_CACHE_KEY = "vm_scryfall_named_cache_v4";
 export const SCRYFALL_SUCCESS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 export const SCRYFALL_NEGATIVE_TTL_MS = 6 * 60 * 60 * 1000;
 export const SCRYFALL_BACKOFF_TTL_MS = 15 * 60 * 1000;
 export const SCRYFALL_CACHE_MAX_RECORDS = 200;
+export const SCRYFALL_MIN_REQUEST_INTERVAL_MS = 125;
 
 export function normalizeScryfallCardName(value = "") {
   return String(value)
@@ -89,11 +90,25 @@ export function sanitizeScryfallCardRecord(record) {
   const card_faces = Array.isArray(record.card_faces)
     ? record.card_faces.map(sanitizeFace).filter((face) => face.name || face.type_line || face.image_uris)
     : [];
+  const image_candidates = Array.isArray(record.image_candidates)
+    ? record.image_candidates
+      .filter((candidate) => candidate && typeof candidate.url === "string" && /^https:\/\/cards\.scryfall\.io\//i.test(candidate.url))
+      .map((candidate) => ({
+        kind: String(candidate.kind || "image"),
+        url: candidate.url,
+        ...(candidate.face_name ? { face_name: String(candidate.face_name) } : {}),
+      }))
+    : [];
   if (!image_uris && !card_faces.some((face) => face.image_uris) && !scryfall_uri) return null;
   return {
     name: record.name.trim(),
     ...(record.id ? { id: String(record.id) } : {}),
+    ...(record.scryfall_id ? { scryfall_id: String(record.scryfall_id) } : {}),
     ...(record.oracle_id ? { oracle_id: String(record.oracle_id) } : {}),
+    ...(record.layout ? { layout: String(record.layout) } : {}),
+    ...(record.selected_face_name ? { selected_face_name: String(record.selected_face_name) } : {}),
+    ...(record.resolver_key ? { resolver_key: String(record.resolver_key) } : {}),
+    ...(record.governed_authored_media === true ? { governed_authored_media: true } : {}),
     ...(image_uris ? { image_uris } : {}),
     ...(scryfall_uri ? { scryfall_uri } : {}),
     ...(typeof record.mana_cost === "string" ? { mana_cost: record.mana_cost } : {}),
@@ -103,6 +118,7 @@ export function sanitizeScryfallCardRecord(record) {
     ...(Array.isArray(record.color_identity) ? { color_identity: [...record.color_identity] } : {}),
     ...(record.legalities && typeof record.legalities === "object" ? { legalities: { ...record.legalities } } : {}),
     ...(card_faces.length ? { card_faces } : {}),
+    ...(image_candidates.length ? { image_candidates } : {}),
   };
 }
 
@@ -121,6 +137,7 @@ export function mergeScryfallCardRecords(preferred = {}, fallback = {}) {
     }
   }
   if (!preferred.card_faces?.length && fallback.card_faces?.length) merged.card_faces = fallback.card_faces;
+  if (!preferred.image_candidates?.length && fallback.image_candidates?.length) merged.image_candidates = fallback.image_candidates;
   return merged;
 }
 
@@ -156,10 +173,14 @@ export function createScryfallNamedCardLookup({
   storage = null,
   fetchImpl = globalThis.fetch?.bind(globalThis),
   localResolver = () => null,
+  authoredResolver = localResolver,
   now = () => Date.now(),
+  wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
+  minRequestIntervalMs = SCRYFALL_MIN_REQUEST_INTERVAL_MS,
 } = {}) {
   const inFlight = new Map();
-  const failedThisPage = new Set();
+  let networkQueue = Promise.resolve();
+  let dispatchedRequests = 0;
 
   function readCache() {
     const current = pruneCache(safeStorageRead(storage), now());
@@ -174,13 +195,44 @@ export function createScryfallNamedCardLookup({
     safeStorageWrite(storage, current);
   }
 
-  async function lookup(name, { recordType = "CARD", requireDetails = false } = {}) {
+  function resolved(card, source) {
+    return { status: "resolved", card, source };
+  }
+
+  function scheduleNetwork(work, shouldDispatch) {
+    const run = async () => {
+      if (!shouldDispatch()) return { status: "deferred", card: null, source: "superseded" };
+      if (dispatchedRequests > 0 && minRequestIntervalMs > 0) await wait(minRequestIntervalMs);
+      if (!shouldDispatch()) return { status: "deferred", card: null, source: "superseded" };
+      dispatchedRequests += 1;
+      return work();
+    };
+    networkQueue = networkQueue.then(run, run);
+    return networkQueue;
+  }
+
+  function retryDelay(response) {
+    const header = response?.headers?.get?.("retry-after");
+    const seconds = Number(header);
+    return Number.isFinite(seconds) && seconds >= 0 ? Math.min(seconds * 1000, 15_000) : 1_000;
+  }
+
+  async function lookupResult(name, {
+    recordType = "CARD",
+    requireDetails = false,
+    policy = "dynamic_fallback",
+    shouldDispatch = () => true,
+  } = {}) {
     const requestedName = String(name || "").trim();
     const key = normalizeScryfallCardName(requestedName);
-    if (recordType !== "CARD" || !key) return null;
+    if (recordType !== "CARD" || !key) return { status: "not_found", card: null, source: "record-type" };
 
-    const local = sanitizeScryfallCardRecord(localResolver(requestedName));
-    if (local && (!requireDetails || hasUsableCardDetails(local))) return local;
+    const resolver = policy === "authored_projection" ? authoredResolver : localResolver;
+    const local = sanitizeScryfallCardRecord(resolver(requestedName));
+    if (local && (!requireDetails || hasUsableCardDetails(local))) return resolved(local, policy === "authored_projection" ? "authored-projection" : "local");
+    if (policy === "authored_projection") {
+      return { status: "projection_missing", card: null, source: "authored-projection" };
+    }
 
     const cached = readCache();
     const cachedRecord = cached.records[key];
@@ -189,15 +241,14 @@ export function createScryfallNamedCardLookup({
       if (card && (!requireDetails || hasUsableCardDetails(card))) {
         cachedRecord.last_accessed = now();
         safeStorageWrite(storage, cached);
-        return card;
+        return resolved(card, "persistent-cache");
       }
       delete cached.records[key];
       safeStorageWrite(storage, cached);
     }
-    if (cachedRecord?.status === "not_found") return local;
-    if (cached.backoff && now() < Number(cached.backoff.until || 0)) return local;
-    if (failedThisPage.has(key)) return local;
-    if (!fetchImpl) return local;
+    if (cachedRecord?.status === "not_found") return { status: "not_found", card: local, source: "persistent-cache" };
+    if (cached.backoff && now() < Number(cached.backoff.until || 0)) return { status: "deferred", card: local, source: "rate-limit-backoff" };
+    if (!fetchImpl) return { status: "transient_error", card: local, source: "network-unavailable" };
 
     const requestKey = requireDetails ? `${key}|details` : key;
     if (inFlight.has(requestKey)) return inFlight.get(requestKey);
@@ -205,69 +256,92 @@ export function createScryfallNamedCardLookup({
       const latest = readCache();
       if (latest.records[key]?.status === "success") {
         const latestCard = sanitizeScryfallCardRecord(latest.records[key].card);
-        if (latestCard && (!requireDetails || hasUsableCardDetails(latestCard))) return latestCard;
+        if (latestCard && (!requireDetails || hasUsableCardDetails(latestCard))) return resolved(latestCard, "persistent-cache");
       }
-      if (latest.records[key]?.status === "not_found") return local;
-      if (latest.backoff && now() < Number(latest.backoff.until || 0)) return local;
+      if (latest.records[key]?.status === "not_found") return { status: "not_found", card: local, source: "persistent-cache" };
+      if (latest.backoff && now() < Number(latest.backoff.until || 0)) return { status: "deferred", card: local, source: "rate-limit-backoff" };
 
       const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(requestedName)}`;
-      let response;
-      try {
-        response = await fetchImpl(url);
-      } catch (_) {
-        failedThisPage.add(key);
-        return local;
-      }
-      const timestamp = now();
-      if (response.status === 429) {
-        const current = readCache();
-        current.backoff = { status: 429, timestamp, until: timestamp + SCRYFALL_BACKOFF_TTL_MS };
-        safeStorageWrite(storage, current);
-        return local;
-      }
-      if (response.status === 404) {
-        writeRecord(key, { status: "not_found", canonical_name: requestedName, timestamp, last_accessed: timestamp });
-        return local;
-      }
-      if (!response.ok) {
-        failedThisPage.add(key);
-        return local;
-      }
-      let payload;
-      try {
-        payload = await response.json();
-      } catch (_) {
-        failedThisPage.add(key);
-        return local;
-      }
-      const card = sanitizeScryfallCardRecord(payload);
-      if (!card) {
-        failedThisPage.add(key);
-        return local;
-      }
-      writeRecord(key, {
-        status: "success",
-        canonical_name: card.name,
-        timestamp,
-        last_accessed: timestamp,
-        image_uri: card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal || "",
-        scryfall_uri: card.scryfall_uri || "",
-        card,
-      });
-      return card;
+      return scheduleNetwork(async () => {
+        const queuedState = readCache();
+        if (queuedState.backoff && now() < Number(queuedState.backoff.until || 0)) {
+          return { status: "deferred", card: local, source: "rate-limit-backoff" };
+        }
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+          if (!shouldDispatch()) return { status: "deferred", card: local, source: "superseded" };
+          let response;
+          try {
+            response = await fetchImpl(url);
+          } catch (_) {
+            if (attempt === 0) {
+              await wait(250);
+              continue;
+            }
+            return { status: "transient_error", card: local, source: "network" };
+          }
+          const timestamp = now();
+          if (response.status === 404) {
+            writeRecord(key, { status: "not_found", canonical_name: requestedName, timestamp, last_accessed: timestamp });
+            return { status: "not_found", card: local, source: "network" };
+          }
+          if (response.status === 429) {
+            if (attempt === 0) {
+              await wait(retryDelay(response));
+              continue;
+            }
+            const current = readCache();
+            current.backoff = { status: 429, timestamp, until: timestamp + SCRYFALL_BACKOFF_TTL_MS };
+            safeStorageWrite(storage, current);
+            return { status: "transient_error", card: local, source: "rate-limit" };
+          }
+          if (!response.ok) {
+            if (attempt === 0 && (response.status === 408 || response.status >= 500)) {
+              await wait(250);
+              continue;
+            }
+            return { status: "transient_error", card: local, source: "network" };
+          }
+          let payload;
+          try {
+            payload = await response.json();
+          } catch (_) {
+            return { status: "transient_error", card: local, source: "malformed-response" };
+          }
+          const card = sanitizeScryfallCardRecord(payload);
+          if (!card) return { status: "transient_error", card: local, source: "malformed-response" };
+          writeRecord(key, {
+            status: "success",
+            canonical_name: card.name,
+            timestamp,
+            last_accessed: timestamp,
+            image_uri: card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal || "",
+            scryfall_uri: card.scryfall_uri || "",
+            card,
+          });
+          return resolved(card, "network");
+        }
+        return { status: "transient_error", card: local, source: "network" };
+      }, shouldDispatch);
     })().finally(() => inFlight.delete(requestKey));
     inFlight.set(requestKey, request);
     return request;
   }
 
+  async function lookup(name, options = {}) {
+    const result = await lookupResult(name, options);
+    return result.card || null;
+  }
+
   return {
     lookup,
+    lookupResult,
     clear() {
       try {
         storage?.removeItem?.(SCRYFALL_NAMED_CACHE_KEY);
       } catch (_) {}
       inFlight.clear();
-      failedThisPage.clear();
+      networkQueue = Promise.resolve();
+      dispatchedRequests = 0;
     },
     inspect: readCache,
   };

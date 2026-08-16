@@ -1,6 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  ARCHSCRY_MEDIA_INDEX_FILE,
+  ARCHSCRY_MEDIA_MANIFEST_FILE,
+  ARCHSCRY_MEDIA_UNRESOLVED_FILE,
+  buildArchscryMediaArtifacts,
+  deriveArchscryAuthoredMediaInventory,
+  sha256File,
+} from "./archscry-media-projection-core.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const RAW_DIR = join(ROOT, "data", "scryfall", "raw");
@@ -137,6 +145,15 @@ async function readJson(path, label) {
     return JSON.parse(text);
   } catch (error) {
     throw new Error(`${label} contains malformed JSON: ${error.message}`);
+  }
+}
+
+async function readOptionalJson(path) {
+  try {
+    return JSON.parse(await readFile(path, "utf8"));
+  } catch (error) {
+    if (error?.code === "ENOENT") return null;
+    throw error;
   }
 }
 
@@ -526,6 +543,37 @@ if (!Array.isArray(cards) || !cards.length) {
 const taxonomyMap = validateTaxonomy(taxonomy);
 ensureRuleTagsExist(taxonomyMap);
 
+const acceptSelectionDrift = process.argv.includes("--accept-selection-drift");
+const checkMode = process.argv.includes("--check");
+const ownerAuthorization = process.argv.find((argument) => argument.startsWith("--owner-authorization="))?.split("=").slice(1).join("=") || "";
+const selectionDriftReportPath = join(ROOT, "docs", "audits", "vm559-selection-drift-report.json");
+const [archscryInventory, rawBulkSha256, previousArchscryIndex] = await Promise.all([
+  deriveArchscryAuthoredMediaInventory(ROOT),
+  sha256File(RAW_CARDS_PATH),
+  readOptionalJson(join(INDEX_DIR, ARCHSCRY_MEDIA_INDEX_FILE)),
+]);
+const archscryMedia = buildArchscryMediaArtifacts({
+  cards,
+  rawManifest,
+  rawBulkSha256,
+  inventory: archscryInventory,
+  previousIndex: previousArchscryIndex,
+  acceptSelectionDrift,
+  ownerAuthorization,
+});
+if (archscryMedia.unresolvedReport.unresolved_count) {
+  throw new Error(`Archscry governed media projection has ${archscryMedia.unresolvedReport.unresolved_count} unresolved authored card(s).`);
+}
+if (!checkMode && acceptSelectionDrift && archscryMedia.selectionDrift.length) {
+  await mkdir(dirname(selectionDriftReportPath), { recursive: true });
+  await writeJson(selectionDriftReportPath, {
+    schema_version: "1.0.0",
+    owner_authorization: ownerAuthorization,
+    change_count: archscryMedia.selectionDrift.length,
+    changes: archscryMedia.selectionDrift,
+  });
+}
+
 const allRecords = sortCards(cards.map((card) => baseCardRecord(card, taxonomyMap)));
 let flavorRecords = allRecords.filter((record) =>
   record.flavor_excerpt || (record.card_faces || []).some((face) => face.flavor_excerpt)
@@ -586,6 +634,9 @@ const indexManifest = {
     { path: "data/scryfall/indexes/commander-index.json", records: commanderRecords.length },
     { path: "data/scryfall/indexes/color-theme-index.json", records: colorThemeIndex.themes.length },
     { path: "data/scryfall/indexes/mechanic-theme-index.json", records: mechanicThemeIndex.themes.length }
+    ,{ path: `data/scryfall/indexes/${ARCHSCRY_MEDIA_INDEX_FILE}`, records: archscryMedia.index.records.length }
+    ,{ path: `data/scryfall/indexes/${ARCHSCRY_MEDIA_MANIFEST_FILE}`, records: 1 }
+    ,{ path: `data/scryfall/indexes/${ARCHSCRY_MEDIA_UNRESOLVED_FILE}`, records: archscryMedia.unresolvedReport.unresolved_count }
   ],
   taxonomy: {
     path: "data/taxonomy/vox-mana-tags.json",
@@ -601,12 +652,32 @@ const indexManifest = {
   }
 };
 
-await writeJson(join(INDEX_DIR, "card-flavor-index.json"), flavorIndex);
-await writeJson(join(INDEX_DIR, "commander-index.json"), commanderIndex);
-await writeJson(join(INDEX_DIR, "color-theme-index.json"), colorThemeIndex);
-await writeJson(join(INDEX_DIR, "mechanic-theme-index.json"), mechanicThemeIndex);
-await writeJson(join(INDEX_DIR, "scryfall-index-manifest.json"), indexManifest);
+const generatedFiles = new Map([
+  ["card-flavor-index.json", `${JSON.stringify(flavorIndex, null, 2)}\n`],
+  ["commander-index.json", `${JSON.stringify(commanderIndex, null, 2)}\n`],
+  ["color-theme-index.json", `${JSON.stringify(colorThemeIndex, null, 2)}\n`],
+  ["mechanic-theme-index.json", `${JSON.stringify(mechanicThemeIndex, null, 2)}\n`],
+  ["scryfall-index-manifest.json", `${JSON.stringify(indexManifest, null, 2)}\n`],
+  [ARCHSCRY_MEDIA_INDEX_FILE, archscryMedia.bytes[ARCHSCRY_MEDIA_INDEX_FILE]],
+  [ARCHSCRY_MEDIA_MANIFEST_FILE, archscryMedia.bytes[ARCHSCRY_MEDIA_MANIFEST_FILE]],
+  [ARCHSCRY_MEDIA_UNRESOLVED_FILE, archscryMedia.bytes[ARCHSCRY_MEDIA_UNRESOLVED_FILE]],
+]);
+
+if (checkMode) {
+  const stale = [];
+  for (const [file, expected] of generatedFiles) {
+    let actual = "";
+    try { actual = await readFile(join(INDEX_DIR, file), "utf8"); }
+    catch (error) { if (error?.code !== "ENOENT") throw error; }
+    if (actual !== expected) stale.push(file);
+  }
+  if (stale.length) throw new Error(`Generated Scryfall indexes are stale: ${stale.join(", ")}`);
+} else {
+  for (const [file, bytes] of generatedFiles) await writeFile(join(INDEX_DIR, file), bytes, "utf8");
+}
 
 console.log(`Indexed ${cards.length.toLocaleString()} oracle cards.`);
 console.log(`Flavor records: ${flavorRecords.length.toLocaleString()}${guardrailApplied ? " (slim guardrail applied)" : ""}.`);
 console.log(`Commander candidates: ${commanderRecords.length.toLocaleString()}.`);
+console.log(`Archscry governed media: ${archscryMedia.index.records.length.toLocaleString()} unique cards across ${archscryInventory.occurrences.length.toLocaleString()} authored occurrences.`);
+if (checkMode) console.log("Generated Scryfall index check passed with byte-identical committed artifacts.");
