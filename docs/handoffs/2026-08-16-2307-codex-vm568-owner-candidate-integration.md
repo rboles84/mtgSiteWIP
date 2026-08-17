@@ -30,7 +30,7 @@ merge.
 - `docs/audits/vm551-all-37-dossier-closeout/live-ui-witness-replay.json`
 - `docs/kanban/board.md`
 - `docs/kanban/done/VM-565-curated-player-vocabulary-education.md`
-- `docs/kanban/in-progress/VM-568-vm565-vm567-owner-candidate-integration.md`
+- `docs/kanban/ready/VM-568-vm565-vm567-owner-candidate-integration.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - This handoff
 
@@ -112,8 +112,8 @@ third worktree or hand-reimplemented patch.
   authored-card interactions, accessibility, source/generated, CI, and protected diff.
 - Owner review surface: confirm Start Here has guidance but no Commander cards, then
   spot-check Bant Enchantress, Boros Play controls, and Ink Sound/Play.
-- Status: combined local build ready for owner-directed merge after the containing
-  integration and closeout SHAs are reported.
+- Status: combined local build ready for owner-directed merge. Exact integration merge
+  commit: `872f34b0a86532a277abba3f84209c72987c56e9`.
 
 ## Not Touched
 
@@ -125,7 +125,8 @@ third worktree or hand-reimplemented patch.
 
 ## Follow-Up Recommendations
 
-1. Review the final combined SHA only.
+1. Review integration merge `872f34b0a86532a277abba3f84209c72987c56e9`
+   plus its documentation-only closeout child.
 2. Merge/push/deploy only under the owner's normal release authorization.
 3. If desired, schedule the historical source-suite assertions and global Ink media
    projection reconciliation as separately scoped maintenance rather than hiding them

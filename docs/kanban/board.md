@@ -41,11 +41,9 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- No cards currently ready.
+- [VM-568 - VM-565 / VM-567 Owner-Candidate Integration](ready/VM-568-vm565-vm567-owner-candidate-integration.md) - combined integration commit `872f34b0a86532a277abba3f84209c72987c56e9` preserves owner-accepted VM-565 and exact VM-567 history, passes combined all-37/focused/required-CI QA, and awaits owner-directed merge.
 
 ## In Progress
-
-- [VM-568 - VM-565 / VM-567 Owner-Candidate Integration](in-progress/VM-568-vm565-vm567-owner-candidate-integration.md) - reconciling exact VM-567 Start Here preview removal onto owner-accepted VM-565 while preserving its durable SHA, VM-564 audit baseline, and all protected dossier contracts.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 

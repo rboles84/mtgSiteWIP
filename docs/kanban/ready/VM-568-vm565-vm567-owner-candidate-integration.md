@@ -2,7 +2,7 @@
 
 ID: VM-568
 
-Status: Integration QA complete - merge commit pending
+Status: Ready - combined integration commit `872f34b0a86532a277abba3f84209c72987c56e9`
 
 Type: Accepted-candidate integration / release preparation
 
@@ -127,3 +127,12 @@ parent commit and reconciling their shared renderer, replay, and governance file
 Create the exact-history local integration merge commit and a documentation closeout
 commit, then stop with one clean build for owner-directed merge. Do not push, merge to
 `main`, or deploy in this pass.
+
+## Exact Integration Commit
+
+- Merge commit: `872f34b0a86532a277abba3f84209c72987c56e9`.
+- First parent: VM-568 intake on the owner-accepted VM-565 lineage.
+- Second parent: exact VM-567 candidate
+  `697e0c1ba8a655199cb29c2ae11ae0d719e3b449`.
+- Owner-accepted VM-565
+  `97989e1be35757b53593c0e3b620648c8d46b05a` remains an ancestor.
