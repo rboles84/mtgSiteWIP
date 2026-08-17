@@ -1,0 +1,3083 @@
+{
+  "schema_version": "vm565-education-audit-v1",
+  "generated_on": "2026-08-16",
+  "status": "DETERMINISTIC_AUDIT_PASS",
+  "baseline": {
+    "vm564_glossary_records": 42,
+    "vm564_distinct_identity_term_assignments": 179,
+    "vm564_hover_identity_term_assignments": 161
+  },
+  "summary": {
+    "identities": 37,
+    "glossary_records": 65,
+    "new_canonical_definitions": 23,
+    "aliases_added": 14,
+    "accepted_candidate_decisions": 42,
+    "rejected_candidate_decisions": 148,
+    "exact_target_entries": 41,
+    "new_term_target_entries": 34,
+    "existing_term_override_entries": 7,
+    "text_only_exact_targets": 19,
+    "total_teaching_allocations": 202,
+    "suppressed_overlapping_legacy_allocations": 1,
+    "unresolved_accepted_targets": 0,
+    "duplicate_canonical_teachings": 0,
+    "blanket_text_only_surface_allocations": 0,
+    "definition_corrections": 1
+  },
+  "accepted_resolution": [
+    {
+      "identity_key": "U",
+      "record_id": "glossary_artifacts",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "B",
+      "record_id": "glossary_reanimator",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "R",
+      "record_id": "glossary_burn",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "R",
+      "record_id": "glossary_haste",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "R",
+      "record_id": "glossary_impulse_draw",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "R",
+      "record_id": "glossary_treasure",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "UB",
+      "record_id": "glossary_mill",
+      "target_key": "how-this-plays:mechanical-expression",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "UB",
+      "record_id": "glossary_surveil",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BR",
+      "record_id": "glossary_impulse_draw",
+      "target_key": "start-here:Guild spellcraft",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "RG",
+      "record_id": "glossary_land_denial",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WG",
+      "record_id": "glossary_go_wide",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WB",
+      "record_id": "glossary_afterlife",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BG",
+      "record_id": "glossary_bgx_midrange",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BG",
+      "record_id": "glossary_dredge",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BG",
+      "record_id": "glossary_mill",
+      "target_key": "what-to-look-for:item-3-copy",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WR",
+      "record_id": "glossary_burn",
+      "target_key": "what-to-look-for-title:item-2-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WR",
+      "record_id": "glossary_go_wide",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WR",
+      "record_id": "glossary_heroic",
+      "target_key": "what-to-look-for-title:item-2-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "PRISMARI",
+      "record_id": "glossary_treasure",
+      "target_key": "start-here:College spellcraft",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "record_id": "glossary_lifegain",
+      "target_key": "start-here:College spellcraft",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "record_id": "glossary_artifacts",
+      "target_key": "what-to-look-for-title:item-2-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "record_id": "glossary_historic",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "record_id": "glossary_typal",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BANT",
+      "record_id": "glossary_enchantments",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BANT",
+      "record_id": "glossary_enchantress",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "BANT",
+      "record_id": "glossary_exalted",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "ESPER",
+      "record_id": "glossary_artifacts",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "ESPER",
+      "record_id": "glossary_enchantments",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "ABZAN",
+      "record_id": "glossary_lifegain",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "SULTAI",
+      "record_id": "glossary_theft",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "YORE",
+      "record_id": "glossary_artifacts",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "INK",
+      "record_id": "glossary_group_hug",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "INK",
+      "record_id": "glossary_politics",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "record_id": "glossary_artifacts",
+      "target_key": "start-here:Possible directions",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "W",
+      "record_id": "glossary_sweepers",
+      "target_key": "how-this-plays:mechanical-expression",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "B",
+      "record_id": "glossary_aristocrats",
+      "target_key": "what-to-look-for-title:item-2-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WU",
+      "record_id": "glossary_prison_control",
+      "target_key": "what-to-look-for-title:item-2-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WG",
+      "record_id": "glossary_populate",
+      "target_key": "how-this-plays:mechanical-expression",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "WR",
+      "record_id": "glossary_voltron",
+      "target_key": "what-to-look-for-title:item-3-title",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "record_id": "glossary_goad",
+      "target_key": "how-this-plays:mechanical-expression",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "record_id": "glossary_colorless_mana",
+      "target_key": "mana-notes:rocks-and-sources",
+      "status": "RESOLVED"
+    },
+    {
+      "identity_key": "COLORLESS",
+      "record_id": "glossary_mana_rocks",
+      "target_key": "start-here:commander-plan",
+      "status": "RESOLVED"
+    }
+  ],
+  "unused_baseline_glossary": [
+    {
+      "record_id": "glossary_hatebears",
+      "term": "Hatebears",
+      "action": "KEEP_DORMANT",
+      "reason": "Legitimate reserved glossary vocabulary with no current scoped occurrence; zero utilization is not a product defect.",
+      "still_present": true
+    },
+    {
+      "record_id": "glossary_parity",
+      "term": "Parity",
+      "action": "KEEP_DORMANT",
+      "reason": "Legitimate reserved glossary vocabulary with no current scoped occurrence; zero utilization is not a product defect.",
+      "still_present": true
+    },
+    {
+      "record_id": "glossary_pillowfort",
+      "term": "Pillowfort",
+      "action": "KEEP_DORMANT",
+      "reason": "Legitimate reserved glossary vocabulary with no current scoped occurrence; zero utilization is not a product defect.",
+      "still_present": true
+    },
+    {
+      "record_id": "glossary_stax",
+      "term": "Stax",
+      "action": "KEEP_DORMANT",
+      "reason": "A related constraint theme exists, but Prison Control and Taxation already teach the dossier's authored language; do not force Stax into copy.",
+      "still_present": true
+    }
+  ],
+  "identities": [
+    {
+      "identity_key": "W",
+      "identity_name": "White",
+      "teaching_count": 7,
+      "new_teaching_count": 0,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "W",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_equipment",
+          "term": "Equipment",
+          "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "Equipment",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_sweepers",
+          "term": "Board wipe",
+          "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+          "surface": "how-this-plays",
+          "field": "mechanical-expression",
+          "target_key": "how-this-plays:mechanical-expression",
+          "matched_label": "board wipes",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_taxation",
+          "term": "Taxation",
+          "definition": "Make selected actions cost more mana or other resources.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "taxes",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "W",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "teaching_count": 6,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "U",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "U",
+          "record_id": "glossary_artifacts",
+          "term": "Artifacts",
+          "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Artifacts",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "U",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "U",
+          "record_id": "glossary_draw_go_control",
+          "term": "Draw-Go Control",
+          "definition": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Draw-Go Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "U",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "U",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "B",
+      "identity_name": "Black",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "B",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "what-to-look-for-title",
+          "field": "item-2-title",
+          "target_key": "what-to-look-for-title:item-2-title",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "B",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "B",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "B",
+          "record_id": "glossary_reanimator",
+          "term": "Reanimator",
+          "definition": "Put creature cards from your graveyard directly onto the battlefield, often for less mana than casting them normally.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Reanimator",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "B",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "R",
+      "identity_name": "Red",
+      "teaching_count": 6,
+      "new_teaching_count": 4,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "R",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "R",
+          "record_id": "glossary_burn",
+          "term": "Burn",
+          "definition": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Burn",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "R",
+          "record_id": "glossary_haste",
+          "term": "Haste",
+          "definition": "A creature with haste can attack and use tap abilities as soon as it comes under your control.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Haste",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "R",
+          "record_id": "glossary_impulse_draw",
+          "term": "Impulse draw",
+          "definition": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Impulse draw",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "R",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "R",
+          "record_id": "glossary_treasure",
+          "term": "Treasure",
+          "definition": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Treasures",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "G",
+      "identity_name": "Green",
+      "teaching_count": 7,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "G",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_big_mana",
+          "term": "Big Mana",
+          "definition": "Producing very large amounts of mana for oversized plays.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Big Mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_landfall",
+          "term": "Landfall",
+          "definition": "Triggering effects when lands enter the battlefield under your control.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "Landfall",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "G",
+          "record_id": "glossary_trample",
+          "term": "Trample",
+          "definition": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+          "surface": "start-here",
+          "field": "Color spellcraft",
+          "target_key": "start-here:Color spellcraft",
+          "matched_label": "Trample",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "teaching_count": 9,
+      "new_teaching_count": 0,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_detain",
+          "term": "Detain",
+          "definition": "Temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Detain",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_draw_go_control",
+          "term": "Draw-Go Control",
+          "definition": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Draw-Go Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_open_mana",
+          "term": "Open mana",
+          "definition": "Leave lands or other mana sources untapped so you can act later.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Open mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_prison_control",
+          "term": "Prison Control",
+          "definition": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+          "surface": "what-to-look-for-title",
+          "field": "item-2-title",
+          "target_key": "what-to-look-for-title:item-2-title",
+          "matched_label": "Prison Control",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_sweepers",
+          "term": "Board wipe",
+          "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "sweepers",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_taxation",
+          "term": "Taxation",
+          "definition": "Make selected actions cost more mana or other resources.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "taxes",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WU",
+          "record_id": "glossary_tempo",
+          "term": "Tempo",
+          "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Tempo",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "teaching_count": 5,
+      "new_teaching_count": 2,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "UB",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UB",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UB",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UB",
+          "record_id": "glossary_mill",
+          "term": "Mill",
+          "definition": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+          "surface": "how-this-plays",
+          "field": "mechanical-expression",
+          "target_key": "how-this-plays:mechanical-expression",
+          "matched_label": "Mill",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "UB",
+          "record_id": "glossary_surveil",
+          "term": "Surveil",
+          "definition": "Look at the stated number of cards from the top of your library, put any into your graveyard, and return the rest to the top in any order.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Surveil",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "BR",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BR",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BR",
+          "record_id": "glossary_impulse_draw",
+          "term": "Impulse draw",
+          "definition": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Impulse draw",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BR",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BR",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "RG",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "RG",
+          "record_id": "glossary_land_denial",
+          "term": "Land denial",
+          "definition": "Attack opponents' mana by destroying, restricting, or disabling lands; Ponza is a red-green version that follows with efficient threats.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Ponza / Land Denial",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "RG",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "RG",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "RG",
+          "record_id": "glossary_trample",
+          "term": "Trample",
+          "definition": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Trample",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "teaching_count": 6,
+      "new_teaching_count": 1,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_convoke",
+          "term": "Convoke",
+          "definition": "As you cast a spell with convoke, your creatures can be tapped to help pay its mana cost; each tapped creature pays for one mana of its color or one generic mana.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Convoke",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_go_wide",
+          "term": "Go-wide",
+          "definition": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Go-wide",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_populate",
+          "term": "Populate",
+          "definition": "Create a token that's a copy of a creature token you control.",
+          "surface": "how-this-plays",
+          "field": "mechanical-expression",
+          "target_key": "how-this-plays:mechanical-expression",
+          "matched_label": "Populate",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WG",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "teaching_count": 8,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_afterlife",
+          "term": "Afterlife",
+          "definition": "When a creature with afterlife dies, create the stated number of 1/1 white and black Spirit creature tokens with flying.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Afterlife",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "why-this-fit",
+          "field": "observation-1",
+          "target_key": "why-this-fit:observation-1",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_sweepers",
+          "term": "Board wipe",
+          "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+          "surface": "start-here",
+          "field": "Table caution",
+          "target_key": "start-here:Table caution",
+          "matched_label": "Board wipe",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WB",
+          "record_id": "glossary_taxation",
+          "term": "Taxation",
+          "definition": "Make selected actions cost more mana or other resources.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "tax",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "teaching_count": 5,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "UR",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "what-to-look-for",
+          "field": "item-3-copy",
+          "target_key": "what-to-look-for:item-3-copy",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UR",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UR",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UR",
+          "record_id": "glossary_storm",
+          "term": "Storm",
+          "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Storm",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UR",
+          "record_id": "glossary_tempo",
+          "term": "Tempo",
+          "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Tempo",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "teaching_count": 7,
+      "new_teaching_count": 3,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_bgx_midrange",
+          "term": "BGx Midrange",
+          "definition": "A black-green midrange strategy built around efficient disruption, durable threats, and attrition; the x means it may splash another color.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Rock / BGx Midrange",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_dredge",
+          "term": "Dredge",
+          "definition": "If a card with dredge N is in your graveyard when you would draw, you may mill exactly N cards and return that card to your hand instead.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Dredge",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_mill",
+          "term": "Mill",
+          "definition": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+          "surface": "what-to-look-for",
+          "field": "item-3-copy",
+          "target_key": "what-to-look-for:item-3-copy",
+          "matched_label": "milling",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BG",
+          "record_id": "glossary_self_mill",
+          "term": "Self-mill",
+          "definition": "Putting cards from your own library into your graveyard on purpose.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Self-mill",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "teaching_count": 9,
+      "new_teaching_count": 3,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_burn",
+          "term": "Burn",
+          "definition": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+          "surface": "what-to-look-for-title",
+          "field": "item-2-title",
+          "target_key": "what-to-look-for-title:item-2-title",
+          "matched_label": "Burn",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_equipment",
+          "term": "Equipment",
+          "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Equipment",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_go_wide",
+          "term": "Go-wide",
+          "definition": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Go-wide",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_heroic",
+          "term": "Heroic",
+          "definition": "Heroic is an ability word for abilities that trigger when you cast a spell that targets that creature.",
+          "surface": "what-to-look-for-title",
+          "field": "item-2-title",
+          "target_key": "what-to-look-for-title:item-2-title",
+          "matched_label": "Heroic",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Guild spellcraft",
+          "target_key": "start-here:Guild spellcraft",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WR",
+          "record_id": "glossary_voltron",
+          "term": "Voltron",
+          "definition": "Building one creature, often a commander, into a lethal protected threat.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Voltron",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "teaching_count": 3,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "UG",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UG",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "UG",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "SILVERQUILL",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SILVERQUILL",
+          "record_id": "glossary_goad",
+          "term": "Goad",
+          "definition": "Until your next turn, a goaded creature attacks each combat if able and attacks a player other than you if able.",
+          "surface": "how-this-plays",
+          "field": "mechanical-expression",
+          "target_key": "how-this-plays:mechanical-expression",
+          "matched_label": "Goad",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "SILVERQUILL",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SILVERQUILL",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "teaching_count": 8,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_big_spell_storm",
+          "term": "Big Spell Storm",
+          "definition": "A spellslinger plan that builds mana and spell count toward a concentrated turn of large spells; it may use the Storm keyword, but does not have to.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Big Spell Storm",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_open_mana",
+          "term": "Open mana",
+          "definition": "Leave lands or other mana sources untapped so you can act later.",
+          "surface": "what-to-look-for",
+          "field": "item-3-copy",
+          "target_key": "what-to-look-for:item-3-copy",
+          "matched_label": "Open mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Table caution",
+          "target_key": "start-here:Table caution",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_spell_copying",
+          "term": "Spell copying",
+          "definition": "Copying instants, sorceries, or other spells for extra effects.",
+          "surface": "start-here",
+          "field": "College spellcraft",
+          "target_key": "start-here:College spellcraft",
+          "matched_label": "Spell copying",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_storm",
+          "term": "Storm",
+          "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Storm",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": false
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "PRISMARI",
+          "record_id": "glossary_treasure",
+          "term": "Treasure",
+          "definition": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+          "surface": "start-here",
+          "field": "College spellcraft",
+          "target_key": "start-here:College spellcraft",
+          "matched_label": "Treasure",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "WITHERBLOOM",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITHERBLOOM",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "test-the-fit",
+          "field": "tension-failure-mode",
+          "target_key": "test-the-fit:tension-failure-mode",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITHERBLOOM",
+          "record_id": "glossary_lifegain",
+          "term": "Lifegain",
+          "definition": "Gain life as protection, fuel, or a payoff trigger.",
+          "surface": "start-here",
+          "field": "College spellcraft",
+          "target_key": "start-here:College spellcraft",
+          "matched_label": "life gain",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITHERBLOOM",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITHERBLOOM",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "teaching_count": 7,
+      "new_teaching_count": 3,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_artifacts",
+          "term": "Artifacts",
+          "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+          "surface": "what-to-look-for-title",
+          "field": "item-2-title",
+          "target_key": "what-to-look-for-title:item-2-title",
+          "matched_label": "Artifacts",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_historic",
+          "term": "Historic",
+          "definition": "Historic refers collectively to artifacts, legendary cards, and Sagas.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Historic",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "College spellcraft",
+          "target_key": "start-here:College spellcraft",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "LOREHOLD",
+          "record_id": "glossary_typal",
+          "term": "Typal",
+          "definition": "Build around a shared creature type and cards that reward that type; many players also call this tribal.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tribal",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "QUANDRIX",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "QUANDRIX",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "QUANDRIX",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "QUANDRIX",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "teaching_count": 11,
+      "new_teaching_count": 3,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_blink_flicker",
+          "term": "Blink/Flicker",
+          "definition": "Exiling permanents and returning them to reuse enter-the-battlefield effects or dodge removal.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "blink",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "test-the-fit",
+          "field": "certified-boundary-self-check",
+          "target_key": "test-the-fit:certified-boundary-self-check",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_enchantments",
+          "term": "Enchantments",
+          "definition": "Using enchantments as persistent rules, engines, or creature enhancements.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Enchantments",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_enchantress",
+          "term": "Enchantress",
+          "definition": "An enchantment-focused strategy that draws cards or generates value when you cast enchantments or when enchantments enter the battlefield.",
+          "surface": "what-to-look-for-title",
+          "field": "item-3-title",
+          "target_key": "what-to-look-for-title:item-3-title",
+          "matched_label": "Enchantress",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_equipment",
+          "term": "Equipment",
+          "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Equipment",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_etb",
+          "term": "ETB",
+          "definition": "Using effects that trigger when permanents enter the battlefield.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "ETB",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_exalted",
+          "term": "Exalted",
+          "definition": "Whenever a creature you control attacks alone, each exalted ability gives it +1/+1 until end of turn.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Exalted",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_prison_control",
+          "term": "Prison Control",
+          "definition": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+          "surface": "start-here",
+          "field": "Table caution",
+          "target_key": "start-here:Table caution",
+          "matched_label": "prison",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "BANT",
+          "record_id": "glossary_voltron",
+          "term": "Voltron",
+          "definition": "Building one creature, often a commander, into a lethal protected threat.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Voltron",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "ESPER",
+      "identity_name": "Esper",
+      "teaching_count": 4,
+      "new_teaching_count": 2,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "ESPER",
+          "record_id": "glossary_artifacts",
+          "term": "Artifacts",
+          "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Artifacts",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "ESPER",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "ESPER",
+          "record_id": "glossary_enchantments",
+          "term": "Enchantments",
+          "definition": "Using enchantments as persistent rules, engines, or creature enhancements.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Enchantments",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "ESPER",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "GRIXIS",
+      "identity_name": "Grixis",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "GRIXIS",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GRIXIS",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GRIXIS",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GRIXIS",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "JUND",
+      "identity_name": "Jund",
+      "teaching_count": 7,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_devour",
+          "term": "Devour",
+          "definition": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Devour",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Graveyard value",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JUND",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "NAYA",
+      "identity_name": "Naya",
+      "teaching_count": 5,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "NAYA",
+          "record_id": "glossary_big_mana",
+          "term": "Big Mana",
+          "definition": "Producing very large amounts of mana for oversized plays.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Big Mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "NAYA",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "test-the-fit",
+          "field": "tension-failure-mode",
+          "target_key": "test-the-fit:tension-failure-mode",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "NAYA",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "Shard spellcraft",
+          "target_key": "start-here:Shard spellcraft",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "NAYA",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "NAYA",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "teaching_count": 6,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Wedge spellcraft",
+          "target_key": "start-here:Wedge spellcraft",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_lifegain",
+          "term": "Lifegain",
+          "definition": "Gain life as protection, fuel, or a payoff trigger.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Lifegain",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "why-this-fit",
+          "field": "observation-1",
+          "target_key": "why-this-fit:observation-1",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Wedge spellcraft",
+          "target_key": "start-here:Wedge spellcraft",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "ABZAN",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "TEMUR",
+          "record_id": "glossary_big_mana",
+          "term": "Big Mana",
+          "definition": "Producing very large amounts of mana for oversized plays.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Big Mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "TEMUR",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "TEMUR",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "TEMUR",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Wedge spellcraft",
+          "target_key": "start-here:Wedge spellcraft",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "SULTAI",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "test-the-fit",
+          "field": "certified-boundary-self-check",
+          "target_key": "test-the-fit:certified-boundary-self-check",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SULTAI",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SULTAI",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "test-the-fit",
+          "field": "certified-boundary-self-check",
+          "target_key": "test-the-fit:certified-boundary-self-check",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SULTAI",
+          "record_id": "glossary_self_mill",
+          "term": "Self-mill",
+          "definition": "Putting cards from your own library into your graveyard on purpose.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Self-mill",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "SULTAI",
+          "record_id": "glossary_theft",
+          "term": "Theft",
+          "definition": "Use opponents' cards, permanents, libraries, or graveyards as resources.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Theft",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "MARDU",
+      "identity_name": "Mardu Horde",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "MARDU",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "MARDU",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "start-here",
+          "field": "Wedge spellcraft",
+          "target_key": "start-here:Wedge spellcraft",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "MARDU",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "MARDU",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "JESKAI",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JESKAI",
+          "record_id": "glossary_protection",
+          "term": "Protection",
+          "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Protection",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JESKAI",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "JESKAI",
+          "record_id": "glossary_tempo",
+          "term": "Tempo",
+          "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tempo",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "teaching_count": 5,
+      "new_teaching_count": 1,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "YORE",
+          "record_id": "glossary_aristocrats",
+          "term": "Aristocrats",
+          "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aristocrats",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "YORE",
+          "record_id": "glossary_artifacts",
+          "term": "Artifacts",
+          "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Artifacts",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "YORE",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "YORE",
+          "record_id": "glossary_graveyard_value",
+          "term": "Graveyard value",
+          "definition": "Using the graveyard as an active game zone or resource.",
+          "surface": "start-here",
+          "field": "Table caution",
+          "target_key": "start-here:Table caution",
+          "matched_label": "graveyard",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "YORE",
+          "record_id": "glossary_sacrifice",
+          "term": "Sacrifice",
+          "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Sacrifice",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "teaching_count": 4,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "GLINT",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GLINT",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GLINT",
+          "record_id": "glossary_spellslinger",
+          "term": "Spellslinger",
+          "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Spellslinger",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "GLINT",
+          "record_id": "glossary_storm",
+          "term": "Storm",
+          "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Storm",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "teaching_count": 3,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "DUNE",
+          "record_id": "glossary_aggro",
+          "term": "Aggro",
+          "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Aggro",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "DUNE",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "DUNE",
+          "record_id": "glossary_tokens",
+          "term": "Tokens",
+          "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Tokens",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "INK",
+      "identity_name": "Ink / Altruism",
+      "teaching_count": 3,
+      "new_teaching_count": 2,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "INK",
+          "record_id": "glossary_group_hug",
+          "term": "Group Hug",
+          "definition": "Give resources to multiple players, often to shape the table's politics or pace.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Group Hug",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "INK",
+          "record_id": "glossary_politics",
+          "term": "Politics",
+          "definition": "Use deals, incentives, goad, votes, or threat assessment to shape multiplayer decisions.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Politics",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "INK",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WITCH",
+      "identity_name": "Witch / Growth",
+      "teaching_count": 3,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "WITCH",
+          "record_id": "glossary_control",
+          "term": "Control",
+          "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Control",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITCH",
+          "record_id": "glossary_counters_matter",
+          "term": "Counters Matter",
+          "definition": "Using counters on permanents or players as a scaling resource.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Counters Matter",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "WITCH",
+          "record_id": "glossary_midrange",
+          "term": "Midrange",
+          "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Midrange",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "teaching_count": 8,
+      "new_teaching_count": 1,
+      "override_count": 1,
+      "allocations": [
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_artifacts",
+          "term": "Artifacts",
+          "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Artifacts",
+          "allocation_kind": "NEW_EXPLICIT_TARGET",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_big_mana",
+          "term": "Big Mana",
+          "definition": "Producing very large amounts of mana for oversized plays.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Big Mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_colorless_mana",
+          "term": "Colorless mana",
+          "definition": "Colorless mana is mana with no color. A {C} cost can be paid only with colorless mana.",
+          "surface": "mana-notes",
+          "field": "rocks-and-sources",
+          "target_key": "mana-notes:rocks-and-sources",
+          "matched_label": "Colorless mana",
+          "allocation_kind": "EXISTING_OVERRIDE",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_devoid",
+          "term": "Devoid",
+          "definition": "A card with devoid is colorless even if colored mana symbols appear in its mana cost. Devoid does not remove those colors from the card's Commander color identity.",
+          "surface": "start-here",
+          "field": "Colorless spellcraft",
+          "target_key": "start-here:Colorless spellcraft",
+          "matched_label": "Devoid",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_generic_mana",
+          "term": "Generic mana",
+          "definition": "A generic mana cost is shown with a number and can be paid with mana of any color or with colorless mana; it is a cost, not a type of mana.",
+          "surface": "test-the-fit",
+          "field": "certified-boundary-self-check",
+          "target_key": "test-the-fit:certified-boundary-self-check",
+          "matched_label": "Generic mana",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_mana_rocks",
+          "term": "Mana rocks",
+          "definition": "Artifacts that produce mana, helping a deck accelerate or fix its mana.",
+          "surface": "start-here",
+          "field": "commander-plan",
+          "target_key": "start-here:commander-plan",
+          "matched_label": "Mana rocks",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        },
+        {
+          "identity_key": "COLORLESS",
+          "record_id": "glossary_wastes",
+          "term": "Wastes",
+          "definition": "Wastes is a basic land with no land types that taps for one colorless mana; a Commander deck may include any number of it.",
+          "surface": "start-here",
+          "field": "Colorless spellcraft",
+          "target_key": "start-here:Colorless spellcraft",
+          "matched_label": "Wastes",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    },
+    {
+      "identity_key": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "teaching_count": 1,
+      "new_teaching_count": 0,
+      "override_count": 0,
+      "allocations": [
+        {
+          "identity_key": "WUBRG",
+          "record_id": "glossary_ramp",
+          "term": "Ramp",
+          "definition": "Getting access to more mana than normal for your turn count.",
+          "surface": "start-here",
+          "field": "Possible directions",
+          "target_key": "start-here:Possible directions",
+          "matched_label": "Ramp",
+          "allocation_kind": "LEGACY_SINGLE_TEACHING",
+          "rendered": true
+        }
+      ]
+    }
+  ]
+}

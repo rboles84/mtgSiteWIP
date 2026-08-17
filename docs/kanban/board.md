@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-565 - Curated Player Vocabulary Education](in-progress/VM-565-curated-player-vocabulary-education.md) - isolated final owner-review remediation passes for Bant wording, Boros control visibility, and Ink Sound selection; final owner verification is pending.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -52,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-564 - All-37 Dossier Term Hover Audit](done/VM-564-all-37-dossier-term-hover-audit.md) - audited all 37 placements against the approved glossary and delivered the deterministic term/hover/strategy-label evidence baseline without changing runtime behavior.
 
 - [VM-563 - Archscry Sound/Play Final Corpus Remediation](done/VM-563-archscry-sound-play-final-corpus-remediation.md) - owner accepted exact corrective candidate `52fdd86155c8a47f5ac8650fe9d92a8f5010ca07`; the 37/119/73/46/4 corpus, Dune-Brood correction, and all accepted Glint rows are integrated and production-verified in release commit `aec62fb54c59eed02842eebc8e34f89dddc80f5f`.
 

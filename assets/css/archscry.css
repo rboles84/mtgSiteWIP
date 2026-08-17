@@ -3698,6 +3698,13 @@ body.vm-archscry-route .flavor-echo-action{
   cursor:pointer;
 }
 
+body.vm-archscry-route .public-three-item-grid[data-item-count="3"] .flavor-echo-action{
+  width:fit-content;
+  max-width:100%;
+  white-space:normal;
+  line-height:1.35;
+}
+
 body.vm-archscry-route .precon-commander-trigger{
   appearance:none;
   border:0;

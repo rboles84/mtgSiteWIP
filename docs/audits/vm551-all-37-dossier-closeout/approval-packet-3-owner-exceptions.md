@@ -1,6 +1,6 @@
 # VM-551 Packet 3 Automatic Adjudication
 
-- Approved glossary records: **42**
+- Approved glossary records: **65**
 - Approved instructional microcopy records: **4**
 - Owner exceptions: **0**
 - Validator: `vm551-education-validator-v1`

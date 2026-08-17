@@ -23,10 +23,11 @@
           "browseBuildCount": 7,
           "signalCount": 14,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 5,
+          "glossaryHelpCount": 6,
           "glossaryTerms": [
             "protection",
             "Counters Matter",
+            "Lifegain",
             "Tokens",
             "sacrifice",
             "graveyard"
@@ -34,9 +35,48 @@
           "glossaryRecordIds": [
             "glossary_protection",
             "glossary_counters_matter",
+            "glossary_lifegain",
             "glossary_tokens",
             "glossary_sacrifice",
             "glossary_graveyard_value"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_lifegain",
+              "text": "Lifegain",
+              "definition": "Gain life as protection, fuel, or a payoff trigger.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -127,16 +167,52 @@
           "browseBuildCount": 4,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 3,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "graveyard",
             "Midrange",
-            "Sacrifice"
+            "Sacrifice",
+            "Aristocrats",
+            "Reanimator"
           ],
           "glossaryRecordIds": [
             "glossary_graveyard_value",
             "glossary_midrange",
-            "glossary_sacrifice"
+            "glossary_sacrifice",
+            "glossary_aristocrats",
+            "glossary_reanimator"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "Sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aristocrats",
+              "text": "Aristocrats",
+              "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_reanimator",
+              "text": "Reanimator",
+              "definition": "Put creature cards from your graveyard directly onto the battlefield, often for less mana than casting them normally.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -216,26 +292,100 @@
           "browseBuildCount": 10,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 8,
+          "glossaryHelpCount": 11,
           "glossaryTerms": [
             "Voltron",
             "Counters Matter",
+            "Enchantments",
+            "Exalted",
             "equipment",
             "blink",
             "ETB",
             "protection",
             "prison",
-            "control"
+            "control",
+            "Enchantress"
           ],
           "glossaryRecordIds": [
             "glossary_voltron",
             "glossary_counters_matter",
+            "glossary_enchantments",
+            "glossary_exalted",
             "glossary_equipment",
             "glossary_blink_flicker",
             "glossary_etb",
             "glossary_protection",
             "glossary_prison_control",
-            "glossary_control"
+            "glossary_control",
+            "glossary_enchantress"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_voltron",
+              "text": "Voltron",
+              "definition": "Building one creature, often a commander, into a lethal protected threat.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_enchantments",
+              "text": "Enchantments",
+              "definition": "Using enchantments as persistent rules, engines, or creature enhancements.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_exalted",
+              "text": "Exalted",
+              "definition": "Whenever a creature you control attacks alone, each exalted ability gives it +1/+1 until end of turn.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_equipment",
+              "text": "equipment",
+              "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_blink_flicker",
+              "text": "blink",
+              "definition": "Exiling permanents and returning them to reuse enter-the-battlefield effects or dodge removal.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_etb",
+              "text": "ETB",
+              "definition": "Using effects that trigger when permanents enter the battlefield.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_prison_control",
+              "text": "prison",
+              "definition": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_enchantress",
+              "text": "Enchantress",
+              "definition": "An enchantment-focused strategy that draws cards or generates value when you cast enchantments or when enchantments enter the battlefield.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -323,18 +473,68 @@
           "browseBuildCount": 8,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 7,
           "glossaryTerms": [
             "graveyard",
             "sacrifice",
             "Midrange",
-            "Self-mill"
+            "Dredge",
+            "Rock / BGx Midrange",
+            "Self-mill",
+            "milling"
           ],
           "glossaryRecordIds": [
             "glossary_graveyard_value",
             "glossary_sacrifice",
             "glossary_midrange",
-            "glossary_self_mill"
+            "glossary_dredge",
+            "glossary_bgx_midrange",
+            "glossary_self_mill",
+            "glossary_mill"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_dredge",
+              "text": "Dredge",
+              "definition": "If a card with dredge N is in your graveyard when you would draw, you may mill exactly N cards and return that card to your hand instead.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_bgx_midrange",
+              "text": "Rock / BGx Midrange",
+              "definition": "A black-green midrange strategy built around efficient disruption, durable threats, and attrition; the x means it may splash another color.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_self_mill",
+              "text": "Self-mill",
+              "definition": "Putting cards from your own library into your graveyard on purpose.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_mill",
+              "text": "milling",
+              "definition": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -419,18 +619,52 @@
           "browseBuildCount": 7,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "Midrange",
             "Aggro",
             "Aristocrats",
-            "sacrifice"
+            "sacrifice",
+            "impulse draw"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
             "glossary_aggro",
             "glossary_aristocrats",
-            "glossary_sacrifice"
+            "glossary_sacrifice",
+            "glossary_impulse_draw"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aristocrats",
+              "text": "Aristocrats",
+              "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_impulse_draw",
+              "text": "impulse draw",
+              "definition": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -515,22 +749,76 @@
           "browseBuildCount": 1,
           "signalCount": 0,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 6,
+          "glossaryHelpCount": 8,
           "glossaryTerms": [
             "mana rocks",
+            "Artifacts",
             "Big Mana",
             "Ramp",
             "Wastes",
             "Devoid",
-            "generic mana"
+            "generic mana",
+            "colorless mana"
           ],
           "glossaryRecordIds": [
             "glossary_mana_rocks",
+            "glossary_artifacts",
             "glossary_big_mana",
             "glossary_ramp",
             "glossary_wastes",
             "glossary_devoid",
-            "glossary_generic_mana"
+            "glossary_generic_mana",
+            "glossary_colorless_mana"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_mana_rocks",
+              "text": "mana rocks",
+              "definition": "Artifacts that produce mana, helping a deck accelerate or fix its mana.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_artifacts",
+              "text": "Artifacts",
+              "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_big_mana",
+              "text": "Big Mana",
+              "definition": "Producing very large amounts of mana for oversized plays.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_ramp",
+              "text": "Ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_wastes",
+              "text": "Wastes",
+              "definition": "Wastes is a basic land with no land types that taps for one colorless mana; a Commander deck may include any number of it.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_devoid",
+              "text": "Devoid",
+              "definition": "A card with devoid is colorless even if colored mana symbols appear in its mana cost. Devoid does not remove those colors from the card's Commander color identity.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_generic_mana",
+              "text": "generic mana",
+              "definition": "A generic mana cost is shown with a number and can be paid with mana of any color or with colorless mana; it is a cost, not a type of mana.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_colorless_mana",
+              "text": "colorless mana",
+              "definition": "Colorless mana is mana with no color. A {C} cost can be paid only with colorless mana.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -610,6 +898,26 @@
             "glossary_tokens",
             "glossary_midrange"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Swamp",
@@ -629,7 +937,7 @@
             ],
             "voice": [
               "aurelia, the warleader",
-              "scour from existence"
+              "dune-brood nephilim"
             ],
             "signals": [
               "mayhem devil",
@@ -666,7 +974,11 @@
             "context_heading": "Why Saskia the Unyielding helps explain Dune / Aggression in play",
             "context": "Choosing one player fixes the objective before combat begins. Damage dealt to anyone else still reaches that target, so every successful attack contributes to the same concentrated campaign."
           },
-          "voiceModalAudit": null,
+          "voiceModalAudit": {
+            "card": "Dune-Brood Nephilim",
+            "tile": "When it awoke, it spawned nameless thousands to herald its arrival.",
+            "context": "The “nameless thousands” become literal when Dune-Brood connects: every land you control adds another Sand token. That multiplying surge gives Dune's physical momentum a different voice from Aurelia's front-line command."
+          },
           "returnToPreviousReadingVerified": false,
           "console_errors": [
             "Failed to load resource: net::ERR_FAILED"
@@ -689,14 +1001,44 @@
           "browseBuildCount": 11,
           "signalCount": 9,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 2,
+          "glossaryHelpCount": 4,
           "glossaryTerms": [
             "Control",
+            "Artifacts",
+            "Enchantments",
             "tokens"
           ],
           "glossaryRecordIds": [
             "glossary_control",
+            "glossary_artifacts",
+            "glossary_enchantments",
             "glossary_tokens"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_artifacts",
+              "text": "Artifacts",
+              "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_enchantments",
+              "text": "Enchantments",
+              "definition": "Using enchantments as persistent rules, engines, or creature enhancements.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -805,6 +1147,50 @@
             "glossary_protection",
             "glossary_trample"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_big_mana",
+              "text": "Big Mana",
+              "definition": "Producing very large amounts of mana for oversized plays.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_ramp",
+              "text": "Ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_landfall",
+              "text": "landfall",
+              "definition": "Triggering effects when lands enter the battlefield under your control.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_trample",
+              "text": "trample",
+              "definition": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Forest"
@@ -894,6 +1280,32 @@
             "glossary_spellslinger",
             "glossary_aggro",
             "glossary_midrange"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_storm",
+              "text": "storm",
+              "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -988,6 +1400,32 @@
             "glossary_aristocrats",
             "glossary_sacrifice"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aristocrats",
+              "text": "Aristocrats",
+              "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Island",
@@ -1072,12 +1510,36 @@
           "browseBuildCount": 2,
           "signalCount": 7,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 1,
+          "glossaryHelpCount": 3,
           "glossaryTerms": [
-            "ramp"
+            "ramp",
+            "Group Hug",
+            "Politics"
           ],
           "glossaryRecordIds": [
-            "glossary_ramp"
+            "glossary_ramp",
+            "glossary_group_hug",
+            "glossary_politics"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_group_hug",
+              "text": "Group Hug",
+              "definition": "Give resources to multiple players, often to shape the table's politics or pace.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_politics",
+              "text": "Politics",
+              "definition": "Use deals, incentives, goad, votes, or threat assessment to shape multiplayer decisions.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1097,8 +1559,8 @@
               "kynaios and tiro of meletis"
             ],
             "voice": [
-              "command tower",
-              "danitha capashen, paragon"
+              "crystal, inhuman princess",
+              "group project"
             ],
             "signals": [
               "ink-treader nephilim",
@@ -1171,6 +1633,32 @@
             "glossary_spellslinger",
             "glossary_tempo",
             "glossary_control"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tempo",
+              "text": "Tempo",
+              "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1284,6 +1772,50 @@
             "glossary_graveyard_value",
             "glossary_tokens"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_devour",
+              "text": "devour",
+              "definition": "Devour lets a creature enter with +1/+1 counters for each creature sacrificed as it enters; Devour N gives N counters per creature.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard value",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Swamp",
@@ -1367,18 +1899,68 @@
           "browseBuildCount": 8,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 7,
           "glossaryTerms": [
             "Midrange",
             "Graveyard",
             "Aggro",
-            "tokens"
+            "Tribal",
+            "tokens",
+            "Artifacts",
+            "Historic"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
             "glossary_graveyard_value",
             "glossary_aggro",
-            "glossary_tokens"
+            "glossary_typal",
+            "glossary_tokens",
+            "glossary_artifacts",
+            "glossary_historic"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "Graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_typal",
+              "text": "Tribal",
+              "definition": "Build around a shared creature type and cards that reward that type; many players also call this tribal.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_artifacts",
+              "text": "Artifacts",
+              "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_historic",
+              "text": "Historic",
+              "definition": "Historic refers collectively to artifacts, legendary cards, and Sagas.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1476,6 +2058,32 @@
             "glossary_tokens",
             "glossary_sacrifice",
             "glossary_aristocrats"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "Sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aristocrats",
+              "text": "aristocrats",
+              "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1580,6 +2188,38 @@
             "glossary_protection",
             "glossary_control"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "Ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_big_mana",
+              "text": "Big Mana",
+              "definition": "Producing very large amounts of mana for oversized plays.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Mountain",
@@ -1666,13 +2306,14 @@
           "browseBuildCount": 7,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 7,
+          "glossaryHelpCount": 8,
           "glossaryTerms": [
             "Midrange",
             "Spellslinger",
             "Tokens",
             "Big Spell Storm",
             "spell copying",
+            "treasure",
             "protection",
             "open mana"
           ],
@@ -1682,8 +2323,59 @@
             "glossary_tokens",
             "glossary_big_spell_storm",
             "glossary_spell_copying",
+            "glossary_treasure",
             "glossary_protection",
             "glossary_open_mana"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_big_spell_storm",
+              "text": "Big Spell Storm",
+              "definition": "A spellslinger plan that builds mana and spell count toward a concentrated turn of large spells; it may use the Storm keyword, but does not have to.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spell_copying",
+              "text": "spell copying",
+              "definition": "Copying instants, sorceries, or other spells for extra effects.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_treasure",
+              "text": "treasure",
+              "definition": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_open_mana",
+              "text": "open mana",
+              "definition": "Leave lands or other mana sources untapped so you can act later.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1780,6 +2472,32 @@
             "glossary_midrange",
             "glossary_counters_matter"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Forest",
@@ -1862,14 +2580,60 @@
           "browseBuildCount": 3,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 2,
+          "glossaryHelpCount": 6,
           "glossaryTerms": [
             "Midrange",
-            "Aggro"
+            "Aggro",
+            "Burn",
+            "Haste",
+            "Impulse Draw",
+            "Treasures"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
-            "glossary_aggro"
+            "glossary_aggro",
+            "glossary_burn",
+            "glossary_haste",
+            "glossary_impulse_draw",
+            "glossary_treasure"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_burn",
+              "text": "Burn",
+              "definition": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_haste",
+              "text": "Haste",
+              "definition": "A creature with haste can attack and use tap abilities as soon as it comes under your control.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_impulse_draw",
+              "text": "Impulse Draw",
+              "definition": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_treasure",
+              "text": "Treasures",
+              "definition": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -1948,18 +2712,52 @@
           "browseBuildCount": 7,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "ramp",
             "Midrange",
             "Aggro",
-            "trample"
+            "trample",
+            "Ponza / Land Denial"
           ],
           "glossaryRecordIds": [
             "glossary_ramp",
             "glossary_midrange",
             "glossary_aggro",
-            "glossary_trample"
+            "glossary_trample",
+            "glossary_land_denial"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_trample",
+              "text": "trample",
+              "definition": "A creature with trample can assign excess combat damage to the player, planeswalker, or battle it is attacking after assigning lethal damage to its blockers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_land_denial",
+              "text": "Ponza / Land Denial",
+              "definition": "Attack opponents' mana by destroying, restricting, or disabling lands; Ponza is a red-green version that follows with efficient threats.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2045,16 +2843,44 @@
           "browseBuildCount": 7,
           "signalCount": 1,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 3,
+          "glossaryHelpCount": 4,
           "glossaryTerms": [
             "Midrange",
             "Spellslinger",
-            "Aggro"
+            "Aggro",
+            "goad"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
             "glossary_spellslinger",
-            "glossary_aggro"
+            "glossary_aggro",
+            "glossary_goad"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_goad",
+              "text": "goad",
+              "definition": "Until your next turn, a goaded creature attacks each combat if able and attacks a player other than you if able.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2131,18 +2957,52 @@
           "browseBuildCount": 7,
           "signalCount": 11,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "Graveyard",
+            "Theft",
             "Self-Mill",
             "ramp",
             "control"
           ],
           "glossaryRecordIds": [
             "glossary_graveyard_value",
+            "glossary_theft",
             "glossary_self_mill",
             "glossary_ramp",
             "glossary_control"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "Graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_theft",
+              "text": "Theft",
+              "definition": "Use opponents' cards, permanents, libraries, or graveyards as resources.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_self_mill",
+              "text": "Self-Mill",
+              "definition": "Putting cards from your own library into your graveyard on purpose.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_ramp",
+              "text": "ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2243,6 +3103,32 @@
             "glossary_spellslinger",
             "glossary_tokens"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "Ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_big_mana",
+              "text": "Big Mana",
+              "definition": "Producing very large amounts of mana for oversized plays.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Forest",
@@ -2331,20 +3217,60 @@
           "browseBuildCount": 3,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 5,
+          "glossaryHelpCount": 6,
           "glossaryTerms": [
             "control",
             "Midrange",
             "Aggro",
             "Draw-Go Control",
-            "spellslinger"
+            "spellslinger",
+            "Artifacts"
           ],
           "glossaryRecordIds": [
             "glossary_control",
             "glossary_midrange",
             "glossary_aggro",
             "glossary_draw_go_control",
-            "glossary_spellslinger"
+            "glossary_spellslinger",
+            "glossary_artifacts"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_draw_go_control",
+              "text": "Draw-Go Control",
+              "definition": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_artifacts",
+              "text": "Artifacts",
+              "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2423,16 +3349,52 @@
           "browseBuildCount": 8,
           "signalCount": 0,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 3,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "Midrange",
             "Graveyard",
-            "control"
+            "Surveil",
+            "control",
+            "mill"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
             "glossary_graveyard_value",
-            "glossary_control"
+            "glossary_surveil",
+            "glossary_control",
+            "glossary_mill"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "Graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_surveil",
+              "text": "Surveil",
+              "definition": "Look at the stated number of cards from the top of your library, put any into your graveyard, and return the rest to the top in any order.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_mill",
+              "text": "mill",
+              "definition": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2518,6 +3480,26 @@
             "glossary_ramp",
             "glossary_midrange",
             "glossary_counters_matter"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2617,6 +3599,38 @@
             "glossary_spellslinger",
             "glossary_graveyard_value"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_tempo",
+              "text": "tempo",
+              "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_storm",
+              "text": "storm",
+              "definition": "Casting many spells in one turn, sometimes using the Storm keyword.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_spellslinger",
+              "text": "Spellslinger",
+              "definition": "Rewarding the casting of instants and sorceries, often in chains.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Island",
@@ -2701,14 +3715,15 @@
           "browseBuildCount": 3,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 6,
+          "glossaryHelpCount": 7,
           "glossaryTerms": [
             "protection",
             "Midrange",
             "Tokens",
             "Control",
             "taxes",
-            "equipment"
+            "equipment",
+            "Board wipes"
           ],
           "glossaryRecordIds": [
             "glossary_protection",
@@ -2716,7 +3731,52 @@
             "glossary_tokens",
             "glossary_control",
             "glossary_taxation",
-            "glossary_equipment"
+            "glossary_equipment",
+            "glossary_sweepers"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_taxation",
+              "text": "taxes",
+              "definition": "Make selected actions cost more mana or other resources.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_equipment",
+              "text": "equipment",
+              "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sweepers",
+              "text": "Board wipes",
+              "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2795,7 +3855,7 @@
           "browseBuildCount": 8,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 7,
+          "glossaryHelpCount": 8,
           "glossaryTerms": [
             "control",
             "tax",
@@ -2803,7 +3863,8 @@
             "Midrange",
             "Aggro",
             "aristocrats",
-            "board wipe"
+            "board wipe",
+            "Afterlife"
           ],
           "glossaryRecordIds": [
             "glossary_control",
@@ -2812,7 +3873,58 @@
             "glossary_midrange",
             "glossary_aggro",
             "glossary_aristocrats",
-            "glossary_sweepers"
+            "glossary_sweepers",
+            "glossary_afterlife"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_control",
+              "text": "control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_taxation",
+              "text": "tax",
+              "definition": "Make selected actions cost more mana or other resources.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aristocrats",
+              "text": "aristocrats",
+              "definition": "Winning through creatures dying, sacrifice loops, and drain or value payoffs.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sweepers",
+              "text": "board wipe",
+              "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_afterlife",
+              "text": "Afterlife",
+              "definition": "When a creature with afterlife dies, create the stated number of 1/1 white and black Spirit creature tokens with flying.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -2899,18 +4011,60 @@
           "browseBuildCount": 6,
           "signalCount": 6,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 6,
           "glossaryTerms": [
             "tokens",
             "Midrange",
             "Convoke",
-            "protection"
+            "Go-Wide",
+            "protection",
+            "populate"
           ],
           "glossaryRecordIds": [
             "glossary_tokens",
             "glossary_midrange",
             "glossary_convoke",
-            "glossary_protection"
+            "glossary_go_wide",
+            "glossary_protection",
+            "glossary_populate"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_tokens",
+              "text": "tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_convoke",
+              "text": "Convoke",
+              "definition": "As you cast a spell with convoke, your creatures can be tapped to help pay its mana cost; each tapped creature pays for one mana of its color or one generic mana.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_go_wide",
+              "text": "Go-Wide",
+              "definition": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_populate",
+              "text": "populate",
+              "definition": "Create a token that's a copy of a creature token you control.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -3002,6 +4156,26 @@
             "glossary_midrange",
             "glossary_control"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_counters_matter",
+              "text": "Counters Matter",
+              "definition": "Using counters on permanents or players as a scaling resource.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Forest",
@@ -3072,18 +4246,52 @@
           "browseBuildCount": 7,
           "signalCount": 0,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 4,
+          "glossaryHelpCount": 5,
           "glossaryTerms": [
             "Midrange",
             "Sacrifice",
             "Aggro",
+            "life gain",
             "graveyard"
           ],
           "glossaryRecordIds": [
             "glossary_midrange",
             "glossary_sacrifice",
             "glossary_aggro",
+            "glossary_lifegain",
             "glossary_graveyard_value"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sacrifice",
+              "text": "Sacrifice",
+              "definition": "Sacrificing your own permanents for value, protection, or triggers.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_lifegain",
+              "text": "life gain",
+              "definition": "Gain life as protection, fuel, or a payoff trigger.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_graveyard_value",
+              "text": "graveyard",
+              "definition": "Using the graveyard as an active game zone or resource.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -3162,20 +4370,84 @@
           "browseBuildCount": 8,
           "signalCount": 7,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 5,
+          "glossaryHelpCount": 9,
           "glossaryTerms": [
             "equipment",
             "Midrange",
             "Tokens",
+            "Go-Wide",
             "Aggro",
-            "protection"
+            "protection",
+            "Burn",
+            "Heroic",
+            "Voltron"
           ],
           "glossaryRecordIds": [
             "glossary_equipment",
             "glossary_midrange",
             "glossary_tokens",
+            "glossary_go_wide",
             "glossary_aggro",
-            "glossary_protection"
+            "glossary_protection",
+            "glossary_burn",
+            "glossary_heroic",
+            "glossary_voltron"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_equipment",
+              "text": "equipment",
+              "definition": "Using Equipment artifacts to enhance creatures repeatedly.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tokens",
+              "text": "Tokens",
+              "definition": "Creating token permanents, especially creature tokens, as resources or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_go_wide",
+              "text": "Go-Wide",
+              "definition": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_aggro",
+              "text": "Aggro",
+              "definition": "A proactive strategy that pressures opponents early through damage or threats.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_protection",
+              "text": "protection",
+              "definition": "Protection from a quality prevents damage, enchanting or equipping, blocking, and targeting from sources with that quality; it does not stop effects that do none of those things.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_burn",
+              "text": "Burn",
+              "definition": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_heroic",
+              "text": "Heroic",
+              "definition": "Heroic is an ability word for abilities that trigger when you cast a spell that targets that creature.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_voltron",
+              "text": "Voltron",
+              "definition": "Building one creature, often a commander, into a lethal protected threat.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -3261,7 +4533,7 @@
           "browseBuildCount": 6,
           "signalCount": 8,
           "manaNotesPresent": true,
-          "glossaryHelpCount": 8,
+          "glossaryHelpCount": 9,
           "glossaryTerms": [
             "taxes",
             "open mana",
@@ -3270,7 +4542,8 @@
             "Control",
             "Draw-Go Control",
             "sweepers",
-            "detain"
+            "detain",
+            "Prison Control"
           ],
           "glossaryRecordIds": [
             "glossary_taxation",
@@ -3280,7 +4553,64 @@
             "glossary_control",
             "glossary_draw_go_control",
             "glossary_sweepers",
-            "glossary_detain"
+            "glossary_detain",
+            "glossary_prison_control"
+          ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_taxation",
+              "text": "taxes",
+              "definition": "Make selected actions cost more mana or other resources.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_open_mana",
+              "text": "open mana",
+              "definition": "Leave lands or other mana sources untapped so you can act later.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_tempo",
+              "text": "tempo",
+              "definition": "Gaining advantage by making opponents spend more time and mana than you do.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_midrange",
+              "text": "Midrange",
+              "definition": "A flexible strategy built on efficient threats, answers, and repeatable value.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_control",
+              "text": "Control",
+              "definition": "A reactive strategy that answers threats and wins after stabilizing.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_draw_go_control",
+              "text": "Draw-Go Control",
+              "definition": "Develop mostly on other players' turns; in Commander, keep mana open for draw, counters, or instant-speed interaction.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_sweepers",
+              "text": "sweepers",
+              "definition": "Reset many permanents at once when one-for-one interaction is not enough.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_detain",
+              "text": "detain",
+              "definition": "Temporarily stop a permanent from attacking, blocking, or activating non-mana abilities.",
+              "tabIndex": "0"
+            },
+            {
+              "recordId": "glossary_prison_control",
+              "text": "Prison Control",
+              "definition": "Constrain which actions remain available by using rule-setting permanents and taxes to narrow opposing lines.",
+              "tabIndex": "0"
+            }
           ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
@@ -3374,6 +4704,14 @@
           "glossaryRecordIds": [
             "glossary_ramp"
           ],
+          "glossaryNodes": [
+            {
+              "recordId": "glossary_ramp",
+              "text": "Ramp",
+              "definition": "Getting access to more mana than normal for your turn count.",
+              "tabIndex": "0"
+            }
+          ],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [
             "Plains",
@@ -3461,6 +4799,7 @@
           "glossaryHelpCount": 0,
           "glossaryTerms": [],
           "glossaryRecordIds": [],
+          "glossaryNodes": [],
           "glossaryOutsideApprovedSurfaces": [],
           "basicLandCards": [],
           "duplicateProviderLabels": [],

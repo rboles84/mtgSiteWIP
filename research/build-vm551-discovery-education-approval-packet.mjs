@@ -2,6 +2,11 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  VM565_MANA_ROCKS_DEFINITION,
+  VM565_NEW_GLOSSARY_TERMS,
+  vm565TeachingPolicyFor,
+} from "./vm565-player-vocabulary-authority.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const modeCheck = process.argv.includes("--check");
@@ -76,7 +81,7 @@ const taxonomyReview = [
   record_type: "GLOSSARY_TERM",
   term,
   aliases,
-  proposed_copy: tagDefinition(tag),
+  proposed_copy: termId === "mana_rocks" ? VM565_MANA_ROCKS_DEFINITION : tagDefinition(tag),
   example: null,
   provenance: {
     role: "vox_mana_commander_vocabulary",
@@ -87,6 +92,26 @@ const taxonomyReview = [
   disposition: "PENDING_AUTOMATIC_VALIDATION",
   owner_decision: null,
   replacement_locator: `data/dossier/discovery-education-authority.source.json#glossary_${termId}`,
+}));
+
+const vm565VocabularyReview = VM565_NEW_GLOSSARY_TERMS.map((entry) => ({
+  record_id: `glossary_${entry.id}`,
+  record_type: "GLOSSARY_TERM",
+  term: entry.term,
+  aliases: entry.aliases,
+  proposed_copy: entry.copy,
+  example: null,
+  provenance: {
+    role: entry.role,
+    locator: entry.locator,
+    supporting_locators: entry.locator.startsWith("https://magic.wizards.com")
+      ? ["https://magic.wizards.com/en/rules"]
+      : [],
+  },
+  limitations: "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+  disposition: "PENDING_AUTOMATIC_VALIDATION",
+  owner_decision: null,
+  replacement_locator: `data/dossier/discovery-education-authority.source.json#glossary_${entry.id}`,
 }));
 
 const rulesReview = [
@@ -241,8 +266,12 @@ const microcopyReview = [
   replacement_locator: `data/dossier/discovery-education-authority.source.json#microcopy_${entry.id}`,
 }));
 
-const records = [...baselineTerms, ...taxonomyReview, ...rulesReview, ...compositeReview, ...microcopyReview]
-  .map((record) => ({ ...record, copy_sha256: digest(record.proposed_copy) }))
+const records = [...baselineTerms, ...taxonomyReview, ...rulesReview, ...vm565VocabularyReview, ...compositeReview, ...microcopyReview]
+  .map((record) => ({
+    ...record,
+    ...(vm565TeachingPolicyFor(record.record_id) ? { teaching_policy: vm565TeachingPolicyFor(record.record_id) } : {}),
+    copy_sha256: digest(record.proposed_copy),
+  }))
   .sort((left, right) => left.record_id.localeCompare(right.record_id));
 
 const authority = {

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "source_path": "data/dossier/card-voice-relationships.source.json",
-  "source_sha256": "334aa0d640393c4ca4f38ee2ce415e316ecc52b9f80d844f27b4728f71498f88",
+  "source_sha256": "acc28dbf762fc17226556c5356601df75c4271f0d34f5c4f1e8cccb22764fb05",
   "generated_policy": "APPROVED_PUBLIC only; exact excerpt plus explicit relationship-owned player context; no heuristic, shared composer, or fallback copy",
   "records": [
     {
@@ -2560,26 +2560,26 @@
       }
     },
     {
-      "relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "relationship_id": "cardvoice_vm565_ink_32c14d7f_fdaa_4340_af94_1f10bf064f51",
       "identity_key": "INK",
       "card": {
-        "name": "Command Tower",
-        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
-        "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
-        "set": "soc",
-        "collector_number": "129",
-        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25"
+        "name": "Crystal, Inhuman Princess",
+        "oracle_id": "32c14d7f-fdaa-4340-af94-1f10bf064f51",
+        "scryfall_id": "1e9aec49-08d7-4fc8-87dd-69ab8910688a",
+        "set": "msc",
+        "collector_number": "80",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm565_ink_32c14d7f_fdaa_4340_af94_1f10bf064f51"
       },
-      "excerpt": "Knowledge is wasted if not shared.",
-      "why_it_echoes": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
-      "modal_explanation": "The sting is in \"wasted\": knowledge that stays private has failed its purpose. Its value comes from reaching other people.",
+      "excerpt": "\"Attilan can't stay hidden forever. It's time we showed them how fantastic we are.\"",
+      "why_it_echoes": "Crystal's exact excerpt speaks as a collective 'we' and calls for a hidden community to show what it can become, giving Ink a bounded voice of collective flourishing brought into public view.",
+      "modal_explanation": "Crystal speaks for Attilan as a collective 'we,' choosing public participation over staying hidden. The line makes flourishing something a community reveals together.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "slot": 1,
       "pair_role": "ANCHOR",
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
-        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+        "reason": "Kynaios and Tiro of Meletis remains protected in Play; Sound uses distinct cards."
       },
       "provenance": {
         "claim_ids": [
@@ -2587,35 +2587,36 @@
         ],
         "source_ids": [
           "src_vm_ink_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604"
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm565_ink_owner_evidence_20260816"
         ],
-        "printing_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
-        "printing_source_locator": "https://api.scryfall.com/cards/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3#card.flavor_text",
-        "validator_version": "vm551-evidence-validator-v1",
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC"
+        "printing_id": "1e9aec49-08d7-4fc8-87dd-69ab8910688a",
+        "printing_source_locator": "https://api.scryfall.com/cards/1e9aec49-08d7-4fc8-87dd-69ab8910688a#card.flavor_text",
+        "validator_version": "vm565-ink-owner-remediation-v1",
+        "approval_basis": "OWNER_AUTHORIZED_VM565_CORRECTION_PENDING_FINAL_ACCEPTANCE"
       }
     },
     {
-      "relationship_id": "cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+      "relationship_id": "cardvoice_vm565_ink_e1ce210e_2d1d_4ab4_bfb7_8e36884797fc",
       "identity_key": "INK",
       "card": {
-        "name": "Danitha Capashen, Paragon",
-        "oracle_id": "4b6377da-83e7-4519-9582-16a9c16b8faa",
-        "scryfall_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
-        "set": "cmm",
-        "collector_number": "20",
-        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa"
+        "name": "Group Project",
+        "oracle_id": "e1ce210e-2d1d-4ab4-bfb7-8e36884797fc",
+        "scryfall_id": "e8abc1eb-6225-4b18-8502-b5324b818aed",
+        "set": "sos",
+        "collector_number": "17",
+        "data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm565_ink_e1ce210e_2d1d_4ab4_bfb7_8e36884797fc"
       },
-      "excerpt": "\"I will protect the less fortunate. I will love bravely. I will face despair and fight on. As a Capashen, I can do no less.\"",
-      "why_it_echoes": "Danitha gives Ink a second voice of community benefit defended through duty.",
-      "modal_explanation": "The final sentence changes the voice from aspiration to duty: Danitha believes her family name obliges her to protect others even when love and endurance cost her.",
+      "excerpt": "\"Never be afraid to ask for help. Success is much sweeter when it's shared.\"\n—Quintorius Kand",
+      "why_it_echoes": "Group Project's exact excerpt directly joins asking for help with success made sweeter through sharing, giving Ink a voice of mutual aid and reciprocal benefit.",
+      "modal_explanation": "Quintorius treats asking for help as courage rather than failure. Success becomes sweeter because it belongs to the people who made it together.",
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "slot": 2,
       "pair_role": "COMPLEMENT",
       "display_priority": 2,
       "critical_repeat": {
         "allowed": false,
-        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+        "reason": "Kynaios and Tiro of Meletis remains protected in Play; Sound uses distinct cards."
       },
       "provenance": {
         "claim_ids": [
@@ -2623,12 +2624,13 @@
         ],
         "source_ids": [
           "src_vm_ink_evidence_ledger_20260604",
-          "src_vm_four_color_reference_audit_20260604"
+          "src_vm_four_color_reference_audit_20260604",
+          "src_vm565_ink_owner_evidence_20260816"
         ],
-        "printing_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
-        "printing_source_locator": "https://api.scryfall.com/cards/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0#card.flavor_text",
-        "validator_version": "vm558-owner-semantic-approval-v1",
-        "approval_basis": "OWNER_SEMANTIC_APPROVAL"
+        "printing_id": "e8abc1eb-6225-4b18-8502-b5324b818aed",
+        "printing_source_locator": "https://api.scryfall.com/cards/e8abc1eb-6225-4b18-8502-b5324b818aed#card.flavor_text",
+        "validator_version": "vm565-ink-owner-remediation-v1",
+        "approval_basis": "OWNER_AUTHORIZED_VM565_CORRECTION_PENDING_FINAL_ACCEPTANCE"
       }
     },
     {

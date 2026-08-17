@@ -1,5 +1,19 @@
 # VM-551 Approval Packet 3 — Discovery And Education
 
+## Current VM-565 extension
+
+VM-565 extends this authority without changing placement or identity semantics. The current generated catalog contains 65 glossary records and four instructional microcopy records. Source ownership remains in `research/build-vm551-discovery-education-approval-packet.mjs`; the curated VM-565 additions, aliases, definitions, and exact per-identity teaching targets are declared in `research/vm565-player-vocabulary-authority.mjs` and promoted through the existing VM-551 automatic-adjudication producer.
+
+Runtime selection is now field-aware. A glossary record can declare either `EXPLICIT_TARGETS` (render only at an accepted identity/surface/field) or `LEGACY_WITH_OVERRIDES` (preserve legacy one-per-concept allocation except for named better locations). `assets/js/index.js` still enforces one rendered decoration per canonical record per dossier. Text-only surfaces are not globally enabled: What to Look For titles, How This Plays fields, and the Colorless mana primer receive glossary rendering only when an exact accepted target resolves there.
+
+The controlled evidence set is:
+
+- `docs/audits/vm565-player-vocabulary-education/candidate-ledger.json` — reconciled all-37 candidate decisions before implementation;
+- `docs/audits/vm565-player-vocabulary-education/education-audit-ledger.json` — deterministic current allocation and invariant audit;
+- `docs/audits/vm565-player-vocabulary-education/owner-report.md` — owner-readable all-37 review packet.
+
+The four unused approved records identified by VM-564 — Hatebears, Parity, Pillowfort, and Stax — remain valid dormant vocabulary and are not forced into dossier prose.
+
 Status: **AUTOMATIC ADJUDICATION COMPLETE** — zero owner exceptions.
 
 The prior owner-review procedure below is retained as historical context. The final authority contains 33 approved glossary definitions and four verified discovery/Maze microcopy records. Twenty Commander/rules terms and four instructional records passed `vm551-education-validator-v1`; 13 unchanged baseline definitions remain approved. None authorizes identity meaning or placement semantics.

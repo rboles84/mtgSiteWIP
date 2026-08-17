@@ -452,6 +452,9 @@ async function loadDiscoveryData() {
       set: record.set,
       collector_number: record.collector_number,
       flavor_text: record.exact_flavor_text,
+      mana_cost: record.mana_cost || "",
+      oracle_text: record.oracle_text || "",
+      color_identity: record.color_identity || [],
       image_uris: record.image_uris,
       card_faces: record.card_faces || [],
       type_line: record.type_line || "",
@@ -823,12 +826,12 @@ function buildSelfCheckCopy(faction) {
   return dossierContentForFaction(faction)?.test_the_fit?.positive_self_check || "";
 }
 
-function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "", educationBlock = "test-the-fit" }) {
+function buildIdentityStoryCard({ title, headline, copy, meta = "", className = "", educationBlock = "test-the-fit", educationField = "" }) {
   return `
     <div class="starter-card identity-story-card${className ? ` ${className}` : ""}">
       <div class="starter-title">${escapeHtml(title)}</div>
       ${headline ? `<div class="identity-story-headline">${renderPlayerCopy(headline)}</div>` : ""}
-      <div class="starter-copy">${renderEducationalText(copy, educationBlock)}</div>
+      <div class="starter-copy">${renderEducationalText(copy, educationBlock, educationField)}</div>
       ${meta ? `<div class="identity-story-meta">${meta}</div>` : ""}
     </div>`;
 }
@@ -847,18 +850,21 @@ function buildTestTheFitHtml({ dossier, faction, comparisonFaction = null }) {
       headline: "",
       copy: selfCheck,
       className: "identity-story-card--support",
+      educationField: "positive-self-check",
     }) : "",
     tension ? buildIdentityStoryCard({
       title: "Where it can pull too far",
       headline: "",
       copy: tension,
       className: "identity-story-card--support",
+      educationField: "tension-failure-mode",
     }) : "",
     contrast ? buildIdentityStoryCard({
       title: comparisonFaction ? `Compare ${comparisonFaction.name}` : "Check the boundary",
       headline: "",
       copy: contrast,
       className: "identity-story-card--support",
+      educationField: "certified-boundary-self-check",
     }) : "",
   ].filter(Boolean);
   if (!cards.length) return "";
@@ -877,8 +883,8 @@ function buildTableIdentityCardHtml(faction) {
       <div class="how-this-plays-label">At the table</div>
       <div class="table-identity-list">
         <div><span>Role</span>${renderPlayerCopy(presentation.role)}</div>
-        <div><span>How opponents read it</span>${renderPlayerCopy(presentation.how_opponents_read_it)}</div>
-        <div><span>Emotional pressure</span>${renderPlayerCopy(presentation.emotional_pressure)}</div>
+        <div><span>How opponents read it</span>${renderEducationalText(presentation.how_opponents_read_it, "how-this-plays", "how-opponents-read-it")}</div>
+        <div><span>Emotional pressure</span>${renderEducationalText(presentation.emotional_pressure, "how-this-plays", "emotional-pressure")}</div>
       </div>
     </div>`;
 }
@@ -890,9 +896,9 @@ function buildLoreToMechanicCardHtml(faction) {
     <div class="how-this-plays-block">
       <div class="how-this-plays-label">In play</div>
       <div class="table-identity-list">
-        <div><span>Lore role</span>${renderPlayerCopy(presentation.lore_role)}</div>
-        <div><span>Mechanical expression</span>${renderPlayerCopy(presentation.mechanical_expression)}</div>
-        <div><span>Table experience</span>${renderPlayerCopy(presentation.table_experience)}</div>
+        <div><span>Lore role</span>${renderEducationalText(presentation.lore_role, "how-this-plays", "lore-role")}</div>
+        <div><span>Mechanical expression</span>${renderEducationalText(presentation.mechanical_expression, "how-this-plays", "mechanical-expression")}</div>
+        <div><span>Table experience</span>${renderEducationalText(presentation.table_experience, "how-this-plays", "table-experience")}</div>
       </div>
     </div>`;
 }
@@ -2860,25 +2866,52 @@ const EDUCATION_SURFACE_PRIORITY = Object.freeze([
 let educationalTermAllocation = new Map();
 let renderedEducationalTerms = new Set();
 
+function educationalTargetKey(surface, field = "") {
+  return `${surface}:${field}`;
+}
+
 function termMatcher(label) {
   const escaped = String(label || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return new RegExp(`(^|[^a-z0-9])${escaped}(?=$|[^a-z0-9])`, "i");
 }
 
-function prepareEducationalTermAllocation(copyBySurface = {}) {
+function prepareEducationalTermAllocation(copyBySurface = {}, identityKey = "") {
   educationalTermAllocation = new Map();
-  const termHelp = archscryTermHelp();
-  for (const surface of EDUCATION_SURFACE_PRIORITY) {
-    const copy = (copyBySurface[surface] || []).filter(Boolean).join(" ");
-    if (!copy) continue;
-    for (const [label, help] of Object.entries(termHelp)) {
-      if (educationalTermAllocation.has(help.recordId)) continue;
-      if (termMatcher(label).test(copy)) educationalTermAllocation.set(help.recordId, surface);
+  const normalizedIdentityKey = String(identityKey || "").toUpperCase();
+  const fieldsBySurface = new Map(Object.entries(copyBySurface).map(([surface, values]) => [
+    surface,
+    (values || []).filter(Boolean).map((value, index) => typeof value === "string"
+      ? { field: `field-${index + 1}`, text: value }
+      : { field: String(value.field || `field-${index + 1}`), text: String(value.text || "") }),
+  ]));
+
+  for (const record of APP_STATE.discoveryEducationCatalog?.glossary || []) {
+    const labels = [record.term, ...(record.aliases || [])];
+    const policy = record.teaching_policy || null;
+    const explicitTarget = (policy?.targets || []).find((target) =>
+      String(target.identity_key || "").toUpperCase() === normalizedIdentityKey
+    );
+    if (explicitTarget) {
+      const field = (fieldsBySurface.get(explicitTarget.surface) || []).find((entry) => entry.field === explicitTarget.field);
+      if (field && labels.some((label) => termMatcher(label).test(field.text))) {
+        educationalTermAllocation.set(record.record_id, educationalTargetKey(explicitTarget.surface, explicitTarget.field));
+      }
+      continue;
+    }
+    if (policy?.mode === "EXPLICIT_TARGETS") continue;
+
+    for (const surface of EDUCATION_SURFACE_PRIORITY) {
+      const field = (fieldsBySurface.get(surface) || []).find((entry) =>
+        labels.some((label) => termMatcher(label).test(entry.text))
+      );
+      if (!field) continue;
+      educationalTermAllocation.set(record.record_id, educationalTargetKey(surface, field.field));
+      break;
     }
   }
 }
 
-function renderEducationalText(value, semanticBlock = "page") {
+function renderEducationalText(value, semanticBlock = "page", semanticField = "") {
   const text = String(value || "");
   const termHelp = archscryTermHelp();
   const terms = Object.keys(termHelp).sort((left, right) => right.length - left.length);
@@ -2889,7 +2922,7 @@ function renderEducationalText(value, semanticBlock = "page") {
     const canonical = terms.find((term) => term.toLowerCase() === part.toLowerCase());
     if (!canonical) return renderPlayerCopy(part);
     const help = termHelp[canonical];
-    if (educationalTermAllocation.get(help.recordId) !== semanticBlock) return renderPlayerCopy(part);
+    if (educationalTermAllocation.get(help.recordId) !== educationalTargetKey(semanticBlock, semanticField)) return renderPlayerCopy(part);
     if (renderedEducationalTerms.has(help.recordId)) return renderPlayerCopy(part);
     renderedEducationalTerms.add(help.recordId);
     return `<span class="vm-gloss archscry-term-help" tabindex="0" data-gloss-record="${escapeAttributeValue(help.recordId)}" data-gloss="${escapeAttributeValue(help.definition)}">${escapeHtml(part)}</span>`;
@@ -3097,10 +3130,10 @@ function buildDiscoverySummaryHtml({ dossier, faction, result }) {
       <div class="section-label">Why This Fit</div>
       <p class="signals-intro">These are the answer-derived observations that moved this reading toward ${escapeHtml(faction.name)}.</p>
       <div class="starter-grid public-three-item-grid" data-item-count="${observations.length}">
-        ${observations.map((observation) => `
+        ${observations.map((observation, index) => `
           <div class="starter-card omen-card">
             <div class="starter-title">${escapeHtml(observation.answerTitle)}</div>
-            <div class="starter-copy">${renderEducationalText(observation.copy, "why-this-fit")}</div>
+            <div class="starter-copy">${renderEducationalText(observation.copy, "why-this-fit", `observation-${index + 1}`)}</div>
           </div>`).join("")}
       </div>
     </div>`;
@@ -3797,19 +3830,33 @@ function renderResult(viewKey) {
   const comparisonFaction = getFaction((tiedAlternative || closeAlternative?.match)?.faction);
   prepareEducationalTermAllocation({
     "start-here": [
-      commanderLane?.copy,
-      ...(commanderLane?.details || []).map((detail) => detail.copy),
+      { field: "commander-plan", text: commanderLane?.copy },
+      ...(commanderLane?.details || []).map((detail) => ({ field: detail.label, text: detail.copy })),
     ],
-    "why-this-fit": (dossier?.readingOmens || []).slice(0, 3).map((observation) => observation.copy),
+    "why-this-fit": (dossier?.readingOmens || []).slice(0, 3).map((observation, index) => ({ field: `observation-${index + 1}`, text: observation.copy })),
     "test-the-fit": [
-      dossierContent?.test_the_fit?.positive_self_check,
-      dossierContent?.test_the_fit?.tension_failure_mode,
-      comparisonFaction
+      { field: "positive-self-check", text: dossierContent?.test_the_fit?.positive_self_check },
+      { field: "tension-failure-mode", text: dossierContent?.test_the_fit?.tension_failure_mode },
+      { field: "certified-boundary-self-check", text: comparisonFaction
         ? approvedComparisonCopy(faction, comparisonFaction)
-        : dossierContent?.test_the_fit?.certified_boundary_self_check,
+        : dossierContent?.test_the_fit?.certified_boundary_self_check },
     ],
-    "what-to-look-for": archetypeItems.map((item) => item.desc),
-  });
+    "what-to-look-for-title": archetypeItems.map((item, index) => ({ field: `item-${index + 1}-title`, text: item.name })),
+    "what-to-look-for": archetypeItems.map((item, index) => ({ field: `item-${index + 1}-copy`, text: item.desc })),
+    "how-this-plays": [
+      { field: "role", text: dossierContent?.how_this_plays?.role },
+      { field: "how-opponents-read-it", text: dossierContent?.how_this_plays?.how_opponents_read_it },
+      { field: "emotional-pressure", text: dossierContent?.how_this_plays?.emotional_pressure },
+      { field: "lore-role", text: dossierContent?.how_this_plays?.lore_role },
+      { field: "mechanical-expression", text: dossierContent?.how_this_plays?.mechanical_expression },
+      { field: "table-experience", text: dossierContent?.how_this_plays?.table_experience },
+    ],
+    "mana-notes": String(faction?.key || "").toUpperCase() === "COLORLESS" ? [
+      { field: "wastes-first", text: "Use Wastes and reliable colorless producers as the floor before adding utility lands." },
+      { field: "rocks-and-sources", text: "Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana." },
+      { field: "color-choice-caution", text: "Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana." },
+    ] : [],
+  }, faction?.key);
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
@@ -3825,7 +3872,7 @@ function renderResult(viewKey) {
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
   const atlasFrontierCopy = `Explore the complete ${activeExpressionCount}-identity atlas whenever you want to compare this reading with other Commander paths.`;
   const archetypeHtml = archetypeItems
-    .map((item) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${escapeHtml(item.name)}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for")}</div></div>`)
+    .map((item, index) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name, "what-to-look-for-title", `item-${index + 1}-title`)}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for", `item-${index + 1}-copy`)}</div></div>`)
     .join("");
 
   function cardSlots(items, prefix, placeholderClass, imageClass) {
@@ -3947,15 +3994,15 @@ function renderResult(viewKey) {
     <div class="starter-grid mana-primer-grid">
       <div class="starter-card">
         <div class="starter-title">Wastes First</div>
-        <div class="starter-copy">Use Wastes and reliable colorless producers as the floor before adding utility lands.</div>
+        <div class="starter-copy">${renderEducationalText("Use Wastes and reliable colorless producers as the floor before adding utility lands.", "mana-notes", "wastes-first")}</div>
       </div>
       <div class="starter-card">
         <div class="starter-title">Rocks And Sources</div>
-        <div class="starter-copy">Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana.</div>
+        <div class="starter-copy">${renderEducationalText("Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana.", "mana-notes", "rocks-and-sources")}</div>
       </div>
       <div class="starter-card">
         <div class="starter-title">Color-Choice Caution</div>
-        <div class="starter-copy">Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana.</div>
+        <div class="starter-copy">${renderEducationalText("Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana.", "mana-notes", "color-choice-caution")}</div>
       </div>
     </div>` : "";
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
@@ -4044,12 +4091,12 @@ function renderResult(viewKey) {
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
-          <div class="starter-copy">${renderEducationalText(commanderLane.copy, "start-here")}</div>
+          <div class="starter-copy">${renderEducationalText(commanderLane.copy, "start-here", "commander-plan")}</div>
           <div class="starter-notes">
             ${commanderLane.details.map((detail) => `
               <div class="starter-note">
                 <div class="starter-note-label">${escapeHtml(detail.label)}</div>
-                <div class="starter-copy">${renderEducationalText(detail.copy, "start-here")}</div>
+                <div class="starter-copy">${renderEducationalText(detail.copy, "start-here", detail.label)}</div>
               </div>`).join("")}
           </div>
           ${commanderPreviewHtml}
@@ -4986,7 +5033,11 @@ function bindArchscryControls() {
   app?.addEventListener("focusout", handleGlossaryFocusOut);
   window.addEventListener("scroll", () => {
     hideCardPreviewOverlay();
-    hideGlossaryTooltip();
+    if (glossaryTooltipTarget === document.activeElement && glossaryTooltip && !glossaryTooltip.hidden) {
+      positionGlossaryTooltip(glossaryTooltipTarget, glossaryTooltip);
+    } else {
+      hideGlossaryTooltip();
+    }
   }, { passive: true, capture: true });
   window.addEventListener("resize", () => {
     initializeDossierMobileTabs();

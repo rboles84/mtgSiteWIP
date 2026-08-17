@@ -6810,22 +6810,38 @@
       }
     },
     {
-      "relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+      "relationship_id": "cardvoice_vm565_ink_32c14d7f_fdaa_4340_af94_1f10bf064f51",
       "identity_key": "INK",
       "identity_name": "Ink / Altruism",
       "slot": 1,
       "pair_role": "ANCHOR",
-      "canonical_card_name": "Command Tower",
-      "canonical_card_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
-      "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
-      "exact_excerpt": "Knowledge is wasted if not shared.",
+      "canonical_card_name": "Crystal, Inhuman Princess",
+      "canonical_card_id": "32c14d7f-fdaa-4340-af94-1f10bf064f51",
+      "scryfall_id": "1e9aec49-08d7-4fc8-87dd-69ab8910688a",
+      "exact_excerpt": "\"Attilan can't stay hidden forever. It's time we showed them how fantastic we are.\"",
       "printing": {
-        "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
-        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
-        "set": "soc",
-        "collector_number": "129",
+        "scryfall_id": "1e9aec49-08d7-4fc8-87dd-69ab8910688a",
+        "oracle_id": "32c14d7f-fdaa-4340-af94-1f10bf064f51",
+        "set": "msc",
+        "collector_number": "80",
         "flavor_text_field": "card.flavor_text",
-        "source_locator": "https://api.scryfall.com/cards/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3#card.flavor_text"
+        "source_locator": "https://api.scryfall.com/cards/1e9aec49-08d7-4fc8-87dd-69ab8910688a#card.flavor_text",
+        "scryfall_uri": "https://scryfall.com/card/msc/80/crystal-inhuman-princess?utm_source=api",
+        "image_uris": {
+          "small": "https://cards.scryfall.io/small/front/1/e/1e9aec49-08d7-4fc8-87dd-69ab8910688a.jpg?1783981173",
+          "normal": "https://cards.scryfall.io/normal/front/1/e/1e9aec49-08d7-4fc8-87dd-69ab8910688a.jpg?1783981173",
+          "art_crop": "https://cards.scryfall.io/art_crop/front/1/e/1e9aec49-08d7-4fc8-87dd-69ab8910688a.jpg?1783981173"
+        },
+        "card_faces": [],
+        "type_line": "Legendary Creature — Inhuman Noble Hero",
+        "mana_cost": "{1}{R}{G}",
+        "color_identity": [
+          "G",
+          "R",
+          "U",
+          "W"
+        ],
+        "oracle_text": "Flying\nWhenever you cast a noncreature spell, Crystal deals X damage to each opponent, where X is the number of colors that spell is.\n{T}: Add {R}, {G}, {W}, or {U}."
       },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
@@ -6833,7 +6849,8 @@
       ],
       "source_ids": [
         "src_vm_ink_evidence_ledger_20260604",
-        "src_vm_four_color_reference_audit_20260604"
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm565_ink_owner_evidence_20260816"
       ],
       "source_locators": [
         {
@@ -6843,22 +6860,28 @@
         {
           "source_id": "src_vm_four_color_reference_audit_20260604",
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink"
+        },
+        {
+          "source_id": "src_vm565_ink_owner_evidence_20260816",
+          "locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
         }
       ],
-      "supporting_official_locators": [],
-      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
-      "why_voice_belongs": "Command Tower's exact excerpt provides a bounded voice echo of knowledge treated as wasted unless it is shared.",
-      "relationship_bridge": "The excerpt is admissible for owner review only because its language corresponds to certified claims ink_claim_0005; the relationship does not arise from card color, product membership, tags, or mechanics.",
-      "false_positive_analysis": "White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.",
-      "adjacent_identity_confusion_risk": "White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.",
-      "limitation": "Exact card text is verified, but Public use is limited to this validated voice relationship. White, Blue, Selesnya, and Five-Color can all value sharing. This proposal is limited to Ink's certified open-knowledge and community-benefit frame and does not prove the four-color identity.",
+      "supporting_official_locators": [
+        "https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists"
+      ],
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm565_ink_32c14d7f_fdaa_4340_af94_1f10bf064f51",
+      "why_voice_belongs": "Crystal's exact excerpt speaks as a collective 'we' and calls for a hidden community to show what it can become, giving Ink a bounded voice of collective flourishing brought into public view.",
+      "relationship_bridge": "The Sound relationship depends on Crystal's exact collective voice and Ink's bounded community-benefit frame, not on her damage ability, mana ability, Marvel product membership, or four-color identity by itself.",
+      "false_positive_analysis": "Bant, Naya, and generic heroic teams can also value community and public action. Crystal is admitted only as a bounded Ink echo because the exact line moves from hidden isolation to a collective 'we'; RGWU status alone would be insufficient.",
+      "adjacent_identity_confusion_risk": "Do not use Crystal as generic four-color, Fantastic Four, Inhuman, visibility, or team proof. The public relationship is limited to the exact communal voice in this printing.",
+      "limitation": "Crystal is a bounded Sound anchor, not naming, placement, lore, or Commander-strategy authority for Ink.",
       "review_status": "APPROVED_PUBLIC",
-      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "approval_basis": "OWNER_AUTHORIZED_VM565_CORRECTION_PENDING_FINAL_ACCEPTANCE",
       "validation": {
-        "validator_version": "vm551-evidence-validator-v1",
+        "validator_version": "vm565-ink-owner-remediation-v1",
         "passed": true,
         "failures": [],
-        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "owner_decision": "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE",
         "evidence_chain": {
           "identity_claim_ids": [
             "ink_claim_0005"
@@ -6867,59 +6890,86 @@
             "data/raw-factions/ink/ink.claims.json#ink_claim_0005"
           ],
           "fact_source_locators": [
-            "data/scryfall/indexes/card-flavor-index.json#oracle_id=0895c9b7-ae7d-4bb3-af17-3b75deb50a25"
+            "https://api.scryfall.com/cards/1e9aec49-08d7-4fc8-87dd-69ab8910688a#card.flavor_text",
+            "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
           ]
         }
       },
       "display_priority": 1,
       "critical_repeat": {
         "allowed": false,
-        "reason": "Page-level usage planning should prefer a distinct card for each teaching role."
+        "reason": "Kynaios and Tiro of Meletis remains protected in Play; Sound uses distinct cards."
       },
-      "modal_explanation": "The sting is in \"wasted\": knowledge that stays private has failed its purpose. Its value comes from reaching other people.",
+      "modal_explanation": "Crystal speaks for Attilan as a collective 'we,' choosing public participation over staying hidden. The line makes flourishing something a community reveals together.",
       "copy_revision": {
-        "task": "VM-563",
-        "ledger_id": "SOUND-INK-1-cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
-        "change_class": "SEMANTIC_REMEDIATION",
-        "reason": "Keep the narrow open-knowledge implication while removing research-annotation language from the player-facing modal.",
-        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
-        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
+        "task": "VM-565",
+        "change_class": "OWNER_REVIEW_SOUND_SELECTION_REMEDIATION",
+        "reason": "Replace a land and a weak mono-white voice with two direct-flavor relationships selected through the bounded owner evidence gate.",
+        "evidence_locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
+      },
+      "proposal_id": "vm565_owner_remediation_ink_slot_1",
+      "teaching_facet": "collective flourishing brought out of isolation",
+      "complementarity_rationale": "Crystal supplies a true RGWU voice of a hidden community choosing public participation; Group Project complements it with direct mutual aid and shared success.",
+      "type_line": "Legendary Creature — Inhuman Noble Hero",
+      "type_policy": {
+        "status": "PASS",
+        "reason": "The selected Sound card is not a land and is distinct from Ink's protected Play card."
+      },
+      "proposed_modal_explanation": "Crystal speaks for Attilan as a collective 'we,' choosing public participation over staying hidden. The line makes flourishing something a community reveals together.",
+      "owner_decision": "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE",
+      "owner_revision_history": [
+        {
+          "decided_at": "2026-08-16",
+          "decision": "REJECT_RENDERED_RELATIONSHIP",
+          "previous_relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
+          "previous_card_name": "Command Tower",
+          "instruction": "Replace the owner-rejected Ink Sound set with nonland, flavor-grounded cards while preserving Kynaios and Tiro as Play-only."
+        }
+      ],
+      "proposal_origin": {
+        "kind": "VM565_OWNER_EVIDENCE_GATE",
+        "locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
       }
     },
     {
-      "relationship_id": "cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
-      "proposal_id": "vm558_slot2_ink",
+      "relationship_id": "cardvoice_vm565_ink_e1ce210e_2d1d_4ab4_bfb7_8e36884797fc",
+      "proposal_id": "vm565_owner_remediation_ink_slot_2",
       "identity_key": "INK",
       "identity_name": "Ink / Altruism",
       "slot": 2,
       "pair_role": "COMPLEMENT",
-      "complements_relationship_id": "cardvoice_ink_0895c9b7_ae7d_4bb3_af17_3b75deb50a25",
-      "teaching_facet": "protected generosity as brave obligation",
-      "complementarity_rationale": "The first voice argues that knowledge should be shared; this one moves from openness to protection, naming who shared benefit is for and what courage it requires.",
-      "canonical_card_name": "Danitha Capashen, Paragon",
-      "canonical_card_id": "4b6377da-83e7-4519-9582-16a9c16b8faa",
-      "scryfall_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
-      "exact_excerpt": "\"I will protect the less fortunate. I will love bravely. I will face despair and fight on. As a Capashen, I can do no less.\"",
+      "complements_relationship_id": "cardvoice_vm565_ink_32c14d7f_fdaa_4340_af94_1f10bf064f51",
+      "teaching_facet": "mutual aid and success shared without shame",
+      "complementarity_rationale": "Crystal supplies public collective flourishing; Group Project adds the personal act of asking for help and treating success as shared rather than solitary.",
+      "canonical_card_name": "Group Project",
+      "canonical_card_id": "e1ce210e-2d1d-4ab4-bfb7-8e36884797fc",
+      "scryfall_id": "e8abc1eb-6225-4b18-8502-b5324b818aed",
+      "exact_excerpt": "\"Never be afraid to ask for help. Success is much sweeter when it's shared.\"\n—Quintorius Kand",
       "printing": {
-        "scryfall_id": "a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0",
-        "oracle_id": "4b6377da-83e7-4519-9582-16a9c16b8faa",
-        "set": "cmm",
-        "collector_number": "20",
+        "scryfall_id": "e8abc1eb-6225-4b18-8502-b5324b818aed",
+        "oracle_id": "e1ce210e-2d1d-4ab4-bfb7-8e36884797fc",
+        "set": "sos",
+        "collector_number": "17",
         "flavor_text_field": "card.flavor_text",
-        "source_locator": "https://api.scryfall.com/cards/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0#card.flavor_text",
-        "scryfall_uri": "https://scryfall.com/card/cmm/20/danitha-capashen-paragon?utm_source=api",
+        "source_locator": "https://api.scryfall.com/cards/e8abc1eb-6225-4b18-8502-b5324b818aed#card.flavor_text",
+        "scryfall_uri": "https://scryfall.com/card/sos/17/group-project?utm_source=api",
         "image_uris": {
-          "small": "https://cards.scryfall.io/small/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626",
-          "normal": "https://cards.scryfall.io/normal/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626",
-          "art_crop": "https://cards.scryfall.io/art_crop/front/a/1/a11f77e4-edb6-43c6-b8ca-d4f62d26d0c0.jpg?1689995626"
+          "small": "https://cards.scryfall.io/small/front/e/8/e8abc1eb-6225-4b18-8502-b5324b818aed.jpg?1783903707",
+          "normal": "https://cards.scryfall.io/normal/front/e/8/e8abc1eb-6225-4b18-8502-b5324b818aed.jpg?1783903707",
+          "art_crop": "https://cards.scryfall.io/art_crop/front/e/8/e8abc1eb-6225-4b18-8502-b5324b818aed.jpg?1783903707"
         },
         "card_faces": [],
-        "type_line": "Legendary Creature — Human Knight"
+        "type_line": "Sorcery",
+        "mana_cost": "{1}{W}",
+        "color_identity": [
+          "W"
+        ],
+        "oracle_text": "Create a 2/2 red and white Spirit creature token.\nFlashback—Tap three untapped creatures you control. (You may cast this card from your graveyard for its flashback cost. Then exile it.)"
       },
-      "type_line": "Legendary Creature — Human Knight",
+      "type_line": "Sorcery",
       "type_policy": {
         "status": "PASS",
-        "reason": "The proposal is neither a land nor an ordinary nonlegendary artifact."
+        "reason": "The selected Sound card is not a land and is distinct from Ink's protected Play card."
       },
       "relationship_class": "CERTIFIED_SEMANTIC_ECHO",
       "certified_identity_claim_ids": [
@@ -6927,7 +6977,8 @@
       ],
       "source_ids": [
         "src_vm_ink_evidence_ledger_20260604",
-        "src_vm_four_color_reference_audit_20260604"
+        "src_vm_four_color_reference_audit_20260604",
+        "src_vm565_ink_owner_evidence_20260816"
       ],
       "source_locators": [
         {
@@ -6937,18 +6988,22 @@
         {
           "source_id": "src_vm_four_color_reference_audit_20260604",
           "locator": "docs/research/canon/canon-inventory-four-color-reference-audit.md#rgwu-altruism-ink"
+        },
+        {
+          "source_id": "src_vm565_ink_owner_evidence_20260816",
+          "locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
         }
       ],
-      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
-      "why_voice_belongs": "Danitha gives Ink a second voice of community benefit defended through duty.",
-      "relationship_bridge": "Danitha gives Ink a second voice of community benefit defended through duty. The proposal is limited to certified claims ink_claim_0005 and does not arise from card color, type, product membership, tags, or mechanics alone.",
-      "false_positive_analysis": "White and Selesnya also protect others; this is only a bounded Ink echo of protected generosity in a non-Black lane, not four-color proof from the card.",
-      "adjacent_identity_confusion_risk": "White and Selesnya also protect others; this is only a bounded Ink echo of protected generosity in a non-Black lane, not four-color proof from the card.",
-      "limitation": "Owner-approved complementary card voice. Public use remains limited to this exact printing and bounded identity relationship; it does not prove placement, play style, or identity from card color, mechanics, tags, or product membership.",
-      "proposed_modal_explanation": "Danitha commits to protect the less fortunate, love bravely, and fight through despair, making altruism sound active rather than merely generous.",
+      "canonical_card_data_locator": "data/dossier/card-voice-printings.source.json#relationship_id=cardvoice_vm565_ink_e1ce210e_2d1d_4ab4_bfb7_8e36884797fc",
+      "why_voice_belongs": "Group Project's exact excerpt directly joins asking for help with success made sweeter through sharing, giving Ink a voice of mutual aid and reciprocal benefit.",
+      "relationship_bridge": "The Sound relationship depends on Quintorius's exact statement and Ink's bounded community-benefit frame, not on the card's token, flashback, or tapping mechanics.",
+      "false_positive_analysis": "White, Blue, Selesnya, and generic Group Hug can all discuss help or sharing. This proposal is limited to the exact combination of mutual aid and shared success, and it does not reduce Ink to unconditional resource gifting.",
+      "adjacent_identity_confusion_risk": "Do not use Group Project as generic White, Strixhaven, token, graveyard, or Group Hug proof. Its role is the exact voice of help requested and success shared.",
+      "limitation": "Group Project is a bounded Sound complement, not color, placement, lore, or deck-mechanics authority for Ink.",
+      "proposed_modal_explanation": "Quintorius treats asking for help as courage rather than failure. Success becomes sweeter because it belongs to the people who made it together.",
       "review_status": "APPROVED_PUBLIC",
-      "approval_basis": "OWNER_SEMANTIC_APPROVAL",
-      "owner_decision": "APPROVE",
+      "approval_basis": "OWNER_AUTHORIZED_VM565_CORRECTION_PENDING_FINAL_ACCEPTANCE",
+      "owner_decision": "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE",
       "public_eligible": true,
       "structural_validation": {
         "validator_version": "vm558-card-voice-proposal-v1",
@@ -6958,11 +7013,11 @@
       "display_priority": 2,
       "critical_repeat": {
         "allowed": false,
-        "reason": "Sound/Play duplication is a strong collision; other overlap requires material redundancy review rather than automatic rejection."
+        "reason": "Kynaios and Tiro of Meletis remains protected in Play; Sound uses distinct cards."
       },
       "proposal_origin": {
-        "kind": "COMMITTED_SCRYFALL_DISCOVERY",
-        "locator": "data/scryfall/indexes/commander-index.json#oracle_id=4b6377da-83e7-4519-9582-16a9c16b8faa"
+        "kind": "VM565_OWNER_EVIDENCE_GATE",
+        "locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
       },
       "overlap_review": {
         "sound_play": {
@@ -6978,20 +7033,40 @@
         "material_redundancy_finding": "No current Sound/Play, Precon, or identity-local Card Signal overlap was detected."
       },
       "validation": {
-        "validator_version": "vm558-owner-semantic-approval-v1",
+        "validator_version": "vm565-ink-owner-remediation-v1",
         "passed": true,
         "failures": [],
-        "owner_decision": "APPROVE"
+        "owner_decision": "AUTHORIZED_REPLACEMENT_PENDING_FINAL_RENDERED_ACCEPTANCE",
+        "evidence_chain": {
+          "identity_claim_ids": [
+            "ink_claim_0005"
+          ],
+          "identity_source_locators": [
+            "data/raw-factions/ink/ink.claims.json#ink_claim_0005"
+          ],
+          "fact_source_locators": [
+            "https://api.scryfall.com/cards/e8abc1eb-6225-4b18-8502-b5324b818aed#card.flavor_text",
+            "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
+          ]
+        }
       },
-      "modal_explanation": "The final sentence changes the voice from aspiration to duty: Danitha believes her family name obliges her to protect others even when love and endurance cost her.",
+      "modal_explanation": "Quintorius treats asking for help as courage rather than failure. Success becomes sweeter because it belongs to the people who made it together.",
       "copy_revision": {
-        "task": "VM-563",
-        "ledger_id": "SOUND-INK-2-cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
-        "change_class": "SEMANTIC_REMEDIATION",
-        "reason": "Explain how the Capashen obligation deepens the line instead of repeating its list of commitments.",
-        "evidence_checkpoint": "0d073cd1a5917afecbcb722d57a117f87799ade6",
-        "calibration_checkpoint": "7f79efa3b7442a202db04e6b7013b701bffc4286"
-      }
+        "task": "VM-565",
+        "change_class": "OWNER_REVIEW_SOUND_SELECTION_REMEDIATION",
+        "reason": "Replace a land and a weak mono-white voice with two direct-flavor relationships selected through the bounded owner evidence gate.",
+        "evidence_locator": "docs/research/ink/owner-evidence/vm565/ink-sound-candidate-ledger.json"
+      },
+      "supporting_official_locators": [],
+      "owner_revision_history": [
+        {
+          "decided_at": "2026-08-16",
+          "decision": "REJECT_RENDERED_RELATIONSHIP",
+          "previous_relationship_id": "cardvoice_vm558_ink_4b6377da_83e7_4519_9582_16a9c16b8faa",
+          "previous_card_name": "Danitha Capashen, Paragon",
+          "instruction": "Replace the owner-rejected Ink Sound set with nonland, flavor-grounded cards while preserving Kynaios and Tiro as Play-only."
+        }
+      ]
     },
     {
       "relationship_id": "cardvoice_witch_af42079b_a3c0_448c_9bb2_b915252e87a9",

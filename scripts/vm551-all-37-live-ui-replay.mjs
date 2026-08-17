@@ -10,6 +10,10 @@ import puppeteer from "puppeteer-core";
 
 import { finalizeReading, replaySelections } from "../assets/js/gate-b1-placement-engine.js";
 import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+import {
+  VM565_EXISTING_TERM_OVERRIDES,
+  VM565_NEW_TERM_TARGETS,
+} from "../research/vm565-player-vocabulary-authority.mjs";
 
 const root = process.cwd();
 const host = "127.0.0.1";
@@ -64,6 +68,12 @@ const copyOverlap = (left, right) => {
   const denominator = Math.min(leftTokens.size, rightTokens.size);
   return denominator ? [...leftTokens].filter((token) => rightTokens.has(token)).length / denominator : 0;
 };
+const vm565TargetsByIdentity = new Map();
+for (const target of [...VM565_NEW_TERM_TARGETS, ...VM565_EXISTING_TERM_OVERRIDES]) {
+  const records = vm565TargetsByIdentity.get(target.identity_key) || [];
+  records.push(target.record_id);
+  vm565TargetsByIdentity.set(target.identity_key, records);
+}
 
 const normalizeCardName = (value) => String(value || "").normalize("NFKC").trim().replace(/\s+/g, " ").toLocaleLowerCase("en-US");
 const indexedCardByScryfallId = new Map((scryfallFlavorIndex.cards || []).map((card) => [card.scryfall_id, card]));
@@ -780,8 +790,14 @@ async function replay(page, origin, witness) {
       glossaryHelpCount: document.querySelectorAll(".archscry-term-help[data-gloss]").length,
       glossaryTerms: [...document.querySelectorAll(".archscry-term-help[data-gloss]")].map((node) => node.textContent?.trim() || ""),
       glossaryRecordIds: [...document.querySelectorAll(".archscry-term-help[data-gloss-record]")].map((node) => node.getAttribute("data-gloss-record")),
+      glossaryNodes: [...document.querySelectorAll(".archscry-term-help[data-gloss-record]")].map((node) => ({
+        recordId: node.getAttribute("data-gloss-record"),
+        text: node.textContent?.trim() || "",
+        definition: node.getAttribute("data-gloss") || "",
+        tabIndex: node.getAttribute("tabindex"),
+      })),
       glossaryOutsideApprovedSurfaces: [...document.querySelectorAll(".archscry-term-help[data-gloss-record]")]
-        .filter((node) => !node.closest('[data-education-surface="start-here"], [data-education-surface="why-this-fit"], [data-education-surface="test-the-fit"], [data-education-surface="what-to-look-for"]'))
+        .filter((node) => !node.closest('[data-education-surface="start-here"], [data-education-surface="why-this-fit"], [data-education-surface="test-the-fit"], [data-education-surface="what-to-look-for"], .arch-name, .how-this-plays-card, .mana-primer-grid'))
         .map((node) => node.textContent?.trim() || ""),
       basicLandCards: [...document.querySelectorAll("[data-basic-land-cards] .land-name")].map((node) => node.textContent?.trim() || ""),
       duplicateProviderLabels: [...document.querySelectorAll(".service-copy")].filter((node) => {
@@ -840,6 +856,74 @@ async function replay(page, origin, witness) {
     assert.ok(ui.glossaryHelpCount >= 1, `${witness.identity_key} rendered no Start Here teaching help`);
     assert.equal(new Set(ui.glossaryRecordIds).size, ui.glossaryRecordIds.length, `${witness.identity_key} decorated a glossary record more than once`);
     assert.deepEqual(ui.glossaryOutsideApprovedSurfaces, [], `${witness.identity_key} decorated glossary help outside the approved teaching surfaces`);
+    assert.ok(ui.glossaryNodes.every((node) => node.definition && node.tabIndex === "0"), `${witness.identity_key} rendered inaccessible or unresolved glossary help`);
+    for (const recordId of vm565TargetsByIdentity.get(witness.identity_key) || []) {
+      assert.equal(ui.glossaryRecordIds.filter((value) => value === recordId).length, 1, `${witness.identity_key} did not render exact VM-565 target ${recordId} once`);
+    }
+    const glossarySelector = ".archscry-term-help[data-gloss]";
+    await page.$eval('[data-dossier-tab="start"]', (node) => node.click());
+    await page.mouse.move(0, 0);
+    let focusAudit = null;
+    for (let tabIndex = 0; tabIndex < 80; tabIndex += 1) {
+      await page.keyboard.press("Tab");
+      focusAudit = await page.evaluate(() => {
+        const node = document.activeElement;
+        if (!node?.matches?.(".archscry-term-help[data-gloss]")) return null;
+        return {
+          active: true,
+          describedBy: node.getAttribute("aria-describedby"),
+          describedNodes: [...document.querySelectorAll('[aria-describedby="archscryGlossaryTooltip"]')].map((item) => item.textContent?.trim()),
+          tooltipVisible: !document.querySelector(".archscry-glossary-tooltip")?.hidden,
+        };
+      });
+      if (focusAudit) break;
+    }
+    assert.ok(focusAudit, `${witness.identity_key} had no keyboard-reachable glossary target for interaction QA`);
+    await delay(25);
+    focusAudit = await page.evaluate(() => {
+      const node = document.activeElement;
+      return {
+        active: node?.matches?.(".archscry-term-help[data-gloss]") || false,
+        describedBy: node?.getAttribute?.("aria-describedby") || null,
+        describedNodes: [...document.querySelectorAll('[aria-describedby="archscryGlossaryTooltip"]')].map((item) => item.textContent?.trim()),
+        tooltipVisible: !document.querySelector(".archscry-glossary-tooltip")?.hidden,
+      };
+    });
+    assert.equal(focusAudit.active, true, `${witness.identity_key} glossary target was not keyboard-focusable: ${JSON.stringify(focusAudit)}`);
+    assert.equal(focusAudit.describedBy, "archscryGlossaryTooltip", `${witness.identity_key} did not bind focused glossary help to its tooltip: ${JSON.stringify(focusAudit)}`);
+    assert.equal(focusAudit.tooltipVisible, true, `${witness.identity_key} did not expose glossary help on keyboard focus: ${JSON.stringify(focusAudit)}`);
+    const glossaryTarget = await page.$(`${glossarySelector}:focus`);
+    assert.ok(glossaryTarget, `${witness.identity_key} lost the focused glossary target during interaction QA`);
+    await page.keyboard.press("Escape");
+    assert.equal(
+      await glossaryTarget.evaluate((node) => node.hasAttribute("aria-describedby")),
+      false,
+      `${witness.identity_key} did not dismiss glossary help with Escape`
+    );
+    if (viewportName === "desktop") {
+      await glossaryTarget.evaluate((node) => node.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" }));
+      await glossaryTarget.hover();
+      await delay(25);
+      assert.equal(
+        await glossaryTarget.evaluate(() => !document.querySelector(".archscry-glossary-tooltip")?.hidden),
+        true,
+        `${witness.identity_key} did not expose glossary help on hover`
+      );
+      await page.mouse.move(0, 0);
+    } else {
+      await glossaryTarget.evaluate((node) => node.click());
+      assert.equal(
+        await glossaryTarget.evaluate(() => !document.querySelector(".archscry-glossary-tooltip")?.hidden),
+        true,
+        `${witness.identity_key} did not expose glossary help on tap-equivalent activation`
+      );
+      await glossaryTarget.evaluate((node) => node.click());
+      assert.equal(
+        await glossaryTarget.evaluate(() => document.querySelector(".archscry-glossary-tooltip")?.hidden),
+        true,
+        `${witness.identity_key} did not toggle glossary help closed on repeated tap-equivalent activation`
+      );
+    }
     assert.equal(ui.manaNotesPresent, true, `${witness.identity_key} omitted Mana Notes`);
     assert.ok(ui.basicLandCards.length >= 1 && ui.basicLandCards.length <= 5, `${witness.identity_key} Basics cards were not rendered intentionally`);
     assert.deepEqual(ui.duplicateCards, [], `${witness.identity_key} repeated cards across public page roles: ${JSON.stringify(ui.cardGroups)}`);

@@ -51,6 +51,7 @@ const catalog = {
     aliases: record.aliases,
     definition: record.proposed_copy,
     provenance: record.provenance,
+    ...(record.teaching_policy ? { teaching_policy: record.teaching_policy } : {}),
   })),
   microcopy: records.filter((record) => record.record_type !== "GLOSSARY_TERM").map((record) => ({
     record_id: record.record_id,

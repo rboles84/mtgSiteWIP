@@ -4,6 +4,51 @@
   "authority_rule": "Factual teaching and verified runtime microcopy pass vm551-education-validator-v1. Owner review is reserved for interpretive exceptions.",
   "records": [
     {
+      "record_id": "glossary_afterlife",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Afterlife",
+      "aliases": [],
+      "proposed_copy": "When a creature with afterlife dies, create the stated number of 1/1 white and black Spirit creature tokens with flying.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_afterlife",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WB",
+            "record_id": "glossary_afterlife",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Afterlife"
+          }
+        ]
+      },
+      "copy_sha256": "1e54be9d072db367af16f5534ce613290130a7922f255818895f943656fa8e8d",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_aggro",
       "record_type": "GLOSSARY_TERM",
       "term": "Aggro",
@@ -51,6 +96,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_aristocrats",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "B",
+            "record_id": "glossary_aristocrats",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Aristocrats"
+          }
+        ]
+      },
       "copy_sha256": "4584a875562c3c6731c93ebd06ce3abdb5d107d616773c6cc5e1f6f649da4c82",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -61,6 +118,123 @@
         "content_class": "FACTUAL_EDUCATION",
         "fact_source_locators": [
           "data/taxonomy/vox-mana-tags.json#aristocrats"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_artifacts",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Artifacts",
+      "aliases": [],
+      "proposed_copy": "Using artifacts as threats, engines, mana, or synergy pieces.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#artifacts",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_artifacts",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "COLORLESS",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "ESPER",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_artifacts",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "U",
+            "record_id": "glossary_artifacts",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "YORE",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          }
+        ]
+      },
+      "copy_sha256": "c785b1354d80b450103769085cc161a6a56aaac773f28bd9618fa7999b5f0ddd",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#artifacts"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_bgx_midrange",
+      "record_type": "GLOSSARY_TERM",
+      "term": "BGx Midrange",
+      "aliases": [
+        "Rock / BGx Midrange"
+      ],
+      "proposed_copy": "A black-green midrange strategy built around efficient disruption, durable threats, and attrition; the x means it may splash another color.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/making-magic/mastering-dominaria-remastered",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_bgx_midrange",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_bgx_midrange",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Rock / BGx Midrange"
+          }
+        ]
+      },
+      "copy_sha256": "c927e2e8852ec1a1871a4be717d0f8c34182edd3f5341b3723151ff76c5ea47a",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/making-magic/mastering-dominaria-remastered",
+          "https://magic.wizards.com/en/rules"
         ],
         "identity_meaning_authorized": false
       }
@@ -166,6 +340,55 @@
       }
     },
     {
+      "record_id": "glossary_burn",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Burn",
+      "aliases": [],
+      "proposed_copy": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#burn",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_burn",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "R",
+            "record_id": "glossary_burn",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Burn"
+          },
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_burn",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Burn"
+          }
+        ]
+      },
+      "copy_sha256": "9ac667fd8068bb0f619de7d5c7d245861c98dd5696cc83466de59729d1bc636c",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#burn"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_colorless_mana",
       "record_type": "GLOSSARY_TERM",
       "term": "Colorless mana",
@@ -186,6 +409,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_colorless_mana",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "COLORLESS",
+            "record_id": "glossary_colorless_mana",
+            "surface": "mana-notes",
+            "field": "rocks-and-sources",
+            "matched_text": "colorless mana"
+          }
+        ]
+      },
       "copy_sha256": "390411cc29919109e13f1f18305abf95b49f2e8f349428ebd82cd096be19d0dd",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -394,6 +629,142 @@
       "copy_sha256": "da60c87484951b83ba15b2920194dbcba2a41beaa58c2a1696fa04c5ddb57987"
     },
     {
+      "record_id": "glossary_dredge",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Dredge",
+      "aliases": [],
+      "proposed_copy": "If a card with dredge N is in your graveyard when you would draw, you may mill exactly N cards and return that card to your hand instead.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-3-mechanics#dredge",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_dredge",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_dredge",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Dredge"
+          }
+        ]
+      },
+      "copy_sha256": "6171c06a5a7e1847cc271d77e7da430d04d882e090448937f6653eca672f4864",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/modern-horizons-3-mechanics#dredge",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_enchantments",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Enchantments",
+      "aliases": [],
+      "proposed_copy": "Using enchantments as persistent rules, engines, or creature enhancements.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#enchantments",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_enchantments",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_enchantments",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Enchantments"
+          },
+          {
+            "identity_key": "ESPER",
+            "record_id": "glossary_enchantments",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Enchantments"
+          }
+        ]
+      },
+      "copy_sha256": "4e235e63b33a882b10388d7ad5c906401310b6520e7008e050c19b5e3aa88314",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#enchantments"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_enchantress",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Enchantress",
+      "aliases": [],
+      "proposed_copy": "An enchantment-focused strategy that draws cards or generates value when you cast enchantments or when enchantments enter the battlefield.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "data/taxonomy/vox-mana-tags.json#enchantress",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_enchantress",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_enchantress",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Enchantress"
+          }
+        ]
+      },
+      "copy_sha256": "7f3c40b7d3996ff8fbe9700d7bbefeb6f56be4a5cf44a824417897b0afad63b7",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#enchantress"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_equipment",
       "record_type": "GLOSSARY_TERM",
       "term": "Equipment",
@@ -457,6 +828,51 @@
       }
     },
     {
+      "record_id": "glossary_exalted",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Exalted",
+      "aliases": [],
+      "proposed_copy": "Whenever a creature you control attacks alone, each exalted ability gives it +1/+1 until end of turn.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/making-magic/between-rock-and-shard-place-2008-09-05",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_exalted",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_exalted",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Exalted"
+          }
+        ]
+      },
+      "copy_sha256": "89f735b07297dd32c9d003dbd25083893151cf3bcfe03ee52dd35c3175e9330c",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/making-magic/between-rock-and-shard-place-2008-09-05",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_generic_mana",
       "record_type": "GLOSSARY_TERM",
       "term": "Generic mana",
@@ -494,6 +910,60 @@
       }
     },
     {
+      "record_id": "glossary_go_wide",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Go-wide",
+      "aliases": [
+        "go wide"
+      ],
+      "proposed_copy": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/making-magic/core-point-2019-06-17#go-wide-white-black-green",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_go_wide",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WG",
+            "record_id": "glossary_go_wide",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Go-Wide"
+          },
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_go_wide",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Go-Wide"
+          }
+        ]
+      },
+      "copy_sha256": "79879aea5af549cfddc9ab6415b91517fc60da620a59f300a57494837d41cfd0",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/making-magic/core-point-2019-06-17#go-wide-white-black-green",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_goad",
       "record_type": "GLOSSARY_TERM",
       "term": "Goad",
@@ -514,6 +984,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_goad",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "SILVERQUILL",
+            "record_id": "glossary_goad",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "goad"
+          }
+        ]
+      },
       "copy_sha256": "94dba553a65589f416b72e9ca14203893f254fb39b8c91595c2435909af1268c",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -562,6 +1044,94 @@
       }
     },
     {
+      "record_id": "glossary_group_hug",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Group Hug",
+      "aliases": [
+        "group-hug"
+      ],
+      "proposed_copy": "Give resources to multiple players, often to shape the table's politics or pace.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#group-hug",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_group_hug",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "INK",
+            "record_id": "glossary_group_hug",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Group Hug"
+          }
+        ]
+      },
+      "copy_sha256": "03414909364f84d0ded058125ed35505d47070bb08f009e5898a067cbc715274",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#group-hug"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_haste",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Haste",
+      "aliases": [],
+      "proposed_copy": "A creature with haste can attack and use tap abilities as soon as it comes under your control.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_haste",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "R",
+            "record_id": "glossary_haste",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Haste"
+          }
+        ]
+      },
+      "copy_sha256": "11f5484a3c382223bdf6a56f73001701afce84b672cb48eb6186bf6c0b712c62",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_hatebears",
       "record_type": "GLOSSARY_TERM",
       "term": "Hatebears",
@@ -582,6 +1152,200 @@
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_hatebears",
       "copy_sha256": "de8d3206310bc9eae508ca6d58d751053c39392c674b4a334084345cc75844fb"
+    },
+    {
+      "record_id": "glossary_heroic",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Heroic",
+      "aliases": [],
+      "proposed_copy": "Heroic is an ability word for abilities that trigger when you cast a spell that targets that creature.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/double-masters-2022-release-notes-2022-06-24#ability-word-heroic",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_heroic",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_heroic",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Heroic"
+          }
+        ]
+      },
+      "copy_sha256": "c266779306f1ba37233de78e081ec9a6d43354500b8707542d0a30a2c3f68274",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/double-masters-2022-release-notes-2022-06-24#ability-word-heroic",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_historic",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Historic",
+      "aliases": [
+        "historic payoffs"
+      ],
+      "proposed_copy": "Historic refers collectively to artifacts, legendary cards, and Sagas.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_term",
+        "locator": "https://magic.wizards.com/en/news/feature/dominaria-mechanics-2018-03-21#historic",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_historic",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_historic",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Historic"
+          }
+        ]
+      },
+      "copy_sha256": "defab87b83a601733dd3a9c847d750f85a8b70de80bbbd3db695f45d5af856fd",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/dominaria-mechanics-2018-03-21#historic",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_impulse_draw",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Impulse draw",
+      "aliases": [
+        "impulsive draw",
+        "impulsive drawing"
+      ],
+      "proposed_copy": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_design_term",
+        "locator": "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_impulse_draw",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BR",
+            "record_id": "glossary_impulse_draw",
+            "surface": "start-here",
+            "field": "Guild spellcraft",
+            "matched_text": "impulse draw"
+          },
+          {
+            "identity_key": "R",
+            "record_id": "glossary_impulse_draw",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Impulse Draw"
+          }
+        ]
+      },
+      "copy_sha256": "3945ab04fcce3f5c0c1d50f03e67b600d2725ee592e395047f6fb017c19dd98e",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_land_denial",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Land denial",
+      "aliases": [
+        "Ponza / Land Denial"
+      ],
+      "proposed_copy": "Attack opponents' mana by destroying, restricting, or disabling lands; Ponza is a red-green version that follows with efficient threats.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/announcements/commander-banned-and-restricted-february-9-2026",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_land_denial",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "RG",
+            "record_id": "glossary_land_denial",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Ponza / Land Denial"
+          }
+        ]
+      },
+      "copy_sha256": "b9e9c4ca3bf95202a70ede831796d4888b33d163218497f4ad3ac6c133855346",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/announcements/commander-banned-and-restricted-february-9-2026",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
     },
     {
       "record_id": "glossary_landfall",
@@ -614,13 +1378,65 @@
       }
     },
     {
+      "record_id": "glossary_lifegain",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Lifegain",
+      "aliases": [
+        "life gain",
+        "life-gain"
+      ],
+      "proposed_copy": "Gain life as protection, fuel, or a payoff trigger.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#lifegain",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_lifegain",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "ABZAN",
+            "record_id": "glossary_lifegain",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Lifegain"
+          },
+          {
+            "identity_key": "WITHERBLOOM",
+            "record_id": "glossary_lifegain",
+            "surface": "start-here",
+            "field": "College spellcraft",
+            "matched_text": "life gain"
+          }
+        ]
+      },
+      "copy_sha256": "e8938a60ef1496f481bb3fd24cff2611f4c5a0a969c2672c6f7aa7e89b212987",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#lifegain"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_mana_rocks",
       "record_type": "GLOSSARY_TERM",
       "term": "Mana rocks",
       "aliases": [
         "mana rock"
       ],
-      "proposed_copy": "Getting access to more mana than normal for your turn count.",
+      "proposed_copy": "Artifacts that produce mana, helping a deck accelerate or fix its mana.",
       "example": null,
       "provenance": {
         "role": "vox_mana_commander_vocabulary",
@@ -631,7 +1447,7 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_mana_rocks",
-      "copy_sha256": "bfdfcc9ba8d9407890571ac294f4c8bc07eab4030bc41696b3a06f58a7011593",
+      "copy_sha256": "e1a7e208b2085a402f130a354cf8cf968ec1c3b4552ceca87b245e5eb82c590b",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
         "validator_version": "vm551-education-validator-v1",
@@ -664,6 +1480,59 @@
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_midrange",
       "copy_sha256": "47cf9d6e6e28fdfea7f0ef4f27aebbd7e6fe5f60751a63d8e974836b6a15c1d2"
+    },
+    {
+      "record_id": "glossary_mill",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Mill",
+      "aliases": [
+        "milling"
+      ],
+      "proposed_copy": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_action",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_mill",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_mill",
+            "surface": "what-to-look-for",
+            "field": "item-3-copy",
+            "matched_text": "milling"
+          },
+          {
+            "identity_key": "UB",
+            "record_id": "glossary_mill",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "mill"
+          }
+        ]
+      },
+      "copy_sha256": "76cb4418a07abcfe9efd9ab727d773fd3530034cf5bce99189b3bb3ed27e044c",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
     },
     {
       "record_id": "glossary_open_mana",
@@ -726,6 +1595,48 @@
       "copy_sha256": "f06b0e2f69e598c00a9c5fb220c1eb708435e454dc3993d209cb063afe308948"
     },
     {
+      "record_id": "glossary_politics",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Politics",
+      "aliases": [],
+      "proposed_copy": "Use deals, incentives, goad, votes, or threat assessment to shape multiplayer decisions.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#politics",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_politics",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "INK",
+            "record_id": "glossary_politics",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Politics"
+          }
+        ]
+      },
+      "copy_sha256": "177d15aae29ac17c4292bbca9cea4fa2e3381106a8bf575244a6fcfae2cd3eb8",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#politics"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_populate",
       "record_type": "GLOSSARY_TERM",
       "term": "Populate",
@@ -744,6 +1655,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_populate",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WG",
+            "record_id": "glossary_populate",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "populate"
+          }
+        ]
+      },
       "copy_sha256": "b14510706d305187e5b28e3b3743f3153681561c04227a4d2039bf986d9127fe",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {
@@ -777,6 +1700,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_prison_control",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WU",
+            "record_id": "glossary_prison_control",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Prison Control"
+          }
+        ]
+      },
       "copy_sha256": "04616a5c52fe47023280bc77fc0515989c42c988bc5930009c0f7ee395a1fcfe"
     },
     {
@@ -841,6 +1776,50 @@
         "content_class": "FACTUAL_EDUCATION",
         "fact_source_locators": [
           "data/taxonomy/vox-mana-tags.json#ramp"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_reanimator",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Reanimator",
+      "aliases": [
+        "reanimation"
+      ],
+      "proposed_copy": "Put creature cards from your graveyard directly onto the battlefield, often for less mana than casting them normally.",
+      "example": null,
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "data/taxonomy/vox-mana-tags.json#reanimator",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_reanimator",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "B",
+            "record_id": "glossary_reanimator",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Reanimator"
+          }
+        ]
+      },
+      "copy_sha256": "57d501ef595bbc3f94f73b225e0c2ee4084fa334483bf703471f2f48da6fb1d0",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#reanimator"
         ],
         "identity_meaning_authorized": false
       }
@@ -1025,6 +2004,51 @@
       }
     },
     {
+      "record_id": "glossary_surveil",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Surveil",
+      "aliases": [],
+      "proposed_copy": "Look at the stated number of cards from the top of your library, put any into your graveyard, and return the rest to the top in any order.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_action",
+        "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04#house-dimir-and-surveil",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_surveil",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "UB",
+            "record_id": "glossary_surveil",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Surveil"
+          }
+        ]
+      },
+      "copy_sha256": "a4193cd3a30a2aec48d8a4eb0649c99dc31984b9cce4a570c927ddc4ca174702",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04#house-dimir-and-surveil",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_sweepers",
       "record_type": "GLOSSARY_TERM",
       "term": "Board wipe",
@@ -1044,6 +2068,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_sweepers",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "W",
+            "record_id": "glossary_sweepers",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "Board wipes"
+          }
+        ]
+      },
       "copy_sha256": "105a860279f182612cf17737c99f42dd79babb1f755d04f581e0eebaa57a8b56"
     },
     {
@@ -1086,6 +2122,48 @@
       "owner_decision": "BASELINE_MIGRATION",
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_tempo",
       "copy_sha256": "225ab5b5f8d7c1d3208622363c4a7edc11c39d7ec8c01d588623c76182a2cdb1"
+    },
+    {
+      "record_id": "glossary_theft",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Theft",
+      "aliases": [],
+      "proposed_copy": "Use opponents' cards, permanents, libraries, or graveyards as resources.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#theft",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_theft",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "SULTAI",
+            "record_id": "glossary_theft",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Theft"
+          }
+        ]
+      },
+      "copy_sha256": "64c97b516b0a0e97faee8d28978722308ce05632c6c4cca0d7cd5542d3d0499b",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#theft"
+        ],
+        "identity_meaning_authorized": false
+      }
     },
     {
       "record_id": "glossary_tokens",
@@ -1153,6 +2231,105 @@
       }
     },
     {
+      "record_id": "glossary_treasure",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Treasure",
+      "aliases": [
+        "Treasures",
+        "Treasure tokens"
+      ],
+      "proposed_copy": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+      "example": null,
+      "provenance": {
+        "role": "official_game_object",
+        "locator": "https://magic.wizards.com/en/news/feature/ixalan-mechanics",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_treasure",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "PRISMARI",
+            "record_id": "glossary_treasure",
+            "surface": "start-here",
+            "field": "College spellcraft",
+            "matched_text": "treasure"
+          },
+          {
+            "identity_key": "R",
+            "record_id": "glossary_treasure",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Treasures"
+          }
+        ]
+      },
+      "copy_sha256": "dba6f87ca431fc5ee9f86cd24f1bd125c3dce3ea6706927640698c0d0821fa5f",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "https://magic.wizards.com/en/news/feature/ixalan-mechanics",
+          "https://magic.wizards.com/en/rules"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
+      "record_id": "glossary_typal",
+      "record_type": "GLOSSARY_TERM",
+      "term": "Typal",
+      "aliases": [
+        "Tribal"
+      ],
+      "proposed_copy": "Build around a shared creature type and cards that reward that type; many players also call this tribal.",
+      "example": null,
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#typal",
+        "supporting_locators": []
+      },
+      "limitations": "A curated teaching definition only. It does not establish identity meaning, placement, power level, or a requirement to decorate every occurrence.",
+      "disposition": "APPROVED_PUBLIC",
+      "owner_decision": null,
+      "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_typal",
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_typal",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Tribal"
+          }
+        ]
+      },
+      "copy_sha256": "74f76e09c9e4bacd75bfc5b8edb4556765f2c65050ea538cc2df40f1a39c175c",
+      "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+      "validation": {
+        "validator_version": "vm551-education-validator-v1",
+        "passed": true,
+        "failures": [],
+        "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
+        "content_class": "FACTUAL_EDUCATION",
+        "fact_source_locators": [
+          "data/taxonomy/vox-mana-tags.json#typal"
+        ],
+        "identity_meaning_authorized": false
+      }
+    },
+    {
       "record_id": "glossary_voltron",
       "record_type": "GLOSSARY_TERM",
       "term": "Voltron",
@@ -1168,6 +2345,18 @@
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,
       "replacement_locator": "data/dossier/discovery-education-authority.source.json#glossary_voltron",
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_voltron",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Voltron"
+          }
+        ]
+      },
       "copy_sha256": "9cbd4df9d1635691f95f680529558d99210b027243b1ec72f1fe94b369c6046a",
       "approval_basis": "EVIDENCE_VALIDATED_AUTOMATIC",
       "validation": {

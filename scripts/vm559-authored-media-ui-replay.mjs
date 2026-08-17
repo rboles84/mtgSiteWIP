@@ -239,6 +239,24 @@ async function exerciseIdentity(page, origin, witness) {
     projectionMissing: [...document.querySelectorAll('#result-inner [data-card-art-status="projection_missing"]')].map((node) => node.getAttribute("data-card-art-name")),
     invalidImages: [...document.querySelectorAll("#result-inner img")].filter((image) => image.complete && (!image.naturalWidth || !image.naturalHeight)).map((image) => image.alt),
     overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+    playControls: [...document.querySelectorAll('[data-card-rationale-section] .flavor-echo-card')].map((card) => {
+      const control = card.querySelector('.flavor-echo-action');
+      const body = card.querySelector('.flavor-echo-body');
+      const cardRect = card.getBoundingClientRect();
+      const controlRect = control?.getBoundingClientRect();
+      const bodyRect = body?.getBoundingClientRect();
+      return {
+        card: card.querySelector('.flavor-echo-name')?.textContent?.trim() || '',
+        visible: Boolean(control && controlRect && controlRect.width > 0 && controlRect.height > 0),
+        contained: Boolean(controlRect && controlRect.left >= cardRect.left && controlRect.right <= cardRect.right && controlRect.top >= cardRect.top && controlRect.bottom <= cardRect.bottom),
+        bottomGap: controlRect ? Math.round((cardRect.bottom - controlRect.bottom) * 100) / 100 : -1,
+        leftGap: controlRect ? Math.round((controlRect.left - cardRect.left) * 100) / 100 : -1,
+        rightGap: controlRect ? Math.round((cardRect.right - controlRect.right) * 100) / 100 : -1,
+        cardWidth: Math.round(cardRect.width * 100) / 100,
+        bodyWidth: bodyRect ? Math.round(bodyRect.width * 100) / 100 : -1,
+        controlWidth: controlRect ? Math.round(controlRect.width * 100) / 100 : -1,
+      };
+    }),
   }));
   assert.deepEqual(finalState.unavailable, [], `${witness.identity_key} rendered Image unavailable`);
   if (transientDeliveryMode) assert.deepEqual(finalState.retryable, ["Swamp"], `${witness.identity_key} did not isolate transient delivery to Swamp`);
@@ -246,6 +264,25 @@ async function exerciseIdentity(page, origin, witness) {
   assert.deepEqual(finalState.projectionMissing, [], `${witness.identity_key} missed the governed projection`);
   assert.deepEqual(finalState.invalidImages, [], `${witness.identity_key} rendered invalid image dimensions`);
   assert.equal(finalState.overflow, false, `${witness.identity_key} introduced horizontal overflow at ${viewportName}`);
+  assert.ok(finalState.playControls.every((control) => control.visible && control.contained && control.bottomGap >= 12), `${witness.identity_key} clipped or crowded a Play card-detail control at ${viewportName}: ${JSON.stringify(finalState.playControls)}`);
+
+  const focusedActionSelector = witness.identity_key === "WR"
+    ? '[data-card-rationale-section] .flavor-echo-action'
+    : witness.identity_key === "INK"
+      ? '[data-card-voice-section] .flavor-echo-action'
+      : null;
+  if (focusedActionSelector) {
+    const focusedActions = await page.$$(focusedActionSelector);
+    assert.equal(focusedActions.length, witness.identity_key === "WR" ? 3 : 2, `${witness.identity_key} focused card-detail control count drifted`);
+    for (const action of focusedActions) {
+      const expectedCard = await action.evaluate((button) => button.dataset.cardName || "");
+      await action.evaluate((button) => button.click());
+      await page.waitForSelector(".archscry-card-dialog[open] [data-card-dialog-ready]", { timeout: 15000 });
+      assert.match(await page.$eval(".archscry-card-dialog[open]", (dialog) => dialog.textContent || ""), new RegExp(expectedCard.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), `${witness.identity_key} card-detail control opened the wrong card`);
+      await page.$eval('[data-action="close-card-detail"]', (button) => button.click());
+      await page.waitForFunction(() => !document.querySelector(".archscry-card-dialog")?.open);
+    }
+  }
 
   const governedDetailSelector = 'button.card-detail-image-trigger[data-card-art-status="resolved"]:is([id^="sc_"], [id^="ss_"], [id^="sp_"], [id^="lbas_"], [id^="lp_"], [id^="lm_"], [id^="lb_"], [id^="lu_"])';
   const detailTrigger = await page.$(governedDetailSelector);

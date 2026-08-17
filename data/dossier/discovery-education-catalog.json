@@ -3,6 +3,31 @@
   "generated_from": "data/dossier/discovery-education-automatic-adjudication.source.json",
   "glossary": [
     {
+      "record_id": "glossary_afterlife",
+      "term": "Afterlife",
+      "aliases": [],
+      "definition": "When a creature with afterlife dies, create the stated number of 1/1 white and black Spirit creature tokens with flying.",
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/ravnica-allegiance-mechanics",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WB",
+            "record_id": "glossary_afterlife",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Afterlife"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_aggro",
       "term": "Aggro",
       "aliases": [
@@ -24,6 +49,96 @@
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#aristocrats",
         "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "B",
+            "record_id": "glossary_aristocrats",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Aristocrats"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_artifacts",
+      "term": "Artifacts",
+      "aliases": [],
+      "definition": "Using artifacts as threats, engines, mana, or synergy pieces.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#artifacts",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "COLORLESS",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "ESPER",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_artifacts",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "U",
+            "record_id": "glossary_artifacts",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Artifacts"
+          },
+          {
+            "identity_key": "YORE",
+            "record_id": "glossary_artifacts",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Artifacts"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_bgx_midrange",
+      "term": "BGx Midrange",
+      "aliases": [
+        "Rock / BGx Midrange"
+      ],
+      "definition": "A black-green midrange strategy built around efficient disruption, durable threats, and attrition; the x means it may splash another color.",
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/making-magic/mastering-dominaria-remastered",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_bgx_midrange",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Rock / BGx Midrange"
+          }
+        ]
       }
     },
     {
@@ -68,6 +183,36 @@
       }
     },
     {
+      "record_id": "glossary_burn",
+      "term": "Burn",
+      "aliases": [],
+      "definition": "Using spells or abilities to deal direct damage to creatures, players, or other targets.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#burn",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "R",
+            "record_id": "glossary_burn",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Burn"
+          },
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_burn",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Burn"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_colorless_mana",
       "term": "Colorless mana",
       "aliases": [
@@ -81,6 +226,18 @@
           "https://magic.wizards.com/en/rules"
         ],
         "authority_note": "Committed Wizards Comprehensive Rules digest"
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "COLORLESS",
+            "record_id": "glossary_colorless_mana",
+            "surface": "mana-notes",
+            "field": "rocks-and-sources",
+            "matched_text": "colorless mana"
+          }
+        ]
       }
     },
     {
@@ -176,6 +333,84 @@
       }
     },
     {
+      "record_id": "glossary_dredge",
+      "term": "Dredge",
+      "aliases": [],
+      "definition": "If a card with dredge N is in your graveyard when you would draw, you may mill exactly N cards and return that card to your hand instead.",
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/modern-horizons-3-mechanics#dredge",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_dredge",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Dredge"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_enchantments",
+      "term": "Enchantments",
+      "aliases": [],
+      "definition": "Using enchantments as persistent rules, engines, or creature enhancements.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#enchantments",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_enchantments",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Enchantments"
+          },
+          {
+            "identity_key": "ESPER",
+            "record_id": "glossary_enchantments",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Enchantments"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_enchantress",
+      "term": "Enchantress",
+      "aliases": [],
+      "definition": "An enchantment-focused strategy that draws cards or generates value when you cast enchantments or when enchantments enter the battlefield.",
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "data/taxonomy/vox-mana-tags.json#enchantress",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_enchantress",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Enchantress"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_equipment",
       "term": "Equipment",
       "aliases": [],
@@ -201,6 +436,31 @@
       }
     },
     {
+      "record_id": "glossary_exalted",
+      "term": "Exalted",
+      "aliases": [],
+      "definition": "Whenever a creature you control attacks alone, each exalted ability gives it +1/+1 until end of turn.",
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/making-magic/between-rock-and-shard-place-2008-09-05",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BANT",
+            "record_id": "glossary_exalted",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Exalted"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_generic_mana",
       "term": "Generic mana",
       "aliases": [
@@ -218,6 +478,40 @@
       }
     },
     {
+      "record_id": "glossary_go_wide",
+      "term": "Go-wide",
+      "aliases": [
+        "go wide"
+      ],
+      "definition": "Build many creatures, often tokens, and use their combined pressure to overwhelm blockers and opponents.",
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/making-magic/core-point-2019-06-17#go-wide-white-black-green",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WG",
+            "record_id": "glossary_go_wide",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Go-Wide"
+          },
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_go_wide",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Go-Wide"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_goad",
       "term": "Goad",
       "aliases": [
@@ -231,6 +525,18 @@
           "https://magic.wizards.com/en/rules"
         ],
         "authority_note": "Wizards Conspiracy mechanic explanation plus current Comprehensive Rules authority"
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "SILVERQUILL",
+            "record_id": "glossary_goad",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "goad"
+          }
+        ]
       }
     },
     {
@@ -244,6 +550,56 @@
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#graveyard",
         "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_group_hug",
+      "term": "Group Hug",
+      "aliases": [
+        "group-hug"
+      ],
+      "definition": "Give resources to multiple players, often to shape the table's politics or pace.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#group-hug",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "INK",
+            "record_id": "glossary_group_hug",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Group Hug"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_haste",
+      "term": "Haste",
+      "aliases": [],
+      "definition": "A creature with haste can attack and use tap abilities as soon as it comes under your control.",
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "R",
+            "record_id": "glossary_haste",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Haste"
+          }
+        ]
       }
     },
     {
@@ -262,6 +618,120 @@
       }
     },
     {
+      "record_id": "glossary_heroic",
+      "term": "Heroic",
+      "aliases": [],
+      "definition": "Heroic is an ability word for abilities that trigger when you cast a spell that targets that creature.",
+      "provenance": {
+        "role": "official_game_mechanic",
+        "locator": "https://magic.wizards.com/en/news/feature/double-masters-2022-release-notes-2022-06-24#ability-word-heroic",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_heroic",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Heroic"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_historic",
+      "term": "Historic",
+      "aliases": [
+        "historic payoffs"
+      ],
+      "definition": "Historic refers collectively to artifacts, legendary cards, and Sagas.",
+      "provenance": {
+        "role": "official_game_term",
+        "locator": "https://magic.wizards.com/en/news/feature/dominaria-mechanics-2018-03-21#historic",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_historic",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Historic"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_impulse_draw",
+      "term": "Impulse draw",
+      "aliases": [
+        "impulsive draw",
+        "impulsive drawing"
+      ],
+      "definition": "Exile cards and allow them to be played for a limited time instead of putting them into your hand.",
+      "provenance": {
+        "role": "commander_community_design_term",
+        "locator": "https://magic.wizards.com/en/news/making-magic/the-council-of-colors-revisited",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BR",
+            "record_id": "glossary_impulse_draw",
+            "surface": "start-here",
+            "field": "Guild spellcraft",
+            "matched_text": "impulse draw"
+          },
+          {
+            "identity_key": "R",
+            "record_id": "glossary_impulse_draw",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Impulse Draw"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_land_denial",
+      "term": "Land denial",
+      "aliases": [
+        "Ponza / Land Denial"
+      ],
+      "definition": "Attack opponents' mana by destroying, restricting, or disabling lands; Ponza is a red-green version that follows with efficient threats.",
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "https://magic.wizards.com/en/news/announcements/commander-banned-and-restricted-february-9-2026",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "RG",
+            "record_id": "glossary_land_denial",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Ponza / Land Denial"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_landfall",
       "term": "Landfall",
       "aliases": [],
@@ -273,12 +743,45 @@
       }
     },
     {
+      "record_id": "glossary_lifegain",
+      "term": "Lifegain",
+      "aliases": [
+        "life gain",
+        "life-gain"
+      ],
+      "definition": "Gain life as protection, fuel, or a payoff trigger.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#lifegain",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "ABZAN",
+            "record_id": "glossary_lifegain",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Lifegain"
+          },
+          {
+            "identity_key": "WITHERBLOOM",
+            "record_id": "glossary_lifegain",
+            "surface": "start-here",
+            "field": "College spellcraft",
+            "matched_text": "life gain"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_mana_rocks",
       "term": "Mana rocks",
       "aliases": [
         "mana rock"
       ],
-      "definition": "Getting access to more mana than normal for your turn count.",
+      "definition": "Artifacts that produce mana, helping a deck accelerate or fix its mana.",
       "provenance": {
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#ramp",
@@ -295,6 +798,40 @@
         "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
         "supporting_locators": [
           "data/taxonomy/vox-mana-tags.json#midrange"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_mill",
+      "term": "Mill",
+      "aliases": [
+        "milling"
+      ],
+      "definition": "Put cards from a library into its owner's graveyard, often to empty an opponent's library or stock a graveyard.",
+      "provenance": {
+        "role": "official_game_action",
+        "locator": "https://magic.wizards.com/en/rules",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "BG",
+            "record_id": "glossary_mill",
+            "surface": "what-to-look-for",
+            "field": "item-3-copy",
+            "matched_text": "milling"
+          },
+          {
+            "identity_key": "UB",
+            "record_id": "glossary_mill",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "mill"
+          }
         ]
       }
     },
@@ -338,6 +875,29 @@
       }
     },
     {
+      "record_id": "glossary_politics",
+      "term": "Politics",
+      "aliases": [],
+      "definition": "Use deals, incentives, goad, votes, or threat assessment to shape multiplayer decisions.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#politics",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "INK",
+            "record_id": "glossary_politics",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Politics"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_populate",
       "term": "Populate",
       "aliases": [],
@@ -349,6 +909,18 @@
           "https://magic.wizards.com/en/rules"
         ],
         "authority_note": "Wizards Return to Ravnica mechanics explanation of populate"
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WG",
+            "record_id": "glossary_populate",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "populate"
+          }
+        ]
       }
     },
     {
@@ -362,6 +934,18 @@
         "role": "approved_baseline_migration",
         "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
         "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WU",
+            "record_id": "glossary_prison_control",
+            "surface": "what-to-look-for-title",
+            "field": "item-2-title",
+            "matched_text": "Prison Control"
+          }
+        ]
       }
     },
     {
@@ -389,6 +973,31 @@
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#ramp",
         "supporting_locators": []
+      }
+    },
+    {
+      "record_id": "glossary_reanimator",
+      "term": "Reanimator",
+      "aliases": [
+        "reanimation"
+      ],
+      "definition": "Put creature cards from your graveyard directly onto the battlefield, often for less mana than casting them normally.",
+      "provenance": {
+        "role": "commander_community_archetype",
+        "locator": "data/taxonomy/vox-mana-tags.json#reanimator",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "B",
+            "record_id": "glossary_reanimator",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Reanimator"
+          }
+        ]
       }
     },
     {
@@ -469,6 +1078,31 @@
       }
     },
     {
+      "record_id": "glossary_surveil",
+      "term": "Surveil",
+      "aliases": [],
+      "definition": "Look at the stated number of cards from the top of your library, put any into your graveyard, and return the rest to the top in any order.",
+      "provenance": {
+        "role": "official_game_action",
+        "locator": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04#house-dimir-and-surveil",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "UB",
+            "record_id": "glossary_surveil",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Surveil"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_sweepers",
       "term": "Board wipe",
       "aliases": [
@@ -481,6 +1115,18 @@
         "role": "approved_baseline_migration",
         "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
         "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "W",
+            "record_id": "glossary_sweepers",
+            "surface": "how-this-plays",
+            "field": "mechanical-expression",
+            "matched_text": "Board wipes"
+          }
+        ]
       }
     },
     {
@@ -507,6 +1153,29 @@
         "locator": "assets/js/index.js#ARCHSCRY_TERM_HELP",
         "supporting_locators": [
           "data/taxonomy/vox-mana-tags.json#tempo"
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_theft",
+      "term": "Theft",
+      "aliases": [],
+      "definition": "Use opponents' cards, permanents, libraries, or graveyards as resources.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#theft",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "SULTAI",
+            "record_id": "glossary_theft",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Theft"
+          }
         ]
       }
     },
@@ -538,6 +1207,66 @@
       }
     },
     {
+      "record_id": "glossary_treasure",
+      "term": "Treasure",
+      "aliases": [
+        "Treasures",
+        "Treasure tokens"
+      ],
+      "definition": "A Treasure is an artifact token that can be tapped and sacrificed to add one mana of any color.",
+      "provenance": {
+        "role": "official_game_object",
+        "locator": "https://magic.wizards.com/en/news/feature/ixalan-mechanics",
+        "supporting_locators": [
+          "https://magic.wizards.com/en/rules"
+        ]
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "PRISMARI",
+            "record_id": "glossary_treasure",
+            "surface": "start-here",
+            "field": "College spellcraft",
+            "matched_text": "treasure"
+          },
+          {
+            "identity_key": "R",
+            "record_id": "glossary_treasure",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Treasures"
+          }
+        ]
+      }
+    },
+    {
+      "record_id": "glossary_typal",
+      "term": "Typal",
+      "aliases": [
+        "Tribal"
+      ],
+      "definition": "Build around a shared creature type and cards that reward that type; many players also call this tribal.",
+      "provenance": {
+        "role": "vox_mana_commander_vocabulary",
+        "locator": "data/taxonomy/vox-mana-tags.json#typal",
+        "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "EXPLICIT_TARGETS",
+        "targets": [
+          {
+            "identity_key": "LOREHOLD",
+            "record_id": "glossary_typal",
+            "surface": "start-here",
+            "field": "Possible directions",
+            "matched_text": "Tribal"
+          }
+        ]
+      }
+    },
+    {
       "record_id": "glossary_voltron",
       "term": "Voltron",
       "aliases": [],
@@ -546,6 +1275,18 @@
         "role": "vox_mana_commander_vocabulary",
         "locator": "data/taxonomy/vox-mana-tags.json#voltron",
         "supporting_locators": []
+      },
+      "teaching_policy": {
+        "mode": "LEGACY_WITH_OVERRIDES",
+        "targets": [
+          {
+            "identity_key": "WR",
+            "record_id": "glossary_voltron",
+            "surface": "what-to-look-for-title",
+            "field": "item-3-title",
+            "matched_text": "Voltron"
+          }
+        ]
       }
     },
     {
