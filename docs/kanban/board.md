@@ -13,6 +13,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-569 - Ink Global Media Projection Reconciliation](backlog/VM-569-ink-global-media-projection-reconciliation.md) - separately reconcile the accepted Ink Sound inventory with the older optional VM-559 global projection; non-blocking for VM-568 and prohibited from changing accepted Ink semantics or frozen evidence silently.
+
 - [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -41,8 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Ready
 
-- [VM-568 - VM-565 / VM-567 Owner-Candidate Integration](ready/VM-568-vm565-vm567-owner-candidate-integration.md) - combined integration commit `872f34b0a86532a277abba3f84209c72987c56e9` preserves owner-accepted VM-565 and exact VM-567 history, passes combined all-37/focused/required-CI QA, and awaits owner-directed merge.
-
 ## In Progress
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
@@ -52,6 +52,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-568 - VM-565 / VM-567 Owner-Candidate Integration](done/VM-568-vm565-vm567-owner-candidate-integration.md) - reconciled dirty main without blind cleanup, integrated both exact accepted lineages, pushed release `514c045d5dd9b282ccba69177c475983ac0bbf7d`, and passed GitHub Validation, Pages deployment, and exact deployed-asset verification.
 
 - [VM-565 - Curated Player Vocabulary Education](done/VM-565-curated-player-vocabulary-education.md) - owner accepted exact candidate `97989e1be35757b53593c0e3b620648c8d46b05a`; all-37 vocabulary education plus Bant, Boros, and Ink remediation passed final visual review and is preserved as the durable VM-568 integration parent.
 

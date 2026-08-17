@@ -2,7 +2,7 @@
 
 ID: VM-568
 
-Status: Ready - combined integration commit `872f34b0a86532a277abba3f84209c72987c56e9`
+Status: Done - integrated, pushed, and production-verified at release commit `514c045d5dd9b282ccba69177c475983ac0bbf7d`
 
 Type: Accepted-candidate integration / release preparation
 
@@ -136,3 +136,36 @@ commit, then stop with one clean build for owner-directed merge. Do not push, me
   `697e0c1ba8a655199cb29c2ae11ae0d719e3b449`.
 - Owner-accepted VM-565
   `97989e1be35757b53593c0e3b620648c8d46b05a` remains an ancestor.
+
+## Release Closeout
+
+- The dirty `main` worktree was reconciled path by path before integration: 34 paths
+  were either byte-identical, newline-only, older/superseded VM-564/565 drafts, or
+  earlier card states already represented by the accepted VM-568 build. No unique
+  dirty-main work was found.
+- The reconciled pre-merge state remains recoverable in labeled stash
+  `pre-vm568-dirty-main-audited-superseded-2026-08-16`; it was not dropped during
+  release cleanup.
+- `main` fast-forwarded to final VM-568 candidate
+  `5a5c04c859e25d7c7c3ea97e10c66fd59d66d045`, then received the narrow Windows
+  newline-portability fix in
+  `research/apply-vm565-owner-review-remediation.mjs`.
+- Final release commit: `514c045d5dd9b282ccba69177c475983ac0bbf7d`.
+- Exact VM-565 `97989e1be35757b53593c0e3b620648c8d46b05a` and exact VM-567
+  `697e0c1ba8a655199cb29c2ae11ae0d719e3b449` remain ancestors of the release.
+- GitHub Validation run `31998022444`: PASS.
+- GitHub Pages deployment run `31998022101`: PASS.
+- Production cache-bypassed comparisons confirmed the deployed Archscry renderer,
+  stylesheet, factions, education catalog, card-voice catalog, and exact card-voice
+  printings match the validated release. The initial `index.js` byte discrepancy was
+  solely its UTF-8 BOM; content matched after BOM/newline normalization.
+- The requested White, Bant, Boros, and Ink acceptance states remain covered by the
+  green deterministic rendered checks and the exact matching deployed runtime/data.
+  Interactive production state replacement was not used because the browser safety
+  gate blocked accepting the saved-reading reset confirmation.
+- The optional VM-559 global Ink projection mismatch remains non-blocking and is
+  isolated as VM-569 maintenance; it was not included in this release.
+- After production verification, both merged worktree registrations and both merged
+  local branch names were removed. VM-567's directory was removed completely;
+  Windows left the now-empty, unregistered `C:\dev\voxmana-vm565-final` directory
+  locked by another process. It contains no files and is not a Git worktree.
