@@ -733,6 +733,7 @@ async function replay(page, origin, witness) {
     };
     const all = Object.values(groups).flat().filter(Boolean);
     const guildName = document.querySelector(".guild-name")?.textContent?.trim() || "";
+    const startHere = document.querySelector('[data-dossier-panel="start"] [data-education-surface="start-here"]');
     const openingNodes = [
       document.querySelector(".guild-banner"),
       document.querySelector('[data-summary-card="where-this-leads"]'),
@@ -776,6 +777,14 @@ async function replay(page, origin, witness) {
         try { return JSON.parse(sessionStorage.getItem("vm_last_result") || "null")?.result_state || ""; } catch { return ""; }
       })(),
       guildName,
+      startHere: {
+        present: Boolean(startHere),
+        text: startHere?.textContent?.trim() || "",
+        cardTiles: startHere?.querySelectorAll(".commander-preview-card, [data-commander-card]").length || 0,
+        images: startHere?.querySelectorAll("img").length || 0,
+        detailTriggers: startHere?.querySelectorAll('[data-action="open-card-detail"], .card-detail-image-trigger').length || 0,
+        mediaSlots: startHere?.querySelectorAll('[id^="cmd_"], [data-card-preview-name], [data-card-art-name]').length || 0,
+      },
       whyCount: document.querySelectorAll("[data-public-fit-reasons] .omen-card").length,
       whyFitRefinementAvailable: Boolean(document.querySelector('[data-public-fit-reasons] [data-action="start-result-refinement"]')),
       resultRefinementAvailable: Boolean(document.querySelector('[data-action="start-result-refinement"]')),
@@ -845,6 +854,21 @@ async function replay(page, origin, witness) {
   if (witness.expected_public_contract === "NAMED_DOSSIER") {
     assert.equal(ui.state, "named", `${witness.identity_key} did not render a named dossier`);
     assert.ok(ui.guildName, `${witness.identity_key} omitted the dossier hero`);
+    assert.equal(ui.startHere.present, true, `${witness.identity_key} omitted Start Here`);
+    assert.match(ui.startHere.text, /Start With This Commander Plan/, `${witness.identity_key} omitted the Start Here Commander plan`);
+    assert.deepEqual(
+      {
+        cardTiles: ui.startHere.cardTiles,
+        images: ui.startHere.images,
+        detailTriggers: ui.startHere.detailTriggers,
+        mediaSlots: ui.startHere.mediaSlots,
+      },
+      { cardTiles: 0, images: 0, detailTriggers: 0, mediaSlots: 0 },
+      `${witness.identity_key} rendered card-bearing descendants inside Start Here`
+    );
+    if (witness.identity_key === "W") {
+      assert.doesNotMatch(ui.startHere.text, /Giada, Font of Hope|Adeline, Resplendent Cathar|Balan, Wandering Knight/, "White retained Commander preview names inside Start Here");
+    }
     assert.ok(ui.whyCount >= 2 && ui.whyCount <= 3, `${witness.identity_key} Why This Fit count ${ui.whyCount}`);
     assert.equal(ui.whyFitRefinementAvailable, false, `${witness.identity_key} put a retake action inside Why This Fit`);
     assert.equal(ui.testFitCount, 3, `${witness.identity_key} Test the Fit incomplete`);

@@ -215,12 +215,9 @@ const panelConfigSource = indexSource.slice(panelConfigStart, panelConfigEnd);
 const deckStartsPanelStart = indexSource.indexOf("const deckStartsPanelHtml =");
 const deckStartsPanelEnd = indexSource.indexOf("const starterCardsPanelHtml =", deckStartsPanelStart);
 const deckStartsPanelSource = indexSource.slice(deckStartsPanelStart, deckStartsPanelEnd);
-const commanderPreviewStart = indexSource.indexOf("const commanderPreviewHtml =");
-const commanderPreviewEnd = indexSource.indexOf("const deckStartsPanelHtml =", commanderPreviewStart);
-const commanderPreviewSource = indexSource.slice(commanderPreviewStart, commanderPreviewEnd);
-const commanderPreviewSlotsStart = indexSource.indexOf("function commanderPreviewSlots");
-const commanderPreviewSlotsEnd = indexSource.indexOf("const renderState =", commanderPreviewSlotsStart);
-const commanderPreviewSlotsSource = indexSource.slice(commanderPreviewSlotsStart, commanderPreviewSlotsEnd);
+const startPanelStart = indexSource.indexOf("const startPanelHtml =");
+const startPanelEnd = indexSource.indexOf("const deckStartsPanelHtml =", startPanelStart);
+const startPanelSource = indexSource.slice(startPanelStart, startPanelEnd);
 const deckDiscoveryGroupsStart = indexSource.indexOf("function buildDeckDiscoveryGroups");
 const deckDiscoveryGroupsEnd = indexSource.indexOf("function buildDeckDiscoveryHtml", deckDiscoveryGroupsStart);
 const deckDiscoveryGroupsSource = indexSource.slice(deckDiscoveryGroupsStart, deckDiscoveryGroupsEnd);
@@ -2806,13 +2803,12 @@ assert.match(indexSource, /class="guild-banner"[^>]*data-faction-key="\$\{escape
 assert.match(indexSource, /data-hero-background="\$\{heroBannerImageSlugForFaction\(faction\) \? "identity-image" : "banner"\}"/, "expected mapped identity heroes to mark their background mode explicitly");
 assert.match(indexSource, /style="background:\$\{heroBannerBackgroundForFaction\(faction\)\}"/, "expected the dossier hero card to resolve background through the dedicated hero helper");
 assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Start Here to stop rendering duplicate commander directory service links");
-assert.match(commanderPreviewSource, /<div class="section-label">Start Here<\/div>/, "expected the commander preview to remain inside the Start Here guidance block");
-assert.match(commanderPreviewSource, /\$\{commanderLane\.title\}/, "expected Start Here to retain the approved Commander lane title");
-assert.match(commanderPreviewSource, /commander-preview-grid/, "expected Start Here to keep commander preview cards");
-assert.match(commanderPreviewSource, /commanderPreviewCandidates\.length\s*\?/, "expected Commander starting points to render only when preview candidates exist");
-assert.match(commanderPreviewSlotsSource, /<div class="commander-name">\$\{candidate\.name\}<\/div>/, "expected commander preview tiles to include non-empty card-name fallback content");
-assert.match(commanderPreviewSlotsSource, /commander-placeholder" id="\$\{id\}" aria-label="\$\{escapeAttributeValue\(`\$\{candidate\.name\} card art`\)\}"/, "expected commander preview tiles to keep intentional image-fallback content");
-assert.doesNotMatch(commanderPreviewSource, /starter-links|data-commander-directory-links/, "expected Start Here to remove the external commander directory service block");
+assert.match(startPanelSource, /<div class="section-label">Start Here<\/div>/, "expected Start Here to retain its section heading");
+assert.match(startPanelSource, /Use these Commander starting points to turn the reading into decks, cards, and searches you can compare\./, "expected Start Here to retain its introductory guidance");
+assert.match(startPanelSource, /\$\{commanderLane\.title\}/, "expected Start Here to retain the approved Commander lane title");
+assert.match(startPanelSource, /commanderLane\.details\.map/, "expected Start Here to retain its Commander guidance notes");
+assert.doesNotMatch(startPanelSource, /commanderPreviewHtml|commander-preview-grid|data-commander-card|id="cmd_/, "expected Start Here to render zero Commander card previews or media slots");
+assert.doesNotMatch(startPanelSource, /starter-links|data-commander-directory-links/, "expected Start Here to omit external commander directory service links");
 const blackPlacementResult = {
   faction: "B",
   confidence: 0.9,
@@ -2839,13 +2835,13 @@ const blackRenderState = buildDossierRenderState({
   colors: factionsData.factions.B.colors,
 });
 const blackLandRecommendations = blackDossier.landRecommendations || buildCommanderLandRecommendations(factionsData.factions.B);
-assert.ok((blackDossier.commanderRecommendations || []).length >= 2, "expected Black Start Here to expose source-backed Commander preview rows");
+assert.ok((blackDossier.commanderRecommendations || []).length >= 2, "expected Black dossier recommendation authority to retain source-backed Commander rows");
 (blackDossier.commanderRecommendations || []).forEach((candidate) => {
-  assert.ok(String(candidate.name || "").trim(), "expected each Black Commander preview tile to include a non-empty card name");
+  assert.ok(String(candidate.name || "").trim(), "expected each Black Commander recommendation to retain a non-empty card name");
   const indexedCommander = commanderFlavorIndex.commanders.find((card) => normalizeCardName(card.name) === normalizeCardName(candidate.name));
   assert.ok(
     indexedCommander?.image_uris?.art_crop || indexedCommander?.image_uris?.normal || candidate.desc,
-    `expected Black Commander preview ${candidate.name} to have a Scryfall image URL or intentional fallback content`
+    `expected Black Commander recommendation ${candidate.name} to retain its governed support content`
   );
 });
 assert.equal(blackRenderState.hasStarterCardReferences, true, "expected Black Card Signal References to remain populated");

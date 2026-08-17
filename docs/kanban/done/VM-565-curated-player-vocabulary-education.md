@@ -2,7 +2,7 @@
 
 ID: VM-565
 
-Status: Owner Review
+Status: Done - owner accepted exact candidate `97989e1be35757b53593c0e3b620648c8d46b05a`
 
 Type: Player education / glossary presentation
 
@@ -85,7 +85,7 @@ Use the completed VM-564 terminology audit to teach important Magic and Commande
 - Representative mobile replay: PASS — Red and Colorless.
 - Glossary hover, keyboard focus, Escape dismissal, and tap-equivalent activation: PASS.
 - Targeted Bant and White rendered review: PASS.
-- Owner product judgment: PENDING; do not move this card to Done yet.
+- Owner product judgment: PASS at exact candidate `97989e1be35757b53593c0e3b620648c8d46b05a`.
 
 ## Owner Review Remediation
 
@@ -117,4 +117,7 @@ Use the completed VM-564 terminology audit to teach important Magic and Commande
 - Worktree: `C:\dev\voxmana-vm565-final`.
 - The accepted VM-564/VM-565 state and only these three remediations were reproduced in isolation; the dirty main worktree and accepted VM-567 worktree were not modified.
 - Full isolated all-37 desktop replay: PASS — 37 identities, 36 named plus bounded Yore, zero failures.
-- Final owner verification remains pending; keep this card in Owner Review.
+- Final owner verification passed for all three remediation bugs at exact candidate
+  `97989e1be35757b53593c0e3b620648c8d46b05a`.
+- VM-568 preserves that SHA as a durable ancestor while integrating the separately
+  accepted Start Here preview-removal candidate.

@@ -2,7 +2,7 @@
 
 ID: VM-568
 
-Status: In progress - exact-candidate reconciliation and combined QA
+Status: Integration QA complete - merge commit pending
 
 Type: Accepted-candidate integration / release preparation
 
@@ -76,3 +76,54 @@ parent commit and reconciling their shared renderer, replay, and governance file
 - Candidate is committed locally with a clean worktree; no push, merge to `main`, or
   deployment occurs without owner direction.
 
+## Integration Result
+
+- Continued the existing `codex/vm-565-final-owner-review` branch and worktree; no
+  third branch or worktree was created.
+- Preserved owner-accepted VM-565 SHA
+  `97989e1be35757b53593c0e3b620648c8d46b05a` as first-parent history.
+- Merged exact VM-567 candidate
+  `697e0c1ba8a655199cb29c2ae11ae0d719e3b449` as the second-parent lineage.
+- Product code and the combined all-37 replay merged automatically. Only
+  `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md` conflicted; both were
+  reconciled additively so VM-564, VM-565, VM-567, and VM-568 records remain.
+- Start Here retains its heading, introduction, Commander plan, guidance, glossary
+  behavior, and layout while rendering zero Commander preview descendants.
+
+## Combined Validation Result
+
+- Full all-37 desktop replay: PASS, 37 identities / 36 named plus bounded Yore / zero
+  failures. Every named dossier retains `Start With This Commander Plan` with zero
+  Start Here card tiles, images, card-detail triggers, or media slots.
+- White mobile and Bant mobile: PASS, including Start Here absence and education
+  hover/focus/Escape/tap-equivalent behavior.
+- Boros desktop/mobile authored-card replay: PASS with the same three Play cards and
+  visible, contained detail controls.
+- Ink desktop/mobile authored-card replay: PASS with Crystal, Inhuman Princess plus
+  Group Project as Sound and Kynaios and Tiro unchanged as Play-only.
+- VM-565 candidate ledger, education audit, education packet, remediation checker,
+  lint, source/generated guardrail, 37 golden paths, and all required
+  `.github/workflows/validation.yml` commands: PASS.
+- Protected diff from owner-accepted VM-565 over `data/`,
+  `assets/js/commander-dossier.js`, and the VM-559 media producer: empty.
+
+## Known Non-Blocking Historical Boundaries
+
+- `research/archscry-dossier-followup-tests.js` still stops at its pre-existing
+  obsolete `Why These Cards Echo This Reading` source-string assertion.
+- `scripts/vm551-gate-a-owner-qa-tests.mjs` still stops at its pre-existing obsolete
+  `loadCachedScryfallNamedCard(card.name)` source-string assertion. Neither suite is
+  part of required `validation.yml`; VM-568 did not broaden into historical harness
+  maintenance.
+- `test:vm559-media-projection` remains outside required CI and reports the accepted
+  VM-565 Ink source change against the older global projection: Group Project would
+  replace Danitha, Command Tower's occurrence count would fall, and Crystal is absent
+  from the frozen raw Oracle snapshot. Runtime Ink resolution passes from the
+  dedicated exact card-voice printing source. VM-568 does not alter the media
+  producer, frozen raw snapshot, or accepted card semantics.
+
+## Stop Point
+
+Create the exact-history local integration merge commit and a documentation closeout
+commit, then stop with one clean build for owner-directed merge. Do not push, merge to
+`main`, or deploy in this pass.

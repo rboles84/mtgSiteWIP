@@ -596,10 +596,15 @@ async function validateArchscryVisualPolish(page, viewport) {
       voiceNameLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-name[href]")).length,
       voiceImageLinkCount: voiceCards.filter((card) => card.querySelector("a.vm-card-voice-image-link[href]")).length,
       voicePreviewCount: voiceCards.filter((card) => card.querySelector("[data-card-preview-anchor]")).length,
-      commanderPreviewLabelCount: document.querySelectorAll(".commander-preview-label").length,
-      visibleCommanderPreviewBlocksValid: [...document.querySelectorAll("[data-commander-preview-block]")]
-        .filter((block) => !block.hidden)
-        .every((block) => Boolean(block.querySelector(".commander-preview-card.is-verified"))),
+      startHerePreviewCounts: (() => {
+        const startHere = document.querySelector('[data-dossier-panel="start"] [data-education-surface="start-here"]');
+        return {
+          tiles: startHere?.querySelectorAll(".commander-preview-card, [data-commander-card]").length || 0,
+          images: startHere?.querySelectorAll("img").length || 0,
+          detailTriggers: startHere?.querySelectorAll('[data-action="open-card-detail"], .card-detail-image-trigger').length || 0,
+          mediaSlots: startHere?.querySelectorAll('[id^="cmd_"], [data-card-preview-name], [data-card-art-name]').length || 0,
+        };
+      })(),
       voiceLinkPairs: voiceCards.map((card) => ({
         name: card.getAttribute("data-matrix-card-name") || "",
         nameHref: card.querySelector("a.vm-card-voice-name[href]")?.href || "",
@@ -649,8 +654,7 @@ async function validateArchscryVisualPolish(page, viewport) {
     assert(presentation.preconRhythm.metaToGrid <= 16, `${viewport.name} precon status-to-grid gap is too large: ${JSON.stringify(presentation.preconRhythm)}.`);
   }
   assert(presentation.storyMetaMarginTop !== "auto", `${viewport.name} Layered Identity mana symbols remain bottom-pinned.`);
-  assert(presentation.commanderPreviewLabelCount === 0, `${viewport.name} retained the redundant Commander starting points label.`);
-  assert(presentation.visibleCommanderPreviewBlocksValid, `${viewport.name} exposed a Commander preview block without a verified card.`);
+  assert(Object.values(presentation.startHerePreviewCounts).every((count) => count === 0), `${viewport.name} Start Here rendered Commander card previews: ${JSON.stringify(presentation.startHerePreviewCounts)}.`);
 
   if (viewport.width > 940 && presentation.voiceCardCount) {
     await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);

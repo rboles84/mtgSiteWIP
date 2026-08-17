@@ -47,8 +47,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 - [VM-568 - VM-565 / VM-567 Owner-Candidate Integration](in-progress/VM-568-vm565-vm567-owner-candidate-integration.md) - reconciling exact VM-567 Start Here preview removal onto owner-accepted VM-565 while preserving its durable SHA, VM-564 audit baseline, and all protected dossier contracts.
 
-- [VM-565 - Curated Player Vocabulary Education](in-progress/VM-565-curated-player-vocabulary-education.md) - isolated final owner-review remediation passes for Bant wording, Boros control visibility, and Ink Sound selection; final owner verification is pending.
-
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
 
 ## Blocked
@@ -56,6 +54,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-565 - Curated Player Vocabulary Education](done/VM-565-curated-player-vocabulary-education.md) - owner accepted exact candidate `97989e1be35757b53593c0e3b620648c8d46b05a`; all-37 vocabulary education plus Bant, Boros, and Ink remediation passed final visual review and is preserved as the durable VM-568 integration parent.
+
+- [VM-567 - Remove Start Here Commander Card Previews](done/VM-567-remove-start-here-commander-card-previews.md) - removed only the shared Start Here preview insertion, proved zero card-bearing descendants across all 37 identities, preserved guidance/recommendation/media authority and every other dossier surface, and stopped at a local owner-review candidate.
 
 - [VM-564 - All-37 Dossier Term Hover Audit](done/VM-564-all-37-dossier-term-hover-audit.md) - audited all 37 placements against the approved glossary and delivered the deterministic term/hover/strategy-label evidence baseline without changing runtime behavior.
 
