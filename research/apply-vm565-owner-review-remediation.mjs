@@ -7,6 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const check = process.argv.includes("--check");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;
+const normalizeNewlines = (value) => String(value).replace(/\r\n/g, "\n");
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");
 
 const relationshipPath = "data/dossier/card-voice-relationships.source.json";
@@ -289,7 +290,7 @@ for (const [relativePath, content] of Object.entries(outputs)) {
   const absolutePath = path.join(root, relativePath);
   if (check) {
     const current = await readFile(absolutePath, "utf8");
-    if (current !== content) throw new Error(`${relativePath} is stale; run node research/apply-vm565-owner-review-remediation.mjs`);
+    if (normalizeNewlines(current) !== content) throw new Error(`${relativePath} is stale; run node research/apply-vm565-owner-review-remediation.mjs`);
   } else {
     await writeFile(absolutePath, content);
   }
