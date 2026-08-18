@@ -883,7 +883,7 @@ assert.ok(
 assert.match(archscryIndexSource, /COLORLESS:\s*"colorless"/, "Archscry runtime source should map COLORLESS only to its approved dossier hero asset slug.");
 assert.doesNotMatch(
   archscryIndexSource,
-  /view=COLORLESS|\/colorless\b|colorless\.html|COLORLESS:\s*["'](?:\/|route|preview|maze|home)/i,
+  /view=COLORLESS|["']\/colorless\b|colorless\.html|COLORLESS:\s*["'](?:\/|route|preview|maze|home)/i,
   "Archscry runtime source should not hard-code COLORLESS route, preview, Maze, Home, or public alias behavior."
 );
 
@@ -921,7 +921,7 @@ assert.ok(
 );
 assert.doesNotMatch(
   archscryIndexSource,
-  /view=WUBRG|\/wubrg\b|wubrg\.html|WUBRG:\s*["'](?:\/|route|preview|maze|home)/i,
+  /view=WUBRG|["']\/wubrg\b|wubrg\.html|WUBRG:\s*["'](?:\/|route|preview|maze|home)/i,
   "Archscry runtime source should not hard-code WUBRG route, preview, Maze, Home, or public alias behavior."
 );
 

@@ -195,6 +195,8 @@ globalThis.document = {
 const {
   buildDossierRenderState,
   buildFlavorEchoesHtml,
+  heroBannerArtworkAttributionForFaction,
+  heroBannerArtworkForFaction,
   heroBannerBackgroundForFaction,
   heroBannerImageSlugForFaction,
   identityMetaLabelForDisplay,
@@ -2903,6 +2905,26 @@ const expectedIdentityHeroSlugs = Object.freeze({
 const expectedIdentityHeroEntries = Object.entries(expectedIdentityHeroSlugs);
 const normalizeCssStack = (value) => String(value || "").replace(/\s+/g, " ").trim();
 const identityHeroImageLayer = (slug) => `url('/assets/img/identity-hero/${slug}.webp') center center / cover no-repeat`;
+const abzanOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/abzan-betor-ancestor-s-voice.jpg') 50% 42% / cover no-repeat";
+const bantOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/bant-plane-alara.jpg') 52% 48% / cover no-repeat";
+const golgariOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/golgari-dark-heart-wood.jpg') 50% 48% / cover no-repeat";
+const azoriusOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg') 50% 50% / cover no-repeat";
+const dimirOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg') 50% 45% / 80% auto no-repeat";
+const rakdosOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg') 50% 50% / cover no-repeat";
+const gruulOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/gruul-zhur-taa-ancient.jpg') 50% 46% / cover no-repeat";
+const selesnyaOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/selesnya-temple-garden.jpg') 50% 50% / cover no-repeat";
+const orzhovOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/orzhov-ghost-council-orzhova.jpg') 50% 44% / cover no-repeat";
+const simicOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/simic-guildgate.jpg') 50% 50% / cover no-repeat";
+const izzetOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/izzet-steam-vents.jpg') 50% 50% / cover no-repeat";
+const borosOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/boros-solar-blaze.jpg') 50% 48% / cover no-repeat";
+const esperOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/esper-plane-alara.jpg') 50% 50% / cover no-repeat";
+const grixisOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/grixis-plane-alara.jpg') 50% 48% / cover no-repeat";
+const jeskaiOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/jeskai-shiko-paragon-way.jpg') 50% 42% / cover no-repeat";
+const jundOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/jund-plane-alara.jpg') 50% 48% / cover no-repeat";
+const marduOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg') 50% 42% / cover no-repeat";
+const nayaOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/naya-plane-alara.jpg') 50% 48% / cover no-repeat";
+const sultaiOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/sultai-teval-balanced-scale.jpg') 50% 42% / cover no-repeat";
+const temurOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/temur-dragonback-assault.png') 50% 48% / cover no-repeat";
 const assertBackgroundLayerOrder = (background, layers, message) => {
   const normalized = normalizeCssStack(background);
   let cursor = -1;
@@ -2923,13 +2945,321 @@ assert.deepEqual(
 );
 expectedIdentityHeroEntries.forEach(([key, slug]) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), slug, `expected ${key} to resolve to ${slug}`);
-  const browserUrl = `/assets/img/identity-hero/${slug}.webp`;
-  assert.match(browserUrl, /^\/assets\/img\/identity-hero\/[a-z]+\.webp$/, `expected ${key} to form the browser identity-hero URL`);
-  assert.ok(browserUrl.endsWith(`${slug}.webp`), `expected ${key} browser URL to include the resolved slug`);
+  const artwork = heroBannerArtworkForFaction({ key });
+  const browserUrl = artwork?.src || "";
+  if (key === "ABZAN") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/abzan-betor-ancestor-s-voice.jpg", "expected ABZAN to use the official Betor proof asset path");
+    assert.equal(artwork.position, "50% 42%", "expected ABZAN to use the authored official-art focal position");
+  } else if (key === "BR") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg", "expected BR to use the official Rakdos proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected BR to use the authored official-art focal position");
+  } else if (key === "BANT") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/bant-plane-alara.jpg", "expected BANT to use the official Bant proof asset path");
+    assert.equal(artwork.position, "52% 48%", "expected BANT to use the authored official-art focal position");
+  } else if (key === "B") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/black-altars-reap.jpg", "expected B to use the official Black proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected B to use the authored official-art focal position");
+  } else if (key === "BG") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/golgari-dark-heart-wood.jpg", "expected BG to use the official Golgari proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected BG to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected BG to use full-fill cover sizing after owner review");
+  } else if (key === "COLORLESS") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/colorless-emrakul-promised-end.jpg", "expected COLORLESS to use the official Colorless proof asset path");
+    assert.equal(artwork.position, "50% 43%", "expected COLORLESS to use the authored official-art focal position");
+  } else if (key === "DUNE") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/dune-dune-brood-nephilim.jpg", "expected DUNE to use the official Dune proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected DUNE to use the authored official-art focal position");
+  } else if (key === "ESPER") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/esper-plane-alara.jpg", "expected ESPER to use the official Esper proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected ESPER to use the authored official-art focal position");
+  } else if (key === "GRIXIS") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/grixis-plane-alara.jpg", "expected GRIXIS to use the official Grixis proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected GRIXIS to use the authored official-art focal position");
+  } else if (key === "JESKAI") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/jeskai-shiko-paragon-way.jpg", "expected JESKAI to use the official Jeskai proof asset path");
+    assert.equal(artwork.position, "50% 42%", "expected JESKAI to use the authored official-art focal position");
+  } else if (key === "JUND") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/jund-plane-alara.jpg", "expected JUND to use the official Jund proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected JUND to use the authored official-art focal position");
+  } else if (key === "LOREHOLD") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/lorehold-velomachus-lorehold.jpg", "expected LOREHOLD to use the official Lorehold proof asset path");
+    assert.equal(artwork.position, "50% 42%", "expected LOREHOLD to use the authored official-art focal position");
+  } else if (key === "MARDU") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg", "expected MARDU to use the official Mardu proof asset path");
+    assert.equal(artwork.position, "50% 42%", "expected MARDU to use the authored official-art focal position");
+  } else if (key === "NAYA") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/naya-plane-alara.jpg", "expected NAYA to use the official Naya proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected NAYA to use the authored official-art focal position");
+  } else if (key === "PRISMARI") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/prismari-galazeth-prismari.jpg", "expected PRISMARI to use the official Prismari proof asset path");
+    assert.equal(artwork.position, "50% 43%", "expected PRISMARI to use the authored official-art focal position");
+  } else if (key === "QUANDRIX") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/quandrix-tanazir-quandrix.jpg", "expected QUANDRIX to use the official Quandrix proof asset path");
+    assert.equal(artwork.position, "50% 44%", "expected QUANDRIX to use the authored official-art focal position");
+  } else if (key === "RG") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/gruul-zhur-taa-ancient.jpg", "expected RG to use the official Gruul proof asset path");
+    assert.equal(artwork.position, "50% 46%", "expected RG to use the authored official-art focal position");
+  } else if (key === "SILVERQUILL") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/silverquill-shadrix-silverquill.jpg", "expected SILVERQUILL to use the official Silverquill proof asset path");
+    assert.equal(artwork.position, "50% 43%", "expected SILVERQUILL to use the authored official-art focal position");
+  } else if (key === "SULTAI") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/sultai-teval-balanced-scale.jpg", "expected SULTAI to use the official Sultai proof asset path");
+    assert.equal(artwork.position, "50% 42%", "expected SULTAI to use the authored official-art focal position");
+  } else if (key === "G") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/green-primordial-hydra.jpg", "expected G to use the official Green proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected G to use the authored official-art focal position");
+  } else if (key === "GLINT") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/glint-glint-eye-nephilim.jpg", "expected GLINT to use the official Glint proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected GLINT to use the authored official-art focal position");
+  } else if (key === "INK") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg", "expected INK to use the official Ink proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected INK to use the authored official-art focal position");
+  } else if (key === "R") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/red-chain-lightning.jpg", "expected R to use the official Red proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected R to use the authored official-art focal position");
+  } else if (key === "TEMUR") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/temur-dragonback-assault.png", "expected TEMUR to use the owner-supplied Dragonback Assault proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected TEMUR to use the authored official-art focal position");
+  } else if (key === "U") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/blue-academy-ruins.jpg", "expected U to use the official Blue proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected U to use the authored official-art focal position");
+  } else if (key === "UB") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg", "expected UB to use the official Dimir proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected UB to use the authored official-art focal position");
+    assert.equal(artwork.size, "80% auto", "expected UB to use the authored zoomed-out official-art size");
+  } else if (key === "UG") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/simic-guildgate.jpg", "expected UG to use the official Simic proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected UG to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected UG to use full-fill cover sizing after owner review");
+  } else if (key === "UR") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/izzet-steam-vents.jpg", "expected UR to use the official Izzet proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected UR to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected UR to use full-fill cover sizing after owner review");
+  } else if (key === "WB") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/orzhov-ghost-council-orzhova.jpg", "expected WB to use the official Orzhov proof asset path");
+    assert.equal(artwork.position, "50% 44%", "expected WB to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected WB to use full-fill cover sizing after owner review");
+  } else if (key === "WG") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/selesnya-temple-garden.jpg", "expected WG to use the official Selesnya proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected WG to use the authored official-art focal position");
+  } else if (key === "WU") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg", "expected WU to use the official Azorius proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected WU to use the authored official-art focal position");
+  } else if (key === "W") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/white-builder-s-blessing.jpg", "expected W to use the official White proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected W to use the authored official-art focal position");
+  } else if (key === "WITCH") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/witch-witch-maw-nephilim.jpg", "expected WITCH to use the official Witch proof asset path");
+    assert.equal(artwork.position, "50% 45%", "expected WITCH to use the authored official-art focal position");
+  } else if (key === "WUBRG") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/wubrg-channel-the-suns.jpg", "expected WUBRG to use the official WUBRG proof asset path");
+    assert.equal(artwork.position, "50% 50%", "expected WUBRG to use the authored official-art focal position");
+  } else if (key === "WR") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/boros-solar-blaze.jpg", "expected WR to use the official Boros proof asset path");
+    assert.equal(artwork.position, "50% 48%", "expected WR to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected WR to return to full-fill cover sizing after owner review");
+  } else if (key === "WITHERBLOOM") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/witherbloom-beledros-witherbloom.jpg", "expected WITHERBLOOM to use the official Witherbloom proof asset path");
+    assert.equal(artwork.position, "50% 43%", "expected WITHERBLOOM to use the authored official-art focal position");
+  } else if (key === "YORE") {
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/yore-yore-tiller-nephilim.jpg", "expected YORE to use the official Yore proof asset path");
+    assert.equal(artwork.position, "50% 44%", "expected YORE to use the authored official-art focal position");
+  } else {
+    assert.match(browserUrl, /^\/assets\/img\/identity-hero\/[a-z]+\.webp$/, `expected ${key} to form the browser identity-hero URL`);
+    assert.ok(browserUrl.endsWith(`${slug}.webp`), `expected ${key} browser URL to include the resolved slug`);
+  }
   assert.ok(existsSync(new URL(`../assets/img/identity-hero/${slug}.webp`, import.meta.url)), `expected identity hero asset to exist for ${key}`);
+  assert.ok(existsSync(new URL(`..${browserUrl}`, import.meta.url)), `expected identity hero artwork asset to exist for ${key}`);
 });
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "ABZAN" }),
+  "Art: Lius Lasahido - Betor, Ancestor's Voice",
+  "expected ABZAN to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "BANT" }),
+  "Art: Michael Komarck - Bant",
+  "expected BANT to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "B" }),
+  "Art: Donato Giancola - Altar's Reap",
+  "expected B to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "BR" }),
+  "Art: Rix Maadi, Dungeon Palace",
+  "expected BR to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "BG" }),
+  "Art: Mark Tedin - Dark Heart of the Wood",
+  "expected BG to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "COLORLESS" }),
+  "Art: Emrakul, the Promised End",
+  "expected COLORLESS to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "DUNE" }),
+  "Art: Jim Murray - Dune-Brood Nephilim",
+  "expected DUNE to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "ESPER" }),
+  "Art: Bruce Brenneise - Esper",
+  "expected ESPER to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "GRIXIS" }),
+  "Art: Nils Hamm - Grixis",
+  "expected GRIXIS to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "JESKAI" }),
+  "Art: Victor Adame Minguez - Shiko, Paragon of the Way",
+  "expected JESKAI to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "JUND" }),
+  "Art: Aleksi Briclot - Jund",
+  "expected JUND to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "LOREHOLD" }),
+  "Art: Raymond Swanland - Velomachus Lorehold",
+  "expected LOREHOLD to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "MARDU" }),
+  "Art: Victor Adame Minguez - Neriv, Heart of the Storm",
+  "expected MARDU to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "NAYA" }),
+  "Art: Zoltan Boros & Gabor Szikszai - Naya",
+  "expected NAYA to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "PRISMARI" }),
+  "Art: Raymond Swanland - Galazeth Prismari",
+  "expected PRISMARI to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "QUANDRIX" }),
+  "Art: Raymond Swanland - Tanazir Quandrix",
+  "expected QUANDRIX to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "RG" }),
+  "Art: Adam Paquette - Zhur-Taa Ancient",
+  "expected RG to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "SILVERQUILL" }),
+  "Art: Raymond Swanland - Shadrix Silverquill",
+  "expected SILVERQUILL to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "SULTAI" }),
+  "Art: Chris Rahn - Teval, the Balanced Scale",
+  "expected SULTAI to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "G" }),
+  "Art: Aleksi Briclot - Primordial Hydra",
+  "expected G to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "GLINT" }),
+  "Art: Mark Zug - Glint-Eye Nephilim",
+  "expected GLINT to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "INK" }),
+  "Art: Christopher Moeller - Ink-Treader Nephilim",
+  "expected INK to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "R" }),
+  "Art: Christopher Moeller - Chain Lightning",
+  "expected R to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "TEMUR" }),
+  "Art: Ryan Pancoast - Dragonback Assault",
+  "expected TEMUR to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "U" }),
+  "Art: Zoltan Boros & Gabor Szikszai - Academy Ruins",
+  "expected U to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "UB" }),
+  "Art: Igor Kieryluk - Haunter of Nightveil",
+  "expected UB to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "UG" }),
+  "Art: Simic Guildgate",
+  "expected UG to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "UR" }),
+  "Art: Steam Vents",
+  "expected UR to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WB" }),
+  "Art: Greg Staples - Ghost Council of Orzhova",
+  "expected WB to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WG" }),
+  "Art: Temple Garden",
+  "expected WG to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WU" }),
+  "Art: Hallowed Fountain",
+  "expected WU to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "W" }),
+  "Art: John Stanko - Builder's Blessing",
+  "expected W to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WITCH" }),
+  "Art: Greg Staples - Witch-Maw Nephilim",
+  "expected WITCH to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WUBRG" }),
+  "Art: Rob Alexander - Channel the Suns",
+  "expected WUBRG to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WR" }),
+  "Art: Adam Paquette - Solar Blaze",
+  "expected WR to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "WITHERBLOOM" }),
+  "Art: Raymond Swanland - Beledros Witherbloom",
+  "expected WITHERBLOOM to expose a minimal proof-only art credit"
+);
+assert.equal(
+  heroBannerArtworkAttributionForFaction({ key: "YORE" }),
+  "Art: Jeremy Jarvis - Yore-Tiller Nephilim",
+  "expected YORE to expose a minimal proof-only art credit"
+);
+assert.equal(heroBannerArtworkAttributionForFaction({ key: "UNKNOWN" }), "", "expected unknown heroes to remain without proof artwork credit");
 ["INK"].forEach((key) => {
   assert.equal(heroBannerImageSlugForFaction({ key }), "", `expected ${key} to remain outside the current dossier-backed hero rollout`);
+  assert.equal(heroBannerArtworkForFaction({ key })?.src, "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg", `expected ${key} to use proof artwork without requiring a rollback slug`);
 });
 assert.equal(heroBannerImageSlugForFaction(null), "", "expected null faction input to resolve to no hero slug");
 assert.equal(heroBannerImageSlugForFaction({}), "", "expected missing faction key to resolve to no hero slug");
@@ -2939,13 +3269,13 @@ const sampleBanner = "linear-gradient(160deg, rgba(1, 2, 3, 0.4), rgba(4, 5, 6, 
 const wuNoBannerBackground = heroBannerBackgroundForFaction({ key: "WU" });
 assert.equal(
   normalizeCssStack(wuNoBannerBackground),
-  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("azorius")}`),
+  normalizeCssStack(`${identityHeroOverlay}, ${azoriusOfficialHeroImageLayer}`),
   "expected WU without a banner to compose overlay + image only"
 );
 const wuWithBannerBackground = heroBannerBackgroundForFaction({ key: "WU", banner: sampleBanner });
 assert.equal(
   normalizeCssStack(wuWithBannerBackground),
-  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("azorius")}, ${sampleBanner}`),
+  normalizeCssStack(`${identityHeroOverlay}, ${azoriusOfficialHeroImageLayer}, ${sampleBanner}`),
   "expected WU with a banner to compose overlay + image + unchanged banner"
 );
 assert.equal(
@@ -2959,11 +3289,139 @@ assert.equal(
   "expected missing-key factions to preserve the existing banner fallback"
 );
 
+const abzanHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.ABZAN);
+assertBackgroundLayerOrder(
+  abzanHeroBackground,
+  [identityHeroOverlay, abzanOfficialHeroImageLayer, factionsData.factions.ABZAN.banner],
+  "expected Abzan to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(abzanHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/abzan-betor-ancestor-s-voice\.jpg'\) 50% 42% \/ cover no-repeat/, "expected the Abzan hero background to use the official Betor proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/abzan.webp", import.meta.url)),
+  "expected the previous Abzan hero rollback asset to remain in place"
+);
+
+const bantHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.BANT);
+assertBackgroundLayerOrder(
+  bantHeroBackground,
+  [identityHeroOverlay, bantOfficialHeroImageLayer, factionsData.factions.BANT.banner],
+  "expected Bant to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(bantHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/bant-plane-alara\.jpg'\) 52% 48% \/ cover no-repeat/, "expected the Bant hero background to use the official Bant proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/bant.webp", import.meta.url)),
+  "expected the previous Bant hero rollback asset to remain in place"
+);
+
+const grixisHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.GRIXIS);
+assertBackgroundLayerOrder(
+  grixisHeroBackground,
+  [identityHeroOverlay, grixisOfficialHeroImageLayer, factionsData.factions.GRIXIS.banner],
+  "expected Grixis to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(grixisHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/grixis-plane-alara\.jpg'\) 50% 48% \/ cover no-repeat/, "expected the Grixis hero background to use the official Grixis proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/grixis.webp", import.meta.url)),
+  "expected the previous Grixis hero rollback asset to remain in place"
+);
+
+const esperHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.ESPER);
+assertBackgroundLayerOrder(
+  esperHeroBackground,
+  [identityHeroOverlay, esperOfficialHeroImageLayer, factionsData.factions.ESPER.banner],
+  "expected Esper to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(esperHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/esper-plane-alara\.jpg'\) 50% 50% \/ cover no-repeat/, "expected the Esper hero background to use the official Esper proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/esper.webp", import.meta.url)),
+  "expected the previous Esper hero rollback asset to remain in place"
+);
+
+const nayaHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.NAYA);
+assertBackgroundLayerOrder(
+  nayaHeroBackground,
+  [identityHeroOverlay, nayaOfficialHeroImageLayer, factionsData.factions.NAYA.banner],
+  "expected Naya to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(nayaHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/naya-plane-alara\.jpg'\) 50% 48% \/ cover no-repeat/, "expected the Naya hero background to use the official Naya proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/naya.webp", import.meta.url)),
+  "expected the previous Naya hero rollback asset to remain in place"
+);
+
+const jundHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.JUND);
+assertBackgroundLayerOrder(
+  jundHeroBackground,
+  [identityHeroOverlay, jundOfficialHeroImageLayer, factionsData.factions.JUND.banner],
+  "expected Jund to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(jundHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/jund-plane-alara\.jpg'\) 50% 48% \/ cover no-repeat/, "expected the Jund hero background to use the official Jund proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/jund.webp", import.meta.url)),
+  "expected the previous Jund hero rollback asset to remain in place"
+);
+
+const sultaiHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.SULTAI);
+assertBackgroundLayerOrder(
+  sultaiHeroBackground,
+  [identityHeroOverlay, sultaiOfficialHeroImageLayer, factionsData.factions.SULTAI.banner],
+  "expected Sultai to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(sultaiHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/sultai-teval-balanced-scale\.jpg'\) 50% 42% \/ cover no-repeat/, "expected the Sultai hero background to use the official Sultai proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/sultai.webp", import.meta.url)),
+  "expected the previous Sultai hero rollback asset to remain in place"
+);
+
+const temurHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.TEMUR);
+assertBackgroundLayerOrder(
+  temurHeroBackground,
+  [identityHeroOverlay, temurOfficialHeroImageLayer, factionsData.factions.TEMUR.banner],
+  "expected Temur to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(temurHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/temur-dragonback-assault\.png'\) 50% 48% \/ cover no-repeat/, "expected the Temur hero background to use the owner-supplied Dragonback Assault proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/temur.webp", import.meta.url)),
+  "expected the previous Temur hero rollback asset to remain in place"
+);
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/official/temur-ureni-song-unending.jpg", import.meta.url)),
+  "expected the previous owner-supplied Temur proof asset to remain in place"
+);
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/official/temur-ureni-unwritten.jpg", import.meta.url)),
+  "expected the first Temur proof asset to remain in place"
+);
+
+const marduHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.MARDU);
+assertBackgroundLayerOrder(
+  marduHeroBackground,
+  [identityHeroOverlay, marduOfficialHeroImageLayer, factionsData.factions.MARDU.banner],
+  "expected Mardu to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(marduHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/mardu-neriv-heart-storm\.jpg'\) 50% 42% \/ cover no-repeat/, "expected the Mardu hero background to use the official Mardu proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/mardu.webp", import.meta.url)),
+  "expected the previous Mardu hero rollback asset to remain in place"
+);
+
+const jeskaiProofHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.JESKAI);
+assertBackgroundLayerOrder(
+  jeskaiProofHeroBackground,
+  [identityHeroOverlay, jeskaiOfficialHeroImageLayer, factionsData.factions.JESKAI.banner],
+  "expected Jeskai to keep overlay / official proof image / existing banner layer order"
+);
+assert.match(jeskaiProofHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/jeskai-shiko-paragon-way\.jpg'\) 50% 42% \/ cover no-repeat/, "expected the Jeskai hero background to use the official Jeskai proof image and authored focal position");
+assert.ok(
+  existsSync(new URL("../assets/img/identity-hero/jeskai.webp", import.meta.url)),
+  "expected the previous Jeskai hero rollback asset to remain in place"
+);
+
 const jeskaiHeroBackground = heroBannerBackgroundForFaction(factionsData.factions.JESKAI);
 assertBackgroundLayerOrder(
   jeskaiHeroBackground,
-  [identityHeroOverlay, identityHeroImageLayer("jeskai"), factionsData.factions.JESKAI.banner],
-  "expected the Jeskai hero background to keep overlay / image / existing banner layer order"
+  [identityHeroOverlay, jeskaiOfficialHeroImageLayer, factionsData.factions.JESKAI.banner],
+  "expected the Jeskai hero background to keep overlay / official proof image / existing banner layer order"
 );
 assert.match(jeskaiHeroBackground, /url\('\/assets\/img\/identity-hero\/jeskai\.webp'\) center center \/ cover no-repeat/, "expected the Jeskai hero background to use the supplied identity-hero image path");
 assert.match(jeskaiHeroBackground, /rgba\(7, 10, 12, 0\.38\)/, "expected the Jeskai hero background to keep the supplied top overlay gradient");

@@ -1731,19 +1731,229 @@ const IDENTITY_HERO_SLUG_BY_FACTION_KEY = Object.freeze({
   G: "green",
 });
 
+const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
+  ABZAN: Object.freeze({
+    src: "/assets/img/identity-hero/official/abzan-betor-ancestor-s-voice.jpg",
+    position: "50% 42%",
+    attribution: "Art: Lius Lasahido - Betor, Ancestor's Voice",
+  }),
+  BR: Object.freeze({
+    src: "/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg",
+    position: "50% 50%",
+    attribution: "Art: Rix Maadi, Dungeon Palace",
+  }),
+  BANT: Object.freeze({
+    src: "/assets/img/identity-hero/official/bant-plane-alara.jpg",
+    position: "52% 48%",
+    attribution: "Art: Michael Komarck - Bant",
+  }),
+  B: Object.freeze({
+    src: "/assets/img/identity-hero/official/black-altars-reap.jpg",
+    position: "50% 45%",
+    attribution: "Art: Donato Giancola - Altar's Reap",
+  }),
+  BG: Object.freeze({
+    src: "/assets/img/identity-hero/official/golgari-dark-heart-wood.jpg",
+    position: "50% 48%",
+    attribution: "Art: Mark Tedin - Dark Heart of the Wood",
+  }),
+  COLORLESS: Object.freeze({
+    src: "/assets/img/identity-hero/official/colorless-emrakul-promised-end.jpg",
+    position: "50% 43%",
+    attribution: "Art: Emrakul, the Promised End",
+  }),
+  DUNE: Object.freeze({
+    src: "/assets/img/identity-hero/official/dune-dune-brood-nephilim.jpg",
+    position: "50% 45%",
+    attribution: "Art: Jim Murray - Dune-Brood Nephilim",
+  }),
+  ESPER: Object.freeze({
+    src: "/assets/img/identity-hero/official/esper-plane-alara.jpg",
+    position: "50% 50%",
+    attribution: "Art: Bruce Brenneise - Esper",
+  }),
+  GRIXIS: Object.freeze({
+    src: "/assets/img/identity-hero/official/grixis-plane-alara.jpg",
+    position: "50% 48%",
+    attribution: "Art: Nils Hamm - Grixis",
+  }),
+  RG: Object.freeze({
+    src: "/assets/img/identity-hero/official/gruul-zhur-taa-ancient.jpg",
+    position: "50% 46%",
+    attribution: "Art: Adam Paquette - Zhur-Taa Ancient",
+  }),
+  JESKAI: Object.freeze({
+    src: "/assets/img/identity-hero/official/jeskai-shiko-paragon-way.jpg",
+    position: "50% 42%",
+    attribution: "Art: Victor Adame Minguez - Shiko, Paragon of the Way",
+  }),
+  JUND: Object.freeze({
+    src: "/assets/img/identity-hero/official/jund-plane-alara.jpg",
+    position: "50% 48%",
+    attribution: "Art: Aleksi Briclot - Jund",
+  }),
+  LOREHOLD: Object.freeze({
+    src: "/assets/img/identity-hero/official/lorehold-velomachus-lorehold.jpg",
+    position: "50% 42%",
+    attribution: "Art: Raymond Swanland - Velomachus Lorehold",
+  }),
+  MARDU: Object.freeze({
+    src: "/assets/img/identity-hero/official/mardu-neriv-heart-storm.jpg",
+    position: "50% 42%",
+    attribution: "Art: Victor Adame Minguez - Neriv, Heart of the Storm",
+  }),
+  NAYA: Object.freeze({
+    src: "/assets/img/identity-hero/official/naya-plane-alara.jpg",
+    position: "50% 48%",
+    attribution: "Art: Zoltan Boros & Gabor Szikszai - Naya",
+  }),
+  PRISMARI: Object.freeze({
+    src: "/assets/img/identity-hero/official/prismari-galazeth-prismari.jpg",
+    position: "50% 43%",
+    attribution: "Art: Raymond Swanland - Galazeth Prismari",
+  }),
+  QUANDRIX: Object.freeze({
+    src: "/assets/img/identity-hero/official/quandrix-tanazir-quandrix.jpg",
+    position: "50% 44%",
+    attribution: "Art: Raymond Swanland - Tanazir Quandrix",
+  }),
+  SILVERQUILL: Object.freeze({
+    src: "/assets/img/identity-hero/official/silverquill-shadrix-silverquill.jpg",
+    position: "50% 43%",
+    attribution: "Art: Raymond Swanland - Shadrix Silverquill",
+  }),
+  SULTAI: Object.freeze({
+    src: "/assets/img/identity-hero/official/sultai-teval-balanced-scale.jpg",
+    position: "50% 42%",
+    attribution: "Art: Chris Rahn - Teval, the Balanced Scale",
+  }),
+  G: Object.freeze({
+    src: "/assets/img/identity-hero/official/green-primordial-hydra.jpg",
+    position: "50% 45%",
+    attribution: "Art: Aleksi Briclot - Primordial Hydra",
+  }),
+  GLINT: Object.freeze({
+    src: "/assets/img/identity-hero/official/glint-glint-eye-nephilim.jpg",
+    position: "50% 45%",
+    attribution: "Art: Mark Zug - Glint-Eye Nephilim",
+  }),
+  INK: Object.freeze({
+    src: "/assets/img/identity-hero/official/ink-ink-treader-nephilim.jpg",
+    position: "50% 45%",
+    attribution: "Art: Christopher Moeller - Ink-Treader Nephilim",
+  }),
+  R: Object.freeze({
+    src: "/assets/img/identity-hero/official/red-chain-lightning.jpg",
+    position: "50% 45%",
+    attribution: "Art: Christopher Moeller - Chain Lightning",
+  }),
+  TEMUR: Object.freeze({
+    src: "/assets/img/identity-hero/official/temur-dragonback-assault.png",
+    position: "50% 48%",
+    attribution: "Art: Ryan Pancoast - Dragonback Assault",
+  }),
+  U: Object.freeze({
+    src: "/assets/img/identity-hero/official/blue-academy-ruins.jpg",
+    position: "50% 48%",
+    attribution: "Art: Zoltan Boros & Gabor Szikszai - Academy Ruins",
+  }),
+  UB: Object.freeze({
+    src: "/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg",
+    position: "50% 45%",
+    size: "80% auto",
+    attribution: "Art: Igor Kieryluk - Haunter of Nightveil",
+  }),
+  UG: Object.freeze({
+    src: "/assets/img/identity-hero/official/simic-guildgate.jpg",
+    position: "50% 50%",
+    attribution: "Art: Simic Guildgate",
+  }),
+  UR: Object.freeze({
+    src: "/assets/img/identity-hero/official/izzet-steam-vents.jpg",
+    position: "50% 50%",
+    attribution: "Art: Steam Vents",
+  }),
+  WB: Object.freeze({
+    src: "/assets/img/identity-hero/official/orzhov-ghost-council-orzhova.jpg",
+    position: "50% 44%",
+    attribution: "Art: Greg Staples - Ghost Council of Orzhova",
+  }),
+  WG: Object.freeze({
+    src: "/assets/img/identity-hero/official/selesnya-temple-garden.jpg",
+    position: "50% 50%",
+    attribution: "Art: Temple Garden",
+  }),
+  WR: Object.freeze({
+    src: "/assets/img/identity-hero/official/boros-solar-blaze.jpg",
+    position: "50% 48%",
+    attribution: "Art: Adam Paquette - Solar Blaze",
+  }),
+  WU: Object.freeze({
+    src: "/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg",
+    position: "50% 50%",
+    attribution: "Art: Hallowed Fountain",
+  }),
+  W: Object.freeze({
+    src: "/assets/img/identity-hero/official/white-builder-s-blessing.jpg",
+    position: "50% 45%",
+    attribution: "Art: John Stanko - Builder's Blessing",
+  }),
+  WUBRG: Object.freeze({
+    src: "/assets/img/identity-hero/official/wubrg-channel-the-suns.jpg",
+    position: "50% 50%",
+    attribution: "Art: Rob Alexander - Channel the Suns",
+  }),
+  WITCH: Object.freeze({
+    src: "/assets/img/identity-hero/official/witch-witch-maw-nephilim.jpg",
+    position: "50% 45%",
+    attribution: "Art: Greg Staples - Witch-Maw Nephilim",
+  }),
+  WITHERBLOOM: Object.freeze({
+    src: "/assets/img/identity-hero/official/witherbloom-beledros-witherbloom.jpg",
+    position: "50% 43%",
+    attribution: "Art: Raymond Swanland - Beledros Witherbloom",
+  }),
+  YORE: Object.freeze({
+    src: "/assets/img/identity-hero/official/yore-yore-tiller-nephilim.jpg",
+    position: "50% 44%",
+    attribution: "Art: Jeremy Jarvis - Yore-Tiller Nephilim",
+  }),
+});
+
 export function heroBannerImageSlugForFaction(faction = {}) {
   const key = String(faction?.key || "").toUpperCase();
   return IDENTITY_HERO_SLUG_BY_FACTION_KEY[key] || "";
 }
 
-export function heroBannerBackgroundForFaction(faction = {}) {
+export function heroBannerArtworkForFaction(faction = {}) {
+  const key = String(faction?.key || "").toUpperCase();
+  const officialProof = OFFICIAL_HERO_PROOF_BY_FACTION_KEY[key];
+  if (officialProof) {
+    return officialProof;
+  }
   const slug = heroBannerImageSlugForFaction(faction);
   if (!slug) {
+    return null;
+  }
+  return {
+    src: `/assets/img/identity-hero/${slug}.webp`,
+    position: "center center",
+    attribution: "",
+  };
+}
+
+export function heroBannerBackgroundForFaction(faction = {}) {
+  const artwork = heroBannerArtworkForFaction(faction);
+  if (!artwork) {
     return faction?.banner || "";
   }
 
-  const image = `url('/assets/img/identity-hero/${slug}.webp') center center / cover no-repeat`;
+  const image = `url('${artwork.src}') ${artwork.position} / ${artwork.size || "cover"} no-repeat`;
   return [IDENTITY_HERO_OVERLAY, image, faction?.banner || ""].filter(Boolean).join(", ");
+}
+
+export function heroBannerArtworkAttributionForFaction(faction = {}) {
+  return heroBannerArtworkForFaction(faction)?.attribution || "";
 }
 
 function dedupeLinks(links = []) {
@@ -4213,6 +4423,7 @@ function renderResult(viewKey) {
     : isPrimary
       ? activeKey === "WUBRG" ? "Placement dossier" : resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
       : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
+  const heroArtworkAttribution = heroBannerArtworkAttributionForFaction(faction);
 
   const identityIntroHtml = `
     <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}" style="background:${heroBannerBackgroundForFaction(faction)}">
@@ -4222,6 +4433,7 @@ function renderResult(viewKey) {
       ${pipsHtml}
       <div class="guild-philosophy">${renderPlayerCopy(heroNarrative)}</div>
       ${heroLoreSummary ? `<div class="guild-lore-summary">${renderPlayerCopy(heroLoreSummary)}</div>` : ""}
+      ${heroArtworkAttribution ? `<div class="guild-art-credit">${escapeHtml(heroArtworkAttribution)}</div>` : ""}
     </div>
 
     ${placementSnapshotHtml}`;

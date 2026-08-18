@@ -495,6 +495,92 @@ body.vm-archscry-route .guild-philosophy {
   margin-inline: auto;
 }
 
+body.vm-archscry-route .guild-banner[data-faction-key="ABZAN"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="B"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="BANT"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="BG"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="BR"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="COLORLESS"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="DUNE"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="ESPER"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="G"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="GLINT"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="GRIXIS"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="INK"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="JESKAI"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="JUND"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="LOREHOLD"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="MARDU"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="NAYA"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="PRISMARI"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="QUANDRIX"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="R"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="RG"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="SILVERQUILL"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="SULTAI"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="TEMUR"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="U"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="UB"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="UG"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="UR"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="W"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WB"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WG"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WITCH"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WR"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WU"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WUBRG"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="WITHERBLOOM"] .guild-art-credit,
+body.vm-archscry-route .guild-banner[data-faction-key="YORE"] .guild-art-credit {
+  position: absolute;
+  right: clamp(0.75rem, 2vw, 1.2rem);
+  bottom: clamp(0.55rem, 1.4vw, 0.9rem);
+  max-width: min(28rem, calc(100% - 1.5rem));
+  color: rgba(244, 239, 224, 0.62);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-align: right;
+  text-transform: uppercase;
+  pointer-events: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.72);
+}
+
+body.vm-archscry-route .guild-banner[data-faction-key="SULTAI"] .guild-name {
+  color: #98e6c6 !important;
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.92),
+    0 0 3px rgba(0, 0, 0, 0.95),
+    0 0 18px rgba(6, 16, 13, 0.86);
+  -webkit-text-stroke: 1px rgba(4, 8, 7, 0.62);
+}
+
+body.vm-archscry-route .guild-banner[data-faction-key="SULTAI"] .guild-tagline,
+body.vm-archscry-route .guild-banner[data-faction-key="SULTAI"] .guild-philosophy,
+body.vm-archscry-route .guild-banner[data-faction-key="SULTAI"] .guild-lore-summary {
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.9),
+    0 0 2px rgba(0, 0, 0, 0.94);
+}
+
+body.vm-archscry-route .guild-banner[data-faction-key="BG"] .guild-name {
+  color: #d6cf6f !important;
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.92),
+    0 0 3px rgba(0, 0, 0, 0.95),
+    0 0 18px rgba(16, 10, 6, 0.86);
+  -webkit-text-stroke: 1px rgba(5, 8, 4, 0.62);
+}
+
+body.vm-archscry-route .guild-banner[data-faction-key="BG"] .guild-tagline,
+body.vm-archscry-route .guild-banner[data-faction-key="BG"] .guild-philosophy,
+body.vm-archscry-route .guild-banner[data-faction-key="BG"] .guild-lore-summary {
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.9),
+    0 0 2px rgba(0, 0, 0, 0.94);
+}
+
 body.vm-archscry-route .result-status {
   margin-bottom: 1.35rem;
   padding: 1rem 1.15rem;
