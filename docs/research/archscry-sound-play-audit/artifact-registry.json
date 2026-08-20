@@ -25,9 +25,9 @@
       "superseded_by": [],
       "inputs": ["Governed relationship decisions", "VM-561 underlying evidence", "Committed Scryfall facts"],
       "consumers": ["data/dossier/card-voice-catalog.json", "Archscry dossier renderer", "VM-563 manifest and review workbook"],
-      "regeneration_command": "node research/apply-vm563-sound-play-remediation.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "LIVE",
-      "notes": "Edit this source through the applicable evidence and owner-review workflow; never edit its generated catalog as the authority."
+      "notes": "Curated production authority with no generic regeneration command. Edit this source through the applicable evidence and owner-review workflow; never edit its generated catalog as the authority."
     },
     {
       "artifact_id": "play_relationship_source",
@@ -42,9 +42,9 @@
       "superseded_by": [],
       "inputs": ["Governed relationship decisions", "VM-561 underlying evidence", "Committed Scryfall facts"],
       "consumers": ["data/dossier/card-rationale-catalog.json", "Archscry dossier renderer", "VM-563 manifest and review workbook"],
-      "regeneration_command": "node research/apply-vm563-sound-play-remediation.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "LIVE",
-      "notes": "Fifty approved Play relationships produce 46 rendered rows because four visible precon commanders are intentionally deduplicated."
+      "notes": "Curated production authority with no generic regeneration command. Fifty approved Play relationships produce 46 rendered rows because four visible precon commanders are intentionally deduplicated."
     },
     {
       "artifact_id": "scryfall_grounding",
@@ -110,7 +110,7 @@
       "superseded_by": [],
       "inputs": ["VM-560 routes", "Inspected underlying Vox Mana and official evidence"],
       "consumers": ["VM-561 card ledger", "VM-562 calibration", "VM-563 remediation", "Future card audits"],
-      "regeneration_command": "node research/build-vm561-sound-play-evidence-audit.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
       "notes": "Uneven evidence depth is intentional; these packets retain official, Vox Mana, and supported-interpretation distinctions."
     },
@@ -127,7 +127,7 @@
       "superseded_by": ["VM-563 final remediation manifest for current accepted copy and decisions"],
       "inputs": ["VM-560 routes", "37 identity packets", "Inspected card and identity evidence", "Current-at-VM-561 production rows"],
       "consumers": ["VM-562 calibration", "VM-563 remediation", "Future card-to-identity audits"],
-      "regeneration_command": "node research/build-vm561-sound-play-evidence-audit.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
       "notes": "Reusable evidence graph and historical audit state; it is not current production copy authority. CSV and VM-561 workbook are derived review forms of this ledger."
     },
@@ -144,7 +144,7 @@
       "superseded_by": ["Later targeted VM-563 source intake where explicitly recorded"],
       "inputs": ["Opened local underlying evidence", "Official Wizards pages"],
       "consumers": ["Official route reconciliation", "Evidence summary", "Source-intake decisions"],
-      "regeneration_command": "node research/build-vm561-sound-play-evidence-audit.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
       "notes": "Inspection provenance, not an independent corroborating source."
     },
@@ -161,7 +161,7 @@
       "superseded_by": ["VM-563 final remediation manifest"],
       "inputs": ["VM-561 identity packets", "Card evidence ledger", "Source inspection and reconciliation"],
       "consumers": ["VM-562 selection", "VM-563 remediation planning", "Historical review"],
-      "regeneration_command": "node research/build-vm561-sound-play-evidence-audit.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
       "notes": "Original dispositions remain useful history but are not current accepted production status."
     },
@@ -178,7 +178,7 @@
       "superseded_by": [],
       "inputs": ["50 approved Play relationships", "Production composition rules"],
       "consumers": ["Structural QA", "Owner review interpretation"],
-      "regeneration_command": "node research/build-vm561-sound-play-evidence-audit.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
       "notes": "Explains 50 approved occurrences minus four visible-precon overlaps equals 46 rendered Play rows."
     },
@@ -212,9 +212,9 @@
       "superseded_by": [],
       "inputs": ["Production relationship sources", "VM-561 evidence", "VM-562 calibration", "VM-563 targeted source intake", "Committed Scryfall facts"],
       "consumers": ["Final corpus QA", "Final owner workbook", "Future relationship explanation and replacement review"],
-      "regeneration_command": "node research/apply-vm563-sound-play-remediation.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
-      "notes": "Traceability and accepted decision history; active authority remains the relationship sources and committed card facts."
+      "notes": "Frozen accepted decision snapshot with no regeneration command. Traceability and accepted decision history; active authority remains the relationship sources and committed card facts."
     },
     {
       "artifact_id": "vm563_source_intake",
@@ -263,9 +263,9 @@
       "superseded_by": [],
       "inputs": ["VM-563 final remediation manifest", "Production composition rules"],
       "consumers": ["Owner rendered/content acceptance"],
-      "regeneration_command": "node research/apply-vm563-sound-play-remediation.mjs",
+      "regeneration_command": null,
       "immutable_or_live": "IMMUTABLE",
-      "notes": "Testing/review artifact only; never edit as production authority."
+      "notes": "Frozen derived owner-review artifact with no regeneration command. Testing/review artifact only; never edit as production authority."
     },
     {
       "artifact_id": "vm551_frozen_packet1_owner_review",

@@ -6,9 +6,9 @@ import {
   VM565_MANA_ROCKS_DEFINITION,
   VM565_NEW_GLOSSARY_TERMS,
   vm565TeachingPolicyFor,
-} from "./vm565-player-vocabulary-authority.mjs";
+} from "../lib/vm565-player-vocabulary-authority.mjs";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const modeCheck = process.argv.includes("--check");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 const digest = (value) => createHash("sha256").update(String(value)).digest("hex");

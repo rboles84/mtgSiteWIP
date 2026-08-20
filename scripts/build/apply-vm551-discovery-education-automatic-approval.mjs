@@ -4,9 +4,9 @@ import { fileURLToPath } from "node:url";
 import {
   VM551_AUTOMATIC_APPROVAL_BASIS,
   assertAutomaticEducationApproval,
-} from "./vm551-evidence-approval.mjs";
+} from "../lib/vm551-evidence-approval.mjs";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const check = process.argv.includes("--check");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 const pretty = (value) => `${JSON.stringify(value, null, 2)}\n`;

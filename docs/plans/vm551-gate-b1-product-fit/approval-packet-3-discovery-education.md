@@ -2,7 +2,7 @@
 
 ## Current VM-565 extension
 
-VM-565 extends this authority without changing placement or identity semantics. The current generated catalog contains 65 glossary records and four instructional microcopy records. Source ownership remains in `research/build-vm551-discovery-education-approval-packet.mjs`; the curated VM-565 additions, aliases, definitions, and exact per-identity teaching targets are declared in `research/vm565-player-vocabulary-authority.mjs` and promoted through the existing VM-551 automatic-adjudication producer.
+VM-565 extends this authority without changing placement or identity semantics. The current generated catalog contains 65 glossary records and four instructional microcopy records. Source ownership remains in `scripts/build/build-vm551-discovery-education-approval-packet.mjs`; the curated VM-565 additions, aliases, definitions, and exact per-identity teaching targets are declared in `scripts/lib/vm565-player-vocabulary-authority.mjs` and promoted through the existing VM-551 automatic-adjudication producer.
 
 Runtime selection is now field-aware. A glossary record can declare either `EXPLICIT_TARGETS` (render only at an accepted identity/surface/field) or `LEGACY_WITH_OVERRIDES` (preserve legacy one-per-concept allocation except for named better locations). `assets/js/index.js` still enforces one rendered decoration per canonical record per dossier. Text-only surfaces are not globally enabled: What to Look For titles, How This Plays fields, and the Colorless mana primer receive glossary rendering only when an exact accepted target resolves there.
 

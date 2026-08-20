@@ -4,7 +4,7 @@ import {
   VM551_EVIDENCE_VALIDATOR_VERSION,
   assertAutomaticEducationApproval,
   validateAutomaticApproval,
-} from "../research/vm551-evidence-approval.mjs";
+} from "./lib/vm551-evidence-approval.mjs";
 
 const valid = {
   identity_claim_ids: ["example_claim_001"],

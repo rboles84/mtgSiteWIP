@@ -13,7 +13,7 @@ import { withGateAPublicState } from "../assets/js/archscry/archscry-presentatio
 import {
   VM565_EXISTING_TERM_OVERRIDES,
   VM565_NEW_TERM_TARGETS,
-} from "../research/vm565-player-vocabulary-authority.mjs";
+} from "./lib/vm565-player-vocabulary-authority.mjs";
 
 const root = process.cwd();
 const host = "127.0.0.1";

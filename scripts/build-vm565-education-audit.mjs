@@ -9,7 +9,7 @@ import {
 import {
   VM565_EXISTING_TERM_OVERRIDES,
   VM565_NEW_TERM_TARGETS,
-} from "../research/vm565-player-vocabulary-authority.mjs";
+} from "./lib/vm565-player-vocabulary-authority.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_DIR = path.join(ROOT, "docs", "audits", "vm565-player-vocabulary-education");

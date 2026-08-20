@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-572 - Residual Research / Historical Tooling Lifecycle Cleanup](done/VM-572-residual-research-tooling-lifecycle-cleanup.md) - retained four relocated tools, removed eleven completed or stale VM-era scripts and their live references, preserved 39 research fixtures, and recorded Packet 3/evidence-helper ambiguity without product or artifact drift.
+
 - [VM-571 - Post-VM-570 Test Contract Reconciliation](done/VM-571-post-vm570-test-contract-reconciliation.md) - corrected one stale browser-smoke Maze path and one obsolete Archscry dossier heading assertion; focused contracts pass and a later unrelated pre-existing dossier assertion remains recorded without scope expansion.
 
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](done/VM-552-strategium-game-lifecycle-completion-mvp.md) - effectively completed July 31, 2026 through owner-approved implementation, independent review, integration, and validation; stale Kanban status reconciled August 20, 2026 without product changes or QA reruns.

@@ -138,8 +138,6 @@ const allowed = (file) =>
   || /^docs\/kanban\/(in-progress|done)\/VM-561-/.test(file)
   || /^docs\/research\/archscry-sound-play-audit\//.test(file)
   || /^docs\/handoffs\//.test(file)
-  || file === "research/build-vm561-sound-play-evidence-audit.mjs"
-  || file === "research/build-vm561-sound-play-evidence-workbook.mjs"
   || file === "scripts/vm561-sound-play-evidence-audit-tests.mjs"
   || /^outputs\/01a007e0-b631-7ca1-a18c-9f6e6ff6ff29\//.test(file);
 const outOfScope = changed.filter((file) => !allowed(file));
@@ -147,25 +145,6 @@ assert(outOfScope.length === 0, `Out-of-scope VM-561 changes: ${outOfScope.join(
 assert(!changed.some((file) => file.startsWith("docs/research/canon/")), "Canon corpus changed");
 assert(!changed.some((file) => file.startsWith("data/")), "Runtime/generated/catalog data changed");
 assert(!changed.some((file) => /^(assets\/|src\/|index\.html$|archscry)/.test(file)), "Runtime surface changed");
-
-const deterministicArtifacts = [
-  ...packetFiles.map((name) => path.join(auditRoot, "identity-evidence", name)),
-  ...[
-    "card-evidence-ledger.json",
-    "card-evidence-ledger.csv",
-    "evidence-summary.json",
-    "evidence-summary.md",
-    "source-inspection-manifest.json",
-    "suppressed-play-coverage-appendix.md",
-  ].map((name) => path.join(auditRoot, name)),
-];
-const artifactDigest = () => sha256(Buffer.concat(deterministicArtifacts.map((file) => fs.readFileSync(file))));
-const digestBefore = artifactDigest();
-execFileSync(process.execPath, [path.join(root, "research", "build-vm561-sound-play-evidence-audit.mjs")], { cwd: root, stdio: "ignore" });
-const digestAfterFirst = artifactDigest();
-execFileSync(process.execPath, [path.join(root, "research", "build-vm561-sound-play-evidence-audit.mjs")], { cwd: root, stdio: "ignore" });
-const digestAfterSecond = artifactDigest();
-assert(digestBefore === digestAfterFirst && digestAfterFirst === digestAfterSecond, "Evidence generation is not byte-stable across identical inputs");
 
 console.log(JSON.stringify({
   qa_tier: "QA-0",
