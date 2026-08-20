@@ -4,6 +4,8 @@
 
 Done.
 
+Accepted implementation SHA: `ef3ecbef4e018ea59d84088d40f65485ea97e4b3`.
+
 ## Objective
 
 Turn the organically grown JavaScript layout into a product-oriented structure while preserving Vox Mana behavior exactly.

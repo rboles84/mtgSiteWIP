@@ -96,6 +96,7 @@ Repository evidence showed `research/` began as exploration but became live Impl
 
 ## Owner Acceptance Correction
 
+- Accepted implementation SHA: `ef3ecbef4e018ea59d84088d40f65485ea97e4b3`.
 - Owner reproduction established that Archscry requested `/assets/data/factions.json` after the runtime relocation.
 - Corrected `DATA_BASE_URL` in `assets/js/archscry/index.js` so canonical data resolves under `/data/`.
 - Added a deterministic frontend-smoke assertion that resolves the literal data base against the moved module and verifies canonical `data/factions.json` exists.
