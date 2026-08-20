@@ -2,11 +2,13 @@
 
 ID: VM-552
 Title: Strategium Game-Lifecycle Completion MVP
-Status: Implementation complete; awaiting owner hand review and independent review
+Status: Done
 Type: Product implementation
 Area: Strategium
 Priority: High
 Created: 2026-07-30
+Effective product completion: 2026-07-31
+Administrative reconciliation: 2026-08-20
 
 ## Summary
 
@@ -140,3 +142,9 @@ Extend the existing Strategium static HTML/CSS/JavaScript patterns with a small 
 - Review result: 0 Automated Fail, 0 Blocked, no independent defects. Subjective workbook cases remain Owner Review Required.
 - Verdict: APPROVE EXACT SHA 2fe0fbf44c66a369690548c70e13e0e480806cea.
 - Next gate: integrate only this exact SHA into a clean integration worktree, then run post-integration validation. This review does not merge, push, deploy, integrate, certify production, or authorize VM-551.
+
+## Administrative status reconciliation - 2026-08-20
+
+- VM-552 was effectively completed on 2026-07-31 when the owner-approved candidate, independent review, integrated product/review HEAD, and integration validation were recorded.
+- Evidence chain: approved candidate `2fe0fbf44c66a369690548c70e13e0e480806cea` -> independent review `e0662e55ed8ff8f1584bc984dd52df69295d82fb` -> integrated product/review HEAD `16b9aa1bffb892407532787a22ed44d65707cda6` -> integration validation `334f9c20f1349cbf96921a6e86f68fbcdbcb24b3`.
+- All four commits are ancestors of current `main`. The 2026-08-20 change only corrects the stale Kanban location and status; it does not represent new product work, QA, deployment, or production certification.

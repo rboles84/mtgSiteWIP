@@ -45,13 +45,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-552 - Strategium Game-Lifecycle Completion MVP](in-progress/VM-552-strategium-game-lifecycle-completion-mvp.md) - implementing Finding a Table, Before the Game, and During the Game through a shared deterministic lifecycle flow while preserving VM-550 After-the-Game and Commander Console behavior.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-552 - Strategium Game-Lifecycle Completion MVP](done/VM-552-strategium-game-lifecycle-completion-mvp.md) - effectively completed July 31, 2026 through owner-approved implementation, independent review, integration, and validation; stale Kanban status reconciled August 20, 2026 without product changes or QA reruns.
 
 - [VM-570 - JavaScript Architecture Cleanup Pass 1](done/VM-570-javascript-architecture-cleanup-pass-1.md) - moved JavaScript ownership into product/runtime, test, tooling, data, and vendor boundaries; promoted Maze runtime out of research; preserved VM-specific referenced tooling for later dead-tooling review; behavior validation is no worse than baseline.
 
