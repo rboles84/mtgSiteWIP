@@ -233,7 +233,7 @@ assert.match(indexSource, /Where it can pull too far/, "expected Test the Fit to
 assert.match(indexSource, /Check the boundary/, "expected Test the Fit to include its certified boundary role when no alternative is shown");
 assert.match(indexSource, /identity-story-card--support/, "expected all Test the Fit roles to use the neutral support-card treatment");
 assert.doesNotMatch(indexSource, /identity-expression-glyph|formatPurity|Color focus|Pending color calibration|<div class="starter-title">Color Focus<\/div>/, "expected expression glyph and percentage-style copy to remain absent from Test the Fit");
-assert.match(indexSource, /Why These Cards Echo This Reading/, "expected the approved card-rationale surface");
+assert.match(indexSource, /Cards That Play Like This/, "expected the approved card-rationale surface");
 assert.match(snapshotSource, /data-summary-card="adjacent-fit"/, "expected the result summary strip to render the adjacent-fit card");
 assert.match(snapshotSource, /Where this leads/, "expected the result summary strip to render the Commander-direction card");
 assert.match(snapshotSource, /Play pattern/, "expected the result summary strip to render the table-behavior card");

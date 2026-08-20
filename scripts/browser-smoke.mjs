@@ -158,7 +158,7 @@ function assert(condition, message) {
 
 async function validateVendoredManaAssets() {
   const manaCssPath = path.join(root, "assets", "vendor", "mana", "css", "mana.min.css");
-  const rendererPath = path.join(root, "research", "research-init.js");
+  const rendererPath = path.join(root, "assets", "js", "maze", "research-init.js");
   const manaPackagePath = path.join(root, "node_modules", "mana-font", "package.json");
   const projectPackagePath = path.join(root, "package.json");
   const [manaCss, rendererSource, manaPackageSource, projectPackageSource] = await Promise.all([

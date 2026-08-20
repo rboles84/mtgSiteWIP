@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-571 - Post-VM-570 Test Contract Reconciliation](done/VM-571-post-vm570-test-contract-reconciliation.md) - corrected one stale browser-smoke Maze path and one obsolete Archscry dossier heading assertion; focused contracts pass and a later unrelated pre-existing dossier assertion remains recorded without scope expansion.
+
 - [VM-552 - Strategium Game-Lifecycle Completion MVP](done/VM-552-strategium-game-lifecycle-completion-mvp.md) - effectively completed July 31, 2026 through owner-approved implementation, independent review, integration, and validation; stale Kanban status reconciled August 20, 2026 without product changes or QA reruns.
 
 - [VM-570 - JavaScript Architecture Cleanup Pass 1](done/VM-570-javascript-architecture-cleanup-pass-1.md) - moved JavaScript ownership into product/runtime, test, tooling, data, and vendor boundaries; promoted Maze runtime out of research; preserved VM-specific referenced tooling for later dead-tooling review; behavior validation is no worse than baseline.
