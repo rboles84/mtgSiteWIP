@@ -39,7 +39,7 @@ The flavor index intentionally uses a slim derived shape. It keeps card identifi
 
 ## Parser Vocabulary
 
-VM-012 closes the Maze parser/data diagnostics layer by treating `research/scryfall-parser-seed-2026.json` plus `research/scryfall-dictionary.js` as the local deterministic validation source for parser vocabulary. `getScryfallDictionaryVocabulary()` exposes sorted keyword, subtype, card type, and format terms for local autocomplete and validation without adding Scryfall bulk downloads, runtime fetches, build-time API calls, or network-backed parsing.
+VM-012 closes the Maze parser/data diagnostics layer by treating `data/maze/scryfall-parser-seed-2026.json` plus `assets/js/maze/scryfall-dictionary.js` as the local deterministic validation source for parser vocabulary. `getScryfallDictionaryVocabulary()` exposes sorted keyword, subtype, card type, and format terms for local autocomplete and validation without adding Scryfall bulk downloads, runtime fetches, build-time API calls, or network-backed parsing.
 
 ## Plain Reading Grounding Artifact
 

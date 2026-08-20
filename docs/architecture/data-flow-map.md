@@ -8,9 +8,9 @@ This document traces the main Vox Mana data paths from source content through ge
 |---|---|---|---|
 | `data/identity-layers.json` | Local faction artifact builder validates color and expression metadata, then merges it into runtime identity blocks. | `data/factions.json`, `data/placement-model.json`, `data/placement-model.schema.json`, Supabase `faction-context.ts` | Dossier rendering, adaptive reading, and archived terminal prompt context. |
 | `data/raw-factions/*/*.profile.json` | Local faction artifact builder reads faction identity, profile, source, and claim metadata. | `data/placement-model.json`, Supabase `faction-context.ts` | Adaptive reading and the archived Scrying Terminal prompt context. |
-| `data/raw-factions/*/*.placement.json` | Build script normalizes calibration, good/poor indicators, discriminator questions, and lateral inhibition targets. | `data/placement-model.json` | `assets/js/adaptive-placement.js`. |
-| `data/factions.json` | Build script enriches `_meta` while preserving display data. | `data/factions.json` | `assets/js/index.js` dossier rendering. |
-| Build-time constants in `research/build-faction-artifacts.mjs` | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend and edge function. |
+| `data/raw-factions/*/*.placement.json` | Build script normalizes calibration, good/poor indicators, discriminator questions, and lateral inhibition targets. | `data/placement-model.json` | `assets/js/archscry/adaptive-placement.js`. |
+| `data/factions.json` | Build script enriches `_meta` while preserving display data. | `data/factions.json` | `assets/js/archscry/index.js` dossier rendering. |
+| Build-time constants in `scripts/build/build-faction-artifacts.mjs` | Raw ids map to runtime keys, biological priors, known inhibition, question bank, schema. | `data/placement-model.json`, `data/placement-model.schema.json`, `supabase/functions/guild-recruiter/faction-context.ts` | Frontend and edge function. |
 
 The authoritative edit path is raw/display data first, then `npm run build:factions` from this repo. Generated artifacts should not be hand-edited unless explicitly repairing generated output.
 
@@ -20,8 +20,8 @@ The current live placement pipeline still operates without a runtime `domain` fi
 
 | Source | Transform | Output | Consumer |
 |---|---|---|---|
-| `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | `research/import-precon-mechanics-validation.mjs` reads the first preferred sheet with all required columns, validates 155 keyed rows, and updates only `mechanics` plus nullable `creatureTypeFocus`. | `data/precons/vox-mana-precons.source.json` | Staging/reference import only; never browser runtime input. |
-| `data/precons/vox-mana-precons.source.json` | `research/build-precon-artifacts.mjs` validates source metadata, score ranges, and color identities. | `data/precons/vox-mana-precon-catalog.json`, `data/precons/vox-mana-precon-catalog.schema.json` | Archscry dossier precon recommendations. |
+| `data/precons/reference/vox_mana_precon_mechanics_validation_all_155_completed.xlsx` | `scripts/build/import-precon-mechanics-validation.mjs` reads the first preferred sheet with all required columns, validates 155 keyed rows, and updates only `mechanics` plus nullable `creatureTypeFocus`. | `data/precons/vox-mana-precons.source.json` | Staging/reference import only; never browser runtime input. |
+| `data/precons/vox-mana-precons.source.json` | `scripts/build/build-precon-artifacts.mjs` validates source metadata, score ranges, and color identities. | `data/precons/vox-mana-precon-catalog.json`, `data/precons/vox-mana-precon-catalog.schema.json` | Archscry dossier precon recommendations. |
 | `data/taxonomy/vox-mana-precon-themes.json` | Precon artifact builder resolves normalized theme keys, aliases, reading tags, and table-perception language. | `data/precons/vox-mana-precon-catalog.json` | Archscry dossier ranking and card copy. |
 
 The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus `data/taxonomy/vox-mana-precon-themes.json`, then `npm run build:precons`. The completed mechanics workbook is a staging artifact only; after import, the canonical JSON remains the source of truth. The browser should not read directly from archived research docs or XLSX reference files.
@@ -30,15 +30,15 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 
 | Data | Owner | Storage | Purpose |
 |---|---|---|---|
-| `APP_STATE` | `assets/js/index.js` | In-memory only | Current factions, model, identity-layer catalog, precon catalog, precon theme taxonomy, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
-| `VM_SESSION` | `assets/js/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
-| Cached placement result | `assets/js/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
-| Pending OAuth save | `assets/js/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
-| Interview session bucket | `assets/js/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
-| Reduce motion | `assets/js/reduce-motion.js`, `assets/js/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
-| Home identity signal | `assets/js/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
-| Archscry-to-Maze handoff | `assets/js/index.js`, `assets/js/maze-handoff.js`, `research/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, faction name, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return-banner dismissal state when opening the shared four-lane dossier Maze paths. |
-| Maze Reading Finds | `research/maze-scratchpad-store.js`, `research/research-init.js`, `assets/js/index.js` | `localStorage` key `vm_maze_reading_finds_v1`, with read-only migration from `vm_maze_deck_idea_v2` and `vm_maze_card_stash_v1` | Local reading companion with Finds, Sparks, and Anchors sections, quantity grouping, readingId-filtered Archscry reflection inside Maze Discovery, plain-text finds export, and no account persistence. |
+| `APP_STATE` | `assets/js/archscry/index.js` | In-memory only | Current factions, model, identity-layer catalog, precon catalog, precon theme taxonomy, quick answers, adaptive state, active result, active view, interview state, starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
+| `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
+| Cached placement result | `assets/js/shared/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
+| Pending OAuth save | `assets/js/shared/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
+| Interview session bucket | `assets/js/shared/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
+| Reduce motion | `assets/js/shared/reduce-motion.js`, `assets/js/shared/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
+| Home identity signal | `assets/js/home/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
+| Archscry-to-Maze handoff | `assets/js/archscry/index.js`, `assets/js/maze/maze-handoff.js`, `assets/js/maze/research-init.js` | `localStorage` key `vm_archscry_maze_handoff_v1` plus Maze query params | Preserves originating dossier, active fit, faction name, return URL, `plainReadingQuery`, executable `operatorQuery`, stable `pathType`, and return-banner dismissal state when opening the shared four-lane dossier Maze paths. |
+| Maze Reading Finds | `assets/js/maze/maze-scratchpad-store.js`, `assets/js/maze/research-init.js`, `assets/js/archscry/index.js` | `localStorage` key `vm_maze_reading_finds_v1`, with read-only migration from `vm_maze_deck_idea_v2` and `vm_maze_card_stash_v1` | Local reading companion with Finds, Sparks, and Anchors sections, quantity grouping, readingId-filtered Archscry reflection inside Maze Discovery, plain-text finds export, and no account persistence. |
 | Command panel filters | External command panel | `localStorage` keys `cp.*` | Local panel lane/status/search/page preferences. |
 
 ## Placement Result Flow
@@ -65,16 +65,16 @@ Future domain selection should be inferred from placement inputs and results rat
 
 | Service | Caller | Endpoint family | Data sent | Data received |
 |---|---|---|---|---|
-| Supabase Auth and Database | `assets/js/shared.js` | Browser Supabase client | OAuth request, profile upsert/update/select | Session, user metadata, profile row, saved placement. |
-| Supabase Edge Function | `assets/js/shared.js` | `/functions/v1/guild-recruiter` | Message, sanitized history, session id, starter profile, optional current result | Interview turn response or normalized decision result when the archived terminal path is enabled. |
+| Supabase Auth and Database | `assets/js/shared/shared.js` | Browser Supabase client | OAuth request, profile upsert/update/select | Session, user metadata, profile row, saved placement. |
+| Supabase Edge Function | `assets/js/shared/shared.js` | `/functions/v1/guild-recruiter` | Message, sanitized history, session id, starter profile, optional current result | Interview turn response or normalized decision result when the archived terminal path is enabled. |
 | Anthropic | `supabase/functions/guild-recruiter/index.ts` | `https://api.anthropic.com/v1/messages` | Generated system prompt and sanitized messages | JSON text to parse as interview turn response when the archived terminal path is enabled. |
-| Scryfall Search | `research/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
-| Scryfall Named | `research/research-search.js`, `assets/js/index.js` | `/cards/named` | Fuzzy card name | Exact card detail or image/link metadata. |
-| Scryfall Random | `research/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
+| Scryfall Search | `assets/js/maze/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
+| Scryfall Named | `assets/js/maze/research-search.js`, `assets/js/archscry/index.js` | `/cards/named` | Fuzzy card name | Exact card detail or image/link metadata. |
+| Scryfall Random | `assets/js/maze/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
 
 ## Supabase Profile Persistence
 
-`assets/js/shared.js` saves compatibility fields plus the rich result:
+`assets/js/shared/shared.js` saves compatibility fields plus the rich result:
 
 | Field | Source |
 |---|---|
@@ -88,9 +88,9 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 
 | Source | Transform | Output |
 |---|---|---|
-| `research/scryfall-parser-seed-2026.json` | `createDictionaryFromSeed` expands triggers into dictionaries; `getScryfallDictionaryVocabulary` exposes local terms. | Runtime parser dictionary plus deterministic keyword, subtype, card type, and format vocabulary. |
+| `data/maze/scryfall-parser-seed-2026.json` | `createDictionaryFromSeed` expands triggers into dictionaries; `getScryfallDictionaryVocabulary` exposes local terms. | Runtime parser dictionary plus deterministic keyword, subtype, card type, and format vocabulary. |
 | Natural language input | `parseScryfallNaturalLanguage` | Structured query, reason, confidence, warnings, assumptions, alternatives. |
-| Maze query request | `research/research-init.js` `doSearch()`, `runQuickSearch()`, and route-seeded launch adapters -> `research/maze-query-core.js` | Contract-shaped `MazeQueryResult` with executable query, parser mode, `MazeDiagnostic[]`, normalized API metadata, and source context. Route adapter still executes fetch/render/storage behavior. |
+| Maze query request | `assets/js/maze/research-init.js` `doSearch()`, `runQuickSearch()`, and route-seeded launch adapters -> `assets/js/maze/maze-query-core.js` | Contract-shaped `MazeQueryResult` with executable query, parser mode, `MazeDiagnostic[]`, normalized API metadata, and source context. Route adapter still executes fetch/render/storage behavior. |
 | Raw syntax input | `prepareRawSyntaxQuery` in the Maze query core | Cleaned query and optional OR alternative diagnostics. |
 | Visual Builder filters | `buildVisualBuilderQuery` | Scryfall query fragments for color, type, format, rarity, mana value, and keywords. |
 | Scryfall responses | `research-init.js` render helpers | Result grid, modal detail, no-results state, recent searches. |
@@ -121,7 +121,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 | Command | Output |
 |---|---|
 | `npm test` | Console PASS/FAIL for parser, builder, mode, syntax, and placement tests. |
-| `node research/import-precon-mechanics-validation.mjs` | Imports the completed 155-row precon mechanics workbook into canonical source JSON with duplicate-key, validation-status, mechanics-shape, nullable focus, and protected-field guards. |
+| `node scripts/build/import-precon-mechanics-validation.mjs` | Imports the completed 155-row precon mechanics workbook into canonical source JSON with duplicate-key, validation-status, mechanics-shape, nullable focus, and protected-field guards. |
 | `npm run build:precons` | Rebuilds the generated precon recommendation catalog and runtime schema from the canonical precon source plus theme taxonomy. |
 | `npm run test:placement` | Console PASS/FAIL for adaptive model invariants and golden paths. |
 | `npm run test:bias` | Writes seeded-random bias report under `test-results/quick-reading-bias/`. |

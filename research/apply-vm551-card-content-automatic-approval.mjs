@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildRuntimeCatalog } from "./build-card-rationale-artifacts.mjs";
+import { buildRuntimeCatalog } from "../scripts/build/build-card-rationale-artifacts.mjs";
 import {
   VM551_AUTOMATIC_APPROVAL_BASIS,
   VM551_EVIDENCE_VALIDATOR_VERSION,

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 
-import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze/maze-handoff.js";
 
 const root = process.cwd();
 const check = process.argv.includes("--check");
@@ -114,7 +114,7 @@ const rows = Object.values(factions).map((faction) => {
       what_to_look_for: pass("Three approved actionable entries exist and render on named dossiers.", `identity-dossier-content.catalog.json#${key}`),
       card_signal_references: sourceSignalCount
         ? pass(`${sourceSignalCount} authored references are capability-gated and at least one collision-free reference renders on every named replay.`, [`data/factions.json#${key}.staples`, "live-ui-witness-replay.json"])
-        : na("The certified dossier contract makes Card Signal References capability-gated: when no authored staples exist, the section is intentionally inapplicable and omitted rather than filled.", [`assets/js/commander-dossier.js#capability-gated-card-signals`, `data/factions.json#${key}.staples`]),
+        : na("The certified dossier contract makes Card Signal References capability-gated: when no authored staples exist, the section is intentionally inapplicable and omitted rather than filled.", [`assets/js/archscry/commander-dossier.js#capability-gated-card-signals`, `data/factions.json#${key}.staples`]),
       start_here_glossary: named
         ? pass(`${Math.min(...rendered.map((row) => row.glossaryHelpCount))} or more approved first-occurrence teaching terms render.`, "live-ui-witness-replay.json")
         : pass(`${education.glossary.length} approved factual glossary records remain available to Yore's source-backed content.`, "discovery-education-catalog.json"),

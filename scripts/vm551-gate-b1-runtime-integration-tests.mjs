@@ -3,17 +3,17 @@ import fs from "node:fs";
 import {
   GATE_B1_RUNTIME_ERROR_MESSAGE,
   validateGateB1RuntimeModel,
-} from "../assets/js/gate-b1-runtime-contract.js";
+} from "../assets/js/archscry/gate-b1-runtime-contract.js";
 import {
   createInitialAdaptiveState,
   applyAdaptiveAnswer,
   selectNextAdaptiveQuestion,
-} from "../assets/js/gate-b1-placement-engine.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
 
 const model = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const factionData = JSON.parse(fs.readFileSync(new URL("../data/factions.json", import.meta.url), "utf8"));
 const identityLayers = JSON.parse(fs.readFileSync(new URL("../data/identity-layers.json", import.meta.url), "utf8"));
-const runtimeSource = fs.readFileSync(new URL("../assets/js/index.js", import.meta.url), "utf8");
+const runtimeSource = fs.readFileSync(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
 const liveIdentityKeys = new Set([
   ...Object.keys(factionData.factions || {}),
   ...Object.keys(identityLayers.expressions || {}),

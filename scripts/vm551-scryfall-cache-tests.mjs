@@ -7,7 +7,7 @@ import {
   SCRYFALL_SUCCESS_TTL_MS,
   createScryfallNamedCardLookup as createRawScryfallNamedCardLookup,
   mergeScryfallCardRecords,
-} from "../assets/js/scryfall-card-cache.js";
+} from "../assets/js/archscry/scryfall-card-cache.js";
 
 const createScryfallNamedCardLookup = (options = {}) => createRawScryfallNamedCardLookup({
   wait: async () => {},

@@ -4,7 +4,7 @@ This document describes the project-specific logic that is easiest to lose track
 
 ## Adaptive Placement
 
-Files: `assets/js/adaptive-placement.js`, `data/placement-model.json`, plus the external faction artifact builder in `C:\dev\projectFiles\voxmana-tools`.
+Files: `assets/js/archscry/adaptive-placement.js`, `data/placement-model.json`, plus the external faction artifact builder in `C:\dev\projectFiles\voxmana-tools`.
 
 The adaptive placement engine treats each faction as a hypothesis with an equal log prior. Each answer carries likelihoods for one or more factions. The engine converts likelihoods into configured log-score deltas, applies positive and negative evidence, optionally suppresses lookalike factions through lateral inhibition, prunes poison-pill matches, and converts scores into probabilities through softmax.
 
@@ -31,7 +31,7 @@ Key ideas:
 
 ## Legacy Quick Reading
 
-File: `assets/js/quick-reading.js`.
+File: `assets/js/archscry/quick-reading.js`.
 
 This older quick engine scores fixed questions by summing mana weights and faction boosts, then ranks display factions by boost score plus a small color-affinity contribution. It remains in the repo for compatibility/history, while current placement tests and bias reports exercise the adaptive engine.
 
@@ -45,9 +45,9 @@ Main flow:
 
 ## Archscry Frontend Flow
 
-Files: `archscry/index.html`, `assets/js/index.js`, `assets/js/shared.js`.
+Files: `archscry/index.html`, `assets/js/archscry/index.js`, `assets/js/shared/shared.js`.
 
-`assets/js/index.js` is the current production Archscry controller. It imports adaptive placement helpers, uses global helpers from `shared.js`, exposes handlers for existing inline HTML attributes, then boots after `DOMContentLoaded`.
+`assets/js/archscry/index.js` is the current production Archscry controller. It imports adaptive placement helpers, uses global helpers from `shared.js`, exposes handlers for existing inline HTML attributes, then boots after `DOMContentLoaded`.
 
 Flow:
 
@@ -63,7 +63,7 @@ Flow:
 
 ## Scrying Terminal Backend
 
-Files: `assets/js/shared.js`, `supabase/functions/guild-recruiter/index.ts`, `supabase/functions/guild-recruiter/faction-context.ts`.
+Files: `assets/js/shared/shared.js`, `supabase/functions/guild-recruiter/index.ts`, `supabase/functions/guild-recruiter/faction-context.ts`.
 
 Frontend helpers in `shared.js` keep interview history and call the edge function only when the terminal feature flag is enabled. The edge function is retained for the archived terminal path: it sanitizes input, enforces simple in-memory rate limiting, builds a prompt from generated faction context, calls Anthropic, parses JSON, and normalizes a decision result before returning it.
 
@@ -87,7 +87,7 @@ Failure handling:
 
 ## Persistence And Resume
 
-File: `assets/js/shared.js`.
+File: `assets/js/shared/shared.js`.
 
 Persistence centers on a normalized placement result.
 
@@ -107,7 +107,7 @@ Legacy fallback:
 
 ## Scryfall Natural-Language Parser
 
-Files: `research/scryfall-parser.js`, `research/scryfall-grounded-compiler.js`, `research/scryfall-dictionary.js`, `research/scryfall-parser-seed-2026.json`, `data/scryfall/grounding/scryfall-grounding.json`.
+Files: `assets/js/maze/scryfall-parser.js`, `assets/js/maze/scryfall-grounded-compiler.js`, `assets/js/maze/scryfall-dictionary.js`, `data/maze/scryfall-parser-seed-2026.json`, `data/scryfall/grounding/scryfall-grounding.json`.
 
 The parser converts plain-English search requests into Scryfall syntax with diagnostics.
 
@@ -116,7 +116,7 @@ Flow:
 1. `loadDictionaryFromSeedUrl` loads seed rows.
 2. `createDictionaryFromSeed` expands trigger phrases into dictionaries and oracle rows.
 3. `getScryfallDictionaryVocabulary` exposes deterministic local keyword, subtype, card type, and format vocabulary for validation and Maze autocomplete.
-4. `research/research-init.js` loads `data/scryfall/grounding/scryfall-grounding.json` from the app host and registers it with `setScryfallGrounding`.
+4. `assets/js/maze/research-init.js` loads `data/scryfall/grounding/scryfall-grounding.json` from the app host and registers it with `setScryfallGrounding`.
 5. `parseScryfallNaturalLanguage` normalizes input, creates mutable parse state, detects exact-card intent, then gives bounded catalog/set-family cases to `compileGroundedScryfallQuery`.
 6. `compileGroundedScryfallQuery` resolves explicit syntax, type-line terms, set names, set families, basic keywords, basic oracle concepts, color identity, commander-candidate intent, ignored glue words, and applied defaults into a query model before serializing Scryfall syntax.
 7. If the grounded compiler does not apply, the legacy detector phases add terms for formats, identities, colors, types, keywords, oracle phrases, mana value, power/toughness, rarity, price, sorting, and ambiguity.
@@ -135,7 +135,7 @@ Design notes:
 
 ## Maze Research Workspace
 
-Files: `maze/index.html`, `research/maze-query-core.js`, `research/research-init.js`, `research/research-builder.js`, `research/research-mode.js`, `research/research-ui.js`, `research/research-search.js`.
+Files: `maze/index.html`, `assets/js/maze/maze-query-core.js`, `assets/js/maze/research-init.js`, `assets/js/maze/research-builder.js`, `assets/js/maze/research-mode.js`, `assets/js/maze/research-ui.js`, `assets/js/maze/research-search.js`.
 
 The Maze has three modes:
 
@@ -143,7 +143,7 @@ The Maze has three modes:
 - Operator's Hand: accept raw Scryfall syntax and prepare diagnostics.
 - Loom: build a query from visual filters.
 
-VM-022 adds a Maze-first query contract in `docs/contracts/maze-query-contract.md` and the reusable core surface in `research/maze-query-core.js`. The core owns request/result normalization, raw syntax cleanup, format application, parser-mode classification, `MazeDiagnostic[]` assembly, source-context normalization, and path-entry generation. The primary `doSearch()` path, quick-search buttons, Query Inspector alternatives, and Archscry route-seeded launches now build `MazeQueryRequest` objects through an adapter-local resolver and consume `resolveMazeQueryRequest()`, while the route adapter still owns DOM state, storage, Scryfall fetch execution, Query Inspector rendering, modal behavior, stash behavior, sort/load-more behavior, handoff storage, return banners, sidebars, and boot sequencing.
+VM-022 adds a Maze-first query contract in `docs/contracts/maze-query-contract.md` and the reusable core surface in `assets/js/maze/maze-query-core.js`. The core owns request/result normalization, raw syntax cleanup, format application, parser-mode classification, `MazeDiagnostic[]` assembly, source-context normalization, and path-entry generation. The primary `doSearch()` path, quick-search buttons, Query Inspector alternatives, and Archscry route-seeded launches now build `MazeQueryRequest` objects through an adapter-local resolver and consume `resolveMazeQueryRequest()`, while the route adapter still owns DOM state, storage, Scryfall fetch execution, Query Inspector rendering, modal behavior, stash behavior, sort/load-more behavior, handoff storage, return banners, sidebars, and boot sequencing.
 
 The UI keeps mode state, filter state, search results, pagination, recent searches, keyword suggestions, query inspector content, and modal state in module-local variables. It exposes handlers for existing inline attributes after module load.
 
@@ -176,7 +176,7 @@ Archscry uses these indexes to add:
 
 ## Visual Builder Query Logic
 
-File: `research/research-builder.js`.
+File: `assets/js/maze/research-builder.js`.
 
 `buildVisualBuilderQuery` joins independent filter fragments:
 
@@ -191,7 +191,7 @@ File: `research/research-builder.js`.
 
 ## Scryfall Syntax Translation
 
-Files: `research/research-syntax-language.js`, `research/research-mode.js`.
+Files: `assets/js/maze/research-syntax-language.js`, `assets/js/maze/research-mode.js`.
 
 `translateScryfallSyntaxToPlainText` parses common Scryfall fragments into a readable phrase. `resolveModeInputValue` uses that translation when switching between raw syntax and Smart Search, preserving the last smart input/query pair to avoid surprising text replacement.
 
@@ -205,7 +205,7 @@ It does not generate painterly WEBP backgrounds; those are tracked in the asset 
 
 ## Faction Artifact Build
 
-File: `research/build-faction-artifacts.mjs`.
+File: `scripts/build/build-faction-artifacts.mjs`.
 
 This script reads `data/identity-layers.json` plus every raw faction folder, validates expected ids, normalizes placement/profile data, builds faction records, builds the adaptive model, writes the JSON schema, and emits the edge-function TypeScript context.
 

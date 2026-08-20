@@ -6,13 +6,13 @@ import {
   observe,
   replaySelections,
   selectNextQuestion,
-} from "../assets/js/gate-b1-placement-engine.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
 import {
   buildReadingSignalCopy,
   closeAlternativeForResult,
   withGateAPublicState,
-} from "../assets/js/archscry-presentation.js";
-import { buildCommanderDossier } from "../assets/js/commander-dossier.js";
+} from "../assets/js/archscry/archscry-presentation.js";
+import { buildCommanderDossier } from "../assets/js/archscry/commander-dossier.js";
 
 const MODEL = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const FACTIONS = JSON.parse(fs.readFileSync(new URL("../data/factions.json", import.meta.url), "utf8")).factions;

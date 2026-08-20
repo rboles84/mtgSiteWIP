@@ -9,9 +9,9 @@ import {
   getRefinementPath,
   observe,
   selectNextQuestion,
-} from "../assets/js/gate-b1-placement-engine.js";
-import { buildReadingOmens } from "../assets/js/commander-dossier.js";
-import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
+import { buildReadingOmens } from "../assets/js/archscry/commander-dossier.js";
+import { withGateAPublicState } from "../assets/js/archscry/archscry-presentation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT = path.join(ROOT, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json");

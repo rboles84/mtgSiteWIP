@@ -1,5 +1,6 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const routeChecks = [
@@ -46,16 +47,38 @@ for (const check of routeChecks) {
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
 const homeSource = await readFile(path.resolve(root, "index.html"), "utf8");
-const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home.js"), "utf8");
+const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home/home.js"), "utf8");
 const identityLayerSource = await readFile(path.resolve(root, "data/identity-layers.json"), "utf8");
 const identityLayerData = JSON.parse(identityLayerSource);
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
-const archscryRuntimeSource = await readFile(path.resolve(root, "assets/js/index.js"), "utf8");
+const archscryCssSource = await readFile(path.resolve(root, "assets/css/archscry.css"), "utf8");
+const archscryRuntimePath = path.resolve(root, "assets/js/archscry/index.js");
+const archscryRuntimeSource = await readFile(archscryRuntimePath, "utf8");
+const archscryDataBaseMatch = archscryRuntimeSource.match(
+  /const DATA_BASE_URL = new URL\((['"])([^'"]+)\1, import\.meta\.url\);/,
+);
+if (!archscryDataBaseMatch) {
+  failures.push("Archscry smoke check failed: DATA_BASE_URL must remain a literal module-relative URL");
+} else {
+  const archscryDataBasePath = path.resolve(fileURLToPath(
+    new URL(archscryDataBaseMatch[2], pathToFileURL(archscryRuntimePath)),
+  ));
+  const expectedDataBasePath = path.resolve(root, "data");
+  if (archscryDataBasePath !== expectedDataBasePath) {
+    failures.push(`Archscry smoke check failed: data base resolves to ${archscryDataBasePath} instead of ${expectedDataBasePath}`);
+  } else {
+    try {
+      await access(path.join(archscryDataBasePath, "factions.json"));
+    } catch {
+      failures.push("Archscry smoke check failed: resolved faction data file is missing");
+    }
+  }
+}
 const currentStateHomeNamingFiles = [
   "index.html",
   "package.json",
   "assets/css/home.css",
-  "assets/js/home.js",
+  "assets/js/home/home.js",
   "scripts/visual-regression-home.mjs",
   "scripts/lighthouse-home.mjs",
   "scripts/validate-frontend-html.mjs",
@@ -106,7 +129,7 @@ if (
 ) {
   failures.push("Home Mana Lens smoke check failed: preview initialization is not gated by registry and chart readiness");
 }
-if (homeSource.includes('src="assets/js/graph.js"')) {
+if (homeSource.includes('src="assets/js/vendor/chart.umd.js"')) {
   failures.push("Home performance smoke check failed: Chart.js still blocks initial HTML parsing");
 }
 if (!homeRuntimeSource.includes('window.requestIdleCallback(initialize, { timeout: 2000 })')) {
@@ -152,6 +175,9 @@ if (!archscrySource.includes('<footer class="app-footer"')) {
 }
 if (/["'`]\/data\//.test(archscryRuntimeSource)) {
   failures.push("Archscry smoke check failed: runtime still contains root-relative /data/ references");
+}
+if (!archscryCssSource.includes(".table-identity-list > div > span:first-child{")) {
+  failures.push("Archscry smoke check failed: How This Plays label styling must not capture nested glossary terms");
 }
 if (!archscryRuntimeSource.includes("const DOSSIER_PANEL_CONFIG")) {
   failures.push("Archscry dossier smoke check failed: panel configuration is missing");

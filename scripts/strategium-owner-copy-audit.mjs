@@ -7,7 +7,7 @@ import {
   beforeGameStatementLimits,
   evaluateBeforeGame,
   lifecycleConfigs,
-} from "../assets/js/strategium-lifecycle.js";
+} from "../assets/js/strategium/strategium-lifecycle.js";
 
 const root = path.resolve(fileURLToPath(new URL("../", import.meta.url)));
 const evidenceDir = path.join(root, "docs", "qa", "evidence", "owner-remediation-02");

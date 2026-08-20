@@ -9,13 +9,13 @@
 
 ## 1. The three search modes
 
-The maze page (`maze/index.html`) offers three input modes. All three funnel through a single contract resolver, `resolveMazeQueryRequest()` in `research/maze-query-core.js:26`.
+The maze page (`maze/index.html`) offers three input modes. All three funnel through a single contract resolver, `resolveMazeQueryRequest()` in `assets/js/maze/maze-query-core.js:26`.
 
 | Mode | UI name | What it does | Engine |
 |---|---|---|---|
-| `ai` | **The Plain Reading** | English → Scryfall syntax | `parseScryfallNaturalLanguage()` — `research/scryfall-parser.js:27` |
-| `raw` | **The Operator's Hand** | User types Scryfall syntax directly | Light normalization only — `prepareRawSyntaxQuery()` `research/maze-query-core.js:114` |
-| `builder` | **The Loom** | Visual pips/checkboxes → syntax | `buildVisualBuilderQuery()` — `research/research-builder.js` |
+| `ai` | **The Plain Reading** | English → Scryfall syntax | `parseScryfallNaturalLanguage()` — `assets/js/maze/scryfall-parser.js:27` |
+| `raw` | **The Operator's Hand** | User types Scryfall syntax directly | Light normalization only — `prepareRawSyntaxQuery()` `assets/js/maze/maze-query-core.js:114` |
+| `builder` | **The Loom** | Visual pips/checkboxes → syntax | `buildVisualBuilderQuery()` — `assets/js/maze/research-builder.js` |
 
 ### The Operator's Hand is a passthrough
 It does **not** parse or understand syntax — it assumes the user already knows Scryfall. Its only jobs:
@@ -27,7 +27,7 @@ Example: `ci<=br t:creature o:sacrifice f:commander` is sent to Scryfall verbati
 **All of the "intelligence" lives in The Plain Reading.**
 
 ### Reverse translation (the inspector line)
-`translateScryfallSyntaxToPlainText()` in `research/research-syntax-language.js:9` turns syntax **back** into English for the "Maze translated" line shown under the search box. This is an explanation surface, not the search engine. E.g. `c:r kw:shroud` → "red with shroud."
+`translateScryfallSyntaxToPlainText()` in `assets/js/maze/research-syntax-language.js:9` turns syntax **back** into English for the "Maze translated" line shown under the search box. This is an explanation surface, not the search engine. E.g. `c:r kw:shroud` → "red with shroud."
 
 ---
 
@@ -36,7 +36,7 @@ Example: `ci<=br t:creature o:sacrifice f:commander` is sent to Scryfall verbati
 There is **no ML, no LLM, no external NLP** in this path. It is a deterministic, hand-authored rules engine backed by two layers:
 
 ### Layer A — Built-in dictionary
-`research/scryfall-dictionary.js` → the `DEFAULT_DICTIONARY` object. Hand-maintained lookup tables:
+`assets/js/maze/scryfall-dictionary.js` → the `DEFAULT_DICTIONARY` object. Hand-maintained lookup tables:
 
 - `colors`, `identities` (all 30 guild / shard / wedge / college names → color codes), `identityAliases`
 - `types`, `subtypes` (~40 creature types), `keywords` (~55 abilities)
@@ -44,7 +44,7 @@ There is **no ML, no LLM, no external NLP** in this path. It is a deterministic,
 - `formats`, `rarities`, `pricePhrases`, `sorting`, `queryPhrases` (~45 deck-archetype shortcuts)
 
 ### Layer B — Curated seed JSON
-`research/scryfall-parser-seed-2026.json` — **260 rows**. At page load, `research/research-init.js:568` fetches it and `createDictionaryFromSeed()` layers those rows **on top of** the built-in tables (result cached in `localStorage` under `vm_scryfall_parser_dictionary_v1`). If the fetch fails, it silently falls back to the built-in dictionary (`research/research-init.js:572`).
+`data/maze/scryfall-parser-seed-2026.json` — **260 rows**. At page load, `assets/js/maze/research-init.js:568` fetches it and `createDictionaryFromSeed()` layers those rows **on top of** the built-in tables (result cached in `localStorage` under `vm_scryfall_parser_dictionary_v1`). If the fetch fails, it silently falls back to the built-in dictionary (`assets/js/maze/research-init.js:572`).
 
 Seed row-type breakdown (260 total):
 
@@ -88,7 +88,7 @@ Sample seed row:
 
 ## 3. How Plain Reading compiles a sentence
 
-`parseScryfallNaturalLanguage()` (`research/scryfall-parser.js:27`) is a **multi-pass keyword compiler**:
+`parseScryfallNaturalLanguage()` (`assets/js/maze/scryfall-parser.js:27`) is a **multi-pass keyword compiler**:
 
 1. **Normalize** (`normalizeInput` `:276`) — lowercase, fix smart quotes, split hyphens/slashes, correct a handful of typos (`gren`→green, `hast`→haste, `comandr`→commander), expand two-letter color pairs (`br`→"black red").
 2. **Exact-name escape hatch** (`detectExactName` `:337`) — `!Sol Ring`, `card named X`, or quoted names route to Scryfall's `/cards/named` endpoint.
@@ -135,7 +135,7 @@ Empirical runs (parser output shown verbatim):
 "show me white board wipes that are good in commander under 5 dollars"
  → f:commander usd<=5          ← "white" AND "board wipes" VANISHED
 ```
-The curated "commander … under N dollars" fast-path at `research/scryfall-parser.js:88` `return`s early and discards every other word in the sentence. The early-return curated rules are **greedy and lossy** — they do not merge with the compositional passes. This is the single most damaging correctness issue for long sentences, because longer input is *more* likely to trip a fast-path. Reproduces with and without the seed loaded.
+The curated "commander … under N dollars" fast-path at `assets/js/maze/scryfall-parser.js:88` `return`s early and discards every other word in the sentence. The early-return curated rules are **greedy and lossy** — they do not merge with the compositional passes. This is the single most damaging correctness issue for long sentences, because longer input is *more* likely to trip a fast-path. Reproduces with and without the seed loaded.
 
 ### ❌ Breaks on relational / semantic language — the ceiling
 ```
@@ -163,7 +163,7 @@ Notes:
 ## 5. Enhancement roadmap (priority order)
 
 ### P0 — Fix the lossy early-return (bug, not enhancement)
-The curated rules in `detectHighConfidenceSearch` (`research/scryfall-parser.js:81`) should **contribute** fragments to the compositional pipeline, not short-circuit it. Minimum viable: before returning a curated result, run the normal detectors and merge non-overlapping terms (color, type, format). Fixes "white board wipes under 5 dollars." Highest value, lowest risk.
+The curated rules in `detectHighConfidenceSearch` (`assets/js/maze/scryfall-parser.js:81`) should **contribute** fragments to the compositional pipeline, not short-circuit it. Minimum viable: before returning a curated result, run the normal detectors and merge non-overlapping terms (color, type, format). Fixes "white board wipes under 5 dollars." Highest value, lowest risk.
 
 ### P1 — Stemming / fuzzy trigger matching
 "enter" vs "enters," "sacrificing" vs "sacrifice," "dies" vs "die." A light Porter-stemmer or trigger-suffix normalization applied to **both** input and dictionary keys would recover a large class of near-misses with zero new vocabulary. Today `hasPhrase` (`:1169`) is strict word-boundary substring only.
@@ -183,15 +183,15 @@ When `confidence < 0.5` and `unresolved.length` is high, offer an opt-in "interp
 
 | Concern | File |
 |---|---|
-| NL → Scryfall engine | `research/scryfall-parser.js` |
-| Vocabulary (built-in) | `research/scryfall-dictionary.js` |
-| Vocabulary (curated seed, 260 rows) | `research/scryfall-parser-seed-2026.json` |
-| Mode routing / contract | `research/maze-query-core.js` |
-| Syntax → English (inspector) | `research/research-syntax-language.js` |
-| Scryfall API calls + caching | `research/research-search.js` |
-| Seed load + dictionary merge | `research/research-init.js:564` |
+| NL → Scryfall engine | `assets/js/maze/scryfall-parser.js` |
+| Vocabulary (built-in) | `assets/js/maze/scryfall-dictionary.js` |
+| Vocabulary (curated seed, 260 rows) | `data/maze/scryfall-parser-seed-2026.json` |
+| Mode routing / contract | `assets/js/maze/maze-query-core.js` |
+| Syntax → English (inspector) | `assets/js/maze/research-syntax-language.js` |
+| Scryfall API calls + caching | `assets/js/maze/research-search.js` |
+| Seed load + dictionary merge | `assets/js/maze/research-init.js:564` |
 | Page shell / modes UI | `maze/index.html` |
-| Parser tests | `research/scryfall-parser-tests.js`, `research/maze-search-tests.js` |
+| Parser tests | `tests/maze/scryfall-parser-tests.js`, `tests/maze/maze-search-tests.js` |
 | Test command | `npm run test:parser` |
 
 ---
@@ -308,11 +308,11 @@ Implemented files:
 
 - `scripts/build-scryfall-grounding.mjs` fetches Scryfall catalog endpoints plus `/sets` at build time.
 - `data/scryfall/grounding/scryfall-grounding.json` is the checked-in generated artifact consumed by Maze.
-- `research/scryfall-grounded-compiler.js` adds the testable input normalizer, typed entity resolver, set resolver, query model, query builder, and explanation surface for the Phase 1 cases.
-- `research/scryfall-parser.js` routes bounded grounded Plain Reading inputs through the compiler before falling back to the legacy dictionary parser.
-- `research/maze-query-core.js` carries grounded ignored/applied-default diagnostics and can suppress the route-level Commander format default when the grounded compiler has already produced an intentional type/set query.
-- `research/research-init.js` loads the local artifact from `data/scryfall/grounding/scryfall-grounding.json`; it does not call Scryfall catalog APIs in the browser.
-- `research/research-ui.js` renders Ignored and Applied defaults groups in the existing Query Inspector.
+- `assets/js/maze/scryfall-grounded-compiler.js` adds the testable input normalizer, typed entity resolver, set resolver, query model, query builder, and explanation surface for the Phase 1 cases.
+- `assets/js/maze/scryfall-parser.js` routes bounded grounded Plain Reading inputs through the compiler before falling back to the legacy dictionary parser.
+- `assets/js/maze/maze-query-core.js` carries grounded ignored/applied-default diagnostics and can suppress the route-level Commander format default when the grounded compiler has already produced an intentional type/set query.
+- `assets/js/maze/research-init.js` loads the local artifact from `data/scryfall/grounding/scryfall-grounding.json`; it does not call Scryfall catalog APIs in the browser.
+- `assets/js/maze/research-ui.js` renders Ignored and Applied defaults groups in the existing Query Inspector.
 
 Implemented behavior:
 
@@ -335,7 +335,7 @@ Important decisions and deviations:
 
 Recommended follow-up phases:
 
-1. Retire or merge the remaining lossy high-confidence early-return paths in `research/scryfall-parser.js` so the whole parser becomes additive.
+1. Retire or merge the remaining lossy high-confidence early-return paths in `assets/js/maze/scryfall-parser.js` so the whole parser becomes additive.
 2. Expand the grounded resolver beyond the VM-471 acceptance slice: names, mana costs, rarity, artist, language, flavor text, numeric stats, extras/tokens/planes/schemes, and display/order preference.
 3. Add a first-class UI disambiguation picker for ambiguous set families instead of only diagnostics/alternatives.
 4. Add Scryfall result-count validation and 0-result recovery suggestions after query execution.
@@ -356,7 +356,7 @@ Independent code review after VM-471 landed. Verdict: **strong data foundation, 
 New types/sets flow in on `npm run scryfall:grounding` with zero code changes. Correct Layer 0.
 
 ### 13.2 Compiler — hardcoded to the acceptance probes (must be reframed)
-`research/scryfall-grounded-compiler.js` consumes only a sliver of the grounded data:
+`assets/js/maze/scryfall-grounded-compiler.js` consumes only a sliver of the grounded data:
 
 | Concern | Actual behavior | Evidence |
 |---|---|---|
@@ -506,7 +506,7 @@ The legacy parser remains in the file as migration/reference code, but with the 
 
 - Generated catalog/set facts: `data/scryfall/grounding/scryfall-grounding.json`.
 - Curated player-language semantics: `data/scryfall/grounding/plain-reading-semantics.json`.
-- Seed dictionary migration data: `research/scryfall-parser-seed-2026.json` plus `research/scryfall-dictionary.js`.
+- Seed dictionary migration data: `data/maze/scryfall-parser-seed-2026.json` plus `assets/js/maze/scryfall-dictionary.js`.
 
 The browser loads the local artifacts during Maze boot. It does not fetch Scryfall catalogs or set metadata at runtime.
 
@@ -533,7 +533,7 @@ Archscry-originated Maze launches still execute stored `operatorQuery` as raw Sc
 
 ### 16.5 Test evidence
 
-`research/scryfall-parser-tests.js` now acts as a curated golden corpus plus invariant guard:
+`tests/maze/scryfall-parser-tests.js` now acts as a curated golden corpus plus invariant guard:
 
 - 125 parser cases.
 - VM-471 acceptance probes retained.
@@ -541,9 +541,9 @@ Archscry-originated Maze launches still execute stored `operatorQuery` as raw Sc
 - Equivalent Scryfall syntax comparison tolerates `t:` vs `type:` and term ordering while still checking meaning.
 - Property checks assert balanced parentheses, no duplicate serialized clauses, and no include/exclude contradictions.
 
-`research/maze-query-contract-tests.js` asserts the non-silent Commander policy and the validation-plan diagnostic.
+`tests/maze/maze-query-contract-tests.js` asserts the non-silent Commander policy and the validation-plan diagnostic.
 
-`research/maze-search-tests.js` loads the semantic registry in its DOM harness and preserves Archscry operator-query execution.
+`tests/maze/maze-search-tests.js` loads the semantic registry in its DOM harness and preserves Archscry operator-query execution.
 
 ### 16.6 Known gaps after VM-472
 
@@ -622,7 +622,7 @@ Examples:
 
 ### 18.3 Test evidence
 
-`research/scryfall-parser-tests.js` now has a dedicated `keywordAbilityCases` section covering evergreen, combat/evasion, newer/current, Commander-related, negated, punctuation, and action/oracle-policy keyword phrases. A fixed catalog-smoke list also asserts selected current Scryfall keyword abilities are present in `data/scryfall/grounding/scryfall-grounding.json` and recognized by the compiler.
+`tests/maze/scryfall-parser-tests.js` now has a dedicated `keywordAbilityCases` section covering evergreen, combat/evasion, newer/current, Commander-related, negated, punctuation, and action/oracle-policy keyword phrases. A fixed catalog-smoke list also asserts selected current Scryfall keyword abilities are present in `data/scryfall/grounding/scryfall-grounding.json` and recognized by the compiler.
 
 Current focused evidence:
 
@@ -805,8 +805,8 @@ VM-483 repairs the seven remaining rows from `scryfall_checklist_report_2026-07-
 ### 24.2 Intent-aware Commander format gate
 
 - Automatic format defaults are centralized through `applyMazeFormatToQuery()` and `shouldApplyFormatDefault()`.
-- The raw Operator's Hand search path and Plain Reading compile/search path both call the shared helper in `research/maze-query-core.js`.
-- Sidebar format changes call the same helper from `research/research-init.js`.
+- The raw Operator's Hand search path and Plain Reading compile/search path both call the shared helper in `assets/js/maze/maze-query-core.js`.
+- Sidebar format changes call the same helper from `assets/js/maze/research-init.js`.
 - Plain Reading to Operator's Hand tab switching displays the compiled `lastSmartQuery`; it must not resurrect the original prose for blocked or token-object searches.
 - Token-object intent suppresses automatic `f:commander` and automatic `legal:commander`; user-authored raw legality such as `type:token f:commander` or `type:token legal:commander` is preserved.
 

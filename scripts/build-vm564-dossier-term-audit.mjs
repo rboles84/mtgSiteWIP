@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import {
   buildCommanderDossier,
   createArchidektTagCatalog,
-} from "../assets/js/commander-dossier.js";
+} from "../assets/js/archscry/commander-dossier.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_DIR = path.join(ROOT, "docs", "audits", "vm564-dossier-term-hover-audit");
@@ -64,7 +64,7 @@ const identityLayers = readJson("data/identity-layers.json");
 const dossierCatalog = readJson("data/dossier/identity-dossier-content.catalog.json");
 const educationCatalog = readJson("data/dossier/discovery-education-catalog.json");
 const witnessArtifact = readJson("docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json");
-const rendererSource = fs.readFileSync(path.join(ROOT, "assets/js/index.js"), "utf8");
+const rendererSource = fs.readFileSync(path.join(ROOT, "assets/js/archscry/index.js"), "utf8");
 
 assert.equal(educationCatalog.glossary.length, 42, "expected the current 42-term glossary baseline");
 assert.equal(dossierCatalog.records.length, 37, "expected 37 identity dossier records");
@@ -340,8 +340,8 @@ const ledger = {
     allocation_contract: "At most one hover decoration per canonical glossary record per page, assigned by start-here, why-this-fit, test-the-fit, then what-to-look-for priority.",
   },
   source_inputs_sha256: Object.fromEntries([
-    "assets/js/index.js",
-    "assets/js/commander-dossier.js",
+    "assets/js/archscry/index.js",
+    "assets/js/archscry/commander-dossier.js",
     "data/factions.json",
     "data/gate-b1-placement-model.json",
     "data/deck-tags_expanded.json",

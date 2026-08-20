@@ -46,7 +46,7 @@ assert.equal(catalog.glossary.filter((record) => record.teaching_policy?.mode ==
 assert.equal(catalog.glossary.filter((record) => record.teaching_policy?.mode === "LEGACY_WITH_OVERRIDES").length, 7);
 assert.equal(catalog.glossary.reduce((sum, record) => sum + (record.teaching_policy?.targets?.length || 0), 0), 41);
 assert.equal(catalog.glossary.find((record) => record.record_id === "glossary_mana_rocks")?.definition, "Artifacts that produce mana, helping a deck accelerate or fix its mana.");
-const runtime = await readFile("assets/js/index.js", "utf8");
+const runtime = await readFile("assets/js/archscry/index.js", "utf8");
 assert.match(runtime, /discovery-education-catalog\.json/);
 assert.doesNotMatch(runtime, /const ARCHSCRY_TERM_HELP/);
 assert.match(runtime, /policy\?\.mode === "EXPLICIT_TARGETS"/);

@@ -9,11 +9,11 @@ import {
   rankCandidates,
   replaySelections,
   runJourney,
-} from "../assets/js/gate-b1-placement-engine.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
 
 const model = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const factions = JSON.parse(fs.readFileSync(new URL("../data/factions.json", import.meta.url), "utf8")).factions;
-const runtimeSource = fs.readFileSync(new URL("../assets/js/index.js", import.meta.url), "utf8");
+const runtimeSource = fs.readFileSync(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
 const questions = Object.values(model.question_bank).flatMap((rows) => Array.isArray(rows) ? rows : []);
 const questionById = new Map(questions.map((question) => [question.id, question]));
 

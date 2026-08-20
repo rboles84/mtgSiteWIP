@@ -9,27 +9,27 @@ import {
   gateAStatePresentation,
   isLegacyGateAResult,
   isResumableGateAQuestion,
-} from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/archscry-presentation.js";
 import {
   buildCommanderDossier,
   buildCommanderStartingLane,
   buildReadingOmens,
   createArchidektTagCatalog,
   getCommanderFactionGuidance,
-} from "../assets/js/commander-dossier.js";
-import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
-import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js/dossier-radar.js";
+} from "../assets/js/archscry/commander-dossier.js";
+import { runAdaptiveGoldenPath } from "../assets/js/archscry/adaptive-placement.js";
+import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js/archscry/dossier-radar.js";
 
 const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const indexSource = await readText("../assets/js/index.js");
+const indexSource = await readText("../assets/js/archscry/index.js");
 const startPanelSource = indexSource.slice(
   indexSource.indexOf("const startPanelHtml ="),
   indexSource.indexOf("const deckStartsPanelHtml =")
 );
 const htmlSource = await readText("../archscry/index.html");
 const cssSource = await readText("../assets/css/archscry.css");
-const radarSource = await readText("../assets/js/dossier-radar.js");
-const cacheSource = await readText("../assets/js/scryfall-card-cache.js");
+const radarSource = await readText("../assets/js/archscry/dossier-radar.js");
+const cacheSource = await readText("../assets/js/archscry/scryfall-card-cache.js");
 const qaHelperSource = await readText("../docs/qa/vm551-gate-a-fixture-helper.js");
 const identityLayers = JSON.parse(await readText("../data/identity-layers.json"));
 const commanderIndex = JSON.parse(await readText("../data/scryfall/indexes/commander-index.json"));

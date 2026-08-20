@@ -7,8 +7,8 @@ import pixelmatch from "pixelmatch";
 import { PNG } from "pngjs";
 import puppeteer from "puppeteer-core";
 
-import { runAdaptiveGoldenPath } from "../assets/js/adaptive-placement.js";
-import { loadDossierInputs } from "../research/dossier-runner.mjs";
+import { runAdaptiveGoldenPath } from "../assets/js/archscry/adaptive-placement.js";
+import { loadDossierInputs } from "./lib/dossier-runner.mjs";
 import { stabilizeAndVerifyRadar } from "./visual-radar-assertions.mjs";
 
 const root = process.cwd();

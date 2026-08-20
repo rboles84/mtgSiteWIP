@@ -9,8 +9,8 @@ import {
   observe,
   replaySelections,
   runJourney,
-} from "../assets/js/gate-b1-placement-engine.js";
-import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
+import { withGateAPublicState } from "../assets/js/archscry/archscry-presentation.js";
 
 const root = process.cwd();
 const check = process.argv.includes("--check");

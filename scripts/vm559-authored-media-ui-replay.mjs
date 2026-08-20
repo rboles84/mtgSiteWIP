@@ -8,8 +8,8 @@ import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 import { PNG } from "pngjs";
 
-import { finalizeReading, replaySelections } from "../assets/js/gate-b1-placement-engine.js";
-import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+import { finalizeReading, replaySelections } from "../assets/js/archscry/gate-b1-placement-engine.js";
+import { withGateAPublicState } from "../assets/js/archscry/archscry-presentation.js";
 
 const root = process.cwd();
 const host = "127.0.0.1";

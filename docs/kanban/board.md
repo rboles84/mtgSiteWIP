@@ -53,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-570 - JavaScript Architecture Cleanup Pass 1](done/VM-570-javascript-architecture-cleanup-pass-1.md) - moved JavaScript ownership into product/runtime, test, tooling, data, and vendor boundaries; promoted Maze runtime out of research; preserved VM-specific referenced tooling for later dead-tooling review; behavior validation is no worse than baseline.
+
 - [Abzan Official-Art Hero Proof](done/abzan-official-art-hero-proof.md) - owner-approved Abzan-only visual proof mapping the approved local Betor art crop into the existing Archscry identity hero overlay while preserving all other identity hero mappings and placement/dossier behavior.
 - [Bant Official-Art Hero Proof](done/bant-official-art-hero-proof.md) - owner-approved visual proof mapping the approved local Bant art crop into the existing Archscry identity hero overlay while preserving rollback and all non-proof identity mappings.
 - [Grixis Official-Art Hero Proof](done/grixis-official-art-hero-proof.md) - owner-approved visual proof mapping the approved local Grixis art crop into the existing Archscry identity hero overlay while preserving rollback and all non-proof identity mappings.

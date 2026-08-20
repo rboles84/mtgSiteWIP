@@ -13,7 +13,7 @@ function env(name) {
 }
 
 async function readSharedSupabaseConfig() {
-  const source = await readFile(new URL("../assets/js/shared.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../assets/js/shared/shared.js", import.meta.url), "utf8");
   return {
     url: source.match(/supabaseUrl:\s*"([^"]+)"/)?.[1] || "",
     anonKey: source.match(/supabaseKey:\s*"([^"]+)"/)?.[1] || "",

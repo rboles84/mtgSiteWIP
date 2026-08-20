@@ -17,7 +17,7 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 ## Browser Runtime: Placement And Site Shell
 
-### `assets/js/adaptive-placement.js`
+### `assets/js/archscry/adaptive-placement.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -52,7 +52,7 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 665 | `runAdaptiveReadingWithStrategy(options)` | Export | Simulation runner over adaptive questions. |
 | 705 | `runAdaptiveGoldenPath(options)` | Export | Simulation runner targeting one faction. |
 
-### `assets/js/archscry-presentation.js`
+### `assets/js/archscry/archscry-presentation.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -71,7 +71,7 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 | 499 | `withArchscryMazeContext(links, context, origin)` | Export | Adds plain/operator query and return metadata to Maze links. |
 | 530 | `buildPersonalizedMazePaths(options)` | Export | Builds deterministic dossier-facing Maze discovery path payloads. |
 
-### `assets/js/index.js`
+### `assets/js/archscry/index.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -119,13 +119,13 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
 
-### `assets/js/site-flags.js`
+### `assets/js/shared/site-flags.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
 | 8 | `VM_SITE_FLAGS` | Global | Shared checked-in feature flags for hiding or revealing the archived terminal. |
 
-### `assets/js/shared.js`
+### `assets/js/shared/shared.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -156,7 +156,7 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 621 | `vm_resumeSession()` | Global | Loads existing Supabase session/profile. |
 | 672 | `vm_clearPlacement()` | Global | Clears saved placement fields. |
 
-### `assets/js/quick-reading.js`
+### `assets/js/archscry/quick-reading.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -178,7 +178,7 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 534 | `runQuickReadingExhaustiveAnalysis(options)` | Export | Walks all answer combinations. |
 | 539 | `walk(questionIndex, answerIndexes)` | Nested | Recursive exhaustive-analysis traversal. |
 
-### `assets/js/quick-reading-bias.js`
+### `tests/placement/quick-reading-bias.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -191,7 +191,7 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 196 | `buildOutput(placements, factions, options, mode)` | CLI | Serializes report payload. |
 | 234 | `printSummary(output)` | CLI | Writes human-readable report summary. |
 
-### `research/presentation-snapshot-runner.mjs`
+### `scripts/build/presentation-snapshot-runner.mjs`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -204,7 +204,7 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 | 378 | `renderPresentationSnapshotMarkdown(payload)` | Export | Renders human-readable Markdown output. |
 | 391 | `writePresentationSnapshotFiles(payload)` | Export | Writes JSON, CSV, and Markdown files under `artifacts/presentation-snapshots/`. |
 
-### `assets/js/quick-reading-tests.js`
+### `tests/placement/quick-reading-tests.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -212,7 +212,7 @@ Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, 
 
 The rest of the file is top-level test code covering schema metadata, model/faction alignment, scoring deltas, pruning, Crucible selection, golden-path reachability, ranking, and direct placement builds.
 
-### `assets/js/reduce-motion.js`
+### `assets/js/shared/reduce-motion.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -224,7 +224,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 97 | `mountToggles()` | Internal | Inserts fallback toggles. |
 | 106 | `init()` | Internal | Boots shared motion preference behavior. |
 
-### `assets/js/vm-topbar.js`
+### `assets/js/shared/vm-topbar.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -240,7 +240,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 
 ## Research Workspace
 
-### `research/maze-query-core.js`
+### `assets/js/maze/maze-query-core.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -254,9 +254,9 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 172 | `normalizeMazeSourceContext(input)` | Export | Normalizes launch/source metadata without treating origin as mode. |
 | 202 | `buildMazePathEntries(placementContext)` | Export | Builds shared dossier path entries through the Maze handoff factory. |
 | 217 | `normalizeMazeQueryApiMetadata(api, fallback)` | Export | Keeps only Maze-supported Scryfall request metadata. |
-| 233 | `resolveMazeLaunchState(urlParams, existing)` | Re-export | Re-exports the existing launch-state helper from `assets/js/maze-handoff.js`. |
+| 233 | `resolveMazeLaunchState(urlParams, existing)` | Re-export | Re-exports the existing launch-state helper from `assets/js/maze/maze-handoff.js`. |
 
-### `research/research-init.js`
+### `assets/js/maze/research-init.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -284,7 +284,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 | 546 | `toggleRarity(value, label)` | Window | Toggles builder rarity selection. |
 | 557 | `rebuildFromFilters()` | Window | Rebuilds search input from builder filters. |
 | 570 | `buildFilterQuery()` | Internal | Creates visual-builder query string. |
-| 579 | `resolveMazeQueryRequest(request)` | Export | Imported from `research/maze-query-core.js` so primary, quick-search, Query Inspector alternative, and route-seeded search paths resolve plain-reading, raw, exact-name, and builder requests through the contract. |
+| 579 | `resolveMazeQueryRequest(request)` | Export | Imported from `assets/js/maze/maze-query-core.js` so primary, quick-search, Query Inspector alternative, and route-seeded search paths resolve plain-reading, raw, exact-name, and builder requests through the contract. |
 | 661 | `showKwSuggestions(value)` | Window | Displays keyword autocomplete suggestions. |
 | 680 | `handleKwKey(event)` | Window | Handles keyword input key events. |
 | 692 | `addKeyword(keyword)` | Window | Adds a keyword filter. |
@@ -318,7 +318,7 @@ The rest of the file is top-level test code covering schema metadata, model/fact
 
 Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clearSearchInput`, `loadMore`, `openModal`, `closeModal`, `toggleColor`, `toggleType`, `toggleRarity`, `rebuildFromFilters`, `showKwSuggestions`, `handleKwKey`, `addKeyword`, `removeKeyword`, `runQuickSearch`, `applyFormatFilter`, `changeOrder`, and `copyQuery`.
 
-### `research/scryfall-parser.js`
+### `assets/js/maze/scryfall-parser.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -369,7 +369,7 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 | 892 | `withBaseTerms(state, oracleQuery)` | Internal | Adds oracle query to base terms. |
 | 906 | `withReplacedTermKinds(state, replacement, excludedKinds)` | Internal | Creates alternative query with replaced term kinds. |
 
-### `research/scryfall-dictionary.js`
+### `assets/js/maze/scryfall-dictionary.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -383,7 +383,7 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 | 326 | `shouldBecomeOraclePhrase(type, output)` | Internal | Decides if seed row feeds oracle phrase table. |
 | 350 | `dedupePhraseRows(rows)` | Internal | Deduplicates oracle phrase rows. |
 
-### `research/research-builder.js`
+### `assets/js/maze/research-builder.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -396,13 +396,13 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 | 125 | `hasStandaloneKeyword(value, keyword)` | Internal | Boundary-aware keyword phrase check. |
 | 134 | `escapeRegExp(value)` | Internal | Escapes regex metacharacters. |
 
-### `research/research-mode.js`
+### `assets/js/maze/research-mode.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
 | 13 | `resolveModeInputValue(state)` | Export | Preserves/translates input when switching search modes. |
 
-### `research/research-search.js`
+### `assets/js/maze/research-search.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -410,7 +410,7 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 | 23 | `scryfallExact(name)` | Export | Calls Scryfall fuzzy named-card endpoint. |
 | 37 | `scryfallRandom(query)` | Export | Calls Scryfall random endpoint. |
 
-### `research/research-syntax-language.js`
+### `assets/js/maze/research-syntax-language.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -430,7 +430,7 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 | 262 | `joinHuman(values)` | Internal | Human-readable list join. |
 | 274 | `joinOrHuman(values)` | Internal | Human-readable OR join. |
 
-### `research/research-ui.js`
+### `assets/js/maze/research-ui.js`
 
 | Line | Symbol | Scope | Purpose |
 |---:|---|---|---|
@@ -446,11 +446,11 @@ Window handlers exposed by `exposeWindowHandlers`: `setMode`, `doSearch`, `clear
 
 | File | Named functions | Notes |
 |---|---|---|
-| `research/run-tests.js` | None | Top-level imports execute the test modules. |
-| `research/scryfall-parser-tests.js` | None | Top-level test loop validates parser cases and diagnostics. |
-| `research/research-builder-tests.js` | None | Top-level test loops validate builder and keyword parser cases. |
-| `research/research-mode-tests.js` | None | Top-level test loop validates mode input transitions. |
-| `research/research-syntax-language-tests.js` | None | Top-level test loop validates syntax-to-English translation. |
+| `tests/run-tests.js` | None | Top-level imports execute the test modules. |
+| `tests/maze/scryfall-parser-tests.js` | None | Top-level test loop validates parser cases and diagnostics. |
+| `tests/maze/research-builder-tests.js` | None | Top-level test loops validate builder and keyword parser cases. |
+| `tests/maze/research-mode-tests.js` | None | Top-level test loop validates mode input transitions. |
+| `tests/maze/research-syntax-language-tests.js` | None | Top-level test loop validates syntax-to-English translation. |
 
 ## Tooling
 
@@ -598,5 +598,5 @@ Endpoint behavior: `OPTIONS` returns CORS ok, non-`POST` returns `405`, empty me
 | External command-panel HTML | Static command-panel shell. |
 | External command manifest | Command manifest data. |
 | External command-panel CSS | Command-panel styling. |
-| `research/scryfall-parser-seed-2026.json` | Parser seed data. |
+| `data/maze/scryfall-parser-seed-2026.json` | Parser seed data. |
 | `data/*.json` and `data/raw-factions/**` | Runtime/generated/source data, documented in [Data Flow Map](../architecture/data-flow-map.md). |

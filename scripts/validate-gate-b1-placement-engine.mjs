@@ -16,11 +16,11 @@ import {
   rankCandidates,
   replaySelections,
   selectNextQuestion,
-} from "../assets/js/gate-b1-placement-engine.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
 import {
   deriveGateAResultState,
   withGateAPublicState,
-} from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/archscry-presentation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const MODEL_PATH = path.join(ROOT, "data", "gate-b1-placement-model.json");

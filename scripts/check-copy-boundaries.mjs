@@ -14,14 +14,14 @@ const SCOPED_FILES = [
   "apocrypha/index.html",
   "privacy/index.html",
   "terms/index.html",
-  "assets/js/index.js",
-  "assets/js/archscry-presentation.js",
-  "assets/js/commander-dossier.js",
-  "assets/js/adaptive-placement.js",
-  "assets/js/strategium.js",
-  "assets/js/strategium-review.js",
-  "research/research-init.js",
-  "research/maze-scratchpad-store.js",
+  "assets/js/archscry/index.js",
+  "assets/js/archscry/archscry-presentation.js",
+  "assets/js/archscry/commander-dossier.js",
+  "assets/js/archscry/adaptive-placement.js",
+  "assets/js/strategium/strategium.js",
+  "assets/js/strategium/strategium-review.js",
+  "assets/js/maze/research-init.js",
+  "assets/js/maze/maze-scratchpad-store.js",
 ];
 
 const BLOCKED_PATTERNS = [

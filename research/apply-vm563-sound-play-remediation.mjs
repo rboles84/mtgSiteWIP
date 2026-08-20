@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildRuntimeCatalog } from "./build-card-rationale-artifacts.mjs";
+import { buildRuntimeCatalog } from "../scripts/build/build-card-rationale-artifacts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const write = process.argv.includes("--write");

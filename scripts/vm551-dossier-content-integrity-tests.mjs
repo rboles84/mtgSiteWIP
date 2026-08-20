@@ -6,12 +6,12 @@ import {
   buildPublicPreconRationale,
   buildReadingOmens,
   buildWhatToLookFor,
-} from "../assets/js/commander-dossier.js";
-import { presentationForFaction } from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/commander-dossier.js";
+import { presentationForFaction } from "../assets/js/archscry/archscry-presentation.js";
 import {
   CARD_VOICE_SECTION_INTRO,
   buildIdentityCardModalHeading,
-} from "../assets/js/dossier-card-review-text.js";
+} from "../assets/js/archscry/dossier-card-review-text.js";
 
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const factions = (await readJson("../data/factions.json")).factions;
@@ -20,10 +20,10 @@ const providerValidation = await readJson("../data/placement/commander-provider-
 const commanderIndex = (await readJson("../data/scryfall/indexes/commander-index.json")).commanders;
 const cardRationaleSource = await readJson("../data/dossier/card-rationale-relationships.source.json");
 const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-catalog.json");
-const indexSource = await readFile(new URL("../assets/js/index.js", import.meta.url), "utf8");
-const radarSource = await readFile(new URL("../assets/js/dossier-radar.js", import.meta.url), "utf8");
-const matrixSource = await readFile(new URL("../assets/js/vm-radar.js", import.meta.url), "utf8");
-const commanderDossierSource = await readFile(new URL("../assets/js/commander-dossier.js", import.meta.url), "utf8");
+const indexSource = await readFile(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
+const radarSource = await readFile(new URL("../assets/js/archscry/dossier-radar.js", import.meta.url), "utf8");
+const matrixSource = await readFile(new URL("../assets/js/shared/vm-radar.js", import.meta.url), "utf8");
+const commanderDossierSource = await readFile(new URL("../assets/js/archscry/commander-dossier.js", import.meta.url), "utf8");
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const preconSourceText = await readFile(new URL("../data/precons/vox-mana-precons.source.json", import.meta.url), "utf8");
 const factionsSourceText = await readFile(new URL("../data/factions.json", import.meta.url), "utf8");
@@ -165,7 +165,7 @@ const {
   renderManaCost,
   renderPlayerCopy,
   validateDossierContentCatalogs,
-} = await import("../assets/js/index.js");
+} = await import("../assets/js/archscry/index.js");
 const [placementModel, identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
   readJson("../data/gate-b1-placement-model.json"),
   readJson("../data/dossier/identity-dossier-content.catalog.json"),

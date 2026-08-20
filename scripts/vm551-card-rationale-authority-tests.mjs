@@ -6,7 +6,7 @@ import {
   buildRuntimeCatalog,
   classifyIdentityCoverage,
   validateRelationshipSource,
-} from "../research/build-card-rationale-artifacts.mjs";
+} from "./build/build-card-rationale-artifacts.mjs";
 
 const readJson = async (relativePath) => JSON.parse(await readFile(new URL(relativePath, import.meta.url), "utf8"));
 const source = await readJson("../data/dossier/card-rationale-relationships.source.json");
@@ -130,7 +130,7 @@ globalThis.document = {
   addEventListener() {}, querySelectorAll() { return []; }, querySelector() { return null; }, getElementById() { return null; }, body: {},
   createElement() { return { className: "", textContent: "", append() {}, classList: { add() {}, remove() {}, toggle() {} } }; },
 };
-const { approvedCardRationaleForFaction, buildFlavorEchoesHtml, selectApprovedCardRationales } = await import("../assets/js/index.js");
+const { approvedCardRationaleForFaction, buildFlavorEchoesHtml, selectApprovedCardRationales } = await import("../assets/js/archscry/index.js");
 const commanderIndex = (await readJson("../data/scryfall/indexes/commander-index.json")).commanders;
 const normalizeRuntimeName = (value) => String(value || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 const byName = new Map(commanderIndex.map((card) => [normalizeRuntimeName(card.name), card]));

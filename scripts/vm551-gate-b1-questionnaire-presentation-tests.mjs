@@ -3,12 +3,12 @@ import fs from "node:fs";
 import {
   buildAdaptiveProgress,
   helperTextForQuestion,
-} from "../assets/js/archscry-question-presentation.js";
+} from "../assets/js/archscry/archscry-question-presentation.js";
 
 const MODEL = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const CSS = fs.readFileSync(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const HTML = fs.readFileSync(new URL("../archscry/index.html", import.meta.url), "utf8");
-const CONTROLLER = fs.readFileSync(new URL("../assets/js/index.js", import.meta.url), "utf8");
+const CONTROLLER = fs.readFileSync(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
 const QUESTIONS = Object.values(MODEL.question_bank)
   .flat()
   .filter((question) => question?.id);

@@ -14,7 +14,7 @@ import {
   beforeGameStatementLimits,
   duringResponseCatalog,
   lifecycleConfigs,
-} from "../assets/js/strategium-lifecycle.js";
+} from "../assets/js/strategium/strategium-lifecycle.js";
 
 const root = process.cwd();
 const failures = [];

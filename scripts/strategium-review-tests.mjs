@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer-core";
 import { startCandidateServer } from "./strategium-owner-review-launch.mjs";
 
-await import("../assets/js/strategium-review-paths.js");
+await import("../assets/js/strategium/strategium-review-paths.js");
 
 const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 const browserCandidates = [
@@ -75,9 +75,9 @@ async function getResultState(page) {
 }
 
 async function runStaticChecks() {
-  const review = await readFile(path.join(root, "assets/js/strategium-review.js"), "utf8");
-  const consoleRuntime = await readFile(path.join(root, "assets/js/strategium.js"), "utf8");
-  const pathRegistry = await readFile(path.join(root, "assets/js/strategium-review-paths.js"), "utf8");
+  const review = await readFile(path.join(root, "assets/js/strategium/strategium-review.js"), "utf8");
+  const consoleRuntime = await readFile(path.join(root, "assets/js/strategium/strategium.js"), "utf8");
+  const pathRegistry = await readFile(path.join(root, "assets/js/strategium/strategium-review-paths.js"), "utf8");
   const styles = await readFile(path.join(root, "assets/css/strategium.css"), "utf8");
   const hubHtml = await readFile(path.join(root, "strategium/index.html"), "utf8");
   const reviewHtml = await readFile(path.join(root, "strategium/review/index.html"), "utf8");
@@ -127,14 +127,14 @@ async function runStaticChecks() {
   expect(reviewHtml.includes('<a href="../">Strategium</a>'), "Review footer Strategium link should target the canonical hub");
   expect(consoleHtml.includes('<a href="../">Strategium</a>'), "Console footer Strategium link should target the canonical hub");
   expect(
-    (await readFile(path.join(root, "assets/js/vm-topbar.js"), "utf8")).includes("cloneNode(true)"),
+    (await readFile(path.join(root, "assets/js/shared/vm-topbar.js"), "utf8")).includes("cloneNode(true)"),
     "Mobile navigation must continue cloning the corrected desktop navigation targets"
   );
-  expect(consoleHtml.includes("../../assets/js/strategium.js"), "Console nested-route asset paths were not repaired");
+  expect(consoleHtml.includes("../../assets/js/strategium/strategium.js"), "Console nested-route asset paths were not repaired");
   expect(reviewHtml.includes('id="strategiumLessonDialog"'), "Review route is missing the reusable lesson dialog");
   expect(reviewHtml.includes('aria-labelledby="strategiumLessonDialogTitle"'), "Lesson dialog is missing its accessible title relationship");
-  expect(reviewHtml.includes("../../assets/js/strategium-review-paths.js"), "Review route must load the shared authored-result registry");
-  expect(consoleHtml.includes("../../assets/js/strategium-review-paths.js"), "Console route must load the shared authored-result registry");
+  expect(reviewHtml.includes("../../assets/js/strategium/strategium-review-paths.js"), "Review route must load the shared authored-result registry");
+  expect(consoleHtml.includes("../../assets/js/strategium/strategium-review-paths.js"), "Console route must load the shared authored-result registry");
   for (const [route, source] of [
     ["hub", hubHtml],
     ["review", reviewHtml],

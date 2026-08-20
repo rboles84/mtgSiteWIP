@@ -35,7 +35,7 @@ UI-owned behavior:
 - Loading state and route boot sequencing.
 - Button wiring and mode presentation.
 - `localStorage` and `sessionStorage` persistence.
-- Scryfall fetch execution through `research/research-search.js`.
+- Scryfall fetch execution through `assets/js/maze/research-search.js`.
 - Query Inspector rendering, result grid rendering, card modal behavior, and Reading Finds behavior.
 
 Preserved legacy adapter boundaries:
@@ -203,7 +203,7 @@ Treat those four values as the v1 enum for dossier path entries. `resolveMazePat
 
 ## Builder Filter Inventory
 
-`MazeBuilderFilters` snapshots the current `bFilters` shape used by `research/research-init.js` and `research/research-builder.js`:
+`MazeBuilderFilters` snapshots the current `bFilters` shape used by `assets/js/maze/research-init.js` and `assets/js/maze/research-builder.js`:
 
 ```js
 {
@@ -335,11 +335,11 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 
 | Contract field | Current source file/function | Current caller or owner | Preserved behavior | Coverage | Category |
 |---|---|---|---|---|---|
-| `request.mode` | `research/research-init.js` `currentMode`, `setMode()` | Maze route controls | Only `ai`, `raw`, and `builder` are search modes. | `research-mode-tests.js`, `maze-query-contract-tests.js` | UI-owned input, core-normalized |
+| `request.mode` | `assets/js/maze/research-init.js` `currentMode`, `setMode()` | Maze route controls | Only `ai`, `raw`, and `builder` are search modes. | `research-mode-tests.js`, `maze-query-contract-tests.js` | UI-owned input, core-normalized |
 | `request.origin` | URL/handoff source around `resolveMazeLaunchState()` | Maze launch adapter | Describes source without changing search mode. | `maze-query-contract-tests.js` | Core-owned normalization |
 | `request.input` | `#search-input` in `doSearch()` and launch handling | Maze route | Raw user text or launch-seeded display text. | `maze-search-tests.js`, `maze-query-contract-tests.js` | UI-owned input |
 | `request.builderFilters` | `bFilters`, `buildFilterQuery()` | Maze builder controls | Emits current builder query strings unchanged. | `research-builder-tests.js`, `maze-query-contract-tests.js` | Core-owned translation |
-| `request.launchContext` | `assets/js/maze-handoff.js` `resolveMazeLaunchState()` | Archscry/Maze handoff adapter | Preserves operator/plain/path/return metadata. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Pass-through plus core normalization |
+| `request.launchContext` | `assets/js/maze/maze-handoff.js` `resolveMazeLaunchState()` | Archscry/Maze handoff adapter | Preserves operator/plain/path/return metadata. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Pass-through plus core normalization |
 | `request.placementContext` | `getStoredPlacementResult()`, `activePlacementResultFromArchscryHandoff()`, `createReadingPaths()` | Maze route sidebar adapter | Active handoff fit wins over stale primary placement for sidebar paths. | `maze-search-tests.js`, `archscry-adjacent-navigation-tests.js`, `maze-query-contract-tests.js` | Legacy adapter plus core path input |
 | `request.options.format` | `#sb-format`, `applySelectedFormatToQuery()` | Maze route format select | Appends `f:format` only when absent. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Core-owned normalization |
 | `request.options.order` | `currentOrder`, `changeOrder()` | Maze route sorting controls | Preserves Scryfall order metadata. | `maze-search-tests.js`, `maze-query-contract-tests.js` | Core-owned metadata |
@@ -365,21 +365,21 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 
 | Scenario | Assertion focus | Test location |
 |---|---|---|
-| Search mode union | `path` is not a mode; origins remain separate. | `research/maze-query-contract-tests.js` |
-| Plain Reading request | Executable query, `parserMode: "plain_reading"`, format append, API metadata. | `research/maze-query-contract-tests.js` |
-| Exact-name request/input | `parserMode: "exact_name"`, `/cards/named`, current modal flow preserved by adapter. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
-| Raw request | `A AND B` normalizes to `A B`, stable diagnostic code. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
-| Query Inspector diagnostics | Contract diagnostics render confidence, recognized, assumptions, warnings, unresolved terms, and alternatives without legacy adapter diagnostics. | `research/maze-search-tests.js` |
-| Builder request | Current `bFilters` inventory emits unchanged query fragments. | `research/maze-query-contract-tests.js`, `research/research-builder-tests.js` |
-| Archscry launch normalization | Origin/source metadata stays stable. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
-| Dossier path generation | Four stable `MazePathEntry` records and path types. | `research/maze-query-contract-tests.js`, `assets/js/quick-reading-tests.js`, `research/maze-search-tests.js` |
-| API metadata | `endpoint`, `order`, `unique`, and `dir` are normalized from current behavior only. | `research/maze-query-contract-tests.js`, `research/maze-search-tests.js` |
-| Pass-through stability | Launch/source fields remain unchanged unless documented. | `research/maze-query-contract-tests.js` |
-| Regression floor | Existing parser, builder, mode, Maze, placement, and presentation checks still pass. | `npm test`, `npm run test:parser`, `node research/maze-search-tests.js` |
+| Search mode union | `path` is not a mode; origins remain separate. | `tests/maze/maze-query-contract-tests.js` |
+| Plain Reading request | Executable query, `parserMode: "plain_reading"`, format append, API metadata. | `tests/maze/maze-query-contract-tests.js` |
+| Exact-name request/input | `parserMode: "exact_name"`, `/cards/named`, current modal flow preserved by adapter. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
+| Raw request | `A AND B` normalizes to `A B`, stable diagnostic code. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
+| Query Inspector diagnostics | Contract diagnostics render confidence, recognized, assumptions, warnings, unresolved terms, and alternatives without legacy adapter diagnostics. | `tests/maze/maze-search-tests.js` |
+| Builder request | Current `bFilters` inventory emits unchanged query fragments. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/research-builder-tests.js` |
+| Archscry launch normalization | Origin/source metadata stays stable. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
+| Dossier path generation | Four stable `MazePathEntry` records and path types. | `tests/maze/maze-query-contract-tests.js`, `tests/placement/quick-reading-tests.js`, `tests/maze/maze-search-tests.js` |
+| API metadata | `endpoint`, `order`, `unique`, and `dir` are normalized from current behavior only. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
+| Pass-through stability | Launch/source fields remain unchanged unless documented. | `tests/maze/maze-query-contract-tests.js` |
+| Regression floor | Existing parser, builder, mode, Maze, placement, and presentation checks still pass. | `npm test`, `npm run test:parser`, `node tests/maze/maze-search-tests.js` |
 
 ## Implementation Notes
 
-- The first reusable core surface is `research/maze-query-core.js`.
-- `research/research-init.js` remains the route adapter and still owns fetch execution, DOM behavior, stash, modal, and storage.
+- The first reusable core surface is `assets/js/maze/maze-query-core.js`.
+- `assets/js/maze/research-init.js` remains the route adapter and still owns fetch execution, DOM behavior, stash, modal, and storage.
 - `prepareRawSyntaxQuery()` and format application now live in the shared core so raw normalization is not route-local.
 - `buildDossierMazePathEntries()` remains the shared path factory for Archscry and Maze.

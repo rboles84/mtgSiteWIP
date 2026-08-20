@@ -7,7 +7,7 @@ import {
   getRefinementPath,
   observe,
   selectNextQuestion,
-} from "../assets/js/gate-b1-placement-engine.js";
+} from "../assets/js/archscry/gate-b1-placement-engine.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const MODEL = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "gate-b1-placement-model.json"), "utf8"));

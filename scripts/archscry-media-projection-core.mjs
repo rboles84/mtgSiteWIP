@@ -7,8 +7,8 @@ import {
   buildCommanderLandRecommendations,
   buildCommanderStarterCards,
   collectCommanderPreviewCandidates,
-} from "../assets/js/commander-dossier.js";
-import { classifyResultArtRecord } from "../assets/js/archscry-presentation.js";
+} from "../assets/js/archscry/commander-dossier.js";
+import { classifyResultArtRecord } from "../assets/js/archscry/archscry-presentation.js";
 
 export const ARCHSCRY_MEDIA_SCHEMA_VERSION = "1.0.0";
 export const ARCHSCRY_MEDIA_INDEX_FILE = "archscry-media-index.json";

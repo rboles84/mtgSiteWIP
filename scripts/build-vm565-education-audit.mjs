@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import {
   buildCommanderDossier,
   createArchidektTagCatalog,
-} from "../assets/js/commander-dossier.js";
+} from "../assets/js/archscry/commander-dossier.js";
 import {
   VM565_EXISTING_TERM_OVERRIDES,
   VM565_NEW_TERM_TARGETS,

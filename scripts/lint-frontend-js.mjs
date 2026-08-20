@@ -2,16 +2,16 @@ import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 
 const files = [
-  "assets/js/archscry-presentation.js",
-  "assets/js/gate-b1-runtime-contract.js",
-  "assets/js/index.js",
-  "assets/js/home.js",
-  "assets/js/strategium.js",
-  "assets/js/strategium-hub.js",
-  "assets/js/strategium-review-paths.js",
-  "assets/js/strategium-review.js",
-  "research/research-init.js",
-  "research/research-ui.js",
+  "assets/js/archscry/archscry-presentation.js",
+  "assets/js/archscry/gate-b1-runtime-contract.js",
+  "assets/js/archscry/index.js",
+  "assets/js/home/home.js",
+  "assets/js/strategium/strategium.js",
+  "assets/js/strategium/strategium-hub.js",
+  "assets/js/strategium/strategium-review-paths.js",
+  "assets/js/strategium/strategium-review.js",
+  "assets/js/maze/research-init.js",
+  "assets/js/maze/research-ui.js",
 ];
 
 let failed = false;
@@ -35,14 +35,14 @@ for (const file of files) {
   }
 }
 
-const archscrySource = await readFile("assets/js/index.js", "utf8");
+const archscrySource = await readFile("assets/js/archscry/index.js", "utf8");
 if (archscrySource.includes("document.body.innerHTML")) {
   failed = true;
-  process.stderr.write("Unsafe body-level HTML injection is still present in assets/js/index.js\n");
+  process.stderr.write("Unsafe body-level HTML injection is still present in assets/js/archscry/index.js\n");
 }
 if (archscrySource.includes("avatar.innerHTML")) {
   failed = true;
-  process.stderr.write("Unsafe avatar innerHTML usage is still present in assets/js/index.js\n");
+  process.stderr.write("Unsafe avatar innerHTML usage is still present in assets/js/archscry/index.js\n");
 }
 
 if (failed) {

@@ -78,7 +78,7 @@ Return:
 
 ## Data Pipeline — Source vs. Generated
 
-`data/placement-model.json` is **written by `research/build-faction-artifacts.mjs`**.
+`data/placement-model.json` is **written by `scripts/build/build-faction-artifacts.mjs`**.
 Do not hand-author it directly. Update the raw source files instead.
 
 Raw source lives at: `data/raw-factions/[faction]/`
@@ -161,7 +161,7 @@ Use simple visual analogies: HTML is the skeleton, CSS is the paint and spacing,
 npm test
 npm run test:placement
 npm run test:parser
-node research/archscry-dossier-followup-tests.js
+node tests/archscry/archscry-dossier-followup-tests.js
 ```
 
 ---

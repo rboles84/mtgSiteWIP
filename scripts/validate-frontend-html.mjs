@@ -20,8 +20,8 @@ const sources = Object.fromEntries(
   )
 );
 const scriptSources = {
-  topbar: await readFile("assets/js/vm-topbar.js", "utf8"),
-  maze: await readFile("research/research-init.js", "utf8"),
+  topbar: await readFile("assets/js/shared/vm-topbar.js", "utf8"),
+  maze: await readFile("assets/js/maze/research-init.js", "utf8"),
 };
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
 
@@ -105,14 +105,14 @@ function countMatches(source, pattern) {
 }
 
 const mazeRouteModules = [
-  "research/research-init.js",
-  "research/research-search.js",
-  "research/research-ui.js",
-  "research/research-builder.js",
-  "research/research-mode.js",
-  "research/maze-query-core.js",
-  "research/scryfall-dictionary.js",
-  "research/scryfall-parser.js",
+  "assets/js/maze/research-init.js",
+  "assets/js/maze/research-search.js",
+  "assets/js/maze/research-ui.js",
+  "assets/js/maze/research-builder.js",
+  "assets/js/maze/research-mode.js",
+  "assets/js/maze/maze-query-core.js",
+  "assets/js/maze/scryfall-dictionary.js",
+  "assets/js/maze/scryfall-parser.js",
 ];
 const liveFontRegressionFiles = [
   ...new Set([
@@ -215,13 +215,13 @@ for (const key of livePublicPageKeys) {
 expectAbsent(
   scriptSources.topbar,
   /setAttribute\(\s*["']role["']\s*,\s*["']menuitem["']\s*\)/i,
-  "assets/js/vm-topbar.js should keep mirrored mobile links as plain links"
+  "assets/js/shared/vm-topbar.js should keep mirrored mobile links as plain links"
 );
 expect(
   scriptSources.maze.includes('const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]"') &&
     scriptSources.maze.includes("setModalBackgroundInert(true)") &&
     scriptSources.maze.includes("setModalBackgroundInert(false)"),
-  "research/research-init.js should toggle inert background content for the Maze modal"
+  "assets/js/maze/research-init.js should toggle inert background content for the Maze modal"
 );
 
 expectAbsent(
@@ -248,8 +248,8 @@ expect(
   'index.html should load "./assets/css/home.css"'
 );
 expect(
-  sources.home.includes('<script src="./assets/js/home.js" defer></script>'),
-  'index.html should load "./assets/js/home.js" as a deferred external script'
+  sources.home.includes('<script src="./assets/js/home/home.js" defer></script>'),
+  'index.html should load "./assets/js/home/home.js" as a deferred external script'
 );
 expectAbsent(
   sources.home,
@@ -266,8 +266,8 @@ expect(
   'strategium/index.html should load "../assets/css/strategium.css"'
 );
 expect(
-  sources.strategium.includes('<script src="../assets/js/strategium.js" defer></script>'),
-  'strategium/index.html should load "../assets/js/strategium.js" as a deferred external script'
+  sources.strategium.includes('<script src="../assets/js/strategium/strategium.js" defer></script>'),
+  'strategium/index.html should load "../assets/js/strategium/strategium.js" as a deferred external script'
 );
 expectAbsent(
   sources.strategium,
@@ -313,7 +313,7 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../research/research-init.js"'),
+  sources.maze.includes('src="../assets/js/maze/research-init.js"'),
   "maze/index.html should load the module from a relative file-safe path"
 );
 expect(

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze-handoff.js";
+import { buildDossierMazePathEntries, validateMazeSemanticParity } from "../assets/js/maze/maze-handoff.js";
 
 const factions = JSON.parse(await readFile(new URL("../data/factions.json", import.meta.url), "utf8")).factions;
 const forbiddenInvisibleRestriction = /(?:^|\s)[-+]?(?:o|oracle|t|type|ft|flavor|usd|eur|tix|set|e|rarity|r|legal|format):/i;

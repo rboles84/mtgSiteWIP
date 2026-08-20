@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { createScryfallNamedCardLookup } from "../assets/js/scryfall-card-cache.js";
+import { createScryfallNamedCardLookup } from "../assets/js/archscry/scryfall-card-cache.js";
 
 class MemoryStorage {
   #values = new Map();

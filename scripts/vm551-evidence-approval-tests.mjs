@@ -38,11 +38,11 @@ assert.equal(validateAutomaticApproval({ ...valid, fact_source_locators: [] }).p
 assert.equal(validateAutomaticApproval({
   ...valid,
   content_class: "VERIFIED_RUNTIME_CONTRACT",
-  fact_source_locators: ["assets/js/archscry-presentation.js#buildMazeRouteQuery"],
+  fact_source_locators: ["assets/js/archscry/archscry-presentation.js#buildMazeRouteQuery"],
 }).passed, true);
 assert.equal(validateAutomaticApproval({
   ...valid,
-  fact_source_locators: ["assets/js/archscry-presentation.js#buildMazeRouteQuery"],
+  fact_source_locators: ["assets/js/archscry/archscry-presentation.js#buildMazeRouteQuery"],
 }).passed, false);
 const selfDisqualifying = validateAutomaticApproval({
   ...valid,

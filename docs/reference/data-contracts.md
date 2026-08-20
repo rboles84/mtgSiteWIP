@@ -30,7 +30,7 @@ VM-335 recorded mono colors as a transitional Layer 1 exception. VM-377 replaces
 
 ## Identity preview registry
 
-`data/identity-layers.json` owns the canonical Home preview metadata for the 37-expression v1 Home Identity Signal. `assets/js/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-389 promotes the historical 20-expression preview baseline plus the live shard, wedge, four-color, `COLORLESS`, and `WUBRG` identities into Home preview visibility without adding public routes, lowercase aliases, Maze behavior, directory links, schema/API changes, generated-data hand edits, or placement-model behavior changes.
+`data/identity-layers.json` owns the canonical Home preview metadata for the 37-expression v1 Home Identity Signal. `assets/js/home/home.js` fetches this registry, selects entries where `preview_eligible` is `true`, sorts by `preview_order`, and keeps `data/factions.json` as the lore-note source. VM-389 promotes the historical 20-expression preview baseline plus the live shard, wedge, four-color, `COLORLESS`, and `WUBRG` identities into Home preview visibility without adding public routes, lowercase aliases, Maze behavior, directory links, schema/API changes, generated-data hand edits, or placement-model behavior changes.
 
 For mono colors, the same registry owns active membership, routing metadata, and display-generation inputs. Source-backed mono display, placement, Commander support, and discriminator fields must trace to the VM-377 raw packets and promoted mono source-intake bundle, not to generated/runtime output alone.
 
@@ -94,8 +94,8 @@ The Archscry precon layer uses its own raw-plus-generated lane:
 
 - `data/precons/vox-mana-precons.source.json` keeps the checked-in authoring source for curated Commander precons.
 - `data/taxonomy/vox-mana-precon-themes.json` keeps the normalized Commander theme language used for ranking and presentation.
-- `research/build-precon-artifacts.mjs` validates both source files, normalizes color identity and theme metadata, and emits the runtime artifact.
-- `research/import-precon-mechanics-validation.mjs` is a Node-only staging importer for the completed XLSX mechanics workbook. It updates canonical source JSON only, and the workbook is never browser/runtime input.
+- `scripts/build/build-precon-artifacts.mjs` validates both source files, normalizes color identity and theme metadata, and emits the runtime artifact.
+- `scripts/build/import-precon-mechanics-validation.mjs` is a Node-only staging importer for the completed XLSX mechanics workbook. It updates canonical source JSON only, and the workbook is never browser/runtime input.
 - `data/precons/vox-mana-precon-catalog.json` is the browser-loaded runtime surface for dossier precon cards.
 - Precon source text is expected to stay UTF-8 clean. The builder now fails on `U+FFFD` replacement characters so corrupted commander names do not silently ship into rendered cards or outbound links.
 - VM-139 imported the completed 155-row mechanics validation workbook. All 155 rows were marked safe for placement dossier use; the workbook provenance notes 130 rows where mechanics changed, while the importer reports actual changed/unchanged counts from normalized source comparison.
@@ -131,7 +131,7 @@ The dossier presenter layer decides `nativeExact`, `otherExact`, and `stretch` l
 
 ## Card-rationale artifacts
 
-`research/build-card-rationale-artifacts.mjs` validates canonical relationship records against raw faction claim/source packets and the committed Scryfall Commander index, then emits the approved-only runtime catalog and all-37 audit artifacts. Generated faction records, flavor snippets, tag overlap, color identity, and UI selection order cannot create a card relationship.
+`scripts/build/build-card-rationale-artifacts.mjs` validates canonical relationship records against raw faction claim/source packets and the committed Scryfall Commander index, then emits the approved-only runtime catalog and all-37 audit artifacts. Generated faction records, flavor snippets, tag overlap, color identity, and UI selection order cannot create a card relationship.
 
 Newly surfaced or newly written rationale remains `REVIEW_REQUIRED` until an explicit owner decision is recorded in the source record. Runtime ordering is deterministic and limited to three approved records per identity; zero is valid and causes the section to omit safely.
 
@@ -273,7 +273,7 @@ Notes:
 
 ## Commander dossier result summary strip
 
-`assets/js/commander-dossier.js` now builds a DOM-free `resultSummaryStrip` contract before `assets/js/index.js` renders the Archscry placement strip.
+`assets/js/archscry/commander-dossier.js` now builds a DOM-free `resultSummaryStrip` contract before `assets/js/archscry/index.js` renders the Archscry placement strip.
 
 The renderer should consume the completed summary object only. It should not perform adjacent selection, signal-band parsing, copy cleanup, or fallback resolution inside the DOM layer.
 
@@ -346,8 +346,8 @@ Reactivation boundary: account-backed deck-link saving must stay hidden until th
 Frontend surfaces:
 
 - VM-458 hides the Archscry `Account Deck Links` dossier panel, deck-link form, saved-link list, save button, and active action dispatch from the current public flow. Do not restore those surfaces without owner reactivation approval and VM-446 live RLS proof.
-- Dormant VM-422 code in `assets/js/index.js` and related deck-link modules must continue to use DOM/text APIs if later revived.
-- `assets/js/community-deck-ledger.js` is dormant future-ready code. It is not linked or loaded by Apocrypha v1.
+- Dormant VM-422 code in `assets/js/archscry/index.js` and related deck-link modules must continue to use DOM/text APIs if later revived.
+- `assets/js/apocrypha/community-deck-ledger.js` is dormant future-ready code. It is not linked or loaded by Apocrypha v1.
 - The public Apocrypha route must not expose Community Deck Ledger UI, voting controls, private saved links, or raw Supabase schema/policy/table errors to visitors.
 - `npm run test:deck-links:live` runs the optional live Supabase RLS verifier once test-user credentials and a service-role key are available.
 ## Card-Voice Slot And Publication Contract

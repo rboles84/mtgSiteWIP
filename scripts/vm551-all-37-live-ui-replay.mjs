@@ -8,8 +8,8 @@ import { stat } from "node:fs/promises";
 import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
-import { finalizeReading, replaySelections } from "../assets/js/gate-b1-placement-engine.js";
-import { withGateAPublicState } from "../assets/js/archscry-presentation.js";
+import { finalizeReading, replaySelections } from "../assets/js/archscry/gate-b1-placement-engine.js";
+import { withGateAPublicState } from "../assets/js/archscry/archscry-presentation.js";
 import {
   VM565_EXISTING_TERM_OVERRIDES,
   VM565_NEW_TERM_TARGETS,

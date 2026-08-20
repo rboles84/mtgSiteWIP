@@ -2847,7 +2847,7 @@ body::before{
 .how-this-plays-label + .table-identity-list{margin-top:0}
 .table-identity-list{display:flex;flex-direction:column;gap:0.56rem;margin:0}
 .table-identity-list div{margin:0;color:rgba(236,233,225,0.93);font-size:1rem;line-height:1.48}
-.table-identity-list span{
+.table-identity-list > div > span:first-child{
   display:block;
   margin-bottom:0.04rem;
   font-family:var(--font-mono);
