@@ -5,10 +5,10 @@
     "source_endpoint": "https://api.scryfall.com/bulk-data",
     "bulk_id": "27bf3214-1271-490b-bdfe-c0be6c23d02e",
     "bulk_type": "oracle_cards",
-    "bulk_updated_at": "2026-05-14T21:03:29.973+00:00",
-    "downloaded_at": "2026-05-15T06:25:20.295Z",
+    "bulk_updated_at": "2026-08-20T21:01:56.219+00:00",
+    "downloaded_at": "2026-08-21T02:48:16.052Z",
     "text_guardrail": "slim-derived-index: full oracle_text and flavor_text are not committed; only short display excerpts and derived tags are stored.",
-    "source_card_count": 37442
+    "source_card_count": 38626
   },
   "files": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "path": "data/scryfall/indexes/commander-index.json",
-      "records": 2977
+      "records": 3399
     },
     {
       "path": "data/scryfall/indexes/color-theme-index.json",
@@ -29,7 +29,7 @@
     },
     {
       "path": "data/scryfall/indexes/archscry-media-index.json",
-      "records": 572
+      "records": 655
     },
     {
       "path": "data/scryfall/indexes/archscry-media-manifest.json",

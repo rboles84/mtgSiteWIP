@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "task": "VM-574",
+  "checked_projection": "data/scryfall/indexes/archscry-media-index.json",
+  "generated_at": "2026-08-21T03:00:55.433Z",
+  "final_card_signal_slots": 333,
+  "final_unique_resolver_keys": 278,
+  "production_resolver_records_present": 278,
+  "production_resolver_coverage": "278/278",
+  "visible_slot_production_media_coverage": "333/333",
+  "missing_count": 0,
+  "missing_slot_count": 0,
+  "missing": [],
+  "validation": {
+    "unique_resolver_coverage_pass": true,
+    "visible_slot_coverage_pass": true,
+    "no_raw_scryfall_fallback_counted": true,
+    "projection_records": 655
+  }
+}

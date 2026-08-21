@@ -1,0 +1,5135 @@
+{
+  "schema_version": "1.0.0",
+  "task": "VM-569",
+  "generated_at": "2026-08-21T02:57:05.220Z",
+  "source_bulk": {
+    "type": "oracle_cards",
+    "bulk_id": "27bf3214-1271-490b-bdfe-c0be6c23d02e",
+    "updated_at": "2026-08-20T21:01:56.219+00:00",
+    "download_uri": "https://data.scryfall.io/oracle-cards/oracle-cards-20260820210156.jsonl.gz",
+    "card_count": 38626,
+    "sha256": "09b827a3d202c6b5695ab64300f93f1b03c3d1fb4746b02c33a2eaeb9dee9155"
+  },
+  "summary": {
+    "prior_projection_records": 572,
+    "refreshed_candidate_records": 655,
+    "common_keys_checked": 509,
+    "query_hash_only_url_drift": 451,
+    "safe_printing_refresh_count": 58,
+    "semantic_selection_change_count": 0,
+    "prior_keys_absent_from_current_authored_inventory": 63,
+    "new_candidate_keys": 146,
+    "old_inventory_unique_keys": 573,
+    "current_inventory_unique_keys": 655,
+    "inventory_delta_reconciles_removed": false,
+    "inventory_delta_reconciles_added": false,
+    "inventory_delta_reconciles_staged_vm574_removed_count": 62,
+    "inventory_delta_reconciles_staged_vm574_added_count": 144,
+    "inventory_delta_preexisting_vm569_removed_keys": [
+      "danitha capashen paragon"
+    ],
+    "inventory_delta_preexisting_vm569_added_keys": [
+      "crystal inhuman princess",
+      "group project"
+    ],
+    "inventory_delta_reconciles_to_current_authored_content": true
+  },
+  "safe_printing_refreshes": [
+    {
+      "resolver_key": "bastion of remembrance",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Bastion of Remembrance",
+        "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+        "scryfall_id": "9d0c6077-f84c-4e91-87dc-b0ac81d557f8",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Bastion of Remembrance",
+        "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+        "scryfall_id": "6fe6ccad-e303-48f9-9dfa-0db7c1878031",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/9/d/9d0c6077-f84c-4e91-87dc-b0ac81d557f8.jpg",
+          "new_pathname": "/normal/front/6/f/6fe6ccad-e303-48f9-9dfa-0db7c1878031.jpg",
+          "old_search": "?1743206432",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/9/d/9d0c6077-f84c-4e91-87dc-b0ac81d557f8.jpg",
+          "new_pathname": "/art_crop/front/6/f/6fe6ccad-e303-48f9-9dfa-0db7c1878031.jpg",
+          "old_search": "?1743206432",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/9/d/9d0c6077-f84c-4e91-87dc-b0ac81d557f8.jpg",
+          "new_pathname": "/small/front/6/f/6fe6ccad-e303-48f9-9dfa-0db7c1878031.jpg",
+          "old_search": "?1743206432",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "beast within",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Beast Within",
+        "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+        "scryfall_id": "2a000bb0-1dc4-4fda-b26d-d89cc8daf930",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Beast Within",
+        "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+        "scryfall_id": "400b43aa-c1d2-4435-b863-061f43889422",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/2/a/2a000bb0-1dc4-4fda-b26d-d89cc8daf930.jpg",
+          "new_pathname": "/normal/front/4/0/400b43aa-c1d2-4435-b863-061f43889422.jpg",
+          "old_search": "?1775941439",
+          "old_hash": "",
+          "new_search": "?1783903232",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/2/a/2a000bb0-1dc4-4fda-b26d-d89cc8daf930.jpg",
+          "new_pathname": "/art_crop/front/4/0/400b43aa-c1d2-4435-b863-061f43889422.jpg",
+          "old_search": "?1775941439",
+          "old_hash": "",
+          "new_search": "?1783903232",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/2/a/2a000bb0-1dc4-4fda-b26d-d89cc8daf930.jpg",
+          "new_pathname": "/small/front/4/0/400b43aa-c1d2-4435-b863-061f43889422.jpg",
+          "old_search": "?1775941439",
+          "old_hash": "",
+          "new_search": "?1783903232",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "blasphemous act",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Blasphemous Act",
+        "oracle_id": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+        "scryfall_id": "175eb155-7262-4c2e-85c3-e0cc9be855e5",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Blasphemous Act",
+        "oracle_id": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+        "scryfall_id": "7d4b1d44-126e-4987-9a9f-f0f9627a09cb",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/1/7/175eb155-7262-4c2e-85c3-e0cc9be855e5.jpg",
+          "new_pathname": "/normal/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg",
+          "old_search": "?1775941242",
+          "old_hash": "",
+          "new_search": "?1783903234",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/1/7/175eb155-7262-4c2e-85c3-e0cc9be855e5.jpg",
+          "new_pathname": "/art_crop/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg",
+          "old_search": "?1775941242",
+          "old_hash": "",
+          "new_search": "?1783903234",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/1/7/175eb155-7262-4c2e-85c3-e0cc9be855e5.jpg",
+          "new_pathname": "/small/front/7/d/7d4b1d44-126e-4987-9a9f-f0f9627a09cb.jpg",
+          "old_search": "?1775941242",
+          "old_hash": "",
+          "new_search": "?1783903234",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "blood crypt",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Blood Crypt",
+        "oracle_id": "43985bbc-a0f6-4812-984e-392bc8562633",
+        "scryfall_id": "6da63cc5-4624-4491-abd9-9b600c3fefe2",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Blood Crypt",
+        "oracle_id": "43985bbc-a0f6-4812-984e-392bc8562633",
+        "scryfall_id": "1b7eb998-3ec0-4cbc-a416-5a1e3e5a7316",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg",
+          "new_pathname": "/normal/front/1/b/1b7eb998-3ec0-4cbc-a416-5a1e3e5a7316.jpg",
+          "old_search": "?1759144844",
+          "old_hash": "",
+          "new_search": "?1784036817",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg",
+          "new_pathname": "/art_crop/front/1/b/1b7eb998-3ec0-4cbc-a416-5a1e3e5a7316.jpg",
+          "old_search": "?1759144844",
+          "old_hash": "",
+          "new_search": "?1784036817",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg",
+          "new_pathname": "/small/front/1/b/1b7eb998-3ec0-4cbc-a416-5a1e3e5a7316.jpg",
+          "old_search": "?1759144844",
+          "old_hash": "",
+          "new_search": "?1784036817",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "bountiful promenade",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Bountiful Promenade",
+        "oracle_id": "761cb262-f83b-4a99-9345-b773182a7671",
+        "scryfall_id": "5125a8d8-344d-4419-b37a-ddf343493c5f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Bountiful Promenade",
+        "oracle_id": "761cb262-f83b-4a99-9345-b773182a7671",
+        "scryfall_id": "f0b11ba3-68ba-4067-af40-2a55e31b395e",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/1/5125a8d8-344d-4419-b37a-ddf343493c5f.jpg",
+          "new_pathname": "/normal/front/f/0/f0b11ba3-68ba-4067-af40-2a55e31b395e.jpg",
+          "old_search": "?1749722754",
+          "old_hash": "",
+          "new_search": "?1783903209",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/1/5125a8d8-344d-4419-b37a-ddf343493c5f.jpg",
+          "new_pathname": "/art_crop/front/f/0/f0b11ba3-68ba-4067-af40-2a55e31b395e.jpg",
+          "old_search": "?1749722754",
+          "old_hash": "",
+          "new_search": "?1783903209",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/1/5125a8d8-344d-4419-b37a-ddf343493c5f.jpg",
+          "new_pathname": "/small/front/f/0/f0b11ba3-68ba-4067-af40-2a55e31b395e.jpg",
+          "old_search": "?1749722754",
+          "old_hash": "",
+          "new_search": "?1783903209",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "breeding pool",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Breeding Pool",
+        "oracle_id": "20283c4a-f1f0-42f0-bc08-6da87474426b",
+        "scryfall_id": "3c750d5a-f743-41ff-b5ba-02025ca0bec2",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Breeding Pool",
+        "oracle_id": "20283c4a-f1f0-42f0-bc08-6da87474426b",
+        "scryfall_id": "63e4dc07-c742-41bd-8301-861637908fd1",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/3/c/3c750d5a-f743-41ff-b5ba-02025ca0bec2.jpg",
+          "new_pathname": "/normal/front/6/3/63e4dc07-c742-41bd-8301-861637908fd1.jpg",
+          "old_search": "?1752947580",
+          "old_hash": "",
+          "new_search": "?1784036820",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/3/c/3c750d5a-f743-41ff-b5ba-02025ca0bec2.jpg",
+          "new_pathname": "/art_crop/front/6/3/63e4dc07-c742-41bd-8301-861637908fd1.jpg",
+          "old_search": "?1752947580",
+          "old_hash": "",
+          "new_search": "?1784036820",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/3/c/3c750d5a-f743-41ff-b5ba-02025ca0bec2.jpg",
+          "new_pathname": "/small/front/6/3/63e4dc07-c742-41bd-8301-861637908fd1.jpg",
+          "old_search": "?1752947580",
+          "old_hash": "",
+          "new_search": "?1784036820",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "chaos warp",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Chaos Warp",
+        "oracle_id": "07a0cba9-8768-4fd9-a3d5-b0f83b4bf8e8",
+        "scryfall_id": "65ae241c-8955-4c97-8be6-7356fbee2195",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Chaos Warp",
+        "oracle_id": "07a0cba9-8768-4fd9-a3d5-b0f83b4bf8e8",
+        "scryfall_id": "fb8d8106-b9bd-405c-886e-72fc301c65e1",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/5/65ae241c-8955-4c97-8be6-7356fbee2195.jpg",
+          "new_pathname": "/normal/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg",
+          "old_search": "?1775941250",
+          "old_hash": "",
+          "new_search": "?1785759418",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/5/65ae241c-8955-4c97-8be6-7356fbee2195.jpg",
+          "new_pathname": "/art_crop/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg",
+          "old_search": "?1775941250",
+          "old_hash": "",
+          "new_search": "?1785759418",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/5/65ae241c-8955-4c97-8be6-7356fbee2195.jpg",
+          "new_pathname": "/small/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg",
+          "old_search": "?1775941250",
+          "old_hash": "",
+          "new_search": "?1785759418",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "choked estuary",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Choked Estuary",
+        "oracle_id": "d473b507-8c33-4118-bc10-b0a268776074",
+        "scryfall_id": "e9ad18b2-1061-4893-9171-07ffe142a762",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Choked Estuary",
+        "oracle_id": "d473b507-8c33-4118-bc10-b0a268776074",
+        "scryfall_id": "0c37e84e-e7e0-4dfe-bf17-daeb2e434861",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.jpg",
+          "new_pathname": "/normal/front/0/c/0c37e84e-e7e0-4dfe-bf17-daeb2e434861.jpg",
+          "old_search": "?1706241137",
+          "old_hash": "",
+          "new_search": "?1783903208",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.jpg",
+          "new_pathname": "/art_crop/front/0/c/0c37e84e-e7e0-4dfe-bf17-daeb2e434861.jpg",
+          "old_search": "?1706241137",
+          "old_hash": "",
+          "new_search": "?1783903208",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.jpg",
+          "new_pathname": "/small/front/0/c/0c37e84e-e7e0-4dfe-bf17-daeb2e434861.jpg",
+          "old_search": "?1706241137",
+          "old_hash": "",
+          "new_search": "?1783903208",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "clifftop retreat",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Clifftop Retreat",
+        "oracle_id": "d7faa3c8-46cf-46b2-bfa4-89000307cf18",
+        "scryfall_id": "09d0e0dd-28e6-4d78-b768-b08188681d92",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Clifftop Retreat",
+        "oracle_id": "d7faa3c8-46cf-46b2-bfa4-89000307cf18",
+        "scryfall_id": "4a7f7767-1959-4812-8654-0a22634096b1",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/0/9/09d0e0dd-28e6-4d78-b768-b08188681d92.jpg",
+          "new_pathname": "/normal/front/4/a/4a7f7767-1959-4812-8654-0a22634096b1.jpg",
+          "old_search": "?1775942159",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/0/9/09d0e0dd-28e6-4d78-b768-b08188681d92.jpg",
+          "new_pathname": "/art_crop/front/4/a/4a7f7767-1959-4812-8654-0a22634096b1.jpg",
+          "old_search": "?1775942159",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/0/9/09d0e0dd-28e6-4d78-b768-b08188681d92.jpg",
+          "new_pathname": "/small/front/4/a/4a7f7767-1959-4812-8654-0a22634096b1.jpg",
+          "old_search": "?1775942159",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "coastal peak",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Coastal Peak",
+        "oracle_id": "0e25faa2-efb0-4ca5-b280-18c38faa860c",
+        "scryfall_id": "a8af6ded-de96-4095-8a5b-9f1c79adea1a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Coastal Peak",
+        "oracle_id": "0e25faa2-efb0-4ca5-b280-18c38faa860c",
+        "scryfall_id": "d2a70a9d-2d9f-4afd-9393-8d6518936ee2",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/8/a8af6ded-de96-4095-8a5b-9f1c79adea1a.jpg",
+          "new_pathname": "/normal/front/d/2/d2a70a9d-2d9f-4afd-9393-8d6518936ee2.jpg",
+          "old_search": "?1778572019",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/8/a8af6ded-de96-4095-8a5b-9f1c79adea1a.jpg",
+          "new_pathname": "/art_crop/front/d/2/d2a70a9d-2d9f-4afd-9393-8d6518936ee2.jpg",
+          "old_search": "?1778572019",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/8/a8af6ded-de96-4095-8a5b-9f1c79adea1a.jpg",
+          "new_pathname": "/small/front/d/2/d2a70a9d-2d9f-4afd-9393-8d6518936ee2.jpg",
+          "old_search": "?1778572019",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "command tower",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Command Tower",
+        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "scryfall_id": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Command Tower",
+        "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "scryfall_id": "0548fb60-c843-4f8f-a029-6f10efc63a41",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/c/4/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3.jpg",
+          "new_pathname": "/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg",
+          "old_search": "?1775940525",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/c/4/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3.jpg",
+          "new_pathname": "/art_crop/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg",
+          "old_search": "?1775940525",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/c/4/c46a217c-0ed2-4b3c-9a01-ee38d12d76f3.jpg",
+          "new_pathname": "/small/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg",
+          "old_search": "?1775940525",
+          "old_hash": "",
+          "new_search": "?1783903206",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "crumbling necropolis",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Crumbling Necropolis",
+        "oracle_id": "7190debf-708b-4f41-9714-0d0a5bd5a74e",
+        "scryfall_id": "d3600e12-5633-42fd-b1cc-e90790a16b20",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Crumbling Necropolis",
+        "oracle_id": "7190debf-708b-4f41-9714-0d0a5bd5a74e",
+        "scryfall_id": "d28542af-936f-44e5-a4e3-119f23c9f0d6",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/d/3/d3600e12-5633-42fd-b1cc-e90790a16b20.jpg",
+          "new_pathname": "/normal/front/d/2/d28542af-936f-44e5-a4e3-119f23c9f0d6.jpg",
+          "old_search": "?1698988567",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/d/3/d3600e12-5633-42fd-b1cc-e90790a16b20.jpg",
+          "new_pathname": "/art_crop/front/d/2/d28542af-936f-44e5-a4e3-119f23c9f0d6.jpg",
+          "old_search": "?1698988567",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/d/3/d3600e12-5633-42fd-b1cc-e90790a16b20.jpg",
+          "new_pathname": "/small/front/d/2/d28542af-936f-44e5-a4e3-119f23c9f0d6.jpg",
+          "old_search": "?1698988567",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "dark deal",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Dark Deal",
+        "oracle_id": "c527eb80-ccac-40b8-8377-c31121613128",
+        "scryfall_id": "69dfaafe-2fbd-4f2f-913d-ea64e4ce44cd",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Dark Deal",
+        "oracle_id": "c527eb80-ccac-40b8-8377-c31121613128",
+        "scryfall_id": "d6f0fcd5-232f-4e99-8cfc-ea0fe9c915a6",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/9/69dfaafe-2fbd-4f2f-913d-ea64e4ce44cd.jpg",
+          "new_pathname": "/normal/front/d/6/d6f0fcd5-232f-4e99-8cfc-ea0fe9c915a6.jpg",
+          "old_search": "?1562826140",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/9/69dfaafe-2fbd-4f2f-913d-ea64e4ce44cd.jpg",
+          "new_pathname": "/art_crop/front/d/6/d6f0fcd5-232f-4e99-8cfc-ea0fe9c915a6.jpg",
+          "old_search": "?1562826140",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/9/69dfaafe-2fbd-4f2f-913d-ea64e4ce44cd.jpg",
+          "new_pathname": "/small/front/d/6/d6f0fcd5-232f-4e99-8cfc-ea0fe9c915a6.jpg",
+          "old_search": "?1562826140",
+          "old_hash": "",
+          "new_search": "?1783904806",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "dragonskull summit",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Dragonskull Summit",
+        "oracle_id": "63398c02-6fb1-481d-9d9f-81063532fbc0",
+        "scryfall_id": "897976cb-a242-493e-b215-843bcdb6b44d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Dragonskull Summit",
+        "oracle_id": "63398c02-6fb1-481d-9d9f-81063532fbc0",
+        "scryfall_id": "d20e433a-eb62-4301-bc20-bfe27468b033",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/8/9/897976cb-a242-493e-b215-843bcdb6b44d.jpg",
+          "new_pathname": "/normal/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg",
+          "old_search": "?1771424576",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/8/9/897976cb-a242-493e-b215-843bcdb6b44d.jpg",
+          "new_pathname": "/art_crop/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg",
+          "old_search": "?1771424576",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/8/9/897976cb-a242-493e-b215-843bcdb6b44d.jpg",
+          "new_pathname": "/small/front/d/2/d20e433a-eb62-4301-bc20-bfe27468b033.jpg",
+          "old_search": "?1771424576",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "drowned catacomb",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Drowned Catacomb",
+        "oracle_id": "819fc966-434e-470f-91e9-a38df974ad17",
+        "scryfall_id": "07b4a6dd-0e2f-43be-93c6-7578c34a9443",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Drowned Catacomb",
+        "oracle_id": "819fc966-434e-470f-91e9-a38df974ad17",
+        "scryfall_id": "ebea49ab-e5cf-46d9-ae35-226a7321ede0",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/0/7/07b4a6dd-0e2f-43be-93c6-7578c34a9443.jpg",
+          "new_pathname": "/normal/front/e/b/ebea49ab-e5cf-46d9-ae35-226a7321ede0.jpg",
+          "old_search": "?1712354997",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/0/7/07b4a6dd-0e2f-43be-93c6-7578c34a9443.jpg",
+          "new_pathname": "/art_crop/front/e/b/ebea49ab-e5cf-46d9-ae35-226a7321ede0.jpg",
+          "old_search": "?1712354997",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/0/7/07b4a6dd-0e2f-43be-93c6-7578c34a9443.jpg",
+          "new_pathname": "/small/front/e/b/ebea49ab-e5cf-46d9-ae35-226a7321ede0.jpg",
+          "old_search": "?1712354997",
+          "old_hash": "",
+          "new_search": "?1783903205",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "evolving wilds",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Evolving Wilds",
+        "oracle_id": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+        "scryfall_id": "a30f5555-2fbe-4c88-9e4f-1f2e81ea6cfd",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Evolving Wilds",
+        "oracle_id": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+        "scryfall_id": "c0318a48-30e4-4ef7-be3d-5e561c5ce428",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/3/a30f5555-2fbe-4c88-9e4f-1f2e81ea6cfd.jpg",
+          "new_pathname": "/normal/front/c/0/c0318a48-30e4-4ef7-be3d-5e561c5ce428.jpg",
+          "old_search": "?1771424582",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/3/a30f5555-2fbe-4c88-9e4f-1f2e81ea6cfd.jpg",
+          "new_pathname": "/art_crop/front/c/0/c0318a48-30e4-4ef7-be3d-5e561c5ce428.jpg",
+          "old_search": "?1771424582",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/3/a30f5555-2fbe-4c88-9e4f-1f2e81ea6cfd.jpg",
+          "new_pathname": "/small/front/c/0/c0318a48-30e4-4ef7-be3d-5e561c5ce428.jpg",
+          "old_search": "?1771424582",
+          "old_hash": "",
+          "new_search": "?1783903203",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "exotic orchard",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Exotic Orchard",
+        "oracle_id": "27b047e3-0d41-45e2-98e9-9391d7923a1e",
+        "scryfall_id": "7db2934a-43a0-46ad-8380-ff6703f8fd6d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Exotic Orchard",
+        "oracle_id": "27b047e3-0d41-45e2-98e9-9391d7923a1e",
+        "scryfall_id": "d11c5fe0-1528-4c94-a8cc-42bcab9d7487",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/7/d/7db2934a-43a0-46ad-8380-ff6703f8fd6d.jpg",
+          "new_pathname": "/normal/front/d/1/d11c5fe0-1528-4c94-a8cc-42bcab9d7487.jpg",
+          "old_search": "?1775942179",
+          "old_hash": "",
+          "new_search": "?1785759427",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/7/d/7db2934a-43a0-46ad-8380-ff6703f8fd6d.jpg",
+          "new_pathname": "/art_crop/front/d/1/d11c5fe0-1528-4c94-a8cc-42bcab9d7487.jpg",
+          "old_search": "?1775942179",
+          "old_hash": "",
+          "new_search": "?1785759427",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/7/d/7db2934a-43a0-46ad-8380-ff6703f8fd6d.jpg",
+          "new_pathname": "/small/front/d/1/d11c5fe0-1528-4c94-a8cc-42bcab9d7487.jpg",
+          "old_search": "?1775942179",
+          "old_hash": "",
+          "new_search": "?1785759427",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "fabled passage",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Fabled Passage",
+        "oracle_id": "0c85b8f7-0bd0-4680-9ec5-d4b110460a54",
+        "scryfall_id": "8119d329-6ee5-433c-bd81-8579bb061162",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Fabled Passage",
+        "oracle_id": "0c85b8f7-0bd0-4680-9ec5-d4b110460a54",
+        "scryfall_id": "62ef854d-ec9e-443d-a4ba-4b2875ed3fe7",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/8/1/8119d329-6ee5-433c-bd81-8579bb061162.jpg",
+          "new_pathname": "/normal/front/6/2/62ef854d-ec9e-443d-a4ba-4b2875ed3fe7.jpg",
+          "old_search": "?1775940532",
+          "old_hash": "",
+          "new_search": "?1783903202",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/8/1/8119d329-6ee5-433c-bd81-8579bb061162.jpg",
+          "new_pathname": "/art_crop/front/6/2/62ef854d-ec9e-443d-a4ba-4b2875ed3fe7.jpg",
+          "old_search": "?1775940532",
+          "old_hash": "",
+          "new_search": "?1783903202",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/8/1/8119d329-6ee5-433c-bd81-8579bb061162.jpg",
+          "new_pathname": "/small/front/6/2/62ef854d-ec9e-443d-a4ba-4b2875ed3fe7.jpg",
+          "old_search": "?1775940532",
+          "old_hash": "",
+          "new_search": "?1783903202",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "forest",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Forest",
+        "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+        "scryfall_id": "5f533364-0f91-4e49-aaeb-83c4c1f6d316",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Forest",
+        "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+        "scryfall_id": "dce15387-4114-4b3e-91aa-5b42b45c44ac",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.jpg",
+          "new_pathname": "/normal/front/d/c/dce15387-4114-4b3e-91aa-5b42b45c44ac.jpg",
+          "old_search": "?1777658419",
+          "old_hash": "",
+          "new_search": "?1785981675",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.jpg",
+          "new_pathname": "/art_crop/front/d/c/dce15387-4114-4b3e-91aa-5b42b45c44ac.jpg",
+          "old_search": "?1777658419",
+          "old_hash": "",
+          "new_search": "?1785981675",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.jpg",
+          "new_pathname": "/small/front/d/c/dce15387-4114-4b3e-91aa-5b42b45c44ac.jpg",
+          "old_search": "?1777658419",
+          "old_hash": "",
+          "new_search": "?1785981675",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "fortified village",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Fortified Village",
+        "oracle_id": "56f1a16a-9f41-41fb-b580-c200bca27cd6",
+        "scryfall_id": "4a0aeb3a-923a-4b97-9d27-ea7e0b57de75",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Fortified Village",
+        "oracle_id": "56f1a16a-9f41-41fb-b580-c200bca27cd6",
+        "scryfall_id": "15f81ac6-a550-4782-a3a9-22d7fef1c206",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/4/a/4a0aeb3a-923a-4b97-9d27-ea7e0b57de75.jpg",
+          "new_pathname": "/normal/front/1/5/15f81ac6-a550-4782-a3a9-22d7fef1c206.jpg",
+          "old_search": "?1743207579",
+          "old_hash": "",
+          "new_search": "?1783903201",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/4/a/4a0aeb3a-923a-4b97-9d27-ea7e0b57de75.jpg",
+          "new_pathname": "/art_crop/front/1/5/15f81ac6-a550-4782-a3a9-22d7fef1c206.jpg",
+          "old_search": "?1743207579",
+          "old_hash": "",
+          "new_search": "?1783903201",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/4/a/4a0aeb3a-923a-4b97-9d27-ea7e0b57de75.jpg",
+          "new_pathname": "/small/front/1/5/15f81ac6-a550-4782-a3a9-22d7fef1c206.jpg",
+          "old_search": "?1743207579",
+          "old_hash": "",
+          "new_search": "?1783903201",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "general kreat the boltbringer",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "General Kreat, the Boltbringer",
+        "oracle_id": "da1c1c70-c2fa-4ba7-89fe-d9af3fb353b9",
+        "scryfall_id": "226fc101-abcc-4ed4-8c0b-3677dc8d8f0a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "General Kreat, the Boltbringer",
+        "oracle_id": "da1c1c70-c2fa-4ba7-89fe-d9af3fb353b9",
+        "scryfall_id": "b44c7ba3-c90a-436d-a159-89dc9981e0c3",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/2/2/226fc101-abcc-4ed4-8c0b-3677dc8d8f0a.jpg",
+          "new_pathname": "/normal/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg",
+          "old_search": "?1730485871",
+          "old_hash": "",
+          "new_search": "?1783903442",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/2/2/226fc101-abcc-4ed4-8c0b-3677dc8d8f0a.jpg",
+          "new_pathname": "/art_crop/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg",
+          "old_search": "?1730485871",
+          "old_hash": "",
+          "new_search": "?1783903442",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/2/2/226fc101-abcc-4ed4-8c0b-3677dc8d8f0a.jpg",
+          "new_pathname": "/small/front/b/4/b44c7ba3-c90a-436d-a159-89dc9981e0c3.jpg",
+          "old_search": "?1730485871",
+          "old_hash": "",
+          "new_search": "?1783903442",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "generous gift",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Generous Gift",
+        "oracle_id": "fae37e28-e137-4177-b973-fa8b4dd8f409",
+        "scryfall_id": "fc70e127-ffc8-45ed-9ca3-7f9f926ac4d5",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Generous Gift",
+        "oracle_id": "fae37e28-e137-4177-b973-fa8b4dd8f409",
+        "scryfall_id": "c3f9b454-97e9-4c77-b37a-e974221ae385",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/f/c/fc70e127-ffc8-45ed-9ca3-7f9f926ac4d5.jpg",
+          "new_pathname": "/normal/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg",
+          "old_search": "?1700321873",
+          "old_hash": "",
+          "new_search": "?1783903247",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/f/c/fc70e127-ffc8-45ed-9ca3-7f9f926ac4d5.jpg",
+          "new_pathname": "/art_crop/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg",
+          "old_search": "?1700321873",
+          "old_hash": "",
+          "new_search": "?1783903247",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/f/c/fc70e127-ffc8-45ed-9ca3-7f9f926ac4d5.jpg",
+          "new_pathname": "/small/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg",
+          "old_search": "?1700321873",
+          "old_hash": "",
+          "new_search": "?1783903247",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "glacial fortress",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Glacial Fortress",
+        "oracle_id": "027dd013-baa7-4111-b3c9-f4d1414e9c45",
+        "scryfall_id": "a1fc8d86-b118-46e3-92a5-8cbf2ca282f7",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Glacial Fortress",
+        "oracle_id": "027dd013-baa7-4111-b3c9-f4d1414e9c45",
+        "scryfall_id": "d673a2d5-0c61-48dc-8c8d-06f0c7b6b8bf",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/1/a1fc8d86-b118-46e3-92a5-8cbf2ca282f7.jpg",
+          "new_pathname": "/normal/front/d/6/d673a2d5-0c61-48dc-8c8d-06f0c7b6b8bf.jpg",
+          "old_search": "?1752945328",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/1/a1fc8d86-b118-46e3-92a5-8cbf2ca282f7.jpg",
+          "new_pathname": "/art_crop/front/d/6/d673a2d5-0c61-48dc-8c8d-06f0c7b6b8bf.jpg",
+          "old_search": "?1752945328",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/1/a1fc8d86-b118-46e3-92a5-8cbf2ca282f7.jpg",
+          "new_pathname": "/small/front/d/6/d673a2d5-0c61-48dc-8c8d-06f0c7b6b8bf.jpg",
+          "old_search": "?1752945328",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "godless shrine",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Godless Shrine",
+        "oracle_id": "73864fcc-1bde-4bc0-831e-2b93e546e417",
+        "scryfall_id": "8c542ea4-98c3-4c2d-9066-205ab7aa697a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Godless Shrine",
+        "oracle_id": "73864fcc-1bde-4bc0-831e-2b93e546e417",
+        "scryfall_id": "8fbd1ae0-3d4c-492a-a1ea-85a95fa3d7b6",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/8/c/8c542ea4-98c3-4c2d-9066-205ab7aa697a.jpg",
+          "new_pathname": "/normal/front/8/f/8fbd1ae0-3d4c-492a-a1ea-85a95fa3d7b6.jpg",
+          "old_search": "?1752947593",
+          "old_hash": "",
+          "new_search": "?1784036826",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/8/c/8c542ea4-98c3-4c2d-9066-205ab7aa697a.jpg",
+          "new_pathname": "/art_crop/front/8/f/8fbd1ae0-3d4c-492a-a1ea-85a95fa3d7b6.jpg",
+          "old_search": "?1752947593",
+          "old_hash": "",
+          "new_search": "?1784036826",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/8/c/8c542ea4-98c3-4c2d-9066-205ab7aa697a.jpg",
+          "new_pathname": "/small/front/8/f/8fbd1ae0-3d4c-492a-a1ea-85a95fa3d7b6.jpg",
+          "old_search": "?1752947593",
+          "old_hash": "",
+          "new_search": "?1784036826",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "hallowed fountain",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Hallowed Fountain",
+        "oracle_id": "f1750962-a87c-49f6-b731-02ae971ac6ea",
+        "scryfall_id": "e056b55f-82ed-4fe0-ab0c-bb20fa4a218a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Hallowed Fountain",
+        "oracle_id": "f1750962-a87c-49f6-b731-02ae971ac6ea",
+        "scryfall_id": "b7285986-7e08-4969-86ef-452dc5bfdd9f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/e/0/e056b55f-82ed-4fe0-ab0c-bb20fa4a218a.jpg",
+          "new_pathname": "/normal/front/b/7/b7285986-7e08-4969-86ef-452dc5bfdd9f.jpg",
+          "old_search": "?1759144845",
+          "old_hash": "",
+          "new_search": "?1784036830",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/e/0/e056b55f-82ed-4fe0-ab0c-bb20fa4a218a.jpg",
+          "new_pathname": "/art_crop/front/b/7/b7285986-7e08-4969-86ef-452dc5bfdd9f.jpg",
+          "old_search": "?1759144845",
+          "old_hash": "",
+          "new_search": "?1784036830",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/e/0/e056b55f-82ed-4fe0-ab0c-bb20fa4a218a.jpg",
+          "new_pathname": "/small/front/b/7/b7285986-7e08-4969-86ef-452dc5bfdd9f.jpg",
+          "old_search": "?1759144845",
+          "old_hash": "",
+          "new_search": "?1784036830",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "hinterland harbor",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Hinterland Harbor",
+        "oracle_id": "fb5a3403-7f0b-406c-8c4f-d693be010ca6",
+        "scryfall_id": "c13adc8c-03bb-4088-98af-0c06d83369aa",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Hinterland Harbor",
+        "oracle_id": "fb5a3403-7f0b-406c-8c4f-d693be010ca6",
+        "scryfall_id": "892451a1-5527-4857-84f8-62028d147489",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.jpg",
+          "new_pathname": "/normal/front/8/9/892451a1-5527-4857-84f8-62028d147489.jpg",
+          "old_search": "?1775942257",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.jpg",
+          "new_pathname": "/art_crop/front/8/9/892451a1-5527-4857-84f8-62028d147489.jpg",
+          "old_search": "?1775942257",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.jpg",
+          "new_pathname": "/small/front/8/9/892451a1-5527-4857-84f8-62028d147489.jpg",
+          "old_search": "?1775942257",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "island",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Island",
+        "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+        "scryfall_id": "739aaaac-c424-4ea7-a084-62a6fc0438b0",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Island",
+        "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+        "scryfall_id": "f3cc07cd-cc79-4745-b0b7-eade60175cc3",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/7/3/739aaaac-c424-4ea7-a084-62a6fc0438b0.jpg",
+          "new_pathname": "/normal/front/f/3/f3cc07cd-cc79-4745-b0b7-eade60175cc3.jpg",
+          "old_search": "?1777658399",
+          "old_hash": "",
+          "new_search": "?1785981645",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/7/3/739aaaac-c424-4ea7-a084-62a6fc0438b0.jpg",
+          "new_pathname": "/art_crop/front/f/3/f3cc07cd-cc79-4745-b0b7-eade60175cc3.jpg",
+          "old_search": "?1777658399",
+          "old_hash": "",
+          "new_search": "?1785981645",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/7/3/739aaaac-c424-4ea7-a084-62a6fc0438b0.jpg",
+          "new_pathname": "/small/front/f/3/f3cc07cd-cc79-4745-b0b7-eade60175cc3.jpg",
+          "old_search": "?1777658399",
+          "old_hash": "",
+          "new_search": "?1785981645",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "lightning bolt",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Lightning Bolt",
+        "oracle_id": "4457ed35-7c10-48c8-9776-456485fdf070",
+        "scryfall_id": "77c6fa74-5543-42ac-9ead-0e890b188e99",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Lightning Bolt",
+        "oracle_id": "4457ed35-7c10-48c8-9776-456485fdf070",
+        "scryfall_id": "7673784e-db4b-43a1-8d55-1bb9fc1e284f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/7/7/77c6fa74-5543-42ac-9ead-0e890b188e99.jpg",
+          "new_pathname": "/normal/front/7/6/7673784e-db4b-43a1-8d55-1bb9fc1e284f.jpg",
+          "old_search": "?1706239968",
+          "old_hash": "",
+          "new_search": "?1783903008",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/7/7/77c6fa74-5543-42ac-9ead-0e890b188e99.jpg",
+          "new_pathname": "/art_crop/front/7/6/7673784e-db4b-43a1-8d55-1bb9fc1e284f.jpg",
+          "old_search": "?1706239968",
+          "old_hash": "",
+          "new_search": "?1783903008",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/7/7/77c6fa74-5543-42ac-9ead-0e890b188e99.jpg",
+          "new_pathname": "/small/front/7/6/7673784e-db4b-43a1-8d55-1bb9fc1e284f.jpg",
+          "old_search": "?1706239968",
+          "old_hash": "",
+          "new_search": "?1783903008",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "luxury suite",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Luxury Suite",
+        "oracle_id": "819e1765-8325-4e6f-89c1-63ea86de369f",
+        "scryfall_id": "6fc5fc38-4054-4663-9061-df5455788c4a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Luxury Suite",
+        "oracle_id": "819e1765-8325-4e6f-89c1-63ea86de369f",
+        "scryfall_id": "3c409d1e-f634-44a2-8fcf-dcdcb0babc3f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/f/6fc5fc38-4054-4663-9061-df5455788c4a.jpg",
+          "new_pathname": "/normal/front/3/c/3c409d1e-f634-44a2-8fcf-dcdcb0babc3f.jpg",
+          "old_search": "?1688006315",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/f/6fc5fc38-4054-4663-9061-df5455788c4a.jpg",
+          "new_pathname": "/art_crop/front/3/c/3c409d1e-f634-44a2-8fcf-dcdcb0babc3f.jpg",
+          "old_search": "?1688006315",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/f/6fc5fc38-4054-4663-9061-df5455788c4a.jpg",
+          "new_pathname": "/small/front/3/c/3c409d1e-f634-44a2-8fcf-dcdcb0babc3f.jpg",
+          "old_search": "?1688006315",
+          "old_hash": "",
+          "new_search": "?1783903199",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "mountain",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Mountain",
+        "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+        "scryfall_id": "51acfb01-4b0b-48fc-9704-a9b4a1e43a23",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Mountain",
+        "oracle_id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+        "scryfall_id": "2a844b96-6616-4c39-8f4f-5d14a3b2bd55",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/1/51acfb01-4b0b-48fc-9704-a9b4a1e43a23.jpg",
+          "new_pathname": "/normal/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg",
+          "old_search": "?1777658413",
+          "old_hash": "",
+          "new_search": "?1785981666",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/1/51acfb01-4b0b-48fc-9704-a9b4a1e43a23.jpg",
+          "new_pathname": "/art_crop/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg",
+          "old_search": "?1777658413",
+          "old_hash": "",
+          "new_search": "?1785981666",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/1/51acfb01-4b0b-48fc-9704-a9b4a1e43a23.jpg",
+          "new_pathname": "/small/front/2/a/2a844b96-6616-4c39-8f4f-5d14a3b2bd55.jpg",
+          "old_search": "?1777658413",
+          "old_hash": "",
+          "new_search": "?1785981666",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "mystic monastery",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Mystic Monastery",
+        "oracle_id": "834b8f71-9a45-42ae-9e99-e749fa6fb45e",
+        "scryfall_id": "9fd41ad5-6b36-482e-8305-bbc709668470",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Mystic Monastery",
+        "oracle_id": "834b8f71-9a45-42ae-9e99-e749fa6fb45e",
+        "scryfall_id": "bc23343a-3a01-4975-8430-17bf15fa639d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/9/f/9fd41ad5-6b36-482e-8305-bbc709668470.jpg",
+          "new_pathname": "/normal/front/b/c/bc23343a-3a01-4975-8430-17bf15fa639d.jpg",
+          "old_search": "?1762150266",
+          "old_hash": "",
+          "new_search": "?1783903198",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/9/f/9fd41ad5-6b36-482e-8305-bbc709668470.jpg",
+          "new_pathname": "/art_crop/front/b/c/bc23343a-3a01-4975-8430-17bf15fa639d.jpg",
+          "old_search": "?1762150266",
+          "old_hash": "",
+          "new_search": "?1783903198",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/9/f/9fd41ad5-6b36-482e-8305-bbc709668470.jpg",
+          "new_pathname": "/small/front/b/c/bc23343a-3a01-4975-8430-17bf15fa639d.jpg",
+          "old_search": "?1762150266",
+          "old_hash": "",
+          "new_search": "?1783903198",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "overgrown tomb",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Overgrown Tomb",
+        "oracle_id": "975ec9a3-6f20-4177-8211-82526e092538",
+        "scryfall_id": "45b92924-baa1-4c9b-9932-9a5eda8f3446",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "G"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Overgrown Tomb",
+        "oracle_id": "975ec9a3-6f20-4177-8211-82526e092538",
+        "scryfall_id": "ad7e18e2-c033-4b6c-86e8-d0e5cc824cfd",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "G"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/4/5/45b92924-baa1-4c9b-9932-9a5eda8f3446.jpg",
+          "new_pathname": "/normal/front/a/d/ad7e18e2-c033-4b6c-86e8-d0e5cc824cfd.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036836",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/4/5/45b92924-baa1-4c9b-9932-9a5eda8f3446.jpg",
+          "new_pathname": "/art_crop/front/a/d/ad7e18e2-c033-4b6c-86e8-d0e5cc824cfd.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036836",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/4/5/45b92924-baa1-4c9b-9932-9a5eda8f3446.jpg",
+          "new_pathname": "/small/front/a/d/ad7e18e2-c033-4b6c-86e8-d0e5cc824cfd.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036836",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "path of ancestry",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Path of Ancestry",
+        "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
+        "scryfall_id": "9335e773-4b45-4b91-8140-5159fe7e0395",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Path of Ancestry",
+        "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
+        "scryfall_id": "b1aaa7b0-1cac-4a92-b880-7ef1ac00618f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/9/3/9335e773-4b45-4b91-8140-5159fe7e0395.jpg",
+          "new_pathname": "/normal/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg",
+          "old_search": "?1775942336",
+          "old_hash": "",
+          "new_search": "?1785759407",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/9/3/9335e773-4b45-4b91-8140-5159fe7e0395.jpg",
+          "new_pathname": "/art_crop/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg",
+          "old_search": "?1775942336",
+          "old_hash": "",
+          "new_search": "?1785759407",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/9/3/9335e773-4b45-4b91-8140-5159fe7e0395.jpg",
+          "new_pathname": "/small/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg",
+          "old_search": "?1775942336",
+          "old_hash": "",
+          "new_search": "?1785759407",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "path to exile",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Path to Exile",
+        "oracle_id": "d683d985-9888-4d21-8b5f-69e69ce4a03b",
+        "scryfall_id": "90b690f4-9647-4e67-b7cb-b2692ea149b1",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Path to Exile",
+        "oracle_id": "d683d985-9888-4d21-8b5f-69e69ce4a03b",
+        "scryfall_id": "95ca89ea-1200-4bb4-ae4b-af35d3ccd35b",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/9/0/90b690f4-9647-4e67-b7cb-b2692ea149b1.jpg",
+          "new_pathname": "/normal/front/9/5/95ca89ea-1200-4bb4-ae4b-af35d3ccd35b.jpg",
+          "old_search": "?1775940727",
+          "old_hash": "",
+          "new_search": "?1783903242",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/9/0/90b690f4-9647-4e67-b7cb-b2692ea149b1.jpg",
+          "new_pathname": "/art_crop/front/9/5/95ca89ea-1200-4bb4-ae4b-af35d3ccd35b.jpg",
+          "old_search": "?1775940727",
+          "old_hash": "",
+          "new_search": "?1783903242",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/9/0/90b690f4-9647-4e67-b7cb-b2692ea149b1.jpg",
+          "new_pathname": "/small/front/9/5/95ca89ea-1200-4bb4-ae4b-af35d3ccd35b.jpg",
+          "old_search": "?1775940727",
+          "old_hash": "",
+          "new_search": "?1783903242",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "plains",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Plains",
+        "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+        "scryfall_id": "24dc369c-020a-4115-a4bb-d60a44de64e3",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Plains",
+        "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+        "scryfall_id": "8ab0f4c0-b331-4c57-b68f-2e24bb5ba06c",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/2/4/24dc369c-020a-4115-a4bb-d60a44de64e3.jpg",
+          "new_pathname": "/normal/front/8/a/8ab0f4c0-b331-4c57-b68f-2e24bb5ba06c.jpg",
+          "old_search": "?1777658393",
+          "old_hash": "",
+          "new_search": "?1785981632",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/2/4/24dc369c-020a-4115-a4bb-d60a44de64e3.jpg",
+          "new_pathname": "/art_crop/front/8/a/8ab0f4c0-b331-4c57-b68f-2e24bb5ba06c.jpg",
+          "old_search": "?1777658393",
+          "old_hash": "",
+          "new_search": "?1785981632",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/2/4/24dc369c-020a-4115-a4bb-d60a44de64e3.jpg",
+          "new_pathname": "/small/front/8/a/8ab0f4c0-b331-4c57-b68f-2e24bb5ba06c.jpg",
+          "old_search": "?1777658393",
+          "old_hash": "",
+          "new_search": "?1785981632",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "port town",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Port Town",
+        "oracle_id": "458d2b12-f578-4392-98d3-c3bc83f316c4",
+        "scryfall_id": "d15c035d-1309-4286-a758-07517f323f34",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Port Town",
+        "oracle_id": "458d2b12-f578-4392-98d3-c3bc83f316c4",
+        "scryfall_id": "3f962cab-c058-41f5-b7e1-5b063f374eb0",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "U",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/d/1/d15c035d-1309-4286-a758-07517f323f34.jpg",
+          "new_pathname": "/normal/front/3/f/3f962cab-c058-41f5-b7e1-5b063f374eb0.jpg",
+          "old_search": "?1690006392",
+          "old_hash": "",
+          "new_search": "?1783903197",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/d/1/d15c035d-1309-4286-a758-07517f323f34.jpg",
+          "new_pathname": "/art_crop/front/3/f/3f962cab-c058-41f5-b7e1-5b063f374eb0.jpg",
+          "old_search": "?1690006392",
+          "old_hash": "",
+          "new_search": "?1783903197",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/d/1/d15c035d-1309-4286-a758-07517f323f34.jpg",
+          "new_pathname": "/small/front/3/f/3f962cab-c058-41f5-b7e1-5b063f374eb0.jpg",
+          "old_search": "?1690006392",
+          "old_hash": "",
+          "new_search": "?1783903197",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "rejuvenating springs",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Rejuvenating Springs",
+        "oracle_id": "d1620449-930a-4895-a143-fd2a0a3c8b17",
+        "scryfall_id": "455be293-80cf-4bc6-8904-8dd21a2b9d19",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Rejuvenating Springs",
+        "oracle_id": "d1620449-930a-4895-a143-fd2a0a3c8b17",
+        "scryfall_id": "c4565a7b-a0ed-4a7f-ad48-7745c56d141b",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/4/5/455be293-80cf-4bc6-8904-8dd21a2b9d19.jpg",
+          "new_pathname": "/normal/front/c/4/c4565a7b-a0ed-4a7f-ad48-7745c56d141b.jpg",
+          "old_search": "?1689999949",
+          "old_hash": "",
+          "new_search": "?1783903196",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/4/5/455be293-80cf-4bc6-8904-8dd21a2b9d19.jpg",
+          "new_pathname": "/art_crop/front/c/4/c4565a7b-a0ed-4a7f-ad48-7745c56d141b.jpg",
+          "old_search": "?1689999949",
+          "old_hash": "",
+          "new_search": "?1783903196",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/4/5/455be293-80cf-4bc6-8904-8dd21a2b9d19.jpg",
+          "new_pathname": "/small/front/c/4/c4565a7b-a0ed-4a7f-ad48-7745c56d141b.jpg",
+          "old_search": "?1689999949",
+          "old_hash": "",
+          "new_search": "?1783903196",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "rip apart",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Rip Apart",
+        "oracle_id": "cbdbf18f-0180-4ade-a79e-1e644dd42d6f",
+        "scryfall_id": "ab3443be-ab7f-4ab1-bc31-0ace68773f2d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Rip Apart",
+        "oracle_id": "cbdbf18f-0180-4ade-a79e-1e644dd42d6f",
+        "scryfall_id": "b4964c78-b9ca-43c2-bcaa-bf75d92b9065",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/b/ab3443be-ab7f-4ab1-bc31-0ace68773f2d.jpg",
+          "new_pathname": "/normal/front/b/4/b4964c78-b9ca-43c2-bcaa-bf75d92b9065.jpg",
+          "old_search": "?1775941899",
+          "old_hash": "",
+          "new_search": "?1783903231",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/b/ab3443be-ab7f-4ab1-bc31-0ace68773f2d.jpg",
+          "new_pathname": "/art_crop/front/b/4/b4964c78-b9ca-43c2-bcaa-bf75d92b9065.jpg",
+          "old_search": "?1775941899",
+          "old_hash": "",
+          "new_search": "?1783903231",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/b/ab3443be-ab7f-4ab1-bc31-0ace68773f2d.jpg",
+          "new_pathname": "/small/front/b/4/b4964c78-b9ca-43c2-bcaa-bf75d92b9065.jpg",
+          "old_search": "?1775941899",
+          "old_hash": "",
+          "new_search": "?1783903231",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "rogue s passage",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Rogue's Passage",
+        "oracle_id": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
+        "scryfall_id": "335444f0-0848-4c17-b056-56d4fc876a58",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Rogue's Passage",
+        "oracle_id": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
+        "scryfall_id": "4493b62b-f354-47ff-9dcf-cc6e29de77c6",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/3/3/335444f0-0848-4c17-b056-56d4fc876a58.jpg",
+          "new_pathname": "/normal/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.jpg",
+          "old_search": "?1775942381",
+          "old_hash": "",
+          "new_search": "?1785497634",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/3/3/335444f0-0848-4c17-b056-56d4fc876a58.jpg",
+          "new_pathname": "/art_crop/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.jpg",
+          "old_search": "?1775942381",
+          "old_hash": "",
+          "new_search": "?1785497634",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/3/3/335444f0-0848-4c17-b056-56d4fc876a58.jpg",
+          "new_pathname": "/small/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.jpg",
+          "old_search": "?1775942381",
+          "old_hash": "",
+          "new_search": "?1785497634",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "rootbound crag",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Rootbound Crag",
+        "oracle_id": "9516c4c1-d72d-434f-97e1-6a862434a169",
+        "scryfall_id": "f01bb3fd-14c6-47cb-aba3-e3069da56c9f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Rootbound Crag",
+        "oracle_id": "9516c4c1-d72d-434f-97e1-6a862434a169",
+        "scryfall_id": "42d174e5-b8c2-45eb-8e08-1b94fc27cbee",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/f/0/f01bb3fd-14c6-47cb-aba3-e3069da56c9f.jpg",
+          "new_pathname": "/normal/front/4/2/42d174e5-b8c2-45eb-8e08-1b94fc27cbee.jpg",
+          "old_search": "?1771424627",
+          "old_hash": "",
+          "new_search": "?1783903194",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/f/0/f01bb3fd-14c6-47cb-aba3-e3069da56c9f.jpg",
+          "new_pathname": "/art_crop/front/4/2/42d174e5-b8c2-45eb-8e08-1b94fc27cbee.jpg",
+          "old_search": "?1771424627",
+          "old_hash": "",
+          "new_search": "?1783903194",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/f/0/f01bb3fd-14c6-47cb-aba3-e3069da56c9f.jpg",
+          "new_pathname": "/small/front/4/2/42d174e5-b8c2-45eb-8e08-1b94fc27cbee.jpg",
+          "old_search": "?1771424627",
+          "old_hash": "",
+          "new_search": "?1783903194",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "sacred foundry",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Sacred Foundry",
+        "oracle_id": "45181cb8-2090-4471-ba90-e5a8f04d525f",
+        "scryfall_id": "8b4e2642-3c87-4708-b9b4-2e7f7359ac7d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Sacred Foundry",
+        "oracle_id": "45181cb8-2090-4471-ba90-e5a8f04d525f",
+        "scryfall_id": "a7758cc6-4e18-48a5-8720-5f42b5cd9d31",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg",
+          "new_pathname": "/normal/front/a/7/a7758cc6-4e18-48a5-8720-5f42b5cd9d31.jpg",
+          "old_search": "?1752947600",
+          "old_hash": "",
+          "new_search": "?1784036842",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg",
+          "new_pathname": "/art_crop/front/a/7/a7758cc6-4e18-48a5-8720-5f42b5cd9d31.jpg",
+          "old_search": "?1752947600",
+          "old_hash": "",
+          "new_search": "?1784036842",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg",
+          "new_pathname": "/small/front/a/7/a7758cc6-4e18-48a5-8720-5f42b5cd9d31.jpg",
+          "old_search": "?1752947600",
+          "old_hash": "",
+          "new_search": "?1784036842",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "savage lands",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Savage Lands",
+        "oracle_id": "a3292406-3f49-42d6-a547-e43dd5797f84",
+        "scryfall_id": "55187461-2ff3-424b-85d5-2ca09567d44e",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "G",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Savage Lands",
+        "oracle_id": "a3292406-3f49-42d6-a547-e43dd5797f84",
+        "scryfall_id": "428df1ff-e13e-48a3-bcc9-301bdc9470fb",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "G",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/5/55187461-2ff3-424b-85d5-2ca09567d44e.jpg",
+          "new_pathname": "/normal/front/4/2/428df1ff-e13e-48a3-bcc9-301bdc9470fb.jpg",
+          "old_search": "?1767731683",
+          "old_hash": "",
+          "new_search": "?1783903002",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/5/55187461-2ff3-424b-85d5-2ca09567d44e.jpg",
+          "new_pathname": "/art_crop/front/4/2/428df1ff-e13e-48a3-bcc9-301bdc9470fb.jpg",
+          "old_search": "?1767731683",
+          "old_hash": "",
+          "new_search": "?1783903002",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/5/55187461-2ff3-424b-85d5-2ca09567d44e.jpg",
+          "new_pathname": "/small/front/4/2/428df1ff-e13e-48a3-bcc9-301bdc9470fb.jpg",
+          "old_search": "?1767731683",
+          "old_hash": "",
+          "new_search": "?1783903002",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "smoldering marsh",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Smoldering Marsh",
+        "oracle_id": "390f1b56-264e-4336-83be-dc1fe79bfdcf",
+        "scryfall_id": "a4746e54-974a-4743-ab9b-a9e49034b16d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Smoldering Marsh",
+        "oracle_id": "390f1b56-264e-4336-83be-dc1fe79bfdcf",
+        "scryfall_id": "d707c477-440f-417c-970a-0e7426a58045",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/4/a4746e54-974a-4743-ab9b-a9e49034b16d.jpg",
+          "new_pathname": "/normal/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg",
+          "old_search": "?1771424633",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/4/a4746e54-974a-4743-ab9b-a9e49034b16d.jpg",
+          "new_pathname": "/art_crop/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg",
+          "old_search": "?1771424633",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/4/a4746e54-974a-4743-ab9b-a9e49034b16d.jpg",
+          "new_pathname": "/small/front/d/7/d707c477-440f-417c-970a-0e7426a58045.jpg",
+          "old_search": "?1771424633",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "spectator seating",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Spectator Seating",
+        "oracle_id": "cf6d10ed-85c3-48f2-8ba0-2960e03b408b",
+        "scryfall_id": "dcf3140f-d5c8-45ff-8be4-622b1a129b3d",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Spectator Seating",
+        "oracle_id": "cf6d10ed-85c3-48f2-8ba0-2960e03b408b",
+        "scryfall_id": "4c62dcfc-4bc8-4551-b3c7-9eec26be3362",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/d/c/dcf3140f-d5c8-45ff-8be4-622b1a129b3d.jpg",
+          "new_pathname": "/normal/front/4/c/4c62dcfc-4bc8-4551-b3c7-9eec26be3362.jpg",
+          "old_search": "?1689999977",
+          "old_hash": "",
+          "new_search": "?1783903192",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/d/c/dcf3140f-d5c8-45ff-8be4-622b1a129b3d.jpg",
+          "new_pathname": "/art_crop/front/4/c/4c62dcfc-4bc8-4551-b3c7-9eec26be3362.jpg",
+          "old_search": "?1689999977",
+          "old_hash": "",
+          "new_search": "?1783903192",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/d/c/dcf3140f-d5c8-45ff-8be4-622b1a129b3d.jpg",
+          "new_pathname": "/small/front/4/c/4c62dcfc-4bc8-4551-b3c7-9eec26be3362.jpg",
+          "old_search": "?1689999977",
+          "old_hash": "",
+          "new_search": "?1783903192",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "steam vents",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Steam Vents",
+        "oracle_id": "17039058-822d-409f-938c-b727a366ba63",
+        "scryfall_id": "b66daa94-d367-4812-9f18-f35378c1febb",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Steam Vents",
+        "oracle_id": "17039058-822d-409f-938c-b727a366ba63",
+        "scryfall_id": "a83903c7-fd51-4526-aed2-359e946fea36",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg",
+          "new_pathname": "/normal/front/a/8/a83903c7-fd51-4526-aed2-359e946fea36.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036844",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg",
+          "new_pathname": "/art_crop/front/a/8/a83903c7-fd51-4526-aed2-359e946fea36.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036844",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg",
+          "new_pathname": "/small/front/a/8/a83903c7-fd51-4526-aed2-359e946fea36.jpg",
+          "old_search": "?1759144847",
+          "old_hash": "",
+          "new_search": "?1784036844",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "stomping ground",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Stomping Ground",
+        "oracle_id": "16052b52-ade1-406f-a06b-ce7ea607fb63",
+        "scryfall_id": "69be21b4-c613-47c6-ba57-f4785861af3e",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Stomping Ground",
+        "oracle_id": "16052b52-ade1-406f-a06b-ce7ea607fb63",
+        "scryfall_id": "1ee8255a-44f6-4faa-9843-15432bf751ea",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/9/69be21b4-c613-47c6-ba57-f4785861af3e.jpg",
+          "new_pathname": "/normal/front/1/e/1ee8255a-44f6-4faa-9843-15432bf751ea.jpg",
+          "old_search": "?1752947608",
+          "old_hash": "",
+          "new_search": "?1784065855",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/9/69be21b4-c613-47c6-ba57-f4785861af3e.jpg",
+          "new_pathname": "/art_crop/front/1/e/1ee8255a-44f6-4faa-9843-15432bf751ea.jpg",
+          "old_search": "?1752947608",
+          "old_hash": "",
+          "new_search": "?1784065855",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/9/69be21b4-c613-47c6-ba57-f4785861af3e.jpg",
+          "new_pathname": "/small/front/1/e/1ee8255a-44f6-4faa-9843-15432bf751ea.jpg",
+          "old_search": "?1752947608",
+          "old_hash": "",
+          "new_search": "?1784065855",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "sulfur falls",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Sulfur Falls",
+        "oracle_id": "6a6c5e17-6465-4a1f-9d63-8a3ce2edc522",
+        "scryfall_id": "56a6df05-f4e4-40d9-a701-6d5adb7ce9fd",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Sulfur Falls",
+        "oracle_id": "6a6c5e17-6465-4a1f-9d63-8a3ce2edc522",
+        "scryfall_id": "c762f475-7e58-4477-839b-b3c55434b88f",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/6/56a6df05-f4e4-40d9-a701-6d5adb7ce9fd.jpg",
+          "new_pathname": "/normal/front/c/7/c762f475-7e58-4477-839b-b3c55434b88f.jpg",
+          "old_search": "?1775942438",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/6/56a6df05-f4e4-40d9-a701-6d5adb7ce9fd.jpg",
+          "new_pathname": "/art_crop/front/c/7/c762f475-7e58-4477-839b-b3c55434b88f.jpg",
+          "old_search": "?1775942438",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/6/56a6df05-f4e4-40d9-a701-6d5adb7ce9fd.jpg",
+          "new_pathname": "/small/front/c/7/c762f475-7e58-4477-839b-b3c55434b88f.jpg",
+          "old_search": "?1775942438",
+          "old_hash": "",
+          "new_search": "?1783903193",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "sunpetal grove",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Sunpetal Grove",
+        "oracle_id": "402ec768-76fb-474e-ae74-babc90d833c4",
+        "scryfall_id": "565b4aaa-1990-4cb2-b519-2c0b1c9d5d18",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Sunpetal Grove",
+        "oracle_id": "402ec768-76fb-474e-ae74-babc90d833c4",
+        "scryfall_id": "e83092ee-4a90-4eac-915f-3fd01b7d9bd0",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/6/565b4aaa-1990-4cb2-b519-2c0b1c9d5d18.jpg",
+          "new_pathname": "/normal/front/e/8/e83092ee-4a90-4eac-915f-3fd01b7d9bd0.jpg",
+          "old_search": "?1743207765",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/6/565b4aaa-1990-4cb2-b519-2c0b1c9d5d18.jpg",
+          "new_pathname": "/art_crop/front/e/8/e83092ee-4a90-4eac-915f-3fd01b7d9bd0.jpg",
+          "old_search": "?1743207765",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/6/565b4aaa-1990-4cb2-b519-2c0b1c9d5d18.jpg",
+          "new_pathname": "/small/front/e/8/e83092ee-4a90-4eac-915f-3fd01b7d9bd0.jpg",
+          "old_search": "?1743207765",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "swamp",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Swamp",
+        "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+        "scryfall_id": "c5f590a3-9993-4ac4-a93c-1beb44eda17b",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Swamp",
+        "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+        "scryfall_id": "b7387103-1df1-4fd0-9e91-1544509792c7",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/c/5/c5f590a3-9993-4ac4-a93c-1beb44eda17b.jpg",
+          "new_pathname": "/normal/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg",
+          "old_search": "?1777658405",
+          "old_hash": "",
+          "new_search": "?1785981659",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/c/5/c5f590a3-9993-4ac4-a93c-1beb44eda17b.jpg",
+          "new_pathname": "/art_crop/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg",
+          "old_search": "?1777658405",
+          "old_hash": "",
+          "new_search": "?1785981659",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/c/5/c5f590a3-9993-4ac4-a93c-1beb44eda17b.jpg",
+          "new_pathname": "/small/front/b/7/b7387103-1df1-4fd0-9e91-1544509792c7.jpg",
+          "old_search": "?1777658405",
+          "old_hash": "",
+          "new_search": "?1785981659",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "swords to plowshares",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Swords to Plowshares",
+        "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+        "scryfall_id": "68ec2aed-7662-48ae-ab25-04f74ece1e41",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Swords to Plowshares",
+        "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+        "scryfall_id": "b4e9c870-23c0-413a-ae39-265f09da16d1",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/8/68ec2aed-7662-48ae-ab25-04f74ece1e41.jpg",
+          "new_pathname": "/normal/front/b/4/b4e9c870-23c0-413a-ae39-265f09da16d1.jpg",
+          "old_search": "?1775940857",
+          "old_hash": "",
+          "new_search": "?1783903243",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/8/68ec2aed-7662-48ae-ab25-04f74ece1e41.jpg",
+          "new_pathname": "/art_crop/front/b/4/b4e9c870-23c0-413a-ae39-265f09da16d1.jpg",
+          "old_search": "?1775940857",
+          "old_hash": "",
+          "new_search": "?1783903243",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/8/68ec2aed-7662-48ae-ab25-04f74ece1e41.jpg",
+          "new_pathname": "/small/front/b/4/b4e9c870-23c0-413a-ae39-265f09da16d1.jpg",
+          "old_search": "?1775940857",
+          "old_hash": "",
+          "new_search": "?1783903243",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "temple garden",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Temple Garden",
+        "oracle_id": "f413a83d-a40d-434c-b20a-4c707c0527fa",
+        "scryfall_id": "6cdd2a74-63b3-4ff2-9c5a-a85dee63c3c9",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Temple Garden",
+        "oracle_id": "f413a83d-a40d-434c-b20a-4c707c0527fa",
+        "scryfall_id": "b9b0589d-f327-46a7-8bac-06b7654c547a",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G",
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/6/c/6cdd2a74-63b3-4ff2-9c5a-a85dee63c3c9.jpg",
+          "new_pathname": "/normal/front/b/9/b9b0589d-f327-46a7-8bac-06b7654c547a.jpg",
+          "old_search": "?1759144838",
+          "old_hash": "",
+          "new_search": "?1784036854",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/6/c/6cdd2a74-63b3-4ff2-9c5a-a85dee63c3c9.jpg",
+          "new_pathname": "/art_crop/front/b/9/b9b0589d-f327-46a7-8bac-06b7654c547a.jpg",
+          "old_search": "?1759144838",
+          "old_hash": "",
+          "new_search": "?1784036854",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/6/c/6cdd2a74-63b3-4ff2-9c5a-a85dee63c3c9.jpg",
+          "new_pathname": "/small/front/b/9/b9b0589d-f327-46a7-8bac-06b7654c547a.jpg",
+          "old_search": "?1759144838",
+          "old_hash": "",
+          "new_search": "?1784036854",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "terminate",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Terminate",
+        "oracle_id": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+        "scryfall_id": "21f579c9-4b74-4461-8812-dcfd68fd2b97",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Terminate",
+        "oracle_id": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+        "scryfall_id": "379ffc67-4142-4ead-a871-0f851523745e",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/2/1/21f579c9-4b74-4461-8812-dcfd68fd2b97.jpg",
+          "new_pathname": "/normal/front/3/7/379ffc67-4142-4ead-a871-0f851523745e.jpg",
+          "old_search": "?1767731390",
+          "old_hash": "",
+          "new_search": "?1783903230",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/2/1/21f579c9-4b74-4461-8812-dcfd68fd2b97.jpg",
+          "new_pathname": "/art_crop/front/3/7/379ffc67-4142-4ead-a871-0f851523745e.jpg",
+          "old_search": "?1767731390",
+          "old_hash": "",
+          "new_search": "?1783903230",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/2/1/21f579c9-4b74-4461-8812-dcfd68fd2b97.jpg",
+          "new_pathname": "/small/front/3/7/379ffc67-4142-4ead-a871-0f851523745e.jpg",
+          "old_search": "?1767731390",
+          "old_hash": "",
+          "new_search": "?1783903230",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "terramorphic expanse",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Terramorphic Expanse",
+        "oracle_id": "1bd3e453-aa21-4ee6-95c2-d6d920ee8e7a",
+        "scryfall_id": "9a4c5629-fadd-42b9-850f-9f8586a2ca50",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "candidate": {
+        "canonical_name": "Terramorphic Expanse",
+        "oracle_id": "1bd3e453-aa21-4ee6-95c2-d6d920ee8e7a",
+        "scryfall_id": "a81f924b-0527-4311-8120-9bfff71524f6",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": []
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/9/a/9a4c5629-fadd-42b9-850f-9f8586a2ca50.jpg",
+          "new_pathname": "/normal/front/a/8/a81f924b-0527-4311-8120-9bfff71524f6.jpg",
+          "old_search": "?1775938853",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/9/a/9a4c5629-fadd-42b9-850f-9f8586a2ca50.jpg",
+          "new_pathname": "/art_crop/front/a/8/a81f924b-0527-4311-8120-9bfff71524f6.jpg",
+          "old_search": "?1775938853",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/9/a/9a4c5629-fadd-42b9-850f-9f8586a2ca50.jpg",
+          "new_pathname": "/small/front/a/8/a81f924b-0527-4311-8120-9bfff71524f6.jpg",
+          "old_search": "?1775938853",
+          "old_hash": "",
+          "new_search": "?1783903191",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "thriving bluff",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Thriving Bluff",
+        "oracle_id": "91fceb34-0f2d-4392-be27-00dcd765637f",
+        "scryfall_id": "8a6d17e6-c7f3-4433-a3f2-82076fb10031",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Thriving Bluff",
+        "oracle_id": "91fceb34-0f2d-4392-be27-00dcd765637f",
+        "scryfall_id": "82c96473-d7b9-48dc-9569-cdb649c78463",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "R"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/8/a/8a6d17e6-c7f3-4433-a3f2-82076fb10031.jpg",
+          "new_pathname": "/normal/front/8/2/82c96473-d7b9-48dc-9569-cdb649c78463.jpg",
+          "old_search": "?1767731720",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/8/a/8a6d17e6-c7f3-4433-a3f2-82076fb10031.jpg",
+          "new_pathname": "/art_crop/front/8/2/82c96473-d7b9-48dc-9569-cdb649c78463.jpg",
+          "old_search": "?1767731720",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/8/a/8a6d17e6-c7f3-4433-a3f2-82076fb10031.jpg",
+          "new_pathname": "/small/front/8/2/82c96473-d7b9-48dc-9569-cdb649c78463.jpg",
+          "old_search": "?1767731720",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "thriving grove",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Thriving Grove",
+        "oracle_id": "a8052556-8962-4130-86a8-6fb7b6a324f7",
+        "scryfall_id": "26cb32c5-83b8-4288-ae2d-788cdc4e6445",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Thriving Grove",
+        "oracle_id": "a8052556-8962-4130-86a8-6fb7b6a324f7",
+        "scryfall_id": "eef65ebc-12d6-4438-a908-2a0c28329124",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "G"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/2/6/26cb32c5-83b8-4288-ae2d-788cdc4e6445.jpg",
+          "new_pathname": "/normal/front/e/e/eef65ebc-12d6-4438-a908-2a0c28329124.jpg",
+          "old_search": "?1771424668",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/2/6/26cb32c5-83b8-4288-ae2d-788cdc4e6445.jpg",
+          "new_pathname": "/art_crop/front/e/e/eef65ebc-12d6-4438-a908-2a0c28329124.jpg",
+          "old_search": "?1771424668",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/2/6/26cb32c5-83b8-4288-ae2d-788cdc4e6445.jpg",
+          "new_pathname": "/small/front/e/e/eef65ebc-12d6-4438-a908-2a0c28329124.jpg",
+          "old_search": "?1771424668",
+          "old_hash": "",
+          "new_search": "?1783903090",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "thriving heath",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Thriving Heath",
+        "oracle_id": "d1946630-e224-40db-8f0d-388b09622288",
+        "scryfall_id": "13348735-d12e-4858-989f-a74c031ed518",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Thriving Heath",
+        "oracle_id": "d1946630-e224-40db-8f0d-388b09622288",
+        "scryfall_id": "bb089097-1eed-4e72-a715-579ddd8307a0",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "W"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/1/3/13348735-d12e-4858-989f-a74c031ed518.jpg",
+          "new_pathname": "/normal/front/b/b/bb089097-1eed-4e72-a715-579ddd8307a0.jpg",
+          "old_search": "?1767731739",
+          "old_hash": "",
+          "new_search": "?1783903089",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/1/3/13348735-d12e-4858-989f-a74c031ed518.jpg",
+          "new_pathname": "/art_crop/front/b/b/bb089097-1eed-4e72-a715-579ddd8307a0.jpg",
+          "old_search": "?1767731739",
+          "old_hash": "",
+          "new_search": "?1783903089",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/1/3/13348735-d12e-4858-989f-a74c031ed518.jpg",
+          "new_pathname": "/small/front/b/b/bb089097-1eed-4e72-a715-579ddd8307a0.jpg",
+          "old_search": "?1767731739",
+          "old_hash": "",
+          "new_search": "?1783903089",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "toxic deluge",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Toxic Deluge",
+        "oracle_id": "afaef788-34d1-460b-b884-9d7ae6ddeb18",
+        "scryfall_id": "a1c2a8da-56b0-4cab-b07b-10cac92c72c5",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Toxic Deluge",
+        "oracle_id": "afaef788-34d1-460b-b884-9d7ae6ddeb18",
+        "scryfall_id": "de5afccc-8d42-4bd6-b068-b9ea2361655e",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/a/1/a1c2a8da-56b0-4cab-b07b-10cac92c72c5.jpg",
+          "new_pathname": "/normal/front/d/e/de5afccc-8d42-4bd6-b068-b9ea2361655e.jpg",
+          "old_search": "?1775940463",
+          "old_hash": "",
+          "new_search": "?1783903236",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/a/1/a1c2a8da-56b0-4cab-b07b-10cac92c72c5.jpg",
+          "new_pathname": "/art_crop/front/d/e/de5afccc-8d42-4bd6-b068-b9ea2361655e.jpg",
+          "old_search": "?1775940463",
+          "old_hash": "",
+          "new_search": "?1783903236",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/a/1/a1c2a8da-56b0-4cab-b07b-10cac92c72c5.jpg",
+          "new_pathname": "/small/front/d/e/de5afccc-8d42-4bd6-b068-b9ea2361655e.jpg",
+          "old_search": "?1775940463",
+          "old_hash": "",
+          "new_search": "?1783903236",
+          "new_hash": ""
+        }
+      ]
+    },
+    {
+      "resolver_key": "watery grave",
+      "classification": "SAFE_PRINTING_REFRESH",
+      "changed_fields": [
+        "candidate_0_pathname",
+        "candidate_1_pathname",
+        "candidate_2_pathname"
+      ],
+      "old": {
+        "canonical_name": "Watery Grave",
+        "oracle_id": "fc9ec820-4245-4a96-b009-5308a818ca58",
+        "scryfall_id": "5b8170dc-6a90-46fc-9989-7575f3d402b5",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "candidate": {
+        "canonical_name": "Watery Grave",
+        "oracle_id": "fc9ec820-4245-4a96-b009-5308a818ca58",
+        "scryfall_id": "5525d6a6-e532-4047-9da4-bfae7927fecc",
+        "layout": "normal",
+        "selected_face_name": "",
+        "color_identity": [
+          "B",
+          "U"
+        ]
+      },
+      "image_candidates": [
+        {
+          "position": 0,
+          "old_kind": "card-normal",
+          "new_kind": "card-normal",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/normal/front/5/b/5b8170dc-6a90-46fc-9989-7575f3d402b5.jpg",
+          "new_pathname": "/normal/front/5/5/5525d6a6-e532-4047-9da4-bfae7927fecc.jpg",
+          "old_search": "?1752947617",
+          "old_hash": "",
+          "new_search": "?1784036860",
+          "new_hash": ""
+        },
+        {
+          "position": 1,
+          "old_kind": "card-art-crop",
+          "new_kind": "card-art-crop",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/art_crop/front/5/b/5b8170dc-6a90-46fc-9989-7575f3d402b5.jpg",
+          "new_pathname": "/art_crop/front/5/5/5525d6a6-e532-4047-9da4-bfae7927fecc.jpg",
+          "old_search": "?1752947617",
+          "old_hash": "",
+          "new_search": "?1784036860",
+          "new_hash": ""
+        },
+        {
+          "position": 2,
+          "old_kind": "card-small",
+          "new_kind": "card-small",
+          "old_face_name": "",
+          "new_face_name": "",
+          "old_host": "cards.scryfall.io",
+          "new_host": "cards.scryfall.io",
+          "old_pathname": "/small/front/5/b/5b8170dc-6a90-46fc-9989-7575f3d402b5.jpg",
+          "new_pathname": "/small/front/5/5/5525d6a6-e532-4047-9da4-bfae7927fecc.jpg",
+          "old_search": "?1752947617",
+          "old_hash": "",
+          "new_search": "?1784036860",
+          "new_hash": ""
+        }
+      ]
+    }
+  ],
+  "semantic_selection_changes": [],
+  "inventory_delta": {
+    "removed_keys": [
+      "adeliz the cinder wind",
+      "adrix and nev twincasters",
+      "aether gust",
+      "animar soul of elements",
+      "arcane signet",
+      "archaeomancer s map",
+      "arclight phoenix",
+      "baral chief of compliance",
+      "black market",
+      "bloodtithe harvester",
+      "cathartic reunion",
+      "chulane teller of tales",
+      "cloudfin raptor",
+      "consecrated sphinx",
+      "creative outburst",
+      "crucible of worlds",
+      "cultivate",
+      "danitha capashen paragon",
+      "deathrite shaman",
+      "etherium sculptor",
+      "fable of the mirror breaker",
+      "faithless looting",
+      "farseek",
+      "galazeth prismari",
+      "goblin electromancer",
+      "grim flayer",
+      "growth spiral",
+      "jeska s will",
+      "kaalia of the vast",
+      "kalamax the stormsire",
+      "karador ghost chieftain",
+      "kodama s reach",
+      "magma opus",
+      "mirari s wake",
+      "monastery swiftspear",
+      "murktide regent",
+      "prismari command",
+      "professional face breaker",
+      "prosper tome bound",
+      "questing beast",
+      "saheeli sublime artificer",
+      "sakura tribe elder",
+      "satyr wayfinder",
+      "skyknight legionnaire",
+      "smothering tithe",
+      "solemn simulacrum",
+      "splendid reclamation",
+      "sylvan library",
+      "talisman of dominance",
+      "talisman of indulgence",
+      "tarmogoyf",
+      "tatyova benthic druid",
+      "tempt with discovery",
+      "the great henge",
+      "the mimeoplasm",
+      "travel preparations",
+      "tymna the weaver",
+      "uro titan of nature s wrath",
+      "utopia sprawl",
+      "wilderness reclamation",
+      "young pyromancer",
+      "zendikar resurgent",
+      "zimone quandrix prodigy"
+    ],
+    "added_keys": [
+      "arcane bombardment",
+      "archaeomancer",
+      "atla palani nest tender",
+      "bant charm",
+      "battlemage s bracers",
+      "beast whisperer",
+      "bedevil",
+      "biomancer s familiar",
+      "biomass mutation",
+      "bitterblossom",
+      "blast zone",
+      "blind obedience",
+      "blood researcher",
+      "bloodchief ascension",
+      "boros charm",
+      "bred for the hunt",
+      "bring to light",
+      "buried ruin",
+      "cascading cataracts",
+      "champion of lambholt",
+      "circu dimir lobotomist",
+      "closing statement",
+      "conclave mentor",
+      "conflux",
+      "cruel ultimatum",
+      "crystal inhuman princess",
+      "cunning rhetoric",
+      "decisive denial",
+      "deflecting palm",
+      "dimir doppelganger",
+      "dina soul steeper",
+      "docent of perfection",
+      "domri s ambush",
+      "dovin s veto",
+      "dueling grounds",
+      "duelist s heritage",
+      "efreet flamepainter",
+      "epic experiment",
+      "esix fractal bloom",
+      "etali primal storm",
+      "evolutionary leap",
+      "expansion explosion",
+      "extract from darkness",
+      "feldon of the third path",
+      "field of ruin",
+      "finest hour",
+      "fractal summoning",
+      "gishath sun s avatar",
+      "glimpse the unthinkable",
+      "group project",
+      "horde of notions",
+      "humiliate",
+      "introduction to annihilation",
+      "ionize",
+      "ishai ojutai dragonspeaker",
+      "izoni thousand eyed",
+      "izzet charm",
+      "jenara asura of war",
+      "jodah the unifier",
+      "kresh the bloodbraided",
+      "legacy weapon",
+      "legion s initiative",
+      "leyline binding",
+      "lorehold command",
+      "lorehold excavation",
+      "lotleth troll",
+      "maelstrom nexus",
+      "maelstrom wanderer",
+      "marchesa the black rose",
+      "martial law",
+      "master transmuter",
+      "mayael s aria",
+      "mayael the anima",
+      "mechanized production",
+      "memory erosion",
+      "mindcrank",
+      "mizzium mortars",
+      "mizzix s mastery",
+      "mortality spear",
+      "mortuary mire",
+      "mystic forge",
+      "narset s reversal",
+      "naya charm",
+      "nephalia drownyard",
+      "nevinyrral s disk",
+      "nicol bolas the ravager",
+      "nightveil specter",
+      "nils discipline enforcer",
+      "niv mizzet reborn",
+      "olivia mobilized for war",
+      "overrun",
+      "painful quandary",
+      "parallel lives",
+      "phelddagrif",
+      "plaza of heroes",
+      "possibility storm",
+      "propaganda",
+      "pyromancer ascension",
+      "quandrix apprentice",
+      "rakdos s return",
+      "reality smasher",
+      "reforge the soul",
+      "render silent",
+      "response resurgence",
+      "reyhan last of the abzan",
+      "rienne angel of rebirth",
+      "rubblebelt raiders",
+      "rule of law",
+      "sanguine bond",
+      "sedris the traitor king",
+      "selesnya charm",
+      "shaile dean of radiance embrose dean of shadow",
+      "sigil of the empty throne",
+      "sigil of the new dawn",
+      "silas renn seeker adept",
+      "silverquill command",
+      "simic ascendancy",
+      "simic charm",
+      "spatial contortion",
+      "sphinx of the steel wind",
+      "stitcher s supplier",
+      "stoic angel",
+      "tasigur the golden fang",
+      "tend the pests",
+      "tezzeret s touch",
+      "the eldest reborn",
+      "the world tree",
+      "third path iconoclast",
+      "thought erasure",
+      "thought knot seer",
+      "titan s presence",
+      "titanic ultimatum",
+      "trash for treasure",
+      "ugin s nexus",
+      "valentin dean of the vein",
+      "vault of the archangel",
+      "venerated loxodon",
+      "vorel of the hull clade",
+      "walking ballista",
+      "wargate",
+      "witch maw nephilim",
+      "witherbloom command",
+      "xander s lounge",
+      "xyris the writhing storm",
+      "yasova dragonclaw",
+      "zedruu the greathearted"
+    ],
+    "old_inventory_removed_keys": [
+      "adeliz the cinder wind",
+      "adrix and nev twincasters",
+      "aether gust",
+      "animar soul of elements",
+      "arcane signet",
+      "archaeomancer s map",
+      "arclight phoenix",
+      "baral chief of compliance",
+      "black market",
+      "bloodtithe harvester",
+      "cathartic reunion",
+      "chulane teller of tales",
+      "cloudfin raptor",
+      "consecrated sphinx",
+      "creative outburst",
+      "crucible of worlds",
+      "cultivate",
+      "deathrite shaman",
+      "etherium sculptor",
+      "fable of the mirror breaker",
+      "faithless looting",
+      "farseek",
+      "galazeth prismari",
+      "goblin electromancer",
+      "grim flayer",
+      "growth spiral",
+      "jeska s will",
+      "kaalia of the vast",
+      "kalamax the stormsire",
+      "karador ghost chieftain",
+      "kodama s reach",
+      "magma opus",
+      "mirari s wake",
+      "monastery swiftspear",
+      "murktide regent",
+      "prismari command",
+      "professional face breaker",
+      "prosper tome bound",
+      "questing beast",
+      "saheeli sublime artificer",
+      "sakura tribe elder",
+      "satyr wayfinder",
+      "skyknight legionnaire",
+      "smothering tithe",
+      "solemn simulacrum",
+      "splendid reclamation",
+      "sylvan library",
+      "talisman of dominance",
+      "talisman of indulgence",
+      "tarmogoyf",
+      "tatyova benthic druid",
+      "tempt with discovery",
+      "the great henge",
+      "the mimeoplasm",
+      "travel preparations",
+      "tymna the weaver",
+      "uro titan of nature s wrath",
+      "utopia sprawl",
+      "wilderness reclamation",
+      "young pyromancer",
+      "zendikar resurgent",
+      "zimone quandrix prodigy"
+    ],
+    "current_inventory_added_keys": [
+      "arcane bombardment",
+      "archaeomancer",
+      "atla palani nest tender",
+      "bant charm",
+      "battlemage s bracers",
+      "beast whisperer",
+      "bedevil",
+      "biomancer s familiar",
+      "biomass mutation",
+      "bitterblossom",
+      "blast zone",
+      "blind obedience",
+      "blood researcher",
+      "bloodchief ascension",
+      "boros charm",
+      "bred for the hunt",
+      "bring to light",
+      "buried ruin",
+      "cascading cataracts",
+      "champion of lambholt",
+      "circu dimir lobotomist",
+      "closing statement",
+      "conclave mentor",
+      "conflux",
+      "cruel ultimatum",
+      "cunning rhetoric",
+      "decisive denial",
+      "deflecting palm",
+      "dimir doppelganger",
+      "dina soul steeper",
+      "docent of perfection",
+      "domri s ambush",
+      "dovin s veto",
+      "dueling grounds",
+      "duelist s heritage",
+      "efreet flamepainter",
+      "epic experiment",
+      "esix fractal bloom",
+      "etali primal storm",
+      "evolutionary leap",
+      "expansion explosion",
+      "extract from darkness",
+      "feldon of the third path",
+      "field of ruin",
+      "finest hour",
+      "fractal summoning",
+      "gishath sun s avatar",
+      "glimpse the unthinkable",
+      "horde of notions",
+      "humiliate",
+      "introduction to annihilation",
+      "ionize",
+      "ishai ojutai dragonspeaker",
+      "izoni thousand eyed",
+      "izzet charm",
+      "jenara asura of war",
+      "jodah the unifier",
+      "kresh the bloodbraided",
+      "legacy weapon",
+      "legion s initiative",
+      "leyline binding",
+      "lorehold command",
+      "lorehold excavation",
+      "lotleth troll",
+      "maelstrom nexus",
+      "maelstrom wanderer",
+      "marchesa the black rose",
+      "martial law",
+      "master transmuter",
+      "mayael s aria",
+      "mayael the anima",
+      "mechanized production",
+      "memory erosion",
+      "mindcrank",
+      "mizzium mortars",
+      "mizzix s mastery",
+      "mortality spear",
+      "mortuary mire",
+      "mystic forge",
+      "narset s reversal",
+      "naya charm",
+      "nephalia drownyard",
+      "nevinyrral s disk",
+      "nicol bolas the ravager",
+      "nightveil specter",
+      "nils discipline enforcer",
+      "niv mizzet reborn",
+      "olivia mobilized for war",
+      "overrun",
+      "painful quandary",
+      "parallel lives",
+      "phelddagrif",
+      "plaza of heroes",
+      "possibility storm",
+      "propaganda",
+      "pyromancer ascension",
+      "quandrix apprentice",
+      "rakdos s return",
+      "reality smasher",
+      "reforge the soul",
+      "render silent",
+      "response resurgence",
+      "reyhan last of the abzan",
+      "rienne angel of rebirth",
+      "rubblebelt raiders",
+      "rule of law",
+      "sanguine bond",
+      "sedris the traitor king",
+      "selesnya charm",
+      "shaile dean of radiance embrose dean of shadow",
+      "sigil of the empty throne",
+      "sigil of the new dawn",
+      "silas renn seeker adept",
+      "silverquill command",
+      "simic ascendancy",
+      "simic charm",
+      "spatial contortion",
+      "sphinx of the steel wind",
+      "stitcher s supplier",
+      "stoic angel",
+      "tasigur the golden fang",
+      "tend the pests",
+      "tezzeret s touch",
+      "the eldest reborn",
+      "the world tree",
+      "third path iconoclast",
+      "thought erasure",
+      "thought knot seer",
+      "titan s presence",
+      "titanic ultimatum",
+      "trash for treasure",
+      "ugin s nexus",
+      "valentin dean of the vein",
+      "vault of the archangel",
+      "venerated loxodon",
+      "vorel of the hull clade",
+      "walking ballista",
+      "wargate",
+      "witch maw nephilim",
+      "witherbloom command",
+      "xander s lounge",
+      "xyris the writhing storm",
+      "yasova dragonclaw",
+      "zedruu the greathearted"
+    ],
+    "reconciliation": {
+      "staged_vm574_removed_keys": [
+        "adeliz the cinder wind",
+        "adrix and nev twincasters",
+        "aether gust",
+        "animar soul of elements",
+        "arcane signet",
+        "archaeomancer s map",
+        "arclight phoenix",
+        "baral chief of compliance",
+        "black market",
+        "bloodtithe harvester",
+        "cathartic reunion",
+        "chulane teller of tales",
+        "cloudfin raptor",
+        "consecrated sphinx",
+        "creative outburst",
+        "crucible of worlds",
+        "cultivate",
+        "deathrite shaman",
+        "etherium sculptor",
+        "fable of the mirror breaker",
+        "faithless looting",
+        "farseek",
+        "galazeth prismari",
+        "goblin electromancer",
+        "grim flayer",
+        "growth spiral",
+        "jeska s will",
+        "kaalia of the vast",
+        "kalamax the stormsire",
+        "karador ghost chieftain",
+        "kodama s reach",
+        "magma opus",
+        "mirari s wake",
+        "monastery swiftspear",
+        "murktide regent",
+        "prismari command",
+        "professional face breaker",
+        "prosper tome bound",
+        "questing beast",
+        "saheeli sublime artificer",
+        "sakura tribe elder",
+        "satyr wayfinder",
+        "skyknight legionnaire",
+        "smothering tithe",
+        "solemn simulacrum",
+        "splendid reclamation",
+        "sylvan library",
+        "talisman of dominance",
+        "talisman of indulgence",
+        "tarmogoyf",
+        "tatyova benthic druid",
+        "tempt with discovery",
+        "the great henge",
+        "the mimeoplasm",
+        "travel preparations",
+        "tymna the weaver",
+        "uro titan of nature s wrath",
+        "utopia sprawl",
+        "wilderness reclamation",
+        "young pyromancer",
+        "zendikar resurgent",
+        "zimone quandrix prodigy"
+      ],
+      "staged_vm574_added_keys": [
+        "arcane bombardment",
+        "archaeomancer",
+        "atla palani nest tender",
+        "bant charm",
+        "battlemage s bracers",
+        "beast whisperer",
+        "bedevil",
+        "biomancer s familiar",
+        "biomass mutation",
+        "bitterblossom",
+        "blast zone",
+        "blind obedience",
+        "blood researcher",
+        "bloodchief ascension",
+        "boros charm",
+        "bred for the hunt",
+        "bring to light",
+        "buried ruin",
+        "cascading cataracts",
+        "champion of lambholt",
+        "circu dimir lobotomist",
+        "closing statement",
+        "conclave mentor",
+        "conflux",
+        "cruel ultimatum",
+        "cunning rhetoric",
+        "decisive denial",
+        "deflecting palm",
+        "dimir doppelganger",
+        "dina soul steeper",
+        "docent of perfection",
+        "domri s ambush",
+        "dovin s veto",
+        "dueling grounds",
+        "duelist s heritage",
+        "efreet flamepainter",
+        "epic experiment",
+        "esix fractal bloom",
+        "etali primal storm",
+        "evolutionary leap",
+        "expansion explosion",
+        "extract from darkness",
+        "feldon of the third path",
+        "field of ruin",
+        "finest hour",
+        "fractal summoning",
+        "gishath sun s avatar",
+        "glimpse the unthinkable",
+        "horde of notions",
+        "humiliate",
+        "introduction to annihilation",
+        "ionize",
+        "ishai ojutai dragonspeaker",
+        "izoni thousand eyed",
+        "izzet charm",
+        "jenara asura of war",
+        "jodah the unifier",
+        "kresh the bloodbraided",
+        "legacy weapon",
+        "legion s initiative",
+        "leyline binding",
+        "lorehold command",
+        "lorehold excavation",
+        "lotleth troll",
+        "maelstrom nexus",
+        "maelstrom wanderer",
+        "marchesa the black rose",
+        "martial law",
+        "master transmuter",
+        "mayael s aria",
+        "mayael the anima",
+        "mechanized production",
+        "memory erosion",
+        "mindcrank",
+        "mizzium mortars",
+        "mizzix s mastery",
+        "mortality spear",
+        "mortuary mire",
+        "mystic forge",
+        "narset s reversal",
+        "naya charm",
+        "nephalia drownyard",
+        "nevinyrral s disk",
+        "nicol bolas the ravager",
+        "nightveil specter",
+        "nils discipline enforcer",
+        "niv mizzet reborn",
+        "olivia mobilized for war",
+        "overrun",
+        "painful quandary",
+        "parallel lives",
+        "phelddagrif",
+        "plaza of heroes",
+        "possibility storm",
+        "propaganda",
+        "pyromancer ascension",
+        "quandrix apprentice",
+        "rakdos s return",
+        "reality smasher",
+        "reforge the soul",
+        "render silent",
+        "response resurgence",
+        "reyhan last of the abzan",
+        "rienne angel of rebirth",
+        "rubblebelt raiders",
+        "rule of law",
+        "sanguine bond",
+        "sedris the traitor king",
+        "selesnya charm",
+        "shaile dean of radiance embrose dean of shadow",
+        "sigil of the empty throne",
+        "sigil of the new dawn",
+        "silas renn seeker adept",
+        "silverquill command",
+        "simic ascendancy",
+        "simic charm",
+        "spatial contortion",
+        "sphinx of the steel wind",
+        "stitcher s supplier",
+        "stoic angel",
+        "tasigur the golden fang",
+        "tend the pests",
+        "tezzeret s touch",
+        "the eldest reborn",
+        "the world tree",
+        "third path iconoclast",
+        "thought erasure",
+        "thought knot seer",
+        "titan s presence",
+        "titanic ultimatum",
+        "trash for treasure",
+        "ugin s nexus",
+        "valentin dean of the vein",
+        "vault of the archangel",
+        "venerated loxodon",
+        "vorel of the hull clade",
+        "walking ballista",
+        "wargate",
+        "witch maw nephilim",
+        "witherbloom command",
+        "xander s lounge",
+        "xyris the writhing storm",
+        "yasova dragonclaw",
+        "zedruu the greathearted"
+      ],
+      "preexisting_vm569_accepted_ink_removed_keys": [
+        "danitha capashen paragon"
+      ],
+      "preexisting_vm569_accepted_ink_added_keys": [
+        "crystal inhuman princess",
+        "group project"
+      ],
+      "note": "Projection delta reconciles to current authored content. The non-VM-574 exception is the already-accepted VM-569 Ink Sound mismatch: Danitha leaves stale prior projection; Crystal and Group Project enter current authored inventory."
+    }
+  }
+}

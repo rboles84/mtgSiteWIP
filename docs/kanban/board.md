@@ -13,8 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-569 - Ink Global Media Projection Reconciliation](backlog/VM-569-ink-global-media-projection-reconciliation.md) - separately reconcile the accepted Ink Sound inventory with the older optional VM-559 global projection; non-blocking for VM-568 and prohibited from changing accepted Ink semantics or frozen evidence silently.
-
 - [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -50,6 +48,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-569 - Ink Global Media Projection Reconciliation](done/VM-569-ink-global-media-projection-reconciliation.md) - refreshed the governed Scryfall Oracle corpus, accepted only the proven 58 safe printing refreshes through the existing drift mechanism, restored the normal VM-559 production projection with zero unresolved governed resolver keys, and unblocked VM-574 media coverage without changing VM-574 selections.
 
 - [VM-573 - Archscry Runtime Decomposition, Pass 2](done/VM-573-archscry-runtime-decomposition-pass-2.md) - decomposed the Commander dossier domain and Archscry route runtime behind stable compatibility facades, passed both internal certification gates and owner acceptance, and preserved inherited Card Signals content behavior without product or data changes.
 
