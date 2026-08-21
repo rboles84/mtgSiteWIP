@@ -66,6 +66,13 @@ No product copy, HTML, CSS, data, scoring, placement meaning, generated artifact
 
 ## Follow-Up Recommendations
 
-Complete only owner acceptance and VM-573 closeout. Do not begin another architecture pass from this handoff.
+VM-573 owner acceptance passed and the implementation is committed at `acca599ee3b9b8be2a1d7324ac04f5cd03c72f6b`. The Silverquill Card Signals finding predates VM-573 and remains a separate governed-content planning candidate; no follow-up task was created during closeout. Do not begin another architecture pass from this handoff.
 
-Next suggested agent: Owner acceptance, then closeout agent only.
+Next suggested agent: None for VM-573; task complete.
+
+## Closeout
+
+- Owner acceptance: PASS, 2026-08-20.
+- Implementation SHA: `acca599ee3b9b8be2a1d7324ac04f5cd03c72f6b`.
+- Product/data/media changes during closeout: none.
+- Card Signals follow-up opened: no.

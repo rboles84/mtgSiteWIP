@@ -45,13 +45,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-573 - Archscry Runtime Decomposition, Pass 2](in-progress/VM-573-archscry-runtime-decomposition-pass-2.md) - decomposes the Commander dossier domain and Archscry route runtime through two internal compatibility, cycle, QA, and zero-drift gates without changing product behavior.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-573 - Archscry Runtime Decomposition, Pass 2](done/VM-573-archscry-runtime-decomposition-pass-2.md) - decomposed the Commander dossier domain and Archscry route runtime behind stable compatibility facades, passed both internal certification gates and owner acceptance, and preserved inherited Card Signals content behavior without product or data changes.
 
 - [VM-572 - Residual Research / Historical Tooling Lifecycle Cleanup](done/VM-572-residual-research-tooling-lifecycle-cleanup.md) - retained four relocated tools, removed eleven completed or stale VM-era scripts and their live references, preserved 39 research fixtures, and recorded Packet 3/evidence-helper ambiguity without product or artifact drift.
 

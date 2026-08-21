@@ -2,11 +2,13 @@
 
 ID: VM-573
 Title: Archscry Runtime Decomposition, Pass 2
-Status: Owner Acceptance
+Status: Done
 Type: Runtime architecture
 Area: Archscry
 Priority: High
 Created: 2026-08-20
+Completed: 2026-08-20
+Implementation SHA: `acca599ee3b9b8be2a1d7324ac04f5cd03c72f6b`
 
 ## Summary
 
@@ -91,7 +93,7 @@ Decompose the two large Archscry JavaScript owners into cohesive ES modules with
 - `npm run test:browser-smoke -- --archscry-only` and `npm run test:visual:archscry` were attempted once and stopped before route execution because declared/locked `chrome-launcher` is absent locally. No dependency install was performed.
 - Fallback rendered sample: PASS for loading the real local Archscry entry, canonical faction data, restored dossier rendering, all six dossier panels, and four Maze paths with no visible placement/faction-load error. The browser control did not complete the retake journey, so owner acceptance retains the representative quick-reading and adjacent/Maze interaction check.
 - Owner spot-check: one quick reading through dossier; one adjacent-fit switch where available; one dossier panel/card interaction; one Maze handoff; one mobile-width sanity check.
-- Decision: ready for owner acceptance. Keep the complete VM-573 change staged and uncommitted; do not begin another architecture pass.
+- Decision: owner acceptance passed on 2026-08-20. Implementation is committed at `acca599ee3b9b8be2a1d7324ac04f5cd03c72f6b`; do not begin another architecture pass from this card.
 
 ## Owner-Testing Observation
 
@@ -101,6 +103,13 @@ Decompose the two large Archscry JavaScript owners into cohesive ES modules with
 - Azorius confirms multi-category Card Signals still render correctly after VM-573.
 - Dimir and Witherbloom were also identified as sparse/empty Card Signals candidates for later review.
 - This is inherited governed-content behavior, not a VM-573 decomposition regression. Card Signals content-quality work remains deferred to a separate planning-only task after VM-573 closeout.
+
+## Closeout
+
+- Owner acceptance: PASS on 2026-08-20 after manual Archscry runtime testing across Silverquill, Azorius, no-placement, and additional random-result paths with zero console errors.
+- Accepted implementation: `acca599ee3b9b8be2a1d7324ac04f5cd03c72f6b`.
+- The Silverquill observation is preserved only as inherited governed-content evidence; no Card Signals follow-up task was created and no content, data, or media changed.
+- VM-573 is complete. Further Card Signals planning and any later architecture pass require separate owner authorization.
 
 ## Non-Goals
 
