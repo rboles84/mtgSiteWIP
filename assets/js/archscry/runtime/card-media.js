@@ -517,12 +517,24 @@ export function cardRulesDetail(card = {}) {
     .filter(Boolean)
     .join("\n\n");
   if (faceOracleText) return { label: "Oracle text", text: faceOracleText };
-  if (card.oracle_excerpt) return { label: "Oracle excerpt", text: card.oracle_excerpt };
+  if (card.oracle_excerpt) return { label: "Oracle excerpt", text: wordBoundaryExcerpt(card.oracle_excerpt) };
   const faceOracleExcerpt = (card.card_faces || [])
-    .map((face) => [face.name, face.oracle_excerpt].filter(Boolean).join(" — "))
+    .map((face) => [face.name, wordBoundaryExcerpt(face.oracle_excerpt)].filter(Boolean).join(" — "))
     .filter(Boolean)
     .join("\n\n");
   return { label: faceOracleExcerpt ? "Oracle excerpt" : "", text: faceOracleExcerpt };
+}
+
+function wordBoundaryExcerpt(value = "") {
+  const text = String(value).replace(/\s+/g, " ").trim();
+  if (!text) return "";
+  const hasEllipsis = /\.{3,}\s*$/.test(text);
+  const clean = text.replace(/\.{3,}\s*$/, "").trim();
+  if (!clean || (!hasEllipsis && text.length < 180)) return text;
+  const wholeWords = /[\p{L}\p{N}]$/u.test(clean)
+    ? clean.replace(/\s+\S*$/, "")
+    : clean;
+  return `${(wholeWords || clean).trim()}...`;
 }
 
 export function ensureCardDetailDialog() {
@@ -600,7 +612,7 @@ export async function openCardDetail(actionNode) {
           ${identityContextHtml}
           ${manaCost ? `<div class="archscry-card-dialog-mana" aria-label="Mana cost">${renderManaCost(manaCost)}</div>` : ""}
           ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
-          ${!isIdentityLinkedCard && rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${escapeHtml(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
+          ${!isIdentityLinkedCard && rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${renderManaCost(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
           ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
         </div>
       </div>`;

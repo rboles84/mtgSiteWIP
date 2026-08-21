@@ -1,0 +1,4581 @@
+{
+  "schema_version": "1.0.0",
+  "task": "VM-574",
+  "source": "Card Signals coverage, teaching value, mana notes remediation",
+  "generated_at": "2026-08-21T03:56:12.152Z",
+  "aggregate": {
+    "identities": 37,
+    "categories": {
+      "creatures": 111,
+      "spells": 111,
+      "permanents": 111
+    },
+    "visible": {
+      "creatures": 111,
+      "spells": 111,
+      "permanents": 111
+    },
+    "unresolved": 0,
+    "collision_failures": 0,
+    "wrong_type": 0,
+    "banned_type": 0,
+    "color_identity_failures": 0,
+    "mana_primary": 0,
+    "duplicate_cards": 0,
+    "media_missing": 0
+  },
+  "ledger": [
+    {
+      "identity": "ABZAN",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Anafenza, the Foremost",
+          "canonical_name": "Anafenza, the Foremost",
+          "oracle_id": "ebfafabc-5255-4024-be59-7403bdb16ee4",
+          "scryfall_id": "c8b432a7-53da-4480-b571-e6feb1364a3a",
+          "type_line": "Legendary Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Doran, the Siege Tower",
+          "canonical_name": "Doran, the Siege Tower",
+          "oracle_id": "a46d96d9-8e59-4777-8208-7730b9e33240",
+          "scryfall_id": "e0ad8e7f-cda0-4529-94fc-dd3709158a94",
+          "type_line": "Legendary Creature — Treefolk Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Abzan Falconer",
+          "canonical_name": "Abzan Falconer",
+          "oracle_id": "8b972819-507a-40a9-ab1f-1a674ea56083",
+          "scryfall_id": "f7e2b0e1-c9ea-4f91-b19e-73b1bd6a0884",
+          "type_line": "Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/ABZAN/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "ABZAN",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Abzan Charm",
+          "canonical_name": "Abzan Charm",
+          "oracle_id": "4137a22c-f793-4e27-a9b2-72740a6e2121",
+          "scryfall_id": "bd5b386e-e71e-492d-8456-6cd178ef5b3d",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Anguished Unmaking",
+          "canonical_name": "Anguished Unmaking",
+          "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+          "scryfall_id": "407183c6-c962-4f8c-867e-abc309b6c573",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mortify",
+          "canonical_name": "Mortify",
+          "oracle_id": "faa01ed1-ccfa-4e58-951f-cd81f9068027",
+          "scryfall_id": "88e85619-3a7d-48c2-b9b0-20718c913696",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/ABZAN/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "ABZAN",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Abzan Ascendancy",
+          "canonical_name": "Abzan Ascendancy",
+          "oracle_id": "3b7d4206-0d88-407b-ace5-d5d28881bf95",
+          "scryfall_id": "80b722d9-be9d-463c-929e-78f7156af9c6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cathars' Crusade",
+          "canonical_name": "Cathars' Crusade",
+          "oracle_id": "cc65ac73-5bef-4ecb-ad8e-39199084c027",
+          "scryfall_id": "5296e353-2efc-4d72-a877-7957eff630b9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/ABZAN/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "B",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Yawgmoth, Thran Physician",
+          "canonical_name": "Yawgmoth, Thran Physician",
+          "oracle_id": "a1e232c0-dc38-47be-a5a0-f68bc1d86a29",
+          "scryfall_id": "b5a79f5d-d0df-4799-ac3a-84305e3af0c9",
+          "type_line": "Legendary Creature — Human Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Dauthi Voidwalker",
+          "canonical_name": "Dauthi Voidwalker",
+          "oracle_id": "f1c2dbe2-fbe0-4058-bdf1-91d1b1832786",
+          "scryfall_id": "3573b9a2-7911-475c-8ae7-25bd0dbb7159",
+          "type_line": "Creature — Dauthi Rogue",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Chainer, Dementia Master",
+          "canonical_name": "Chainer, Dementia Master",
+          "oracle_id": "cb905eb0-bb20-41c0-9695-0f5c71972561",
+          "scryfall_id": "186c30e6-2b84-415d-83e4-ecddaeb11ca1",
+          "type_line": "Legendary Creature — Human Minion",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/B/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "B",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Demonic Tutor",
+          "canonical_name": "Demonic Tutor",
+          "oracle_id": "82004860-e589-4e38-8d61-8c0210e4ea39",
+          "scryfall_id": "a24b4cb6-cebb-428b-8654-74347a6a8d63",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Reanimate",
+          "canonical_name": "Reanimate",
+          "oracle_id": "a044474a-cd72-4e9d-bd8d-a08f2de9cdc0",
+          "scryfall_id": "368b6903-5fc4-43e7-bd44-46b8107c8bb4",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Toxic Deluge",
+          "canonical_name": "Toxic Deluge",
+          "oracle_id": "afaef788-34d1-460b-b884-9d7ae6ddeb18",
+          "scryfall_id": "de5afccc-8d42-4bd6-b068-b9ea2361655e",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/B/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "B",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Necropotence",
+          "canonical_name": "Necropotence",
+          "oracle_id": "94a844d2-0574-45a7-b347-e0e329767c42",
+          "scryfall_id": "c89c6895-b0f8-444a-9c89-c6b4fd027b3e",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Phyrexian Arena",
+          "canonical_name": "Phyrexian Arena",
+          "oracle_id": "ee579a32-a048-4335-b966-231ba731cdea",
+          "scryfall_id": "0784b6f0-9ebf-43d2-ba0f-a6bc93ba0c48",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bolas's Citadel",
+          "canonical_name": "Bolas's Citadel",
+          "oracle_id": "2bd111bb-ce02-414c-b5b7-e0e037d8d96b",
+          "scryfall_id": "d2124603-d20e-40eb-97f0-a66323397ac2",
+          "type_line": "Legendary Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/B/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BANT",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Tuvasa the Sunlit",
+          "canonical_name": "Tuvasa the Sunlit",
+          "oracle_id": "6a83d976-8087-48d7-b6f5-63efb8329e99",
+          "scryfall_id": "bdda07ac-2f9f-4c8e-b3f6-b54d0afd730c",
+          "type_line": "Legendary Creature — Merfolk Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Jenara, Asura of War",
+          "canonical_name": "Jenara, Asura of War",
+          "oracle_id": "d06cd670-7ffc-4295-97d1-0eff042fb6d5",
+          "scryfall_id": "4bcf5b5f-b908-4975-91f7-c4c6f819e0a6",
+          "type_line": "Legendary Creature — Angel",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Stoic Angel",
+          "canonical_name": "Stoic Angel",
+          "oracle_id": "b50c865b-705f-489e-9ffc-ba8060ba262f",
+          "scryfall_id": "37fd303a-0a51-4931-9735-704ce8179a98",
+          "type_line": "Creature — Angel",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/BANT/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BANT",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Bant Charm",
+          "canonical_name": "Bant Charm",
+          "oracle_id": "324889d6-c857-41ed-bb60-408809fc9964",
+          "scryfall_id": "7906b1e8-3049-4f4e-b1fd-b2547e7079f0",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Wargate",
+          "canonical_name": "Wargate",
+          "oracle_id": "26f39abe-ea0b-400d-b11c-03ee4cf50915",
+          "scryfall_id": "8f4fe11d-c404-489a-b17f-34f33b1597e8",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Dovin's Veto",
+          "canonical_name": "Dovin's Veto",
+          "oracle_id": "1b388371-f9ef-45b4-82a3-ca20a8cd7807",
+          "scryfall_id": "5d6b5054-2224-4f68-9d82-3ed17c5dacc4",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/BANT/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BANT",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Finest Hour",
+          "canonical_name": "Finest Hour",
+          "oracle_id": "05678253-a40f-4c11-8ac4-335b3a02532e",
+          "scryfall_id": "ad89ace6-b872-4a56-8128-795119ceb972",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Dueling Grounds",
+          "canonical_name": "Dueling Grounds",
+          "oracle_id": "eb2df4a1-6b63-4f6a-a830-e9487afe59f8",
+          "scryfall_id": "52760183-bee0-4ce0-96c0-074b88f78980",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sigil of the Empty Throne",
+          "canonical_name": "Sigil of the Empty Throne",
+          "oracle_id": "3b9b5b22-5a7d-4e37-a870-ca0f0efa4f36",
+          "scryfall_id": "6875be24-1515-488f-a899-929c8e480dfd",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/BANT/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BG",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Stitcher's Supplier",
+          "canonical_name": "Stitcher's Supplier",
+          "oracle_id": "7fd61a18-6e4f-40c5-aa00-3d101ec1ec82",
+          "scryfall_id": "2edcde06-b326-476e-884d-770187c785fe",
+          "type_line": "Creature — Zombie",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Lotleth Troll",
+          "canonical_name": "Lotleth Troll",
+          "oracle_id": "61b1d7e5-6155-4204-b110-35a890551ec8",
+          "scryfall_id": "cc138550-a797-4a57-91b3-626aac1b1edd",
+          "type_line": "Creature — Zombie Troll",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Izoni, Thousand-Eyed",
+          "canonical_name": "Izoni, Thousand-Eyed",
+          "oracle_id": "5a210b32-6e1f-4578-bd8b-4e481b761159",
+          "scryfall_id": "75955b0e-12d6-40ba-aab5-b7b7e2bde121",
+          "type_line": "Legendary Creature — Elf Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/BG/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BG",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Assassin's Trophy",
+          "canonical_name": "Assassin's Trophy",
+          "oracle_id": "ac10d218-f9a6-4058-9cda-a15ca1b0b7b5",
+          "scryfall_id": "aaf258fc-3ba4-4b83-bdbf-10a07e0b6c03",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Grisly Salvage",
+          "canonical_name": "Grisly Salvage",
+          "oracle_id": "a89ebf63-63c9-42cd-98b4-ec852cd9b0a8",
+          "scryfall_id": "12a90f7a-28df-4017-b221-0e9234ff74a7",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Life from the Loam",
+          "canonical_name": "Life from the Loam",
+          "oracle_id": "ac8fba34-512c-4f24-999a-ab72f1ce4acb",
+          "scryfall_id": "cdb6432f-3f56-4c92-b09a-2a5b64620c04",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/BG/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BG",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Pernicious Deed",
+          "canonical_name": "Pernicious Deed",
+          "oracle_id": "62e44e0d-eda0-4275-8367-49dab9a087c3",
+          "scryfall_id": "8652e3a1-bcd4-4c0c-a085-34f19702df26",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Moldervine Reclamation",
+          "canonical_name": "Moldervine Reclamation",
+          "oracle_id": "68639a3d-2192-4921-8298-c76bb0cd6b02",
+          "scryfall_id": "f3e93085-ffcb-4f48-8649-3fcbc5e97699",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Deadbridge Chant",
+          "canonical_name": "Deadbridge Chant",
+          "oracle_id": "506667b1-7922-4959-a5b3-0f8abe8c3615",
+          "scryfall_id": "e67b8f21-c173-4d1d-8224-2eba4bcc6975",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/BG/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BR",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Olivia, Mobilized for War",
+          "canonical_name": "Olivia, Mobilized for War",
+          "oracle_id": "1f8d387e-e4bb-4e76-a173-f46f7b107b95",
+          "scryfall_id": "7297dd81-8367-42e9-abf9-9227e202e7ae",
+          "type_line": "Legendary Creature — Vampire Knight",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mayhem Devil",
+          "canonical_name": "Mayhem Devil",
+          "oracle_id": "4709f11c-aef8-45ac-b2bf-e640c568dfac",
+          "scryfall_id": "674f3a8a-4552-4289-b92a-06ce158f115c",
+          "type_line": "Creature — Devil",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Kroxa, Titan of Death's Hunger",
+          "canonical_name": "Kroxa, Titan of Death's Hunger",
+          "oracle_id": "2cb1c213-b3f2-4433-8f89-6a3b4c3d2795",
+          "scryfall_id": "cee0459b-9aac-4d2f-abe4-4d5fedde7eb8",
+          "type_line": "Legendary Creature — Elder Giant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/BR/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BR",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Rakdos's Return",
+          "canonical_name": "Rakdos's Return",
+          "oracle_id": "52d1d575-3e7f-4df1-8c89-aee0cac03aca",
+          "scryfall_id": "d72981c0-1632-4d64-9341-2a76047d9b36",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bedevil",
+          "canonical_name": "Bedevil",
+          "oracle_id": "bceecc64-96f1-4e7b-8904-0aef90377764",
+          "scryfall_id": "985b9779-b8f6-4d7e-9490-5d2b91ee8db2",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Terminate",
+          "canonical_name": "Terminate",
+          "oracle_id": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+          "scryfall_id": "379ffc67-4142-4ead-a871-0f851523745e",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/BR/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "BR",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Bloodchief Ascension",
+          "canonical_name": "Bloodchief Ascension",
+          "oracle_id": "d5ea905b-4bb6-48d0-9082-c472703db550",
+          "scryfall_id": "d56d1535-d9de-459f-bc31-0923f621e0e9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Phyrexian Arena",
+          "canonical_name": "Phyrexian Arena",
+          "oracle_id": "ee579a32-a048-4335-b966-231ba731cdea",
+          "scryfall_id": "0784b6f0-9ebf-43d2-ba0f-a6bc93ba0c48",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Theater of Horrors",
+          "canonical_name": "Theater of Horrors",
+          "oracle_id": "b391a4ce-52ce-4a8c-bbe5-6053951ee1d4",
+          "scryfall_id": "f0b88e4f-070f-48d1-a5f9-c22dfc7ab31b",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/BR/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "COLORLESS",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Thought-Knot Seer",
+          "canonical_name": "Thought-Knot Seer",
+          "oracle_id": "cef7396d-2168-4282-bf38-670ca9eebd91",
+          "scryfall_id": "bffc360e-db41-48f3-9365-680d55046e04",
+          "type_line": "Creature — Eldrazi",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Reality Smasher",
+          "canonical_name": "Reality Smasher",
+          "oracle_id": "17c651c7-da4e-45e9-9a64-fad3e873123d",
+          "scryfall_id": "52d4b652-a830-4fd4-94bb-c17c227f2928",
+          "type_line": "Creature — Eldrazi",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Walking Ballista",
+          "canonical_name": "Walking Ballista",
+          "oracle_id": "4b515bb0-f275-4400-8032-3173b799ab40",
+          "scryfall_id": "5272436e-74f0-44c4-a291-ea8ebc3f1525",
+          "type_line": "Artifact Creature — Construct",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/COLORLESS/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "COLORLESS",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Introduction to Annihilation",
+          "canonical_name": "Introduction to Annihilation",
+          "oracle_id": "60e36f86-e284-468e-8073-07f19a3ed65e",
+          "scryfall_id": "b0bc4682-bcaf-4f51-be0b-9f2851a16e3b",
+          "type_line": "Sorcery — Lesson",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Spatial Contortion",
+          "canonical_name": "Spatial Contortion",
+          "oracle_id": "7346337e-ac12-4dd2-826d-77ec0013e74f",
+          "scryfall_id": "3fd2f8b3-62f3-4e52-ae17-dd0a61bc0e26",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Titan's Presence",
+          "canonical_name": "Titan's Presence",
+          "oracle_id": "b011d6b2-8930-4192-aa94-82869faa991b",
+          "scryfall_id": "4dd8cf3f-1ca8-41e4-b0f7-ea9d61f731d7",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/COLORLESS/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "COLORLESS",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Ugin's Nexus",
+          "canonical_name": "Ugin's Nexus",
+          "oracle_id": "fe2afa18-54d0-4595-af27-256398793a42",
+          "scryfall_id": "94002868-a48a-4ea8-bfce-17257078f5db",
+          "type_line": "Legendary Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Nevinyrral's Disk",
+          "canonical_name": "Nevinyrral's Disk",
+          "oracle_id": "96230edf-568a-47dd-b877-9d92aa58fac8",
+          "scryfall_id": "36fb6ee3-bd54-4e5b-b055-c2c42515c162",
+          "type_line": "Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mystic Forge",
+          "canonical_name": "Mystic Forge",
+          "oracle_id": "994bc16d-fdc6-475c-96df-beeb4d5aa03e",
+          "scryfall_id": "bc0de77a-c503-4000-9eb5-aa28a5e91082",
+          "type_line": "Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/COLORLESS/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "DUNE",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Mayhem Devil",
+          "canonical_name": "Mayhem Devil",
+          "oracle_id": "4709f11c-aef8-45ac-b2bf-e640c568dfac",
+          "scryfall_id": "674f3a8a-4552-4289-b92a-06ce158f115c",
+          "type_line": "Creature — Devil",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bloodbraid Elf",
+          "canonical_name": "Bloodbraid Elf",
+          "oracle_id": "3f0c9466-5ab9-4205-a84f-b4b27b5a678e",
+          "scryfall_id": "e2f12f6f-9383-47e6-a44f-2834ad130e51",
+          "type_line": "Creature — Elf Berserker",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rienne, Angel of Rebirth",
+          "canonical_name": "Rienne, Angel of Rebirth",
+          "oracle_id": "1ef2415f-f88f-41fb-b084-ea52631a60c1",
+          "scryfall_id": "78660bdf-0edb-4fd0-a737-1c95f93cced1",
+          "type_line": "Legendary Creature — Angel",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/DUNE/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "DUNE",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Beast Within",
+          "canonical_name": "Beast Within",
+          "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+          "scryfall_id": "400b43aa-c1d2-4435-b863-061f43889422",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Putrefy",
+          "canonical_name": "Putrefy",
+          "oracle_id": "9b271430-f53d-42d6-a547-2f286dd9bcb6",
+          "scryfall_id": "ad6ed9f1-2014-49e2-91c6-2b55c8d60cdc",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Anguished Unmaking",
+          "canonical_name": "Anguished Unmaking",
+          "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+          "scryfall_id": "407183c6-c962-4f8c-867e-abc309b6c573",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/DUNE/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "DUNE",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Impact Tremors",
+          "canonical_name": "Impact Tremors",
+          "oracle_id": "9242cd3e-1a71-4700-8182-9c1005616033",
+          "scryfall_id": "d0b7cecf-b51b-4d30-b7e9-cd7976271e07",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Dictate of Erebos",
+          "canonical_name": "Dictate of Erebos",
+          "oracle_id": "7c777a41-e40a-4b40-96bf-8ddd5c12924c",
+          "scryfall_id": "9f06db70-95f9-41eb-8e5f-8bc56fd34c09",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cathars' Crusade",
+          "canonical_name": "Cathars' Crusade",
+          "oracle_id": "cc65ac73-5bef-4ecb-ad8e-39199084c027",
+          "scryfall_id": "5296e353-2efc-4d72-a877-7957eff630b9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/DUNE/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "ESPER",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Baleful Strix",
+          "canonical_name": "Baleful Strix",
+          "oracle_id": "37688720-03de-4eca-a82d-a0afe8d58adc",
+          "scryfall_id": "be8439e6-f779-49f0-806a-b04995697a6a",
+          "type_line": "Artifact Creature — Bird",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cyberdrive Awakener",
+          "canonical_name": "Cyberdrive Awakener",
+          "oracle_id": "126a5d0b-e7d6-458e-87af-47d845678014",
+          "scryfall_id": "19bf6b74-b236-42eb-8c88-d715cece6357",
+          "type_line": "Artifact Creature — Construct",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sphinx of the Steel Wind",
+          "canonical_name": "Sphinx of the Steel Wind",
+          "oracle_id": "1c96772b-463c-4655-836b-cf6e9dc6319f",
+          "scryfall_id": "9fc9b802-3381-4318-a352-d85451aba586",
+          "type_line": "Artifact Creature — Sphinx",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/ESPER/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "ESPER",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Swords to Plowshares",
+          "canonical_name": "Swords to Plowshares",
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "scryfall_id": "b4e9c870-23c0-413a-ae39-265f09da16d1",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Counterspell",
+          "canonical_name": "Counterspell",
+          "oracle_id": "cc187110-1148-4090-bbb8-e205694a39f5",
+          "scryfall_id": "4f616706-ec97-4923-bb1e-11a69fbaa1f8",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Anguished Unmaking",
+          "canonical_name": "Anguished Unmaking",
+          "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+          "scryfall_id": "407183c6-c962-4f8c-867e-abc309b6c573",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/ESPER/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "ESPER",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Thopter Spy Network",
+          "canonical_name": "Thopter Spy Network",
+          "oracle_id": "49be65fd-3755-410d-b0dc-2e5861ea2552",
+          "scryfall_id": "babc5799-31f3-452e-a61d-5c11f9f81bf9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bitterblossom",
+          "canonical_name": "Bitterblossom",
+          "oracle_id": "fb868840-09fa-49b1-85cb-b08ad065e972",
+          "scryfall_id": "b9640cbf-b016-410e-9eff-e8924883517b",
+          "type_line": "Kindred Enchantment — Faerie",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Tezzeret's Touch",
+          "canonical_name": "Tezzeret's Touch",
+          "oracle_id": "c6f2c767-3c8e-4113-b271-ea7c19583e6c",
+          "scryfall_id": "3c2e917f-734e-4b8b-abc6-ea33c0fc722e",
+          "type_line": "Enchantment — Aura",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/ESPER/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "G",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Eternal Witness",
+          "canonical_name": "Eternal Witness",
+          "oracle_id": "30b24e8e-3b0e-4d8e-90f3-f66eb7c1858c",
+          "scryfall_id": "39704000-65d3-4d39-849e-a3b617376bbc",
+          "type_line": "Creature — Human Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Beast Whisperer",
+          "canonical_name": "Beast Whisperer",
+          "oracle_id": "5da7eea8-bb9e-47ce-a554-8a1ee058bd7a",
+          "scryfall_id": "daf4bcd2-3ae4-4803-9ea1-3bcc3de5ca59",
+          "type_line": "Creature — Elf Druid",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Champion of Lambholt",
+          "canonical_name": "Champion of Lambholt",
+          "oracle_id": "c549b0fd-1e08-4873-952e-a14dc45a0fd2",
+          "scryfall_id": "46eff31d-f460-48f2-aab7-8b9b89cd87fe",
+          "type_line": "Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/G/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "G",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Heroic Intervention",
+          "canonical_name": "Heroic Intervention",
+          "oracle_id": "24882fa2-3fe9-4c1b-aa3d-0e6488b9db27",
+          "scryfall_id": "e32c67d1-187f-40df-b3b3-6036f5c92834",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Beast Within",
+          "canonical_name": "Beast Within",
+          "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+          "scryfall_id": "400b43aa-c1d2-4435-b863-061f43889422",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Overrun",
+          "canonical_name": "Overrun",
+          "oracle_id": "204f9afe-c20b-4933-b5cd-aa572784762a",
+          "scryfall_id": "1d8e9cbb-8bf4-4a48-a58e-79deb3abdf7f",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/G/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "G",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Guardian Project",
+          "canonical_name": "Guardian Project",
+          "oracle_id": "4f9e07ae-6341-4b46-9f77-f17ab659d266",
+          "scryfall_id": "2c523ef7-d6c4-4887-9a4e-0c2bc6f63676",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Garruk's Uprising",
+          "canonical_name": "Garruk's Uprising",
+          "oracle_id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d",
+          "scryfall_id": "b58c4033-f764-42f6-966f-b7202a2babbf",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/G/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GLINT",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Xyris, the Writhing Storm",
+          "canonical_name": "Xyris, the Writhing Storm",
+          "oracle_id": "8687948c-456b-495b-9b31-f818c65624b6",
+          "scryfall_id": "af0db1d6-5cb1-4917-8e8f-69d5dc184404",
+          "type_line": "Legendary Creature — Snake Leviathan",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Glint-Eye Nephilim",
+          "canonical_name": "Glint-Eye Nephilim",
+          "oracle_id": "d6b6d965-1401-4566-adb3-90b03218af8d",
+          "scryfall_id": "a4f00d2b-d616-455a-bf9b-5bd82b690121",
+          "type_line": "Creature — Nephilim",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Maelstrom Wanderer",
+          "canonical_name": "Maelstrom Wanderer",
+          "oracle_id": "ad9b7fbc-61c8-43ee-a65c-99206fd1e4df",
+          "scryfall_id": "5685b28a-b943-4143-b9ed-4796c1ffbf9c",
+          "type_line": "Legendary Creature — Elemental",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/GLINT/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GLINT",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Chaos Warp",
+          "canonical_name": "Chaos Warp",
+          "oracle_id": "07a0cba9-8768-4fd9-a3d5-b0f83b4bf8e8",
+          "scryfall_id": "fb8d8106-b9bd-405c-886e-72fc301c65e1",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bituminous Blast",
+          "canonical_name": "Bituminous Blast",
+          "oracle_id": "d291d8f7-bb67-470c-8794-cd553c91e5cc",
+          "scryfall_id": "af8613ee-4b67-49b8-920b-3b5a25897f64",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Villainous Wealth",
+          "canonical_name": "Villainous Wealth",
+          "oracle_id": "f2fae95d-074b-4c0c-99cd-f9385a424c05",
+          "scryfall_id": "a467072c-99d9-4013-8d28-607a06cf50fe",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/GLINT/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GLINT",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Theater of Horrors",
+          "canonical_name": "Theater of Horrors",
+          "oracle_id": "b391a4ce-52ce-4a8c-bbe5-6053951ee1d4",
+          "scryfall_id": "f0b88e4f-070f-48d1-a5f9-c22dfc7ab31b",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Possibility Storm",
+          "canonical_name": "Possibility Storm",
+          "oracle_id": "8586169f-cb8c-4424-ba64-a7c1cc00680e",
+          "scryfall_id": "858aa831-b491-4f1e-bb56-33eeca14771d",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sunbird's Invocation",
+          "canonical_name": "Sunbird's Invocation",
+          "oracle_id": "10d482fd-e034-4187-b148-51fe15885360",
+          "scryfall_id": "75c1eb6a-2183-4f60-b075-f7289df35be7",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/GLINT/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GRIXIS",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Sedris, the Traitor King",
+          "canonical_name": "Sedris, the Traitor King",
+          "oracle_id": "48054407-b5e1-431c-ad03-c12a31d0d9a8",
+          "scryfall_id": "a4e787a7-3721-4ba7-b643-a103488cfc8a",
+          "type_line": "Legendary Creature — Zombie Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Marchesa, the Black Rose",
+          "canonical_name": "Marchesa, the Black Rose",
+          "oracle_id": "17a59d3d-9e01-48cd-bb4a-3eaaa077751c",
+          "scryfall_id": "3242a9f0-2ba3-4852-ac8f-366772ac1c62",
+          "type_line": "Legendary Creature — Human Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Nicol Bolas, the Ravager",
+          "canonical_name": "Nicol Bolas, the Ravager // Nicol Bolas, the Arisen",
+          "oracle_id": "55e4b27e-5447-4fc2-8cae-a03e344600c6",
+          "scryfall_id": "7b215968-93a6-4278-ac61-4e3e8c3c3943",
+          "type_line": "Legendary Creature — Elder Dragon // Legendary Planeswalker — Bolas // Legendary Creature — Elder Dragon // Legendary Planeswalker — Bolas",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/GRIXIS/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GRIXIS",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Terminate",
+          "canonical_name": "Terminate",
+          "oracle_id": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+          "scryfall_id": "379ffc67-4142-4ead-a871-0f851523745e",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Blasphemous Act",
+          "canonical_name": "Blasphemous Act",
+          "oracle_id": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+          "scryfall_id": "7d4b1d44-126e-4987-9a9f-f0f9627a09cb",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cruel Ultimatum",
+          "canonical_name": "Cruel Ultimatum",
+          "oracle_id": "01294ac9-1a06-4ee8-b3b1-db1f07c9d94e",
+          "scryfall_id": "d71a8ea5-199e-473e-a2b1-e2f7cc804ffc",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/GRIXIS/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "GRIXIS",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Painful Quandary",
+          "canonical_name": "Painful Quandary",
+          "oracle_id": "c37051cc-6683-4dbb-b5ff-5c3a5bdab1df",
+          "scryfall_id": "05757669-e8a6-4a2f-8479-d4e2ade822ca",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "The Eldest Reborn",
+          "canonical_name": "The Eldest Reborn",
+          "oracle_id": "44ed4c0c-a012-4895-a547-b04150553bba",
+          "scryfall_id": "4d29351e-5608-40e8-8220-6c9635d48ad4",
+          "type_line": "Enchantment — Saga",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Animate Dead",
+          "canonical_name": "Animate Dead",
+          "oracle_id": "c0d8fef4-65f4-4769-982d-b397d2b7e977",
+          "scryfall_id": "cc0c2bab-4392-4e7b-9d14-2901f4ffbae8",
+          "type_line": "Enchantment — Aura",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/GRIXIS/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "INK",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Ink-Treader Nephilim",
+          "canonical_name": "Ink-Treader Nephilim",
+          "oracle_id": "3846b499-59c8-4e77-b46a-1d697bcbded7",
+          "scryfall_id": "d29bb432-1ca6-4305-b6d3-d7afe06c6c69",
+          "type_line": "Creature — Nephilim",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Zedruu the Greathearted",
+          "canonical_name": "Zedruu the Greathearted",
+          "oracle_id": "514179c0-a50b-4565-8e71-9dad256edd85",
+          "scryfall_id": "e9ea2a6b-5aaf-4178-b945-f409fe83c41a",
+          "type_line": "Legendary Creature — Minotaur Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Phelddagrif",
+          "canonical_name": "Phelddagrif",
+          "oracle_id": "d0e99535-0ea0-4aa5-99f5-6c5255b27c38",
+          "scryfall_id": "493a72f0-2e35-4e06-a1b2-d42d432b9b2c",
+          "type_line": "Legendary Creature — Phelddagrif",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/INK/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "INK",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Fact or Fiction",
+          "canonical_name": "Fact or Fiction",
+          "oracle_id": "437b2dab-15e0-4b9a-a204-58622d37a3b3",
+          "scryfall_id": "04588d2f-9e90-4f83-b85e-67e4bc222a62",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Beast Within",
+          "canonical_name": "Beast Within",
+          "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+          "scryfall_id": "400b43aa-c1d2-4435-b863-061f43889422",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Generous Gift",
+          "canonical_name": "Generous Gift",
+          "oracle_id": "fae37e28-e137-4177-b973-fa8b4dd8f409",
+          "scryfall_id": "c3f9b454-97e9-4c77-b37a-e974221ae385",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/INK/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "INK",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Intangible Virtue",
+          "canonical_name": "Intangible Virtue",
+          "oracle_id": "d21c3c8f-d105-4ba9-bf69-e5f26f0f8ec5",
+          "scryfall_id": "716d82a1-fb5d-4607-b1fa-e8e9edd4dd77",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Duelist's Heritage",
+          "canonical_name": "Duelist's Heritage",
+          "oracle_id": "5cdc4654-b8c5-4599-a1d2-9e9d5f6509cb",
+          "scryfall_id": "45834bc6-be8d-4064-930d-efc73cf3c64d",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Propaganda",
+          "canonical_name": "Propaganda",
+          "oracle_id": "ea9709b6-4c37-4d5a-b04d-cd4c42e4f9dd",
+          "scryfall_id": "ac943e31-26bc-4b54-b73f-460e6e402d86",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/INK/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JESKAI",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Narset, Enlightened Master",
+          "canonical_name": "Narset, Enlightened Master",
+          "oracle_id": "aeaf7768-ed67-487d-8506-e667babb88ba",
+          "scryfall_id": "de4b0d5f-1071-4030-be16-2b4dadbdf9e9",
+          "type_line": "Legendary Creature — Human Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Elsha of the Infinite",
+          "canonical_name": "Elsha of the Infinite",
+          "oracle_id": "da339200-ed26-42e4-b24f-b96bc4daef7c",
+          "scryfall_id": "c0728027-a1ec-4814-87c4-10c3baced0e0",
+          "type_line": "Legendary Creature — Djinn Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Monastery Mentor",
+          "canonical_name": "Monastery Mentor",
+          "oracle_id": "3979067a-9c68-443d-a85f-d9f07be880b9",
+          "scryfall_id": "2343e69d-f30e-4826-953c-fbf31c6079e6",
+          "type_line": "Creature — Human Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/JESKAI/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JESKAI",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Jeskai Charm",
+          "canonical_name": "Jeskai Charm",
+          "oracle_id": "2a9a05b4-1910-4f97-a0fe-0f57017f6df0",
+          "scryfall_id": "d4c0fcdb-a312-4976-bcfb-73930c0a556c",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Deflecting Palm",
+          "canonical_name": "Deflecting Palm",
+          "oracle_id": "dc5dffc8-fac5-4956-bac4-1ad2cc16f6be",
+          "scryfall_id": "c5bda1a7-537f-4a80-95a0-c45eb127969b",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Narset's Reversal",
+          "canonical_name": "Narset's Reversal",
+          "oracle_id": "d55f6c70-321f-4fb4-bd33-0850ae1a7c36",
+          "scryfall_id": "4ede8d68-6870-445c-b140-da98adbc246a",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/JESKAI/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JESKAI",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Jeskai Ascendancy",
+          "canonical_name": "Jeskai Ascendancy",
+          "oracle_id": "c3c802ba-dfbb-4f63-ae9a-e29c2e30013d",
+          "scryfall_id": "9a8399fc-4cba-44c5-888e-2cfc0f6739f6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sunbird's Invocation",
+          "canonical_name": "Sunbird's Invocation",
+          "oracle_id": "10d482fd-e034-4187-b148-51fe15885360",
+          "scryfall_id": "75c1eb6a-2183-4f60-b075-f7289df35be7",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Thousand-Year Storm",
+          "canonical_name": "Thousand-Year Storm",
+          "oracle_id": "dd4cf149-2fae-40e5-b50b-639f6bcec65e",
+          "scryfall_id": "76c48a67-1410-40f1-9b93-0172d85e4688",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/JESKAI/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JUND",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Korvold, Fae-Cursed King",
+          "canonical_name": "Korvold, Fae-Cursed King",
+          "oracle_id": "9ae669dd-7e60-4649-b96e-35da28be641a",
+          "scryfall_id": "607c1793-8e5a-4ebf-87c6-7f9c99bbd29a",
+          "type_line": "Legendary Creature — Dragon Noble",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mayhem Devil",
+          "canonical_name": "Mayhem Devil",
+          "oracle_id": "4709f11c-aef8-45ac-b2bf-e640c568dfac",
+          "scryfall_id": "674f3a8a-4552-4289-b92a-06ce158f115c",
+          "type_line": "Creature — Devil",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Kresh the Bloodbraided",
+          "canonical_name": "Kresh the Bloodbraided",
+          "oracle_id": "6343cf6f-b1e3-49ce-8933-8fe6c9dc83f3",
+          "scryfall_id": "8b4b3c5f-32ea-4208-86d4-bb86e3b8d7d5",
+          "type_line": "Legendary Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/JUND/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JUND",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Terminate",
+          "canonical_name": "Terminate",
+          "oracle_id": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+          "scryfall_id": "379ffc67-4142-4ead-a871-0f851523745e",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Putrefy",
+          "canonical_name": "Putrefy",
+          "oracle_id": "9b271430-f53d-42d6-a547-2f286dd9bcb6",
+          "scryfall_id": "ad6ed9f1-2014-49e2-91c6-2b55c8d60cdc",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Victimize",
+          "canonical_name": "Victimize",
+          "oracle_id": "240e85d3-e495-4877-8609-4b4056c402f7",
+          "scryfall_id": "ee008d81-df28-49a8-917d-44f66527e469",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/JUND/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "JUND",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Goblin Bombardment",
+          "canonical_name": "Goblin Bombardment",
+          "oracle_id": "edad60c6-80de-4033-af1b-a703ac332983",
+          "scryfall_id": "e262f55e-9239-4a97-a19e-9b08fb34502e",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Moldervine Reclamation",
+          "canonical_name": "Moldervine Reclamation",
+          "oracle_id": "68639a3d-2192-4921-8298-c76bb0cd6b02",
+          "scryfall_id": "f3e93085-ffcb-4f48-8649-3fcbc5e97699",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rhythm of the Wild",
+          "canonical_name": "Rhythm of the Wild",
+          "oracle_id": "acfa77fd-3610-4f12-9c3c-bd860ce91700",
+          "scryfall_id": "c2a6453e-a373-44ec-807a-15c0c8b1af57",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/JUND/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "LOREHOLD",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Hofri Ghostforge",
+          "canonical_name": "Hofri Ghostforge",
+          "oracle_id": "663d451b-f848-41cc-b541-0c6fe37d3d54",
+          "scryfall_id": "bc03cdb6-5ad0-452d-a698-bd19f5ebac83",
+          "type_line": "Legendary Creature — Dwarf Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Quintorius, Field Historian",
+          "canonical_name": "Quintorius, Field Historian",
+          "oracle_id": "28b64167-b7ea-4b4f-8434-061298050366",
+          "scryfall_id": "8e3c7f00-e997-4b07-98af-45b9ea35d2d7",
+          "type_line": "Legendary Creature — Elephant Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Venerable Warsinger",
+          "canonical_name": "Venerable Warsinger",
+          "oracle_id": "e286d1aa-bb74-4568-98b5-a693ac7a369d",
+          "scryfall_id": "cdd0062f-6b2a-49c4-bf47-9b05f16ca6eb",
+          "type_line": "Creature — Spirit Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/LOREHOLD/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "LOREHOLD",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Rip Apart",
+          "canonical_name": "Rip Apart",
+          "oracle_id": "cbdbf18f-0180-4ade-a79e-1e644dd42d6f",
+          "scryfall_id": "b4964c78-b9ca-43c2-bcaa-bf75d92b9065",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Thrilling Discovery",
+          "canonical_name": "Thrilling Discovery",
+          "oracle_id": "c5f5a234-c751-4976-a3e1-fbd52b3255c9",
+          "scryfall_id": "1278b2ef-6c11-4892-9388-833f67bcc858",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Lorehold Command",
+          "canonical_name": "Lorehold Command",
+          "oracle_id": "107becb1-f8a3-4777-b39f-a0456c2d580e",
+          "scryfall_id": "e4f0885f-1049-4a19-853d-f4e6d4bec29e",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/LOREHOLD/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "LOREHOLD",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Lorehold Excavation",
+          "canonical_name": "Lorehold Excavation",
+          "oracle_id": "0ed2a07c-a7a5-4910-a63c-e72803947afb",
+          "scryfall_id": "43105beb-46f3-4914-8222-4907bd76d48f",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sigil of the New Dawn",
+          "canonical_name": "Sigil of the New Dawn",
+          "oracle_id": "cb029c0f-b08a-4952-b236-8166b9f17119",
+          "scryfall_id": "64393586-42c6-4874-9473-85c63c7ed2ad",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Battlemage's Bracers",
+          "canonical_name": "Battlemage's Bracers",
+          "oracle_id": "bd56225e-8c80-4328-9ca0-0fff4969573d",
+          "scryfall_id": "1a14aad2-47f0-4d21-9fcf-5ca171faffaf",
+          "type_line": "Artifact — Equipment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/LOREHOLD/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "MARDU",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Alesha, Who Smiles at Death",
+          "canonical_name": "Alesha, Who Smiles at Death",
+          "oracle_id": "6969a7e2-6866-4001-a139-24b3be13deae",
+          "scryfall_id": "7ae9ff8c-1cc8-4b10-9641-2c79648fd6c2",
+          "type_line": "Legendary Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Zurgo Helmsmasher",
+          "canonical_name": "Zurgo Helmsmasher",
+          "oracle_id": "6c48d888-9f5d-43f4-adbd-61dbdba09260",
+          "scryfall_id": "13f4bafe-0d21-47ba-8f16-0274107d618c",
+          "type_line": "Legendary Creature — Orc Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Judith, the Scourge Diva",
+          "canonical_name": "Judith, the Scourge Diva",
+          "oracle_id": "c01516e0-eec3-4370-b935-7674982e8850",
+          "scryfall_id": "d6fb929c-1b8d-4d1d-aa69-ac6189cd7ebf",
+          "type_line": "Legendary Creature — Human Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/MARDU/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "MARDU",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Mardu Charm",
+          "canonical_name": "Mardu Charm",
+          "oracle_id": "147eabab-9d93-4cf4-811b-0efa3b84c5b5",
+          "scryfall_id": "c35fb7a3-7c7f-4470-b1ad-5b8709a608e6",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Crackling Doom",
+          "canonical_name": "Crackling Doom",
+          "oracle_id": "ee81f37b-2a81-46d7-8d2f-9091123846c4",
+          "scryfall_id": "a66e5673-e34b-46e8-a0e4-55f3ee20f99a",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Anguished Unmaking",
+          "canonical_name": "Anguished Unmaking",
+          "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+          "scryfall_id": "407183c6-c962-4f8c-867e-abc309b6c573",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/MARDU/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "MARDU",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Mardu Ascendancy",
+          "canonical_name": "Mardu Ascendancy",
+          "oracle_id": "aa1de5ce-ddd4-4c1f-8c52-0311f4419e7b",
+          "scryfall_id": "02bc2415-b1d1-467a-9578-3948dda166cf",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Impact Tremors",
+          "canonical_name": "Impact Tremors",
+          "oracle_id": "9242cd3e-1a71-4700-8182-9c1005616033",
+          "scryfall_id": "d0b7cecf-b51b-4d30-b7e9-cd7976271e07",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bastion of Remembrance",
+          "canonical_name": "Bastion of Remembrance",
+          "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+          "scryfall_id": "6fe6ccad-e303-48f9-9dfa-0db7c1878031",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/MARDU/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "NAYA",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Mayael the Anima",
+          "canonical_name": "Mayael the Anima",
+          "oracle_id": "7f546d54-584d-4bec-8fbb-1ea2f8ab277e",
+          "scryfall_id": "309d95ad-e46c-4407-894d-d4cfdc7017f8",
+          "type_line": "Legendary Creature — Elf Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Gishath, Sun's Avatar",
+          "canonical_name": "Gishath, Sun's Avatar",
+          "oracle_id": "a311daab-40dc-4433-9ed8-feab7c558bbf",
+          "scryfall_id": "bc4a65de-23b5-48f0-b8b7-94608eaced3e",
+          "type_line": "Legendary Creature — Dinosaur Avatar",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Atla Palani, Nest Tender",
+          "canonical_name": "Atla Palani, Nest Tender",
+          "oracle_id": "b56cebe0-3752-4ce5-afbd-911543784015",
+          "scryfall_id": "2b8414f7-22c3-4e1c-934b-4a0e7acf951d",
+          "type_line": "Legendary Creature — Human Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/NAYA/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "NAYA",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Naya Charm",
+          "canonical_name": "Naya Charm",
+          "oracle_id": "20cc0f3e-de69-4e5f-88b3-ae7e6c6b5996",
+          "scryfall_id": "ce1d6f9b-2ca8-48b8-b4a6-46a61c7c3905",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Titanic Ultimatum",
+          "canonical_name": "Titanic Ultimatum",
+          "oracle_id": "0cd28580-d718-4d0b-96e3-a836c2911c27",
+          "scryfall_id": "a9b86d97-3cfa-4510-a3da-1a85cd8d2ba9",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Heroic Intervention",
+          "canonical_name": "Heroic Intervention",
+          "oracle_id": "24882fa2-3fe9-4c1b-aa3d-0e6488b9db27",
+          "scryfall_id": "e32c67d1-187f-40df-b3b3-6036f5c92834",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/NAYA/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "NAYA",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Rhythm of the Wild",
+          "canonical_name": "Rhythm of the Wild",
+          "oracle_id": "acfa77fd-3610-4f12-9c3c-bd860ce91700",
+          "scryfall_id": "c2a6453e-a373-44ec-807a-15c0c8b1af57",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Uncivil Unrest",
+          "canonical_name": "Uncivil Unrest",
+          "oracle_id": "bd655e8b-f192-4635-9e23-357b6f89ef8f",
+          "scryfall_id": "31afae93-d3c7-49c3-9f00-2cd9621e0ff8",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mayael's Aria",
+          "canonical_name": "Mayael's Aria",
+          "oracle_id": "6cb9ca93-e0bb-4758-bf0d-c9a8fce5f11f",
+          "scryfall_id": "a53170fe-7f18-47ef-b501-1ed398306419",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/NAYA/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "PRISMARI",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Efreet Flamepainter",
+          "canonical_name": "Efreet Flamepainter",
+          "oracle_id": "fb5e8b8c-bad2-45bb-abb4-2ed454525749",
+          "scryfall_id": "d9f0731c-2a3d-4613-bffa-8b967e4f142e",
+          "type_line": "Creature — Efreet Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rootha, Mercurial Artist",
+          "canonical_name": "Rootha, Mercurial Artist",
+          "oracle_id": "3735559f-efe5-43ad-9b3e-3ef127c0ceda",
+          "scryfall_id": "289abc0f-2ab9-48a7-a19b-a3630b014637",
+          "type_line": "Legendary Creature — Orc Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Veyran, Voice of Duality",
+          "canonical_name": "Veyran, Voice of Duality",
+          "oracle_id": "d57a6b19-bd06-4b07-8ee1-0b45612ba9e4",
+          "scryfall_id": "1cb06c70-7ff2-4c88-9931-1bfe8a3226d9",
+          "type_line": "Legendary Creature — Efreet Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/PRISMARI/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "PRISMARI",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Mizzix's Mastery",
+          "canonical_name": "Mizzix's Mastery",
+          "oracle_id": "40362fe0-a1a9-4d76-8c35-eac474b91af5",
+          "scryfall_id": "4fa2d7f2-05b3-468f-9f2c-a61b46bad88e",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Ionize",
+          "canonical_name": "Ionize",
+          "oracle_id": "01da67a5-e3dc-44f4-8a93-513bfa4d8fbc",
+          "scryfall_id": "f161f7d2-eaa1-4931-93f9-befa8b5df821",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Epic Experiment",
+          "canonical_name": "Epic Experiment",
+          "oracle_id": "08bc10fd-8901-4836-ad4d-a867e1bcba77",
+          "scryfall_id": "d3ad9626-3124-4ad6-9cac-49aa9c3ce88c",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/PRISMARI/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "PRISMARI",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Thousand-Year Storm",
+          "canonical_name": "Thousand-Year Storm",
+          "oracle_id": "dd4cf149-2fae-40e5-b50b-639f6bcec65e",
+          "scryfall_id": "76c48a67-1410-40f1-9b93-0172d85e4688",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Metallurgic Summonings",
+          "canonical_name": "Metallurgic Summonings",
+          "oracle_id": "7d5149c6-0e7e-438c-a554-5235c85e2426",
+          "scryfall_id": "3a769d7e-c749-4845-ba87-808f0386df80",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Arcane Bombardment",
+          "canonical_name": "Arcane Bombardment",
+          "oracle_id": "1e36a42f-58e2-49bc-8c14-7f75e1d8ef98",
+          "scryfall_id": "ef7e6e2d-d984-483e-b117-b1c5d640dc23",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/PRISMARI/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "QUANDRIX",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Tanazir Quandrix",
+          "canonical_name": "Tanazir Quandrix",
+          "oracle_id": "73c44cf5-a601-4625-9550-e722fba2ec0b",
+          "scryfall_id": "194d29be-a145-41f2-a55a-a071816b5551",
+          "type_line": "Legendary Creature — Elder Dragon",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Esix, Fractal Bloom",
+          "canonical_name": "Esix, Fractal Bloom",
+          "oracle_id": "9d22960b-babc-4cf3-b228-d32e13bc6014",
+          "scryfall_id": "2e390f8e-1dd5-4383-83f5-45f20f18d410",
+          "type_line": "Legendary Creature — Fractal",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Quandrix Apprentice",
+          "canonical_name": "Quandrix Apprentice",
+          "oracle_id": "92116bbd-c7ad-4033-8d98-3ea09fea8ae7",
+          "scryfall_id": "f9166814-8748-480a-b7a0-816f9f582420",
+          "type_line": "Creature — Human Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/QUANDRIX/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "QUANDRIX",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Quandrix Command",
+          "canonical_name": "Quandrix Command",
+          "oracle_id": "9c0f7cdc-9095-40ae-bf83-75a5ffda72b9",
+          "scryfall_id": "b673dfb7-e384-4586-8326-ae6f23edfe78",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Decisive Denial",
+          "canonical_name": "Decisive Denial",
+          "oracle_id": "2d0bd780-b754-44a3-894c-a9c8aa711f05",
+          "scryfall_id": "b1ad1949-1c8e-4566-9286-caf240c88fcc",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Fractal Summoning",
+          "canonical_name": "Fractal Summoning",
+          "oracle_id": "ce690421-db1d-4177-a2db-338f29aab623",
+          "scryfall_id": "cc3f1f7e-eb19-49c1-a1ee-93b85ac8815c",
+          "type_line": "Sorcery — Lesson",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/QUANDRIX/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "QUANDRIX",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Doubling Season",
+          "canonical_name": "Doubling Season",
+          "oracle_id": "01546b7d-a233-4176-8843-d732074dc5b6",
+          "scryfall_id": "f2c4f80e-84a0-463b-82c3-5c6503809351",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Parallel Lives",
+          "canonical_name": "Parallel Lives",
+          "oracle_id": "84dc94b2-95fb-4d53-aaa2-191cb645639f",
+          "scryfall_id": "01033dae-fec1-41f2-b7f2-cc6a43331790",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/QUANDRIX/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "R",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Krenko, Mob Boss",
+          "canonical_name": "Krenko, Mob Boss",
+          "oracle_id": "68418069-f615-40ef-ae0d-764192acae00",
+          "scryfall_id": "824b2d73-2151-4e5e-9f05-8f63e2bdcaa9",
+          "type_line": "Legendary Creature — Goblin Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Etali, Primal Storm",
+          "canonical_name": "Etali, Primal Storm",
+          "oracle_id": "078def07-ae5d-4591-8db6-d156834aab97",
+          "scryfall_id": "b6af9894-95b5-4c8e-902f-a9ba70f02e4a",
+          "type_line": "Legendary Creature — Elder Dinosaur",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Feldon of the Third Path",
+          "canonical_name": "Feldon of the Third Path",
+          "oracle_id": "be094704-5232-4b10-beeb-aa9bbfae063d",
+          "scryfall_id": "0360f1ff-15c9-48e3-89eb-fbc4bf140c55",
+          "type_line": "Legendary Creature — Human Artificer",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/R/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "R",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Blasphemous Act",
+          "canonical_name": "Blasphemous Act",
+          "oracle_id": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+          "scryfall_id": "7d4b1d44-126e-4987-9a9f-f0f9627a09cb",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Chaos Warp",
+          "canonical_name": "Chaos Warp",
+          "oracle_id": "07a0cba9-8768-4fd9-a3d5-b0f83b4bf8e8",
+          "scryfall_id": "fb8d8106-b9bd-405c-886e-72fc301c65e1",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Reforge the Soul",
+          "canonical_name": "Reforge the Soul",
+          "oracle_id": "ece854f8-8c60-4f30-894f-2286d3dd61b9",
+          "scryfall_id": "1c3509c6-2ae7-45be-8ac9-4d14d69db32f",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/R/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "R",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Impact Tremors",
+          "canonical_name": "Impact Tremors",
+          "oracle_id": "9242cd3e-1a71-4700-8182-9c1005616033",
+          "scryfall_id": "d0b7cecf-b51b-4d30-b7e9-cd7976271e07",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Outpost Siege",
+          "canonical_name": "Outpost Siege",
+          "oracle_id": "ebb24fc7-dc71-4712-8c2a-b5920f78e55d",
+          "scryfall_id": "a9f75fce-f0a1-4dec-982d-a86925c6e9d4",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Fiery Emancipation",
+          "canonical_name": "Fiery Emancipation",
+          "oracle_id": "52159875-354c-47f9-bb1c-cd65395fcc68",
+          "scryfall_id": "0b12e4b7-2c45-4795-94d3-901f89b8f290",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/R/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "RG",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Bloodbraid Elf",
+          "canonical_name": "Bloodbraid Elf",
+          "oracle_id": "3f0c9466-5ab9-4205-a84f-b4b27b5a678e",
+          "scryfall_id": "e2f12f6f-9383-47e6-a44f-2834ad130e51",
+          "type_line": "Creature — Elf Berserker",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rubblebelt Raiders",
+          "canonical_name": "Rubblebelt Raiders",
+          "oracle_id": "7904dd02-f231-4538-b1bb-81bce69309b1",
+          "scryfall_id": "f5f0d394-f929-40e7-adb5-ca813b312dde",
+          "type_line": "Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rampaging Baloths",
+          "canonical_name": "Rampaging Baloths",
+          "oracle_id": "2d3e6549-6cc6-434f-a189-ba3b55e64c34",
+          "scryfall_id": "84aa18de-6acc-46cc-8e28-3046790a6751",
+          "type_line": "Creature — Beast",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/RG/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "RG",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Lightning Bolt",
+          "canonical_name": "Lightning Bolt",
+          "oracle_id": "4457ed35-7c10-48c8-9776-456485fdf070",
+          "scryfall_id": "7673784e-db4b-43a1-8d55-1bb9fc1e284f",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Domri's Ambush",
+          "canonical_name": "Domri's Ambush",
+          "oracle_id": "a481f910-59a8-48b0-a8e4-c24675e1a67d",
+          "scryfall_id": "b0dcae59-e9be-45a8-8ed8-5b47309bb716",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Ancient Grudge",
+          "canonical_name": "Ancient Grudge",
+          "oracle_id": "306593b0-6ea8-476f-a3f2-e17876c1bab4",
+          "scryfall_id": "5f28d4a2-6c75-44c2-93ac-e7159c1c623f",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/RG/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "RG",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Fires of Yavimaya",
+          "canonical_name": "Fires of Yavimaya",
+          "oracle_id": "e23d6f3b-0e18-423b-943b-15db7837255b",
+          "scryfall_id": "7294e30f-0356-4bcc-a264-4cd46d8f13a6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rhythm of the Wild",
+          "canonical_name": "Rhythm of the Wild",
+          "oracle_id": "acfa77fd-3610-4f12-9c3c-bd860ce91700",
+          "scryfall_id": "c2a6453e-a373-44ec-807a-15c0c8b1af57",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Garruk's Uprising",
+          "canonical_name": "Garruk's Uprising",
+          "oracle_id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d",
+          "scryfall_id": "b58c4033-f764-42f6-966f-b7202a2babbf",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/RG/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SILVERQUILL",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Scriv, the Obligator",
+          "canonical_name": "Scriv, the Obligator",
+          "oracle_id": "64c986f0-e786-419c-9b51-8c316c8fae0e",
+          "scryfall_id": "c133a860-7b8d-485d-b9a2-bf8ae3a68f47",
+          "type_line": "Legendary Creature — Inkling Bird",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Shaile, Dean of Radiance // Embrose, Dean of Shadow",
+          "canonical_name": "Shaile, Dean of Radiance // Embrose, Dean of Shadow",
+          "oracle_id": "b0907441-30fe-436a-b29c-585b57eabfc3",
+          "scryfall_id": "938cee8f-ac2c-49a5-9ff7-1367d0edfabe",
+          "type_line": "Legendary Creature — Bird Cleric // Legendary Creature — Human Warlock // Legendary Creature — Bird Cleric // Legendary Creature — Human Warlock",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Nils, Discipline Enforcer",
+          "canonical_name": "Nils, Discipline Enforcer",
+          "oracle_id": "ff6b52b7-ae3c-465b-b10e-901160e5230e",
+          "scryfall_id": "c34cff04-01b0-4849-85bf-9e0b034be0e6",
+          "type_line": "Legendary Creature — Human Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/SILVERQUILL/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SILVERQUILL",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Silverquill Command",
+          "canonical_name": "Silverquill Command",
+          "oracle_id": "6075b999-75c5-41c8-898d-ee612ba79a92",
+          "scryfall_id": "5c55f533-9d31-4ad1-b336-927aba6e74d6",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Closing Statement",
+          "canonical_name": "Closing Statement",
+          "oracle_id": "79ac7b6a-1c25-45f6-84b4-5c4a78d6fd6e",
+          "scryfall_id": "785e6d07-fe40-4723-b963-02da0a0987c7",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Humiliate",
+          "canonical_name": "Humiliate",
+          "oracle_id": "cf18a1ca-1fb5-4c90-b20a-6ae2fb54a9bb",
+          "scryfall_id": "dc3ae8cb-fbdb-45a8-83c2-cbf4aff01f90",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/SILVERQUILL/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SILVERQUILL",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Cunning Rhetoric",
+          "canonical_name": "Cunning Rhetoric",
+          "oracle_id": "e7eb7ac8-08ab-419b-8508-987afd0bb93b",
+          "scryfall_id": "4a163794-db93-4cf6-a2ea-1af288109dc1",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Duelist's Heritage",
+          "canonical_name": "Duelist's Heritage",
+          "oracle_id": "5cdc4654-b8c5-4599-a1d2-9e9d5f6509cb",
+          "scryfall_id": "45834bc6-be8d-4064-930d-efc73cf3c64d",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bastion of Remembrance",
+          "canonical_name": "Bastion of Remembrance",
+          "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+          "scryfall_id": "6fe6ccad-e303-48f9-9dfa-0db7c1878031",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/SILVERQUILL/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SULTAI",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Sidisi, Brood Tyrant",
+          "canonical_name": "Sidisi, Brood Tyrant",
+          "oracle_id": "3fad7072-21e3-446e-a28f-615038c8bfea",
+          "scryfall_id": "6b8e44d4-db67-4bf4-97c0-ffe6a0eb2954",
+          "type_line": "Legendary Creature — Snake Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Muldrotha, the Gravetide",
+          "canonical_name": "Muldrotha, the Gravetide",
+          "oracle_id": "e4625704-1d52-44e4-804f-2f45644d76ac",
+          "scryfall_id": "705b4d97-2f50-47f7-9053-d748f4337553",
+          "type_line": "Legendary Creature — Elemental Avatar",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Tasigur, the Golden Fang",
+          "canonical_name": "Tasigur, the Golden Fang",
+          "oracle_id": "837e3fde-241f-4826-ad04-f146fdcf2278",
+          "scryfall_id": "175ad810-3cdd-43c7-99a9-8a2e8ad6dbae",
+          "type_line": "Legendary Creature — Human Shaman",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/SULTAI/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SULTAI",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Sultai Charm",
+          "canonical_name": "Sultai Charm",
+          "oracle_id": "46ed38d1-e642-4cea-99ed-a9c17fd982b1",
+          "scryfall_id": "72af6c1f-33a0-4e02-95b7-74ecaa6a6d87",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Villainous Wealth",
+          "canonical_name": "Villainous Wealth",
+          "oracle_id": "f2fae95d-074b-4c0c-99cd-f9385a424c05",
+          "scryfall_id": "a467072c-99d9-4013-8d28-607a06cf50fe",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Grisly Salvage",
+          "canonical_name": "Grisly Salvage",
+          "oracle_id": "a89ebf63-63c9-42cd-98b4-ec852cd9b0a8",
+          "scryfall_id": "12a90f7a-28df-4017-b221-0e9234ff74a7",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/SULTAI/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "SULTAI",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Sultai Ascendancy",
+          "canonical_name": "Sultai Ascendancy",
+          "oracle_id": "06e92ab3-c781-4f32-9ada-09a388047067",
+          "scryfall_id": "3314d77a-039f-43e4-a457-6ceba20c0ffe",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Deadbridge Chant",
+          "canonical_name": "Deadbridge Chant",
+          "oracle_id": "506667b1-7922-4959-a5b3-0f8abe8c3615",
+          "scryfall_id": "e67b8f21-c173-4d1d-8224-2eba4bcc6975",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Animate Dead",
+          "canonical_name": "Animate Dead",
+          "oracle_id": "c0d8fef4-65f4-4769-982d-b397d2b7e977",
+          "scryfall_id": "cc0c2bab-4392-4e7b-9d14-2901f4ffbae8",
+          "type_line": "Enchantment — Aura",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/SULTAI/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "TEMUR",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Surrak Dragonclaw",
+          "canonical_name": "Surrak Dragonclaw",
+          "oracle_id": "7c766365-82c2-46d6-8521-42e73129f4ef",
+          "scryfall_id": "e8efe72d-3c01-4dd6-b3dd-0382ac09dc52",
+          "type_line": "Legendary Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Yasova Dragonclaw",
+          "canonical_name": "Yasova Dragonclaw",
+          "oracle_id": "75dc0995-f89e-4a2c-b30b-9b5a07c21183",
+          "scryfall_id": "490994c6-9fef-482b-835d-a64350bfaa8d",
+          "type_line": "Legendary Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Frilled Mystic",
+          "canonical_name": "Frilled Mystic",
+          "oracle_id": "724bc69c-cd09-4ff8-91e7-70500b9474e1",
+          "scryfall_id": "5bf655ce-c841-42b2-9578-56ab401bf4de",
+          "type_line": "Creature — Elf Lizard Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/TEMUR/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "TEMUR",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Temur Charm",
+          "canonical_name": "Temur Charm",
+          "oracle_id": "418bc6c8-972b-4f07-aac0-8d003b9c1b17",
+          "scryfall_id": "009c5aac-194f-4b95-8f69-cc74aa15c3a5",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Beast Within",
+          "canonical_name": "Beast Within",
+          "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+          "scryfall_id": "400b43aa-c1d2-4435-b863-061f43889422",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rapid Hybridization",
+          "canonical_name": "Rapid Hybridization",
+          "oracle_id": "06692cd9-ac2f-4a32-8fd1-043ba3c0fe71",
+          "scryfall_id": "ccda5bda-5afd-4548-bd48-12c780bfa68b",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/TEMUR/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "TEMUR",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Temur Ascendancy",
+          "canonical_name": "Temur Ascendancy",
+          "oracle_id": "e68dc47c-692f-4420-9799-eee104017273",
+          "scryfall_id": "5cedb54a-a6f6-48aa-acdf-01c988c1c37d",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Garruk's Uprising",
+          "canonical_name": "Garruk's Uprising",
+          "oracle_id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d",
+          "scryfall_id": "b58c4033-f764-42f6-966f-b7202a2babbf",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/TEMUR/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "U",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Docent of Perfection",
+          "canonical_name": "Docent of Perfection // Final Iteration",
+          "oracle_id": "85e797de-da27-4cd5-8fa4-4aef948988b2",
+          "scryfall_id": "96658239-3169-42ef-9983-cd4da24e0f4c",
+          "type_line": "Creature — Insect Horror // Creature — Eldrazi Insect // Creature — Insect Horror // Creature — Eldrazi Insect",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Archaeomancer",
+          "canonical_name": "Archaeomancer",
+          "oracle_id": "a91a3266-cadd-47a0-9b20-160307f14c07",
+          "scryfall_id": "cc258713-6ce3-44e0-9b4b-8fa7d1d093a1",
+          "type_line": "Creature — Human Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Minn, Wily Illusionist",
+          "canonical_name": "Minn, Wily Illusionist",
+          "oracle_id": "d4212d44-d6a0-4c5b-9c54-bc90f36828dd",
+          "scryfall_id": "4eec1d87-1007-44a1-a45d-0623816de681",
+          "type_line": "Legendary Creature — Gnome Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/U/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "U",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Counterspell",
+          "canonical_name": "Counterspell",
+          "oracle_id": "cc187110-1148-4090-bbb8-e205694a39f5",
+          "scryfall_id": "4f616706-ec97-4923-bb1e-11a69fbaa1f8",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cyclonic Rift",
+          "canonical_name": "Cyclonic Rift",
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "scryfall_id": "dfb7c4b9-f2f4-4d4e-baf2-86551c8150fe",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Ponder",
+          "canonical_name": "Ponder",
+          "oracle_id": "02090581-61aa-4348-ad57-451be8ee91c2",
+          "scryfall_id": "dc69f960-68ba-4315-8146-6a7a82047503",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/U/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "U",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Rhystic Study",
+          "canonical_name": "Rhystic Study",
+          "oracle_id": "53236dd7-845a-444c-96d5-f41ed7325d8f",
+          "scryfall_id": "9f37c5b6-a59c-45cd-9a99-e9357fe9ea1b",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mystic Remora",
+          "canonical_name": "Mystic Remora",
+          "oracle_id": "8a52f3c0-2552-4425-b2e3-5496eb2232a7",
+          "scryfall_id": "40140991-cffa-4b52-9a25-37e9a8aa9ddd",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Thassa, Deep-Dwelling",
+          "canonical_name": "Thassa, Deep-Dwelling",
+          "oracle_id": "2396299a-c031-4020-b13e-1f9bf9d64511",
+          "scryfall_id": "c83ed3e0-82d0-4410-a6ca-b0f923eadf83",
+          "type_line": "Legendary Enchantment Creature — God",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/U/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UB",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Dimir Doppelganger",
+          "canonical_name": "Dimir Doppelganger",
+          "oracle_id": "1916f120-4418-404a-aed5-b95ebf60d3a3",
+          "scryfall_id": "61c8b201-1e40-4c52-8fe9-b7fa3562062a",
+          "type_line": "Creature — Shapeshifter",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Circu, Dimir Lobotomist",
+          "canonical_name": "Circu, Dimir Lobotomist",
+          "oracle_id": "c87d547b-00a4-4fdd-ade4-f3f032e5ea3b",
+          "scryfall_id": "0b19c0f3-68a5-4544-985a-677aa2c2b50b",
+          "type_line": "Legendary Creature — Human Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Nightveil Specter",
+          "canonical_name": "Nightveil Specter",
+          "oracle_id": "4ce83f8c-b27e-4e5b-b19b-76b66aaa904b",
+          "scryfall_id": "e3754b8c-16d2-41e3-b41b-4b2e70833e82",
+          "type_line": "Creature — Specter",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/UB/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UB",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Thought Erasure",
+          "canonical_name": "Thought Erasure",
+          "oracle_id": "4bae4e34-fcf4-4aee-8da2-5b3ee41a595a",
+          "scryfall_id": "7ce226ad-cb1d-47f5-90fc-27704e181884",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Glimpse the Unthinkable",
+          "canonical_name": "Glimpse the Unthinkable",
+          "oracle_id": "552f0163-a19d-4671-888f-044fc0354875",
+          "scryfall_id": "c54a2256-673d-4d93-9e1d-7790bf254881",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Extract from Darkness",
+          "canonical_name": "Extract from Darkness",
+          "oracle_id": "e597d8a1-3bbc-4001-b642-f4421447970f",
+          "scryfall_id": "e0769e3f-d27d-4aff-8da0-f03c10b8650b",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/UB/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UB",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Memory Erosion",
+          "canonical_name": "Memory Erosion",
+          "oracle_id": "f4a96881-586d-44ad-b427-5cdf8988f9a1",
+          "scryfall_id": "f2fedec9-d938-419b-91e1-b4d9ad970464",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mindcrank",
+          "canonical_name": "Mindcrank",
+          "oracle_id": "c73c1d91-0163-49c6-832a-b9327e7a2c9b",
+          "scryfall_id": "8858a941-8175-476d-8177-2db4ffdcb3ad",
+          "type_line": "Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "The Eldest Reborn",
+          "canonical_name": "The Eldest Reborn",
+          "oracle_id": "44ed4c0c-a012-4895-a547-b04150553bba",
+          "scryfall_id": "4d29351e-5608-40e8-8220-6c9635d48ad4",
+          "type_line": "Enchantment — Saga",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/UB/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UG",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Zegana, Utopian Speaker",
+          "canonical_name": "Zegana, Utopian Speaker",
+          "oracle_id": "04260930-ff38-4b35-9ec4-e89196a4f2c7",
+          "scryfall_id": "93800249-4fcd-47ec-92f9-58f875cb6f00",
+          "type_line": "Legendary Creature — Merfolk Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Biomancer's Familiar",
+          "canonical_name": "Biomancer's Familiar",
+          "oracle_id": "923d44a9-774d-459c-9cec-1d5b081b51f0",
+          "scryfall_id": "d38c9891-36d1-4565-9c4a-1cd9dbf8c048",
+          "type_line": "Creature — Mutant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Vorel of the Hull Clade",
+          "canonical_name": "Vorel of the Hull Clade",
+          "oracle_id": "3001f971-c4db-4176-89b5-e7f4a8890c0f",
+          "scryfall_id": "82c8cac8-29ce-43cc-bdb4-428c614d8545",
+          "type_line": "Legendary Creature — Human Merfolk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/UG/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UG",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Simic Charm",
+          "canonical_name": "Simic Charm",
+          "oracle_id": "c767aa2e-0a95-401f-8e36-d90a87648eab",
+          "scryfall_id": "3384ee4e-738f-4442-bccd-4f96022b7219",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rapid Hybridization",
+          "canonical_name": "Rapid Hybridization",
+          "oracle_id": "06692cd9-ac2f-4a32-8fd1-043ba3c0fe71",
+          "scryfall_id": "ccda5bda-5afd-4548-bd48-12c780bfa68b",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Biomass Mutation",
+          "canonical_name": "Biomass Mutation",
+          "oracle_id": "2dbe8aaa-2e34-4552-8da7-cf8ecbbaa7b6",
+          "scryfall_id": "9894bed2-c5dc-4569-9ed9-1d40df906f58",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/UG/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UG",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Bred for the Hunt",
+          "canonical_name": "Bred for the Hunt",
+          "oracle_id": "fc7cda6f-7e5e-4a56-8d67-ffdea7edf269",
+          "scryfall_id": "d11dffef-98c8-400d-98a2-d4fa506f18c7",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Simic Ascendancy",
+          "canonical_name": "Simic Ascendancy",
+          "oracle_id": "57c1a98e-c4fb-4144-9e3e-d0fe6789ba26",
+          "scryfall_id": "fec1ffcd-84d3-44b3-b1d5-b33a4fee348a",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/UG/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UR",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Third Path Iconoclast",
+          "canonical_name": "Third Path Iconoclast",
+          "oracle_id": "f7156897-2b02-4ecd-868d-d4d59244e9ed",
+          "scryfall_id": "ca29f373-7051-4cbe-bda8-e711fda4f9bb",
+          "type_line": "Creature — Human Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Niv-Mizzet, Parun",
+          "canonical_name": "Niv-Mizzet, Parun",
+          "oracle_id": "33666a98-812f-4892-9f8d-33e0cbecc340",
+          "scryfall_id": "86c5c337-d25f-4c3e-9762-09ed0c2d36d7",
+          "type_line": "Legendary Creature — Dragon Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Melek, Izzet Paragon",
+          "canonical_name": "Melek, Izzet Paragon",
+          "oracle_id": "095d9719-0db6-43de-8e4f-a0035a4c65ed",
+          "scryfall_id": "66011fe8-8c5d-4990-a324-5839515dcacb",
+          "type_line": "Legendary Creature — Weird Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/UR/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UR",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Izzet Charm",
+          "canonical_name": "Izzet Charm",
+          "oracle_id": "a07698f6-5ad5-49a3-9da2-f82d407f5cd7",
+          "scryfall_id": "15af0592-a1cb-4b1e-b051-dde978939706",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Expansion // Explosion",
+          "canonical_name": "Expansion // Explosion",
+          "oracle_id": "af6f771f-5154-4fb3-8ed4-768d71eea568",
+          "scryfall_id": "65c091fa-00a8-4f20-8148-46db3fc3c67d",
+          "type_line": "Instant // Instant // Instant // Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mizzium Mortars",
+          "canonical_name": "Mizzium Mortars",
+          "oracle_id": "48ddba1e-2ad7-463f-9307-d2379a800e51",
+          "scryfall_id": "544b2931-0af1-4743-b7c1-91e1dc9294d5",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/UR/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "UR",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Thousand-Year Storm",
+          "canonical_name": "Thousand-Year Storm",
+          "oracle_id": "dd4cf149-2fae-40e5-b50b-639f6bcec65e",
+          "scryfall_id": "76c48a67-1410-40f1-9b93-0172d85e4688",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Metallurgic Summonings",
+          "canonical_name": "Metallurgic Summonings",
+          "oracle_id": "7d5149c6-0e7e-438c-a554-5235c85e2426",
+          "scryfall_id": "3a769d7e-c749-4845-ba87-808f0386df80",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Pyromancer Ascension",
+          "canonical_name": "Pyromancer Ascension",
+          "oracle_id": "85845b6c-abb5-4591-b987-a375972cf25b",
+          "scryfall_id": "0f9cea68-4390-4d73-a374-d6299cbc9271",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/UR/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "W",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Esper Sentinel",
+          "canonical_name": "Esper Sentinel",
+          "oracle_id": "5def9f38-0a0b-4e8d-9f9d-29dcb46520b4",
+          "scryfall_id": "f3537373-ef54-4578-9d05-6216420ee349",
+          "type_line": "Artifact Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Grand Abolisher",
+          "canonical_name": "Grand Abolisher",
+          "oracle_id": "c749f23c-40c0-4159-b84c-a70cbb062c14",
+          "scryfall_id": "ee793ed2-7d59-4640-8868-ad486600df2c",
+          "type_line": "Creature — Human Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Selfless Spirit",
+          "canonical_name": "Selfless Spirit",
+          "oracle_id": "71d785a9-ddc8-472e-a778-a551b444a4bd",
+          "scryfall_id": "9cd16dac-3bf9-4a71-a906-0cfbf98cdca5",
+          "type_line": "Creature — Spirit Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/W/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "W",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Swords to Plowshares",
+          "canonical_name": "Swords to Plowshares",
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "scryfall_id": "b4e9c870-23c0-413a-ae39-265f09da16d1",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Wrath of God",
+          "canonical_name": "Wrath of God",
+          "oracle_id": "34515b16-c9a4-4f98-8c77-416a7a523407",
+          "scryfall_id": "537d2b05-3f52-45d6-8fe3-26282085d0c6",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Teferi's Protection",
+          "canonical_name": "Teferi's Protection",
+          "oracle_id": "0d4ecdb1-ec90-497f-a7a4-1c68092b8757",
+          "scryfall_id": "483fa1cb-1e35-44f2-a143-98c0f107f5ca",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/W/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "W",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Authority of the Consuls",
+          "canonical_name": "Authority of the Consuls",
+          "oracle_id": "55f3c721-e13a-406e-bc8e-d6cdc91ac477",
+          "scryfall_id": "42ce2d7f-5924-47c0-b5ed-dacf9f9617a0",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rule of Law",
+          "canonical_name": "Rule of Law",
+          "oracle_id": "53e88e64-6f82-4154-a66e-6aeb0154b368",
+          "scryfall_id": "a1f4e79b-b103-4380-afa0-61a2b1773c9e",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Cathars' Crusade",
+          "canonical_name": "Cathars' Crusade",
+          "oracle_id": "cc65ac73-5bef-4ecb-ad8e-39199084c027",
+          "scryfall_id": "5296e353-2efc-4d72-a877-7957eff630b9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/W/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WB",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Blood Artist",
+          "canonical_name": "Blood Artist",
+          "oracle_id": "310f141c-7f37-4729-aed6-dd9c09db448d",
+          "scryfall_id": "b5275d76-2947-4219-be21-614c7421614a",
+          "type_line": "Creature — Vampire",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Tidehollow Sculler",
+          "canonical_name": "Tidehollow Sculler",
+          "oracle_id": "51b55057-8b14-4277-894b-4813b4f7eb39",
+          "scryfall_id": "09521f23-52d6-482d-9f3b-c4d12fcc08cc",
+          "type_line": "Artifact Creature — Zombie",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Vito, Thorn of the Dusk Rose",
+          "canonical_name": "Vito, Thorn of the Dusk Rose",
+          "oracle_id": "7336a541-3ae9-4ab2-acb8-f574c0a5b3a9",
+          "scryfall_id": "0fe79ee4-c3f3-4a6b-a967-203ca3b70ee5",
+          "type_line": "Legendary Creature — Vampire Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WB/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WB",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Thoughtseize",
+          "canonical_name": "Thoughtseize",
+          "oracle_id": "edd8d1e8-be43-4c38-bb3a-83081fbaf0b5",
+          "scryfall_id": "b281a308-ab6b-47b6-bec7-632c9aaecede",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Path to Exile",
+          "canonical_name": "Path to Exile",
+          "oracle_id": "d683d985-9888-4d21-8b5f-69e69ce4a03b",
+          "scryfall_id": "95ca89ea-1200-4bb4-ae4b-af35d3ccd35b",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Vindicate",
+          "canonical_name": "Vindicate",
+          "oracle_id": "63c1ac21-e3d8-40c2-8c09-3f31c52992ef",
+          "scryfall_id": "683c4e13-525c-45c9-8832-bfe67965c34e",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WB/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WB",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Phyrexian Arena",
+          "canonical_name": "Phyrexian Arena",
+          "oracle_id": "ee579a32-a048-4335-b966-231ba731cdea",
+          "scryfall_id": "0784b6f0-9ebf-43d2-ba0f-a6bc93ba0c48",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Grasp of Fate",
+          "canonical_name": "Grasp of Fate",
+          "oracle_id": "1b26a54f-6c27-4940-b77e-2a66175c5eff",
+          "scryfall_id": "43787574-7700-47ab-b57c-98ef968cce71",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Blind Obedience",
+          "canonical_name": "Blind Obedience",
+          "oracle_id": "5d998c09-7d89-4265-ada4-6d80cbf56dae",
+          "scryfall_id": "d859e1f9-feb3-497a-af0b-f74fee46861f",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WB/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WG",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Voice of Resurgence",
+          "canonical_name": "Voice of Resurgence",
+          "oracle_id": "5cbbb3f3-63a4-4983-81ea-8c405b10e63f",
+          "scryfall_id": "99d1e843-71c9-4a65-bc36-d23858ef5ead",
+          "type_line": "Creature — Elemental",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Conclave Mentor",
+          "canonical_name": "Conclave Mentor",
+          "oracle_id": "a2fe5937-212c-4e71-8d6e-f408b38100aa",
+          "scryfall_id": "c6d36786-6e36-4a9b-97ad-ad7d9d2b8d92",
+          "type_line": "Creature — Centaur Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Venerated Loxodon",
+          "canonical_name": "Venerated Loxodon",
+          "oracle_id": "d157a9df-59bc-40ad-b62b-43f973f14be1",
+          "scryfall_id": "d55160fd-a3a7-46b4-9f0d-e3e98cb533d6",
+          "type_line": "Creature — Elephant Cleric",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WG/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WG",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "March of the Multitudes",
+          "canonical_name": "March of the Multitudes",
+          "oracle_id": "0c26ab0d-80f6-4e5b-9d0e-af17c1519583",
+          "scryfall_id": "65c7067d-61ec-4558-b0d4-0048d2d86743",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rootborn Defenses",
+          "canonical_name": "Rootborn Defenses",
+          "oracle_id": "04046ae4-5c51-434b-930c-f3b1d348bf4b",
+          "scryfall_id": "eb3ef4da-27c0-4364-a198-f70bea869d9b",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Selesnya Charm",
+          "canonical_name": "Selesnya Charm",
+          "oracle_id": "a1a49639-bcc4-4522-8862-c9fb13d40880",
+          "scryfall_id": "6e52d1a2-064f-4dcb-983d-322aec1776f8",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WG/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WG",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Growing Ranks",
+          "canonical_name": "Growing Ranks",
+          "oracle_id": "bec6fb31-60a3-432f-ba36-aebf172f8b27",
+          "scryfall_id": "6ea45414-4047-4921-b77d-dfcba2fe7694",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Glare of Subdual",
+          "canonical_name": "Glare of Subdual",
+          "oracle_id": "bcfc112e-0482-4616-8ca9-32338a37fa82",
+          "scryfall_id": "e1b6e40f-02d6-498f-bb3b-6a9e19ed46f6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Conclave Tribunal",
+          "canonical_name": "Conclave Tribunal",
+          "oracle_id": "e938ee4c-d5df-4d93-bd61-9e518fb1dc30",
+          "scryfall_id": "f53b1b90-5bc6-4111-9083-4501ed92d39a",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WG/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITCH",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Witch-Maw Nephilim",
+          "canonical_name": "Witch-Maw Nephilim",
+          "oracle_id": "26edbbb8-331e-42a6-a550-acc7e9efb32c",
+          "scryfall_id": "185d56ab-b7f2-4eb2-9540-db8f2dc9b436",
+          "type_line": "Creature — Nephilim",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Reyhan, Last of the Abzan",
+          "canonical_name": "Reyhan, Last of the Abzan",
+          "oracle_id": "3e7df01c-75af-440d-97fd-1b1b794281b9",
+          "scryfall_id": "8afad106-a49b-4910-959e-228c109ea983",
+          "type_line": "Legendary Creature — Human Warrior",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Ishai, Ojutai Dragonspeaker",
+          "canonical_name": "Ishai, Ojutai Dragonspeaker",
+          "oracle_id": "4aae7102-301a-429d-b169-4f462384d55d",
+          "scryfall_id": "2e89ce6a-6bc9-427f-a8b2-c07a9fc3218f",
+          "type_line": "Legendary Creature — Bird Monk",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WITCH/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITCH",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Abzan Charm",
+          "canonical_name": "Abzan Charm",
+          "oracle_id": "4137a22c-f793-4e27-a9b2-72740a6e2121",
+          "scryfall_id": "bd5b386e-e71e-492d-8456-6cd178ef5b3d",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Bant Charm",
+          "canonical_name": "Bant Charm",
+          "oracle_id": "324889d6-c857-41ed-bb60-408809fc9964",
+          "scryfall_id": "7906b1e8-3049-4f4e-b1fd-b2547e7079f0",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Anguished Unmaking",
+          "canonical_name": "Anguished Unmaking",
+          "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+          "scryfall_id": "407183c6-c962-4f8c-867e-abc309b6c573",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WITCH/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITCH",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Hardened Scales",
+          "canonical_name": "Hardened Scales",
+          "oracle_id": "a1f3da21-af6d-450e-bf0b-985d158418e6",
+          "scryfall_id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Doubling Season",
+          "canonical_name": "Doubling Season",
+          "oracle_id": "01546b7d-a233-4176-8843-d732074dc5b6",
+          "scryfall_id": "f2c4f80e-84a0-463b-82c3-5c6503809351",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Evolutionary Leap",
+          "canonical_name": "Evolutionary Leap",
+          "oracle_id": "44cf5ef4-2b0f-4d9d-bf87-8835424721d0",
+          "scryfall_id": "4d007d3c-3356-4394-9bcd-2b2c1031c20b",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WITCH/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITHERBLOOM",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Dina, Soul Steeper",
+          "canonical_name": "Dina, Soul Steeper",
+          "oracle_id": "2121bcb4-f5fe-447f-9112-c7e5b5c45baf",
+          "scryfall_id": "6ae992b6-506b-4667-884f-4f7fc075b71e",
+          "type_line": "Legendary Creature — Dryad Druid",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Valentin, Dean of the Vein",
+          "canonical_name": "Valentin, Dean of the Vein // Lisette, Dean of the Root",
+          "oracle_id": "6e1aa07a-5d9b-4daf-8dc4-c1717360855f",
+          "scryfall_id": "65008352-bc7e-40b2-a832-b46813e5dc4c",
+          "type_line": "Legendary Creature — Vampire Warlock // Legendary Creature — Human Druid // Legendary Creature — Vampire Warlock // Legendary Creature — Human Druid",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Blood Researcher",
+          "canonical_name": "Blood Researcher",
+          "oracle_id": "a465ba74-615a-4261-b4a0-fcb0819f10b3",
+          "scryfall_id": "3e35e9ba-a10e-4926-a7a6-3a65efc2a730",
+          "type_line": "Creature — Vampire Druid",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WITHERBLOOM/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITHERBLOOM",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Witherbloom Command",
+          "canonical_name": "Witherbloom Command",
+          "oracle_id": "7cc81fb3-495c-47cd-8c56-96197d87e9e0",
+          "scryfall_id": "0d68dee5-56ff-45bb-a37e-9e2dfc07c5a7",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mortality Spear",
+          "canonical_name": "Mortality Spear",
+          "oracle_id": "544acde0-850d-4c4f-8389-e22930d87345",
+          "scryfall_id": "f6cdff9b-bb09-45b9-aa3c-16a3136d183c",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Tend the Pests",
+          "canonical_name": "Tend the Pests",
+          "oracle_id": "9ffce1d5-e29c-4dab-8b97-6b32655785d4",
+          "scryfall_id": "8f43ed93-008d-44db-8204-ef2cc3b7cf8a",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WITHERBLOOM/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WITHERBLOOM",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Bastion of Remembrance",
+          "canonical_name": "Bastion of Remembrance",
+          "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+          "scryfall_id": "6fe6ccad-e303-48f9-9dfa-0db7c1878031",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Sanguine Bond",
+          "canonical_name": "Sanguine Bond",
+          "oracle_id": "73089a39-a2f6-4aa2-a058-e6551475153d",
+          "scryfall_id": "ad4de9f1-7a39-45af-828e-c59234d9e9b9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Moldervine Reclamation",
+          "canonical_name": "Moldervine Reclamation",
+          "oracle_id": "68639a3d-2192-4921-8298-c76bb0cd6b02",
+          "scryfall_id": "f3e93085-ffcb-4f48-8649-3fcbc5e97699",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WITHERBLOOM/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WR",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Goblin Guide",
+          "canonical_name": "Goblin Guide",
+          "oracle_id": "51d9564b-44fc-4de1-9119-09d7b4089378",
+          "scryfall_id": "3c0f5411-1940-410f-96ce-6f92513f753a",
+          "type_line": "Creature — Goblin Scout",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Tajic, Legion's Edge",
+          "canonical_name": "Tajic, Legion's Edge",
+          "oracle_id": "ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+          "scryfall_id": "45c4c3b3-be18-4d74-99d8-f137498673d7",
+          "type_line": "Legendary Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Feather, the Redeemed",
+          "canonical_name": "Feather, the Redeemed",
+          "oracle_id": "aa219936-661b-4ccb-8741-78b70cff2b1a",
+          "scryfall_id": "e4a2d2c6-8eaa-4760-b620-921b807baa2e",
+          "type_line": "Legendary Creature — Angel",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WR/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WR",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Lightning Helix",
+          "canonical_name": "Lightning Helix",
+          "oracle_id": "800c258a-cfc4-4a54-a667-065ea8dea69e",
+          "scryfall_id": "4101e3fe-b0e7-4f0f-b9ac-9b61a4d628b3",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Boros Charm",
+          "canonical_name": "Boros Charm",
+          "oracle_id": "2679d0dd-ba30-4a1c-b6a0-b3ac6c790496",
+          "scryfall_id": "e0d8c9f6-cbbd-4694-b100-01cfb81036cc",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Response // Resurgence",
+          "canonical_name": "Response // Resurgence",
+          "oracle_id": "ae93854b-c808-44cb-b0be-7d1035c597d7",
+          "scryfall_id": "2502d3bf-1956-4294-b4d5-38eee79eeda1",
+          "type_line": "Instant // Sorcery // Instant // Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WR/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WR",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Sunforger",
+          "canonical_name": "Sunforger",
+          "oracle_id": "d1421070-a3cc-4af3-bf91-0f97372f4161",
+          "scryfall_id": "dd3e42ee-ab13-460b-90fd-86e677abce4f",
+          "type_line": "Artifact — Equipment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Assemble the Legion",
+          "canonical_name": "Assemble the Legion",
+          "oracle_id": "6f81bef3-6ca0-4cf4-aa99-7b2813eeef04",
+          "scryfall_id": "10ce686a-eecd-4b32-a882-9a6ca3274ae6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Legion's Initiative",
+          "canonical_name": "Legion's Initiative",
+          "oracle_id": "7b23bceb-1b82-4c9c-b7c1-8e8ef4643fb0",
+          "scryfall_id": "e41f950f-b818-4150-af71-b53a502ca0d5",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WR/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WU",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Thalia, Guardian of Thraben",
+          "canonical_name": "Thalia, Guardian of Thraben",
+          "oracle_id": "9b7f1d05-707c-4ed3-9f0e-8ced1232c2ee",
+          "scryfall_id": "c9f8b8fb-1cd8-450e-a1fe-892e7a323479",
+          "type_line": "Legendary Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Lavinia of the Tenth",
+          "canonical_name": "Lavinia of the Tenth",
+          "oracle_id": "55df6fa3-3d24-46d5-b325-099336c3f0fd",
+          "scryfall_id": "58907d3b-9deb-4485-8ae2-c4e97c519212",
+          "type_line": "Legendary Creature — Human Soldier",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Aven Mindcensor",
+          "canonical_name": "Aven Mindcensor",
+          "oracle_id": "d9517c5d-66d0-4178-96fb-a8c04f311ad8",
+          "scryfall_id": "d4cf468f-4e9d-4551-a0ed-10bd6a2316ad",
+          "type_line": "Creature — Bird Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WU/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WU",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Supreme Verdict",
+          "canonical_name": "Supreme Verdict",
+          "oracle_id": "0230de18-8d15-4cfa-9d42-7ccddd9f9570",
+          "scryfall_id": "3892f1c5-937e-4ef4-b6f9-e0c0ded070d0",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Dovin's Veto",
+          "canonical_name": "Dovin's Veto",
+          "oracle_id": "1b388371-f9ef-45b4-82a3-ca20a8cd7807",
+          "scryfall_id": "5d6b5054-2224-4f68-9d82-3ed17c5dacc4",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Render Silent",
+          "canonical_name": "Render Silent",
+          "oracle_id": "3966bd03-a98e-43b6-a0c0-10d4d81c173c",
+          "scryfall_id": "e3f3d6e4-0abe-4042-a7f6-0395683e8582",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WU/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WU",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Detention Sphere",
+          "canonical_name": "Detention Sphere",
+          "oracle_id": "0a0b376d-7824-4ba5-8bc9-bc0be12800c5",
+          "scryfall_id": "afee5464-83b7-4d7a-b407-9ee7de21535b",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Martial Law",
+          "canonical_name": "Martial Law",
+          "oracle_id": "dfcf9f38-eb26-4033-b7c0-45ed29417aa5",
+          "scryfall_id": "21078b6f-a39d-4ec8-879e-ad10d97c3ff6",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Rule of Law",
+          "canonical_name": "Rule of Law",
+          "oracle_id": "53e88e64-6f82-4154-a66e-6aeb0154b368",
+          "scryfall_id": "a1f4e79b-b103-4380-afa0-61a2b1773c9e",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WU/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WUBRG",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Niv-Mizzet Reborn",
+          "canonical_name": "Niv-Mizzet Reborn",
+          "oracle_id": "10764b35-5c6c-4161-8579-1124d5963a0e",
+          "scryfall_id": "56a2609d-b535-400b-81d9-72989a33c70f",
+          "type_line": "Legendary Creature — Dragon Avatar",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Horde of Notions",
+          "canonical_name": "Horde of Notions",
+          "oracle_id": "a7656948-4d7d-47f7-b8a1-fc9716155e37",
+          "scryfall_id": "e7d3e472-5589-4655-b246-6f2d7ccf029e",
+          "type_line": "Legendary Creature — Elemental",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Jodah, the Unifier",
+          "canonical_name": "Jodah, the Unifier",
+          "oracle_id": "490a8045-e160-4ccf-a05e-658ad2b7ac2d",
+          "scryfall_id": "e4b1aa1e-b4e3-4346-8937-76b312501c70",
+          "type_line": "Legendary Creature — Human Wizard",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/WUBRG/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WUBRG",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Last Stand",
+          "canonical_name": "Last Stand",
+          "oracle_id": "4d2a465e-9ebd-4002-b6cd-e0eab08bad54",
+          "scryfall_id": "d7f3c92b-5a31-450e-8cff-9289d266050a",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Conflux",
+          "canonical_name": "Conflux",
+          "oracle_id": "32ebb029-9f03-49c9-b9bb-cb1954e2a324",
+          "scryfall_id": "83777ac9-93d9-4097-96ca-a8a6a79b84e2",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Coalition Victory",
+          "canonical_name": "Coalition Victory",
+          "oracle_id": "e9e25800-9ee7-40c9-b22d-611c7281c125",
+          "scryfall_id": "446824f7-dc42-42da-8bd5-6c37f3358d65",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/WUBRG/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "WUBRG",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Maelstrom Nexus",
+          "canonical_name": "Maelstrom Nexus",
+          "oracle_id": "b1c346a4-fc9b-474a-9d51-cac168e363fa",
+          "scryfall_id": "a3107767-6c36-4982-8e0d-e100d5fca204",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Chromanticore",
+          "canonical_name": "Chromanticore",
+          "oracle_id": "695ee4fe-356d-47fb-9442-d171b618151c",
+          "scryfall_id": "f1182463-348b-45b3-a662-68f06ac53699",
+          "type_line": "Enchantment Creature — Manticore",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Legacy Weapon",
+          "canonical_name": "Legacy Weapon",
+          "oracle_id": "aa1a248d-2f76-4f15-b065-08f299af07b9",
+          "scryfall_id": "afd35d5c-7f28-4842-85e8-692d6c391c3a",
+          "type_line": "Legendary Artifact",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/WUBRG/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "YORE",
+      "category": "creatures",
+      "final_3_cards": [
+        {
+          "name": "Sai, Master Thopterist",
+          "canonical_name": "Sai, Master Thopterist",
+          "oracle_id": "52241b9c-7a69-4176-9234-8bdab09d8e64",
+          "scryfall_id": "ad0b5c09-5075-408e-84c5-1095354ac53e",
+          "type_line": "Legendary Creature — Human Artificer",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Master Transmuter",
+          "canonical_name": "Master Transmuter",
+          "oracle_id": "da46786e-28df-4638-ab3d-121011d2f150",
+          "scryfall_id": "480eb74f-9e62-41f7-b48a-b4249aab5752",
+          "type_line": "Artifact Creature — Human Artificer",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Silas Renn, Seeker Adept",
+          "canonical_name": "Silas Renn, Seeker Adept",
+          "oracle_id": "0dc78b1e-581e-4f28-bf35-e2082553d6a9",
+          "scryfall_id": "4e3fe912-1374-47c7-b73f-89ef55c479c1",
+          "type_line": "Legendary Artifact Creature — Human",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Creature",
+      "evidence_route": "data/factions.json#/factions/YORE/staples/creatures",
+      "teaching_dimension": "board role and pilot identity",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "YORE",
+      "category": "spells",
+      "final_3_cards": [
+        {
+          "name": "Whir of Invention",
+          "canonical_name": "Whir of Invention",
+          "oracle_id": "152b91c9-cc07-4ca8-944f-9bc2242a2283",
+          "scryfall_id": "0279fd3c-9252-4958-9d7a-5f33aa25907e",
+          "type_line": "Instant",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Thoughtcast",
+          "canonical_name": "Thoughtcast",
+          "oracle_id": "cce9bbff-82dc-4b2f-addd-d6715588de20",
+          "scryfall_id": "466a0be8-31b9-4ea0-9a96-b09a76f4ec69",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Trash for Treasure",
+          "canonical_name": "Trash for Treasure",
+          "oracle_id": "e69279f6-50a1-4db5-83be-30a2ea7fc6a9",
+          "scryfall_id": "75993427-fb8d-41cc-9016-323e804a5eb7",
+          "type_line": "Sorcery",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Instant/Sorcery",
+      "evidence_route": "data/factions.json#/factions/YORE/staples/spells",
+      "teaching_dimension": "decision texture and interaction timing",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    },
+    {
+      "identity": "YORE",
+      "category": "permanents",
+      "final_3_cards": [
+        {
+          "name": "Thopter Spy Network",
+          "canonical_name": "Thopter Spy Network",
+          "oracle_id": "49be65fd-3755-410d-b0dc-2e5861ea2552",
+          "scryfall_id": "babc5799-31f3-452e-a61d-5c11f9f81bf9",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Efficient Construction",
+          "canonical_name": "Efficient Construction",
+          "oracle_id": "5af48f87-7b94-44de-90e3-91f10ced00d3",
+          "scryfall_id": "af4d2f70-816c-4410-b3a3-9b9a4b69df52",
+          "type_line": "Enchantment",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        },
+        {
+          "name": "Mechanized Production",
+          "canonical_name": "Mechanized Production",
+          "oracle_id": "39d8406a-90c3-460c-b4e8-0f590573db51",
+          "scryfall_id": "eaf86997-68e8-4c37-99f1-db10ac08f54c",
+          "type_line": "Enchantment — Aura",
+          "media_route": "data/scryfall/indexes/archscry-media-index.json",
+          "collision_result": "clear",
+          "visible_result": "visible"
+        }
+      ],
+      "type": "Artifact/Enchantment",
+      "evidence_route": "data/factions.json#/factions/YORE/staples/permanents",
+      "teaching_dimension": "engine, rule, or table-shape texture",
+      "collision_result": "clear",
+      "visible_result": "3/3 visible"
+    }
+  ],
+  "issues": []
+}

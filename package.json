@@ -19,6 +19,7 @@
     "scryfall:inspect": "node scripts/inspect-scryfall-indexes.mjs",
     "test:vm559-media-projection": "node scripts/vm559-archscry-media-projection-tests.mjs",
     "test:vm559-resolution": "node scripts/vm559-scryfall-resolution-tests.mjs",
+    "test:vm574-card-signals": "node scripts/vm574-card-signals-validation.mjs",
     "test:vm559-ui": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=desktop",
     "test:vm559-mobile": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=MARDU && node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=GLINT && node scripts/vm559-authored-media-ui-replay.mjs --viewport=mobile --identity=WU",
     "test:vm559-delivery-failure": "node scripts/vm559-authored-media-ui-replay.mjs --viewport=desktop --identity=MARDU --transient-delivery",

@@ -51,6 +51,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 - [VM-569 - Ink Global Media Projection Reconciliation](done/VM-569-ink-global-media-projection-reconciliation.md) - refreshed the governed Scryfall Oracle corpus, accepted only the proven 58 safe printing refreshes through the existing drift mechanism, restored the normal VM-559 production projection with zero unresolved governed resolver keys, and unblocked VM-574 media coverage without changing VM-574 selections.
 
+- [VM-574 - All-37 Card Signals + Mana Notes Remediation](done/VM-574-all-37-card-signals-mana-notes-remediation.md) - reached 37/37 identities with 111/111/111 visible Card Signals, added deterministic validation/ledger artifacts, performed bounded Mana Notes cleanup, and stopped before generated VM-559 media index edits because no supported partial projection merge exists while VM-569 blocks the full rebuild.
+
 - [VM-573 - Archscry Runtime Decomposition, Pass 2](done/VM-573-archscry-runtime-decomposition-pass-2.md) - decomposed the Commander dossier domain and Archscry route runtime behind stable compatibility facades, passed both internal certification gates and owner acceptance, and preserved inherited Card Signals content behavior without product or data changes.
 
 - [VM-572 - Residual Research / Historical Tooling Lifecycle Cleanup](done/VM-572-residual-research-tooling-lifecycle-cleanup.md) - retained four relocated tools, removed eleven completed or stale VM-era scripts and their live references, preserved 39 research fixtures, and recorded Packet 3/evidence-helper ambiguity without product or artifact drift.

@@ -131,6 +131,7 @@ export function manaSymbolLabel(symbol) {
   const labels = {
     W: "white mana", U: "blue mana", B: "black mana", R: "red mana", G: "green mana",
     C: "colorless mana", X: "X mana", Y: "Y mana", Z: "Z mana", S: "snow mana",
+    T: "tap symbol",
   };
   if (labels[symbol]) return labels[symbol];
   if (/^\d+$/.test(symbol)) return `${symbol} generic mana`;
@@ -144,8 +145,8 @@ export function renderManaCost(value) {
     const match = part.match(/^\{([^}]+)\}$/);
     if (!match) return escapeHtml(part);
     const symbol = match[1].toUpperCase();
-    const manaClass = symbol.toLowerCase().replaceAll("/", "");
-    if (!/^(?:\d+|[WUBRGCSXYZ]|2?[WUBRG]P?|[WUBRGC]{2})$/.test(manaClass.toUpperCase())) return escapeHtml(part);
+    const manaClass = symbol === "T" ? "tap" : symbol.toLowerCase().replaceAll("/", "");
+    if (!/^(?:\d+|[WUBRGCSTXYZ]|TAP|2?[WUBRG]P?|[WUBRGC]{2})$/.test(manaClass.toUpperCase())) return escapeHtml(part);
     return `<span class="vm-inline-mana-symbol archscry-card-cost-symbol" role="img" aria-label="${escapeAttributeValue(manaSymbolLabel(symbol))}"><i class="ms ms-${escapeAttributeValue(manaClass)} ms-cost" aria-hidden="true"></i></span>`;
   }).join("");
 }

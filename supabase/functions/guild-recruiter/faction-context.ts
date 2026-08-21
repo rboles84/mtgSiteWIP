@@ -6012,7 +6012,7 @@ export const FACTION_CONTEXT = {
       }
     },
     "tagline": "Wild places lost. The clans answer directly.",
-    "philosophy": "The Gruul were assigned Ravnica's wild places, then urban expansion and other guilds eroded that role. Their red-green identity is source-bounded to loose clans, Rubblebelt territory, direct action, riot and bloodrush pressure, and anger at imposed civilization.",
+    "philosophy": "The Gruul were assigned Ravnica's wild places, then urban expansion and other guilds eroded that role. Their red-green identity centers loose clans, Rubblebelt territory, direct action, riot and bloodrush pressure, and anger at imposed civilization.",
     "core_tension": "Gruul is strongest when rage protects territory, memory, clan, or wildness, and weakest when flattened into random rage, generic aggression, or mindless destruction.",
     "affinity": {
       "drawn_to": [
@@ -8272,7 +8272,7 @@ export const FACTION_CONTEXT = {
       }
     },
     "tagline": "Life studied as an adaptive, improvable system.",
-    "philosophy": "Simic treats nature as living systems to preserve, heal, study, adapt, and improve through biology, clade practice, and source-bounded experimentation.",
+    "philosophy": "Simic treats nature as living systems to preserve, heal, study, adapt, and improve through biology, clade practice, and experimentation.",
     "core_tension": "Simic keeps a connection to nature while pursuing improvement; its risk is radical biological intervention, not generic science, counters, ramp, or nature aesthetics.",
     "affinity": {
       "drawn_to": [

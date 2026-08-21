@@ -2099,7 +2099,7 @@ export function renderResult(viewKey) {
   const starterCardsPanelHtml = hasStarterCardReferences ? `
     <div class="staples-section">
       <div class="section-label">${escapeHtml(playerFacingIdentityDisplayLabel(faction))} Card Signals</div>
-      ${buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Card signal groups")}
+      ${starterCardSegments.length > 1 ? buildSegmentControlsHtml("starter-cards", starterCardSegments, starterSegment, "Card signal groups") : ""}
       ${starterCardSegments.map((segment) =>
         buildSegmentPanelHtml("starter-cards", segment.id, starterSegment, starterCardPanelContent[segment.id])
       ).join("")}
