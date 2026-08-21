@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
+import { readArchscryRuntimeSource } from "../../scripts/lib/read-archscry-runtime-source.mjs";
 
 import {
   buildContrastCopy,
@@ -32,7 +33,10 @@ import {
   getExpressionKindLabel,
 } from "../../assets/js/archscry/identity-layers.js";
 
-const indexSource = await readFile(new URL("../../assets/js/archscry/index.js", import.meta.url), "utf8");
+const indexSource = await readArchscryRuntimeSource([
+  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
+]);
 const radarSource = await readFile(new URL("../../assets/js/archscry/dossier-radar.js", import.meta.url), "utf8");
 const vmRadarSource = await readFile(new URL("../../assets/js/shared/vm-radar.js", import.meta.url), "utf8");
 const homeSource = await readFile(new URL("../../assets/js/home/home.js", import.meta.url), "utf8");

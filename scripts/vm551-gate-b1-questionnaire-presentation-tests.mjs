@@ -8,7 +8,7 @@ import {
 const MODEL = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const CSS = fs.readFileSync(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const HTML = fs.readFileSync(new URL("../archscry/index.html", import.meta.url), "utf8");
-const CONTROLLER = fs.readFileSync(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
+const CONTROLLER = fs.readFileSync(new URL("../assets/js/archscry/runtime/questionnaire.js", import.meta.url), "utf8");
 const QUESTIONS = Object.values(MODEL.question_bank)
   .flat()
   .filter((question) => question?.id);

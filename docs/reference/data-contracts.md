@@ -273,7 +273,7 @@ Notes:
 
 ## Commander dossier result summary strip
 
-`assets/js/archscry/commander-dossier.js` now builds a DOM-free `resultSummaryStrip` contract before `assets/js/archscry/index.js` renders the Archscry placement strip.
+`assets/js/archscry/dossier/reading.js` builds the DOM-free `resultSummaryStrip` contract. The stable `commander-dossier.js` facade re-exports that contract, and `assets/js/archscry/runtime/dossier-view.js` renders the Archscry placement strip.
 
 The renderer should consume the completed summary object only. It should not perform adjacent selection, signal-band parsing, copy cleanup, or fallback resolution inside the DOM layer.
 

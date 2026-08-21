@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { runInNewContext } from "node:vm";
+import { readArchscryRuntimeSource } from "./lib/read-archscry-runtime-source.mjs";
 import {
   buildTagExplanationSummaries,
   buildHeroNarrative,
@@ -21,7 +22,10 @@ import { runAdaptiveGoldenPath } from "../assets/js/archscry/adaptive-placement.
 import { getDossierRadarProfile, renderComponentManaSymbols } from "../assets/js/archscry/dossier-radar.js";
 
 const readText = (path) => readFile(new URL(path, import.meta.url), "utf8");
-const indexSource = await readText("../assets/js/archscry/index.js");
+const indexSource = await readArchscryRuntimeSource([
+  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
+]);
 const startPanelSource = indexSource.slice(
   indexSource.indexOf("const startPanelHtml ="),
   indexSource.indexOf("const deckStartsPanelHtml =")

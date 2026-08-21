@@ -45,9 +45,9 @@ Main flow:
 
 ## Archscry Frontend Flow
 
-Files: `archscry/index.html`, `assets/js/archscry/index.js`, `assets/js/shared/shared.js`.
+Files: `archscry/index.html`, `assets/js/archscry/index.js`, `assets/js/archscry/runtime/`, `assets/js/archscry/dossier/`, `assets/js/shared/shared.js`.
 
-`assets/js/archscry/index.js` is the current production Archscry controller. It imports adaptive placement helpers, uses global helpers from `shared.js`, exposes handlers for existing inline HTML attributes, then boots after `DOMContentLoaded`.
+`assets/js/archscry/index.js` remains the production entry and compatibility facade. It preserves the public exports, browser globals, route event listeners, and explicit `DOMContentLoaded` sequence. Route state and browser behavior live in cohesive `runtime/` modules; DOM-free Commander dossier composition lives in `dossier/`. Extracted modules do not initialize at import time or depend back through the facades.
 
 Flow:
 

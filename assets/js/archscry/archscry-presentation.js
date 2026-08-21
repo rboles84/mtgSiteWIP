@@ -1,7 +1,7 @@
 import {
   getCommanderFactionGuidance,
   getExternalDeckRoutingAlias,
-} from "./commander-dossier.js";
+} from "./dossier/foundation.js";
 import {
   buildDossierMazePathEntries,
   mazeSearchLink as buildMazeSearchLink,

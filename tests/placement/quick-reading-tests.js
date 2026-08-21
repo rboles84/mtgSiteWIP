@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { readArchscryRuntimeSource } from "../../scripts/lib/read-archscry-runtime-source.mjs";
 import {
   MANA_ORDER,
   applyAdaptiveAnswer,
@@ -84,7 +85,7 @@ const factionContextText = await readFile(
   new URL("../../supabase/functions/guild-recruiter/faction-context.ts", import.meta.url),
   "utf8"
 );
-const archscryIndexSource = await readFile(new URL("../../assets/js/archscry/index.js", import.meta.url), "utf8");
+const archscryIndexSource = await readArchscryRuntimeSource(["data", "dossierView"]);
 const gateB1RuntimeContractSource = await readFile(new URL("../../assets/js/archscry/gate-b1-runtime-contract.js", import.meta.url), "utf8");
 const deckTagData = JSON.parse(
   await readFile(new URL("../../data/deck-tags_expanded.json", import.meta.url), "utf8")

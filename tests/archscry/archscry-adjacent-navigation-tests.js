@@ -5,8 +5,9 @@ import {
   withArchscryMazeContext,
 } from "../../assets/js/archscry/archscry-presentation.js";
 import { getDossierRadarProfile } from "../../assets/js/archscry/dossier-radar.js";
+import { readArchscryRuntimeSource } from "../../scripts/lib/read-archscry-runtime-source.mjs";
 
-const indexSource = await readFile(new URL("../../assets/js/archscry/index.js", import.meta.url), "utf8");
+const indexSource = await readArchscryRuntimeSource(["dossierView"]);
 
 const resultStatusIndex = indexSource.indexOf("const stateHeading =");
 const placementPanelIndex = indexSource.indexOf("const placementPanelHtml =");

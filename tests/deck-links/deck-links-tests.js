@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { readArchscryRuntimeSource } from "../../scripts/lib/read-archscry-runtime-source.mjs";
 import {
   canVoteOnDeckLink,
   detectDeckLinkProvider,
@@ -559,7 +560,7 @@ for (const domain of [
   assert.match(sql, new RegExp(domain.replace(".", "\\."), "i"));
 }
 
-const archscrySource = await readFile(new URL("../../assets/js/archscry/index.js", import.meta.url), "utf8");
+const archscrySource = await readArchscryRuntimeSource(["dossierControls"]);
 assert.match(archscrySource, /const ACCOUNT_DECK_LINKS_ENABLED = false;/);
 assert.match(archscrySource, /saveUserDeckLink/);
 assert.match(archscrySource, /archiveUserDeckLink/);

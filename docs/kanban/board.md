@@ -45,6 +45,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-573 - Archscry Runtime Decomposition, Pass 2](in-progress/VM-573-archscry-runtime-decomposition-pass-2.md) - decomposes the Commander dossier domain and Archscry route runtime through two internal compatibility, cycle, QA, and zero-drift gates without changing product behavior.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.

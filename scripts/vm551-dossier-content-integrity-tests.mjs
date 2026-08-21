@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { readArchscryRuntimeSource } from "./lib/read-archscry-runtime-source.mjs";
 
 import {
   buildCommanderStartingLane,
@@ -20,10 +21,18 @@ const providerValidation = await readJson("../data/placement/commander-provider-
 const commanderIndex = (await readJson("../data/scryfall/indexes/commander-index.json")).commanders;
 const cardRationaleSource = await readJson("../data/dossier/card-rationale-relationships.source.json");
 const cardRationaleCatalog = await readJson("../data/dossier/card-rationale-catalog.json");
-const indexSource = await readFile(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
+const indexSource = await readArchscryRuntimeSource([
+  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
+]);
 const radarSource = await readFile(new URL("../assets/js/archscry/dossier-radar.js", import.meta.url), "utf8");
 const matrixSource = await readFile(new URL("../assets/js/shared/vm-radar.js", import.meta.url), "utf8");
-const commanderDossierSource = await readFile(new URL("../assets/js/archscry/commander-dossier.js", import.meta.url), "utf8");
+const commanderDossierSource = (await Promise.all([
+  "../assets/js/archscry/dossier/foundation.js",
+  "../assets/js/archscry/dossier/reading.js",
+  "../assets/js/archscry/dossier/precons.js",
+  "../assets/js/archscry/dossier/audit.js",
+].map((path) => readFile(new URL(path, import.meta.url), "utf8")))).join("\n");
 const cssSource = await readFile(new URL("../assets/css/archscry.css", import.meta.url), "utf8");
 const preconSourceText = await readFile(new URL("../data/precons/vox-mana-precons.source.json", import.meta.url), "utf8");
 const factionsSourceText = await readFile(new URL("../data/factions.json", import.meta.url), "utf8");

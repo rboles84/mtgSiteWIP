@@ -73,51 +73,26 @@ This is the Javadoc-equivalent inventory for the current working tree. It focuse
 
 ### `assets/js/archscry/index.js`
 
-| Line | Symbol | Scope | Purpose |
-|---:|---|---|---|
-| 44 | `isScryingTerminalEnabled()` | Internal | Reads the shared terminal feature flag. |
-| 51 | `applyTerminalVisibility()` | Internal | Applies the shared flag to terminal-only UI already in the DOM. |
-| 62 | `loadFactionData()` | Internal | Fetches `/data/factions.json` and stores canonical faction map. |
-| 77 | `loadPlacementModel()` | Internal | Fetches `/data/placement-model.json`. |
-| 92 | `getFaction(key)` | Internal | Reads one display faction by key. |
-| 102 | `getInstitutionLabel(faction)` | Internal | Converts faction type to display label. |
-| 111 | `showSection(id)` | Window | Reveals one Archscry section and hides the others, rerouting disabled terminal views to landing. |
-| 155 | `updateTopbar()` | Internal | Syncs signed-in identity and saved placement controls. |
-| 192 | `openResearch()` | Window | Navigates to `/maze/`. |
-| 199 | `openLibrary()` | Window | Navigates to `/apocrypha/`. |
-| 206 | `resetLocalFlow()` | Internal | Clears local quick/interview/result state. |
-| 236 | `handleRetake()` | Window | Clears saved placement and returns to landing. |
-| 248 | `handleSignOut()` | Window | Signs out and resets view. |
-| 258 | `startQuickFlow()` | Window | Starts adaptive quick reading. |
-| 279 | `startInterviewFlow()` | Window | Opens Scrying Terminal flow when enabled. |
-| 288 | `goBackQuickQuestion()` | Window | Rewinds one quick-reading selection. |
-| 311 | `renderQuickQuestion()` | Internal | Renders current adaptive question and answers. |
-| 353 | `answerQuickQuestion(answerIndex)` | Window | Applies selected answer and advances/finalizes. |
-| 388 | `getStarterProfile()` | Internal | Reads current starter profile from app state. |
-| 399 | `finalizeQuickReading()` | Internal | Builds and reveals quick adaptive result. |
-| 423 | `updateInterviewControls(state, turn)` | Internal | Enables/disables terminal controls and status text. |
-| 444 | `appendTerminalMessage(role, content, loading)` | Internal | Adds terminal transcript messages. |
-| 457 | `resetInterviewDossier()` | Internal | Clears decree/dossier UI before a new interview. |
-| 471 | `beginInterview()` | Internal | Starts edge-function interview with opening prompt when enabled. |
-| 498 | `submitInterview()` | Window | Sends user response to interview endpoint when enabled. |
-| 538 | `revealDecree(result)` | Internal | Renders final interview decree before dossier. |
-| 569 | `openInterviewDossier()` | Window | Opens full dossier from interview result. |
-| 584 | `returnToInterviewSource()` | Window | Navigates result view back to interview source. |
-| 595 | `handleSavePlacement()` | Window | Saves active interview/quick result. |
-| 635 | `formatEnumLabel(value)` | Internal | Converts enum-like strings to labels. |
-| 649 | `pickRecommendedDeck(faction, starterProfile)` | Internal | Selects deck link matching starter preferences. |
-| 666 | `buildDeckLinks(deck, factionKey)` | Internal | Builds deck-link HTML. |
-| 690 | `getActiveResultContext()` | Internal | Returns active result and current viewed faction. |
-| 702 | `renderResult(viewKey)` | Internal | Renders full dossier and adjacent-fit UI. |
-| 747 | `cardSlots(items, prefix, placeholderClass, imageClass)` | Internal | Builds card-art placeholder slots. |
-| 756 | `landSlots(items, prefix)` | Internal | Builds land-art placeholder slots. |
-| 951 | `switchAdjacentView(factionKey)` | Window | Re-renders result for an adjacent faction. |
-| 959 | `animateScoreBars()` | Internal | Animates rendered mana bars. |
-| 975 | `loadResultCardArt(faction)` | Internal | Fetches Scryfall images/links for staples and lands. |
-| 1021 | `saveCurrentResult()` | Window | Saves the currently active dossier result. |
-| 1052 | `restoreInitialView(savedFromOAuth)` | Internal | Restores saved/cached result or landing on load. |
+`index.js` is now a stable compatibility facade and explicit lifecycle owner. It re-exports the established 21-symbol public surface, assigns the established 16 browser globals, retains the placement-save and history listeners, and invokes the unchanged `DOMContentLoaded` boot order.
 
-Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
+| Owner | Purpose |
+|---|---|
+| `runtime/state.js` | Owns the single shared `APP_STATE` object and session reference. |
+| `runtime/data.js` | Loads canonical route data through the module-relative `data/` URL and validates catalogs. |
+| `runtime/navigation.js` | Owns section, session, topbar, and route navigation behavior. |
+| `runtime/questionnaire.js` | Owns quick-reading question flow and finalization. |
+| `runtime/interview.js` | Owns the feature-flagged Scrying Terminal flow. |
+| `runtime/dossier-view.js` | Builds and renders the active/adjacent dossier result. |
+| `runtime/dossier-controls.js` | Owns dossier panels, routing controls, Maze handoff, and related interactions. |
+| `runtime/content.js` | Selects approved dossier copy, rationales, voices, and flavor echoes. |
+| `runtime/card-media.js` | Owns Scryfall named-card lookup, cache, image hydration, and previews. |
+| `runtime/render-utils.js` | Provides shared escaping and rendering helpers. |
+| `runtime/actions.js` | Binds delegated Archscry actions when explicitly called by the entrypoint. |
+| `runtime/boot.js` | Restores the initial view and renders initialization failure state when explicitly called. |
+
+`commander-dossier.js` remains the stable 40-export facade over the DOM-free `dossier/foundation.js`, `dossier/reading.js`, `dossier/precons.js`, and `dossier/audit.js` owners. `archscry-result.js` remains its star-re-export compatibility facade.
+
+Window handlers exposed by `Object.assign(window, ...)`: `answerQuickQuestion`, `goBackQuickQuestion`, `handleRetake`, `handleSavePlacement`, `handleSignOut`, `openInterviewDossier`, `openLibrary`, `openResearch`, `returnToInterviewSource`, `returnToPrimaryReading`, `saveCurrentResult`, `showSection`, `startInterviewFlow`, `startQuickFlow`, `submitInterview`, and `switchAdjacentView`.
 
 ### `assets/js/shared/site-flags.js`
 

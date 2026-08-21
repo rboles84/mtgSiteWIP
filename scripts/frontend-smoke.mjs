@@ -1,6 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { readArchscryRuntimeSource } from "./lib/read-archscry-runtime-source.mjs";
 
 const root = process.cwd();
 const routeChecks = [
@@ -52,16 +53,20 @@ const identityLayerSource = await readFile(path.resolve(root, "data/identity-lay
 const identityLayerData = JSON.parse(identityLayerSource);
 const archscrySource = await readFile(path.resolve(root, "archscry/index.html"), "utf8");
 const archscryCssSource = await readFile(path.resolve(root, "assets/css/archscry.css"), "utf8");
-const archscryRuntimePath = path.resolve(root, "assets/js/archscry/index.js");
-const archscryRuntimeSource = await readFile(archscryRuntimePath, "utf8");
-const archscryDataBaseMatch = archscryRuntimeSource.match(
+const archscryDataRuntimePath = path.resolve(root, "assets/js/archscry/runtime/data.js");
+const archscryDataRuntimeSource = await readFile(archscryDataRuntimePath, "utf8");
+const archscryRuntimeSource = await readArchscryRuntimeSource([
+  "data", "navigation", "questionnaire", "interview", "renderUtils", "dossierView",
+  "dossierControls", "content", "cardMedia", "actions", "boot", "entry",
+]);
+const archscryDataBaseMatch = archscryDataRuntimeSource.match(
   /const DATA_BASE_URL = new URL\((['"])([^'"]+)\1, import\.meta\.url\);/,
 );
 if (!archscryDataBaseMatch) {
   failures.push("Archscry smoke check failed: DATA_BASE_URL must remain a literal module-relative URL");
 } else {
   const archscryDataBasePath = path.resolve(fileURLToPath(
-    new URL(archscryDataBaseMatch[2], pathToFileURL(archscryRuntimePath)),
+    new URL(archscryDataBaseMatch[2], pathToFileURL(archscryDataRuntimePath)),
   ));
   const expectedDataBasePath = path.resolve(root, "data");
   if (archscryDataBasePath !== expectedDataBasePath) {

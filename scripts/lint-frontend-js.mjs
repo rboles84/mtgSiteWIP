@@ -3,8 +3,25 @@ import { readFile } from "node:fs/promises";
 
 const files = [
   "assets/js/archscry/archscry-presentation.js",
+  "assets/js/archscry/commander-dossier.js",
+  "assets/js/archscry/dossier/audit.js",
+  "assets/js/archscry/dossier/foundation.js",
+  "assets/js/archscry/dossier/precons.js",
+  "assets/js/archscry/dossier/reading.js",
   "assets/js/archscry/gate-b1-runtime-contract.js",
   "assets/js/archscry/index.js",
+  "assets/js/archscry/runtime/actions.js",
+  "assets/js/archscry/runtime/boot.js",
+  "assets/js/archscry/runtime/card-media.js",
+  "assets/js/archscry/runtime/content.js",
+  "assets/js/archscry/runtime/data.js",
+  "assets/js/archscry/runtime/dossier-controls.js",
+  "assets/js/archscry/runtime/dossier-view.js",
+  "assets/js/archscry/runtime/interview.js",
+  "assets/js/archscry/runtime/navigation.js",
+  "assets/js/archscry/runtime/questionnaire.js",
+  "assets/js/archscry/runtime/render-utils.js",
+  "assets/js/archscry/runtime/state.js",
   "assets/js/home/home.js",
   "assets/js/strategium/strategium.js",
   "assets/js/strategium/strategium-hub.js",
@@ -35,7 +52,9 @@ for (const file of files) {
   }
 }
 
-const archscrySource = await readFile("assets/js/archscry/index.js", "utf8");
+const archscrySource = (await Promise.all(
+  files.filter((file) => file.startsWith("assets/js/archscry/")).map((file) => readFile(file, "utf8"))
+)).join("\n");
 if (archscrySource.includes("document.body.innerHTML")) {
   failed = true;
   process.stderr.write("Unsafe body-level HTML injection is still present in assets/js/archscry/index.js\n");

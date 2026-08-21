@@ -13,7 +13,7 @@ import {
 const model = JSON.parse(fs.readFileSync(new URL("../data/gate-b1-placement-model.json", import.meta.url), "utf8"));
 const factionData = JSON.parse(fs.readFileSync(new URL("../data/factions.json", import.meta.url), "utf8"));
 const identityLayers = JSON.parse(fs.readFileSync(new URL("../data/identity-layers.json", import.meta.url), "utf8"));
-const runtimeSource = fs.readFileSync(new URL("../assets/js/archscry/index.js", import.meta.url), "utf8");
+const runtimeSource = fs.readFileSync(new URL("../assets/js/archscry/runtime/data.js", import.meta.url), "utf8");
 const liveIdentityKeys = new Set([
   ...Object.keys(factionData.factions || {}),
   ...Object.keys(identityLayers.expressions || {}),
@@ -21,7 +21,7 @@ const liveIdentityKeys = new Set([
 
 assert.match(
   runtimeSource,
-  /import \{ validateGateB1RuntimeModel \} from "\.\/gate-b1-runtime-contract\.js";/,
+  /import \{[\s\S]*validateGateB1RuntimeModel,[\s\S]*\} from "\.\.\/gate-b1-runtime-contract\.js";/,
   "Archscry must import the shared Gate B1 runtime validator"
 );
 assert.match(
