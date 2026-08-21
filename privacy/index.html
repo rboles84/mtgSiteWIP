@@ -96,7 +96,7 @@
     <h1 id="privacy-title">Vox Mana Privacy Policy</h1>
     <p class="lede">Vox Mana is an unofficial Magic: The Gathering fan tool for Commander color identity and placement readings. This policy explains what information is used when you take a <span class="vm-gloss" tabindex="0" data-gloss="A short series of questions that compares your answers against Commander color identities and placement readings shown in the app.">reading</span>, save a result, or sign in with Google.</p>
     <div class="legal-meta" aria-label="Privacy policy highlights">
-      <span class="meta-pill">Effective May 5, 2026</span>
+      <span class="meta-pill">Effective August 20, 2026</span>
       <span class="meta-pill">Unofficial fan project</span>
       <span class="meta-pill">Optional Google sign-in</span>
       <span class="meta-pill">No sale of personal information</span>
@@ -107,9 +107,10 @@
     <aside class="summary-card" aria-labelledby="privacy-summary-title">
       <div class="summary-eyebrow">Plain-English Summary</div>
       <h2 id="privacy-summary-title">What this page is saying</h2>
-      <p>Vox Mana uses a limited set of information to run readings, restore saved results, receive optional page feedback, and operate the site. Google sign-in is optional, and outside providers help with authentication, storage, feedback delivery, and security.</p>
+      <p>Vox Mana uses a limited set of information to run readings, understand aggregate Archscry usage, restore saved results, receive optional page feedback, and operate the site. Google sign-in is optional, and outside providers help with analytics, authentication, storage, feedback delivery, and security.</p>
       <ul class="summary-list">
         <li>Reading answers, placements, and selected preferences may be used to restore your account experience.</li>
+        <li>Anonymous Archscry analytics record reading progress, stable answer IDs, and placement outcomes without analytics cookies or browser storage and without linking the events to your Vox Mana account.</li>
         <li>You can use Vox Mana without signing in, or choose Google sign-in if you want a saved result.</li>
         <li>Google and <span class="vm-gloss" tabindex="0" data-gloss="The platform handling Vox Mana's authentication, database storage, and edge function backend. https://supabase.com">Supabase</span> help operate authentication, storage, and backend flows.</li>
         <li>Optional feedback is delivered to the Vox Mana feedback inbox through Web3Forms, with page context so the note can be traced to the relevant screen or section.</li>
@@ -122,7 +123,7 @@
       <section class="legal-section" aria-labelledby="privacy-effective-date-title">
         <div class="section-kicker">01</div>
         <h2 id="privacy-effective-date-title">Effective Date</h2>
-        <p>Effective May 5, 2026.</p>
+        <p>Effective August 20, 2026.</p>
       </section>
 
       <section class="legal-section" aria-labelledby="privacy-at-a-glance-title">
@@ -139,6 +140,7 @@
         <ul>
           <li>Your reading answers and resulting Commander identity or placement reading.</li>
           <li>Your selected preferences such as format interest, budget band, and experience level.</li>
+          <li>For anonymous Archscry product analytics, a temporary per-reading identifier, placement-model version, stable question and answer IDs, reading stage and step, and the resulting identity and result state. Questionnaire question and answer prose is not included in these analytics events, and the temporary identifier is not linked to Google or Supabase account information.</li>
           <li>Vox Mana does not currently collect private saved deck links because account-backed deck-link saving is deferred.</li>
           <li>If you choose Google sign-in, account details made available through authentication such as your email address, display name, profile image, and a provider-specific user identifier.</li>
           <li>If you send page feedback, the feedback text, optional reply email, page label, path, hash, visible section or section id when available, simplified browser and device label, viewport size, and timestamp.</li>
@@ -154,6 +156,7 @@
           <li>generate and display your Commander identity reading;</li>
           <li>save your reading so you can return to it later;</li>
           <li>restore your saved result after Google sign-in;</li>
+          <li>understand aggregate Archscry progress and placement outcomes;</li>
           <li>receive and respond to optional page feedback;</li>
           <li>operate, secure, and troubleshoot the service;</li>
           <li>limit abuse of reading, save, and authentication flows.</li>
@@ -174,6 +177,7 @@
           <li>Google, for optional account sign-in;</li>
           <li><span class="vm-gloss" tabindex="0" data-gloss="The platform handling Vox Mana's authentication, database storage, and edge function backend. https://supabase.com">Supabase</span>, for authentication, database storage, and edge functions;</li>
           <li>Web3Forms, for optional feedback delivery to the Vox Mana feedback inbox and provider-side spam protection such as hCaptcha when enabled;</li>
+          <li>PostHog Cloud US, for anonymous Archscry product analytics. Vox Mana's PostHog project is configured to discard client IP addresses from stored events;</li>
           <li>third-party sites you choose to visit through outbound deck and card links.</li>
         </ul>
         <p>Those services operate under their own terms and privacy policies.</p>

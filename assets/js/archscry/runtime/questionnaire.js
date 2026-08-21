@@ -39,6 +39,12 @@ import {
   placementQuestionById,
 } from "./state.js";
 
+import {
+  beginVoxReading,
+  trackVoxQuestionAnswered,
+  trackVoxReadingCompleted,
+} from "../../shared/vox-telemetry.js";
+
 export function startQuickFlow() {
   if (!APP_STATE.placementModel) {
     alert("The reading is still loading. Try again in a moment.");
@@ -56,6 +62,7 @@ export function startQuickFlow() {
   APP_STATE.quickTransition = null;
   APP_STATE.refinementMode = false;
   APP_STATE.refinementOriginResult = null;
+  beginVoxReading({ placementModel: APP_STATE.placementModel, entryMode: "quick" });
   showSection("quick");
   renderQuickQuestion();
   window.setTimeout(() => {
@@ -291,6 +298,12 @@ export function answerQuickQuestion(answerIndex) {
     answerIndex,
   });
   APP_STATE.quickIndex = APP_STATE.quickSelections.length;
+  trackVoxQuestionAnswered({
+    questionId: question.id,
+    answerId: answer.id,
+    stage: question.stage,
+    stepIndex: APP_STATE.quickIndex,
+  });
 
   if (APP_STATE.refinementMode === "targeted") {
     APP_STATE.refinementMode = false;
@@ -342,6 +355,10 @@ export function finalizeQuickReading() {
   APP_STATE.returnSection = null;
   SESSION.interviewResult = result;
   vm_cachePlacementResult(result);
+  trackVoxReadingCompleted({
+    result,
+    questionCount: APP_STATE.quickSelections.length,
+  });
   renderResult();
 }
 

@@ -8,6 +8,7 @@ This folder is the developer map for the current Vox Mana working tree. It docum
 - [Route Ownership Matrix](../architecture/route-ownership-matrix.md) - per-route ownership map for page purpose, HTML/CSS/JS, storage, data, services, tests, risks, and scoped-protection boundaries.
 - [Core Logic And Algorithms](../architecture/core-logic-and-algorithms.md) - adaptive placement, legacy quick scoring, Scryfall parsing, visual builder, persistence, archived terminal, rate limiting, and build logic.
 - [Data Flow Map](../architecture/data-flow-map.md) - raw faction data, generated models, browser storage, Supabase profile storage, Scryfall calls, archived terminal calls, and command-panel state.
+- [Product Telemetry](./product-telemetry.md) - the anonymous Archscry V1 event contract, PostHog boundary, version projection, and local/test suppression.
 - [Maze Query Contract](../contracts/maze-query-contract.md) - VM-022 contract for Maze query requests, executable results, path entries, source context, and ownership boundaries.
 - [Method Reference](./method-reference.md) - Javadoc-equivalent inventory of named functions, exported constants, globals, handlers, and endpoint surfaces.
 - [Diagrams](../diagrams/diagrams.md) - editable Mermaid sources and static SVG companions.

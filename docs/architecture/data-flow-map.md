@@ -33,6 +33,7 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 | `APP_STATE` | `assets/js/archscry/runtime/state.js` | In-memory only | One shared object with the established identity/defaults/mutation semantics for factions, model, catalogs, quick answers, adaptive state, active result/view, interview state, and starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
 | `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
 | Cached placement result | `assets/js/shared/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
+| Archscry telemetry reading run | `assets/js/shared/vox-telemetry.js` | In-memory only | Correlates one reading start, its accepted answer IDs, and its first completed result. It is not persisted or used as a person identifier. |
 | Pending OAuth save | `assets/js/shared/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
 | Interview session bucket | `assets/js/shared/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/shared/reduce-motion.js`, `assets/js/shared/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
@@ -71,6 +72,7 @@ Future domain selection should be inferred from placement inputs and results rat
 | Scryfall Search | `assets/js/maze/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
 | Scryfall Named | `assets/js/maze/research-search.js`, `assets/js/archscry/runtime/card-media.js` | `/cards/named` | Fuzzy card name | Exact card detail or image/link metadata. |
 | Scryfall Random | `assets/js/maze/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
+| PostHog Cloud US | `assets/js/shared/vox-telemetry.js`, initialized by `assets/js/archscry/index.js` with event calls only in `runtime/questionnaire.js` | `/static/1/array.js`, US ingestion endpoint | Three allowlisted Archscry funnel events containing structured IDs, bounded states, placement version, and an ephemeral reading-run ID | Product analytics ingestion only; no runtime response changes placement or rendering. |
 
 ## Supabase Profile Persistence
 

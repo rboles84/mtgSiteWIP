@@ -33,6 +33,7 @@
     "test:route-metadata": "node scripts/check-route-metadata.mjs",
     "test:scryfall-grounding": "node scripts/validate-scryfall-grounding.mjs",
     "test:plain-reading-semantics": "node scripts/validate-plain-reading-semantics.mjs",
+    "test:telemetry": "node tests/telemetry/vox-telemetry-tests.js",
     "test": "node tests/run-tests.js",
     "test:builder": "node tests/maze/research-builder-tests.js",
     "test:faction-context-isolation": "node tests/semantic/faction-context-isolation-tests.js",

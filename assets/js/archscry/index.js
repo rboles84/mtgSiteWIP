@@ -54,6 +54,10 @@ import {
   SESSION,
 } from "./runtime/state.js";
 
+import {
+  initializeVoxTelemetry,
+} from "../shared/vox-telemetry.js";
+
 export {
   validateDossierContentCatalogs,
 } from "./runtime/data.js";
@@ -133,6 +137,7 @@ Object.assign(window, {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
+  initializeVoxTelemetry();
   bindArchscryControls();
   try {
     await loadFactionData();
