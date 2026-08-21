@@ -1065,7 +1065,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .r-body {
   grid-column: 1;
   display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) minmax(280px, 340px);
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
   gap: clamp(0.85rem, 1.6vw, 1.1rem);
   align-items: start;
   min-width: 0;
@@ -1074,8 +1074,9 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .r-sidebar,
 .r-main {
   min-width: 0;
-  overflow: hidden;
 }
+
+.r-main { overflow: visible; }
 
 .r-sidebar {
   display: grid;
@@ -1402,7 +1403,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 .card-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(154px, 176px));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   justify-content: start;
   align-items: start;
   gap: 1rem;
@@ -1425,6 +1426,7 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 
 .card-item:hover,
 .card-item:focus-visible {
+  z-index: 8;
   transform: translateY(-3px);
   border-color: rgba(247, 215, 132, 0.42);
   background: rgba(255, 255, 255, 0.055);
@@ -1573,13 +1575,91 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
 
 /* Reading Finds */
 .stash-rail {
-  display: grid;
-  gap: 0.65rem;
-  align-self: start;
-  position: sticky;
+  position: fixed;
+  z-index: 2600;
   top: calc(var(--vm-topbar-h, 92px) + 1rem);
+  right: max(0.75rem, calc((100vw - min(100% - 2rem, 1540px)) / 2));
+  width: min(390px, calc(100vw - 1.5rem));
   max-height: calc(100vh - var(--vm-topbar-h, 92px) - 2rem);
   min-width: 0;
+}
+
+.card-item .transform-card-media {
+  transition: transform 0.16s ease, filter 0.16s ease;
+  transform-origin: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-item:hover .transform-card-media {
+    z-index: 3;
+    transform: scale(2);
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.82));
+  }
+}
+
+@media (min-width: 1181px) and (hover: hover) and (pointer: fine) {
+  .card-item:nth-child(5n + 1) .transform-card-media { transform-origin: left center; }
+  .card-item:nth-child(5n) .transform-card-media { transform-origin: right center; }
+}
+
+.card-item.is-flippable-card {
+  cursor: default;
+}
+
+.transform-card-media {
+  position: relative;
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.transform-card-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.transform-card-open:focus-visible {
+  outline: 2px solid var(--maze-gold-2);
+  outline-offset: 3px;
+  border-radius: 4.5%;
+}
+
+.transform-card-button {
+  position: absolute;
+  top: 12%;
+  right: 5%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 50%;
+  background: rgba(238, 235, 226, 0.9);
+  color: #20232a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.58);
+  font-size: 1.45rem;
+  cursor: pointer;
+  transition: transform 0.14s ease, background 0.14s ease;
+}
+
+.transform-card-button:hover {
+  transform: rotate(18deg) scale(1.05);
+  background: #fff;
+}
+
+.transform-card-button:focus-visible {
+  outline: 2px solid var(--maze-gold-2);
+  outline-offset: 3px;
+}
+
+.transform-card-glyph {
+  display: block;
+  font: 700 1.55rem/1 system-ui, sans-serif;
 }
 
 .stash-drawer-toggle {
@@ -1588,8 +1668,8 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   align-items: center;
   justify-content: space-between;
   gap: 0.65rem;
-  width: 100%;
-  min-height: 44px;
+  width: auto;
+  min-height: 60px;
   padding: 0.55rem 0.8rem;
   border: 1px solid var(--maze-line-strong);
   border-radius: var(--maze-radius-sm);
@@ -1625,9 +1705,15 @@ body.vm-maze-route[data-maze-mode="builder"] .maze-user-badge {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  position: static;
+  position: relative;
   width: 100%;
   max-height: calc(100vh - var(--vm-topbar-h, 92px) - 5rem);
+  background:
+    linear-gradient(rgba(7, 9, 14, 0.97), rgba(7, 9, 14, 0.97)),
+    var(--maze-bg-image) center / cover no-repeat;
+  -webkit-backdrop-filter: blur(24px) saturate(108%);
+          backdrop-filter: blur(24px) saturate(108%);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.78);
 }
 
 body.vm-maze-route[data-stash-open="false"] .stash-panel {
@@ -1655,6 +1741,12 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   gap: 0.75rem;
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--maze-line-soft);
+}
+
+@media (min-width: 821px) and (pointer: fine) {
+  .stash-head { cursor: grab; }
+  .stash-rail.is-dragging .stash-head { cursor: grabbing; }
+  .stash-rail.is-dragging { user-select: none; }
 }
 
 .stash-title-block {
@@ -2173,14 +2265,14 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
     min-height: 560px;
   }
 
-  .stash-rail {
-    position: static;
-    max-height: none;
+  .card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
 
-  .stash-panel {
-    max-height: none;
-  }
+@media (min-width: 821px) and (max-width: 1180px) and (hover: hover) and (pointer: fine) {
+  .card-item:nth-child(4n + 1) .transform-card-media { transform-origin: left center; }
+  .card-item:nth-child(4n) .transform-card-media { transform-origin: right center; }
 }
 
 @media (max-width: 1050px) {
@@ -2234,7 +2326,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   }
 
   .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .maze-return-banner,
@@ -2247,9 +2339,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
     flex-direction: column;
   }
 
-  .stash-rail {
-    order: -1;
-  }
+  .card-item:hover .transform-card-media { transform: none; }
 }
 
 @media (max-width: 560px) {
@@ -2279,6 +2369,13 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
     min-width: 1.75rem;
     min-height: 1.75rem;
   }
+
+  .stash-rail {
+    top: calc(var(--vm-topbar-h, 72px) + 0.5rem);
+    left: 0.375rem;
+    right: 0.375rem;
+    width: auto;
+  }
 }
 
 /* Reduced motion */
@@ -2297,6 +2394,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .qi-btn,
   .btn-more,
   .m-btn,
+  .transform-card-button,
   .stash-copy,
   .maze-toast,
   .state-spinner,
@@ -2304,6 +2402,8 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
     animation: none !important;
     transition: none !important;
   }
+
+  .card-item .transform-card-media { transition: none !important; }
 }
 
 [data-reduce-motion="true"] .mode-card,

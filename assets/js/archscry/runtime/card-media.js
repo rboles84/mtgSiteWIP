@@ -11,6 +11,11 @@ import {
 } from "../scryfall-card-cache.js";
 
 import {
+  createScryfallTransformFaceState,
+  flipScryfallTransformFaceState,
+} from "../../shared/scryfall-transform-faces.js";
+
+import {
   approvedCardRationaleForFaction,
 } from "./content.js";
 
@@ -314,9 +319,21 @@ export let cardPreviewOverlay = null;
 
 export let cardPreviewRequestId = 0;
 
+export let cardPreviewCard = null;
+
+export let cardPreviewBoundary = null;
+
+export let cardPreviewTransformState = null;
+
 export let cardDetailDialog = null;
 
 export let cardDetailInvoker = null;
+
+export let cardDetailCard = null;
+
+export let cardDetailTransformState = null;
+
+export let cardDetailContext = null;
 
 export let glossaryTooltip = null;
 
@@ -334,7 +351,22 @@ export function ensureCardPreviewOverlay() {
   const overlay = document.createElement("div");
   overlay.className = "card-preview-overlay";
   overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML = `<img alt="">`;
+  overlay.innerHTML = `<img alt=""><button class="card-preview-flip" type="button" hidden><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>`;
+  overlay.querySelector(".card-preview-flip")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    flipCardPreviewFace();
+  });
+  overlay.addEventListener("pointerleave", (event) => {
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget instanceof Node && cardPreviewBoundary?.contains(relatedTarget)) return;
+    hideCardPreviewOverlay();
+  });
+  overlay.addEventListener("focusout", (event) => {
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget instanceof Node && (overlay.contains(relatedTarget) || cardPreviewBoundary?.contains(relatedTarget))) return;
+    hideCardPreviewOverlay();
+  });
   document.body.appendChild(overlay);
   cardPreviewOverlay = overlay;
   return overlay;
@@ -365,7 +397,13 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   const requestId = ++cardPreviewRequestId;
   const overlay = ensureCardPreviewOverlay();
   const overlayImage = overlay.querySelector("img");
+  const flipButton = overlay.querySelector(".card-preview-flip");
   const previewTarget = trigger.cardName || trigger.image?.currentSrc || trigger.image?.src || "";
+  if (overlay.classList.contains("is-visible") && overlay.dataset.previewResolvedTarget === previewTarget) {
+    cardPreviewBoundary = trigger.boundary;
+    positionCardPreviewOverlay(overlay, trigger.boundary, event);
+    return;
+  }
   overlay.dataset.previewTarget = previewTarget;
   delete overlay.dataset.previewResolvedTarget;
   overlay.classList.remove("is-visible");
@@ -375,11 +413,17 @@ export async function showCardPreviewOverlay(trigger, event = null) {
     overlayImage.removeAttribute("src");
     overlayImage.alt = "";
   }
+  if (flipButton instanceof HTMLButtonElement) flipButton.hidden = true;
+  overlay.classList.remove("is-transform");
+  overlay.setAttribute("aria-hidden", "true");
   let imageUrl = "";
+  let resolvedCard = null;
+  let transformState = null;
   if (trigger.cardName) {
     try {
-      const card = await loadCachedScryfallNamedCard(trigger.cardName);
-      imageUrl = cardImageUrl(card);
+      resolvedCard = await loadCachedScryfallNamedCard(trigger.cardName);
+      transformState = createScryfallTransformFaceState(resolvedCard);
+      imageUrl = transformState?.activeFace.image || cardImageUrl(resolvedCard);
     } catch (_) {
       return;
     }
@@ -406,7 +450,20 @@ export async function showCardPreviewOverlay(trigger, event = null) {
     }
   }
   if (requestId !== cardPreviewRequestId) return;
-  if (overlayImage) overlayImage.src = imageUrl;
+  cardPreviewCard = resolvedCard;
+  cardPreviewBoundary = trigger.boundary;
+  cardPreviewTransformState = transformState;
+  if (overlayImage) {
+    overlayImage.src = imageUrl;
+    overlayImage.alt = transformState ? `${transformState.activeFace.name} card face` : "";
+  }
+  if (transformState && flipButton instanceof HTMLButtonElement) {
+    overlay.classList.add("is-transform");
+    overlay.setAttribute("aria-hidden", "false");
+    flipButton.hidden = false;
+    flipButton.title = `Transform to ${transformState.nextFace.name}`;
+    flipButton.setAttribute("aria-label", `Transform preview to ${transformState.nextFace.name}`);
+  }
   overlay.dataset.previewResolvedTarget = previewTarget;
   positionCardPreviewOverlay(overlay, trigger.boundary, event);
   overlay.classList.remove("is-loading");
@@ -416,14 +473,39 @@ export async function showCardPreviewOverlay(trigger, event = null) {
 
 export function hideCardPreviewOverlay() {
   cardPreviewRequestId += 1;
-  cardPreviewOverlay?.classList.remove("is-visible", "is-loading");
+  cardPreviewOverlay?.classList.remove("is-visible", "is-loading", "is-transform");
   cardPreviewOverlay?.removeAttribute("aria-busy");
+  cardPreviewOverlay?.setAttribute("aria-hidden", "true");
   if (cardPreviewOverlay) {
     delete cardPreviewOverlay.dataset.previewTarget;
     delete cardPreviewOverlay.dataset.previewResolvedTarget;
+    delete cardPreviewOverlay.dataset.selectedFaceName;
   }
+  cardPreviewCard = null;
+  cardPreviewBoundary = null;
+  cardPreviewTransformState = null;
   const image = cardPreviewOverlay?.querySelector("img");
   image?.removeAttribute("src");
+  const button = cardPreviewOverlay?.querySelector(".card-preview-flip");
+  if (button instanceof HTMLButtonElement) button.hidden = true;
+}
+
+export function flipCardPreviewFace() {
+  if (!cardPreviewCard || !cardPreviewTransformState || !cardPreviewOverlay) return;
+  const nextState = flipScryfallTransformFaceState(cardPreviewCard, cardPreviewTransformState);
+  if (!nextState) return;
+  cardPreviewTransformState = nextState;
+  const image = cardPreviewOverlay.querySelector("img");
+  const button = cardPreviewOverlay.querySelector(".card-preview-flip");
+  if (image instanceof HTMLImageElement) {
+    image.src = nextState.activeFace.image;
+    image.alt = `${nextState.activeFace.name} card face`;
+  }
+  if (button instanceof HTMLButtonElement) {
+    button.title = `Transform to ${nextState.nextFace.name}`;
+    button.setAttribute("aria-label", `Transform preview to ${nextState.nextFace.name}`);
+  }
+  cardPreviewOverlay.dataset.selectedFaceName = nextState.selectedFaceName;
 }
 
 export const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image, img.vm-card-rationale-image";
@@ -494,11 +576,13 @@ export function handleCardPreviewPointerMove(event) {
 export function handleCardPreviewPointerOut(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
-  if (trigger && !relatedInside) {
+  const relatedInPreview = event.relatedTarget instanceof Node && cardPreviewOverlay?.contains(event.relatedTarget);
+  if (trigger && !relatedInside && !relatedInPreview) {
     window.requestAnimationFrame(() => {
       const stillHovered = trigger.boundary.matches?.(":hover");
       const stillFocused = trigger.boundary === document.activeElement || trigger.boundary.contains(document.activeElement);
-      if (!stillHovered && !stillFocused) hideCardPreviewOverlay();
+      const previewActive = cardPreviewOverlay?.matches?.(":hover") || cardPreviewOverlay?.contains(document.activeElement);
+      if (!stillHovered && !stillFocused && !previewActive) hideCardPreviewOverlay();
     });
   }
 }
@@ -548,6 +632,11 @@ export function ensureCardDetailDialog() {
       <div class="archscry-card-dialog-content" data-card-dialog-content></div>
     </div>`;
   dialog.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest('[data-action="flip-card-detail"]')) {
+      event.preventDefault();
+      flipCardDetailFace();
+      return;
+    }
     if (event.target instanceof Element && event.target.closest('[data-action="close-card-detail"]')) {
       dialog.close();
       return;
@@ -563,11 +652,75 @@ export function ensureCardDetailDialog() {
   dialog.addEventListener("close", () => {
     const invoker = cardDetailInvoker;
     cardDetailInvoker = null;
+    cardDetailCard = null;
+    cardDetailTransformState = null;
+    cardDetailContext = null;
     if (invoker?.isConnected) invoker.focus();
   });
   document.body.appendChild(dialog);
   cardDetailDialog = dialog;
   return dialog;
+}
+
+function renderCardDetailContent(content, card, transformState, context) {
+  const face = transformState?.activeFace || null;
+  const displayName = face?.name || card.name || context.cardName;
+  const image = face?.image || cardImageUrl(card);
+  const imageAlt = face ? `${displayName} card face` : `${displayName} card image`;
+  const manaCost = face ? face.manaCost : card.mana_cost || card.card_faces?.map((item) => item.mana_cost).filter(Boolean).join(" // ") || "";
+  const typeLine = face ? face.typeLine : card.type_line || card.card_faces?.map((item) => item.type_line).filter(Boolean).join(" // ") || "";
+  const rulesDetail = face
+    ? {
+        label: face.oracleText ? "Oracle text" : face.oracleExcerpt ? "Oracle excerpt" : "",
+        text: face.oracleText || wordBoundaryExcerpt(face.oracleExcerpt),
+      }
+    : cardRulesDetail(card);
+  const isIdentityLinkedCard = ["voice", "play"].includes(context.identityContextKind);
+  const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
+  const identityContextHeading = buildIdentityCardModalHeading({
+    kind: context.identityContextKind,
+    cardName: displayName,
+    identityName: context.identityName,
+  });
+  const identityContextHtml = context.identityName && context.identityContext
+    ? `<section class="archscry-card-dialog-identity-context" data-card-identity-context="${escapeAttributeValue(context.identityContextKind || "identity")}">
+        <strong>${escapeHtml(identityContextHeading)}</strong>
+        <span>${escapeHtml(context.identityContext)}</span>
+      </section>`
+    : "";
+  const imageHtml = image
+    ? transformState
+      ? `<div class="archscry-card-dialog-media">
+          <img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(imageAlt)}">
+          <button class="archscry-transform-button archscry-card-dialog-flip" type="button" data-action="flip-card-detail" title="Transform to ${escapeAttributeValue(transformState.nextFace.name)}" aria-label="Transform card details to ${escapeAttributeValue(transformState.nextFace.name)}"><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>
+        </div>`
+      : `<img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(imageAlt)}">`
+    : "";
+  content.innerHTML = `
+    <div class="archscry-card-dialog-grid" data-card-dialog-ready${transformState ? ` data-selected-face-name="${escapeAttributeValue(transformState.selectedFaceName)}"` : ""}>
+      ${imageHtml}
+      <div class="archscry-card-dialog-copy">
+        <div class="section-label">Card Details</div>
+        <h2 id="archscryCardDialogTitle">${escapeHtml(displayName)}</h2>
+        ${identityContextHtml}
+        ${manaCost ? `<div class="archscry-card-dialog-mana" aria-label="Mana cost">${renderManaCost(manaCost)}</div>` : ""}
+        ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
+        ${!isIdentityLinkedCard && rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${renderManaCost(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
+        <div class="archscry-card-dialog-actions">
+          ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
+        </div>
+      </div>
+    </div>`;
+}
+
+export function flipCardDetailFace() {
+  const content = cardDetailDialog?.querySelector("[data-card-dialog-content]");
+  if (!content || !cardDetailCard || !cardDetailTransformState || !cardDetailContext) return;
+  const nextState = flipScryfallTransformFaceState(cardDetailCard, cardDetailTransformState);
+  if (!nextState) return;
+  cardDetailTransformState = nextState;
+  renderCardDetailContent(content, cardDetailCard, nextState, cardDetailContext);
+  content.querySelector('[data-action="flip-card-detail"]')?.focus();
 }
 
 export async function openCardDetail(actionNode) {
@@ -586,36 +739,10 @@ export async function openCardDetail(actionNode) {
 
   try {
     const card = await loadCachedScryfallNamedCard(cardName, { requireDetails: true });
-    const image = cardImageUrl(card);
-    const manaCost = card.mana_cost || card.card_faces?.map((face) => face.mana_cost).filter(Boolean).join(" // ") || "";
-    const typeLine = card.type_line || card.card_faces?.map((face) => face.type_line).filter(Boolean).join(" // ") || "";
-    const rulesDetail = cardRulesDetail(card);
-    const isIdentityLinkedCard = ["voice", "play"].includes(identityContextKind);
-    const scryfallUrl = /^https:\/\/scryfall\.com\//.test(card.scryfall_uri || "") ? card.scryfall_uri : "";
-    const identityContextHeading = buildIdentityCardModalHeading({
-      kind: identityContextKind,
-      cardName: card.name || cardName,
-      identityName,
-    });
-    const identityContextHtml = identityName && identityContext
-      ? `<section class="archscry-card-dialog-identity-context" data-card-identity-context="${escapeAttributeValue(identityContextKind || "identity")}">
-          <strong>${escapeHtml(identityContextHeading)}</strong>
-          <span>${escapeHtml(identityContext)}</span>
-        </section>`
-      : "";
-    content.innerHTML = `
-      <div class="archscry-card-dialog-grid" data-card-dialog-ready>
-        ${image ? `<img class="archscry-card-dialog-image" src="${escapeAttributeValue(image)}" alt="${escapeAttributeValue(`${card.name || cardName} card image`)}">` : ""}
-        <div class="archscry-card-dialog-copy">
-          <div class="section-label">Card Details</div>
-          <h2 id="archscryCardDialogTitle">${escapeHtml(card.name || cardName)}</h2>
-          ${identityContextHtml}
-          ${manaCost ? `<div class="archscry-card-dialog-mana" aria-label="Mana cost">${renderManaCost(manaCost)}</div>` : ""}
-          ${typeLine ? `<div class="archscry-card-dialog-type">${escapeHtml(typeLine)}</div>` : ""}
-          ${!isIdentityLinkedCard && rulesDetail.text ? `<div class="archscry-card-dialog-rules"><strong>${rulesDetail.label}</strong><span>${renderManaCost(rulesDetail.text).replace(/\n/g, "<br>")}</span></div>` : ""}
-          ${scryfallUrl ? `<a class="btn-secondary archscry-card-dialog-external" href="${escapeAttributeValue(scryfallUrl)}" target="_blank" rel="noopener">Open on Scryfall</a>` : ""}
-        </div>
-      </div>`;
+    cardDetailCard = card;
+    cardDetailTransformState = createScryfallTransformFaceState(card);
+    cardDetailContext = { cardName, identityName, identityContext, identityContextKind };
+    renderCardDetailContent(content, card, cardDetailTransformState, cardDetailContext);
   } catch (_) {
     content.innerHTML = `<p class="archscry-card-dialog-status">Verified card details are unavailable. No fallback description was generated.</p>`;
   }
@@ -624,7 +751,8 @@ export async function openCardDetail(actionNode) {
 export function handleCardPreviewFocusOut(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
-  if (trigger && !relatedInside) {
+  const relatedInPreview = event.relatedTarget instanceof Node && cardPreviewOverlay?.contains(event.relatedTarget);
+  if (trigger && !relatedInside && !relatedInPreview) {
     hideCardPreviewOverlay();
   }
 }

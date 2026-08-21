@@ -485,6 +485,11 @@ body.vm-archscry-route .guild-name {
   text-shadow: 0 10px 34px rgba(0, 0, 0, 0.52);
 }
 
+body.vm-archscry-route .guild-banner[data-faction-key="UB"] .guild-name {
+  color: #a58ab7 !important;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.72);
+}
+
 body.vm-archscry-route .guild-tagline {
   color: rgba(249, 245, 231, 0.9);
   font-size: clamp(1.05rem, 1.8vw, 1.24rem);
@@ -2649,7 +2654,9 @@ body::before{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .card-preview-overlay{
+  .card-preview-overlay,
+  .card-preview-flip,
+  .archscry-transform-button{
     animation:none !important;
     transition:none !important;
   }
@@ -2884,6 +2891,13 @@ body::before{
   margin-bottom:1rem;
 }
 .starter-grid-start{grid-template-columns:1fr}
+.mana-primer-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.mana-primer-grid > *{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
 .starter-card-wide{
   background:
     linear-gradient(135deg,rgba(184,149,74,0.1),transparent 34%),
@@ -3425,12 +3439,14 @@ body.vm-archscry-route .saved-deck-link-note{
 .card-preview-overlay{
   position:fixed;
   z-index:3000;
-  display:grid;
-  gap:0.45rem;
+  display:block;
   pointer-events:none;
   opacity:0;
   transform:translateY(8px) scale(0.96);
   transition:opacity 0.14s ease,transform 0.14s ease;
+}
+.card-preview-overlay.is-transform{
+  pointer-events:auto;
 }
 .card-preview-overlay.is-visible{
   opacity:1;
@@ -3441,6 +3457,36 @@ body.vm-archscry-route .saved-deck-link-note{
   border:1px solid rgba(216,194,122,0.58);
   border-radius:4.5%;
   box-shadow:0 26px 76px rgba(0,0,0,0.92),0 0 0 1px rgba(184,149,74,0.3);
+}
+.card-preview-flip{
+  position:absolute;
+  top:12%;
+  right:5%;
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:1px solid rgba(255,255,255,0.78);
+  border-radius:50%;
+  background:rgba(238,235,226,0.9);
+  color:#20232a;
+  box-shadow:0 4px 14px rgba(0,0,0,0.58);
+  font-size:1.45rem;
+  cursor:pointer;
+  transition:transform 0.14s ease,background 0.14s ease;
+}
+.card-preview-flip:hover{
+  transform:rotate(18deg) scale(1.05);
+  background:#fff;
+}
+.card-preview-flip:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+.transform-card-glyph{
+  display:block;
+  font:700 1.55rem/1 system-ui,sans-serif;
 }
 .lands-guide{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem}
 .guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(184,149,74,0.05);font-size:0.88rem;align-items:baseline}
@@ -3920,6 +3966,40 @@ body.vm-archscry-route .precon-provider-links{
   box-shadow:0 18px 44px rgba(0,0,0,0.48);
 }
 
+.archscry-card-dialog-media{
+  position:relative;
+  min-width:0;
+}
+
+.archscry-transform-button{
+  position:absolute;
+  top:12%;
+  right:5%;
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:1px solid rgba(255,255,255,0.78);
+  border-radius:50%;
+  background:rgba(238,235,226,0.9);
+  color:#20232a;
+  box-shadow:0 4px 14px rgba(0,0,0,0.58);
+  font-size:1.45rem;
+  cursor:pointer;
+  transition:transform 0.14s ease,background 0.14s ease;
+}
+
+.archscry-transform-button:hover{
+  transform:rotate(18deg) scale(1.05);
+  background:#fff;
+}
+
+.archscry-transform-button:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+
 .archscry-card-dialog-copy{
   display:grid;
   gap:0.8rem;
@@ -3969,6 +4049,7 @@ body.vm-archscry-route .precon-provider-links{
 }
 
 .archscry-card-dialog-rules strong{color:var(--gold)}
+.archscry-card-dialog-actions{display:flex;flex-wrap:wrap;gap:0.65rem;align-items:center}
 
 .archscry-card-dialog-why{
   display:grid;
@@ -4029,6 +4110,9 @@ body.vm-archscry-route .precon-provider-links{
   }
   .archscry-card-dialog-grid{grid-template-columns:1fr}
   .archscry-card-dialog-image{width:min(260px,100%);justify-self:center}
+  .archscry-card-dialog-media{width:min(260px,100%);justify-self:center}
+  .archscry-card-dialog-media .archscry-card-dialog-image{width:100%}
+  body.vm-archscry-route .mana-primer-grid{grid-template-columns:1fr}
 }
 
 .result-state-banner,

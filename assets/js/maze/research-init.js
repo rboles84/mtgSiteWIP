@@ -20,6 +20,10 @@ import {
   getCardIdentityKey,
   initScratchpad
 } from "./maze-scratchpad-store.js";
+import {
+  createScryfallResultFaceState,
+  flipScryfallResultFaceState
+} from "../shared/scryfall-transform-faces.js";
 
 /*
  * VM-147C ownership map:
@@ -50,6 +54,7 @@ let scratchpadStore = null;
 let scratchpadState = null;
 let activeModalCard = null;
 let modalReturnFocusEl = null;
+let stashDragState = null;
 
 const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
@@ -433,6 +438,16 @@ function createActionButton({
   if (title) button.title = title;
   if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
   button.textContent = text;
+  return button;
+}
+
+function createTransformIconButton(options = {}) {
+  const button = createActionButton(options);
+  const icon = document.createElement("span");
+  icon.className = "transform-card-glyph";
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = "\u21bb";
+  button.replaceChildren(icon);
   return button;
 }
 
@@ -1079,7 +1094,9 @@ async function doSearch() {
  */
 function resolveMazeRouteQuery(input, opts = {}) {
   const mode = opts.mode || currentMode;
-  const useFormatDefault = opts.useFormatDefault !== false;
+  const useFormatDefault = Object.hasOwn(opts, "useFormatDefault")
+    ? opts.useFormatDefault !== false
+    : mode !== "raw";
   const format = Object.hasOwn(opts, "format")
     ? opts.format
     : useFormatDefault
@@ -1094,7 +1111,8 @@ function resolveMazeRouteQuery(input, opts = {}) {
       order: opts.order || currentOrder,
       unique: opts.unique || currentUnique,
       dir: Object.hasOwn(opts, "dir") ? opts.dir : currentDir,
-      forceRaw: Boolean(opts.forceRaw)
+      forceRaw: Boolean(opts.forceRaw),
+      useFormatDefault
     }
   };
   if (mode === "builder") request.builderFilters = opts.builderFilters || bFilters;
@@ -1304,28 +1322,21 @@ function renderResults(append = false) {
 function makeCardEl(card) {
   const wrap = document.createElement("div");
   wrap.className = "card-item";
-  wrap.dataset.action = "open-card";
   wrap.dataset.scratchpadKey = scratchpadCardKey(card);
   wrap.__cardData = card;
-  wrap.tabIndex = 0;
-  wrap.setAttribute("role", "button");
-  wrap.setAttribute("aria-label", `Open details for ${card.name || "this card"}`);
-  const img = card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
+  let faceState = createScryfallResultFaceState(card);
+  const img = faceState?.activeFace.image || card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal;
+  let image = null;
   if (img) {
-    const image = document.createElement("img");
+    image = document.createElement("img");
     image.src = img;
-    image.alt = card.name || "Card";
+    image.alt = faceState ? `${faceState.activeFace.name} card face` : card.name || "Card";
     image.loading = "lazy";
-    wrap.appendChild(image);
-  } else {
-    const skeleton = document.createElement("div");
-    skeleton.className = "card-skeleton";
-    wrap.appendChild(skeleton);
   }
 
   const name = document.createElement("div");
   name.className = "card-item-name";
-  name.textContent = card.name || "Unknown card";
+  name.textContent = faceState?.activeFace.name || card.name || "Unknown card";
   wrap.appendChild(name);
 
   const stashed = isCardInScratchpad(card);
@@ -1338,12 +1349,48 @@ function makeCardEl(card) {
   });
   stashButton.dataset.cardName = card.name || "card";
   stashButton.__cardData = card;
-  wrap.appendChild(stashButton);
-  wrap.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    openModal(card, wrap);
+  const media = document.createElement("div");
+  media.className = "transform-card-media";
+  const detailsButton = createActionButton({
+    className: "transform-card-open",
+    action: "open-card",
+    ariaLabel: `Open details for ${card.name || faceState?.activeFace.name || "this card"}`
   });
+  if (image) {
+    detailsButton.appendChild(image);
+  } else {
+    const skeleton = document.createElement("div");
+    skeleton.className = "card-skeleton";
+    detailsButton.appendChild(skeleton);
+  }
+  detailsButton.__cardData = card;
+  media.appendChild(detailsButton);
+
+  if (faceState) {
+    wrap.classList.add("is-flippable-card");
+    wrap.dataset.selectedFaceName = faceState.selectedFaceName;
+    const flipButton = createTransformIconButton({
+      className: "transform-card-button card-result-flip",
+      action: "flip-result-card",
+      ariaLabel: `Flip result to ${faceState.nextFace.name}`,
+      title: `Flip to ${faceState.nextFace.name}`
+    });
+    flipButton.__flipCardFace = () => {
+      const nextState = flipScryfallResultFaceState(card, faceState);
+      if (!nextState) return;
+      faceState = nextState;
+      wrap.dataset.selectedFaceName = nextState.selectedFaceName;
+      if (image instanceof HTMLImageElement) {
+        image.src = nextState.activeFace.image;
+        image.alt = `${nextState.activeFace.name} card face`;
+      }
+      name.textContent = nextState.activeFace.name;
+      flipButton.setAttribute("aria-label", `Flip result to ${nextState.nextFace.name}`);
+      flipButton.title = `Flip to ${nextState.nextFace.name}`;
+    };
+    media.appendChild(flipButton);
+  }
+  wrap.append(media, name, stashButton);
   return wrap;
 }
 
@@ -1355,11 +1402,13 @@ function openModal(card, opener = document.activeElement) {
   activeModalCard = card;
   modalReturnFocusEl = opener instanceof HTMLElement ? opener : (document.activeElement instanceof HTMLElement ? document.activeElement : null);
   const faces = card.card_faces;
-  const oracle = (card.oracle_text || faces?.map((face) => `${face.name}\n${face.oracle_text || ""}`).join("\n\n--------\n\n") || "").trim();
+  const displayName = card.name || "Unknown card";
+  const oracle = (card.oracle_text || faces?.map((item) => `${item.name}\n${item.oracle_text || ""}`).join("\n\n--------\n\n") || "").trim();
   const flavor = card.flavor_text || faces?.[0]?.flavor_text || "";
   const rarity = (card.rarity || "-").charAt(0).toUpperCase() + (card.rarity || "").slice(1);
   const legalities = card.legalities || {};
-  const primaryType = (card.type_line || "").split(" - ")[0].split(" ").pop()?.toLowerCase() || "card";
+  const typeLine = card.type_line || faces?.map((item) => item.type_line).filter(Boolean).join(" // ") || "";
+  const primaryType = typeLine.split(" - ")[0].split(" ").pop()?.toLowerCase() || "card";
   const similarQ = `id<=${(card.color_identity || []).join("").toLowerCase() || "c"} t:${primaryType}`;
   const { backdrop, inner } = getModalElements();
   if (!backdrop || !inner) return;
@@ -1376,7 +1425,7 @@ function openModal(card, opener = document.activeElement) {
   const name = document.createElement("div");
   name.className = "m-name";
   name.id = "modal-title";
-  name.textContent = card.name || "Unknown card";
+  name.textContent = displayName;
   detailCol.appendChild(name);
 
   const manaCost = card.mana_cost || faces?.[0]?.mana_cost || "";
@@ -1391,7 +1440,7 @@ function openModal(card, opener = document.activeElement) {
 
   const type = document.createElement("div");
   type.className = "m-type";
-  type.textContent = card.type_line || "";
+  type.textContent = typeLine;
   detailCol.appendChild(type);
 
   if (oracle) {
@@ -1471,7 +1520,7 @@ function openModal(card, opener = document.activeElement) {
     text: "Set aside",
     action: "modal-scratchpad-add",
     dataset: { section: READING_FIND_SECTION_IDS.finds },
-    ariaLabel: `Set aside ${card.name || "card"} in Reading Finds`
+    ariaLabel: `Set aside ${displayName} in Reading Finds`
   }));
   detailCol.appendChild(stashActions);
 
@@ -3150,6 +3199,57 @@ function toggleStashDrawer() {
   setStashDrawerOpen(document.body.dataset.stashOpen !== "true");
 }
 
+function beginStashDrag(event) {
+  if (event.button !== 0 || !window.matchMedia("(min-width: 821px) and (pointer: fine)").matches) return;
+  if (event.target.closest("button, input, a, textarea, select")) return;
+  const rail = document.querySelector(".stash-rail");
+  if (!(rail instanceof HTMLElement)) return;
+  const rect = rail.getBoundingClientRect();
+  stashDragState = {
+    pointerId: event.pointerId,
+    offsetX: event.clientX - rect.left,
+    offsetY: event.clientY - rect.top
+  };
+  rail.style.left = `${Math.round(rect.left)}px`;
+  rail.style.top = `${Math.round(rect.top)}px`;
+  rail.style.right = "auto";
+  rail.classList.add("is-dragging");
+  event.currentTarget.setPointerCapture?.(event.pointerId);
+  event.preventDefault();
+}
+
+function moveStashDrag(event) {
+  if (!stashDragState || event.pointerId !== stashDragState.pointerId) return;
+  const rail = document.querySelector(".stash-rail");
+  if (!(rail instanceof HTMLElement)) return;
+  const margin = 8;
+  const width = rail.offsetWidth;
+  const height = rail.offsetHeight;
+  const maxLeft = Math.max(margin, document.documentElement.clientWidth - width - margin);
+  const maxTop = Math.max(margin, document.documentElement.clientHeight - height - margin);
+  const left = Math.min(Math.max(margin, event.clientX - stashDragState.offsetX), maxLeft);
+  const top = Math.min(Math.max(margin, event.clientY - stashDragState.offsetY), maxTop);
+  rail.style.left = `${Math.round(left)}px`;
+  rail.style.top = `${Math.round(top)}px`;
+}
+
+function endStashDrag(event) {
+  if (!stashDragState || event.pointerId !== stashDragState.pointerId) return;
+  document.querySelector(".stash-rail")?.classList.remove("is-dragging");
+  stashDragState = null;
+}
+
+function resetStashDragForMobile() {
+  if (window.innerWidth > 820) return;
+  const rail = document.querySelector(".stash-rail");
+  if (!(rail instanceof HTMLElement)) return;
+  rail.style.removeProperty("left");
+  rail.style.removeProperty("top");
+  rail.style.removeProperty("right");
+  rail.classList.remove("is-dragging");
+  stashDragState = null;
+}
+
 function refreshScratchpadButtons() {
   document.querySelectorAll(".card-item").forEach((node) => {
     const key = node.dataset.scratchpadKey;
@@ -3261,6 +3361,11 @@ function bindMazeControls() {
   document.getElementById("modal-bg")?.addEventListener("click", handleMazeActionClick);
   document.addEventListener("keydown", handleMazeGlobalKeydown);
   document.addEventListener("click", handleMazeDocumentClick);
+  document.querySelector(".stash-head")?.addEventListener("pointerdown", beginStashDrag);
+  window.addEventListener("pointermove", moveStashDrag);
+  window.addEventListener("pointerup", endStashDrag);
+  window.addEventListener("pointercancel", endStashDrag);
+  window.addEventListener("resize", resetStashDragForMobile);
 
   document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
   document.getElementById("color-op")?.addEventListener("change", rebuildFromFilters);
@@ -3362,6 +3467,10 @@ function handleMazeActionClick(event) {
       addCardToScratchpad(card, READING_FIND_SECTION_IDS.finds);
       return;
     }
+    case "flip-result-card":
+      event.stopPropagation();
+      actionNode.__flipCardFace?.();
+      return;
     case "open-card":
       openModal(actionNode.__cardData, actionNode);
       return;

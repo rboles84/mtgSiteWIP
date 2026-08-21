@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/maze.css">
 </head>
-<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="true">
+<body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
 
 <div class="vm-bg" aria-hidden="true">
   <picture class="vm-bg__picture">
@@ -132,6 +132,10 @@
         <button class="btn-clear" id="clear-search-btn" type="button" data-action="clear-search">Clear</button>
         <button class="query-action-btn search-copy-btn is-disabled" id="search-copy-btn" type="button" data-action="copy-query" disabled>Copy</button>
         <a class="query-action-btn search-scryfall-link is-disabled" id="search-scryfall-link" href="#" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">Open in Scryfall</a>
+        <button class="query-action-btn stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="false">
+          <span>Reading Finds</span>
+          <span class="stash-drawer-count" data-stash-toggle-count>0</span>
+        </button>
       </div>
 
       <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
@@ -306,11 +310,6 @@
   </section>
 
   <aside class="stash-rail" aria-labelledby="maze-stash-title">
-    <button class="stash-drawer-toggle" id="stash-drawer-toggle" type="button" data-action="toggle-stash-drawer" aria-controls="stash-panel" aria-expanded="true">
-      <span>Reading Finds</span>
-      <span class="stash-drawer-count" data-stash-toggle-count>0</span>
-    </button>
-
     <section class="stash-panel" id="stash-panel" aria-labelledby="maze-stash-title">
       <div class="stash-head">
         <div class="stash-title-block">

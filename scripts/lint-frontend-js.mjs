@@ -23,6 +23,7 @@ const files = [
   "assets/js/archscry/runtime/render-utils.js",
   "assets/js/archscry/runtime/state.js",
   "assets/js/shared/vox-telemetry.js",
+  "assets/js/shared/scryfall-transform-faces.js",
   "assets/js/home/home.js",
   "assets/js/strategium/strategium.js",
   "assets/js/strategium/strategium-hub.js",

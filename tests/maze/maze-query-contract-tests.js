@@ -17,6 +17,7 @@ import {
 
 const grounding = JSON.parse(await readFile(new URL("../../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
 const semanticRegistry = JSON.parse(await readFile(new URL("../../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
+const researchInitSource = await readFile(new URL("../../assets/js/maze/research-init.js", import.meta.url), "utf8");
 setScryfallGrounding(grounding);
 setPlainReadingSemanticRegistry(semanticRegistry);
 
@@ -540,6 +541,40 @@ assert.deepEqual(applyMazeFormatToQuery("c:r t:creature", { format: "commander",
   changed: false,
   format: ""
 });
+
+for (const [input, expected] of [
+  ["c:w", "c:w"],
+  ["id<=ub t:instant o:\"draw a card\"", "id<=ub t:instant o:\"draw a card\""],
+  ["(t:artifact OR t:enchantment) -is:reserved", "(t:artifact OR t:enchantment) -is:reserved"],
+  ["mv<=3 usd<5 order:edhrec", "mv<=3 usd<5 order:edhrec"],
+  ["name:\"Nicol Bolas\" unique:prints", "name:\"Nicol Bolas\" unique:prints"],
+  ["f:modern c:r", "f:modern c:r"],
+  ["game:paper lang:ja set:neo", "game:paper lang:ja set:neo"],
+  ["pow>=5 tou>=5", "pow>=5 tou>=5"],
+  ["o:draw AND t:creature", "o:draw t:creature"],
+  ["id=ub is:commander f:commander", "id=ub is:commander f:commander"]
+]) {
+  const freshOperatorQuery = resolveMazeQueryRequest({
+    mode: "raw",
+    input,
+    options: { format: "commander", useFormatDefault: false }
+  });
+  assert.equal(freshOperatorQuery.query, expected, `fresh Operator's Hand query changed unexpectedly: ${input}`);
+  assert.ok(
+    expected.includes("f:commander") || !freshOperatorQuery.query.includes("f:commander"),
+    `fresh Operator's Hand query received an implicit Commander format: ${input}`
+  );
+}
+
+const archscryOperatorQuery = resolveMazeQueryRequest({
+  mode: "raw",
+  origin: "archscry",
+  input: "id=ub is:commander f:commander",
+  options: { format: "commander", useFormatDefault: false }
+});
+assert.equal(archscryOperatorQuery.query, "id=ub is:commander f:commander");
+assert.match(researchInitSource, /Object\.hasOwn\(opts, "useFormatDefault"\)[\s\S]*?mode !== "raw";/);
+assert.match(researchInitSource, /forceRaw: Boolean\(opts\.forceRaw\),\s*useFormatDefault/);
 
 assert.equal(shouldApplyFormatDefault("c:r t:creature", {}, "commander"), true);
 assert.equal(shouldApplyFormatDefault("type:token", {}, "commander"), false);

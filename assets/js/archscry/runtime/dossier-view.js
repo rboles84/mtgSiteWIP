@@ -685,10 +685,9 @@ export const OFFICIAL_HERO_PROOF_BY_FACTION_KEY = Object.freeze({
     attribution: "Art: Zoltan Boros & Gabor Szikszai - Academy Ruins",
   }),
   UB: Object.freeze({
-    src: "/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg",
-    position: "50% 45%",
-    size: "80% auto",
-    attribution: "Art: Igor Kieryluk - Haunter of Nightveil",
+    src: "/assets/img/identity-hero/official/dimir-mortus-strider.jpg",
+    position: "54% 45%",
+    attribution: "Art: Tomasz Jedruszek - Mortus Strider",
   }),
   UG: Object.freeze({
     src: "/assets/img/identity-hero/official/simic-guildgate.jpg",
@@ -1816,8 +1815,7 @@ export function renderResult(viewKey) {
     ],
     "mana-notes": String(faction?.key || "").toUpperCase() === "COLORLESS" ? [
       { field: "wastes-first", text: "Use Wastes and reliable colorless producers as the floor before adding utility lands." },
-      { field: "rocks-and-sources", text: "Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana." },
-      { field: "color-choice-caution", text: "Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana." },
+      { field: "rocks-and-sources", text: "Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana. Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana." },
     ] : [],
   }, faction?.key);
   const discoverySummaryHtml = buildDiscoverySummaryHtml({ dossier, faction, result });
@@ -1960,12 +1958,8 @@ export function renderResult(viewKey) {
         <div class="starter-copy">${renderEducationalText("Use Wastes and reliable colorless producers as the floor before adding utility lands.", "mana-notes", "wastes-first")}</div>
       </div>
       <div class="starter-card">
-        <div class="starter-title">Rocks And Sources</div>
-        <div class="starter-copy">${renderEducationalText("Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana.", "mana-notes", "rocks-and-sources")}</div>
-      </div>
-      <div class="starter-card">
-        <div class="starter-title">Color-Choice Caution</div>
-        <div class="starter-copy">${renderEducationalText("Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana.", "mana-notes", "color-choice-caution")}</div>
+        <div class="starter-title">Rocks and Colorless Sources</div>
+        <div class="starter-copy">${renderEducationalText("Mana rocks help the deck reach expensive colorless spells, but generic costs are not colorless mana. Command Tower cannot choose colorless, and Reflecting Pool-style effects need another source that can already make colorless mana.", "mana-notes", "rocks-and-sources")}</div>
       </div>
     </div>` : "";
   const manaBaseSegments = MANA_BASE_SEGMENTS.filter((segment) =>
