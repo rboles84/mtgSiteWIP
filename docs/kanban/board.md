@@ -49,6 +49,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-576 - Transform Card UX + Targeted Dossier Visual Repair](done/VM-576-transform-card-ux-targeted-dossier-visual-repair.md) - completed owner-accepted transform UX, Maze result magnification and draggable Reading Finds, Dimir hero repair, and Colorless two-card Mana Notes layout with focused automated and rendered QA; protected telemetry, placement, and generated authorities remained unchanged.
+
 - [VM-575 - Product Telemetry V1](done/VM-575-product-telemetry-v1.md) - added one anonymous provider-isolated PostHog adapter and exactly three Archscry placement-funnel events with no persistence, identification, automatic capture, or placement influence; owner verified the intended semantic stream and a separate post-setting stream with no stored client-IP property.
 
 - [VM-569 - Ink Global Media Projection Reconciliation](done/VM-569-ink-global-media-projection-reconciliation.md) - refreshed the governed Scryfall Oracle corpus, accepted only the proven 58 safe printing refreshes through the existing drift mechanism, restored the normal VM-559 production projection with zero unresolved governed resolver keys, and unblocked VM-574 media coverage without changing VM-574 selections.
