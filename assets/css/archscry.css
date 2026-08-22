@@ -4189,3 +4189,134 @@ body.vm-archscry-route .precon-provider-links{
     padding: 0.9rem;
   }
 }
+
+.vm-dev-review-panel {
+  position: fixed;
+  z-index: 900;
+  top: 4.5rem;
+  right: 1rem;
+  width: min(22rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 5.5rem);
+  overflow: auto;
+  padding: 0.85rem;
+  border: 1px solid rgba(216, 185, 106, 0.48);
+  border-radius: 0.75rem;
+  background: rgba(7, 10, 12, 0.97);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.52);
+  color: var(--parchment, #efe4c8);
+}
+
+@media (min-width: 901px) {
+  html[data-vm-dev-review-active="true"] .app {
+    padding-right: 24rem;
+  }
+}
+
+.vm-dev-review-head,
+.vm-dev-review-modes {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.vm-dev-review-head {
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.vm-dev-review-head h2 {
+  margin: 0.1rem 0 0;
+  font-size: 1rem;
+}
+
+.vm-dev-review-kicker,
+.vm-dev-review-count,
+.vm-dev-review-field span {
+  color: var(--text-muted, #aaa08d);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vm-dev-review-modes {
+  margin-bottom: 0.8rem;
+}
+
+.vm-dev-review-modes button,
+.vm-dev-review-action {
+  min-height: 2.5rem;
+  border: 1px solid rgba(216, 185, 106, 0.3);
+  border-radius: 0.45rem;
+  background: rgba(216, 185, 106, 0.06);
+  color: inherit;
+  cursor: pointer;
+}
+
+.vm-dev-review-modes button {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.vm-dev-review-modes button.is-active {
+  border-color: var(--gold, #d8b96a);
+  background: rgba(216, 185, 106, 0.16);
+}
+
+.vm-dev-review-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.vm-dev-review-field select {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(216, 185, 106, 0.3);
+  border-radius: 0.45rem;
+  background: #0b1012;
+  color: inherit;
+}
+
+.vm-dev-review-action {
+  width: 100%;
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.7rem;
+}
+
+.vm-dev-review-status {
+  margin: 0.65rem 0 0;
+  color: var(--text-muted, #aaa08d);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.vm-dev-engine-inspector {
+  max-height: 20rem;
+  overflow: auto;
+  margin: 0.7rem 0 0;
+  padding: 0.65rem;
+  border-radius: 0.45rem;
+  background: #020506;
+  color: #c9e3d9;
+  font: 0.68rem/1.45 ui-monospace, SFMono-Regular, Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+[data-direct-review="true"] .guild-eyebrow,
+.guild-banner[data-direct-review="true"] .guild-eyebrow {
+  color: var(--gold, #d8b96a);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+  .vm-dev-review-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    max-height: none;
+    margin: 0.5rem;
+  }
+}

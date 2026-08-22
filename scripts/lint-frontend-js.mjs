@@ -15,6 +15,8 @@ const files = [
   "assets/js/archscry/runtime/card-media.js",
   "assets/js/archscry/runtime/content.js",
   "assets/js/archscry/runtime/data.js",
+  "assets/js/archscry/runtime/dev-review-gate.js",
+  "assets/js/archscry/runtime/dev-review.js",
   "assets/js/archscry/runtime/dossier-controls.js",
   "assets/js/archscry/runtime/dossier-view.js",
   "assets/js/archscry/runtime/interview.js",

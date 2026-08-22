@@ -58,6 +58,10 @@ import {
   initializeVoxTelemetry,
 } from "../shared/vox-telemetry.js";
 
+import {
+  isArchscryDevReviewLocation,
+} from "./runtime/dev-review-gate.js";
+
 export {
   validateDossierContentCatalogs,
 } from "./runtime/data.js";
@@ -171,4 +175,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateTopbar();
   }
   restoreInitialView(savedFromOAuth);
+
+  if (isArchscryDevReviewLocation(window.location)) {
+    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js");
+    initializeArchscryDevReview();
+  }
 });

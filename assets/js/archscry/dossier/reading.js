@@ -158,14 +158,16 @@ export function buildCommanderStartingLane({
     title: "Start With This Commander Plan",
     copy,
     details: [
-      {
-        label: "Suggested budget lane",
-        copy: `The saved starter preference is ${budget} budget. Use it to filter examples and upgrades; it did not affect the identity result.`,
-      },
-      {
-        label: "Experience assumption",
-        copy: `The saved starter preference is ${experience}. This controls how much explanation the dossier offers; it is not evidence of skill.`,
-      },
+      ...(placementResult ? [
+        {
+          label: "Suggested budget lane",
+          copy: `The saved starter preference is ${budget} budget. Use it to filter examples and upgrades; it did not affect the identity result.`,
+        },
+        {
+          label: "Experience assumption",
+          copy: `The saved starter preference is ${experience}. This controls how much explanation the dossier offers; it is not evidence of skill.`,
+        },
+      ] : []),
       {
         label: "Possible directions",
         copy: `Explore ${researchLanes}. Compare these lanes to see which one matches the deck you want to build.`,
@@ -839,18 +841,21 @@ export function buildCommanderDossier({
   factions = {},
   placementModel = null,
   deckTagCatalog = null,
-  placementResult,
+  placementResult = null,
+  identityKey = "",
   targetFactionKey = "",
   starterProfile,
   adjacentReason = "",
   summaryPresentationForFaction = null,
   summaryContrastCopyBuilder = null,
 } = {}) {
-  if (!placementResult) {
-    throw new Error("buildCommanderDossier requires a placementResult.");
+  const directIdentityKey = String(identityKey || "").trim().toUpperCase();
+  const hasPlacementResult = Boolean(placementResult);
+  if (!hasPlacementResult && !directIdentityKey) {
+    throw new Error("buildCommanderDossier requires a placementResult or identityKey.");
   }
 
-  const primaryKey = placementResult.faction;
+  const primaryKey = placementResult?.faction || directIdentityKey;
   const activeKey = targetFactionKey || primaryKey;
   const rawFaction = factions[activeKey];
   const rawPrimaryFaction = factions[primaryKey] || rawFaction;
@@ -866,9 +871,9 @@ export function buildCommanderDossier({
   }
 
   const isPrimary = activeKey === primaryKey;
-  const activeMatch = activeMatchForResult(placementResult, activeKey);
+  const activeMatch = hasPlacementResult ? activeMatchForResult(placementResult, activeKey) : null;
   const modelFaction = placementModel?.factions?.[activeKey] || null;
-  const normalizedStarterProfile = starterProfile || placementResult.starter_profile || {};
+  const normalizedStarterProfile = starterProfile || placementResult?.starter_profile || {};
   const archidektSearchLinks = deckTagCatalog
     ? buildArchidektSearchLinks({
         catalog: deckTagCatalog,
@@ -904,8 +909,10 @@ export function buildCommanderDossier({
   const deckFooting = commanderLaneDetail(commanderLane.details, /^(Deck footing|Suggested budget lane)$/i);
   const spellcraft = commanderLaneDetail(commanderLane.details, /spellcraft|gameplay/i);
   const tableCautionText = commanderLaneDetail(commanderLane.details, /^Table caution$/i) || guidance?.tableCautionText || "";
-  const isLegacy = placementResult?.legacy_result === true || placementResult?.source_mode === "legacy";
-  const resultStatus = isLegacy
+  const isLegacy = hasPlacementResult && (placementResult?.legacy_result === true || placementResult?.source_mode === "legacy");
+  const resultStatus = !hasPlacementResult
+    ? ""
+    : isLegacy
     ? `Historical saved identity: ${faction.name}. Answer and evidence detail is unavailable, so no current fit or strength is claimed.`
     : isPrimary
       ? placementResult?.alternative_state === "co-leader"
@@ -916,7 +923,7 @@ export function buildCommanderDossier({
         : placementResult?.alternative_state === "exploration"
           ? "Comparing another independently supported direction with the original reading and the same recorded answers."
           : "Comparing a close alternative with the original reading and the same recorded answers.";
-  const reasonItStayedClose = isPrimary
+  const reasonItStayedClose = !hasPlacementResult || isPrimary
     ? ""
     : buildAdjacentReason({
         adjacentReason,
@@ -927,29 +934,35 @@ export function buildCommanderDossier({
         placementModel,
         activeKey,
       });
-  const decreeCopy = isPrimary
+  const decreeCopy = !hasPlacementResult
+    ? ""
+    : isPrimary
     ? placementResult.decree
     : reasonItStayedClose;
-  const readingOmens = buildDossierReadingOmens({
-    placementResult,
-    factions,
-    activeKey,
-    faction,
-    guidance,
-    isPrimary,
-    reasonItStayedClose,
-  });
+  const readingOmens = hasPlacementResult
+    ? buildDossierReadingOmens({
+        placementResult,
+        factions,
+        activeKey,
+        faction,
+        guidance,
+        isPrimary,
+        reasonItStayedClose,
+      })
+    : [];
 
   const baseDossier = {
     version: "commander-dossier-v1",
-    sourceModelVersion: placementResult.model_version || "",
-    mode: isPrimary ? "primary" : "adjacent",
+    sourceModelVersion: placementResult?.model_version || "",
+    mode: hasPlacementResult ? isPrimary ? "primary" : "adjacent" : "identity-review",
     isPrimary,
     primaryFactionKey: primaryKey,
     targetFactionKey: activeKey,
     adjacentLabel: isPrimary
       ? ""
-      : placementResult?.alternative_state === "co-leader"
+      : !hasPlacementResult
+        ? ""
+        : placementResult?.alternative_state === "co-leader"
         ? `Co-leader: ${getExpressionKindLabel(faction)}`
         : placementResult?.alternative_state === "exploration"
           ? `Supported comparison: ${getExpressionKindLabel(faction)}`
@@ -997,7 +1010,7 @@ export function buildCommanderDossier({
     resultStatus,
     decreeCopy,
     reasonItStayedClose,
-    manaAlignment: buildManaAlignment(placementResult),
+    manaAlignment: hasPlacementResult ? buildManaAlignment(placementResult) : [],
     readingOmens,
     commanderLane,
     commanderPath: {
@@ -1022,27 +1035,31 @@ export function buildCommanderDossier({
       maze: packageLinks.maze,
       scryfall: packageLinks.scryfall,
     },
-    adjacentFits: adjacentFitsForResult({
-      result: placementResult,
-      factions,
-      primaryFaction: primaryFaction || faction,
-      placementModel,
-      activeKey,
-      isPrimary,
-    }),
+    adjacentFits: hasPlacementResult
+      ? adjacentFitsForResult({
+          result: placementResult,
+          factions,
+          primaryFaction: primaryFaction || faction,
+          placementModel,
+          activeKey,
+          isPrimary,
+        })
+      : [],
   };
 
   return {
     ...baseDossier,
-    resultSummaryStrip: buildResultSummaryStrip({
-      factions,
-      placementModel,
-      placementResult,
-      dossier: baseDossier,
-      activeKey,
-      primaryKey,
-      presentationForFaction: summaryPresentationForFaction,
-      buildContrastCopy: summaryContrastCopyBuilder,
-    }),
+    resultSummaryStrip: hasPlacementResult
+      ? buildResultSummaryStrip({
+          factions,
+          placementModel,
+          placementResult,
+          dossier: baseDossier,
+          activeKey,
+          primaryKey,
+          presentationForFaction: summaryPresentationForFaction,
+          buildContrastCopy: summaryContrastCopyBuilder,
+        })
+      : null,
   };
 }

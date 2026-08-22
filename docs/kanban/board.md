@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-579 - Archscry Dev Review + Placement Validation](in-progress/VM-579-archscry-dev-review-placement-validation.md) - adding an explicit local-only QA panel that direct-renders authoritative identities through the production dossier renderer and inspects the real production placement journey without fabricated state, forced outcomes, duplicate machinery, or production side effects.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.

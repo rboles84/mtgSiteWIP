@@ -121,12 +121,13 @@ export function captureMazeReturnUrl() {
     : "";
 }
 
-export function buildDossierTabsHtml(location, activePanel, layoutMode) {
+export function buildDossierTabsHtml(location, activePanel, layoutMode, labelOverrides = {}) {
   const active = normalizeDossierPanelId(activePanel) || DOSSIER_DEFAULT_PANEL_ID;
   const isAllMode = layoutMode === "all";
   return DOSSIER_PANEL_CONFIG.filter((panel) => !APP_STATE.hiddenDossierPanelIds?.has(panel.id)).map((panel, index) => {
     const selected = !isAllMode && panel.id === active;
-    const shortLabel = panel.mobileLabel || panel.label;
+    const label = labelOverrides[panel.id]?.label || panel.label;
+    const shortLabel = labelOverrides[panel.id]?.mobileLabel || labelOverrides[panel.id]?.label || panel.mobileLabel || panel.label;
     return `
       <button
         class="vm-tab dossier-tab${selected ? " is-active" : ""}"
@@ -137,9 +138,9 @@ export function buildDossierTabsHtml(location, activePanel, layoutMode) {
         aria-controls="dossier-panel-${panel.id}"
         tabindex="${selected || (!isAllMode && index === 0) ? "0" : "-1"}"
         data-dossier-tab="${panel.id}"
-        aria-label="${escapeAttributeValue(panel.label)}"
+        aria-label="${escapeAttributeValue(label)}"
         ${buildActionAttrs("set-dossier-panel", { panelId: panel.id })}
-      ><span class="dossier-tab-label dossier-tab-label--full">${escapeHtml(panel.label)}</span><span class="dossier-tab-label dossier-tab-label--compact" aria-hidden="true">${escapeHtml(shortLabel)}</span></button>`;
+      ><span class="dossier-tab-label dossier-tab-label--full">${escapeHtml(label)}</span><span class="dossier-tab-label dossier-tab-label--compact" aria-hidden="true">${escapeHtml(shortLabel)}</span></button>`;
   }).join("");
 }
 
