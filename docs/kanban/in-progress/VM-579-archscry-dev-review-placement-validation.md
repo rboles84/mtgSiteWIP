@@ -66,7 +66,7 @@ Preflight conclusion: The implementation reuses the existing production dossier 
 - [x] Engine Validation uses the production questionnaire and engine state, exposes current evidence/ranking/qualification/stopping/refinement/final output, and has no target-identity input.
 - [x] Both mode-isolation directions pass focused tests.
 - [x] VM-579 targeted automation, protected regressions, and desktop/mobile rendered QA pass. The mandated broad placement command retains two exact baseline failures reproduced from untouched `b79a366`; VM-579 adds no placement-suite failure.
-- [ ] RobDev and independent RobQA records are captured before owner handoff.
+- [x] RobDev and independent RobQA records are captured before owner handoff.
 
 ## Files Likely Impacted
 
@@ -150,3 +150,12 @@ Remaining owner judgment after independent RobQA:
 
 - Whether the local desktop sidecar and narrow-screen flow placement feel comfortable for repeated QA use.
 - Whether raw JSON is the preferred density for the engine inspector; no alternate visualization was added.
+
+## Independent RobQA Outcome
+
+- Verdict: **PASS — Owner Review Ready**.
+- Exact reviewed candidate: `1c87dc2669a007d7e59e5f71a46d20add5235e3a`.
+- Independent handoff: `docs/handoffs/2026-08-22-1406-codex-vm579-independent-robqa.md`.
+- The reviewer independently verified the narrow production renderer/engine seams, all-37 direct-review behavior, persistence and telemetry isolation, production primary and close journeys, and desktop/mobile interactions.
+- The two `npm run test:placement` failures were independently reproduced from untouched parent `b79a366` and are not VM-579 regressions.
+- Status remains `In Progress` pending bounded owner acceptance. Do not merge, push, close, or move this card to Done before that acceptance.
