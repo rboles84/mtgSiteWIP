@@ -48,7 +48,7 @@ Performed a controlled, evidence-backed verification of `Scryfall_Maze_Master.xl
 - Sheets inventoried: 14
 - Records extracted: 2,782
 - Workbook status counts: 822 Production-ready, 314 Review, 211 Semantic, 2 Tag-dependent, 8 Correct, 3 Normalize, 2 Remove, 1,420 blank/internal-status rows.
-- Verification dispositions: 1,192 `VERIFIED_NATIVE`, 52 `VERIFIED_TAG`, 30 `VERIFIED_QUERY`, 588 `VERIFIED_INTERNAL`, 355 `AMBIGUOUS`, 300 `SEMANTIC_REVIEW`, 268 `UNVERIFIED`, 37 `STALE`, 2 `SOURCE_ARTIFACT`, 1 `INVALID`.
+- Verification dispositions: 1,192 `VERIFIED_NATIVE`, 52 `VERIFIED_TAG`, 30 `VERIFIED_QUERY`, 588 `VERIFIED_INTERNAL`, 355 `AMBIGUOUS`, 259 `SEMANTIC_REVIEW`, 266 `UNVERIFIED`, 37 `STALE`, 2 `SOURCE_ARTIFACT`, 1 `INVALID`.
 - Collision groups: 83.
 - Owner-review queue rows: 920.
 - Plain Reading QA baseline: 59 cases, 2 exact-query matches, 56 query mismatches, 1 semantic/unscored expectation, 0 compiler errors.
@@ -73,4 +73,3 @@ The workbook is safe only as a verified subset. It should not be promoted wholes
 - Four Tagger claims remain stale by exact probe: `otag:goodstuff`, `otag:stax`, `otag:sweeper-creature`, and `otag:token-generator`.
 - One operator claim is invalid by bounded Scryfall probe: `field:/.../`.
 - Several regex/operator probes remained `UNVERIFIED` after rate limiting and should not be treated as failures or accepted truth.
-

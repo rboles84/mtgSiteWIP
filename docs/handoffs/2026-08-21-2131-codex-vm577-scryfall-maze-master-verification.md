@@ -85,7 +85,7 @@ The workbook is promising but mixes native Scryfall facts, Scryfall operators, T
 - Sheets inventoried: 14
 - Workbook records extracted: 2,782
 - Workbook status counts: 822 Production-ready, 314 Review, 211 Semantic, 2 Tag-dependent, 8 Correct, 3 Normalize, 2 Remove, 1,420 blank/internal-status rows.
-- Verification dispositions: 1,192 `VERIFIED_NATIVE`, 52 `VERIFIED_TAG`, 30 `VERIFIED_QUERY`, 588 `VERIFIED_INTERNAL`, 355 `AMBIGUOUS`, 300 `SEMANTIC_REVIEW`, 268 `UNVERIFIED`, 37 `STALE`, 2 `SOURCE_ARTIFACT`, 1 `INVALID`.
+- Verification dispositions: 1,192 `VERIFIED_NATIVE`, 52 `VERIFIED_TAG`, 30 `VERIFIED_QUERY`, 588 `VERIFIED_INTERNAL`, 355 `AMBIGUOUS`, 259 `SEMANTIC_REVIEW`, 266 `UNVERIFIED`, 37 `STALE`, 2 `SOURCE_ARTIFACT`, 1 `INVALID`.
 - Operator probes: 26 verified, 6 unverified/rate-limited, 1 invalid.
 - Tagger probes: 18 verified, 4 stale.
 - Collision groups: 83.
