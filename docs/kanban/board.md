@@ -13,10 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-583 - Maze Mobile Search Control Gap](backlog/VM-583-maze-mobile-search-control-gap.md) - reproduce and repair the unexplained narrow-screen space between `textarea#search-input` and the Search controls through the responsible grid/flex sizing rule, without arbitrary negative spacing.
-- [VM-582 - Mobile Provider Control Intrinsic Sizing](backlog/VM-582-mobile-provider-control-intrinsic-sizing.md) - correct narrow-screen EDHREC, Archidekt, and MTGDecks provider controls that stretch across their containers in Precon Starting Points and Commander Browsing Starts.
-- [VM-581 - College Commander Browsing Identity Labels](backlog/VM-581-college-commander-browsing-identity-labels.md) - keep valid external two-color provider routing while presenting each Strixhaven college's own identity label in Commander Browsing Starts and preserving ordinary guild labels.
-- [VM-580 - Transform Hover Preview Interaction Contract](backlog/VM-580-transform-hover-preview-interaction-contract.md) - follow up VM-576 so only true transform cards expose preview flip affordance and the hover preview remains pointer-interactive through in-place front/back switching.
 - [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -46,6 +42,11 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-583 - Maze Mobile Search Control Gap](in-progress/VM-583-maze-mobile-search-control-gap.md) - correct the measured 394.69px mobile gap by resetting the inherited percentage flex basis at the responsible column breakpoint, preserving textarea and action behavior.
+- [VM-582 - Mobile Provider Control Intrinsic Sizing](in-progress/VM-582-mobile-provider-control-intrinsic-sizing.md) - replace the shared forced full-width mobile provider rule with content-sized, max-width-bounded controls across both affected dossier surfaces.
+- [VM-581 - College Commander Browsing Identity Labels](in-progress/VM-581-college-commander-browsing-identity-labels.md) - use the existing player-facing identity-label authority in the shared presenter while retaining valid provider routing URLs.
+- [VM-580 - Transform Hover Preview Interaction Contract](in-progress/VM-580-transform-hover-preview-interaction-contract.md) - make hidden state authoritative for ordinary previews and complete face-specific hover content through the existing VM-576 transform state/boundary machinery.
 
 ## Blocked
 

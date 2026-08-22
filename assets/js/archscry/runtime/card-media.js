@@ -351,7 +351,14 @@ export function ensureCardPreviewOverlay() {
   const overlay = document.createElement("div");
   overlay.className = "card-preview-overlay";
   overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML = `<img alt=""><button class="card-preview-flip" type="button" hidden><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>`;
+  overlay.innerHTML = `
+    <img alt="">
+    <button class="card-preview-flip" type="button" hidden><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>
+    <div class="card-preview-face" data-card-preview-face hidden>
+      <strong class="card-preview-face-name"></strong>
+      <span class="card-preview-face-type"></span>
+      <span class="card-preview-face-rules"></span>
+    </div>`;
   overlay.querySelector(".card-preview-flip")?.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -414,6 +421,8 @@ export async function showCardPreviewOverlay(trigger, event = null) {
     overlayImage.alt = "";
   }
   if (flipButton instanceof HTMLButtonElement) flipButton.hidden = true;
+  const faceCopy = overlay.querySelector("[data-card-preview-face]");
+  if (faceCopy instanceof HTMLElement) faceCopy.hidden = true;
   overlay.classList.remove("is-transform");
   overlay.setAttribute("aria-hidden", "true");
   let imageUrl = "";
@@ -460,9 +469,7 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   if (transformState && flipButton instanceof HTMLButtonElement) {
     overlay.classList.add("is-transform");
     overlay.setAttribute("aria-hidden", "false");
-    flipButton.hidden = false;
-    flipButton.title = `Transform to ${transformState.nextFace.name}`;
-    flipButton.setAttribute("aria-label", `Transform preview to ${transformState.nextFace.name}`);
+    renderCardPreviewFace(transformState);
   }
   overlay.dataset.previewResolvedTarget = previewTarget;
   positionCardPreviewOverlay(overlay, trigger.boundary, event);
@@ -488,6 +495,33 @@ export function hideCardPreviewOverlay() {
   image?.removeAttribute("src");
   const button = cardPreviewOverlay?.querySelector(".card-preview-flip");
   if (button instanceof HTMLButtonElement) button.hidden = true;
+  const faceCopy = cardPreviewOverlay?.querySelector("[data-card-preview-face]");
+  if (faceCopy instanceof HTMLElement) faceCopy.hidden = true;
+}
+
+export function renderCardPreviewFace(transformState) {
+  if (!cardPreviewOverlay || !transformState?.activeFace || !transformState?.nextFace) return;
+  const face = transformState.activeFace;
+  const image = cardPreviewOverlay.querySelector("img");
+  const button = cardPreviewOverlay.querySelector(".card-preview-flip");
+  const faceCopy = cardPreviewOverlay.querySelector("[data-card-preview-face]");
+  const faceName = faceCopy?.querySelector(".card-preview-face-name");
+  const faceType = faceCopy?.querySelector(".card-preview-face-type");
+  const faceRules = faceCopy?.querySelector(".card-preview-face-rules");
+  if (image instanceof HTMLImageElement) {
+    image.src = face.image;
+    image.alt = `${face.name} card face`;
+  }
+  if (button instanceof HTMLButtonElement) {
+    button.hidden = false;
+    button.title = `Transform to ${transformState.nextFace.name}`;
+    button.setAttribute("aria-label", `Transform preview to ${transformState.nextFace.name}`);
+  }
+  if (faceCopy instanceof HTMLElement) faceCopy.hidden = false;
+  if (faceName instanceof HTMLElement) faceName.textContent = face.name;
+  if (faceType instanceof HTMLElement) faceType.textContent = face.typeLine;
+  if (faceRules instanceof HTMLElement) faceRules.textContent = face.oracleText || wordBoundaryExcerpt(face.oracleExcerpt);
+  cardPreviewOverlay.dataset.selectedFaceName = transformState.selectedFaceName;
 }
 
 export function flipCardPreviewFace() {
@@ -495,17 +529,7 @@ export function flipCardPreviewFace() {
   const nextState = flipScryfallTransformFaceState(cardPreviewCard, cardPreviewTransformState);
   if (!nextState) return;
   cardPreviewTransformState = nextState;
-  const image = cardPreviewOverlay.querySelector("img");
-  const button = cardPreviewOverlay.querySelector(".card-preview-flip");
-  if (image instanceof HTMLImageElement) {
-    image.src = nextState.activeFace.image;
-    image.alt = `${nextState.activeFace.name} card face`;
-  }
-  if (button instanceof HTMLButtonElement) {
-    button.title = `Transform to ${nextState.nextFace.name}`;
-    button.setAttribute("aria-label", `Transform preview to ${nextState.nextFace.name}`);
-  }
-  cardPreviewOverlay.dataset.selectedFaceName = nextState.selectedFaceName;
+  renderCardPreviewFace(nextState);
 }
 
 export const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image, img.vm-card-rationale-image";

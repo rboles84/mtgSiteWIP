@@ -46,6 +46,7 @@
     "test:bias:all": "node tests/placement/quick-reading-bias.js --all",
     "test:frontend-smoke": "node scripts/frontend-smoke.mjs",
     "test:archscry-transform": "node tests/archscry/archscry-transform-tests.js",
+    "test:post-vm579-owner-qa": "node tests/archscry/post-vm579-owner-qa-tests.js",
     "test:dev-review": "node tests/archscry/archscry-dev-review-tests.js",
     "test:maze-transform": "node tests/maze/maze-transform-tests.js",
     "test:maze-results-layout": "node tests/maze/maze-results-layout-tests.js",

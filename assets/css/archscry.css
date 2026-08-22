@@ -3476,6 +3476,10 @@ body.vm-archscry-route .saved-deck-link-note{
   cursor:pointer;
   transition:transform 0.14s ease,background 0.14s ease;
 }
+.card-preview-flip[hidden],
+.card-preview-face[hidden]{
+  display:none;
+}
 .card-preview-flip:hover{
   transform:rotate(18deg) scale(1.05);
   background:#fff;
@@ -3487,6 +3491,38 @@ body.vm-archscry-route .saved-deck-link-note{
 .transform-card-glyph{
   display:block;
   font:700 1.55rem/1 system-ui,sans-serif;
+}
+.card-preview-face{
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  display:grid;
+  gap:0.3rem;
+  padding:3.5rem 1rem 1rem;
+  border-radius:0 0 4.5% 4.5%;
+  background:linear-gradient(180deg,transparent,rgba(5,6,9,0.94) 44%);
+  color:#f8f3df;
+  line-height:1.35;
+  pointer-events:none;
+}
+.card-preview-face-name{
+  font-family:var(--font-display);
+  font-size:1rem;
+}
+.card-preview-face-type{
+  color:rgba(248,243,223,0.82);
+  font-family:var(--font-mono);
+  font-size:0.66rem;
+  letter-spacing:0.03em;
+}
+.card-preview-face-rules{
+  display:-webkit-box;
+  overflow:hidden;
+  color:rgba(248,243,223,0.76);
+  font-size:0.7rem;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
 }
 .lands-guide{background:rgba(12,11,10,0.9);border:1px solid var(--border-s);padding:1.1rem 1.25rem}
 .guide-row{display:flex;gap:1rem;padding:0.45rem 0;border-bottom:1px solid rgba(184,149,74,0.05);font-size:0.88rem;align-items:baseline}
@@ -3561,7 +3597,7 @@ body.vm-archscry-route .saved-deck-link-note{
   .land-cards-row--basics .land-wrap{width:82px}
   .staple-wrap{width:120px}
   .commander-img:hover{transform:scale(1.7)}
-  .service-chip{width:100%;justify-content:flex-start}
+  .service-chip{width:fit-content;max-width:100%;justify-content:flex-start}
   .tb-placement{display:none}
   #terminal-input-row{flex-direction:column}
   #terminal-submit{width:100%}

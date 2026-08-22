@@ -2305,6 +2305,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 
   .search-wrap {
     width: 100%;
+    flex: 0 0 auto;
   }
 
   .mode-card {
@@ -2315,6 +2316,7 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .btn-clear,
   .query-action-btn {
     width: 100%;
+    flex: 0 0 auto;
   }
 
   .builder-head-actions {

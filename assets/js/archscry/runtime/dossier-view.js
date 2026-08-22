@@ -810,31 +810,37 @@ export function buildDeckDiscoveryGroups({
 }) {
   const identity = getColorIdentity(faction?.colors || faction?.key || "");
   const identityLabel = `${identity} Commander`;
+  const displayIdentityLabel = playerFacingIdentityDisplayLabel(faction) || getExternalDeckRoutingAlias(faction).label;
   const topTag = uniqueTagRefs(tagRefs)[0];
   const tagEntry = topTag ? taxonomyEntry(topTag.category, topTag.tag) : null;
   const routingAlias = getExternalDeckRoutingAlias(faction);
+  const commanderLinksForDisplay = (serviceKey, label) => commanderDirectoryLinks
+    .filter((link) => getServiceChipMeta(link).key === serviceKey)
+    .map((link) => ({ ...link, label }));
   return [
     {
       service: "edhrec",
       name: "EDHREC",
       desc: "Browse commanders and theme pages by color identity, then compare common packages before choosing a list.",
       links: dedupeLinks([
-        ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "edhrec"),
-        { service: "edhrec", label: `${routingAlias.label} commanders`, url: routingAlias.edhrecUrl },
+        ...commanderLinksForDisplay("edhrec", `${displayIdentityLabel} commanders`),
+        { service: "edhrec", label: `${displayIdentityLabel} commanders`, url: routingAlias.edhrecUrl },
       ]).slice(0, 4),
     },
     {
       service: "archidekt",
       name: "Archidekt",
       desc: "Use color and catalog-tag lanes when you want external catalog filtering.",
-      links: dedupeLinks(archidektLinks).slice(0, 4),
+      links: dedupeLinks(archidektLinks.map((link) => link.kind === "archidekt-base"
+        ? { ...link, label: `${displayIdentityLabel} Commander decks` }
+        : link)).slice(0, 4),
     },
     {
       service: "mtgdecks",
       name: "MTGDecks",
       desc: "Start with the color lane, then search commander names when you want tournament-adjacent deck examples.",
       links: dedupeLinks([
-        ...commanderDirectoryLinks.filter((link) => getServiceChipMeta(link).key === "mtgdecks"),
+        ...commanderLinksForDisplay("mtgdecks", `${displayIdentityLabel} Commander decks`),
       ]).slice(0, 4),
     },
   ].filter((group) => group.links.length);

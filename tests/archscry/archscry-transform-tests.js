@@ -7,6 +7,8 @@ const css = await readFile(new URL("../../assets/css/archscry.css", import.meta.
 
 assert.match(cardMedia, /createScryfallTransformFaceState\(resolvedCard\)/, "hover preview must use the shared true-transform model");
 assert.match(cardMedia, /flipCardPreviewFace/, "hover preview must expose a flip interaction");
+assert.match(cardMedia, /renderCardPreviewFace\(transformState\)/, "hover preview must render the existing normalized face state");
+assert.match(cardMedia, /face\.oracleText \|\| wordBoundaryExcerpt\(face\.oracleExcerpt\)/, "hover preview must update face-specific Oracle content");
 assert.match(cardMedia, /card-preview-flip[\s\S]*?transform-card-glyph[\s\S]*?&#8635;/, "hover transform control must use a familiar circular transform icon on the artwork");
 assert.match(cardMedia, /cardPreviewOverlay\?\.contains\(event\.relatedTarget\)/, "source-to-preview pointer movement must preserve the preview");
 assert.match(cardMedia, /renderCardDetailContent\(content, card, transformState, context\)/, "card details must have one atomic face renderer");
@@ -26,6 +28,7 @@ assert.doesNotMatch(dimirBlock, /size:/, "Dimir must use shared cover sizing");
 assert.match(css, /\.guild-banner\[data-faction-key="UB"\] \.guild-name \{[\s\S]*?color: #a58ab7 !important;/, "Dimir title color must be muted without changing faction data");
 
 assert.match(css, /\.card-preview-overlay\.is-transform\{[\s\S]*?pointer-events:auto/, "only transform previews should accept pointer interaction");
+assert.match(css, /\.card-preview-flip\[hidden\],[\s\S]*?\.card-preview-face\[hidden\][\s\S]*?display:none;/, "ordinary preview hidden state must override the Flip control's display rule");
 assert.match(css, /\.card-preview-flip\{[\s\S]*?position:absolute;[\s\S]*?border-radius:50%/, "preview transform control must be a circular artwork overlay");
 assert.match(css, /\.archscry-transform-button\{[\s\S]*?position:absolute;[\s\S]*?width:44px;[\s\S]*?height:44px;/, "detail transform control must keep a stable accessible target");
 
