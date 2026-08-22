@@ -52,4 +52,10 @@ No implementation, global chip redesign, provider-routing change, or VM-579 scop
 - [x] Precon Starting Points and Commander Browsing Starts both use the shared correction.
 - [x] Controls remain at least 42px high, readable, tappable, and free of clipping/collision.
 - [x] No mobile horizontal overflow and no unintended desktop layout change.
-- [ ] Focused geometry automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+- [x] Focused geometry automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+
+## Independent exact-SHA RobQA — 2026-08-22
+
+- **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
+- Euclid independently verified both named mobile consumers at 390x844 (42.63px tap height, approximately 35.3%–73.5% parent width, zero overflow) and desktop protection with optical inspection and zero console errors.
+- Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.

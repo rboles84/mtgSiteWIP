@@ -53,4 +53,10 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 - [x] Textarea remains resizable/usable; Search, Clear, Copy, Open, and Reading Finds remain visible and tappable.
 - [x] Plain Reading, Operator's Hand, and Loom mode switching remains functional.
 - [x] No mobile horizontal overflow and no desktop search-layout regression.
-- [ ] Focused geometry automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+- [x] Focused geometry automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+
+## Independent exact-SHA RobQA — 2026-08-22
+
+- **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
+- Euclid independently measured the 390x844 gap at 10.391px against the 10.4px row gap, confirmed the 88px textarea, five 60px actions, zero overflow, all three mode clicks, desktop protection, and zero console errors.
+- Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.

@@ -57,4 +57,10 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - [x] Nicol Bolas hover stays open from source into preview, flips both directions in place, updates image/title/type/Oracle content, and dismisses after leaving the combined boundary.
 - [x] At least one additional governed transform record remains recognized by the shared face model.
 - [x] Card Details flip remains functional and keyboard/focus behavior does not regress.
-- [ ] Focused automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+- [x] Focused automation, rendered RobDev QA, and independent exact-SHA RobQA pass.
+
+## Independent exact-SHA RobQA — 2026-08-22
+
+- **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
+- Euclid independently reran focused automation and fresh-origin 1440x1000 rendered QA with real pointer/click input: ordinary hidden state, source-to-preview boundary, both Nicol Bolas faces and copy, flip/back/dismiss, and Card Details all passed with zero console errors.
+- Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.
