@@ -1,0 +1,533 @@
+[
+  {
+    "case_id": "qa-evals-R4",
+    "expected": "t:creature c:g kw:flying",
+    "input": "green creatures with flying",
+    "row_number": 4,
+    "sheet": "QA_Evals",
+    "workbook_category": "Deterministic",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R5",
+    "expected": "f:commander id<=ug t:creature kw:flying",
+    "input": "Commander legal creatures with flying in Simic",
+    "row_number": 5,
+    "sheet": "QA_Evals",
+    "workbook_category": "Deterministic",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R6",
+    "expected": "f:commander id<=wub",
+    "input": "cards I can play in my Esper commander deck",
+    "row_number": 6,
+    "sheet": "QA_Evals",
+    "workbook_category": "Color",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R7",
+    "expected": "is:commander id=wub",
+    "input": "exactly Esper commanders",
+    "row_number": 7,
+    "sheet": "QA_Evals",
+    "workbook_category": "Color",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R8",
+    "expected": "is:commander id>=wb",
+    "input": "commanders that include white and black",
+    "row_number": 8,
+    "sheet": "QA_Evals",
+    "workbook_category": "Color",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R9",
+    "expected": "t:legendary t:elf t:creature",
+    "input": "legendary elf creatures",
+    "row_number": 9,
+    "sheet": "QA_Evals",
+    "workbook_category": "Type",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R10",
+    "expected": "-t:creature kw:deathtouch",
+    "input": "noncreatures with deathtouch",
+    "row_number": 10,
+    "sheet": "QA_Evals",
+    "workbook_category": "Keyword",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R11",
+    "expected": "f:commander id<=bgu o:proliferate",
+    "input": "proliferate cards in Sultai commander",
+    "row_number": 11,
+    "sheet": "QA_Evals",
+    "workbook_category": "Keyword Action",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R12",
+    "expected": "f:commander id<=rg o:landfall",
+    "input": "landfall cards in Gruul commander",
+    "row_number": 12,
+    "sheet": "QA_Evals",
+    "workbook_category": "Ability Word",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R13",
+    "expected": "f:commander id<=w otag:ramp",
+    "input": "ramp in mono white commander",
+    "row_number": 13,
+    "sheet": "QA_Evals",
+    "workbook_category": "Function",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R14",
+    "expected": "f:commander id<=wb otag:removal usd<2",
+    "input": "cheap removal under $2 for Orzhov",
+    "row_number": 14,
+    "sheet": "QA_Evals",
+    "workbook_category": "Function",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R15",
+    "expected": "f:commander id<=ur otag:card-advantage",
+    "input": "card advantage in Izzet",
+    "row_number": 15,
+    "sheet": "QA_Evals",
+    "workbook_category": "Function",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R16",
+    "expected": "f:commander id<=ub otag:counterspell mv<3",
+    "input": "counterspells under 3 mana in Dimir commander",
+    "row_number": 16,
+    "sheet": "QA_Evals",
+    "workbook_category": "Function",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R17",
+    "expected": "f:commander id<=wu otag:blink",
+    "input": "blink cards for my Azorius deck",
+    "row_number": 17,
+    "sheet": "QA_Evals",
+    "workbook_category": "Relation",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R18",
+    "expected": "f:commander id<=ug t:creature o:/when ~ enters|whenever ~ enters/",
+    "input": "ETB creatures in Simic",
+    "row_number": 18,
+    "sheet": "QA_Evals",
+    "workbook_category": "Relation",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R19",
+    "expected": "f:commander id<=ug",
+    "input": "cards that help my ETB deck in Simic",
+    "row_number": 19,
+    "sheet": "QA_Evals",
+    "workbook_category": "Relation",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R20",
+    "expected": "f:commander id<=wubr t:artifact",
+    "input": "artifact cards in Breya",
+    "row_number": 20,
+    "sheet": "QA_Evals",
+    "workbook_category": "Relation",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R21",
+    "expected": "f:commander id<=wubr",
+    "input": "cards that support artifacts in Breya",
+    "row_number": 21,
+    "sheet": "QA_Evals",
+    "workbook_category": "Relation",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R22",
+    "expected": "f:commander id<=gw o:/create.*token/",
+    "input": "token makers in Selesnya",
+    "row_number": 22,
+    "sheet": "QA_Evals",
+    "workbook_category": "Tokens",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R23",
+    "expected": "f:commander id<=wbg (otag:pp-counters-matter or otag:gives-pp-counters)",
+    "input": "+1/+1 counter cards in Abzan",
+    "row_number": 23,
+    "sheet": "QA_Evals",
+    "workbook_category": "Counters",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R24",
+    "expected": "f:commander id<=brg otag:mm-counters-matter",
+    "input": "-1/-1 counter payoffs in Jund",
+    "row_number": 24,
+    "sheet": "QA_Evals",
+    "workbook_category": "Counters",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R25",
+    "expected": "f:commander id<=bgu otag:mill-self",
+    "input": "self mill in Sultai",
+    "row_number": 25,
+    "sheet": "QA_Evals",
+    "workbook_category": "Mill",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R26",
+    "expected": "f:commander id<=ub otag:mill",
+    "input": "mill cards in Dimir",
+    "row_number": 26,
+    "sheet": "QA_Evals",
+    "workbook_category": "Mill",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R27",
+    "expected": "f:commander id<=gur mana:{X}",
+    "input": "X spells in Temur",
+    "row_number": 27,
+    "sheet": "QA_Evals",
+    "workbook_category": "Mana",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R28",
+    "expected": "c:u mana:{U}{U}",
+    "input": "blue cards that cost exactly UU",
+    "row_number": 28,
+    "sheet": "QA_Evals",
+    "workbook_category": "Mana",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R29",
+    "expected": "c:g t:creature pow>=5",
+    "input": "green creatures power 5 or more",
+    "row_number": 29,
+    "sheet": "QA_Evals",
+    "workbook_category": "Stats",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R30",
+    "expected": "f:commander usd<=5",
+    "input": "Commander cards $5 or less",
+    "row_number": 30,
+    "sheet": "QA_Evals",
+    "workbook_category": "Price",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R31",
+    "expected": "f:commander",
+    "input": "budget commander cards",
+    "row_number": 31,
+    "sheet": "QA_Evals",
+    "workbook_category": "Price",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R32",
+    "expected": "c:u is:spell",
+    "input": "cheap blue spells",
+    "row_number": 32,
+    "sheet": "QA_Evals",
+    "workbook_category": "Ambiguity",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R33",
+    "expected": "set:mh3",
+    "input": "cards from MH3",
+    "row_number": 33,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R34",
+    "expected": "in:lea unique:cards",
+    "input": "cards ever printed in Alpha",
+    "row_number": 34,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R35",
+    "expected": "-in:m3c unique:cards",
+    "input": "exclude anything that was in M3C",
+    "row_number": 35,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R36",
+    "expected": "!\"Lightning Bolt\" unique:prints",
+    "input": "all Lightning Bolt printings",
+    "row_number": 36,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R37",
+    "expected": "lang:japanese t:planeswalker",
+    "input": "Japanese planeswalkers",
+    "row_number": 37,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R38",
+    "expected": "f:commander game:paper not:universesbeyond",
+    "input": "paper Commander cards, no Universes Beyond",
+    "row_number": 38,
+    "sheet": "QA_Evals",
+    "workbook_category": "Printing",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R39",
+    "expected": "date>=blb not:reprint unique:cards",
+    "input": "new cards since Bloomburrow, no reprints",
+    "row_number": 39,
+    "sheet": "QA_Evals",
+    "workbook_category": "Date",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R40",
+    "expected": "o:/counter target.*creature.*spell/",
+    "input": "cards that counter target creature spells",
+    "row_number": 40,
+    "sheet": "QA_Evals",
+    "workbook_category": "Regex",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R41",
+    "expected": "o:/exile.*return/",
+    "input": "cards that exile then return something",
+    "row_number": 41,
+    "sheet": "QA_Evals",
+    "workbook_category": "Regex",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R42",
+    "expected": "o:/sacrifice.*:.*draw/",
+    "input": "activated abilities where sacrificing draws cards",
+    "row_number": 42,
+    "sheet": "QA_Evals",
+    "workbook_category": "Regex",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R43",
+    "expected": "name:/dragon$/",
+    "input": "names ending in dragon",
+    "row_number": 43,
+    "sheet": "QA_Evals",
+    "workbook_category": "Regex",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R44",
+    "expected": "!Balance",
+    "input": "show me Balance exactly",
+    "row_number": 44,
+    "sheet": "QA_Evals",
+    "workbook_category": "Exact Name",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R45",
+    "expected": "id<=wub t:creature mv<=3 kw:flying",
+    "input": "id<=wub t:creature mv<=3 with flying",
+    "row_number": 45,
+    "sheet": "QA_Evals",
+    "workbook_category": "Syntax Preserve",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R46",
+    "expected": "otag:ramp usd<4",
+    "input": "otag:ramp under $4",
+    "row_number": 46,
+    "sheet": "QA_Evals",
+    "workbook_category": "Syntax Preserve",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R47",
+    "expected": "f:commander t:legendary t:creature",
+    "input": "legendary creatures legal in commander",
+    "row_number": 47,
+    "sheet": "QA_Evals",
+    "workbook_category": "Commander Role",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R48",
+    "expected": "is:commander t:creature",
+    "input": "creatures that can be my commander",
+    "row_number": 48,
+    "sheet": "QA_Evals",
+    "workbook_category": "Commander Role",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R49",
+    "expected": "is:fetchland unique:prints",
+    "input": "show every printing of fetchlands",
+    "row_number": 49,
+    "sheet": "QA_Evals",
+    "workbook_category": "Result Control",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R50",
+    "expected": "f:commander otag:ramp order:edhrec",
+    "input": "most popular commander legal ramp",
+    "row_number": 50,
+    "sheet": "QA_Evals",
+    "workbook_category": "Result Control",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R51",
+    "expected": "t:land art:squirrel",
+    "input": "lands with squirrel art",
+    "row_number": 51,
+    "sheet": "QA_Evals",
+    "workbook_category": "Art",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R52",
+    "expected": "ft:mishra",
+    "input": "cards with Mishra in flavor text",
+    "row_number": 52,
+    "sheet": "QA_Evals",
+    "workbook_category": "Flavor",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R53",
+    "expected": "f:commander id<=wubrg",
+    "input": "goodstuff cards in five color",
+    "row_number": 53,
+    "sheet": "QA_Evals",
+    "workbook_category": "Archetype",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R54",
+    "expected": "f:commander id<=wu",
+    "input": "stax pieces in Azorius",
+    "row_number": 54,
+    "sheet": "QA_Evals",
+    "workbook_category": "Archetype",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R55",
+    "expected": "f:commander id<=wubg",
+    "input": "superfriends support in Atraxa colors",
+    "row_number": 55,
+    "sheet": "QA_Evals",
+    "workbook_category": "Archetype",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R56",
+    "expected": "f:commander id<=urw t:vehicle",
+    "input": "vehicles in Jeskai",
+    "row_number": 56,
+    "sheet": "QA_Evals",
+    "workbook_category": "Archetype",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R57",
+    "expected": "f:commander id<=urw",
+    "input": "vehicle support in Jeskai",
+    "row_number": 57,
+    "sheet": "QA_Evals",
+    "workbook_category": "Archetype",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R58",
+    "expected": "kw:cycling",
+    "input": "cards with cycling",
+    "row_number": 58,
+    "sheet": "QA_Evals",
+    "workbook_category": "Ability",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R59",
+    "expected": "o:flying",
+    "input": "cards that mention flying",
+    "row_number": 59,
+    "sheet": "QA_Evals",
+    "workbook_category": "Ability",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R60",
+    "expected": "fo:mill",
+    "input": "cards with reminder text mentioning mill",
+    "row_number": 60,
+    "sheet": "QA_Evals",
+    "workbook_category": "Ability",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R61",
+    "expected": "f:commander id<=u id:c",
+    "input": "colorless cards for my mono blue commander deck",
+    "row_number": 61,
+    "sheet": "QA_Evals",
+    "workbook_category": "Identity",
+    "workbook_status": null
+  },
+  {
+    "case_id": "qa-evals-R62",
+    "expected": "-t:human kw:mutate",
+    "input": "mutate cards that aren't Human",
+    "row_number": 62,
+    "sheet": "QA_Evals",
+    "workbook_category": "Negation",
+    "workbook_status": null
+  }
+]

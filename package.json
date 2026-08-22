@@ -17,6 +17,8 @@
     "scryfall:index": "node scripts/build-scryfall-indexes.mjs",
     "scryfall:index:check": "node scripts/build-scryfall-indexes.mjs --check",
     "scryfall:inspect": "node scripts/inspect-scryfall-indexes.mjs",
+    "verify:maze-knowledge": "python scripts/verify-maze-knowledge.py --stage workbook && node scripts/baseline-maze-plain-reading-qa.mjs && python scripts/verify-maze-knowledge.py --stage summarize",
+    "test:maze-knowledge-verifier": "python tests/verification/maze-knowledge-verifier-tests.py",
     "test:vm559-media-projection": "node scripts/vm559-archscry-media-projection-tests.mjs",
     "test:vm559-resolution": "node scripts/vm559-scryfall-resolution-tests.mjs",
     "test:vm574-card-signals": "node scripts/vm574-card-signals-validation.mjs",

@@ -1,0 +1,569 @@
+{
+  "network": "enabled",
+  "operators": {
+    "field:/.../": {
+      "accepted": false,
+      "error": "{\"object\":\"error\",\"code\":\"bad_request\",\"status\":400,\"warnings\":[\"Invalid expression \u201cfield:/.../\u201d was ignored. Unknown regular expression keyword \u201cfield\u201d.\"],\"details\":\"All of your terms were ignored.\"}",
+      "query": "field:/.../",
+      "status": 400,
+      "url": "https://api.scryfall.com/cards/search?q=field%3A%2F...%2F&unique=cards&order=name"
+    },
+    "id<=wub t:creature mv<=3 kw:flying": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+        "type_line": "Legendary Creature \u2014 Human Avatar Ally // Legendary Creature \u2014 Avatar Spirit Ally"
+      },
+      "query": "id<=wub t:creature mv<=3 kw:flying",
+      "status": 200,
+      "total_cards": 955,
+      "url": "https://api.scryfall.com/cards/search?q=id%3C%3Dwub+t%3Acreature+mv%3C%3D3+kw%3Aflying&unique=cards&order=name"
+    },
+    "name:/\\bG.*\\bS.*\\bZ/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "name:/\\bG.*\\bS.*\\bZ/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=name%3A%2F%5CbG.%2A%5CbS.%2A%5CbZ%2F&unique=cards&order=name"
+    },
+    "name:/dragon$/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Acid-Spewer Dragon",
+        "type_line": "Creature \u2014 Dragon"
+      },
+      "query": "name:/dragon$/",
+      "status": 200,
+      "total_cards": 170,
+      "url": "https://api.scryfall.com/cards/search?q=name%3A%2Fdragon%24%2F&unique=cards&order=name"
+    },
+    "name:/sword of.*and/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Sword of Body and Mind",
+        "type_line": "Artifact \u2014 Equipment"
+      },
+      "query": "name:/sword of.*and/",
+      "status": 200,
+      "total_cards": 15,
+      "url": "https://api.scryfall.com/cards/search?q=name%3A%2Fsword+of.%2Aand%2F&unique=cards&order=name"
+    },
+    "o:/(?<!non)artifact/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aang and Katara",
+        "type_line": "Legendary Creature \u2014 Human Avatar Ally"
+      },
+      "query": "o:/(?<!non)artifact/",
+      "status": 200,
+      "total_cards": 3166,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%28%3F%3C%21non%29artifact%2F&unique=cards&order=name"
+    },
+    "o:/(\\bat\\b|\\bwhen\\b).*,.*create.*token/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aang, Airbending Master",
+        "type_line": "Legendary Creature \u2014 Human Avatar Ally"
+      },
+      "query": "o:/(\\bat\\b|\\bwhen\\b).*,.*create.*token/",
+      "status": 200,
+      "total_cards": 1155,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%28%5Cbat%5Cb%7C%5Cbwhen%5Cb%29.%2A%2C.%2Acreate.%2Atoken%2F&unique=cards&order=name"
+    },
+    "o:/(destroy|exile) target.*creature/": {
+      "accepted": true,
+      "first_result": {
+        "name": "70,000 Light-Years from Home",
+        "type_line": "Sorcery"
+      },
+      "query": "o:/(destroy|exile) target.*creature/",
+      "status": 200,
+      "total_cards": 986,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%28destroy%7Cexile%29+target.%2Acreature%2F&unique=cards&order=name"
+    },
+    "o:/(plains|island|swamp|mountain|forest|basic land)cycling/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "o:/(plains|island|swamp|mountain|forest|basic land)cycling/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%28plains%7Cisland%7Cswamp%7Cmountain%7Cforest%7Cbasic+land%29cycling%2F&unique=cards&order=name"
+    },
+    "o:/(wins?|loses?) the game/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abyssal Persecutor",
+        "type_line": "Creature \u2014 Demon"
+      },
+      "query": "o:/(wins?|loses?) the game/",
+      "status": 200,
+      "total_cards": 112,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%28wins%3F%7Closes%3F%29+the+game%2F&unique=cards&order=name"
+    },
+    "o:/:.*gain.*(flying|vigilance|haste|double strike|trample|indestructible)/": {
+      "accepted": true,
+      "first_result": {
+        "name": "A-Bretagard Stronghold",
+        "type_line": "Land"
+      },
+      "query": "o:/:.*gain.*(flying|vigilance|haste|double strike|trample|indestructible)/",
+      "status": 200,
+      "total_cards": 546,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%3A.%2Again.%2A%28flying%7Cvigilance%7Chaste%7Cdouble+strike%7Ctrample%7Cindestructible%29%2F&unique=cards&order=name"
+    },
+    "o:/\\bartifact\\b/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aatchik, Emerald Radian",
+        "type_line": "Legendary Creature \u2014 Insect Druid"
+      },
+      "query": "o:/\\bartifact\\b/",
+      "status": 200,
+      "total_cards": 2881,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cbartifact%5Cb%2F&unique=cards&order=name"
+    },
+    "o:/\\broll(ed)?\\b.*\\b(d\\d+|die|dice)\\b/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "o:/\\broll(ed)?\\b.*\\b(d\\d+|die|dice)\\b/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cbroll%28ed%29%3F%5Cb.%2A%5Cb%28d%5Cd%2B%7Cdie%7Cdice%29%5Cb%2F&unique=cards&order=name"
+    },
+    "o:/\\spp/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "o:/\\spp/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cspp%2F&unique=cards&order=name"
+    },
+    "o:/\\spt/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "o:/\\spt/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cspt%2F&unique=cards&order=name"
+    },
+    "o:/^flashback/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abandon the Post",
+        "type_line": "Sorcery"
+      },
+      "query": "o:/^flashback/",
+      "status": 200,
+      "total_cards": 211,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Eflashback%2F&unique=cards&order=name"
+    },
+    "o:/^partner$/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Akiri, Line-Slinger",
+        "type_line": "Legendary Creature \u2014 Kor Soldier Ally"
+      },
+      "query": "o:/^partner$/",
+      "status": 200,
+      "total_cards": 63,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Epartner%24%2F&unique=cards&order=name"
+    },
+    "o:/^remove.*\\+1\\/\\+1.*counter.*:/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Arcbound Reclaimer",
+        "type_line": "Artifact Creature \u2014 Golem"
+      },
+      "query": "o:/^remove.*\\+1\\/\\+1.*counter.*:/",
+      "status": 200,
+      "total_cards": 24,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Eremove.%2A%5C%2B1%5C%2F%5C%2B1.%2Acounter.%2A%3A%2F&unique=cards&order=name"
+    },
+    "o:/^sacrifice a creature.*:/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Altar of Dementia",
+        "type_line": "Artifact"
+      },
+      "query": "o:/^sacrifice a creature.*:/",
+      "status": 200,
+      "total_cards": 43,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Esacrifice+a+creature.%2A%3A%2F&unique=cards&order=name"
+    },
+    "o:/counter target.*creature.*spell/": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"rate_limited\",\n  \"status\": 429,\n  \"details\": \"You are being rate-limited, try again after 60 seconds. Scryfall requires you to constrain API usage to less than 10 requests per second. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. If you need access to a large amount of card data, please use our bulk data offerings at https://scryfall.com/docs/api/bulk-data\"\n}",
+      "query": "o:/counter target.*creature.*spell/",
+      "status": 429,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fcounter+target.%2Acreature.%2Aspell%2F&unique=cards&order=name"
+    },
+    "o:/counter target.*spell/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abjure",
+        "type_line": "Instant"
+      },
+      "query": "o:/counter target.*spell/",
+      "status": 200,
+      "total_cards": 434,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fcounter+target.%2Aspell%2F&unique=cards&order=name"
+    },
+    "o:/deals \\d+ damage/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abrade",
+        "type_line": "Instant"
+      },
+      "query": "o:/deals \\d+ damage/",
+      "status": 200,
+      "total_cards": 2040,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fdeals+%5Cd%2B+damage%2F&unique=cards&order=name"
+    },
+    "o:/discard.*:/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Action News Crew",
+        "type_line": "Creature \u2014 Human Citizen"
+      },
+      "query": "o:/discard.*:/",
+      "status": 200,
+      "total_cards": 389,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fdiscard.%2A%3A%2F&unique=cards&order=name"
+    },
+    "o:/exile target creature(?!.*return)/": {
+      "accepted": true,
+      "first_result": {
+        "name": "70,000 Light-Years from Home",
+        "type_line": "Sorcery"
+      },
+      "query": "o:/exile target creature(?!.*return)/",
+      "status": 200,
+      "total_cards": 204,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fexile+target+creature%28%3F%21.%2Areturn%29%2F&unique=cards&order=name"
+    },
+    "o:/exile.*return/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abstergo Entertainment",
+        "type_line": "Legendary Land"
+      },
+      "query": "o:/exile.*return/",
+      "status": 200,
+      "total_cards": 317,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fexile.%2Areturn%2F&unique=cards&order=name"
+    },
+    "o:/sacrifice.*:.*draw/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abzan Banner",
+        "type_line": "Artifact"
+      },
+      "query": "o:/sacrifice.*:.*draw/",
+      "status": 200,
+      "total_cards": 292,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fsacrifice.%2A%3A.%2Adraw%2F&unique=cards&order=name"
+    },
+    "o:/target creature gets \\+\\d+\\/\\+\\d+/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abnormal Endurance",
+        "type_line": "Instant"
+      },
+      "query": "o:/target creature gets \\+\\d+\\/\\+\\d+/",
+      "status": 200,
+      "total_cards": 516,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Ftarget+creature+gets+%5C%2B%5Cd%2B%5C%2F%5C%2B%5Cd%2B%2F&unique=cards&order=name"
+    },
+    "o:/when ~ enters.*create.*token/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aatchik, Emerald Radian",
+        "type_line": "Legendary Creature \u2014 Insect Druid"
+      },
+      "query": "o:/when ~ enters.*create.*token/",
+      "status": 200,
+      "total_cards": 626,
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2Fwhen+~+enters.%2Acreate.%2Atoken%2F&unique=cards&order=name"
+    },
+    "otag:ramp usd<4": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abstract Paintmage",
+        "type_line": "Creature \u2014 Djinn Sorcerer"
+      },
+      "query": "otag:ramp usd<4",
+      "status": 200,
+      "total_cards": 1828,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Aramp+usd%3C4&unique=cards&order=name"
+    },
+    "t:creature o:/when ~ enters.*create.*token/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aatchik, Emerald Radian",
+        "type_line": "Legendary Creature \u2014 Insect Druid"
+      },
+      "query": "t:creature o:/when ~ enters.*create.*token/",
+      "status": 200,
+      "total_cards": 458,
+      "url": "https://api.scryfall.com/cards/search?q=t%3Acreature+o%3A%2Fwhen+~+enters.%2Acreate.%2Atoken%2F&unique=cards&order=name"
+    },
+    "t:creature o:/when ~ enters|whenever ~ enters/": {
+      "accepted": true,
+      "first_result": {
+        "name": "A-Acererak the Archlich",
+        "type_line": "Legendary Creature \u2014 Zombie Wizard"
+      },
+      "query": "t:creature o:/when ~ enters|whenever ~ enters/",
+      "status": 200,
+      "total_cards": 3732,
+      "url": "https://api.scryfall.com/cards/search?q=t%3Acreature+o%3A%2Fwhen+~+enters%7Cwhenever+~+enters%2F&unique=cards&order=name"
+    },
+    "t:land o:\"enters tapped\"": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abandoned Air Temple",
+        "type_line": "Land"
+      },
+      "query": "t:land o:\"enters tapped\"",
+      "status": 200,
+      "total_cards": 637,
+      "url": "https://api.scryfall.com/cards/search?q=t%3Aland+o%3A%22enters+tapped%22&unique=cards&order=name"
+    },
+    "t:land o:/sacrifice.*search.*battlefield/": {
+      "accepted": true,
+      "first_result": {
+        "name": "Arid Mesa",
+        "type_line": "Land"
+      },
+      "query": "t:land o:/sacrifice.*search.*battlefield/",
+      "status": 200,
+      "total_cards": 56,
+      "url": "https://api.scryfall.com/cards/search?q=t%3Aland+o%3A%2Fsacrifice.%2Asearch.%2Abattlefield%2F&unique=cards&order=name"
+    }
+  },
+  "retrieved_at": "2026-08-22T03:29:21Z",
+  "tagger": {
+    "function:boardwipe": {
+      "accepted": true,
+      "first_result": {
+        "name": "Acid Rain",
+        "type_line": "Sorcery"
+      },
+      "query": "function:boardwipe",
+      "status": 200,
+      "total_cards": 934,
+      "url": "https://api.scryfall.com/cards/search?q=function%3Aboardwipe&unique=cards&order=name"
+    },
+    "otag:blink": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abuelo, Ancestral Echo",
+        "type_line": "Legendary Creature \u2014 Spirit"
+      },
+      "query": "otag:blink",
+      "status": 200,
+      "total_cards": 196,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Ablink&unique=cards&order=name"
+    },
+    "otag:board-wipe": {
+      "accepted": true,
+      "first_result": {
+        "name": "Acid Rain",
+        "type_line": "Sorcery"
+      },
+      "query": "otag:board-wipe",
+      "status": 200,
+      "total_cards": 934,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Aboard-wipe&unique=cards&order=name"
+    },
+    "otag:card-advantage": {
+      "accepted": true,
+      "first_result": {
+        "name": "A-Akki Ronin",
+        "type_line": "Creature \u2014 Goblin Samurai"
+      },
+      "query": "otag:card-advantage",
+      "status": 200,
+      "total_cards": 6352,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Acard-advantage&unique=cards&order=name"
+    },
+    "otag:counterspell": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+        "type_line": "Legendary Creature \u2014 Human Avatar Ally // Legendary Creature \u2014 Avatar Spirit Ally"
+      },
+      "query": "otag:counterspell",
+      "status": 200,
+      "total_cards": 546,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Acounterspell&unique=cards&order=name"
+    },
+    "otag:gives-mm-counters": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aberrant Return",
+        "type_line": "Sorcery"
+      },
+      "query": "otag:gives-mm-counters",
+      "status": 200,
+      "total_cards": 227,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Agives-mm-counters&unique=cards&order=name"
+    },
+    "otag:gives-pp-counters": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aang, at the Crossroads // Aang, Destined Savior",
+        "type_line": "Legendary Creature \u2014 Human Avatar Ally // Legendary Creature \u2014 Avatar Ally"
+      },
+      "query": "otag:gives-pp-counters",
+      "status": 200,
+      "total_cards": 1647,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Agives-pp-counters&unique=cards&order=name"
+    },
+    "otag:goodstuff": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"not_found\",\n  \"status\": 404,\n  \"details\": \"Your query didn\u2019t match any cards. Adjust your search terms or refer to the syntax guide at https://scryfall.com/docs/reference\"\n}",
+      "query": "otag:goodstuff",
+      "status": 404,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Agoodstuff&unique=cards&order=name"
+    },
+    "otag:mana-rock": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abzan Banner",
+        "type_line": "Artifact"
+      },
+      "query": "otag:mana-rock",
+      "status": 200,
+      "total_cards": 384,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Amana-rock&unique=cards&order=name"
+    },
+    "otag:mill": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aberrant Researcher // Perfected Form",
+        "type_line": "Creature \u2014 Human Insect // Creature \u2014 Insect Horror"
+      },
+      "query": "otag:mill",
+      "status": 200,
+      "total_cards": 1251,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Amill&unique=cards&order=name"
+    },
+    "otag:mill-opponent": {
+      "accepted": true,
+      "first_result": {
+        "name": "Acquired Mutation",
+        "type_line": "Enchantment \u2014 Aura"
+      },
+      "query": "otag:mill-opponent",
+      "status": 200,
+      "total_cards": 458,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Amill-opponent&unique=cards&order=name"
+    },
+    "otag:mill-self": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aberrant Researcher // Perfected Form",
+        "type_line": "Creature \u2014 Human Insect // Creature \u2014 Insect Horror"
+      },
+      "query": "otag:mill-self",
+      "status": 200,
+      "total_cards": 1016,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Amill-self&unique=cards&order=name"
+    },
+    "otag:mm-counters-matter": {
+      "accepted": true,
+      "first_result": {
+        "name": "Ammit Eternal",
+        "type_line": "Creature \u2014 Zombie Crocodile Demon"
+      },
+      "query": "otag:mm-counters-matter",
+      "status": 200,
+      "total_cards": 58,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Amm-counters-matter&unique=cards&order=name"
+    },
+    "otag:pp-counters-matter": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abzan Battle Priest",
+        "type_line": "Creature \u2014 Human Cleric"
+      },
+      "query": "otag:pp-counters-matter",
+      "status": 200,
+      "total_cards": 448,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3App-counters-matter&unique=cards&order=name"
+    },
+    "otag:ramp": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abstract Paintmage",
+        "type_line": "Creature \u2014 Djinn Sorcerer"
+      },
+      "query": "otag:ramp",
+      "status": 200,
+      "total_cards": 2286,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Aramp&unique=cards&order=name"
+    },
+    "otag:reanimate": {
+      "accepted": true,
+      "first_result": {
+        "name": "Aberrant Return",
+        "type_line": "Sorcery"
+      },
+      "query": "otag:reanimate",
+      "status": 200,
+      "total_cards": 1063,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Areanimate&unique=cards&order=name"
+    },
+    "otag:removal": {
+      "accepted": true,
+      "first_result": {
+        "name": "70,000 Light-Years from Home",
+        "type_line": "Sorcery"
+      },
+      "query": "otag:removal",
+      "status": 200,
+      "total_cards": 6428,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Aremoval&unique=cards&order=name"
+    },
+    "otag:sacrifice-outlet": {
+      "accepted": true,
+      "first_result": {
+        "name": "Abhorrent Overlord",
+        "type_line": "Creature \u2014 Demon"
+      },
+      "query": "otag:sacrifice-outlet",
+      "status": 200,
+      "total_cards": 1488,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Asacrifice-outlet&unique=cards&order=name"
+    },
+    "otag:stax": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"not_found\",\n  \"status\": 404,\n  \"details\": \"Your query didn\u2019t match any cards. Adjust your search terms or refer to the syntax guide at https://scryfall.com/docs/reference\"\n}",
+      "query": "otag:stax",
+      "status": 404,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Astax&unique=cards&order=name"
+    },
+    "otag:sweeper-creature": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"not_found\",\n  \"status\": 404,\n  \"details\": \"Your query didn\u2019t match any cards. Adjust your search terms or refer to the syntax guide at https://scryfall.com/docs/reference\"\n}",
+      "query": "otag:sweeper-creature",
+      "status": 404,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Asweeper-creature&unique=cards&order=name"
+    },
+    "otag:synergy-mill": {
+      "accepted": true,
+      "first_result": {
+        "name": "Angrath, the Flame-Chained",
+        "type_line": "Legendary Planeswalker \u2014 Angrath"
+      },
+      "query": "otag:synergy-mill",
+      "status": 200,
+      "total_cards": 92,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Asynergy-mill&unique=cards&order=name"
+    },
+    "otag:token-generator": {
+      "accepted": false,
+      "error": "{\n  \"object\": \"error\",\n  \"code\": \"not_found\",\n  \"status\": 404,\n  \"details\": \"Your query didn\u2019t match any cards. Adjust your search terms or refer to the syntax guide at https://scryfall.com/docs/reference\"\n}",
+      "query": "otag:token-generator",
+      "status": 404,
+      "url": "https://api.scryfall.com/cards/search?q=otag%3Atoken-generator&unique=cards&order=name"
+    }
+  }
+}
