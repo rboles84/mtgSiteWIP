@@ -53,6 +53,12 @@ assert.deepEqual(
   {
     from: "archscry",
     urlQ: "ignored",
+    contextMode: "",
+    reviewIdentity: "",
+    fit: "",
+    factionName: "",
+    readingId: "",
+    readingTitle: "",
     operatorQuery: "c:u",
     plainReadingQuery: "Blue cards",
     pathType: "support-cards",
@@ -67,11 +73,44 @@ assert.deepEqual(
   {
     from: "archscry",
     urlQ: "Mardu Horde commanders with exactly red-white-black identity",
+    contextMode: "",
+    reviewIdentity: "",
+    fit: "",
+    factionName: "",
+    readingId: "",
+    readingTitle: "",
     operatorQuery: "",
     plainReadingQuery: "Mardu Horde commanders with exactly red-white-black identity",
     pathType: "",
     returnUrl: "/archscry/"
   }
+);
+assert.deepEqual(
+  resolveMazeLaunchState(new URLSearchParams([
+    ["from", "archscry"],
+    ["contextMode", "dossier-review"],
+    ["reviewIdentity", "UB"],
+    ["fit", "UB"],
+    ["factionName", "Dimir"],
+    ["readingId", "dossier-review-ub"],
+    ["readingTitle", "Dimir dossier review"],
+    ["operatorQuery", "id=ub is:commander f:commander"],
+  ])),
+  {
+    from: "archscry",
+    urlQ: "",
+    contextMode: "dossier-review",
+    reviewIdentity: "UB",
+    fit: "UB",
+    factionName: "Dimir",
+    readingId: "dossier-review-ub",
+    readingTitle: "Dimir dossier review",
+    operatorQuery: "id=ub is:commander f:commander",
+    plainReadingQuery: "",
+    pathType: "",
+    returnUrl: "",
+  },
+  "dossier-review launch metadata must remain explicit and transient-capable"
 );
 assert.equal(
   resolveMazeLaunchState(new URLSearchParams("from=archscry&q=id%3Drwb%20is%3Acommander"), {}).operatorQuery,

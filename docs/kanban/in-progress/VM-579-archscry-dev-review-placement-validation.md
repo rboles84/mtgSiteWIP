@@ -67,6 +67,10 @@ Preflight conclusion: The implementation reuses the existing production dossier 
 - [x] Both mode-isolation directions pass focused tests.
 - [x] VM-579 targeted automation, protected regressions, and desktop/mobile rendered QA pass. The mandated broad placement command retains two exact baseline failures reproduced from untouched `b79a366`; VM-579 adds no placement-suite failure.
 - [x] RobDev and independent RobQA records are captured before owner handoff.
+- [x] Direct-review Maze navigation carries the selected dossier identity as explicit transient context without fabricating placement state or modifying the saved placement/persistent Maze handoff.
+- [x] The selector groups current identities deterministically as mono colors, guilds, colleges, shards, wedges, four-color identities, Colorless, then WUBRG, using authoritative metadata rather than a handwritten identity registry.
+- [x] Focused tests cover Dimir, Jund, Colorless, WUBRG, and at least one college/four-color identity entering Maze with matching dossier context while normal placement/Maze behavior remains unchanged.
+- [ ] A new exact remediation candidate receives independent RobQA before the bounded owner recheck.
 
 ## Files Likely Impacted
 
@@ -159,3 +163,78 @@ Remaining owner judgment after independent RobQA:
 - The reviewer independently verified the narrow production renderer/engine seams, all-37 direct-review behavior, persistence and telemetry isolation, production primary and close journeys, and desktop/mobile interactions.
 - The two `npm run test:placement` failures were independently reproduced from untouched parent `b79a366` and are not VM-579 regressions.
 - Status remains `In Progress` pending bounded owner acceptance. Do not merge, push, close, or move this card to Done before that acceptance.
+
+## Owner Acceptance Findings — 2026-08-22
+
+Core outcome accepted:
+
+- Direct identity dossiers can be inspected without claiming a placement.
+- The real questionnaire and placement engine can be exercised separately with live engine state.
+- Placement rank and responsible naming qualification remain distinct and must not be changed from owner captures.
+
+Bounded VM-579 remediation:
+
+1. Direct-review Maze links currently carry the selected query but omit dossier context, so Maze falls back to the persistent handoff from the owner's saved dossier. Carry an explicit, URL-borne `dossier-review` context into Maze, keep it transient/in-memory, and leave placement state and `vm_archscry_maze_handoff_v1` unchanged.
+2. Sort the selector by the authoritative expression `kind` taxonomy: five mono colors, ten guilds, five colleges, five shards, five wedges, five four-color identities, Colorless, then WUBRG. Use current registry/faction metadata and do not add a handwritten identity authority.
+
+Revised RobDevPass contract:
+
+- Product outcome: direct-review identity -> Maze -> the same transient dossier identity, plus deterministic taxonomy selector order.
+- Current behavior: review links omit context and Maze reuses the saved handoff; selector uses raw object enumeration.
+- Owning layers/existing machinery: `runtime/dossier-view.js` and `archscry-presentation.js` already build Maze path/context URLs; `maze-handoff.js` and Maze route initialization already resolve URL launch context; `identity-layers.json` expression `kind` owns taxonomy classification.
+- Changed behavior: explicit development-review launches only, and development selector presentation only.
+- Protected behavior: saved placement, persistent Maze handoff bytes, normal production Archscry-to-Maze handoff, placement semantics, Reading Finds persistence, telemetry, identity authority, and provider routing.
+- Smallest complete implementation: decorate review Maze links through the existing context adapter, hold the explicit review context in Maze memory instead of localStorage, build review paths from identity context rather than a placement object, and sort registry-derived selector entries by metadata category.
+- Stop condition: stop if this requires changing placement semantics, persistent handoff schema/behavior for normal production, or broad Maze/Archscry decomposition.
+
+Revised QA classification:
+
+- QA tier remains QA-3 because cross-route context and persistent-state isolation change.
+- Required focused coverage: taxonomy ordering; Dimir, Jund, Colorless, WUBRG, and a college/four-color review launch; exact persistent handoff and saved-placement preservation; normal production handoff regression; local/flag gate and bidirectional mode isolation.
+- Rendered QA: at least one ordinary, one endpoint, and one college/four-color direct-review Maze launch on desktop, plus a bounded mobile check. CPU-heavy placement certification remains `NOT REQUIRED` because placement logic/data do not change.
+
+## Owner Remediation RobDev Evidence — 2026-08-22
+
+Implementation result:
+
+- Review-mode Maze links reuse `withArchscryMazeContext(...)` and the existing Maze launch resolver, carrying `contextMode=dossier-review`, the reviewed identity, authoritative faction label, and review reading metadata in the URL.
+- Maze keeps that review handoff in module memory only. It neither reads the saved placement handoff as review context nor writes the review context to `vm_archscry_maze_handoff_v1`.
+- Review paths reuse the existing dossier-path builder from explicit identity context without constructing a placement result. Normal production launches retain the existing persistent placement-result handoff.
+- The selector remains registry-derived and sorts by the existing expression `kind` metadata. Its verified group counts are `5, 10, 5, 5, 5, 5, 1, 1`, with W/U/B/R/G mono order and label ordering inside the other groups.
+
+Focused and protected automation on the final working-tree state:
+
+- `npm run test:dev-review` — PASS after the final review-title adjustment; covers Dimir, Jund, Colorless, WUBRG, Silverquill, taxonomy order, exact saved-state bytes, transient Maze context, Reading Finds source context, normal persistent handoff, gating, isolation, telemetry, and real-engine behavior.
+- Relevant `node --check` commands — PASS.
+- `npm run lint:js` — PASS for 31 files.
+- `npm run lint:html` — PASS.
+- `npm run test:gate-b1-runtime` — PASS.
+- `npm run test:telemetry` — PASS.
+- `npm run test:frontend-smoke` — PASS.
+- `npm run test:archscry-transform` — PASS.
+- `npm run test:maze-finds` — PASS.
+- `git diff --check` — PASS.
+
+Inherited baselines, reproduced from an isolated archive of untouched remediation parent `07b5b3e`:
+
+- `npm run test:placement` retains the same two Esper visible-copy and Quandrix starter-whitelist failures.
+- `node tests/maze/maze-search-tests.js` retains the same `c:r` versus `c:r f:commander` expectation failure.
+- The remediation adds no new failure to either broad command; focused coverage for the changed Maze launch contract passes.
+
+Rendered self-QA on the final implementation:
+
+- Desktop 1440x1000: verified exact taxonomy order; Dimir direct review enters Maze as House Dimir with UB paths and no saved Jund leakage; WUBRG uses the authoritative Five-Color label consistently.
+- Mobile 390x844: Silverquill enters Maze as Silverquill College with WB paths, no overflow or overlap, and Return to Dossier restores the same direct-review identity.
+- Persistent placement/profile/handoff state remained byte-identical through review journeys; a normal Jund production handoff retained its placement result and omitted review-only fields.
+- Browser console reported no errors.
+
+RobQAPass readiness: QA-3 candidate is ready for fresh independent exact-SHA review. Remaining owner judgment is intentionally bounded to the corrected direct-review Maze context and desired selector ordering.
+
+Separately routed findings, not part of VM-579 remediation:
+
+- VM-580: transform hover-preview affordance and pointer-interaction contract. The owner is `runtime/card-media.js`/existing transform styles, which VM-579 did not change.
+- VM-581: Strixhaven college player-facing Commander Browsing labels versus valid external guild/color-pair routing. The existing routing/presenter lines were not changed by VM-579.
+- VM-582: mobile provider controls stretching across Precon Starting Points and Commander Browsing Starts. The responsible pre-existing `.service-chip` narrow-width rule was not introduced or modified by VM-579.
+- VM-583: mobile Maze search-input/control vertical gap. Maze CSS/runtime were not changed by VM-579.
+
+Do not close VM-579 until independent RobQA passes a new exact candidate and the owner rechecks only the corrected Maze context and selector ordering.

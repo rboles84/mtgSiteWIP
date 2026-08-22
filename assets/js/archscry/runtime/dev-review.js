@@ -20,15 +20,38 @@ import {
 
 const REVIEW_MODE = "dossier";
 const ENGINE_MODE = "engine";
+const IDENTITY_TAXONOMY_GROUPS = new Map([
+  ["color", 0],
+  ["guild", 1],
+  ["college", 2],
+  ["shard", 3],
+  ["wedge", 4],
+  ["four_color", 5],
+  ["colorless", 6],
+  ["five_color", 7],
+]);
+const MANA_COLOR_ORDER = "WUBRG";
+
+function compareIdentityTaxonomy(left, right) {
+  const groupDelta = (IDENTITY_TAXONOMY_GROUPS.get(left.kind) ?? Number.MAX_SAFE_INTEGER) -
+    (IDENTITY_TAXONOMY_GROUPS.get(right.kind) ?? Number.MAX_SAFE_INTEGER);
+  if (groupDelta) return groupDelta;
+  if (left.kind === "color" && right.kind === "color") {
+    return MANA_COLOR_ORDER.indexOf(left.key) - MANA_COLOR_ORDER.indexOf(right.key);
+  }
+  return left.name.localeCompare(right.name, undefined, { sensitivity: "base" }) || left.key.localeCompare(right.key);
+}
 
 function activeIdentityEntries() {
   const expressions = APP_STATE.identityLayers?.expressions || {};
   return Object.entries(expressions)
     .filter(([key, expression]) => expression?.active !== false && APP_STATE.factions[key])
-    .map(([key]) => ({
+    .map(([key, expression]) => ({
       key,
+      kind: String(expression?.kind || ""),
       name: APP_STATE.factions[key]?.name || key,
-    }));
+    }))
+    .sort(compareIdentityTaxonomy);
 }
 
 function compactCandidate(candidate, model) {
@@ -140,6 +163,10 @@ export function initializeArchscryDevReview() {
     option.textContent = `${identity.name} (${identity.key})`;
     identitySelect.appendChild(option);
   }
+  const requestedReviewIdentity = String(new URLSearchParams(window.location.search).get("reviewIdentity") || "").toUpperCase();
+  if (identities.some((identity) => identity.key === requestedReviewIdentity)) {
+    identitySelect.value = requestedReviewIdentity;
+  }
   panel.querySelector("[data-dev-review-count]").textContent = `${identities.length} identities`;
 
   function restoreRouteUiSnapshot() {
@@ -219,6 +246,7 @@ export function initializeArchscryDevReview() {
   if (productRoot) observer.observe(productRoot, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
 
   document.body.insertBefore(panel, document.querySelector(".app"));
+  if (requestedReviewIdentity) renderSelectedIdentity();
   return Object.freeze({
     identities: identities.map((identity) => identity.key),
     getMode: () => activeMode,

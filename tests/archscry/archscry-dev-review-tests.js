@@ -23,6 +23,7 @@ const reviewManifest = JSON.parse(fs.readFileSync(path.join(root, "docs", "audit
 const livePlacementWitnesses = JSON.parse(fs.readFileSync(path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json"), "utf8"));
 const jundClose = reviewManifest.cases.find((entry) => entry.case_id === "identity-jund");
 const savedWhitePlacement = livePlacementWitnesses.rows.find((entry) => entry.identity_key === "W")?.result;
+const savedJundPlacement = livePlacementWitnesses.rows.find((entry) => entry.identity_key === "JUND")?.result;
 const activeIdentities = Object.entries(identityLayers.expressions)
   .filter(([, expression]) => expression?.active !== false)
   .map(([key]) => key);
@@ -58,6 +59,7 @@ assert.throws(
 assert.ok(jundClose, "focused boundary journey requires the current Jund close witness");
 assert.equal(jundClose.expected_state, "close");
 assert.equal(savedWhitePlacement?.faction, "W", "state-preservation coverage requires a certified saved White placement");
+assert.equal(savedJundPlacement?.faction, "JUND", "Maze-context coverage requires a certified saved Jund placement");
 const normalWhiteDossier = buildCommanderDossier({
   factions,
   placementModel,
@@ -120,7 +122,7 @@ try {
   });
   browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${launchedChrome.port}` });
 
-  async function newPage(url, { savedPlacement = null, errors = null } = {}) {
+  async function newPage(url, { savedPlacement = null, errors = null, requestLog = null } = {}) {
     const page = await browser.newPage();
     if (errors) page.on("pageerror", (error) => errors.push(error.message));
     await page.setViewport({ width: 1280, height: 900, deviceScaleFactor: 1 });
@@ -146,8 +148,39 @@ try {
     }, savedPlacement);
     await page.setRequestInterception(true);
     page.on("request", (request) => {
-      if (request.url().startsWith(`http://${host}:${port}`) || request.url().startsWith(`http://voxmana.test:${port}`)) request.continue();
-      else request.abort();
+      const requestUrl = request.url();
+      if (requestLog) requestLog.push(requestUrl);
+      if (requestUrl.startsWith(`http://${host}:${port}`) || requestUrl.startsWith(`http://voxmana.test:${port}`)) {
+        request.continue();
+        return;
+      }
+      if (requestUrl.startsWith("https://api.scryfall.com/cards/search")) {
+        const query = new URL(requestUrl).searchParams.get("q") || "context-probe";
+        const queryHash = [...query].reduce((hash, character) => ((hash * 33) ^ character.codePointAt(0)) >>> 0, 5381).toString(36);
+        const probeId = `context-probe-${queryHash}`;
+        request.respond({
+          status: 200,
+          contentType: "application/json",
+          headers: { "Access-Control-Allow-Origin": "*" },
+          body: JSON.stringify({
+            object: "list",
+            total_cards: 1,
+            has_more: false,
+            data: [{
+              object: "card",
+              id: probeId,
+              oracle_id: probeId,
+              name: `Transient Context Probe ${probeId.slice(-8)}`,
+              type_line: "Artifact",
+              oracle_text: "",
+              color_identity: [],
+              legalities: { commander: "legal" },
+            }],
+          }),
+        });
+        return;
+      }
+      request.abort();
     });
     await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
     return page;
@@ -167,7 +200,25 @@ try {
     errors: pageErrors,
   });
   await page.waitForSelector("[data-vm-dev-review]", { timeout: 15000 });
-  assert.equal(await page.$$eval("[data-dev-review-identity] option", (options) => options.length), 37);
+  const orderedIdentityKeys = await page.$$eval("[data-dev-review-identity] option", (options) => options.map((option) => option.value));
+  assert.equal(orderedIdentityKeys.length, 37);
+  const orderedIdentityKinds = orderedIdentityKeys.map((key) => identityLayers.expressions[key]?.kind);
+  assert.deepEqual(
+    orderedIdentityKinds,
+    [
+      ...Array(5).fill("color"),
+      ...Array(10).fill("guild"),
+      ...Array(5).fill("college"),
+      ...Array(5).fill("shard"),
+      ...Array(5).fill("wedge"),
+      ...Array(5).fill("four_color"),
+      "colorless",
+      "five_color",
+    ],
+    "selector must group current identities by authoritative taxonomy"
+  );
+  assert.deepEqual(orderedIdentityKeys.slice(0, 5), ["W", "U", "B", "R", "G"], "mono colors must retain WUBRG taxonomy order");
+  assert.deepEqual(orderedIdentityKeys.slice(-2), ["COLORLESS", "WUBRG"], "endpoint identities must close the selector in Colorless/WUBRG order");
   assert.equal(await page.evaluate(() => window.__VOX_TELEMETRY_EVENTS__?.length), 0);
   const storageBaseline = await page.evaluate(() => ({
     session: Object.fromEntries(Object.entries(sessionStorage)),
@@ -238,6 +289,126 @@ try {
     handoffFaction: "W",
   }, "normal reload after direct review must restore the exact saved placement without disturbing profile or owner state");
   await page.close();
+
+  const mazeContextErrors = [];
+  const mazeContextRequests = [];
+  const mazeContextPage = await newPage(`http://${host}:${port}/archscry/?vm-dev-review=1`, {
+    savedPlacement: savedJundPlacement,
+    errors: mazeContextErrors,
+    requestLog: mazeContextRequests,
+  });
+  const flaggedArchscryUrl = `http://${host}:${port}/archscry/?vm-dev-review=1`;
+  const reviewMazeCases = [
+    { key: "UB", query: /\bid=ub\b/i },
+    { key: "JUND", query: /\bid=brg\b/i },
+    { key: "COLORLESS", query: /\bid=c\b/i },
+    { key: "WUBRG", query: /\bid=wubrg\b/i },
+    { key: "SILVERQUILL", query: /\bid=wb\b/i },
+  ].map((entry) => {
+    const expression = identityLayers.expressions[entry.key] || {};
+    const routeSpecificName = ["four_color", "five_color"].includes(expression.kind)
+      ? expression.routing?.label
+      : "";
+    return {
+      ...entry,
+      name: routeSpecificName || factions[entry.key]?.name || entry.key,
+      rawVisible: ["four_color", "five_color"].includes(expression.kind),
+    };
+  });
+
+  for (const reviewCase of reviewMazeCases) {
+    await mazeContextPage.waitForSelector("[data-vm-dev-review]", { timeout: 15000 });
+    await mazeContextPage.select("[data-dev-review-identity]", reviewCase.key);
+    await mazeContextPage.click("[data-dev-review-render]");
+    await mazeContextPage.waitForFunction((identityKey) => (
+      document.querySelector("[data-dossier-console][data-direct-review='true']")?.dataset.dossierIdentityKey === identityKey
+    ), {}, reviewCase.key);
+    const reviewLaunch = await mazeContextPage.$eval(
+      "[data-dossier-panel='maze-discovery'] a[data-service='maze']",
+      (link) => ({ href: link.href, params: Object.fromEntries(new URL(link.href).searchParams) })
+    );
+    assert.equal(reviewLaunch.params.contextMode, "dossier-review", `${reviewCase.key} Maze launch omitted review mode`);
+    assert.equal(reviewLaunch.params.reviewIdentity, reviewCase.key, `${reviewCase.key} Maze launch carried the wrong review identity`);
+    assert.equal(reviewLaunch.params.fit, reviewCase.key, `${reviewCase.key} Maze launch carried the wrong fit context`);
+    assert.equal(reviewLaunch.params.factionName, reviewCase.name, `${reviewCase.key} Maze launch carried the wrong identity name`);
+    assert.match(reviewLaunch.params.operatorQuery || "", reviewCase.query, `${reviewCase.key} Maze launch carried the wrong query identity`);
+
+    const protectedStateBeforeMaze = await mazeContextPage.evaluate(() => ({
+      placement: sessionStorage.getItem("vm_last_result"),
+      profile: sessionStorage.getItem("vm_profile"),
+      handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
+      owner: localStorage.getItem("vm579-owner-state"),
+    }));
+    await mazeContextPage.goto(reviewLaunch.href, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await mazeContextPage.waitForSelector("#maze-return-banner.is-visible", { timeout: 15000 });
+    await mazeContextPage.waitForSelector("#reading-path-list .sb-btn", { timeout: 15000 });
+    try {
+      await mazeContextPage.waitForSelector("[data-action='add-card-to-scratchpad']", { timeout: 15000 });
+    } catch (_) {
+      const diagnostic = await mazeContextPage.evaluate(() => ({
+        state: document.getElementById("state-panel")?.innerText || "",
+        resultCount: document.getElementById("res-count")?.innerText || "",
+        gridText: document.getElementById("card-grid")?.innerText || "",
+        inspector: document.getElementById("query-inspector")?.innerText || "",
+      }));
+      assert.fail(`Maze probe card did not render for ${reviewCase.key}: ${JSON.stringify({ diagnostic, requests: mazeContextRequests.slice(-12) })}`);
+    }
+    const probeCardName = await mazeContextPage.$eval("[data-action='add-card-to-scratchpad']", (button) => button.dataset.cardName || "");
+    await mazeContextPage.click("[data-action='add-card-to-scratchpad']");
+    const mazeState = await mazeContextPage.evaluate(() => ({
+      returnCopy: document.getElementById("maze-return-copy")?.textContent?.replace(/\s+/g, " ").trim() || "",
+      searchInput: document.getElementById("search-input")?.value || "",
+      readingPathQueries: [...document.querySelectorAll("#reading-path-list .sb-btn")].map((button) => button.dataset.query || ""),
+      placement: sessionStorage.getItem("vm_last_result"),
+      profile: sessionStorage.getItem("vm_profile"),
+      handoff: localStorage.getItem("vm_archscry_maze_handoff_v1"),
+      owner: localStorage.getItem("vm579-owner-state"),
+      readingFinds: JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "null"),
+    }));
+    assert.match(mazeState.returnCopy, new RegExp(reviewCase.name, "i"), `${reviewCase.key} Maze banner fell back to the saved dossier`);
+    if (reviewCase.key !== "JUND") assert.doesNotMatch(mazeState.returnCopy, /Jund/i, `${reviewCase.key} Maze banner leaked saved Jund context`);
+    if (reviewCase.rawVisible) {
+      assert.match(mazeState.searchInput, reviewCase.query, `${reviewCase.key} raw Maze launch lost its identity query`);
+    } else {
+      assert.match(mazeState.searchInput, new RegExp(reviewCase.name, "i"), `${reviewCase.key} visible Maze launch text lost dossier context`);
+    }
+    assert.ok(mazeState.readingPathQueries.some((query) => reviewCase.query.test(query)), `${reviewCase.key} Maze sidebar paths used the wrong identity`);
+    const probeFind = Object.values(mazeState.readingFinds?.sections || {})
+      .flat()
+      .find((row) => row?.name === probeCardName);
+    assert.equal(probeFind?.sourceContext?.readingId, `dossier-review-${reviewCase.key.toLowerCase()}`, `${reviewCase.key} Reading Find used the wrong transient reading id`);
+    assert.equal(probeFind?.sourceContext?.factionName, reviewCase.name, `${reviewCase.key} Reading Find fell back to the saved dossier name`);
+    assert.equal(probeFind?.sourceContext?.pathType, reviewLaunch.params.pathType, `${reviewCase.key} Reading Find lost its originating path`);
+    assert.deepEqual({
+      placement: mazeState.placement,
+      profile: mazeState.profile,
+      handoff: mazeState.handoff,
+      owner: mazeState.owner,
+    }, protectedStateBeforeMaze, `${reviewCase.key} transient Maze navigation mutated protected persistent state`);
+
+    await mazeContextPage.goto(flaggedArchscryUrl, { waitUntil: "networkidle0", timeout: 30000 });
+  }
+
+  await mazeContextPage.waitForSelector("[data-dossier-console]:not([data-direct-review='true'])", { timeout: 15000 });
+  const normalMazeLaunch = await mazeContextPage.$eval(
+    "[data-dossier-panel='maze-discovery'] a[data-service='maze']",
+    (link) => ({ href: link.href, params: Object.fromEntries(new URL(link.href).searchParams) })
+  );
+  assert.equal(normalMazeLaunch.params.contextMode, undefined, "normal placement Maze launch must not gain review context mode");
+  assert.equal(normalMazeLaunch.params.reviewIdentity, undefined, "normal placement Maze launch must not gain review identity");
+  await mazeContextPage.goto(normalMazeLaunch.href, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await mazeContextPage.waitForSelector("#maze-return-banner.is-visible", { timeout: 15000 });
+  const normalMazeState = await mazeContextPage.evaluate(() => ({
+    copy: document.getElementById("maze-return-copy")?.textContent?.replace(/\s+/g, " ").trim() || "",
+    handoff: JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null"),
+    placement: JSON.parse(sessionStorage.getItem("vm_last_result") || "null"),
+  }));
+  assert.match(normalMazeState.copy, /Jund/i, "normal production Maze banner must retain saved Jund context");
+  assert.equal(normalMazeState.handoff?.placementResult?.faction, "JUND", "normal production Maze handoff must retain its placement result");
+  assert.equal(normalMazeState.handoff?.contextMode, undefined, "normal persistent handoff must not gain review-only fields");
+  assert.equal(normalMazeState.placement?.faction, "JUND", "normal Maze navigation must retain the saved placement");
+  assert.deepEqual(mazeContextErrors, [], `direct-review Maze browser errors: ${mazeContextErrors.join(" | ")}`);
+  await mazeContextPage.close();
 
   const enginePageErrors = [];
   const enginePage = await newPage(`http://${host}:${port}/archscry/?vm-dev-review=1&vox_telemetry=mock`, {
@@ -325,4 +496,4 @@ assert.match(devReviewSource, /rankCandidates\(state, model\)/, "inspector must 
 assert.match(devReviewSource, /getNamingQualification\(candidate, model\)/, "inspector must reuse production qualification");
 assert.match(devReviewSource, /evaluateStopping\(state, model, ranked\)/, "inspector must reuse production stopping");
 
-console.log("Archscry dev-review gating, all-37 direct rendering, isolation, and real-engine validation tests passed.");
+console.log("Archscry dev-review gating, taxonomy order, transient Maze context, isolation, and real-engine validation tests passed.");

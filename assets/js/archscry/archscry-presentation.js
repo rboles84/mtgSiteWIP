@@ -1379,6 +1379,8 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
         fit: context.fit,
         factionName: context.factionName,
         readingTitle: context.readingTitle,
+        contextMode: context.contextMode,
+        reviewIdentity: context.reviewIdentity,
         pathType,
         plainReadingQuery,
         operatorQuery,

@@ -1788,11 +1788,19 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     .map((precon) => precon.mainCommander));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, pageCardUsage);
   const baseMazePaths = buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy });
-  const mazeContext = reviewMode ? null : buildArchscryMazeContext({ result, dossier, faction });
+  const placementMazeContext = buildArchscryMazeContext({ result: reviewMode ? null : result, dossier, faction });
+  const mazeContext = reviewMode
+    ? {
+        ...placementMazeContext,
+        contextMode: "dossier-review",
+        reviewIdentity: activeKey,
+        readingId: `dossier-review-${activeKey.toLowerCase()}`,
+        readingTitle: `${placementMazeContext.factionName || faction.name || activeKey} dossier review`,
+        returnUrl: `../archscry/index.html?vm-dev-review=1&reviewIdentity=${encodeURIComponent(activeKey)}#maze-discovery-paths`,
+      }
+    : placementMazeContext;
   if (!reviewMode) writeArchscryDossierHandoff(result, mazeContext);
-  const personalizedMazePaths = reviewMode
-    ? baseMazePaths
-    : withArchscryMazeContext(baseMazePaths, mazeContext, window.location.href);
+  const personalizedMazePaths = withArchscryMazeContext(baseMazePaths, mazeContext, window.location.href);
   const dossierContent = dossierContentForFaction(faction);
   const archetypeItems = dossierContent?.what_to_look_for.map((item) => ({
     name: item.title,

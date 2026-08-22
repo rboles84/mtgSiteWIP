@@ -13,6 +13,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-583 - Maze Mobile Search Control Gap](backlog/VM-583-maze-mobile-search-control-gap.md) - reproduce and repair the unexplained narrow-screen space between `textarea#search-input` and the Search controls through the responsible grid/flex sizing rule, without arbitrary negative spacing.
+- [VM-582 - Mobile Provider Control Intrinsic Sizing](backlog/VM-582-mobile-provider-control-intrinsic-sizing.md) - correct narrow-screen EDHREC, Archidekt, and MTGDecks provider controls that stretch across their containers in Precon Starting Points and Commander Browsing Starts.
+- [VM-581 - College Commander Browsing Identity Labels](backlog/VM-581-college-commander-browsing-identity-labels.md) - keep valid external two-color provider routing while presenting each Strixhaven college's own identity label in Commander Browsing Starts and preserving ordinary guild labels.
+- [VM-580 - Transform Hover Preview Interaction Contract](backlog/VM-580-transform-hover-preview-interaction-contract.md) - follow up VM-576 so only true transform cards expose preview flip affordance and the hover preview remains pointer-interactive through in-place front/back switching.
 - [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -43,7 +47,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-579 - Archscry Dev Review + Placement Validation](in-progress/VM-579-archscry-dev-review-placement-validation.md) - adding an explicit local-only QA panel that direct-renders authoritative identities through the production dossier renderer and inspects the real production placement journey without fabricated state, forced outcomes, duplicate machinery, or production side effects.
+- [VM-579 - Archscry Dev Review + Placement Validation](in-progress/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the core direct dossier/real-engine seams; remaining bounded remediation carries direct-review identity into Maze as transient context and orders the selector by authoritative identity taxonomy without touching saved placement or normal handoff behavior.
 
 ## Blocked
 

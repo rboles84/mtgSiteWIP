@@ -59,6 +59,8 @@ let stashDragState = null;
 const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
+const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
+let transientArchscryMazeHandoff = null;
 const MODAL_FOCUS_SELECTOR = [
   "a[href]",
   "button:not([disabled])",
@@ -1910,6 +1912,7 @@ function buildDiscoveryPaths() {
 }
 
 function readArchscryMazeHandoff() {
+  if (transientArchscryMazeHandoff) return transientArchscryMazeHandoff;
   try {
     const parsed = JSON.parse(localStorage.getItem(ARCHSCRY_MAZE_HANDOFF_KEY) || "null");
     return parsed && typeof parsed === "object" ? parsed : null;
@@ -1919,6 +1922,13 @@ function readArchscryMazeHandoff() {
 }
 
 function writeArchscryMazeHandoff(handoff) {
+  if (handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE) {
+    transientArchscryMazeHandoff = {
+      ...handoff,
+      updatedAt: new Date().toISOString()
+    };
+    return;
+  }
   try {
     localStorage.setItem(ARCHSCRY_MAZE_HANDOFF_KEY, JSON.stringify({
       ...handoff,
@@ -1970,7 +1980,11 @@ function initializeArchscryMazeHandoff(urlParams) {
     return;
   }
 
-  const existing = readArchscryMazeHandoff() || {};
+  const requestedReviewIdentity = resolveDossierActiveKey(urlParams.get("reviewIdentity"));
+  const dossierReviewContext = urlParams.get("contextMode") === DOSSIER_REVIEW_CONTEXT_MODE && requestedReviewIdentity
+    ? requestedReviewIdentity
+    : "";
+  const existing = dossierReviewContext ? {} : readArchscryMazeHandoff() || {};
   const launchReadingId = urlParams.get("readingId") || existing.readingId || "";
   const urlQ = urlParams.get("q") || "";
   const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
@@ -1986,7 +2000,8 @@ function initializeArchscryMazeHandoff(urlParams) {
   const operatorKey = inferDossierKeyFromMazeQuery(initialOperatorQuery);
   const existingFitKey = resolveDossierActiveKey(existing.fit || "");
   const colorlessUrlKey = [urlFitKey, urlFactionNameKey, urlGuildKey].find((key) => key === "COLORLESS") || "";
-  const fit = urlFitKey ||
+  const fit = dossierReviewContext ||
+    urlFitKey ||
     colorlessUrlKey ||
     operatorKey ||
     urlFactionNameKey ||
@@ -2026,6 +2041,10 @@ function initializeArchscryMazeHandoff(urlParams) {
   const handoff = {
     ...existing,
     from: "archscry",
+    ...(dossierReviewContext ? {
+      contextMode: DOSSIER_REVIEW_CONTEXT_MODE,
+      reviewIdentity: dossierReviewContext,
+    } : {}),
     readingId,
     guild: LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) ? fit : fit || urlGuildKey || existing.guild || "",
     sourceFaction,
@@ -2035,7 +2054,9 @@ function initializeArchscryMazeHandoff(urlParams) {
     pathType: handoffPathType,
     plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
-    placementResult: keepExistingPlacementResult ? existing.placementResult : undefined,
+    placementResult: dossierReviewContext
+      ? undefined
+      : keepExistingPlacementResult ? existing.placementResult : undefined,
     returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
       ? existing.returnBannerDismissed === true
       : false,
@@ -2124,8 +2145,11 @@ function buildReadingPaths() {
   const list = document.getElementById("reading-path-list");
   if (!section || !list) return;
 
-  const result = getStoredPlacementResult();
-  const paths = result ? createReadingPaths(result) : [];
+  const handoff = readArchscryMazeHandoff();
+  const result = handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE ? null : getStoredPlacementResult();
+  const paths = handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE
+    ? createDossierReviewPaths(handoff)
+    : result ? createReadingPaths(result) : [];
   if (!paths.length) {
     section.style.display = "none";
     clearNode(list);
@@ -2234,11 +2258,27 @@ function createReadingPaths(result) {
   const readingName = LIVE_FOUR_COLOR_DOSSIER_KEYS.has(factionKey)
     ? (DOSSIER_DISPLAY_NAMES.get(factionKey) || result?.faction_name || result?.faction || "this reading")
     : (result?.faction_name || result?.faction || "this reading");
+  return createDossierPaths({ identity, factionKey, readingName, signals });
+}
+
+function createDossierReviewPaths(handoff = {}) {
+  const factionKey = resolveDossierActiveKey(handoff.reviewIdentity || handoff.fit || "");
+  const identity = colorIdentityFromDossierKey(factionKey);
+  if (!identity) return [];
+  return createDossierPaths({
+    identity,
+    factionKey,
+    readingName: handoff.factionName || DOSSIER_DISPLAY_NAMES.get(factionKey) || factionKey,
+    signals: { oracle: [], flavor: [] },
+  });
+}
+
+function createDossierPaths({ identity, factionKey = "", readingName = "this reading", signals = {} } = {}) {
   const paths = buildDossierMazePathEntries({
     identity,
     factionName: readingName,
-    oracleTerms: signals.oracle,
-    flavorTerms: signals.flavor,
+    oracleTerms: signals.oracle || [],
+    flavorTerms: signals.flavor || [],
     identityHint: DOSSIER_VISIBLE_IDENTITY_HINTS.get(factionKey) || "",
     includeOutsideColorStretch: !DOSSIER_NO_STRETCH_KEYS.has(factionKey)
   });

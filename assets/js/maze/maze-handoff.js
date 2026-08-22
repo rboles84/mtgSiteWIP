@@ -248,6 +248,12 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
   return {
     from,
     urlQ,
+    contextMode: urlParams.get("contextMode") || existing.contextMode || "",
+    reviewIdentity: urlParams.get("reviewIdentity") || existing.reviewIdentity || "",
+    fit: urlParams.get("fit") || existing.fit || "",
+    factionName: urlParams.get("factionName") || existing.factionName || "",
+    readingId: urlParams.get("readingId") || existing.readingId || "",
+    readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "",
     operatorQuery: explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
     plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
     pathType: urlParams.get("pathType") || existing.pathType || "",
