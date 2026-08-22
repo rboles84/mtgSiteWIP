@@ -102,4 +102,3 @@ const payload = {
 await mkdir(outputDir, { recursive: true });
 await writeFile(path.join(outputDir, "plain-reading-qa-baseline.json"), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 console.log(`Plain Reading QA baseline: ${cases.length} cases, ${exactQueryMatches} exact query matches, ${compilerErrors} compiler errors.`);
-
