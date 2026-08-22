@@ -2,11 +2,12 @@
 
 ID: VM-579
 Title: Archscry Dev Review + Placement Validation
-Status: In Progress
+Status: Done
 Type: Developer tooling / route-local QA
 Area: Archscry
 Priority: High
 Created: 2026-08-22
+Completed: 2026-08-22
 
 ## Summary
 
@@ -253,4 +254,12 @@ Bounded owner recheck only:
 1. Confirm a directly reviewed dossier enters Maze with that same identity context in the owner's saved-state environment.
 2. Confirm the selector sequence is the desired mono, guild, college, shard, wedge, four-color, Colorless, WUBRG review order.
 
-Do not close VM-579 until the owner rechecks the corrected Maze context and selector ordering on the independently passed exact candidate.
+## Final Owner Acceptance And Closeout — 2026-08-22
+
+- Owner acceptance: **PASS**.
+- The owner approved direct-review identity -> matching transient Maze dossier context in the owner's saved-state environment.
+- The owner approved the selector taxonomy sequence: mono colors, guilds, colleges, shards, wedges, four-color identities, Colorless, then WUBRG.
+- Accepted product candidate: `e97eeeae144e5c193594ad2b97c1e5d7d25f53ee`.
+- Independent PASS governance state before owner acceptance: `0d7d8032ac6dc5c69de8f44de037c0c895257a67`.
+- VM-579 is complete and archived to Done. The accepted chain is already on `main`, so no merge is required.
+- VM-580 through VM-583 remain separate Backlog work and received no implementation during closeout.
