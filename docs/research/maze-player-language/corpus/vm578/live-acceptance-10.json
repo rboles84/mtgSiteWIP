@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "VM578-001",
+    "why_selected": "Known owner failure covering colorless hard constraint, typo recovery, optionality, and unsupported family similarity.",
+    "owner_should_inspect": "Whether Maze keeps colorless and Wolf as hard constraints while being honest about optional deathtouch/haste and wolf-like similarity.",
+    "failure_definition": "Dropping colorless or Wolf, treating all optional terms as mandatory without explanation, or inventing unsupported wolf-like expansions."
+  },
+  {
+    "case_id": "VM578-003",
+    "why_selected": "Representative Commander deck-fit color identity case.",
+    "owner_should_inspect": "Whether Simic deck language becomes Commander-legal identity containment rather than exact actual card color.",
+    "failure_definition": "Using exact blue-green card color, omitting Commander legality, or failing to explain deck-fit interpretation."
+  },
+  {
+    "case_id": "VM578-052",
+    "why_selected": "Preference and optionality case using bonus language.",
+    "owner_should_inspect": "Whether exile is treated as a bonus preference layered on removal instead of the whole query.",
+    "failure_definition": "Making the bonus condition mandatory without explanation or losing the core removal function."
+  },
+  {
+    "case_id": "VM578-033",
+    "why_selected": "Functional ETB-support case, one of the most important semantic gaps.",
+    "owner_should_inspect": "Whether Maze distinguishes ETB support from cards that merely contain enter text.",
+    "failure_definition": "Confidently collapsing reuse ETBs into only o:enters or hiding unresolved support roles."
+  },
+  {
+    "case_id": "VM578-064",
+    "why_selected": "OR scope case with two alternative creature types and a shared mana-production function.",
+    "owner_should_inspect": "Whether Elf/Druid remains an alternative relationship instead of becoming both required.",
+    "failure_definition": "Flattening OR into AND or dropping the tap-for-mana function without diagnostic honesty."
+  },
+  {
+    "case_id": "VM578-072",
+    "why_selected": "Typal spelling boundary preserving Wurm versus Worm.",
+    "owner_should_inspect": "Whether Wurm and Worm remain distinct in the visible query and diagnostics.",
+    "failure_definition": "Normalizing Wurm into Worm, ignoring the negative Worm exclusion, or merging the two creature types."
+  },
+  {
+    "case_id": "VM578-084",
+    "why_selected": "Semantic/archetype case with stale VM-577 stax evidence and social fit language.",
+    "owner_should_inspect": "Whether Maze avoids confidently mapping stale or subjective stax/fun-table language.",
+    "failure_definition": "Emitting stale stax mapping as settled truth or pretending casual fun is executable syntax."
+  },
+  {
+    "case_id": "VM578-091",
+    "why_selected": "Ambiguous counter term collision.",
+    "owner_should_inspect": "Whether Maze offers or reports counterspell/counter-object ambiguity instead of selecting a hidden winner.",
+    "failure_definition": "Resolving counter globally without context or presenting high confidence with no ambiguity."
+  },
+  {
+    "case_id": "VM578-097",
+    "why_selected": "Zero-result-risk contradictory color case.",
+    "owner_should_inspect": "Whether exact blue-green plus no blue is exposed as contradictory or risky.",
+    "failure_definition": "Silently dropping either the exact color constraint or the no-blue exclusion."
+  },
+  {
+    "case_id": "VM578-031",
+    "why_selected": "Generally representative natural Commander functional search.",
+    "owner_should_inspect": "Whether ramp for a six mana commander is useful without mistaking the commander cost for card mana value.",
+    "failure_definition": "Searching for six-mana cards instead of ramp support or failing to surface functional uncertainty."
+  }
+]

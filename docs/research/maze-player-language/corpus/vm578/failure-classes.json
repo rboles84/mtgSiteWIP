@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-08-22T04:00:00Z",
+  "taxonomy_note": "Failure classes are compact, observed categories derived from component comparison and compiler diagnostics; they are not product success targets.",
+  "failure_classes": {
+    "optionality needs owner review": {
+      "count": 13,
+      "cases": [
+        "VM578-001",
+        "VM578-002",
+        "VM578-009",
+        "VM578-013",
+        "VM578-019",
+        "VM578-024",
+        "VM578-025",
+        "VM578-028",
+        "VM578-053",
+        "VM578-060",
+        "VM578-063",
+        "VM578-070",
+        "VM578-071"
+      ]
+    },
+    "functional-language unresolved": {
+      "count": 18,
+      "cases": [
+        "VM578-002",
+        "VM578-029",
+        "VM578-033",
+        "VM578-036",
+        "VM578-039",
+        "VM578-041",
+        "VM578-042",
+        "VM578-044",
+        "VM578-045",
+        "VM578-047",
+        "VM578-050",
+        "VM578-056",
+        "VM578-081",
+        "VM578-082",
+        "VM578-084",
+        "VM578-086",
+        "VM578-087",
+        "VM578-088"
+      ]
+    },
+    "required constraint missing": {
+      "count": 37,
+      "cases": [
+        "VM578-005",
+        "VM578-006",
+        "VM578-007",
+        "VM578-008",
+        "VM578-010",
+        "VM578-011",
+        "VM578-012",
+        "VM578-014",
+        "VM578-015",
+        "VM578-018",
+        "VM578-021",
+        "VM578-026",
+        "VM578-027",
+        "VM578-032",
+        "VM578-037",
+        "VM578-038",
+        "VM578-040",
+        "VM578-043",
+        "VM578-048",
+        "VM578-058",
+        "VM578-059",
+        "VM578-066",
+        "VM578-067",
+        "VM578-068",
+        "VM578-069",
+        "VM578-073",
+        "VM578-074",
+        "VM578-075",
+        "VM578-076",
+        "VM578-077",
+        "VM578-078",
+        "VM578-079",
+        "VM578-083",
+        "VM578-090",
+        "VM578-096",
+        "VM578-097",
+        "VM578-099"
+      ]
+    },
+    "color-vs-identity interpretation": {
+      "count": 26,
+      "cases": [
+        "VM578-005",
+        "VM578-006",
+        "VM578-007",
+        "VM578-008",
+        "VM578-010",
+        "VM578-011",
+        "VM578-012",
+        "VM578-014",
+        "VM578-015",
+        "VM578-026",
+        "VM578-027",
+        "VM578-032",
+        "VM578-038",
+        "VM578-040",
+        "VM578-048",
+        "VM578-058",
+        "VM578-059",
+        "VM578-069",
+        "VM578-073",
+        "VM578-074",
+        "VM578-075",
+        "VM578-077",
+        "VM578-078",
+        "VM578-079",
+        "VM578-083",
+        "VM578-096"
+      ]
+    },
+    "OR/exclusion/scope handling": {
+      "count": 11,
+      "cases": [
+        "VM578-005",
+        "VM578-006",
+        "VM578-008",
+        "VM578-010",
+        "VM578-011",
+        "VM578-036",
+        "VM578-066",
+        "VM578-067",
+        "VM578-068",
+        "VM578-069",
+        "VM578-097"
+      ]
+    },
+    "high-confidence bad or incomplete interpretation": {
+      "count": 7,
+      "cases": [
+        "VM578-014",
+        "VM578-021",
+        "VM578-047",
+        "VM578-069",
+        "VM578-077",
+        "VM578-093",
+        "VM578-094"
+      ]
+    },
+    "owner interpretation review": {
+      "count": 17,
+      "cases": [
+        "VM578-030",
+        "VM578-031",
+        "VM578-034",
+        "VM578-035",
+        "VM578-046",
+        "VM578-049",
+        "VM578-051",
+        "VM578-052",
+        "VM578-054",
+        "VM578-057",
+        "VM578-064",
+        "VM578-080",
+        "VM578-085",
+        "VM578-089",
+        "VM578-091",
+        "VM578-092",
+        "VM578-100"
+      ]
+    },
+    "forbidden component present": {
+      "count": 1,
+      "cases": [
+        "VM578-036"
+      ]
+    },
+    "similarity unsupported": {
+      "count": 2,
+      "cases": [
+        "VM578-087",
+        "VM578-088"
+      ]
+    }
+  }
+}

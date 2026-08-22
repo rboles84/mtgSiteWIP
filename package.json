@@ -19,6 +19,8 @@
     "scryfall:inspect": "node scripts/inspect-scryfall-indexes.mjs",
     "verify:maze-knowledge": "python scripts/verify-maze-knowledge.py --stage workbook && node scripts/baseline-maze-plain-reading-qa.mjs && python scripts/verify-maze-knowledge.py --stage summarize",
     "test:maze-knowledge-verifier": "python tests/verification/maze-knowledge-verifier-tests.py",
+    "baseline:maze-player-language": "node scripts/baseline-maze-player-language-corpus.mjs",
+    "test:maze-player-language-corpus": "node scripts/baseline-maze-player-language-corpus.mjs --check",
     "test:vm559-media-projection": "node scripts/vm559-archscry-media-projection-tests.mjs",
     "test:vm559-resolution": "node scripts/vm559-scryfall-resolution-tests.mjs",
     "test:vm574-card-signals": "node scripts/vm574-card-signals-validation.mjs",

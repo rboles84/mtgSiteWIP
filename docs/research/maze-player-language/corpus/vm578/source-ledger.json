@@ -1,0 +1,123 @@
+[
+  {
+    "source_id": "VM577-EXEC",
+    "source_type": "generated verification summary",
+    "repository_path": "docs/research/maze-player-language/verification/vm577/executive-summary.md",
+    "title": "VM-577 Scryfall Maze Master Verification Summary",
+    "date": "2026-08-22T03:33:06Z",
+    "relevant_section": "Counts, verified-subset rule, Plain Reading QA baseline",
+    "evidence_limitation": "Authoritative for generated verification totals and disposition policy, not for player-language prevalence.",
+    "derivation_mode": "direct governance",
+    "privacy_copyright_note": "Local generated summary; no user-identifying data."
+  },
+  {
+    "source_id": "VM577-ROWS",
+    "source_type": "generated row-level verification",
+    "repository_path": "docs/research/maze-player-language/verification/vm577/row-verification.jsonl",
+    "title": "VM-577 row-level verification report",
+    "date": "2026-08-22T03:33:06Z",
+    "relevant_section": "Verified native/query/tag/internal dispositions and flagged unsafe dispositions",
+    "evidence_limitation": "Safe as verified subset only; ambiguous, stale, unverified, and semantic rows remain review evidence.",
+    "derivation_mode": "query/component grounding",
+    "privacy_copyright_note": "Local generated report from workbook evidence."
+  },
+  {
+    "source_id": "VM577-COLLISIONS",
+    "source_type": "generated ambiguity evidence",
+    "repository_path": "docs/research/maze-player-language/verification/vm577/collisions.json",
+    "title": "VM-577 normalized-term collision groups",
+    "date": "2026-08-22T03:33:06Z",
+    "relevant_section": "Ambiguous terms requiring sentence context",
+    "evidence_limitation": "Identifies collision risk; does not select global semantic winners.",
+    "derivation_mode": "ambiguity coverage",
+    "privacy_copyright_note": "Local generated report."
+  },
+  {
+    "source_id": "VM577-QA59",
+    "source_type": "generated compiler baseline",
+    "repository_path": "docs/research/maze-player-language/verification/vm577/plain-reading-qa-baseline.json",
+    "title": "VM-577 59-case Plain Reading QA baseline",
+    "date": "2026-08-22T03:33:06Z",
+    "relevant_section": "Existing workbook QA cases, compiler mismatches, known ETB collapse risk",
+    "evidence_limitation": "Separate 59-case suite; not counted toward the VM-578 100.",
+    "derivation_mode": "known failure and baseline behavior",
+    "privacy_copyright_note": "Local generated report."
+  },
+  {
+    "source_id": "YT-COMMANDER-TOOLS",
+    "source_type": "YouTube-derived player evidence",
+    "repository_path": "docs/research/placementResearch/YT-has-commander-youtube-improved-your-decks-refined-player-evidence.md",
+    "title": "Has Commander YouTube Improved Your Decks - refined player evidence",
+    "date": "not specified in source",
+    "relevant_section": "Scryfall literacy, deck ownership, card jobs, synergy, ramp/draw/removal/protection",
+    "evidence_limitation": "Creator-audience comments; top sorting; evidence of language themes, not population prevalence.",
+    "derivation_mode": "paraphrased short search concepts",
+    "privacy_copyright_note": "No long transcript/comment reproduction in corpus."
+  },
+  {
+    "source_id": "REDDIT-COMMANDER-DISCUSSION",
+    "source_type": "Reddit-derived Commander discussion",
+    "repository_path": "docs/research/cleaned_EDH_commander_discussion.md",
+    "title": "Cleaned EDH Commander Discussion",
+    "date": "not specified in source",
+    "relevant_section": "Commander deck evolution, tribe/deck labels, precons, ramp, tokens, recursion, commander reliance",
+    "evidence_limitation": "Cleaned discussion excerpt; useful for language shape and deck-context phrases, not card-rule authority.",
+    "derivation_mode": "paraphrased and shortened utterances",
+    "privacy_copyright_note": "Corpus avoids copying long discussion passages."
+  },
+  {
+    "source_id": "CECOS-DRAFT4-BOUNDARIES",
+    "source_type": "CECOS governance audit",
+    "repository_path": "docs/audits/vm551-placement-system/evidence-integration-and-cecos-readjudication.md",
+    "title": "VM-551 Evidence Integration and CECOS Draft.4 Re-adjudication",
+    "date": "2026-08-21 local repo context",
+    "relevant_section": "Corpus/provenance boundaries, direct observation versus derived interpretation",
+    "evidence_limitation": "Governance source, not MTG semantic source.",
+    "derivation_mode": "methodology constraint",
+    "privacy_copyright_note": "Local governance document."
+  },
+  {
+    "source_id": "MAZE-CONTRACT",
+    "source_type": "product contract",
+    "repository_path": "docs/contracts/maze-query-contract.md",
+    "title": "Maze Query Contract",
+    "date": "current repository authority",
+    "relevant_section": "Plain Reading result and diagnostics shape",
+    "evidence_limitation": "Defines current behavior surface, not expected future semantics.",
+    "derivation_mode": "baseline structure",
+    "privacy_copyright_note": "Local product documentation."
+  },
+  {
+    "source_id": "PLAIN-DEEP-DIVE",
+    "source_type": "architecture analysis",
+    "repository_path": "docs/architecture/maze-plain-reading-deep-dive.md",
+    "title": "Implicit Maze Plain Reading to Scryfall Deep Dive",
+    "date": "2026-07-03 and later VM notes",
+    "relevant_section": "Known compiler strengths, lossy/relational limits, color/identity grammar",
+    "evidence_limitation": "Architecture and known behavior analysis; not a player corpus by itself.",
+    "derivation_mode": "known product failure and coverage planning",
+    "privacy_copyright_note": "Local product documentation."
+  },
+  {
+    "source_id": "OWNER-KNOWN-FAILURES",
+    "source_type": "owner-provided known failure examples",
+    "repository_path": "pasted VM-578 task request",
+    "title": "Known Plain Reading failures A and B",
+    "date": "2026-08-21 local repo context",
+    "relevant_section": "Colorless wolves with deathouch/haste; blue-green worm ETB support",
+    "evidence_limitation": "Authoritative as regression examples, not as broad semantic implementation approval.",
+    "derivation_mode": "verbatim short search utterances",
+    "privacy_copyright_note": "Owner-supplied task text."
+  },
+  {
+    "source_id": "CONSTRUCTED-COVERAGE",
+    "source_type": "constructed coverage cases",
+    "repository_path": "scripts/baseline-maze-player-language-corpus.mjs",
+    "title": "VM-578 controlled coverage and adversarial cases",
+    "date": "2026-08-21",
+    "relevant_section": "Negative cases, scope modifiers, ambiguity pairs, typos, breaker candidates",
+    "evidence_limitation": "Constructed to exercise known language behavior; not represented as observed player frequency.",
+    "derivation_mode": "constructed",
+    "privacy_copyright_note": "No external text copied."
+  }
+]

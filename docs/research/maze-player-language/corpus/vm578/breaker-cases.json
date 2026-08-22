@@ -1,0 +1,50 @@
+[
+  {
+    "breaker_id": "VM578-B01",
+    "utterance": "show me mono black cards for my simic commander deck",
+    "purpose": "Contradictory actual color plus deck identity fit.",
+    "expected_safe_behavior": "Expose zero-result risk or contradictory constraints without runtime crash."
+  },
+  {
+    "breaker_id": "VM578-B02",
+    "utterance": "goblins but not creatures",
+    "purpose": "Subtype versus noncreature contradiction.",
+    "expected_safe_behavior": "Preserve both constraints and avoid silently dropping the exclusion."
+  },
+  {
+    "breaker_id": "VM578-B03",
+    "utterance": "exactly blue and green cards but no blue cards",
+    "purpose": "Exact inclusion conflicts with explicit exclusion.",
+    "expected_safe_behavior": "Flag contradiction or emit transparent constraints."
+  },
+  {
+    "breaker_id": "VM578-B04",
+    "utterance": "flying haste deathtouch lifelink trample vigilance ward menace creatures under one mana",
+    "purpose": "Excessive hard keyword pile.",
+    "expected_safe_behavior": "Compile without crash and surface high zero-result risk if available."
+  },
+  {
+    "breaker_id": "VM578-B05",
+    "utterance": "cards that counter counters but not counterspells",
+    "purpose": "Nested counter ambiguity.",
+    "expected_safe_behavior": "Distinguish counter objects from counterspell function or report ambiguity."
+  },
+  {
+    "breaker_id": "VM578-B06",
+    "utterance": "not red or blue dragons",
+    "purpose": "Ambiguous NOT/OR scope.",
+    "expected_safe_behavior": "Do not flatten to an unexamined AND/OR interpretation without diagnostics."
+  },
+  {
+    "breaker_id": "VM578-B07",
+    "utterance": "equipment for creatures but not equipment",
+    "purpose": "Self-negating subject.",
+    "expected_safe_behavior": "Report conflict or conservative unresolved behavior."
+  },
+  {
+    "breaker_id": "VM578-B08",
+    "utterance": "cards like sol ring but not artifacts and not mana",
+    "purpose": "Reference similarity with exclusions against the reference's core properties.",
+    "expected_safe_behavior": "Avoid fabricated similarity expansion."
+  }
+]
