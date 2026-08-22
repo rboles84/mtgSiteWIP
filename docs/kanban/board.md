@@ -47,7 +47,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-579 - Archscry Dev Review + Placement Validation](in-progress/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the core direct dossier/real-engine seams; remaining bounded remediation carries direct-review identity into Maze as transient context and orders the selector by authoritative identity taxonomy without touching saved placement or normal handoff behavior.
+- [VM-579 - Archscry Dev Review + Placement Validation](in-progress/VM-579-archscry-dev-review-placement-validation.md) - independent RobQA passed exact remediation candidate `e97eeea`; VM-579 remains In Progress for the owner's bounded recheck of transient direct-review Maze context and authoritative selector taxonomy order.
 
 ## Blocked
 

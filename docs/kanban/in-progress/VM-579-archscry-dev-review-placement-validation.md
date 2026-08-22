@@ -70,7 +70,7 @@ Preflight conclusion: The implementation reuses the existing production dossier 
 - [x] Direct-review Maze navigation carries the selected dossier identity as explicit transient context without fabricating placement state or modifying the saved placement/persistent Maze handoff.
 - [x] The selector groups current identities deterministically as mono colors, guilds, colleges, shards, wedges, four-color identities, Colorless, then WUBRG, using authoritative metadata rather than a handwritten identity registry.
 - [x] Focused tests cover Dimir, Jund, Colorless, WUBRG, and at least one college/four-color identity entering Maze with matching dossier context while normal placement/Maze behavior remains unchanged.
-- [ ] A new exact remediation candidate receives independent RobQA before the bounded owner recheck.
+- [x] A new exact remediation candidate receives independent RobQA before the bounded owner recheck.
 
 ## Files Likely Impacted
 
@@ -237,4 +237,20 @@ Separately routed findings, not part of VM-579 remediation:
 - VM-582: mobile provider controls stretching across Precon Starting Points and Commander Browsing Starts. The responsible pre-existing `.service-chip` narrow-width rule was not introduced or modified by VM-579.
 - VM-583: mobile Maze search-input/control vertical gap. Maze CSS/runtime were not changed by VM-579.
 
-Do not close VM-579 until independent RobQA passes a new exact candidate and the owner rechecks only the corrected Maze context and selector ordering.
+## Owner Remediation Independent RobQA Outcome — 2026-08-22
+
+- Verdict: **PASS — Owner Review Ready**.
+- Exact reviewed remediation candidate: `e97eeeae144e5c193594ad2b97c1e5d7d25f53ee`.
+- Exact parent: `07b5b3e2f44100943283cb782ae34e892f873e32`.
+- Independent handoff: `docs/handoffs/2026-08-22-1534-poincare-vm579-owner-remediation-robqa.md`.
+- Independent automation confirmed the taxonomy counts/order, all required identity launches, byte-exact persistence isolation, normal Jund production handoff, telemetry/gating/isolation, and focused real-engine behavior.
+- Independent desktop/mobile product QA confirmed Dimir, WUBRG, and Silverquill direct-review Maze context, normal Jund behavior, Silverquill return navigation, zero overlap/overflow, and zero console errors.
+- The two placement failures and one shared Maze metadata failure were independently reproduced from the exact parent and remain inherited baselines.
+- No parallel renderer/engine, fabricated placement, persistent-schema change, architectural expansion, or VM-580–VM-583 implementation was found.
+
+Bounded owner recheck only:
+
+1. Confirm a directly reviewed dossier enters Maze with that same identity context in the owner's saved-state environment.
+2. Confirm the selector sequence is the desired mono, guild, college, shard, wedge, four-color, Colorless, WUBRG review order.
+
+Do not close VM-579 until the owner rechecks the corrected Maze context and selector ordering on the independently passed exact candidate.
