@@ -3,7 +3,7 @@
 - Agent name: Codex
 - Task requested: Execute the attached Archscry Phase 2 product-contract goal from accepted baseline `e875c624d2c3463aa6af9b8ab473c7401a4d6d14`, produce only the three scoped product artifacts, complete RobDev self-review, and obtain fresh independent RobQA.
 - Related work: VM-551 Gate B1, VM-579, VM-586, VM-587, VM-588.
-- Product-artifact status: `PASS — RobDev Ready`; independent RobQA pending.
+- Product-artifact status: `PASS — Owner Review Ready`
 
 ## Phase 3 Purpose
 
@@ -78,7 +78,7 @@ Phase 3 may recommend a versioned implementation candidate only when all proof c
 - `docs/contracts/archscry-product-contract-v1.md`
 - `docs/contracts/archscry-phase-2-contract-fixtures.md`
 - `docs/handoffs/2026-08-23-1344-codex-archscry-phase-3-proof-handoff.md`
-- `docs/kanban/in-progress/VM-588-archscry-phase-2-product-contract.md`
+- `docs/kanban/done/VM-588-archscry-phase-2-product-contract.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md` at closeout
 
@@ -156,3 +156,107 @@ The fresh reviewer must append exact candidate binding, QA classification, selec
 - `PASS — Owner Review Ready`
 - `FAIL — Return to RobDev`
 - `BLOCKED`
+
+## Independent RobQA Review — Exact Candidate
+
+The pre-review `PENDING` marker above records the candidate state before fresh review. This section is the completed independent disposition.
+
+### Review Identity And Binding
+
+- Agent name: Independent RobQA
+- Task requested: Independently challenge the Archscry Phase 2 product contract against the owner prompt, accepted Phase 1 baseline, current repository authorities, required fixtures, and exact candidate scope.
+- QA tier: `QA-0` — documentation, product-contract semantics, and non-runtime governance only.
+- Accepted baseline: `e875c624d2c3463aa6af9b8ab473c7401a4d6d14`
+- Exact candidate reviewed: `b30abe05c495b9f559e0e264b45ec5bcd07b72e1`
+- Candidate parent: `e875c624d2c3463aa6af9b8ab473c7401a4d6d14`
+- Ancestry: PASS — the accepted baseline is the candidate's direct parent and an ancestor.
+- Review workspace: candidate was exact `HEAD`; the only working-tree item before this appended review was the preserved untracked `docs/research/maze-player-language/corpus/` boundary.
+
+### Files Reviewed
+
+- `AGENTS.md`; repository-local RobDev and RobQA skills, usage guides, and frozen `docs/dev/RobDevPass.md` / `docs/qa/RobQAPass.md` authorities.
+- Owner scope `C:\Users\obake\Downloads\archscry-phase2-product-contract-goal-mode-master-prompt.md`.
+- Exact `e875c624..b30abe05` diff and all five candidate paths.
+- Phase 1 acceptance/freeze, behavioral-model roadmap, VM-579, VM-586, VM-587, recent related handoffs, handoff index, board, and VM-588.
+- Current Gate B1 instrument/model/engine, Gate A public normalization, identity-lens contract, result envelope, session/profile ownership, versioning guidance, telemetry boundary, Commander Compass, Taste Profile backlog, dossier/Maze/Loom routing, witnesses, fixtures, and QA seams.
+
+### Change Classification
+
+- Changed behavior: repository policy now defines a bounded per-reading prior, immutable behavior-first observed result, pure set-based reconciliation, reason-bearing exploration, and the proof boundary for a future experienced-player route experiment.
+- Protected behavior intentionally untouched: current questionnaire, mappings, candidate formation, ranking, scoring, qualification, naming, stopping, refinement, public result states, Yore behavior, dossiers, Commander guidance data, Maze/Loom runtime, persistence implementation/schema, telemetry, witnesses, fixtures, UI, deployment, and VM-578.
+- Realistic regressions challenged: self-report scoring or qualification, prior-driven pruning or stopping, Yore forcing, composite result meaning, mechanic-to-placement leakage, fake selection among multiple priors, suppression of `insufficient`, mutation of historical evidence, stale attribution across readings, duplicated product/state/QA machinery, unsupported exploration reasons, premature four-Gate sufficiency, and documentation-forest scope drift.
+
+### Tests Selected And Results
+
+| Test | Reason | Result |
+| --- | --- | --- |
+| Exact HEAD, parent, and ancestry check | Bind review to the requested candidate and accepted baseline | PASS — candidate is exact `HEAD`; baseline is its direct parent and ancestor |
+| Exact changed-path allowlist | Detect runtime, product-data, VM-578, or extra-deliverable drift | PASS — exactly three product artifacts plus VM-588 card/board governance; zero runtime/data/test/script paths |
+| Independent authority trace | Verify that the contract reuses rather than duplicates current placement, result, state, Compass, dossier, Maze, Loom, fixture, witness, and QA owners | PASS — two genuinely missing semantic concepts are added; all implementation machinery is reused or deferred |
+| Controlling-requirement adversarial read | Challenge every prior-isolation, Yore, mechanic, multi-prior, insufficiency, history, and stale-reading requirement | PASS — no prohibited influence or replacement result is authorized |
+| Four-Gate checkpoint check | Verify that Phase 2 does not invent or approve an arbitrary shortened floor | PASS — current C01–C04 Gate sequence is fixed and prior-independent before adaptive Hall selection; both contract and handoff explicitly say four is only the earliest Phase 3 candidate and is not sufficient by declaration |
+| Exploration authority check | Prevent preference context from becoming an implicit mechanic-to-identity mapper | PASS — preference terms require reviewed ownership; a direction requires an approved downstream relationship and `why this appeared`; unsupported relationships are preserved as context or omitted |
+| Fixture structure and coherence check | Verify complete coverage without fixture-specific states | PASS — exactly 12 unique contiguous fixtures, all five reconciliation states, all five allowed exploration reasons, and coherent agreement/disagreement/Yore/mechanic/history cases |
+| Multiple-prior and result-cardinality read | Detect a fake winner or hidden composite outcome | PASS — identity claims are an unordered set; observed public names retain current cardinality; reconciliation is set comparison with no magnitude, score, or winner |
+| Relative Markdown link check | Detect broken internal contract routes | PASS — 9 relative links checked, 0 missing at the exact candidate |
+| `git diff --check e875c624..b30abe05` | QA-0 diff hygiene | PASS |
+
+### Independent Findings And Regression Invariants
+
+- No blocker, major, minor, or correctness finding remains.
+- Prior isolation invariant: no prior field may enter candidate membership, ranking, score, qualification, naming, stopping, or current public-result normalization. Phase 3 may test only a post-floor tie between otherwise equally legitimate question opportunities and must fall back to the current prior-blind route on any uncertainty.
+- Yore invariant: a Yore prior may remain visible as player-authored context or approved dossier exploration, but it cannot convert the current bounded behavioral result into named Yore.
+- Mechanic invariant: a mechanic/playstyle claim may explain or open an approved downstream path; it cannot map itself to an identity, modify placement, or combine with placement into another result.
+- Cardinality invariant: multiple prior claims create neither ordering nor a winner; multiple responsible observed directions remain multiple; a small exploration composition may prioritize reasons without converting those reasons into placement strength.
+- Reading-state invariant: each completed reading binds its own prior snapshot, finalized observed result, and reconciliation; later edits and retakes cannot mutate or cross-attribute that bundle.
+- Reuse invariant: Commander Compass, Taste Profile deferral, dossier, Maze, Loom, normalized result/session state, telemetry, VM-579/VM-586 witnesses, and RobQA remain their existing owners. Phase 2 creates no duplicate engine, profile store, recommender, fixture framework, or QA platform.
+- Deliverable invariant: the candidate contains only the normative contract, compact fixture suite, and Phase 3 proof handoff as product deliverables; VM-588 card/board changes are required governance.
+
+### Tests Intentionally Skipped
+
+- Browser, rendered-product, accessibility, and responsive suites: no visible UI, copy surface, interaction, route, or CSS changed.
+- Placement, all-37 witness replay, synthetic journeys, mutation, recovery, and exhaustive engine suites: no questionnaire, mapping, score, candidate, qualification, stopping, public result, or witness behavior changed; the accepted Phase 1 baseline remains controlling.
+- Persistence, telemetry, migration, network, and deployment checks: Phase 2 changes no schema, event, storage implementation, provider, or release surface.
+
+### CPU-Heavy Validation
+
+`NOT REQUIRED`
+
+No QA-4 or QA-5 protected behavior changed. Heavy suites would not exercise the changed documentation contract and were not run.
+
+### Self-QA Rendered Evidence
+
+Not applicable. This is a QA-0 documentation/product-contract candidate with no rendered product change.
+
+### Files Changed By Independent RobQA
+
+- `docs/handoffs/2026-08-23-1344-codex-archscry-phase-3-proof-handoff.md` — appended this exact-candidate independent review only.
+
+No product-contract file, fixture file, runtime file, VM-588 card/board file, handoff index, or VM-578 file was modified.
+
+### Decisions, Risks, And Remaining Owner Judgment
+
+- Decision: the three product artifacts are sufficient to unlock separately authorized Phase 3 planning without an unresolved Phase 2 implementation-policy blocker.
+- Decision: the four fixed Gate observations are a repository-grounded earliest test checkpoint only; Phase 3 must prove or reject their sufficiency and cannot inherit it as an approved fact.
+- Remaining risk: Phase 3 may find that no post-floor prior-assisted tie break produces material savings without harming unexpected-identity discovery. The required fallback is the unchanged full prior-blind route, so this is a bounded experiment outcome rather than a Phase 2 defect.
+- Remaining owner judgment: accept, modify, or reject the product shape—especially the prior/reconciliation vocabulary, categorical exploration ordering, and the proposed Phase 3 proof objective. The owner is not asked to re-prove link integrity, fixture cardinality, source ownership, candidate scope, or prior-isolation mechanics.
+
+### Not Touched
+
+- The two contract documents; runtime JavaScript/CSS/HTML; questionnaire/model/mappings; dossiers and Commander data; Maze/Loom; persistence/schema; telemetry; tests/witnesses; deployment; VM-588 card/board; handoff index; and VM-578/player-language corpus.
+
+### Follow-Up Recommendation / Next Suggested Agent
+
+Present this exact candidate and the three bounded product-judgment points above to the owner. If accepted, use the existing VM-588/roadmap lifecycle for closeout and create a separately authorized Phase 3 proof card; do not begin a shortened-path implementation from Phase 2 alone.
+
+### Disposition
+
+`PASS — Owner Review Ready`
+
+## Phase 2 Closeout
+
+- Exact product-contract candidate reviewed: `b30abe05c495b9f559e0e264b45ec5bcd07b72e1`.
+- Final disposition: `PASS — Owner Review Ready`.
+- Post-review closeout changes are governance only: move VM-588 to Done, update its board/link path, index this handoff, and record the final disposition. No contract semantics, fixture row, Phase 3 proof rule, runtime, data, test, or VM-578 content changed.
+- Owner packet: review only the prior/reconciliation vocabulary, categorical exploration ordering, and Phase 3 proof objective. Deterministic source ownership, fixture cardinality, link integrity, and prior-isolation checks are complete.
+- Phase 3 remains unauthorized until owner acceptance and a separate bounded card.

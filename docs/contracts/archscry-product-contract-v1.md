@@ -6,7 +6,7 @@ Phase: Archscry Phase 2 — New Product Contract
 
 Starting baseline: `e875c624d2c3463aa6af9b8ab473c7401a4d6d14`
 
-Related card: [VM-588](../kanban/in-progress/VM-588-archscry-phase-2-product-contract.md)
+Related card: [VM-588](../kanban/done/VM-588-archscry-phase-2-product-contract.md)
 
 ## 1. Product Promise
 

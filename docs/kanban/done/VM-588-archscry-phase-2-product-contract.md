@@ -2,7 +2,7 @@
 
 ## Status
 
-In Progress
+Done — Owner Review Ready
 
 ## Type
 
@@ -85,4 +85,9 @@ No UI, runtime, data, questionnaire, mapping, engine, dossier, telemetry, persis
 
 ## Current Gate
 
-`PASS — RobDev Ready`; exact documentation candidate and fresh independent RobQA are next.
+`PASS — Owner Review Ready`
+
+- Exact independently reviewed candidate: `b30abe05c495b9f559e0e264b45ec5bcd07b72e1`.
+- Fresh independent RobQA is recorded in `docs/handoffs/2026-08-23-1344-codex-archscry-phase-3-proof-handoff.md`.
+- Owner review is limited to accepting, modifying, or rejecting the prior/reconciliation vocabulary, categorical exploration ordering, and Phase 3 proof objective.
+- No Phase 3 implementation is authorized by this closeout.

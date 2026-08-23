@@ -43,14 +43,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-588 - Archscry Phase 2 Product Contract](in-progress/VM-588-archscry-phase-2-product-contract.md) - defining the lean prior/observed-fit/reconciliation contract, 12 design fixtures, and Phase 3 proof gate from accepted baseline `e875c62`; no UI, questionnaire, mapping, engine, dossier, persistence, telemetry, or Phase 3 implementation.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
 
+- [VM-588 - Archscry Phase 2 Product Contract](done/VM-588-archscry-phase-2-product-contract.md) - exact candidate `b30abe05` passed fresh independent RobQA as Owner Review Ready; the three scoped artifacts define separate prior/observed facts, pure reconciliation, bounded reason-bearing exploration, 12 coherent fixtures, immutable reading semantics, and the Phase 3 proof boundary with no runtime change.
 - [VM-587 - Yore Behavioral Placement Remediation](done/VM-587-yore-behavioral-placement-remediation.md) - independently verified evidence stop: the corrected current population is Breya plus 11 legal exact-WUBR Partner pairs, but no two constructs pass independence, observability, semantic necessity, and anti-proxy review; Yore remains bounded with placement, dossier, runtime, and all other identities unchanged.
 - [VM-586 - Archscry Current-State Evidence & Red-Team Reconciliation](done/VM-586-archscry-current-state-evidence-red-team-reconciliation.md) - completed all-37 dossier/screenshot/trace evidence, both verified workbooks, actual-source red-team reconciliation, and the bounded owner queue; exact replacement candidate `fb2826aa` passed fresh independent RobQA as Owner Review Ready with VM-578 untouched.
 - [VM-583 - Maze Mobile Search Control Gap](done/VM-583-maze-mobile-search-control-gap.md) - owner accepted the compact mobile Maze search stack after the responsible max-content grid correction; lifecycle closeout completed with implementation frozen.
