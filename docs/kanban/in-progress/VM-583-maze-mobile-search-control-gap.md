@@ -72,7 +72,7 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 - [x] At approximately 390px, the owning mobile search layout structurally prevents any inherited flex basis from creating vertical blank space.
 - [x] `#search-input` bottom to Search top remains bounded by the actual design row gap and an explicit compact maximum.
 - [x] Textarea, actions, all three modes, and zero horizontal overflow remain protected.
-- [ ] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
+- [x] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
 
 ## Owner-rejection RobDev remediation — 2026-08-22
 
@@ -81,3 +81,10 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 - At 390x844 the computed grid is exactly `88px 60px 60px 60px 60px 60px`; `.search-wrap` and the textarea both measure 88px, Search begins 10.39px below the textarea against the 10.4px design gap, and horizontal overflow is zero.
 - Real clicks confirm the same compact geometry in Plain Reading, Operator's Hand, and Loom. Fresh rendered optical QA shows Search immediately below the textarea and the five actions in a natural stack. Desktop 1440x1000 retains the existing flex/wrap layout and zero overflow.
 - The strengthened browser invariant requires the grid owner, wrapper/textarea height equality, design-gap match, an explicit <=24px maximum, usable actions, all three modes, and zero overflow. Focused Maze/mode tests, JS/HTML lint, frontend smoke, and `git diff --check` pass. Fresh exact-SHA RobQA remains required.
+
+## Owner-rejection remediation independent exact-SHA RobQA — 2026-08-22
+
+- **PASS — Owner Review Ready** on exact remediation candidate `3fb00c0319428204d641bf636adfaa78ba54b0e0` against parent `89db2c136b0fbe7b6b5182700e8cc8cb2428c29d`.
+- Fresh independent review audited the rendered ancestor chain at `390x844`, confirmed the one-column max-content grid tracks, matched the `10.390625px` textarea-to-Search gap to the `10.4px` design gap and explicit `<=24px` bound, and found zero horizontal overflow.
+- Search and all following actions, all three Maze modes, and desktop flex/wrap behavior remained green; focused and protected automation passed with zero rendered-console errors.
+- Awaiting only the owner's mobile Maze textarea-to-Search spacing recheck. Do not merge, push, close, or mark Done before explicit acceptance.

@@ -77,7 +77,7 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - [x] Ordinary single-face hover preview has no visible or focusable transform control.
 - [x] Repeated Nicol Bolas hover flips retain the same interactive source/preview boundary through at least three consecutive face swaps.
 - [x] Card Details flip remains functional.
-- [ ] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
+- [x] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
 
 ## Owner-rejection RobDev remediation — 2026-08-22
 
@@ -86,3 +86,10 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - The strengthened browser invariant delays the alternate-face image, proves the same overlay node and hit box survive, then performs real pointer movement through `source -> preview -> flip -> preview -> flip back -> preview -> flip again -> leave -> dismiss`; Card Details flips Ravager -> Arisen -> Ravager afterward.
 - Fresh-origin 1440x1000 RobDev QA repeated three human-speed flips, moved preview -> source -> preview after the third swap, and dismissed only after leaving both. The settled Arisen face rendered correctly and browser console errors were zero.
 - Focused transform/shared-face/dev-review tests, JS/HTML lint, frontend smoke, and `git diff --check` pass. Fresh exact-SHA RobQA remains required.
+
+## Owner-rejection remediation independent exact-SHA RobQA — 2026-08-22
+
+- **PASS — Owner Review Ready** on exact remediation candidate `3fb00c0319428204d641bf636adfaa78ba54b0e0` against parent `89db2c136b0fbe7b6b5182700e8cc8cb2428c29d`.
+- Fresh independent review repeated three real-pointer Flip clicks with preview re-entry between swaps, verified the same singleton overlay and stable `315x440` hit geometry through delayed alternate-face media, and confirmed dismissal only after leaving both source and preview.
+- Ordinary-card hidden state and Card Details Ravager -> Arisen -> Ravager remained green; focused and protected automation passed with zero rendered-console errors.
+- Awaiting only the owner's repeated Nicol Bolas hover-flipping recheck. Do not merge, push, close, or mark Done before explicit acceptance.
