@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-586 - Archscry Current-State Evidence & Red-Team Reconciliation](in-progress/VM-586-archscry-current-state-evidence-red-team-reconciliation.md) - automate all-37 direct-review dossiers, screenshots, current witness traces, readable workbooks, red-team reconciliation, and a bounded owner-review queue from exact baseline `db9a16a` without changing runtime product behavior or touching VM-578.
+
 
 ## Blocked
 

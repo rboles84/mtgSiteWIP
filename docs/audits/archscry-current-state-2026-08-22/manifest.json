@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.0",
+  "audit_run_id": "archscry-current-state-2026-08-22-db9a16a40c2b",
+  "collection_started_at": "2026-08-23T04:51:32.152Z",
+  "collection_completed_at": "2026-08-23T04:51:35.836Z",
+  "timezone": "America/Denver",
+  "exact_product_baseline_sha": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+  "repository_state": {
+    "baseline_sha": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+    "head": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+    "branch": "codex/vm586-archscry-current-state-evidence",
+    "local_main": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+    "origin_main": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+    "ahead": 0,
+    "behind": 0,
+    "dirty_paths": [
+      "gitignore",
+      "docs/kanban/board.md",
+      "package.json",
+      "docs/audits/archscry-current-state-2026-08-22/README.md",
+      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-current-state.json",
+      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-exceptions.md",
+      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-summary.csv",
+      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-current-state.json",
+      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-exceptions.md",
+      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-summary.csv",
+      "docs/audits/archscry-current-state-2026-08-22/manifest.json",
+      "docs/audits/archscry-current-state-2026-08-22/reconciliation/owner-review-queue.md",
+      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.csv",
+      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.md",
+      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-source-inventory.md",
+      "docs/audits/archscry-current-state-2026-08-22/workbook-qa.json",
+      "docs/kanban/in-progress/VM-586-archscry-current-state-evidence-red-team-reconciliation.md",
+      "docs/research/maze-player-language/corpus/vm578.zip",
+      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx",
+      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx.inspect.ndjson",
+      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx",
+      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx.inspect.ndjson",
+      "scripts/audit/archscry-current-state.mjs",
+      "scripts/audit/archscry-red-team-reconciliation.mjs",
+      "scripts/audit/build-archscry-current-state-workbooks.mjs",
+      "scripts/audit/build-workbook-preview-contact-sheets.py"
+    ],
+    "excluded_unrelated_paths": [
+      "docs/research/maze-player-language/corpus/vm578.zip"
+    ],
+    "product_runtime_diff_from_baseline": []
+  },
+  "identity_authority": {
+    "path": "data/identity-layers.json",
+    "version": "2026-05-27",
+    "sha256": "b647a79aa5259c845c94c44379d4c5393903e981d3fdad4de31b91b7f3b0d987",
+    "expected_count": 37,
+    "actual_count": 37,
+    "ordered_keys": [
+      "W",
+      "U",
+      "B",
+      "R",
+      "G",
+      "WU",
+      "WR",
+      "BR",
+      "BG",
+      "RG",
+      "UB",
+      "UR",
+      "WB",
+      "WG",
+      "UG",
+      "LOREHOLD",
+      "PRISMARI",
+      "QUANDRIX",
+      "SILVERQUILL",
+      "WITHERBLOOM",
+      "BANT",
+      "ESPER",
+      "GRIXIS",
+      "JUND",
+      "NAYA",
+      "ABZAN",
+      "JESKAI",
+      "MARDU",
+      "SULTAI",
+      "TEMUR",
+      "DUNE",
+      "GLINT",
+      "INK",
+      "WITCH",
+      "YORE",
+      "COLORLESS",
+      "WUBRG"
+    ]
+  },
+  "dossier": {
+    "review_route": "/archscry/index.html?vm-dev-review=1&panel=maze-discovery&layout=all&vox_telemetry=mock",
+    "render_mode": "DIRECT_DOSSIER_REVIEW",
+    "placement_reachability": "NOT_ASSERTED",
+    "browser": "Edg/151.0.4129.101",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "device_scale_factor": 1,
+      "zoom_percent": 100
+    },
+    "counts": {
+      "expected": 37,
+      "collected": 37,
+      "screenshots": 37,
+      "exceptions": 37,
+      "blocker": 0,
+      "major": 0,
+      "minor": 0,
+      "note": 37
+    },
+    "combined_json": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-current-state.json",
+    "summary_csv": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-summary.csv",
+    "exceptions_markdown": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-exceptions.md",
+    "raw_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/dossier/raw",
+    "screenshot_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/dossier/screenshots",
+    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/dossier-review-current-production-state.xlsx"
+  },
+  "engine": {
+    "counts": {
+      "pass_match": 36,
+      "mismatch": 0,
+      "no_current_witness": 0,
+      "stale_witness": 0,
+      "no_result": 1,
+      "engine_error": 0
+    },
+    "versions": {
+      "engine": "vm551-gate-b1-placement-engine-v1",
+      "result": "2026-08-09-gate-b1-v1",
+      "instrument": "vm551-gate-b1-instrument-v2",
+      "mapping": "vm551-gate-b1-mapping-v2-instrument-completion"
+    },
+    "witness_inventory": {
+      "authority": "Current-engine live route plus existing approved optional refinement; authored preview routes are excluded.",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "schema_version": "1.0.0",
+      "generated_from_model_version": "vm551-gate-b1-placement-engine-v1",
+      "expected_rows": 37,
+      "actual_rows": 37,
+      "named_witnesses": 36,
+      "intentional_bounded_witnesses": 1,
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea"
+    },
+    "combined_json": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-current-state.json",
+    "summary_csv": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-summary.csv",
+    "exceptions_markdown": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-exceptions.md",
+    "trace_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/engine/traces",
+    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/engine-validation-current-production-state.xlsx"
+  },
+  "red_team": {
+    "status": "COMPLETE",
+    "source_count": 14,
+    "finding_count": 16,
+    "disposition_counts": {
+      "CONFIRMED_CURRENT": 1,
+      "DISPROVEN_CURRENT": 9,
+      "NEEDS_PLAYER_DATA": 3,
+      "PRODUCT_DESIGN": 2,
+      "UNCLEAR_CURRENT": 1
+    },
+    "owner_review_count": 7,
+    "source_inventory": "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-source-inventory.md",
+    "reconciliation_markdown": "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.md",
+    "reconciliation_csv": "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.csv",
+    "owner_review_queue": "docs/audits/archscry-current-state-2026-08-22/reconciliation/owner-review-queue.md"
+  },
+  "collector": {
+    "path": "scripts/audit/archscry-current-state.mjs",
+    "sha256": "8f4533c7680f2462a412fa66cd96f16db9fe60168b3e6f1f5dfc217371351d1c",
+    "version": "vm586-archscry-current-state-v1"
+  },
+  "artifacts": [
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-current-state.json",
+      "sha256": "253f566fdf082a3d731435557674a367a4d0ddc4652650fd778ae2fcddecc78b",
+      "bytes": 5399223
+    },
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-summary.csv",
+      "sha256": "4ee96b258f6ea9965802a54c961d2af317e81ceb9e892033db47730b00743d9c",
+      "bytes": 7853
+    },
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-exceptions.md",
+      "sha256": "a893920875ed7305471d202a84be2d2a9dd15a24c27f76c90db1f2e32f221888",
+      "bytes": 15856
+    },
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-current-state.json",
+      "sha256": "33aceb4621143067c380a36704a8c1d1e08a68baf0e4d4b250ca1cd85f953ae3",
+      "bytes": 99049
+    },
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-summary.csv",
+      "sha256": "985291de6680aa17110496eb4ae060f451cfe30dbe4be6f69ccda5ef225b7da2",
+      "bytes": 17725
+    },
+    {
+      "path": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-exceptions.md",
+      "sha256": "8804ed02b67e833b325b2402a691990eda340f6563031d43b565286ce3fe43f2",
+      "bytes": 2621
+    }
+  ],
+  "large_local_artifact_policy": "Screenshots, per-identity raw HTML records, and detailed traces are generated under the task output root's ignored evidence/ subtree and are hashed; they are not automatically added to Git.",
+  "telemetry_isolation": "Dossier Review used explicit mock mode; PostHog/Supabase requests were aborted; every dossier record reports zero emitted telemetry events.",
+  "environment_network_limitations": [
+    "External Scryfall image delivery was allowed but bounded; any unavailable image is classified separately as an environment/network note rather than rewritten product truth."
+  ],
+  "relevant_inherited_baseline_failures": [],
+  "completion_status": {
+    "collection": "COMPLETE",
+    "workbooks": "PENDING",
+    "red_team_reconciliation": "PENDING",
+    "robdev_self_qa": "PENDING",
+    "independent_robqa": "PENDING"
+  },
+  "workbooks": {
+    "status": "COMPLETE",
+    "dossier": {
+      "path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx",
+      "sha256": "0733866d04ce7283d2d549f0e9fc891e8cc515e363b4918c973dcb133e24305b",
+      "sheet_count": 42
+    },
+    "engine": {
+      "path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx",
+      "sha256": "f1461dcf75106dcd23ce9f8b363b7cc38aa26ed1bc5f63e048feeed2295744aa",
+      "sheet_count": 42
+    },
+    "qa": "docs/audits/archscry-current-state-2026-08-22/workbook-qa.json",
+    "previews": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/workbook-previews"
+  }
+}

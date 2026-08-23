@@ -31,6 +31,7 @@ const vm558ReviewMode = process.argv.includes("--vm558-review");
 const reviewCheckMode = process.argv.includes("--review-check");
 const reviewMode = process.argv.includes("--review") || vm558ReviewMode;
 const collectFailures = process.argv.includes("--collect-failures");
+const engineOnlyMode = process.argv.includes("--engine-only");
 const witnessPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-placement-witnesses.json");
 const reportPath = path.join(root, "docs", "audits", "vm551-all-37-dossier-closeout", "live-ui-witness-replay.json");
 const witnessArtifact = JSON.parse(fs.readFileSync(witnessPath, "utf8"));
@@ -492,6 +493,41 @@ async function replay(page, origin, witness) {
       .filter(Boolean),
   }));
   if (vm558ReviewMode) return reviewVm558CardVoiceSurface(page, witness, cardArtState, consoleErrors);
+  if (engineOnlyMode) {
+    const engineUi = await page.evaluate(() => {
+      const stored = JSON.parse(sessionStorage.getItem("vm_last_result") || "null");
+      const heroNode = document.querySelector(".guild-name");
+      const heroVisible = Boolean(heroNode && heroNode.getClientRects().length && getComputedStyle(heroNode).visibility !== "hidden");
+      return {
+        faction: stored?.faction || null,
+        result_state: stored?.result_state || null,
+        public_state: document.querySelector("[data-result-state]")?.getAttribute("data-result-state") || (document.querySelector(".guild-name") ? "named" : "unknown"),
+        state: heroVisible ? "named" : stored?.result_state || "unknown",
+        hero: heroVisible ? heroNode.textContent?.trim() || "" : "",
+        hero_visible: heroVisible,
+        evidence_count: (stored?.evidence_ledger || stored?.evidence_trail || []).length,
+        document_overflow: document.documentElement.scrollWidth > window.innerWidth + 1,
+      };
+    });
+    if (witness.expected_public_contract === "NAMED_DOSSIER") {
+      assert.equal(engineUi.faction, witness.identity_key, `${witness.identity_key} live UI replay selected the wrong named result`);
+      assert.ok(["primary", "close", "tied"].includes(engineUi.result_state), `${witness.identity_key} live UI replay lost its responsible named state`);
+      assert.ok(engineUi.hero, `${witness.identity_key} live UI replay omitted the named dossier hero`);
+    } else {
+      assert.ok(["insufficient", "contradictory", "mixed"].includes(engineUi.result_state), `${witness.identity_key} bounded live UI replay lost its uncertainty state`);
+      assert.equal(engineUi.hero_visible, false, `${witness.identity_key} bounded live UI replay rendered a named dossier`);
+    }
+    assert.ok(engineUi.evidence_count > 0, `${witness.identity_key} live UI replay lost its evidence ledger`);
+    assert.equal(engineUi.document_overflow, false, `${witness.identity_key} live UI result overflowed at ${viewportName}`);
+    return {
+      identity_key: witness.identity_key,
+      mode: "engine-only",
+      viewport: viewportName,
+      ...engineUi,
+      card_art_state: cardArtState.state,
+      console_errors: consoleErrors.filter((message) => !/favicon|ERR_BLOCKED_BY_CLIENT/i.test(message)),
+    };
+  }
   let rationaleModalAudit = null;
   let voiceModalAudit = null;
   if (witness.expected_public_contract === "NAMED_DOSSIER") {
