@@ -1,0 +1,637 @@
+{
+  "schema_version": "1.0.0",
+  "source": "data/scryfall/raw/oracle-cards.json",
+  "source_updated_at": "2026-08-20T21:01:56.219+00:00",
+  "rules": [
+    "A single commander's exact color identity must equal the target four-color identity.",
+    "A paired command zone must combine exactly to the target identity and use a mutually legal Partner mechanism.",
+    "Generic Partner pairs only with generic Partner; Partner variants pair only with the same variant; named Partner and Doctor's companion follow their exact restrictions.",
+    "Color identity and Commander legality do not by themselves imply Vox Mana behavioral identity evidence."
+  ],
+  "results": [
+    {
+      "target_color_identity": "UBRG",
+      "count": 9,
+      "single_commander_count": 1,
+      "paired_commander_count": 8,
+      "control_sample": [
+        {
+          "command_zone": [
+            "Cecily, Haunted Mage",
+            "Elmar, Ulvenwald Informant"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Elmar, Ulvenwald Informant",
+              "color_identity": "RG",
+              "oracle_text": "Haste\nWhenever you cast your second spell each turn, untap target creature, then investigate. (Create a colorless Clue artifact token with \"{2}, Sacrifice this artifact: Draw a card.\")\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Cecily, Haunted Mage",
+              "color_identity": "UBR",
+              "oracle_text": "Your maximum hand size is eleven.\nWhenever Cecily, Haunted Mage attacks, you draw a card and you lose 1 life. Then if you have eleven or more cards in your hand, you may cast an instant or sorcery spell from your hand without paying its mana cost.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ikra Shidiqi, the Usurper",
+            "Kraum, Ludevic's Opus"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Kraum, Ludevic's Opus",
+              "color_identity": "UR",
+              "oracle_text": "Flying, haste\nWhenever an opponent casts their second spell each turn, draw a card.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ikra Shidiqi, the Usurper",
+              "color_identity": "BG",
+              "oracle_text": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ikra Shidiqi, the Usurper",
+            "Ludevic, Necro-Alchemist"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Ludevic, Necro-Alchemist",
+              "color_identity": "UR",
+              "oracle_text": "At the beginning of each player's end step, that player may draw a card if a player other than you lost life this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ikra Shidiqi, the Usurper",
+              "color_identity": "BG",
+              "oracle_text": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Kraum, Ludevic's Opus",
+            "Reyhan, Last of the Abzan"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Reyhan, Last of the Abzan",
+              "color_identity": "BG",
+              "oracle_text": "Reyhan enters with three +1/+1 counters on it.\nWhenever a creature you control dies or is put into the command zone, if it had one or more +1/+1 counters on it, you may put that many +1/+1 counters on target creature.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Kraum, Ludevic's Opus",
+              "color_identity": "UR",
+              "oracle_text": "Flying, haste\nWhenever an opponent casts their second spell each turn, draw a card.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Kydele, Chosen of Kruphix",
+            "Vial Smasher the Fierce"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Vial Smasher the Fierce",
+              "color_identity": "BR",
+              "oracle_text": "Whenever you cast your first spell each turn, choose an opponent at random. Vial Smasher deals damage equal to that spell's mana value to that player or a planeswalker that player controls.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Kydele, Chosen of Kruphix",
+              "color_identity": "UG",
+              "oracle_text": "{T}: Add {C} for each card you've drawn this turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_color_identity": "WBRG",
+      "count": 9,
+      "single_commander_count": 1,
+      "paired_commander_count": 8,
+      "control_sample": [
+        {
+          "command_zone": [
+            "Akiri, Line-Slinger",
+            "Ikra Shidiqi, the Usurper"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Akiri, Line-Slinger",
+              "color_identity": "WR",
+              "oracle_text": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ikra Shidiqi, the Usurper",
+              "color_identity": "BG",
+              "oracle_text": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Akiri, Line-Slinger",
+            "Reyhan, Last of the Abzan"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Akiri, Line-Slinger",
+              "color_identity": "WR",
+              "oracle_text": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Reyhan, Last of the Abzan",
+              "color_identity": "BG",
+              "oracle_text": "Reyhan enters with three +1/+1 counters on it.\nWhenever a creature you control dies or is put into the command zone, if it had one or more +1/+1 counters on it, you may put that many +1/+1 counters on target creature.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bruse Tarl, Boorish Herder",
+            "Ikra Shidiqi, the Usurper"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Ikra Shidiqi, the Usurper",
+              "color_identity": "BG",
+              "oracle_text": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Bruse Tarl, Boorish Herder",
+              "color_identity": "WR",
+              "oracle_text": "Whenever Bruse Tarl enters or attacks, target creature you control gains double strike and lifelink until end of turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bruse Tarl, Boorish Herder",
+            "Reyhan, Last of the Abzan"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Reyhan, Last of the Abzan",
+              "color_identity": "BG",
+              "oracle_text": "Reyhan enters with three +1/+1 counters on it.\nWhenever a creature you control dies or is put into the command zone, if it had one or more +1/+1 counters on it, you may put that many +1/+1 counters on target creature.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Bruse Tarl, Boorish Herder",
+              "color_identity": "WR",
+              "oracle_text": "Whenever Bruse Tarl enters or attacks, target creature you control gains double strike and lifelink until end of turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Elmar, Ulvenwald Informant",
+            "Wernog, Rider's Chaplain"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Elmar, Ulvenwald Informant",
+              "color_identity": "RG",
+              "oracle_text": "Haste\nWhenever you cast your second spell each turn, untap target creature, then investigate. (Create a colorless Clue artifact token with \"{2}, Sacrifice this artifact: Draw a card.\")\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Wernog, Rider's Chaplain",
+              "color_identity": "WB",
+              "oracle_text": "When Wernog, Rider's Chaplain enters or leaves the battlefield, each opponent may investigate. Each opponent who doesn't loses 1 life. You investigate X times, where X is one plus the number of opponents who investigated this way.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_color_identity": "WURG",
+      "count": 20,
+      "single_commander_count": 11,
+      "paired_commander_count": 9,
+      "control_sample": [
+        {
+          "command_zone": [
+            "Akiri, Line-Slinger",
+            "Kydele, Chosen of Kruphix"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Akiri, Line-Slinger",
+              "color_identity": "WR",
+              "oracle_text": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Kydele, Chosen of Kruphix",
+              "color_identity": "UG",
+              "oracle_text": "{T}: Add {C} for each card you've drawn this turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Akiri, Line-Slinger",
+            "Thrasios, Triton Hero"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Thrasios, Triton Hero",
+              "color_identity": "UG",
+              "oracle_text": "{4}: Scry 1, then reveal the top card of your library. If it's a land card, put it onto the battlefield tapped. Otherwise, draw a card.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Akiri, Line-Slinger",
+              "color_identity": "WR",
+              "oracle_text": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Aragorn, the Uniter"
+          ],
+          "mechanism": "single commander",
+          "components": [
+            {
+              "name": "Aragorn, the Uniter",
+              "color_identity": "WURG",
+              "oracle_text": "Whenever you cast a white spell, create a 1/1 white Human Soldier creature token.\nWhenever you cast a blue spell, scry 2.\nWhenever you cast a red spell, Aragorn deals 3 damage to target opponent.\nWhenever you cast a green spell, target creature gets +4/+4 until end of turn."
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bjorna, Nightfall Alchemist",
+            "Othelm, Sigardian Outcast"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Othelm, Sigardian Outcast",
+              "color_identity": "WG",
+              "oracle_text": "{2}, {T}: Choose target creature card in your graveyard that was put there from the battlefield this turn. Return it to the battlefield tapped.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Bjorna, Nightfall Alchemist",
+              "color_identity": "UR",
+              "oracle_text": "{T}, Sacrifice an artifact: Bjorna, Nightfall Alchemist deals 1 damage to target creature. Goad that creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bruse Tarl, Boorish Herder",
+            "Kydele, Chosen of Kruphix"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Kydele, Chosen of Kruphix",
+              "color_identity": "UG",
+              "oracle_text": "{T}: Add {C} for each card you've drawn this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Bruse Tarl, Boorish Herder",
+              "color_identity": "WR",
+              "oracle_text": "Whenever Bruse Tarl enters or attacks, target creature you control gains double strike and lifelink until end of turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_color_identity": "WUBG",
+      "count": 9,
+      "single_commander_count": 2,
+      "paired_commander_count": 7,
+      "control_sample": [
+        {
+          "command_zone": [
+            "Atraxa, Grand Unifier"
+          ],
+          "mechanism": "single commander",
+          "components": [
+            {
+              "name": "Atraxa, Grand Unifier",
+              "color_identity": "WUBG",
+              "oracle_text": "Flying, vigilance, deathtouch, lifelink\nWhen Atraxa enters, reveal the top ten cards of your library. For each card type, you may put a card of that type from among the revealed cards into your hand. Put the rest on the bottom of your library in a random order. (Artifact, battle, creature, enchantment, instant, land, planeswalker, and sorcery are card types.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Atraxa, Praetors' Voice"
+          ],
+          "mechanism": "single commander",
+          "components": [
+            {
+              "name": "Atraxa, Praetors' Voice",
+              "color_identity": "WUBG",
+              "oracle_text": "Flying, vigilance, deathtouch, lifelink\nAt the beginning of your end step, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ikra Shidiqi, the Usurper",
+            "Ishai, Ojutai Dragonspeaker"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Ishai, Ojutai Dragonspeaker",
+              "color_identity": "WU",
+              "oracle_text": "Flying\nWhenever an opponent casts a spell, put a +1/+1 counter on Ishai.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ikra Shidiqi, the Usurper",
+              "color_identity": "BG",
+              "oracle_text": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ishai, Ojutai Dragonspeaker",
+            "Reyhan, Last of the Abzan"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Reyhan, Last of the Abzan",
+              "color_identity": "BG",
+              "oracle_text": "Reyhan enters with three +1/+1 counters on it.\nWhenever a creature you control dies or is put into the command zone, if it had one or more +1/+1 counters on it, you may put that many +1/+1 counters on target creature.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ishai, Ojutai Dragonspeaker",
+              "color_identity": "WU",
+              "oracle_text": "Flying\nWhenever an opponent casts a spell, put a +1/+1 counter on Ishai.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Kydele, Chosen of Kruphix",
+            "Ravos, Soultender"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Kydele, Chosen of Kruphix",
+              "color_identity": "UG",
+              "oracle_text": "{T}: Add {C} for each card you've drawn this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ravos, Soultender",
+              "color_identity": "WB",
+              "oracle_text": "Flying\nOther creatures you control get +1/+1.\nAt the beginning of your upkeep, you may return target creature card from your graveyard to your hand.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_color_identity": "WUBR",
+      "count": 12,
+      "single_commander_count": 1,
+      "paired_commander_count": 11,
+      "command_zones": [
+        {
+          "command_zone": [
+            "Akiri, Line-Slinger",
+            "Silas Renn, Seeker Adept"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Silas Renn, Seeker Adept",
+              "color_identity": "UB",
+              "oracle_text": "Deathtouch\nWhenever Silas Renn deals combat damage to a player, choose target artifact card in your graveyard. You may cast that card this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Akiri, Line-Slinger",
+              "color_identity": "WR",
+              "oracle_text": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bjorna, Nightfall Alchemist",
+            "Wernog, Rider's Chaplain"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Wernog, Rider's Chaplain",
+              "color_identity": "WB",
+              "oracle_text": "When Wernog, Rider's Chaplain enters or leaves the battlefield, each opponent may investigate. Each opponent who doesn't loses 1 life. You investigate X times, where X is one plus the number of opponents who investigated this way.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Bjorna, Nightfall Alchemist",
+              "color_identity": "UR",
+              "oracle_text": "{T}, Sacrifice an artifact: Bjorna, Nightfall Alchemist deals 1 damage to target creature. Goad that creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Breya, Etherium Shaper"
+          ],
+          "mechanism": "single commander",
+          "components": [
+            {
+              "name": "Breya, Etherium Shaper",
+              "color_identity": "WUBR",
+              "oracle_text": "When Breya enters, create two 1/1 blue Thopter artifact creature tokens with flying.\n{2}, Sacrifice two artifacts: Choose one —\n• Breya deals 3 damage to target player or planeswalker.\n• Target creature gets -4/-4 until end of turn.\n• You gain 5 life."
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Bruse Tarl, Boorish Herder",
+            "Silas Renn, Seeker Adept"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Silas Renn, Seeker Adept",
+              "color_identity": "UB",
+              "oracle_text": "Deathtouch\nWhenever Silas Renn deals combat damage to a player, choose target artifact card in your graveyard. You may cast that card this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Bruse Tarl, Boorish Herder",
+              "color_identity": "WR",
+              "oracle_text": "Whenever Bruse Tarl enters or attacks, target creature you control gains double strike and lifelink until end of turn.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Cecily, Haunted Mage",
+            "Hargilde, Kindly Runechanter"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Hargilde, Kindly Runechanter",
+              "color_identity": "WU",
+              "oracle_text": "{T}: Add {C}{C}. Spend this mana only to cast artifact spells or activate abilities of artifacts.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Cecily, Haunted Mage",
+              "color_identity": "UBR",
+              "oracle_text": "Your maximum hand size is eleven.\nWhenever Cecily, Haunted Mage attacks, you draw a card and you lose 1 life. Then if you have eleven or more cards in your hand, you may cast an instant or sorcery spell from your hand without paying its mana cost.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Cecily, Haunted Mage",
+            "Sophina, Spearsage Deserter"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Sophina, Spearsage Deserter",
+              "color_identity": "WR",
+              "oracle_text": "Menace\nWhenever Sophina, Spearsage Deserter attacks, investigate once for each nontoken attacking creature. (To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Cecily, Haunted Mage",
+              "color_identity": "UBR",
+              "oracle_text": "Your maximum hand size is eleven.\nWhenever Cecily, Haunted Mage attacks, you draw a card and you lose 1 life. Then if you have eleven or more cards in your hand, you may cast an instant or sorcery spell from your hand without paying its mana cost.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Cecily, Haunted Mage",
+            "Wernog, Rider's Chaplain"
+          ],
+          "mechanism": "Partner—friends forever",
+          "components": [
+            {
+              "name": "Wernog, Rider's Chaplain",
+              "color_identity": "WB",
+              "oracle_text": "When Wernog, Rider's Chaplain enters or leaves the battlefield, each opponent may investigate. Each opponent who doesn't loses 1 life. You investigate X times, where X is one plus the number of opponents who investigated this way.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            },
+            {
+              "name": "Cecily, Haunted Mage",
+              "color_identity": "UBR",
+              "oracle_text": "Your maximum hand size is eleven.\nWhenever Cecily, Haunted Mage attacks, you draw a card and you lose 1 life. Then if you have eleven or more cards in your hand, you may cast an instant or sorcery spell from your hand without paying its mana cost.\nPartner—Friends forever (You can have two commanders if both have this ability.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ishai, Ojutai Dragonspeaker",
+            "Vial Smasher the Fierce"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Vial Smasher the Fierce",
+              "color_identity": "BR",
+              "oracle_text": "Whenever you cast your first spell each turn, choose an opponent at random. Vial Smasher deals damage equal to that spell's mana value to that player or a planeswalker that player controls.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ishai, Ojutai Dragonspeaker",
+              "color_identity": "WU",
+              "oracle_text": "Flying\nWhenever an opponent casts a spell, put a +1/+1 counter on Ishai.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Kraum, Ludevic's Opus",
+            "Ravos, Soultender"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Kraum, Ludevic's Opus",
+              "color_identity": "UR",
+              "oracle_text": "Flying, haste\nWhenever an opponent casts their second spell each turn, draw a card.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ravos, Soultender",
+              "color_identity": "WB",
+              "oracle_text": "Flying\nOther creatures you control get +1/+1.\nAt the beginning of your upkeep, you may return target creature card from your graveyard to your hand.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Kraum, Ludevic's Opus",
+            "Tymna the Weaver"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Kraum, Ludevic's Opus",
+              "color_identity": "UR",
+              "oracle_text": "Flying, haste\nWhenever an opponent casts their second spell each turn, draw a card.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Tymna the Weaver",
+              "color_identity": "WB",
+              "oracle_text": "Lifelink\nAt the beginning of each of your postcombat main phases, you may pay X life, where X is the number of opponents that were dealt combat damage this turn. If you do, draw X cards.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ludevic, Necro-Alchemist",
+            "Ravos, Soultender"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Ludevic, Necro-Alchemist",
+              "color_identity": "UR",
+              "oracle_text": "At the beginning of each player's end step, that player may draw a card if a player other than you lost life this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Ravos, Soultender",
+              "color_identity": "WB",
+              "oracle_text": "Flying\nOther creatures you control get +1/+1.\nAt the beginning of your upkeep, you may return target creature card from your graveyard to your hand.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        },
+        {
+          "command_zone": [
+            "Ludevic, Necro-Alchemist",
+            "Tymna the Weaver"
+          ],
+          "mechanism": "generic Partner",
+          "components": [
+            {
+              "name": "Ludevic, Necro-Alchemist",
+              "color_identity": "UR",
+              "oracle_text": "At the beginning of each player's end step, that player may draw a card if a player other than you lost life this turn.\nPartner (You can have two commanders if both have partner.)"
+            },
+            {
+              "name": "Tymna the Weaver",
+              "color_identity": "WB",
+              "oracle_text": "Lifelink\nAt the beginning of each of your postcombat main phases, you may pay X life, where X is the number of opponents that were dealt combat damage this turn. If you do, draw X cards.\nPartner (You can have two commanders if both have partner.)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

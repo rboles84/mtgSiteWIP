@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-587 - Yore Behavioral Placement Remediation](in-progress/VM-587-yore-behavioral-placement-remediation.md) - re-evaluates Yore from a corrected legal exact-WUBR command-zone evidence set; placement and dossier remediation may proceed only after a supported two-construct evidence gate, with the other 36 identities protected.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
