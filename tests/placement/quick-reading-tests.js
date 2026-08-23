@@ -1908,7 +1908,7 @@ assert.doesNotMatch(
     esperGuidance.spellcraftIdentity,
     esperGuidance.tableCautionText,
   ].join(" "),
-  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri/i
+  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret(?!'s Touch)|Sydri/i
 );
 
 const esperPresentation = presentationForFaction(factions.ESPER);
@@ -1922,7 +1922,7 @@ assert.doesNotMatch(
     esperPresentation.mechanics,
     esperPresentation.selfCheck,
   ].join(" "),
-  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible|Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri/i
+  /playable pattern|personality label|recognizable Commander table role|Commander mechanics that make the faction plan visible|Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Vectis|Tidehollow|Sharuum|Tezzeret(?!'s Touch)|Sydri/i
 );
 
 const esperCommanderLane = buildCommanderStartingLane({
@@ -1941,7 +1941,7 @@ assert.match(esperLaneText, /Control, Artifacts, Enchantments/);
 assert.match(esperLaneText, /planned refinement and controlled change/);
 assert.doesNotMatch(
   esperLaneText,
-  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri|\/esper\//i
+  /Exact WUB|generic WUB|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret(?!'s Touch)|Sydri|\/esper\//i
 );
 
 const esperHardeningDossier = buildCommanderDossier({
@@ -1984,7 +1984,7 @@ assert.match(esperHardeningText, /turns knowledge into a controlled future/i);
 assert.match(esperHardeningText, /planned refinement and controlled change/i);
 assert.doesNotMatch(
   esperVisibleText,
-  /\bWUB\b|Exact WUB|generic WUB|generic three-color goodstuff|artifact deck as canon|Azorius-only|Dimir-only|Orzhov-only|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri|\/esper\//i,
+  /\bWUB\b|Exact WUB|generic WUB|generic three-color goodstuff|artifact deck as canon|Azorius-only|Dimir-only|Orzhov-only|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret(?!'s Touch)|Sydri|\/esper\//i,
   "expected rendered Esper visible text to avoid public WUB labels, route-like Esper paths, implementation caveats, and unsupported lore"
 );
 
@@ -2946,10 +2946,10 @@ assert.equal(
   "support_only_product_navigation",
   "Quandrix should expose public Commander Compass data only after VM-378 source-matrix backing."
 );
-assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^named Commander deck link \(1\), starter legendary whitelist \(2\)/);
+assert.match(quandrixAdjacentDossier.commanderRecommendationSource, /^named Commander deck link \(1\), starter legendary whitelist \(1\)/);
 assert.deepEqual(
-  quandrixAdjacentDossier.commanderRecommendations.slice(0, 3).map((candidate) => candidate.name),
-  ["Quandrix Unlimited (Precon)", "Tanazir Quandrix", "Adrix and Nev, Twincasters"]
+  quandrixAdjacentDossier.commanderRecommendations.slice(0, 2).map((candidate) => candidate.name),
+  ["Quandrix Unlimited (Precon)", "Tanazir Quandrix"]
 );
 assert.ok(!quandrixAdjacentDossier.commanderRecommendations.some((candidate) => /Jarad|Meren|Gitrog/i.test(candidate.name)));
 

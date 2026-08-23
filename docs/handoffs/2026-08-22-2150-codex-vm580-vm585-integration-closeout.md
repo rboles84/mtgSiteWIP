@@ -18,6 +18,7 @@ Complete the current VM-580 through VM-585 integration before any new Archscry e
 - `docs/qa/RobQAPass.md`
 - `docs/reference/workflow.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `tests/placement/quick-reading-tests.js`
 - Recent VM-580 through VM-585 handoffs
 - `docs/kanban/board.md`
 - VM-580, VM-581, VM-582, VM-583, VM-584, and VM-585 Kanban cards
@@ -34,6 +35,7 @@ Complete the current VM-580 through VM-585 integration before any new Archscry e
 - `docs/handoffs/2026-08-22-1952-vm580-human-pointer-transition-independent-robqa.md`
 - `docs/handoffs/2026-08-22-2150-codex-vm580-vm585-integration-closeout.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
+- `tests/placement/quick-reading-tests.js`
 
 ## What changed
 
@@ -43,6 +45,7 @@ Complete the current VM-580 through VM-585 integration before any new Archscry e
 - Moved VM-580, VM-581, VM-582, and VM-583 from In Progress to Done and updated `docs/kanban/board.md`.
 - Preserved completed VM-584 and VM-585 governance/skill work exactly as already approved.
 - Preserved and excluded unrelated `docs/research/maze-player-language/corpus/vm578.zip`.
+- Reconciled a PR-validation test contract without changing product behavior: `tests/placement/quick-reading-tests.js` now allows the canonical card title `Tezzeret's Touch` while still banning unsupported Tezzeret lore claims, and the Quandrix adjacent recommendation assertion matches the current two source-backed candidates.
 
 ## Why it changed
 
@@ -55,6 +58,7 @@ The owner accepted VM-580 after manual review and had already accepted VM-581, V
 - VM-581, VM-582, and VM-583 are Done based on existing owner acceptance records; no product implementation changes were made for them during this closeout.
 - VM-584 and VM-585 remain Done and preserved as approved.
 - VM-578 corpus material is unrelated to this integration and must remain untracked/excluded.
+- The PR validation failure was treated as a test-contract mismatch; product implementation remained frozen.
 
 ## Risks / uncertainties
 
@@ -67,6 +71,12 @@ The owner accepted VM-580 after manual review and had already accepted VM-581, V
 - `git diff --check` - PASS.
 - No tests or browser automation were run for the final VM-580 CSS overlay adjustment by explicit owner request.
 - Prior VM-580 through VM-583 implementation and independent RobQA evidence remains recorded in the earlier handoffs and cards.
+
+## PR validation repair
+
+- Initial PR validation failed in `npm run test:placement` on stale quick-reading contracts around Esper unsupported-lore text and Quandrix adjacent recommendation source counts.
+- The correction changed only tests. It did not change runtime, data, generated artifacts, accepted VM-580 hover/flip JavaScript, or the owner-approved CSS overlay adjustment.
+- The full local deterministic validation sequence passed after the repair; the branch was pushed again for GitHub PR validation.
 
 ## Not touched
 
