@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-588 - Archscry Phase 2 Product Contract](in-progress/VM-588-archscry-phase-2-product-contract.md) - defining the lean prior/observed-fit/reconciliation contract, 12 design fixtures, and Phase 3 proof gate from accepted baseline `e875c62`; no UI, questionnaire, mapping, engine, dossier, persistence, telemetry, or Phase 3 implementation.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
