@@ -43,14 +43,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-587 - Yore Behavioral Placement Remediation](in-progress/VM-587-yore-behavioral-placement-remediation.md) - re-evaluates Yore from a corrected legal exact-WUBR command-zone evidence set; placement and dossier remediation may proceed only after a supported two-construct evidence gate, with the other 36 identities protected.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
 
+- [VM-587 - Yore Behavioral Placement Remediation](done/VM-587-yore-behavioral-placement-remediation.md) - independently verified evidence stop: the corrected current population is Breya plus 11 legal exact-WUBR Partner pairs, but no two constructs pass independence, observability, semantic necessity, and anti-proxy review; Yore remains bounded with placement, dossier, runtime, and all other identities unchanged.
 - [VM-586 - Archscry Current-State Evidence & Red-Team Reconciliation](done/VM-586-archscry-current-state-evidence-red-team-reconciliation.md) - completed all-37 dossier/screenshot/trace evidence, both verified workbooks, actual-source red-team reconciliation, and the bounded owner queue; exact replacement candidate `fb2826aa` passed fresh independent RobQA as Owner Review Ready with VM-578 untouched.
 - [VM-583 - Maze Mobile Search Control Gap](done/VM-583-maze-mobile-search-control-gap.md) - owner accepted the compact mobile Maze search stack after the responsible max-content grid correction; lifecycle closeout completed with implementation frozen.
 - [VM-582 - Mobile Provider Control Intrinsic Sizing](done/VM-582-mobile-provider-control-intrinsic-sizing.md) - owner accepted the content-sized mobile provider controls for Precon Starting Points and Commander Browsing Starts; lifecycle closeout completed with implementation frozen.

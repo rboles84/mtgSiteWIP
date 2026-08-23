@@ -2,7 +2,7 @@
 
 ## Status
 
-In Progress
+Done — Independently Verified Evidence Stop
 
 ## Owner Authorization
 
@@ -63,7 +63,7 @@ If evidence does not support two independent behaviorally observable constructs 
 - Construct result: modular conversion, engineered replacement/repeatability, and recovery remain useful hypotheses, but none supplies two observations that jointly pass independence, observability, semantic necessity, and anti-proxy robustness.
 - Stop applied: no questionnaire, mapping, naming, witness, dossier, generated model, runtime, or UI change.
 - Evidence packet: `docs/audits/vm587-yore-behavioral-placement-remediation/`.
-- Next gate: fresh independent RobQA on the exact evidence-stop candidate.
+- Review gate: fresh independent RobQA completed with `PASS Owner Review Ready` on the exact evidence-stop candidate.
 
 ## RobDev Validation
 
@@ -72,3 +72,11 @@ If evidence does not support two independent behaviorally observable constructs 
 - 12-row WUBR inventory/disposition parity: PASS.
 - Protected placement/dossier/runtime diff: PASS, empty.
 - All-37 replay and rendered product QA: not run because no product or model contract changed.
+
+## Independent RobQA
+
+- Exact candidate: `bc12a20416ddefdb60b61d3e5c7c9a73e6e826b8`.
+- Disposition: `PASS Owner Review Ready`.
+- Independent reproduction: Breya plus seven generic Partner pairs plus four Friends-forever pairs; zero named-Partner-with or Doctor/companion pairs.
+- Independent checks: deterministic evidence hash, 12/12 JSON-to-TSV parity, older workbook 11-pair corroboration, four-axis semantic challenge, and zero protected-path diff.
+- Product owner checks: none. The supported stop made no visible or behavioral product change and did not trigger the conditional two-check acceptance path.
