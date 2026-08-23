@@ -18,14 +18,14 @@ Engine evidence replays the current legitimate witness sequences through the cur
 
 ## Review Entry Points
 
-- `manifest.json` — exact baseline, source hashes, browser limits, artifact paths, counts, and workbook hashes.
+- `manifest.json` — exact baseline, source hashes, browser limits, artifact paths, counts, workbook hashes, and phase states.
 - `dossier/dossier-review-current-state.json` — 37 structured records with complete rendered text and raw/screenshot references.
 - `engine/engine-validation-current-state.json` — 37 current-engine results with exact witness/model/trace hashes.
-- `reconciliation/red-team-source-inventory.md` — the actual relevant source set, chronology, authority class, and checksum.
-- `reconciliation/red-team-reconciliation.md` — 16 current dispositions with evidence, confidence, action, and owner-review status.
-- `reconciliation/owner-review-queue.md` — eight dossiers, five engine journeys, and seven high-impact decisions; no 37-item owner collection.
-- `workbook-qa.json` — 42-sheet inventory for each workbook, exported formula inspection, zero formula errors, and all-sheet preview references.
-- `robdev-self-qa.md` — changed/protected contracts, browser and workbook sampling, deterministic tests, known baseline-only failures, and readiness decision.
+- `reconciliation/red-team-source-inventory.md` — actual relevant sources, chronology, authority class, and checksums.
+- `reconciliation/red-team-reconciliation.md` — current dispositions with evidence, confidence, action, and owner-review status.
+- `reconciliation/owner-review-queue.md` — eight dossiers, five engine journeys, and seven decisions; no all-37 owner collection.
+- `workbook-qa.json` — both 42-sheet inventories, eight exact exported formulas, zero formula errors, and all-sheet preview references.
+- `robdev-self-qa.md` — changed/protected contracts, browser/workbook sampling, deterministic tests, known baseline-only failures, and readiness.
 
 ## Workbooks and Large Evidence
 
@@ -36,4 +36,4 @@ Engine evidence replays the current legitimate witness sequences through the cur
 - `outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/engine/traces/` — 37 detailed answer-by-answer traces.
 - `outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/workbook-previews/` — 84 rendered sheet previews plus contact sheets.
 
-The two workbooks are review artifacts, not sources of product truth. Canonical JSON and the current engine remain authoritative. Large repeatable screenshots, raw records, traces, and previews remain local/ignored but are checksum-bound from the committed manifest and summary evidence. Optional Scryfall card media was blocked in the collection sandbox; this is the sole 37-row dossier note and is not classified as a product defect.
+The workbooks are review artifacts, not product sources of truth. Large repeatable screenshots, raw records, traces, and previews remain local/ignored but are checksum-bound by the manifest and summary evidence. Optional Scryfall card media was blocked in the collection sandbox; this is the sole repeated dossier note and is not a product defect.

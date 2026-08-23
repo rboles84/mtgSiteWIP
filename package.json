@@ -13,6 +13,7 @@
     "audit:archscry-current-state": "node scripts/audit/archscry-current-state.mjs",
     "audit:archscry-red-team-reconciliation": "node scripts/audit/archscry-red-team-reconciliation.mjs",
     "audit:archscry-current-state-workbooks": "node scripts/audit/build-archscry-current-state-workbooks.mjs",
+    "audit:archscry-current-state-finalize": "node scripts/audit/finalize-archscry-current-state-package.mjs",
     "presentation:snapshots": "node scripts/build/generate-presentation-snapshots.mjs",
     "enrich:factions": "node scripts/audit/enrich-faction-data.mjs --apply",
     "scryfall:download": "node scripts/download-scryfall-bulk.mjs",

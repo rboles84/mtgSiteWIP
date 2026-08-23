@@ -1,45 +1,35 @@
 {
   "schema_version": "1.0.0",
   "audit_run_id": "archscry-current-state-2026-08-22-db9a16a40c2b",
-  "collection_started_at": "2026-08-23T04:51:32.152Z",
-  "collection_completed_at": "2026-08-23T04:51:35.836Z",
+  "collection_started_at": "2026-08-23T05:28:20.318Z",
+  "collection_completed_at": "2026-08-23T05:28:24.014Z",
   "timezone": "America/Denver",
   "exact_product_baseline_sha": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
   "repository_state": {
     "baseline_sha": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
-    "head": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+    "head": "614abfb90f60d9a9e667c2153bd3484d4c3df4e3",
     "branch": "codex/vm586-archscry-current-state-evidence",
     "local_main": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
     "origin_main": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
     "ahead": 0,
     "behind": 0,
     "dirty_paths": [
-      "gitignore",
-      "docs/kanban/board.md",
-      "package.json",
       "docs/audits/archscry-current-state-2026-08-22/README.md",
-      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-current-state.json",
-      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-exceptions.md",
-      "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-summary.csv",
-      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-current-state.json",
-      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-exceptions.md",
-      "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-summary.csv",
       "docs/audits/archscry-current-state-2026-08-22/manifest.json",
-      "docs/audits/archscry-current-state-2026-08-22/reconciliation/owner-review-queue.md",
-      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.csv",
-      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-reconciliation.md",
-      "docs/audits/archscry-current-state-2026-08-22/reconciliation/red-team-source-inventory.md",
+      "docs/audits/archscry-current-state-2026-08-22/robdev-self-qa.md",
       "docs/audits/archscry-current-state-2026-08-22/workbook-qa.json",
+      "docs/handoffs/HANDOFF_INDEX.md",
       "docs/kanban/in-progress/VM-586-archscry-current-state-evidence-red-team-reconciliation.md",
-      "docs/research/maze-player-language/corpus/vm578.zip",
       "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx",
-      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx.inspect.ndjson",
       "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx",
-      "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx.inspect.ndjson",
+      "package.json",
       "scripts/audit/archscry-current-state.mjs",
       "scripts/audit/archscry-red-team-reconciliation.mjs",
       "scripts/audit/build-archscry-current-state-workbooks.mjs",
-      "scripts/audit/build-workbook-preview-contact-sheets.py"
+      "docs/handoffs/2026-08-22-2315-independent-robqa-vm586-current-state-evidence.md",
+      "docs/handoffs/2026-08-22-2324-codex-vm586-package-integrity-remediation.md",
+      "docs/research/maze-player-language/corpus/vm578.zip",
+      "scripts/audit/finalize-archscry-current-state-package.mjs"
     ],
     "excluded_unrelated_paths": [
       "docs/research/maze-player-language/corpus/vm578.zip"
@@ -118,7 +108,7 @@
     "exceptions_markdown": "docs/audits/archscry-current-state-2026-08-22/dossier/dossier-review-exceptions.md",
     "raw_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/dossier/raw",
     "screenshot_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/dossier/screenshots",
-    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/dossier-review-current-production-state.xlsx"
+    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx"
   },
   "engine": {
     "counts": {
@@ -152,7 +142,7 @@
     "summary_csv": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-summary.csv",
     "exceptions_markdown": "docs/audits/archscry-current-state-2026-08-22/engine/engine-validation-exceptions.md",
     "trace_root": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/engine/traces",
-    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/engine-validation-current-production-state.xlsx"
+    "workbook": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx"
   },
   "red_team": {
     "status": "COMPLETE",
@@ -173,7 +163,7 @@
   },
   "collector": {
     "path": "scripts/audit/archscry-current-state.mjs",
-    "sha256": "8f4533c7680f2462a412fa66cd96f16db9fe60168b3e6f1f5dfc217371351d1c",
+    "sha256": "3b9fd3c4f959039e2c1bc36f0e525579dee59e696a032e24500efb9949026fd3",
     "version": "vm586-archscry-current-state-v1"
   },
   "artifacts": [
@@ -216,24 +206,28 @@
   "relevant_inherited_baseline_failures": [],
   "completion_status": {
     "collection": "COMPLETE",
-    "workbooks": "PENDING",
-    "red_team_reconciliation": "PENDING",
-    "robdev_self_qa": "PENDING",
+    "workbooks": "COMPLETE",
+    "red_team_reconciliation": "COMPLETE",
+    "robdev_self_qa": "COMPLETE",
     "independent_robqa": "PENDING"
   },
   "workbooks": {
     "status": "COMPLETE",
     "dossier": {
       "path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-dossier-review.xlsx",
-      "sha256": "0733866d04ce7283d2d549f0e9fc891e8cc515e363b4918c973dcb133e24305b",
+      "sha256": "18d63f18629fc1b01bf86e1dc1f6f22e3eb82920ac394f8a6f11f1a37181f716",
       "sheet_count": 42
     },
     "engine": {
       "path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/archscry-engine-validation.xlsx",
-      "sha256": "f1461dcf75106dcd23ce9f8b363b7cc38aa26ed1bc5f63e048feeed2295744aa",
+      "sha256": "fe75d483a1e82ee4c7ef3264ff8583c8cc5ab62f52414486fce67ec951fcc0ab",
       "sheet_count": 42
     },
     "qa": "docs/audits/archscry-current-state-2026-08-22/workbook-qa.json",
     "previews": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/workbook-previews"
+  },
+  "robdev_self_qa": {
+    "status": "COMPLETE",
+    "path": "docs/audits/archscry-current-state-2026-08-22/robdev-self-qa.md"
   }
 }

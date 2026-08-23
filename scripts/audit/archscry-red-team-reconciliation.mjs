@@ -432,6 +432,8 @@ manifest.red_team = {
   reconciliation_csv: rel(path.join(RECON_DIR, "red-team-reconciliation.csv")),
   owner_review_queue: rel(path.join(RECON_DIR, "owner-review-queue.md"))
 };
+manifest.completion_status = manifest.completion_status ?? {};
+manifest.completion_status.red_team_reconciliation = "COMPLETE";
 fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 
 console.log(JSON.stringify({

@@ -32,7 +32,8 @@ The requested evidence automation is complete and no product-runtime stop condit
 - Dossier workbook: 42 sheets — summary, exceptions, section coverage, link inventory, card inventory, and 37 identity sheets.
 - Engine workbook: 42 sheets — summary, exceptions, witness inventory, result states, qualification/divergence, and 37 detailed trace sheets.
 - Both workbooks were authored only with the workspace-bundled `@oai/artifact-tool`, exported, re-imported, structurally inspected, formula-inspected, and checked for Excel error values.
-- Formula errors: zero in both workbooks.
+- Formula survival is now a hard producer invariant after export/re-import. Dossier summary cells `A4`, `D4`, `G4`, and `J4` preserve `COUNTA`/`COUNTIF` formulas; the same four engine summary cells preserve their witness/match/mismatch/no-result formulas. Missing or changed formulas fail workbook generation.
+- Formula errors: zero in both workbooks; required exported formula count: four per workbook.
 - Visual QA: all 84 sheets rendered to bounded PNG previews and reviewed through eight contact sheets. Titles, headers, table bands, identity/trace sheet structure, and the summary KPI values rendered without corruption.
 - Browser comparison found and caused correction of one workbook-only bug: raw provider value `maze` was initially compared as uppercase. Regeneration now reports White as 9 non-Maze provider links plus 4 Maze links, matching the current page and raw record.
 
@@ -55,16 +56,27 @@ The seven-case live engine UI sample passed for Green, Jund, Lorehold, Witch, Yo
 | `node --check scripts/audit/archscry-current-state.mjs` | PASS |
 | `node --check scripts/audit/archscry-red-team-reconciliation.mjs` | PASS |
 | `node --check scripts/audit/build-archscry-current-state-workbooks.mjs` | PASS |
+| `node --check scripts/audit/finalize-archscry-current-state-package.mjs` | PASS |
 | `python -m py_compile scripts/audit/build-workbook-preview-contact-sheets.py` | PASS |
 | `node scripts/audit/archscry-current-state.mjs --allow-candidate` | PASS — 37 dossiers/screenshots, 36 named engine matches, one bounded no-result |
 | `npm.cmd run audit:archscry-red-team-reconciliation` | PASS — 14 sources, 16 findings, 7 owner decisions |
-| `npm.cmd run audit:archscry-current-state-workbooks` | PASS — two 42-sheet workbooks, clean re-import and formula inspection |
+| `npm.cmd run audit:archscry-current-state-workbooks` | PASS — two 42-sheet workbooks, clean re-import, eight exact exported formulas preserved |
+| `npm.cmd run audit:archscry-current-state-finalize` | PASS — 18 required manifest paths exist; canonical workbook paths, hashes, phase statuses, and formula inventories agree |
 | `npm.cmd run test:placement` | PASS — 37 identities and 37 golden paths |
 | `npm.cmd run test:vm551-all-37-witnesses` | PASS — 37 current rows, 36 named, one bounded, three refinements |
 | `npm.cmd run test:dev-review` | PASS — review gating, taxonomy order, transient Maze context, isolation, real-engine validation |
 | `npm.cmd run test:vm586-live-ui-samples` | PASS — seven visible current-engine samples |
 | In-app browser eight-dossier comparison | PASS after workbook Maze-provider normalization |
 | Artifact-tool export/import/inspect/render | PASS — 84 sheets, zero formula errors |
+
+## Independent RobQA Failure and RobDev Remediation
+
+Independent RobQA returned exact candidate `614abfb90f60d9a9e667c2153bd3484d4c3df4e3` to RobDev for two package-integrity defects while independently accepting the 37-by-37 dossier and engine evidence:
+
+1. The primary dossier/engine workbook fields retained obsolete filenames and the phase completion fields retained `PENDING` after their owning producers completed.
+2. The workbook verifier did not fail on missing formulas, so the claim of formula preservation was insufficiently enforced. A later namespace-aware binary check confirmed that four formulas were present in each first-candidate workbook, but that did not excuse the weak invariant.
+
+Remediation changed the owning producers: the collection runner emits canonical workbook names; red-team and workbook builders complete their own manifest phases; the workbook builder re-imports and compares all eight required formulas exactly; and a final package validator checks path existence, canonical-path equality, hashes, evidence counts, formula inventories, and phase agreement. Regenerated workbooks and manifest pass those controls. Independent RobQA remains `PENDING` until a fresh exact-SHA review.
 
 ## Known Baseline-Only Failures
 

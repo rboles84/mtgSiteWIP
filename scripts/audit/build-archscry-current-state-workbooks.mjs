@@ -16,6 +16,20 @@ const DOSSIER_XLSX = path.join(OUTPUT_DIR, "archscry-dossier-review.xlsx");
 const ENGINE_XLSX = path.join(OUTPUT_DIR, "archscry-engine-validation.xlsx");
 const MANIFEST_PATH = path.join(AUDIT_DIR, "manifest.json");
 const BASELINE = "db9a16a40c2bfb7d0d493eacef348f19d70bb05a";
+const REQUIRED_FORMULAS = {
+  dossier: {
+    A4: "=COUNTA(B8:B44)",
+    D4: '=COUNTIF(E8:E44,"PASS")',
+    G4: '=COUNTIF(M8:M44,"YES")',
+    J4: "=COUNTA(L8:L44)"
+  },
+  engine: {
+    A4: "=COUNTA(B8:B44)",
+    D4: '=COUNTIF(G8:G44,"PASS_MATCH")',
+    G4: '=COUNTIF(G8:G44,"MISMATCH")',
+    J4: '=COUNTIF(G8:G44,"NO_RESULT")'
+  }
+};
 
 const COLORS = {
   ink: "#17212B",
@@ -399,14 +413,30 @@ async function renderAndInspect(workbook, label, summaryRange) {
   return { sheet_count: sheets.length, sheets, sheet_inspection: sheetInfo.ndjson ?? String(sheetInfo), summary_inspection: summary.ndjson ?? String(summary) };
 }
 
-async function validateExport(target, summaryRange) {
+async function validateExport(target, summaryRange, requiredFormulas) {
   const workbook = await SpreadsheetFile.importXlsx(await FileBlob.load(target));
   const sheetInspection = await workbook.inspect({ kind: "sheet", include: "id,name", maxChars: 12000 });
   const formulaInspection = await workbook.inspect({ kind: "region,formula", sheetId: "00 Summary", range: summaryRange, maxChars: 12000, tableMaxRows: 50, tableMaxCols: 20 });
   const combined = `${sheetInspection.ndjson ?? sheetInspection}\n${formulaInspection.ndjson ?? formulaInspection}`;
   const errors = combined.match(/#(?:REF!|DIV\/0!|VALUE!|NAME\?|N\/A|NUM!|NULL!)/g) ?? [];
   if (errors.length) throw new Error(`Formula error(s) in ${target}: ${[...new Set(errors)].join(", ")}`);
-  return { sheet_inspection: sheetInspection.ndjson ?? String(sheetInspection), formula_inspection: formulaInspection.ndjson ?? String(formulaInspection), formula_errors: [] };
+  const summary = workbook.worksheets.getItem("00 Summary");
+  const formulaCells = {};
+  for (const [address, expected] of Object.entries(requiredFormulas)) {
+    const actual = summary.getRange(address).formulas?.[0]?.[0] ?? null;
+    if (actual !== expected) {
+      throw new Error(`Required exported formula mismatch in ${path.basename(target)}!00 Summary!${address}: expected ${expected}; received ${actual ?? "<missing>"}`);
+    }
+    formulaCells[address] = actual;
+  }
+  return {
+    sheet_inspection: sheetInspection.ndjson ?? String(sheetInspection),
+    formula_inspection: formulaInspection.ndjson ?? String(formulaInspection),
+    required_formula_count: Object.keys(requiredFormulas).length,
+    required_formula_cells: formulaCells,
+    required_formulas_preserved: true,
+    formula_errors: []
+  };
 }
 
 await fs.mkdir(OUTPUT_DIR, { recursive: true });
@@ -421,13 +451,13 @@ console.log("Building dossier workbook...");
 const dossierWorkbook = buildDossierWorkbook(dossierRecords);
 const dossierQa = await renderAndInspect(dossierWorkbook, "dossier", "A1:N47");
 await (await SpreadsheetFile.exportXlsx(dossierWorkbook)).save(DOSSIER_XLSX);
-const dossierExportQa = await validateExport(DOSSIER_XLSX, "A1:N47");
+const dossierExportQa = await validateExport(DOSSIER_XLSX, "A1:N47", REQUIRED_FORMULAS.dossier);
 
 console.log("Building engine workbook...");
 const engineWorkbook = await buildEngineWorkbook(engineRows);
 const engineQa = await renderAndInspect(engineWorkbook, "engine", "A1:R44");
 await (await SpreadsheetFile.exportXlsx(engineWorkbook)).save(ENGINE_XLSX);
-const engineExportQa = await validateExport(ENGINE_XLSX, "A1:R44");
+const engineExportQa = await validateExport(ENGINE_XLSX, "A1:R44", REQUIRED_FORMULAS.engine);
 
 const qa = {
   schema_version: "1.0.0",
@@ -444,5 +474,9 @@ manifest.workbooks = {
   qa: rel(path.join(AUDIT_DIR, "workbook-qa.json")),
   previews: rel(PREVIEW_DIR)
 };
+manifest.dossier.workbook = qa.dossier.path;
+manifest.engine.workbook = qa.engine.path;
+manifest.completion_status = manifest.completion_status ?? {};
+manifest.completion_status.workbooks = "COMPLETE";
 await fs.writeFile(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ status: "PASS", dossier: manifest.workbooks.dossier, engine: manifest.workbooks.engine }, null, 2));

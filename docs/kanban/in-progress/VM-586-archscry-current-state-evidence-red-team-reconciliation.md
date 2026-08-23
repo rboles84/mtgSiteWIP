@@ -2,7 +2,7 @@
 
 ## Status
 
-Awaiting Independent RobQA
+Awaiting Replacement Independent RobQA
 
 ## Type
 
@@ -105,7 +105,7 @@ Execute the controlling owner attachment end to end from exact baseline `db9a16a
 - Generated 37/37 current direct-review dossier records, 37/37 full-page screenshots, structured card/link/segment inventories, complete rendered text, and a dossier exception ledger with zero blocker/major/minor product exceptions.
 - Replayed 37/37 current-compatible witnesses through production engine exports: 36 named matches, zero mismatch/stale/missing/error, and one approved bounded Yore no-result.
 - Generated 37 detailed answer-by-answer trace JSON files and compact 37-row validation matrices.
-- Generated two artifact-tool-authored workbooks with 42 sheets each, clean export/re-import/formula inspection, zero formula errors, and 84 rendered sheet previews.
+- Generated two artifact-tool-authored workbooks with 42 sheets each, clean export/re-import, four exact required formulas preserved per workbook, zero formula errors, and 84 rendered sheet previews.
 - Inventoried 14 actual relevant red-team sources and reconciled 16 findings into 9 disproven current, 3 needing player data, 2 product-design boundaries, 1 confirmed current provenance gap, and 1 unclear current sensitivity claim.
 - Reduced owner work to eight dossier samples, five engine journeys, and seven high-impact decisions.
 - RobDev rendered/browser/workbook self-QA is `PASS FOR INDEPENDENT ROBQA`.
@@ -113,5 +113,7 @@ Execute the controlling owner attachment end to end from exact baseline `db9a16a
 ## Current Gate
 
 - Candidate branch: `codex/vm586-archscry-current-state-evidence`.
-- Next action: commit one exact candidate and run a fresh independent RobQA review against that SHA.
+- First candidate `614abfb90f60d9a9e667c2153bd3484d4c3df4e3` received `FAIL — Return to RobDev`: its primary workbook paths were stale, phase status fields disagreed, and the formula verifier did not enforce formula survival.
+- RobDev remediation now makes the owning generators emit canonical workbook paths and phase states, requires all eight exported formulas after re-import, and adds a final package validator for all 18 required paths, workbook hashes, 37/37 evidence counts, formula inventories, and phase agreement.
+- Next action: commit the replacement exact candidate and run a fresh independent RobQA review against that SHA.
 - Do not advance to owner review unless the independent disposition is exactly `PASS — Owner Review Ready`.

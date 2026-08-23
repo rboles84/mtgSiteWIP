@@ -109,7 +109,8 @@ function verifyBaseline() {
   const originMain = git("rev-parse", "origin/main");
   const branch = git("branch", "--show-current");
   const aheadBehind = git("rev-list", "--left-right", "--count", "main...origin/main").split(/\s+/).map(Number);
-  const statusLines = git("status", "--porcelain=v1", "--untracked-files=all").split(/\r?\n/).filter(Boolean);
+  const statusOutput = execFileSync("git", ["status", "--porcelain=v1", "--untracked-files=all"], { cwd: ROOT, encoding: "utf8" });
+  const statusLines = statusOutput.split(/\r?\n/).filter(Boolean);
   const dirtyPaths = statusLines.map(parseStatusLine);
   const productDirty = dirtyPaths.filter((file) => PRODUCT_RUNTIME_ROOTS.some((prefix) => file === prefix || file.startsWith(prefix)));
   const productDrift = git("diff", "--name-only", BASELINE_SHA, "--", ...PRODUCT_RUNTIME_ROOTS)
@@ -904,7 +905,7 @@ async function main() {
       exceptions_markdown: repoRelative(dossierExceptionsFile),
       raw_root: repoRelative(DOSSIER_RAW_ROOT),
       screenshot_root: repoRelative(SCREENSHOT_ROOT),
-      workbook: repoRelative(path.join(WORKBOOK_ROOT, "dossier-review-current-production-state.xlsx")),
+      workbook: repoRelative(path.join(WORKBOOK_ROOT, "archscry-dossier-review.xlsx")),
     },
     engine: {
       counts: engineCounts,
@@ -914,7 +915,7 @@ async function main() {
       summary_csv: repoRelative(engineCsvFile),
       exceptions_markdown: repoRelative(engineExceptionsFile),
       trace_root: repoRelative(ENGINE_TRACE_ROOT),
-      workbook: repoRelative(path.join(WORKBOOK_ROOT, "engine-validation-current-production-state.xlsx")),
+      workbook: repoRelative(path.join(WORKBOOK_ROOT, "archscry-engine-validation.xlsx")),
     },
     red_team: { status: "PENDING_RECONCILIATION", source_inventory: null, reconciliation_counts: null },
     collector: {
