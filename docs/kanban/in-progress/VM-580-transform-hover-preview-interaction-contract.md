@@ -93,3 +93,30 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - Fresh independent review repeated three real-pointer Flip clicks with preview re-entry between swaps, verified the same singleton overlay and stable `315x440` hit geometry through delayed alternate-face media, and confirmed dismissal only after leaving both source and preview.
 - Ordinary-card hidden state and Card Details Ravager -> Arisen -> Ravager remained green; focused and protected automation passed with zero rendered-console errors.
 - Awaiting only the owner's repeated Nicol Bolas hover-flipping recheck. Do not merge, push, close, or mark Done before explicit acceptance.
+
+## Final owner acceptance rejection and direction — 2026-08-22
+
+- **FAIL — Return to RobDev.** VM-580 is the sole remaining blocker. VM-581, VM-582, and VM-583 are owner-accepted and frozen.
+- Stop iterating on bespoke Archscry hover-preview lifecycle patches. Inspect the proven Maze `.transform-card-media` / `.transform-card-button` selected-face pattern and reuse or extract only the smallest shared transform-media behavior needed by Archscry.
+- Apply the reused behavior at the common Archscry hover-preview owner so every Archscry card-bearing surface routed through the existing preview system inherits it. Nicol Bolas is fixture and owner-acceptance evidence only; no card-name, identity, dossier, or section-specific transform logic is permitted.
+- The shared face interaction must own authoritative transformability, selected face, active image, face-specific name/type/Oracle content, and repeated Flip state while Archscry retains its dossier presentation, overlay positioning, source-plus-preview dismissal boundary, styling, and Card Details behavior.
+- Required real-pointer invariant: `source -> preview -> flip -> flip back -> flip -> flip back -> leave combined boundary -> dismiss`, including an initially uncached alternate-face image.
+
+## Final RobDev pre-edit contract — 2026-08-22
+
+- Product outcome: every Archscry surface using the common hover-preview system gets stable, indefinitely repeatable true-transform face interaction; ordinary cards never get Flip.
+- Current behavior: the shared Scryfall normalizer is reused, but Archscry still owns a separate module-global preview renderer and lifecycle compensations that the owner has repeatedly observed failing after face changes.
+- Owning layer and existing machinery: `assets/js/archscry/runtime/card-media.js` owns the common preview; `assets/js/shared/scryfall-transform-faces.js` owns authoritative normalized face facts; Maze proves stable closure-owned selected-face mutation in one persistent media container.
+- Changed behavior: replace the failed bespoke preview face-state/render path with the smallest Maze-derived shared face-interaction seam at the common preview owner.
+- Protected behavior: all Archscry preview consumers, Card Details, keyboard/focus and combined-boundary dismissal, VM-581/582/583, Maze search/result presentation, placement, telemetry, persistence, generated data, and Scryfall authority.
+- Smallest complete implementation: extract/reuse shared ephemeral face interaction and bind it once to the existing singleton Archscry preview DOM; retain route-local positioning/dismissal and CSS presentation.
+- Non-goals and stop condition: no Maze component/layout import, no preview rewrite, no click-to-lock, no new Scryfall model, and no name/identity/section branching. Stop if broader architecture or frozen Maze product changes become necessary.
+
+## Final shared transform-media RobDev remediation - 2026-08-22
+
+- Extracted the proven Maze closure-owned face progression into createScryfallTransformMediaBehavior inside the existing shared Scryfall face module. It owns ephemeral selected-face state and exposes the current and next authoritative normalized faces; ordinary cards receive no behavior.
+- Bound that behavior once at the common Archscry singleton preview owner. All existing staple-img, land-img, card-voice, and card-rationale preview consumers inherit the same path through cardPreviewTriggerFromEvent; production code contains no Nicol Bolas, Grixis, Card Signals, identity, or section branching.
+- Replaced the old preview card/state global pair with one shared media behavior and reused stable transform-card-media / transform-card-button structure. The prior deferred lifecycle compensation and JavaScript height assignment were removed; Archscry retains positioning and combined-boundary dismissal, with stable card-ratio geometry owned by persistent preview DOM/CSS.
+- Automation proves source -> preview -> Arisen -> Ravager -> Arisen -> Ravager -> leave -> dismiss with re-entry between swaps and delayed no-store alternate media. Image, selected face, name, type, Oracle copy, alt, next-face label, singleton witness, and 315x440 hit box remain synchronized.
+- Fresh 1440x1000 rendered QA repeated four real-mouse flips, verified ordinary Sedris has no Flip, confirmed Card Details both ways plus Escape focus restoration, inspected settled Arisen optically, and found zero console errors.
+- Focused shared-face, Archscry transform, owner-QA, Maze compatibility, dev-review, lint, smoke, syntax, and diff checks pass. VM-581/582/583 runtime and CSS remain unchanged.

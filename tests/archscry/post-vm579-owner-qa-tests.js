@@ -59,6 +59,7 @@ assert.ok(browserCandidates.length, "post-VM-579 focused browser QA requires Edg
 let launchedChrome;
 let browser;
 const browserErrors = [];
+let uncachedAlternateFaceRequests = 0;
 
 async function waitForReviewIdentity(page, identity) {
   await page.waitForSelector("[data-vm-dev-review]", { timeout: 30000 });
@@ -160,6 +161,7 @@ try {
     if (/^https:\/\/cards\.scryfall\.io\//.test(url)) {
       const response = { status: 200, contentType: "image/png", headers: { "Cache-Control": "no-store" }, body: imageFixture };
       if (/\/normal\/back\/7\/b\/7b215968-93a6-4278-ac61-4e3e8c3c3943\.jpg/.test(url)) {
+        uncachedAlternateFaceRequests += 1;
         setTimeout(() => void request.respond(response).catch(() => {}), 350);
         return;
       }
@@ -259,6 +261,27 @@ try {
   await page.mouse.click(thirdFlipCenter.x, thirdFlipCenter.y);
   assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.dataset.selectedFaceName), "Nicol Bolas, the Arisen", "hover preview must support a third consecutive in-boundary flip");
   assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "repeated flips must retain the interactive preview");
+  const previewAfterThirdFlip = await pointerCenter(page, ".card-preview-overlay");
+  await page.mouse.move(previewAfterThirdFlip.x, previewAfterThirdFlip.y);
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "pointer must re-enter the same preview boundary after the third face swap");
+  const fourthFlipCenter = await pointerCenter(page, ".card-preview-flip");
+  await page.mouse.move(fourthFlipCenter.x, fourthFlipCenter.y, { steps: 6 });
+  await page.mouse.click(fourthFlipCenter.x, fourthFlipCenter.y);
+  const finalFrontFace = await page.$eval(".card-preview-overlay", (overlay) => ({
+    visible: overlay.classList.contains("is-visible"),
+    selected: overlay.dataset.selectedFaceName,
+    name: overlay.querySelector(".card-preview-face-name")?.textContent,
+    type: overlay.querySelector(".card-preview-face-type")?.textContent,
+    rules: overlay.querySelector(".card-preview-face-rules")?.textContent,
+    alt: overlay.querySelector("img")?.alt,
+  }));
+  assert.equal(finalFrontFace.visible, true, "four repeated face swaps must retain the interactive preview");
+  assert.equal(finalFrontFace.selected, "Nicol Bolas, the Ravager");
+  assert.equal(finalFrontFace.name, "Nicol Bolas, the Ravager");
+  assert.match(finalFrontFace.type, /Legendary Creature/);
+  assert.ok(finalFrontFace.rules, "fourth face swap must retain matching face-specific Oracle content");
+  assert.equal(finalFrontFace.alt, "Nicol Bolas, the Ravager card face");
+  assert.ok(uncachedAlternateFaceRequests >= 1, "repeated hover flipping must exercise an initially uncached delayed alternate-face image");
   await page.mouse.move(5, 5, { steps: 12 });
   await page.waitForFunction(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"), { timeout: 10000 });
 

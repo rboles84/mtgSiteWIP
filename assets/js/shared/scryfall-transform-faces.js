@@ -67,6 +67,29 @@ export function flipScryfallTransformFaceState(card, state) {
   return createScryfallTransformFaceState(card, state?.nextFace?.name);
 }
 
+export function createScryfallTransformMediaBehavior(card, selectedFaceName = card?.selected_face_name) {
+  let faceState = createScryfallTransformFaceState(card, selectedFaceName);
+  if (!faceState) return null;
+
+  return Object.freeze({
+    get selectedFaceName() {
+      return faceState.selectedFaceName;
+    },
+    get currentFace() {
+      return faceState.activeFace;
+    },
+    get nextFace() {
+      return faceState.nextFace;
+    },
+    flip() {
+      const nextState = flipScryfallTransformFaceState(card, faceState);
+      if (!nextState) return null;
+      faceState = nextState;
+      return faceState;
+    },
+  });
+}
+
 export function isScryfallResultFlippableCard(card) {
   if (!RESULT_FLIPPABLE_LAYOUTS.has(card?.layout) || !Array.isArray(card.card_faces) || card.card_faces.length < 2) {
     return false;

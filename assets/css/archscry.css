@@ -3440,6 +3440,7 @@ body.vm-archscry-route .saved-deck-link-note{
   position:fixed;
   z-index:3000;
   display:block;
+  aspect-ratio:63 / 88;
   pointer-events:none;
   opacity:0;
   transform:translateY(8px) scale(0.96);
@@ -3451,6 +3452,11 @@ body.vm-archscry-route .saved-deck-link-note{
 .card-preview-overlay.is-visible{
   opacity:1;
   transform:translateY(0) scale(1);
+}
+.card-preview-media{
+  position:relative;
+  width:100%;
+  height:100%;
 }
 .card-preview-overlay img{
   display:block;

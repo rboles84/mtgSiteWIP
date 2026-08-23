@@ -59,3 +59,8 @@ No implementation, global chip redesign, provider-routing change, or VM-579 scop
 - **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
 - Euclid independently verified both named mobile consumers at 390x844 (42.63px tap height, approximately 35.3%–73.5% parent width, zero overflow) and desktop protection with optical inspection and zero console errors.
 - Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.
+
+## Owner acceptance — 2026-08-22
+
+- **PASS — OWNER ACCEPTED.** Freeze VM-582 implementation and responsive presentation during the remaining VM-580 remediation.
+- Do not modify this work unless a direct VM-580 regression makes a correction unavoidable.

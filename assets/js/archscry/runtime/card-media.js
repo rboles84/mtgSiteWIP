@@ -11,6 +11,7 @@ import {
 } from "../scryfall-card-cache.js";
 
 import {
+  createScryfallTransformMediaBehavior,
   createScryfallTransformFaceState,
   flipScryfallTransformFaceState,
 } from "../../shared/scryfall-transform-faces.js";
@@ -319,11 +320,9 @@ export let cardPreviewOverlay = null;
 
 export let cardPreviewRequestId = 0;
 
-export let cardPreviewCard = null;
-
 export let cardPreviewBoundary = null;
 
-export let cardPreviewTransformState = null;
+export let cardPreviewTransformMedia = null;
 
 export let cardDetailDialog = null;
 
@@ -352,12 +351,14 @@ export function ensureCardPreviewOverlay() {
   overlay.className = "card-preview-overlay";
   overlay.setAttribute("aria-hidden", "true");
   overlay.innerHTML = `
-    <img alt="">
-    <button class="card-preview-flip" type="button" hidden><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>
-    <div class="card-preview-face" data-card-preview-face hidden>
-      <strong class="card-preview-face-name"></strong>
-      <span class="card-preview-face-type"></span>
-      <span class="card-preview-face-rules"></span>
+    <div class="card-preview-media transform-card-media" data-card-preview-media>
+      <img alt="">
+      <button class="card-preview-flip transform-card-button" type="button" hidden><span class="transform-card-glyph" aria-hidden="true">&#8635;</span></button>
+      <div class="card-preview-face" data-card-preview-face hidden>
+        <strong class="card-preview-face-name"></strong>
+        <span class="card-preview-face-type"></span>
+        <span class="card-preview-face-rules"></span>
+      </div>
     </div>`;
   overlay.querySelector(".card-preview-flip")?.addEventListener("click", (event) => {
     event.preventDefault();
@@ -367,7 +368,7 @@ export function ensureCardPreviewOverlay() {
   overlay.addEventListener("pointerleave", (event) => {
     const relatedTarget = event.relatedTarget;
     if (relatedTarget instanceof Node && cardPreviewBoundary?.contains(relatedTarget)) return;
-    deferCardPreviewBoundaryDismissal();
+    hideCardPreviewOverlay();
   });
   overlay.addEventListener("focusout", (event) => {
     const relatedTarget = event.relatedTarget;
@@ -393,20 +394,8 @@ export function positionCardPreviewOverlay(overlay, source, event = null) {
     : Math.max(12, anchorX - width - gap);
   const top = Math.max(12, Math.min(window.innerHeight - height - 12, anchorY - height / 2));
   overlay.style.width = `${width}px`;
-  overlay.style.height = `${height}px`;
   overlay.style.left = `${left}px`;
   overlay.style.top = `${top}px`;
-}
-
-function deferCardPreviewBoundaryDismissal() {
-  window.requestAnimationFrame(() => {
-    const sourceActive = cardPreviewBoundary?.matches?.(":hover")
-      || cardPreviewBoundary === document.activeElement
-      || cardPreviewBoundary?.contains(document.activeElement);
-    const previewActive = cardPreviewOverlay?.matches?.(":hover")
-      || cardPreviewOverlay?.contains(document.activeElement);
-    if (!sourceActive && !previewActive) hideCardPreviewOverlay();
-  });
 }
 
 export async function showCardPreviewOverlay(trigger, event = null) {
@@ -439,12 +428,12 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   overlay.setAttribute("aria-hidden", "true");
   let imageUrl = "";
   let resolvedCard = null;
-  let transformState = null;
+  let transformMedia = null;
   if (trigger.cardName) {
     try {
       resolvedCard = await loadCachedScryfallNamedCard(trigger.cardName);
-      transformState = createScryfallTransformFaceState(resolvedCard);
-      imageUrl = transformState?.activeFace.image || cardImageUrl(resolvedCard);
+      transformMedia = createScryfallTransformMediaBehavior(resolvedCard);
+      imageUrl = transformMedia?.currentFace.image || cardImageUrl(resolvedCard);
     } catch (_) {
       return;
     }
@@ -471,17 +460,16 @@ export async function showCardPreviewOverlay(trigger, event = null) {
     }
   }
   if (requestId !== cardPreviewRequestId) return;
-  cardPreviewCard = resolvedCard;
   cardPreviewBoundary = trigger.boundary;
-  cardPreviewTransformState = transformState;
+  cardPreviewTransformMedia = transformMedia;
   if (overlayImage) {
     overlayImage.src = imageUrl;
-    overlayImage.alt = transformState ? `${transformState.activeFace.name} card face` : "";
+    overlayImage.alt = transformMedia ? `${transformMedia.currentFace.name} card face` : "";
   }
-  if (transformState && flipButton instanceof HTMLButtonElement) {
+  if (transformMedia && flipButton instanceof HTMLButtonElement) {
     overlay.classList.add("is-transform");
     overlay.setAttribute("aria-hidden", "false");
-    renderCardPreviewFace(transformState);
+    renderCardPreviewTransformMedia(transformMedia);
   }
   overlay.dataset.previewResolvedTarget = previewTarget;
   positionCardPreviewOverlay(overlay, trigger.boundary, event);
@@ -500,9 +488,8 @@ export function hideCardPreviewOverlay() {
     delete cardPreviewOverlay.dataset.previewResolvedTarget;
     delete cardPreviewOverlay.dataset.selectedFaceName;
   }
-  cardPreviewCard = null;
   cardPreviewBoundary = null;
-  cardPreviewTransformState = null;
+  cardPreviewTransformMedia = null;
   const image = cardPreviewOverlay?.querySelector("img");
   image?.removeAttribute("src");
   const button = cardPreviewOverlay?.querySelector(".card-preview-flip");
@@ -511,9 +498,9 @@ export function hideCardPreviewOverlay() {
   if (faceCopy instanceof HTMLElement) faceCopy.hidden = true;
 }
 
-export function renderCardPreviewFace(transformState) {
-  if (!cardPreviewOverlay || !transformState?.activeFace || !transformState?.nextFace) return;
-  const face = transformState.activeFace;
+export function renderCardPreviewTransformMedia(transformMedia) {
+  if (!cardPreviewOverlay || !transformMedia?.currentFace || !transformMedia?.nextFace) return;
+  const face = transformMedia.currentFace;
   const image = cardPreviewOverlay.querySelector("img");
   const button = cardPreviewOverlay.querySelector(".card-preview-flip");
   const faceCopy = cardPreviewOverlay.querySelector("[data-card-preview-face]");
@@ -526,22 +513,20 @@ export function renderCardPreviewFace(transformState) {
   }
   if (button instanceof HTMLButtonElement) {
     button.hidden = false;
-    button.title = `Transform to ${transformState.nextFace.name}`;
-    button.setAttribute("aria-label", `Transform preview to ${transformState.nextFace.name}`);
+    button.title = `Transform to ${transformMedia.nextFace.name}`;
+    button.setAttribute("aria-label", `Transform preview to ${transformMedia.nextFace.name}`);
   }
   if (faceCopy instanceof HTMLElement) faceCopy.hidden = false;
   if (faceName instanceof HTMLElement) faceName.textContent = face.name;
   if (faceType instanceof HTMLElement) faceType.textContent = face.typeLine;
   if (faceRules instanceof HTMLElement) faceRules.textContent = face.oracleText || wordBoundaryExcerpt(face.oracleExcerpt);
-  cardPreviewOverlay.dataset.selectedFaceName = transformState.selectedFaceName;
+  cardPreviewOverlay.dataset.selectedFaceName = transformMedia.selectedFaceName;
 }
 
 export function flipCardPreviewFace() {
-  if (!cardPreviewCard || !cardPreviewTransformState || !cardPreviewOverlay) return;
-  const nextState = flipScryfallTransformFaceState(cardPreviewCard, cardPreviewTransformState);
-  if (!nextState) return;
-  cardPreviewTransformState = nextState;
-  renderCardPreviewFace(nextState);
+  if (!cardPreviewTransformMedia || !cardPreviewOverlay) return;
+  if (!cardPreviewTransformMedia.flip()) return;
+  renderCardPreviewTransformMedia(cardPreviewTransformMedia);
 }
 
 export const CARD_PREVIEW_IMAGE_SELECTOR = "img.staple-img, img.land-img, img.vm-card-voice-image, img.vm-card-rationale-image";
@@ -614,7 +599,12 @@ export function handleCardPreviewPointerOut(event) {
   const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
   const relatedInPreview = event.relatedTarget instanceof Node && cardPreviewOverlay?.contains(event.relatedTarget);
   if (trigger && !relatedInside && !relatedInPreview) {
-    deferCardPreviewBoundaryDismissal();
+    window.requestAnimationFrame(() => {
+      const stillHovered = trigger.boundary.matches?.(":hover");
+      const stillFocused = trigger.boundary === document.activeElement || trigger.boundary.contains(document.activeElement);
+      const previewActive = cardPreviewOverlay?.matches?.(":hover") || cardPreviewOverlay?.contains(document.activeElement);
+      if (!stillHovered && !stillFocused && !previewActive) hideCardPreviewOverlay();
+    });
   }
 }
 

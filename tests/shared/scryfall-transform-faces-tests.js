@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 
 import {
   createScryfallResultFaceState,
+  createScryfallTransformMediaBehavior,
   createScryfallTransformFaceState,
   flipScryfallResultFaceState,
   flipScryfallTransformFaceState,
@@ -97,6 +98,33 @@ assert.equal(bolasBack.activeFace.name, "Nicol Bolas, the Arisen");
 assert.equal(bolasBack.activeFace.typeLine, "Legendary Planeswalker - Bolas");
 assert.equal(bolasBack.activeFace.loyalty, "7");
 assert.equal(flipScryfallTransformFaceState(nicolBolas, bolasBack).activeFace.name, "Nicol Bolas, the Ravager");
+
+const bolasMedia = createScryfallTransformMediaBehavior(nicolBolas);
+assert.equal(bolasMedia.selectedFaceName, "Nicol Bolas, the Ravager");
+assert.equal(bolasMedia.currentFace.image, nicolBolas.card_faces[0].image_uris.normal);
+assert.equal(bolasMedia.currentFace.typeLine, "Legendary Creature - Elder Dragon");
+assert.equal(bolasMedia.currentFace.oracleText, "Nicol Bolas, the Ravager rules");
+assert.equal(bolasMedia.nextFace.name, "Nicol Bolas, the Arisen");
+for (const expectedName of [
+  "Nicol Bolas, the Arisen",
+  "Nicol Bolas, the Ravager",
+  "Nicol Bolas, the Arisen",
+  "Nicol Bolas, the Ravager",
+  "Nicol Bolas, the Arisen",
+  "Nicol Bolas, the Ravager",
+]) {
+  const flippedState = bolasMedia.flip();
+  assert.equal(flippedState.activeFace.name, expectedName);
+  assert.equal(bolasMedia.selectedFaceName, expectedName);
+  assert.equal(bolasMedia.currentFace.name, expectedName);
+}
+assert.equal(Object.hasOwn(nicolBolas, "selected_face_name"), false, "shared media behavior must keep repeated face selection ephemeral");
+assert.equal(createScryfallTransformMediaBehavior(ordinaryCard), null, "ordinary cards must not receive transform media behavior");
+const delverMedia = createScryfallTransformMediaBehavior(ordinaryTransform);
+assert.equal(delverMedia.currentFace.name, "Delver of Secrets");
+assert.equal(delverMedia.flip().activeFace.name, "Insectile Aberration", "another supported transform record must use the same media behavior");
+assert.equal(delverMedia.flip().activeFace.name, "Delver of Secrets");
+
 
 assert.equal(createScryfallTransformFaceState(bruceBanner), null);
 assert.equal(createScryfallResultFaceState(bruceBanner).activeFace.name, "The Incredible Hulk");

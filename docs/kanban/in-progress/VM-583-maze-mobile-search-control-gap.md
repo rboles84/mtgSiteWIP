@@ -88,3 +88,8 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 - Fresh independent review audited the rendered ancestor chain at `390x844`, confirmed the one-column max-content grid tracks, matched the `10.390625px` textarea-to-Search gap to the `10.4px` design gap and explicit `<=24px` bound, and found zero horizontal overflow.
 - Search and all following actions, all three Maze modes, and desktop flex/wrap behavior remained green; focused and protected automation passed with zero rendered-console errors.
 - Awaiting only the owner's mobile Maze textarea-to-Search spacing recheck. Do not merge, push, close, or mark Done before explicit acceptance.
+
+## Owner acceptance — 2026-08-22
+
+- **PASS — OWNER ACCEPTED.** The owner confirmed the mobile Maze search layout now works perfectly.
+- Freeze VM-583. Do not modify Maze search runtime or CSS during the remaining VM-580 remediation.
