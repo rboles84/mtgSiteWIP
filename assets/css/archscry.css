@@ -3453,7 +3453,11 @@ body.vm-archscry-route .saved-deck-link-note{
   transform:translateY(0) scale(1);
 }
 .card-preview-overlay img{
+  display:block;
   width:100%;
+  height:100%;
+  box-sizing:border-box;
+  object-fit:cover;
   border:1px solid rgba(216,194,122,0.58);
   border-radius:4.5%;
   box-shadow:0 26px 76px rgba(0,0,0,0.92),0 0 0 1px rgba(184,149,74,0.3);

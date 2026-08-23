@@ -367,7 +367,7 @@ export function ensureCardPreviewOverlay() {
   overlay.addEventListener("pointerleave", (event) => {
     const relatedTarget = event.relatedTarget;
     if (relatedTarget instanceof Node && cardPreviewBoundary?.contains(relatedTarget)) return;
-    hideCardPreviewOverlay();
+    deferCardPreviewBoundaryDismissal();
   });
   overlay.addEventListener("focusout", (event) => {
     const relatedTarget = event.relatedTarget;
@@ -393,8 +393,20 @@ export function positionCardPreviewOverlay(overlay, source, event = null) {
     : Math.max(12, anchorX - width - gap);
   const top = Math.max(12, Math.min(window.innerHeight - height - 12, anchorY - height / 2));
   overlay.style.width = `${width}px`;
+  overlay.style.height = `${height}px`;
   overlay.style.left = `${left}px`;
   overlay.style.top = `${top}px`;
+}
+
+function deferCardPreviewBoundaryDismissal() {
+  window.requestAnimationFrame(() => {
+    const sourceActive = cardPreviewBoundary?.matches?.(":hover")
+      || cardPreviewBoundary === document.activeElement
+      || cardPreviewBoundary?.contains(document.activeElement);
+    const previewActive = cardPreviewOverlay?.matches?.(":hover")
+      || cardPreviewOverlay?.contains(document.activeElement);
+    if (!sourceActive && !previewActive) hideCardPreviewOverlay();
+  });
 }
 
 export async function showCardPreviewOverlay(trigger, event = null) {
@@ -602,12 +614,7 @@ export function handleCardPreviewPointerOut(event) {
   const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
   const relatedInPreview = event.relatedTarget instanceof Node && cardPreviewOverlay?.contains(event.relatedTarget);
   if (trigger && !relatedInside && !relatedInPreview) {
-    window.requestAnimationFrame(() => {
-      const stillHovered = trigger.boundary.matches?.(":hover");
-      const stillFocused = trigger.boundary === document.activeElement || trigger.boundary.contains(document.activeElement);
-      const previewActive = cardPreviewOverlay?.matches?.(":hover") || cardPreviewOverlay?.contains(document.activeElement);
-      if (!stillHovered && !stillFocused && !previewActive) hideCardPreviewOverlay();
-    });
+    deferCardPreviewBoundaryDismissal();
   }
 }
 

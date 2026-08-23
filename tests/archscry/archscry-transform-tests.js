@@ -11,6 +11,8 @@ assert.match(cardMedia, /renderCardPreviewFace\(transformState\)/, "hover previe
 assert.match(cardMedia, /face\.oracleText \|\| wordBoundaryExcerpt\(face\.oracleExcerpt\)/, "hover preview must update face-specific Oracle content");
 assert.match(cardMedia, /card-preview-flip[\s\S]*?transform-card-glyph[\s\S]*?&#8635;/, "hover transform control must use a familiar circular transform icon on the artwork");
 assert.match(cardMedia, /cardPreviewOverlay\?\.contains\(event\.relatedTarget\)/, "source-to-preview pointer movement must preserve the preview");
+assert.match(cardMedia, /deferCardPreviewBoundaryDismissal\(\)/, "source and preview exits must share deferred combined-boundary dismissal");
+assert.match(cardMedia, /overlay\.style\.height = `\$\{height\}px`/, "hover face swaps must retain stable preview hit geometry");
 assert.match(cardMedia, /renderCardDetailContent\(content, card, transformState, context\)/, "card details must have one atomic face renderer");
 assert.match(cardMedia, /cardDetailTransformState = createScryfallTransformFaceState\(card\)/, "card details must keep independent ephemeral face state");
 assert.match(cardMedia, /face\.oracleText \|\| wordBoundaryExcerpt\(face\.oracleExcerpt\)/, "local governed face excerpts must remain visible without concatenating faces");
@@ -28,6 +30,7 @@ assert.doesNotMatch(dimirBlock, /size:/, "Dimir must use shared cover sizing");
 assert.match(css, /\.guild-banner\[data-faction-key="UB"\] \.guild-name \{[\s\S]*?color: #a58ab7 !important;/, "Dimir title color must be muted without changing faction data");
 
 assert.match(css, /\.card-preview-overlay\.is-transform\{[\s\S]*?pointer-events:auto/, "only transform previews should accept pointer interaction");
+assert.match(css, /\.card-preview-overlay img\{[\s\S]*?height:100%;[\s\S]*?object-fit:cover;/, "transform face media must preserve the preview interaction box while loading");
 assert.match(css, /\.card-preview-flip\[hidden\],[\s\S]*?\.card-preview-face\[hidden\][\s\S]*?display:none;/, "ordinary preview hidden state must override the Flip control's display rule");
 assert.match(css, /\.card-preview-flip\{[\s\S]*?position:absolute;[\s\S]*?border-radius:50%/, "preview transform control must be a circular artwork overlay");
 assert.match(css, /\.archscry-transform-button\{[\s\S]*?position:absolute;[\s\S]*?width:44px;[\s\S]*?height:44px;/, "detail transform control must keep a stable accessible target");

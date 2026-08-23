@@ -60,3 +60,24 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 - **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
 - Euclid independently measured the 390x844 gap at 10.391px against the 10.4px row gap, confirmed the 88px textarea, five 60px actions, zero overflow, all three mode clicks, desktop protection, and zero console errors.
 - Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.
+
+## Owner acceptance rejection — 2026-08-22
+
+- **FAIL — Return to RobDev.** The owner's mobile path still showed a large art-background region between the Plain Reading textarea and Search, so the prior child `flex` reset is not accepted as sufficient.
+- Fresh rendered inspection across 320–1051px and all three modes shows the current committed path at 390px computes an 88px textarea/wrapper and a 10.39px gap, but the owning `.search-input-row` remains a flex container. The remediation must make the mobile stack structurally independent of inherited flex bases rather than relying only on child overrides.
+- Reopened scope is limited to the mobile search stack owner plus a stronger ancestor/geometry invariant. No runtime, parser, query, markup, negative margin, viewport-height hack, or broad Maze redesign is authorized.
+
+## Remediation acceptance state
+
+- [x] At approximately 390px, the owning mobile search layout structurally prevents any inherited flex basis from creating vertical blank space.
+- [x] `#search-input` bottom to Search top remains bounded by the actual design row gap and an explicit compact maximum.
+- [x] Textarea, actions, all three modes, and zero horizontal overflow remain protected.
+- [ ] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
+
+## Owner-rejection RobDev remediation — 2026-08-22
+
+- Corrected the actual mobile owner, `.search-input-row`, from a flex column to a one-column grid with `grid-auto-rows:max-content`; inherited child flex bases remain visible in computed style but can no longer create vertical tracks.
+- Removed the now-unnecessary mobile child flex resets. No margins, viewport-derived height, runtime, parser, query, markup, or desktop rule changed.
+- At 390x844 the computed grid is exactly `88px 60px 60px 60px 60px 60px`; `.search-wrap` and the textarea both measure 88px, Search begins 10.39px below the textarea against the 10.4px design gap, and horizontal overflow is zero.
+- Real clicks confirm the same compact geometry in Plain Reading, Operator's Hand, and Loom. Fresh rendered optical QA shows Search immediately below the textarea and the five actions in a natural stack. Desktop 1440x1000 retains the existing flex/wrap layout and zero overflow.
+- The strengthened browser invariant requires the grid owner, wrapper/textarea height equality, design-gap match, an explicit <=24px maximum, usable actions, all three modes, and zero overflow. Focused Maze/mode tests, JS/HTML lint, frontend smoke, and `git diff --check` pass. Fresh exact-SHA RobQA remains required.

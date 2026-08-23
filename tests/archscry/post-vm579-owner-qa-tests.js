@@ -158,7 +158,12 @@ try {
       return;
     }
     if (/^https:\/\/cards\.scryfall\.io\//.test(url)) {
-      request.respond({ status: 200, contentType: "image/png", body: imageFixture });
+      const response = { status: 200, contentType: "image/png", headers: { "Cache-Control": "no-store" }, body: imageFixture };
+      if (/\/normal\/back\/7\/b\/7b215968-93a6-4278-ac61-4e3e8c3c3943\.jpg/.test(url)) {
+        setTimeout(() => void request.respond(response).catch(() => {}), 350);
+        return;
+      }
+      request.respond(response);
       return;
     }
     request.abort();
@@ -212,10 +217,19 @@ try {
   assert.equal(frontFace.alt, "Nicol Bolas, the Ravager card face");
 
   const flipCenter = await pointerCenter(page, ".card-preview-flip");
+  const stablePreviewRect = await page.$eval(".card-preview-overlay", (overlay) => {
+    overlay.dataset.ownerQaBoundaryWitness = "stable-overlay";
+    const rect = overlay.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
   await page.mouse.move(flipCenter.x, flipCenter.y, { steps: 6 });
   await page.mouse.click(flipCenter.x, flipCenter.y);
+  await new Promise((resolve) => setTimeout(resolve, 80));
   const backFace = await page.$eval(".card-preview-overlay", (overlay) => ({
     visible: overlay.classList.contains("is-visible"),
+    boundaryWitness: overlay.dataset.ownerQaBoundaryWitness,
+    width: overlay.getBoundingClientRect().width,
+    height: overlay.getBoundingClientRect().height,
     selected: overlay.dataset.selectedFaceName,
     name: overlay.querySelector(".card-preview-face-name")?.textContent,
     type: overlay.querySelector(".card-preview-face-type")?.textContent,
@@ -223,13 +237,28 @@ try {
     alt: overlay.querySelector("img")?.alt,
   }));
   assert.equal(backFace.visible, true);
+  assert.equal(backFace.boundaryWitness, "stable-overlay", "hover face swaps must retain the existing preview DOM boundary");
+  assert.ok(backFace.width >= stablePreviewRect.width - 1 && backFace.height >= stablePreviewRect.height - 1, "hover face swaps must preserve preview hit geometry while alternate media loads");
   assert.equal(backFace.selected, "Nicol Bolas, the Arisen");
   assert.equal(backFace.name, "Nicol Bolas, the Arisen");
   assert.match(backFace.type, /Legendary Planeswalker/);
   assert.ok(backFace.rules, "back hover preview must expose face-specific Oracle content");
   assert.equal(backFace.alt, "Nicol Bolas, the Arisen card face");
-  await page.mouse.click(flipCenter.x, flipCenter.y);
+  const previewAfterFirstFlip = await pointerCenter(page, ".card-preview-overlay");
+  await page.mouse.move(previewAfterFirstFlip.x, previewAfterFirstFlip.y);
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "pointer must remain inside the preview after the first face swap");
+  const secondFlipCenter = await pointerCenter(page, ".card-preview-flip");
+  await page.mouse.move(secondFlipCenter.x, secondFlipCenter.y, { steps: 6 });
+  await page.mouse.click(secondFlipCenter.x, secondFlipCenter.y);
   assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.dataset.selectedFaceName), "Nicol Bolas, the Ravager", "hover preview must flip back in place");
+  const previewAfterSecondFlip = await pointerCenter(page, ".card-preview-overlay");
+  await page.mouse.move(previewAfterSecondFlip.x, previewAfterSecondFlip.y);
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "pointer must re-enter the same preview boundary after flipping back");
+  const thirdFlipCenter = await pointerCenter(page, ".card-preview-flip");
+  await page.mouse.move(thirdFlipCenter.x, thirdFlipCenter.y, { steps: 6 });
+  await page.mouse.click(thirdFlipCenter.x, thirdFlipCenter.y);
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.dataset.selectedFaceName), "Nicol Bolas, the Arisen", "hover preview must support a third consecutive in-boundary flip");
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "repeated flips must retain the interactive preview");
   await page.mouse.move(5, 5, { steps: 12 });
   await page.waitForFunction(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"), { timeout: 10000 });
 
@@ -319,10 +348,15 @@ try {
   const mazeGeometry = await page.evaluate(() => {
     const textarea = document.getElementById("search-input").getBoundingClientRect();
     const search = document.getElementById("search-btn").getBoundingClientRect();
+    const searchWrap = document.querySelector(".search-wrap");
+    const searchWrapRect = searchWrap.getBoundingClientRect();
+    const searchRow = document.querySelector(".search-input-row");
     const actionIds = ["search-btn", "clear-search-btn", "search-copy-btn", "search-scryfall-link", "stash-drawer-toggle"];
     return {
       gap: search.top - textarea.bottom,
-      rowGap: Number.parseFloat(getComputedStyle(document.querySelector(".search-input-row")).rowGap),
+      rowGap: Number.parseFloat(getComputedStyle(searchRow).rowGap),
+      rowDisplay: getComputedStyle(searchRow).display,
+      searchWrapHeight: searchWrapRect.height,
       textareaHeight: textarea.height,
       actionRects: actionIds.map((id) => {
         const rect = document.getElementById(id).getBoundingClientRect();
@@ -332,6 +366,9 @@ try {
     };
   });
   assert.ok(mazeGeometry.gap >= mazeGeometry.rowGap - 1 && mazeGeometry.gap <= mazeGeometry.rowGap + 2, `mobile Maze gap ${mazeGeometry.gap} must match intentional row gap ${mazeGeometry.rowGap}`);
+  assert.ok(mazeGeometry.gap <= 24, `mobile Maze textarea-to-Search gap ${mazeGeometry.gap} must remain compact`);
+  assert.equal(mazeGeometry.rowDisplay, "grid", "mobile Maze search stack must use the owning grid layout rather than inherited flex sizing");
+  assert.ok(Math.abs(mazeGeometry.searchWrapHeight - mazeGeometry.textareaHeight) <= 1, "mobile Maze search wrapper must not retain vertical space below its textarea");
   assert.ok(mazeGeometry.textareaHeight >= 88, "mobile Maze textarea must remain comfortably usable");
   for (const action of mazeGeometry.actionRects) {
     assert.ok(action.height >= 42 && action.width > 0, `${action.id} must remain visible and tappable`);

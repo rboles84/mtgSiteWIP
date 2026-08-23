@@ -64,3 +64,25 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - **PASS — Owner Review Ready** on exact candidate `44547a8c967e56d67090b9b5bafb7bf4eb868e11` against parent `fa3eafefacf6c1518753bda6fd4261070e624aae`.
 - Euclid independently reran focused automation and fresh-origin 1440x1000 rendered QA with real pointer/click input: ordinary hidden state, source-to-preview boundary, both Nicol Bolas faces and copy, flip/back/dismiss, and Card Details all passed with zero console errors.
 - Awaiting only bounded owner acceptance; do not merge, push, close, or mark Done yet.
+
+## Owner acceptance rejection — 2026-08-22
+
+- **FAIL — Return to RobDev.** The owner confirmed ordinary-card hidden state, initial source-to-preview entry, the first Ravager -> Arisen flip, and Card Details, but repeated hover-preview flipping failed after the first face swap.
+- Reopened scope is limited to the post-flip lifecycle: preserve the same preview DOM/listeners/boundary and prove `source -> preview -> flip -> flip back -> flip again -> leave -> dismiss` with real pointer movement.
+- Current code inspection proves `renderCardPreviewFace` mutates the existing image/copy/button nodes and does not replace the overlay or listeners. Remaining risk is transient hit geometry and asymmetric immediate dismissal on overlay `pointerleave`; the source boundary already defers dismissal and rechecks both surfaces.
+- Stop condition remains: no click-to-lock state and no preview architecture rewrite.
+
+## Remediation acceptance state
+
+- [x] Ordinary single-face hover preview has no visible or focusable transform control.
+- [x] Repeated Nicol Bolas hover flips retain the same interactive source/preview boundary through at least three consecutive face swaps.
+- [x] Card Details flip remains functional.
+- [ ] Strengthened focused automation, rendered RobDev QA, and fresh independent exact-SHA RobQA pass.
+
+## Owner-rejection RobDev remediation — 2026-08-22
+
+- Preserved the existing overlay DOM, listeners, shared transform state, and click contract. `positionCardPreviewOverlay` now fixes the already-computed 63:88 preview height, while the existing image node fills that stable box during uncached face loads.
+- Reused one deferred boundary-dismissal function from both source `pointerout` and preview `pointerleave`, symmetrically rechecking current source hover/focus plus preview hover/focus before clearing state. No pinned/click-to-lock state was added.
+- The strengthened browser invariant delays the alternate-face image, proves the same overlay node and hit box survive, then performs real pointer movement through `source -> preview -> flip -> preview -> flip back -> preview -> flip again -> leave -> dismiss`; Card Details flips Ravager -> Arisen -> Ravager afterward.
+- Fresh-origin 1440x1000 RobDev QA repeated three human-speed flips, moved preview -> source -> preview after the third swap, and dismissed only after leaving both. The settled Arisen face rendered correctly and browser console errors were zero.
+- Focused transform/shared-face/dev-review tests, JS/HTML lint, frontend smoke, and `git diff --check` pass. Fresh exact-SHA RobQA remains required.

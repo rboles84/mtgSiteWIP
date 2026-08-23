@@ -2297,15 +2297,15 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   }
 
   .search-input-row {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: max-content;
     height: auto;
     align-items: stretch;
   }
 
   .search-wrap {
     width: 100%;
-    flex: 0 0 auto;
   }
 
   .mode-card {
@@ -2316,7 +2316,6 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .btn-clear,
   .query-action-btn {
     width: 100%;
-    flex: 0 0 auto;
   }
 
   .builder-head-actions {
