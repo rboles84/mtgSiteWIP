@@ -54,6 +54,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-583 - Maze Mobile Search Control Gap](done/VM-583-maze-mobile-search-control-gap.md) - owner accepted the compact mobile Maze search stack after the responsible max-content grid correction; lifecycle closeout completed with implementation frozen.
+- [VM-582 - Mobile Provider Control Intrinsic Sizing](done/VM-582-mobile-provider-control-intrinsic-sizing.md) - owner accepted the content-sized mobile provider controls for Precon Starting Points and Commander Browsing Starts; lifecycle closeout completed with implementation frozen.
+- [VM-581 - College Commander Browsing Identity Labels](done/VM-581-college-commander-browsing-identity-labels.md) - owner accepted college-specific visible Commander Browsing labels with provider routing preserved; lifecycle closeout completed with implementation frozen.
+- [VM-580 - Transform Hover Preview Interaction Contract](done/VM-580-transform-hover-preview-interaction-contract.md) - owner accepted the human Nicol Bolas source-to-preview hover/flip/dismissal behavior and the final manually hard-refresh validated CSS overlay adjustment; lifecycle closeout completed.
 - [VM-585 - VM-580 Human Interaction Fidelity Governance](done/VM-585-vm580-interaction-fidelity-governance.md) - encoded faithful rendered pointer travel, focus modality, red-before-green escaped-defect proof, and bounded manual interaction QA in the canonical gates and one durable learning.
 - [VM-584 - RobDev And RobQA Repo Skills](done/VM-584-robdev-robqa-repo-skills.md) - added thin repo-local skill entrypoints, focused usage guides, and living workflow invocations while preserving the frozen RobDevPass and RobQAPass authorities.
 - [VM-579 - Archscry Dev Review + Placement Validation](done/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the local/flag-gated production renderer and placement-engine review seams plus the transient direct-review Maze context and authoritative selector taxonomy remediation; VM-580 through VM-583 remain separate backlog work.

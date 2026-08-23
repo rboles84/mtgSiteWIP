@@ -2,7 +2,7 @@
 
 ID: VM-583
 Title: Maze Mobile Search Control Gap
-Status: In Progress
+Status: Done
 Type: Responsive layout repair
 Area: Maze search controls
 Priority: Medium
@@ -93,3 +93,9 @@ No implementation, search behavior change, parser/query change, broad Maze layou
 
 - **PASS — OWNER ACCEPTED.** The owner confirmed the mobile Maze search layout now works perfectly.
 - Freeze VM-583. Do not modify Maze search runtime or CSS during the remaining VM-580 remediation.
+
+## Lifecycle closeout - 2026-08-22
+
+- VM-583 was already owner accepted before final VM-580 acceptance.
+- No product implementation changed during this batch closeout.
+- Lifecycle state: Done.

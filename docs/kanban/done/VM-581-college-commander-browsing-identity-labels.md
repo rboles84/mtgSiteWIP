@@ -2,7 +2,7 @@
 
 ID: VM-581
 Title: College Commander Browsing Identity Labels
-Status: In Progress
+Status: Done
 Type: Presentation/routing separation
 Area: Archscry Commander Browsing Starts
 Priority: High
@@ -67,3 +67,9 @@ No implementation, provider routing rewrite, identity-data edit, generated-data 
 
 - **PASS — OWNER ACCEPTED.** Freeze VM-581 implementation and presentation behavior during the remaining VM-580 remediation.
 - Do not modify this work unless a direct VM-580 regression makes a correction unavoidable.
+
+## Lifecycle closeout - 2026-08-22
+
+- VM-581 was already owner accepted before final VM-580 remediation.
+- No product implementation changed during this batch closeout.
+- Lifecycle state: Done.

@@ -2,7 +2,7 @@
 
 ID: VM-580
 Title: Transform Hover Preview Interaction Contract
-Status: In Progress
+Status: Done
 Type: Product interaction repair
 Area: Archscry card media
 Priority: High
@@ -141,3 +141,11 @@ No implementation, transform-model change, card resolver rewrite, modal redesign
 - Final manual 1440x1000 CUA pass followed Dossier Review -> Grixis -> Card Signals -> Nicol Bolas, crossed the rendered 18px gap, completed Ravager -> Arisen -> Ravager -> Arisen -> Ravager without reopening, dismissed after leaving both surfaces, confirmed ordinary Sedris has no Flip, and confirmed Card Details both ways plus focus restoration.
 - Focused transform, post-VM579 browser, dev-review, shared-face, JS lint, syntax, and diff checks pass. Placement and unrelated heavyweight suites were intentionally not run.
 - VM-581, VM-582, VM-583, Maze runtime/CSS, shared transform-face authority, placement, data, telemetry, persistence, VM-578, VM-584, and `.agents` remain untouched. Do not merge, push, close, or mark Done before owner acceptance.
+
+## Final owner acceptance and closeout - 2026-08-22
+
+- **PASS - OWNER ACCEPTED.** The owner manually confirmed the final human-pointer behavior works naturally: hover Nicol Bolas; physically move from the source card into the preview; keep the preview available; repeatedly flip Ravager <-> Arisen; and dismiss the preview only after leaving the combined source/preview interaction region.
+- The final product implementation is frozen at the accepted hover/flip JavaScript. Do not modify the accepted hover/flip JavaScript during closeout.
+- The owner requested one final surgical presentation adjustment in `assets/css/archscry.css`: hide the duplicate face-specific name/type/Oracle overlay by not displaying `.archscry-card-preview-face-overlay`.
+- The owner manually hard-refresh validated that CSS adjustment and explicitly requested no tests or browser automation for that tiny presentation change. This is recorded as an intentional owner-directed QA decision, not a missing QA cycle.
+- Lifecycle state: Done. Remaining integration work is limited to commit, push, PR validation, and normal main integration of the combined VM-580 through VM-585 candidate.

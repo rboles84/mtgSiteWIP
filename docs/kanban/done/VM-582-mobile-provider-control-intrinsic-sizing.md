@@ -2,7 +2,7 @@
 
 ID: VM-582
 Title: Mobile Provider Control Intrinsic Sizing
-Status: In Progress
+Status: Done
 Type: Responsive layout repair
 Area: Archscry provider controls
 Priority: Medium
@@ -64,3 +64,9 @@ No implementation, global chip redesign, provider-routing change, or VM-579 scop
 
 - **PASS — OWNER ACCEPTED.** Freeze VM-582 implementation and responsive presentation during the remaining VM-580 remediation.
 - Do not modify this work unless a direct VM-580 regression makes a correction unavoidable.
+
+## Lifecycle closeout - 2026-08-22
+
+- VM-582 was already owner accepted before final VM-580 remediation.
+- No product implementation changed during this batch closeout.
+- Lifecycle state: Done.
