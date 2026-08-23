@@ -123,6 +123,51 @@ async function hoverPointer(page, selector) {
   return center;
 }
 
+async function movePointerThroughRenderedPreview(page, sourceSelector, previewSelector, { transitionDelayMs = 35 } = {}) {
+  const sourceBox = await page.$eval(sourceSelector, (node) => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
+  });
+  const previewBox = await page.$eval(previewSelector, (node) => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
+  });
+  const previewIsRight = previewBox.left >= sourceBox.left;
+  const sourceCenter = {
+    x: sourceBox.left + sourceBox.width / 2,
+    y: sourceBox.top + sourceBox.height / 2,
+  };
+  const sourceEdge = {
+    x: previewIsRight ? sourceBox.right - 1 : sourceBox.left + 1,
+    y: sourceCenter.y,
+  };
+  const previewEntry = {
+    x: previewIsRight ? previewBox.left + 28 : previewBox.right - 28,
+    y: Math.max(previewBox.top + 36, Math.min(previewBox.bottom - 36, sourceCenter.y)),
+  };
+  const segments = [
+    { phase: "source-to-edge", from: sourceCenter, to: sourceEdge, steps: 8, delayMs: 18 },
+    { phase: "edge-through-gap-to-preview", from: sourceEdge, to: previewEntry, steps: 12, delayMs: transitionDelayMs },
+  ];
+  const points = [];
+
+  await page.mouse.move(sourceCenter.x, sourceCenter.y);
+  for (const segment of segments) {
+    for (let step = 1; step <= segment.steps; step += 1) {
+      const x = segment.from.x + (segment.to.x - segment.from.x) * step / segment.steps;
+      const y = segment.from.y + (segment.to.y - segment.from.y) * step / segment.steps;
+      await page.mouse.move(x, y);
+      await new Promise((resolve) => setTimeout(resolve, segment.delayMs));
+      const visible = await page.$eval(previewSelector, (node) => node.classList.contains("is-visible"));
+      points.push({ phase: segment.phase, x, y, visible });
+      assert.equal(visible, true, `preview dismissed during incremental ${segment.phase} pointer movement at (${Math.round(x)}, ${Math.round(y)})`);
+    }
+  }
+
+  const gap = previewIsRight ? previewBox.left - sourceBox.right : sourceBox.left - previewBox.right;
+  return { sourceBox, previewBox, gap, points };
+}
+
 try {
   launchedChrome = await ChromeLauncher.launch({
     chromePath: browserCandidates[0],
@@ -199,10 +244,11 @@ try {
 
   await hoverPointer(page, bolasSelector);
   await page.waitForSelector(".card-preview-overlay.is-transform.is-visible", { timeout: 10000 });
-  const sourceCenter = await pointerCenter(page, bolasSelector);
-  const previewCenter = await pointerCenter(page, ".card-preview-overlay");
-  await page.mouse.move(sourceCenter.x, sourceCenter.y);
-  await page.mouse.move(previewCenter.x, previewCenter.y);
+  const incrementalEntry = await movePointerThroughRenderedPreview(page, bolasSelector, ".card-preview-overlay", { transitionDelayMs: 35 });
+  assert.ok(incrementalEntry.points.length >= 20, "source-to-preview regression must use multiple real screen-coordinate movements");
+  assert.ok(incrementalEntry.points.some((point) => point.phase === "edge-through-gap-to-preview"), "pointer path must include the rendered source/preview transition");
+  assert.ok(incrementalEntry.gap >= 0 && incrementalEntry.gap <= 32, `preview must keep a small bounded rendered gap from its source, received ${incrementalEntry.gap}`);
+  assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.matches(":hover")), true, "incremental pointer movement must enter the live preview body");
   assert.equal(await page.$eval(".card-preview-overlay", (overlay) => overlay.classList.contains("is-visible")), true, "source-to-preview pointer movement must preserve the transform preview");
 
   const frontFace = await page.$eval(".card-preview-overlay", (overlay) => ({
@@ -282,6 +328,7 @@ try {
   assert.ok(finalFrontFace.rules, "fourth face swap must retain matching face-specific Oracle content");
   assert.equal(finalFrontFace.alt, "Nicol Bolas, the Ravager card face");
   assert.ok(uncachedAlternateFaceRequests >= 1, "repeated hover flipping must exercise an initially uncached delayed alternate-face image");
+  assert.equal(await page.$eval(".card-preview-flip", (button) => document.activeElement === button), true, "pointer Flip must exercise dismissal while the transform control retains click focus");
   await page.mouse.move(5, 5, { steps: 12 });
   await page.waitForFunction(() => !document.querySelector(".card-preview-overlay")?.classList.contains("is-visible"), { timeout: 10000 });
 

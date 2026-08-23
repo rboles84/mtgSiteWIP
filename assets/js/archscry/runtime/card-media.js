@@ -324,6 +324,12 @@ export let cardPreviewBoundary = null;
 
 export let cardPreviewTransformMedia = null;
 
+export const CARD_PREVIEW_DISMISS_DELAY_MS = 200;
+
+export let cardPreviewDismissTimer = null;
+
+export let cardPreviewPointerOwnsFocus = false;
+
 export let cardDetailDialog = null;
 
 export let cardDetailInvoker = null;
@@ -337,6 +343,37 @@ export let cardDetailContext = null;
 export let glossaryTooltip = null;
 
 export let glossaryTooltipTarget = null;
+
+export function cancelCardPreviewDismissal() {
+  if (cardPreviewDismissTimer === null) return;
+  window.clearTimeout(cardPreviewDismissTimer);
+  cardPreviewDismissTimer = null;
+}
+
+export function isCardPreviewInteractionActive() {
+  const activeElement = document.activeElement;
+  const hasVisibleFocus = (container) => Boolean(
+    container &&
+    activeElement instanceof HTMLElement &&
+    (container === activeElement || container.contains(activeElement)) &&
+    activeElement.matches(":focus-visible")
+  );
+  const boundaryActive = Boolean(cardPreviewBoundary && (
+    cardPreviewBoundary.matches?.(":hover") || hasVisibleFocus(cardPreviewBoundary)
+  ));
+  const previewActive = Boolean(cardPreviewOverlay?.classList.contains("is-visible") && (
+    cardPreviewOverlay.matches?.(":hover") || hasVisibleFocus(cardPreviewOverlay)
+  ));
+  return boundaryActive || previewActive;
+}
+
+export function scheduleCardPreviewDismissal(delay = CARD_PREVIEW_DISMISS_DELAY_MS) {
+  cancelCardPreviewDismissal();
+  cardPreviewDismissTimer = window.setTimeout(() => {
+    cardPreviewDismissTimer = null;
+    if (!isCardPreviewInteractionActive()) hideCardPreviewOverlay();
+  }, delay);
+}
 
 export function canShowCardPreviewOverlay() {
   return typeof window.matchMedia !== "function" ||
@@ -365,11 +402,26 @@ export function ensureCardPreviewOverlay() {
     event.stopPropagation();
     flipCardPreviewFace();
   });
+  overlay.addEventListener("pointerdown", () => {
+    cardPreviewPointerOwnsFocus = true;
+  });
+  overlay.addEventListener("keydown", () => {
+    cardPreviewPointerOwnsFocus = false;
+  });
+  overlay.addEventListener("pointerenter", cancelCardPreviewDismissal);
   overlay.addEventListener("pointerleave", (event) => {
     const relatedTarget = event.relatedTarget;
-    if (relatedTarget instanceof Node && cardPreviewBoundary?.contains(relatedTarget)) return;
-    hideCardPreviewOverlay();
+    if (relatedTarget instanceof Node && cardPreviewBoundary?.contains(relatedTarget)) {
+      cancelCardPreviewDismissal();
+      return;
+    }
+    if (cardPreviewPointerOwnsFocus && overlay.contains(document.activeElement) && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    cardPreviewPointerOwnsFocus = false;
+    scheduleCardPreviewDismissal();
   });
+  overlay.addEventListener("focusin", cancelCardPreviewDismissal);
   overlay.addEventListener("focusout", (event) => {
     const relatedTarget = event.relatedTarget;
     if (relatedTarget instanceof Node && (overlay.contains(relatedTarget) || cardPreviewBoundary?.contains(relatedTarget))) return;
@@ -380,18 +432,17 @@ export function ensureCardPreviewOverlay() {
   return overlay;
 }
 
-export function positionCardPreviewOverlay(overlay, source, event = null) {
+export function positionCardPreviewOverlay(overlay, source) {
   const rect = source.getBoundingClientRect();
   const preferredWidth = source.classList.contains("land-img") ? 285 : 315;
   const width = Math.min(preferredWidth, Math.max(180, window.innerWidth - 24));
   const height = Math.round(width * 88 / 63);
-  const anchorX = event?.clientX || rect.right;
-  const anchorY = event?.clientY || rect.top + rect.height / 2;
   const gap = 18;
-  const spaceRight = window.innerWidth - anchorX;
+  const spaceRight = window.innerWidth - rect.right;
   const left = spaceRight > width + gap
-    ? anchorX + gap
-    : Math.max(12, anchorX - width - gap);
+    ? rect.right + gap
+    : Math.max(12, rect.left - width - gap);
+  const anchorY = rect.top + rect.height / 2;
   const top = Math.max(12, Math.min(window.innerHeight - height - 12, anchorY - height / 2));
   overlay.style.width = `${width}px`;
   overlay.style.left = `${left}px`;
@@ -402,6 +453,8 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   if (!canShowCardPreviewOverlay() || !trigger?.boundary) {
     return;
   }
+  cancelCardPreviewDismissal();
+  cardPreviewPointerOwnsFocus = false;
   const requestId = ++cardPreviewRequestId;
   const overlay = ensureCardPreviewOverlay();
   const overlayImage = overlay.querySelector("img");
@@ -409,7 +462,7 @@ export async function showCardPreviewOverlay(trigger, event = null) {
   const previewTarget = trigger.cardName || trigger.image?.currentSrc || trigger.image?.src || "";
   if (overlay.classList.contains("is-visible") && overlay.dataset.previewResolvedTarget === previewTarget) {
     cardPreviewBoundary = trigger.boundary;
-    positionCardPreviewOverlay(overlay, trigger.boundary, event);
+    positionCardPreviewOverlay(overlay, trigger.boundary);
     return;
   }
   overlay.dataset.previewTarget = previewTarget;
@@ -472,13 +525,15 @@ export async function showCardPreviewOverlay(trigger, event = null) {
     renderCardPreviewTransformMedia(transformMedia);
   }
   overlay.dataset.previewResolvedTarget = previewTarget;
-  positionCardPreviewOverlay(overlay, trigger.boundary, event);
+  positionCardPreviewOverlay(overlay, trigger.boundary);
   overlay.classList.remove("is-loading");
   overlay.removeAttribute("aria-busy");
   overlay.classList.add("is-visible");
 }
 
 export function hideCardPreviewOverlay() {
+  cancelCardPreviewDismissal();
+  cardPreviewPointerOwnsFocus = false;
   cardPreviewRequestId += 1;
   cardPreviewOverlay?.classList.remove("is-visible", "is-loading", "is-transform");
   cardPreviewOverlay?.removeAttribute("aria-busy");
@@ -576,6 +631,7 @@ export function cardPreviewTriggerFromEvent(event) {
 export function handleCardPreviewPointerOver(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   if (trigger) {
+    cancelCardPreviewDismissal();
     void showCardPreviewOverlay(trigger, event);
   }
 }
@@ -583,6 +639,7 @@ export function handleCardPreviewPointerOver(event) {
 export function handleCardPreviewPointerMove(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   const requestedTarget = trigger?.cardName || trigger?.image?.currentSrc || trigger?.image?.src || "";
+  if (trigger) cancelCardPreviewDismissal();
   if (!cardPreviewOverlay?.classList.contains("is-visible")) {
     const sameTargetIsLoading = cardPreviewOverlay?.classList.contains("is-loading") &&
       cardPreviewOverlay.dataset.previewTarget === requestedTarget;
@@ -590,27 +647,25 @@ export function handleCardPreviewPointerMove(event) {
     return;
   }
   if (trigger && cardPreviewOverlay.dataset.previewResolvedTarget !== requestedTarget) void showCardPreviewOverlay(trigger, event);
-  else if (trigger) positionCardPreviewOverlay(cardPreviewOverlay, trigger.boundary, event);
-  else hideCardPreviewOverlay();
+  else if (!trigger) scheduleCardPreviewDismissal();
 }
 
 export function handleCardPreviewPointerOut(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
-  const relatedInside = event.relatedTarget instanceof Node && trigger?.boundary.contains(event.relatedTarget);
+  if (!trigger) return;
+  const relatedInside = event.relatedTarget instanceof Node && trigger.boundary.contains(event.relatedTarget);
   const relatedInPreview = event.relatedTarget instanceof Node && cardPreviewOverlay?.contains(event.relatedTarget);
-  if (trigger && !relatedInside && !relatedInPreview) {
-    window.requestAnimationFrame(() => {
-      const stillHovered = trigger.boundary.matches?.(":hover");
-      const stillFocused = trigger.boundary === document.activeElement || trigger.boundary.contains(document.activeElement);
-      const previewActive = cardPreviewOverlay?.matches?.(":hover") || cardPreviewOverlay?.contains(document.activeElement);
-      if (!stillHovered && !stillFocused && !previewActive) hideCardPreviewOverlay();
-    });
+  if (relatedInside || relatedInPreview) {
+    cancelCardPreviewDismissal();
+    return;
   }
+  scheduleCardPreviewDismissal();
 }
 
 export function handleCardPreviewFocusIn(event) {
   const trigger = cardPreviewTriggerFromEvent(event);
   if (trigger) {
+    cancelCardPreviewDismissal();
     void showCardPreviewOverlay(trigger);
   }
 }
