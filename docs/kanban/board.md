@@ -43,10 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-583 - Maze Mobile Search Control Gap](in-progress/VM-583-maze-mobile-search-control-gap.md) - correct the measured 394.69px mobile gap by resetting the inherited percentage flex basis at the responsible column breakpoint, preserving textarea and action behavior.
-- [VM-582 - Mobile Provider Control Intrinsic Sizing](in-progress/VM-582-mobile-provider-control-intrinsic-sizing.md) - replace the shared forced full-width mobile provider rule with content-sized, max-width-bounded controls across both affected dossier surfaces.
-- [VM-581 - College Commander Browsing Identity Labels](in-progress/VM-581-college-commander-browsing-identity-labels.md) - use the existing player-facing identity-label authority in the shared presenter while retaining valid provider routing URLs.
-- [VM-580 - Transform Hover Preview Interaction Contract](in-progress/VM-580-transform-hover-preview-interaction-contract.md) - make hidden state authoritative for ordinary previews and complete face-specific hover content through the existing VM-576 transform state/boundary machinery.
 
 ## Blocked
 
@@ -60,7 +56,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-580 - Transform Hover Preview Interaction Contract](done/VM-580-transform-hover-preview-interaction-contract.md) - owner accepted the human Nicol Bolas source-to-preview hover/flip/dismissal behavior and the final manually hard-refresh validated CSS overlay adjustment; lifecycle closeout completed.
 - [VM-585 - VM-580 Human Interaction Fidelity Governance](done/VM-585-vm580-interaction-fidelity-governance.md) - encoded faithful rendered pointer travel, focus modality, red-before-green escaped-defect proof, and bounded manual interaction QA in the canonical gates and one durable learning.
 - [VM-584 - RobDev And RobQA Repo Skills](done/VM-584-robdev-robqa-repo-skills.md) - added thin repo-local skill entrypoints, focused usage guides, and living workflow invocations while preserving the frozen RobDevPass and RobQAPass authorities.
-- [VM-579 - Archscry Dev Review + Placement Validation](done/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the local/flag-gated production renderer and placement-engine review seams plus the transient direct-review Maze context and authoritative selector taxonomy remediation; VM-580 through VM-583 remain separate backlog work.
+- [VM-579 - Archscry Dev Review + Placement Validation](done/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the local/flag-gated production renderer and placement-engine review seams plus the transient direct-review Maze context and authoritative selector taxonomy remediation; VM-580 through VM-583 later completed as separate owner-accepted follow-up work.
 
 - [VM-577 - Scryfall Maze Master Verification V1](done/VM-577-scryfall-maze-master-verification-v1.md) - verified the immutable Scryfall Maze Master workbook through live Scryfall catalog checks, bounded operator/Tagger probes, collision and owner-review queues, existing Plain Reading QA baseline, repeatable verifier tooling, and focused tests; no runtime, telemetry, UI, compiler, placement, generated grounding, or semantic-promotion behavior changed.
 
