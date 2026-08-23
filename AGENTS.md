@@ -44,11 +44,11 @@ Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least
 
 ## Governing Developer Gate
 
-Apply `docs/dev/RobDevPass.md` before implementation. Ground work proportionally, determine the owning authority and producer before editing, reuse existing machinery, and define changed behavior, protected behavior, consumers, realistic risks, the smallest complete implementation, non-goals, and stop conditions. Specialist source, data, route, evidence, placement, certification, and workflow authorities remain controlling within their domains; reference the gate rather than restating it.
+Use the repo-local `robdev` skill at `.agents/skills/robdev/SKILL.md` before implementation. Read its `robdev.md` usage guide, then apply `docs/dev/RobDevPass.md` as the frozen governing authority. Ground work proportionally, identify the owning authority and producer, reuse existing machinery, and define changed and protected behavior, consumers, risks, the smallest complete implementation, non-goals, and stop conditions. Specialist authorities remain controlling within their domains.
 
 ## Governing Owner-QA Gate
 
-Apply `docs/qa/RobQAPass.md` before selecting tests for any change. Classify the QA tier and risk, name the changed behavior and protected contracts, then use the smallest deterministic validation set that protects the changed behavior. Project-specific test commands and stricter CRIT-001, exact-SHA, migration, security, accessibility, and release controls remain authoritative; `RobQAPass` governs scope selection and owner-acceptance preparation, not those product contracts.
+Use the repo-local `robqa` skill at `.agents/skills/robqa/SKILL.md` before selecting tests or preparing owner review. Read its `robqa.md` usage guide, then apply `docs/qa/RobQAPass.md` as the frozen governing authority. Classify risk, name changed behavior and protected contracts, and select the smallest deterministic validation set. Project-specific commands and stricter protected workflows remain authoritative.
 
 Do not run CPU-heavy or exhaustive engine, journey, synthetic, mutation, recovery, or equivalent suites for documentation, presentation, copy, styling, or ordinary component fixes unless the changed protected behavior concretely justifies them. Visible UI changes require rendered-product self-QA. Convert a real manual owner finding into the narrowest appropriate systemic regression invariant, and leave the owner only a short deterministic review of genuine product judgment.
 
@@ -56,11 +56,13 @@ Do not run CPU-heavy or exhaustive engine, journey, synthetic, mutation, recover
 
 Before starting any planning, implementation, documentation, JSON/data, or testing task, review:
 
-1. `docs/handoffs/HANDOFF_INDEX.md`
-2. Recent relevant handoff files in `docs/handoffs/`
-3. `docs/kanban/board.md`
-4. Related Kanban cards
-5. Related docs/plans
+1. `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
+2. `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md` before test selection or owner-QA work
+3. `docs/handoffs/HANDOFF_INDEX.md`
+4. Recent relevant handoff files in `docs/handoffs/`
+5. `docs/kanban/board.md`
+6. Related Kanban cards
+7. Related docs/plans
 
 The agent must summarize:
 - recent related work
@@ -123,7 +125,7 @@ Every handoff must include:
 - Next suggested agent
 - Related Kanban card, docs, or plans
 
-Implementation handoffs must transfer the compact implementation packet from `docs/dev/RobDevPass.md`. Handoffs that claim owner-QA readiness must also use the readiness fields in `docs/qa/RobQAPass.md`; reference both gates rather than restating their policies.
+Implementation handoffs must use the repo-local `robdev` skill and transfer the compact packet from `docs/dev/RobDevPass.md`. Handoffs that claim owner-QA readiness must also use the repo-local `robqa` skill and the readiness fields in `docs/qa/RobQAPass.md`; reference the skills and frozen gates rather than restating their policies.
 
 Also update:
 

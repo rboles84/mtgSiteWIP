@@ -1,6 +1,6 @@
 # Manual Test Cases
 
-Use these product-specific cases after applying the [RobQAPass owner-QA gate](../qa/RobQAPass.md). Select only cases that exercise the classified changed risk and protected behavior. Visible UI changes still require a real rendered-product self-QA pass; final owner review should be the shortest deterministic set that remains genuinely judgment-based.
+Use these product-specific cases after invoking the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and [usage guide](../../.agents/skills/robqa/robqa.md), with the [RobQAPass owner-QA gate](../qa/RobQAPass.md) remaining authoritative. Select only cases that exercise the classified changed risk and protected behavior.
 
 ## Setup
 

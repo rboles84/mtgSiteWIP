@@ -6,7 +6,10 @@ Spawn a Planning Architect subagent.
 
 Before planning:
 - Read `AGENTS.md`
+- Read `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
 - Read `docs/dev/RobDevPass.md`
+- Read `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
+- Read `docs/qa/RobQAPass.md`
 - Read `docs/handoffs/HANDOFF_INDEX.md`
 - Read recent/relevant handoffs
 - Read `docs/kanban/board.md`
@@ -21,7 +24,7 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
-- Apply `docs/dev/RobDevPass.md` before proposing implementation. Identify the owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions.
+- Use the repo-local `robdev` skill and `robdev.md` before proposing implementation; `docs/dev/RobDevPass.md` remains authoritative. Identify the owning layer and producer, nearest reusable machinery, changed and protected behavior, consumers and blast radius, relevant failure/recovery states, smallest complete implementation, non-goals, and stop conditions.
 - Read relevant repo files before recommending changes.
 - Do not modify files except for the required handoff file and `docs/handoffs/HANDOFF_INDEX.md`.
 - Identify current state.
@@ -29,7 +32,7 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 - Identify data/schema impacts.
 - Identify UI/UX impacts.
 - Identify risks and guardrails.
-- Apply `docs/qa/RobQAPass.md`: classify the QA tier, name changed behavior and protected contracts, then identify the smallest risk-proportional tests needed.
+- Use the repo-local `robqa` skill and `robqa.md`, with `docs/qa/RobQAPass.md` remaining authoritative: classify the QA tier, name changed behavior and protected contracts, then identify the smallest risk-proportional tests needed.
 - Record expensive suites intentionally skipped and require concrete changed-risk justification for any CPU-heavy or exhaustive suite.
 - For visible UI changes, plan rendered-product self-QA and the shortest deterministic owner review.
 - Preserve existing architecture and naming.

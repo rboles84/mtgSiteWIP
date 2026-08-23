@@ -28,11 +28,11 @@ Apply `docs/reference/token-reasoning-cost-control.md` by default: use the least
 
 ## Governing Developer Gate
 
-Apply `docs/dev/RobDevPass.md` as required by `AGENTS.md`. The Claude-specific Planning Architect must complete its proportional pre-edit contract, including the owning layer and producer, existing machinery, changed and protected behavior, blast radius, non-goals, and stop conditions, without restating the gate.
+Use the repo-local `robdev` skill at `.agents/skills/robdev/SKILL.md` as required by `AGENTS.md`; read `robdev.md` and apply `docs/dev/RobDevPass.md` as the frozen authority. The Claude-specific Planning Architect must complete the proportional pre-edit contract without restating the gate.
 
 ## Governing Owner-QA Gate
 
-Apply `docs/qa/RobQAPass.md` as required by `AGENTS.md`. The Claude-specific Planning Architect and Test Strategist outputs below must record the applicable classification, selected and skipped validation, and owner-review preparation without restating the gate. Project-specific commands and stricter protected workflows remain in force.
+Use the repo-local `robqa` skill at `.agents/skills/robqa/SKILL.md` as required by `AGENTS.md`; read `robqa.md` and apply `docs/qa/RobQAPass.md` as the frozen authority. Planning Architect and Test Strategist outputs must record classification, selected and skipped validation, and bounded owner-review preparation. Project-specific commands and stricter protected workflows remain in force.
 
 ---
 
@@ -41,11 +41,13 @@ Apply `docs/qa/RobQAPass.md` as required by `AGENTS.md`. The Claude-specific Pla
 Before any planning, implementation, documentation, JSON/data, or testing work, read:
 
 1. `AGENTS.md`
-2. `docs/handoffs/HANDOFF_INDEX.md`
-3. Recent relevant handoff files in `docs/handoffs/`
-4. `docs/kanban/board.md`
-5. Related Kanban cards in `docs/kanban/`
-6. Related docs or plans if referenced
+2. `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
+3. `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md` before test selection or owner-QA work
+4. `docs/handoffs/HANDOFF_INDEX.md`
+5. Recent relevant handoff files in `docs/handoffs/`
+6. `docs/kanban/board.md`
+7. Related Kanban cards in `docs/kanban/`
+8. Related docs or plans if referenced
 
 Return:
 
@@ -133,13 +135,13 @@ Maps and validates the JSON/data layer. Pre-flight required. May inventory files
 
 ### Planning Architect
 
-Creates implementation plans. Pre-flight required. Does not modify files except for the required handoff and `HANDOFF_INDEX.md`. Reads relevant repo files before recommending. Applies `docs/dev/RobDevPass.md` to identify the owning layer and producer, reusable machinery, changed and protected behavior, consumers and blast radius, smallest complete implementation, non-goals, and stop conditions. Preserves existing architecture, naming, and Vox Mana tone. Does not invent lore or commander facts.
+Creates implementation plans. Pre-flight required. Does not modify files except for the required handoff and `HANDOFF_INDEX.md`. Reads relevant repo files before recommending. Uses `.agents/skills/robdev/SKILL.md` and `robdev.md`, with `docs/dev/RobDevPass.md` remaining authoritative, to identify the owning layer and producer, reusable machinery, changed and protected behavior, consumers and blast radius, smallest complete implementation, non-goals, and stop conditions. Preserves existing architecture, naming, and Vox Mana tone. Does not invent lore or commander facts.
 
 Output format: Summary, Current-state findings, RobDevPass pre-edit contract, Recommended approach, Files likely impacted, Data/schema impacts, UI/UX impacts, Risks and guardrails, Step-by-step plan, Acceptance criteria, QA tier and protected contracts, selected and intentionally skipped tests, Do-not-touch areas, Recommended Kanban card.
 
 ### Test Strategist
 
-Creates or updates testing plans. Pre-flight required. Applies `docs/qa/RobQAPass.md` before selecting tests. Identifies the QA tier, changed risk, protected contracts, the narrowest relevant unit/parser/DOM/UI/data checks, and any intentionally skipped expensive suites. Recommends exact commands and rendered self-QA for visible UI changes. Does not implement unless explicitly asked (except handoff and `HANDOFF_INDEX.md`). Preserves current test conventions.
+Creates or updates testing plans. Pre-flight required. Uses `.agents/skills/robqa/SKILL.md` and `robqa.md`, with `docs/qa/RobQAPass.md` remaining authoritative, before selecting tests. Identifies the QA tier, changed risk, protected contracts, the narrowest relevant unit/parser/DOM/UI/data checks, and any intentionally skipped expensive suites. Recommends exact commands and rendered self-QA for visible UI changes. Does not implement unless explicitly asked (except handoff and `HANDOFF_INDEX.md`). Preserves current test conventions.
 
 Output format: Test scope, Risk areas, Suggested test files, Suggested test cases, Regression checks, Commands to run, Manual checks, Pass/fail expectations.
 

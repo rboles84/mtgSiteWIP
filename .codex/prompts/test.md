@@ -6,6 +6,8 @@ Spawn a Test Strategist subagent.
 
 Before testing work:
 - Read `AGENTS.md`
+- Read `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
+- Read `docs/qa/RobQAPass.md`
 - Read `docs/handoffs/HANDOFF_INDEX.md`
 - Read recent relevant handoffs
 - Read `docs/kanban/board.md`
@@ -18,7 +20,7 @@ Create or update the testing plan for the current Vox Mana enhancement.
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
-- Apply `docs/qa/RobQAPass.md` before selecting tests: classify the QA tier, changed behavior, protected contracts, and realistic regressions.
+- Use the repo-local `robqa` skill and `robqa.md` before selecting tests; `docs/qa/RobQAPass.md` remains authoritative. Classify the QA tier, changed behavior, protected contracts, and realistic regressions.
 - Select the narrowest relevant unit, parser, DOM/UI, data, accessibility, and rendered-product checks.
 - Do not prescribe CPU-heavy or exhaustive engine, journey, synthetic, mutation, or recovery suites for small presentation, copy, styling, or ordinary component fixes unless the changed protected behavior concretely justifies them.
 - For visible UI changes, require rendered-product self-QA. Convert manual owner findings into the narrowest appropriate systemic regression invariant and bound final owner review to genuine product judgment.

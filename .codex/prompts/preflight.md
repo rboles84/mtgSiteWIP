@@ -8,7 +8,10 @@ Review project memory before acting.
 
 Read:
 - `AGENTS.md`
+- `.agents/skills/robdev/SKILL.md` and `.agents/skills/robdev/robdev.md`
 - `docs/dev/RobDevPass.md`
+- `.agents/skills/robqa/SKILL.md` and `.agents/skills/robqa/robqa.md`
+- `docs/qa/RobQAPass.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - recent relevant files in `docs/handoffs/`
 - `docs/kanban/board.md`
@@ -32,8 +35,8 @@ Provide:
 ## Rules
 
 - Apply `docs/reference/token-reasoning-cost-control.md`; keep checks proportionate without omitting any checks required by this prompt.
-- Apply `docs/dev/RobDevPass.md` proportionally to repository grounding and the pre-edit contract.
-- Apply `docs/qa/RobQAPass.md` to QA scope selection; project-specific and stricter protected workflows remain authoritative.
+- Use the repo-local `robdev` skill and its `robdev.md` guide; `docs/dev/RobDevPass.md` remains the governing implementation authority.
+- Use the repo-local `robqa` skill and its `robqa.md` guide for QA scope selection; `docs/qa/RobQAPass.md`, project-specific commands, and stricter protected workflows remain authoritative.
 - Do not modify files.
 - Do not implement.
 - Do not guess missing context.

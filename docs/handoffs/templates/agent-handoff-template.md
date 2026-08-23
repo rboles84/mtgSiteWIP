@@ -43,11 +43,11 @@ Status:
 
 ## RobDevPass Implementation Packet
 
-For implementation handoffs, transfer the compact packet from Section 18 of `docs/dev/RobDevPass.md`: changed behavior and owning layer/producer/reused machinery; protected behavior, consumers, and non-goals; realistic risks and implemented failure/recovery states; deterministic evidence and unresolved owner judgment. For non-implementation handoffs, mark this section not applicable.
+For implementation handoffs, use `.agents/skills/robdev/SKILL.md` and `robdev.md`, then transfer the compact packet from Section 18 of `docs/dev/RobDevPass.md`: changed behavior and owning layer/producer/reused machinery; protected behavior, consumers, and non-goals; realistic risks and implemented failure/recovery states; deterministic evidence and unresolved owner judgment. For non-implementation handoffs, mark this section not applicable.
 
 ## RobQAPass Readiness
 
-For implementation handoffs, complete the required readiness fields in Section 23 of `docs/qa/RobQAPass.md`. For non-implementation handoffs, mark this section not applicable.
+For implementation handoffs, use `.agents/skills/robqa/SKILL.md` and `robqa.md`, then complete the required readiness fields in Section 23 of `docs/qa/RobQAPass.md`. For non-implementation handoffs, mark this section not applicable.
 
 ## Not Touched
 
