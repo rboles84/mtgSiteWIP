@@ -508,6 +508,30 @@ Examples from Vox Mana's repair history:
 When a failure appears, classify product, harness, environment, network, and expected bounded behavior
 before changing the implementation.
 
+## Interaction-defect reproduction
+
+Before changing code for an owner-observed interaction defect, reproduce the owner's actual path on the
+affected rendered surface. Record the live geometry, event sequence, state transition, timing, and
+activation or dismissal owner that make the failure occur; source-level reasoning alone is not enough.
+
+When pointer travel is material, move through intermediate rendered coordinates rather than jumping
+directly between targets. When focus is material, distinguish focus left by a pointer action from genuine
+keyboard or focus-visible ownership. When a materially similar interaction already works elsewhere in
+the repository, compare its event ownership, enter/leave lifecycle, dismissal timing, geometry, focus
+behavior, and cleanup before designing another interaction contract.
+
+For an owner-rejected escaped UI defect, add or adjust the narrow focused regression so it fails against
+the rejected behavior for the owner's reason when practical, then rerun the same invariant after the
+fix. Encode the defect class using live rendered evidence where relevant, preserve alternate input and
+accessibility behavior, and do not change product behavior to satisfy an incorrect harness assumption.
+
+For example, a contract such as:
+
+> source -> rendered gap -> interactive preview -> control -> leave both
+
+must exercise the intermediate gap and post-control cleanup. Direct source-to-control teleportation does
+not prove that a person can physically reach or continue using the control.
+
 ---
 
 # 13. Build Relevant Failure and Recovery States with the Feature

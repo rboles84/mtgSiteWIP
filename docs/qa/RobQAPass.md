@@ -678,6 +678,44 @@ Example: a rendered mana glyph may correctly have an accessible label containing
 
 Rob tests what actually responds, not merely whether an event handler exists.
 
+## Human Interaction Fidelity Gate
+
+When correctness depends on pointer movement, hover ownership, focus, timing, scrolling, dragging,
+rendered geometry, or crossing between DOM regions, QA must reproduce a path materially representative
+of human input on the actual rendered surface.
+
+Do not accept any of these as sole proof:
+
+- synthetic `mouseenter` or `mouseleave` events;
+- direct handler invocation or programmatic state mutation;
+- direct DOM `.click()` on a control the user may not be able to reach;
+- selector hover followed by target-to-target pointer teleportation;
+- screenshot-only evidence;
+- proof that a control exists without proof that the user can reach and use it.
+
+For a pointer transition:
+
+1. obtain live rendered source and destination geometry;
+2. move through multiple intermediate coordinates, including any real gap or overlap;
+3. use a human-representative pace that can expose timing and ownership changes;
+4. verify the transition remains open or active as required;
+5. exercise the destination control;
+6. verify post-interaction dismissal, focus, cleanup, and state;
+7. repeat the transition or action when repeat use is part of the contract.
+
+Test keyboard-accessible ownership separately. Focus left behind by a pointer click is not proof of
+genuine keyboard or focus-visible behavior.
+
+Passing automated browser tests does not replace a small rendered/manual pass when real pointer travel,
+focus modality, timing, or geometry is material. Bound that pass to the affected owner route, real
+source, destination interaction, required repeat use, leave/cleanup behavior, and one ordinary protected
+case rather than broadening into an exhaustive journey suite.
+
+If owner acceptance fails on behavior or risk that RobQA claimed to have verified, classify the finding
+as a QA escape. Capture the owner's reproduction as the next focused invariant, require red-before-green
+evidence against the rejected behavior when practical, and update the relevant methodology or existing
+evaluation surface so that specific evidence gap is less likely to recur.
+
 For every changed interaction, ask:
 
 - What exact visible area is clickable?
@@ -1303,6 +1341,9 @@ Do not claim RobQAPass READY if any of these are true:
 - a changed modal was never opened;
 - a changed navigation target was not actually reached;
 - a changed responsive surface was never viewed at a relevant narrow width;
+- an interaction materially depends on pointer travel, rendered geometry, timing, hover ownership, or
+  focus modality, but QA evidence relies only on synthetic events, direct DOM interaction, target
+  teleportation, or equivalent non-human traversal;
 - an automated visual rule passes but obvious visible misalignment remains;
 - the same copy appears in parent/child hierarchy without intentional value;
 - a popup/detail view repeats the launcher content without adding value;

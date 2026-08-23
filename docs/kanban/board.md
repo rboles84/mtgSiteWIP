@@ -54,6 +54,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-585 - VM-580 Human Interaction Fidelity Governance](done/VM-585-vm580-interaction-fidelity-governance.md) - encoded faithful rendered pointer travel, focus modality, red-before-green escaped-defect proof, and bounded manual interaction QA in the canonical gates and one durable learning.
 - [VM-579 - Archscry Dev Review + Placement Validation](done/VM-579-archscry-dev-review-placement-validation.md) - owner accepted the local/flag-gated production renderer and placement-engine review seams plus the transient direct-review Maze context and authoritative selector taxonomy remediation; VM-580 through VM-583 remain separate backlog work.
 
 - [VM-577 - Scryfall Maze Master Verification V1](done/VM-577-scryfall-maze-master-verification-v1.md) - verified the immutable Scryfall Maze Master workbook through live Scryfall catalog checks, bounded operator/Tagger probes, collision and owner-review queues, existing Plain Reading QA baseline, repeatable verifier tooling, and focused tests; no runtime, telemetry, UI, compiler, placement, generated grounding, or semantic-promotion behavior changed.
