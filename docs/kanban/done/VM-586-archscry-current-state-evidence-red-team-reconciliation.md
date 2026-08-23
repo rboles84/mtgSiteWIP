@@ -2,7 +2,7 @@
 
 ## Status
 
-Awaiting Replacement Independent RobQA
+Done — Owner Review Ready
 
 ## Type
 
@@ -115,5 +115,5 @@ Execute the controlling owner attachment end to end from exact baseline `db9a16a
 - Candidate branch: `codex/vm586-archscry-current-state-evidence`.
 - First candidate `614abfb90f60d9a9e667c2153bd3484d4c3df4e3` received `FAIL — Return to RobDev`: its primary workbook paths were stale, phase status fields disagreed, and the formula verifier did not enforce formula survival.
 - RobDev remediation now makes the owning generators emit canonical workbook paths and phase states, requires all eight exported formulas after re-import, and adds a final package validator for all 18 required paths, workbook hashes, 37/37 evidence counts, formula inventories, and phase agreement.
-- Next action: commit the replacement exact candidate and run a fresh independent RobQA review against that SHA.
-- Do not advance to owner review unless the independent disposition is exactly `PASS — Owner Review Ready`.
+- Replacement candidate `fb2826aa6837aca461a9a5415bb5175e17e9731d` received fresh independent disposition `PASS — Owner Review Ready`.
+- VM-586 deterministic work is complete. The only remaining activity is the bounded owner queue: eight dossiers, five engine journeys, and seven product decisions.
