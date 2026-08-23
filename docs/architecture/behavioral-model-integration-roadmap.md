@@ -4,6 +4,29 @@ Status: Architectural planning document.
 
 This document consolidates the approved Loom v0/v1 direction, Commander Compass follow-up direction, placement-domain architecture, and existing Archscry/Maze/Strategium ownership model into one stable roadmap. It is a governing architecture note, not implementation approval.
 
+## Archscry Redesign Phase Gate
+
+### Phase 1 — Current Production Truth
+
+Status: `ACCEPTED / FROZEN`
+
+- Acceptance date: 2026-08-23
+- Evidence authority: [VM-586](../kanban/done/VM-586-archscry-current-state-evidence-red-team-reconciliation.md)
+- Yore evidence stop: [VM-587](../kanban/done/VM-587-yore-behavioral-placement-remediation.md)
+- Exact baseline binding: the final synchronized `main` SHA reported by the Phase 1 integration closeout as `ARCHSCRY_PHASE_2_STARTING_BASELINE`
+- Strategy decision: [Archscry Phase 1 — Current Production Truth Acceptance](../strategy/2026-08-23-archscry-phase-1-current-production-truth-acceptance.md)
+- Yore constraint: Yore's valid dossier/metaphysical identity does not currently have sufficiently distinctive behavior-only evidence for responsible named placement.
+
+Phase 1 is frozen for redesign planning. Reopen it only under the invalidation or recertification conditions in the strategy decision, not merely because Phase 2 explores a different design.
+
+### Phase 2 — New Product Contract
+
+Status: `NEXT`
+
+Product-contract planning is authorized around `self_reported_prior`, `observed_gameplay_fit`, and explicit agreement/disagreement reconciliation. `self_reported_prior` is context, not automatic score or qualification. Yore is a mandatory design/test case.
+
+Phase 2 implementation has not started. UI implementation, including self-identification UI, is not authorized until the product contract is accepted.
+
 ## Purpose
 
 Vox Mana needs one shared behavioral model that can support placement, explanation, search, commander guidance, table-literacy education, and future discovery surfaces without forking into separate engines.
