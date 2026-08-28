@@ -894,3 +894,22 @@ VM-490 repairs two manual failures that crossed the Plain Reading and Operator's
 - Desktop and mobile browser smoke passed, including Plain Reading to Operator's Hand re-searches for Partner, Captain America, and A-Alrund.
 - Semantic validation, frontend smoke, JS/HTML lint, and `npm.cmd test` passed.
 - Live Scryfall checks returned nonzero results for `o:partner`, `name:"Captain America"`, and `name:"A-Alrund, God of the Cosmos"` without pinning result counts in automation.
+
+---
+
+## 27. VM-591 Shared Semantic-State Contract Freeze (2026-08-28)
+
+VM-591 freezes a future cross-mode meaning contract without migrating the current runtime. The normative specification is `docs/contracts/maze-semantic-state-contract.md`; the machine-readable schema is `data/maze/maze-semantic-state-v1.schema.json`.
+
+The contract reuses the grounded compiler `queryModel` as Plain Reading adapter evidence, current `builderFilters` as Loom adapter evidence, and the current source-context/query-result boundary. It does not promote a query or reverse-translated display string into semantic authority.
+
+Key boundaries:
+
+- one structured state preserves hard constraints, Boolean groups, preferences, contexts, lenses, assumptions, conflicts, unresolved terms, variants, display forms, and recommendation signals;
+- printed color and color identity retain explicit relation semantics;
+- context presence and query application are separate;
+- `MazeQueryResult.query` remains the sole executable query contract;
+- no production Maze module imports the VM-591 schema in this card;
+- Loom's default color-rule decision remains deferred to VM-592.
+
+Eighteen focused fixtures validate the accepted Calibration V3.2 and Loom compatibility failure classes, including Plain/Operator and Loom/Operator round trips, context-not-applied, explicit syntax preservation, and invalid no-query state.

@@ -43,6 +43,7 @@
     "test:transform-faces": "node tests/shared/scryfall-transform-faces-tests.js",
     "test": "node tests/run-tests.js",
     "test:builder": "node tests/maze/research-builder-tests.js",
+    "test:maze-semantic-state": "node tests/maze/maze-semantic-state-contract-tests.js",
     "test:faction-context-isolation": "node tests/semantic/faction-context-isolation-tests.js",
     "test:source-generated": "node scripts/validate/validate-source-generated-guardrails.mjs",
     "test:semantic-readiness": "node tests/semantic/semantic-readiness-tests.js && node tests/semantic/semantic-candidate-scope-tests.js && node scripts/validate/validate-semantic-readiness.mjs --fixtures && node scripts/build/build-semantic-readiness-provenance.mjs --check",

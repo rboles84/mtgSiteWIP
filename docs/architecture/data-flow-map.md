@@ -95,6 +95,7 @@ Legacy rows with `guild` and `scores` but no `placement_result` are converted by
 | Maze query request | `assets/js/maze/research-init.js` `doSearch()`, `runQuickSearch()`, and route-seeded launch adapters -> `assets/js/maze/maze-query-core.js` | Contract-shaped `MazeQueryResult` with executable query, parser mode, `MazeDiagnostic[]`, normalized API metadata, and source context. Route adapter still executes fetch/render/storage behavior. |
 | Raw syntax input | `prepareRawSyntaxQuery` in the Maze query core | Cleaned query and optional OR alternative diagnostics. |
 | Visual Builder filters | `buildVisualBuilderQuery` | Scryfall query fragments for color, type, format, rarity, mana value, and keywords. |
+| Future cross-mode Maze meaning | `data/maze/maze-semantic-state-v1.schema.json` plus `docs/contracts/maze-semantic-state-contract.md` | Dormant VM-591 contract for preserving hard/soft constraints, Boolean structure, explicit color relations, context application, lenses, conflicts, unresolved terms, query candidates, display forms, and recommendation signals. No production runtime imports it; `MazeQueryResult.query` remains the sole executable query. |
 | Scryfall responses | `research-init.js` render helpers | Result grid, modal detail, no-results state, recent searches. |
 
 ## Scryfall Bulk And Discovery Data

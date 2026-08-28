@@ -1,0 +1,425 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voxmana.io/schemas/maze-semantic-state-v1.schema.json",
+  "title": "Vox Mana Maze Shared Semantic State v1",
+  "description": "Dormant contract for preserving Maze intent across Plain Reading, Operator's Hand, Loom, Maze query projection, and Archscry-compatible recommendation handoff. This schema does not authorize runtime migration.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "state_id",
+    "source",
+    "normalization",
+    "confidence",
+    "query_explanation",
+    "semantic_provenance",
+    "validation_state",
+    "execution_mode",
+    "hard_constraints",
+    "boolean_expression",
+    "preferences",
+    "contexts",
+    "lenses",
+    "assumptions",
+    "conflicts",
+    "unresolved_terms",
+    "query_variants",
+    "execution_selection",
+    "diagnostics",
+    "display",
+    "recommendation_handoff"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "state_id": { "$ref": "#/$defs/non_empty_string" },
+    "source": { "$ref": "#/$defs/source" },
+    "normalization": { "$ref": "#/$defs/normalization" },
+    "confidence": { "$ref": "#/$defs/confidence" },
+    "query_explanation": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/query_explanation_item" }
+    },
+    "semantic_provenance": { "$ref": "#/$defs/semantic_provenance" },
+    "validation_state": {
+      "enum": ["valid", "invalid", "conflict", "unresolved"]
+    },
+    "execution_mode": {
+      "enum": [
+        "direct_exact",
+        "component_exact",
+        "mechanical_pattern",
+        "preference_branch",
+        "strict_broaden",
+        "governed_context_default",
+        "multi_lens_bundle",
+        "reference_similarity",
+        "discovery_subjective",
+        "conflict"
+      ]
+    },
+    "hard_constraints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hard_constraint" }
+    },
+    "boolean_expression": { "$ref": "#/$defs/boolean_node" },
+    "preferences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/preference" }
+    },
+    "contexts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/context" }
+    },
+    "lenses": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lens" }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/assumption" }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    },
+    "unresolved_terms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/unresolved_term" }
+    },
+    "query_variants": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/query_variant" }
+    },
+    "execution_selection": { "$ref": "#/$defs/execution_selection" },
+    "diagnostics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/diagnostic" }
+    },
+    "display": { "$ref": "#/$defs/display" },
+    "recommendation_handoff": { "$ref": "#/$defs/recommendation_handoff" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "non_empty_string": { "type": "string", "minLength": 1 },
+    "string_array": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/non_empty_string" },
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "required": ["mode", "input_kind", "input_value"],
+      "properties": {
+        "mode": { "enum": ["plain", "operator", "loom"] },
+        "input_kind": { "enum": ["natural_language", "scryfall_syntax", "builder_filters"] },
+        "input_value": {},
+        "explicit_syntax_preserved": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "normalization": {
+      "type": "object",
+      "required": ["status", "operations", "authority_refs"],
+      "properties": {
+        "status": { "enum": ["none", "normalized", "preserved"] },
+        "operations": { "$ref": "#/$defs/string_array" },
+        "authority_refs": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["score", "tier", "provenance"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "tier": { "enum": ["low", "medium", "high"] },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "query_explanation_item": {
+      "type": "object",
+      "required": ["semantic_ref", "explanation", "provenance"],
+      "properties": {
+        "semantic_ref": { "$ref": "#/$defs/non_empty_string" },
+        "explanation": { "$ref": "#/$defs/non_empty_string" },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "semantic_provenance": {
+      "type": "object",
+      "required": ["evidence_level", "calibration_rules", "evidence_refs"],
+      "properties": {
+        "evidence_level": { "enum": ["R0", "R1", "R2", "R3", "R4", "R5", "R6"] },
+        "calibration_rules": { "$ref": "#/$defs/string_array" },
+        "evidence_refs": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "hard_constraint": {
+      "type": "object",
+      "required": ["id", "category", "field", "relation", "value", "polarity", "source_text", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "category": {
+          "enum": [
+            "name", "type", "supertype", "subtype", "printed_color", "color_identity",
+            "format_legality", "commander_eligibility", "keyword", "oracle_text", "function",
+            "relationship", "mana_value", "mana_cost", "price", "printing", "set", "rarity",
+            "stat", "result_control", "other"
+          ]
+        },
+        "field": { "$ref": "#/$defs/non_empty_string" },
+        "relation": {
+          "enum": ["equals", "subset", "superset", "contains", "at_most", "at_least", "less_than", "greater_than", "matches", "has", "is", "in"]
+        },
+        "value": {},
+        "polarity": { "enum": ["include", "exclude"] },
+        "source_text": { "type": "string" },
+        "provenance": { "$ref": "#/$defs/string_array" },
+        "context_ref": { "$ref": "#/$defs/non_empty_string" }
+      },
+      "additionalProperties": false
+    },
+    "boolean_node": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "operator", "children"],
+          "properties": {
+            "kind": { "const": "group" },
+            "operator": { "enum": ["and", "or"] },
+            "children": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/boolean_node" }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "constraint_id"],
+          "properties": {
+            "kind": { "const": "constraint_ref" },
+            "constraint_id": { "$ref": "#/$defs/non_empty_string" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "child"],
+          "properties": {
+            "kind": { "const": "not" },
+            "child": { "$ref": "#/$defs/boolean_node" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind"],
+          "properties": { "kind": { "const": "empty" } },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "preference": {
+      "type": "object",
+      "required": ["id", "category", "relation", "value", "source_text", "query_effect", "status", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "category": { "$ref": "#/$defs/non_empty_string" },
+        "relation": { "$ref": "#/$defs/non_empty_string" },
+        "value": {},
+        "source_text": { "$ref": "#/$defs/non_empty_string" },
+        "query_effect": { "enum": ["none", "preferred_variant", "ranking"] },
+        "status": { "enum": ["active", "inactive", "rejected"] },
+        "provenance": { "$ref": "#/$defs/string_array" },
+        "threshold": {
+          "type": "object",
+          "required": ["value", "unit", "inferred", "editable"],
+          "properties": {
+            "value": {},
+            "unit": { "$ref": "#/$defs/non_empty_string" },
+            "inferred": { "type": "boolean" },
+            "editable": { "const": true }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "required": ["id", "dimension", "source", "value", "inherited", "applied_to_query", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "dimension": { "enum": ["format", "deck_color_identity", "dossier", "placement", "prior_search", "ui_mode", "other"] },
+        "source": { "$ref": "#/$defs/non_empty_string" },
+        "value": {},
+        "inherited": { "type": "boolean" },
+        "applied_to_query": { "type": "boolean" },
+        "application_reason": { "type": "string" },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "lens": {
+      "type": "object",
+      "required": ["id", "concept", "role", "label", "query_variant_ids", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "concept": { "$ref": "#/$defs/non_empty_string" },
+        "role": { "$ref": "#/$defs/non_empty_string" },
+        "label": { "$ref": "#/$defs/non_empty_string" },
+        "query_variant_ids": { "$ref": "#/$defs/string_array" },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "assumption": {
+      "type": "object",
+      "required": ["id", "statement", "material", "status", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "statement": { "$ref": "#/$defs/non_empty_string" },
+        "material": { "type": "boolean" },
+        "status": { "enum": ["pending", "accepted", "rejected"] },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "conflict": {
+      "type": "object",
+      "required": ["id", "constraint_ids", "explanation", "status", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "constraint_ids": { "$ref": "#/$defs/string_array" },
+        "explanation": { "$ref": "#/$defs/non_empty_string" },
+        "suggested_alternate": { "type": ["object", "null"] },
+        "status": { "enum": ["pending", "accepted", "rejected"] },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "unresolved_term": {
+      "type": "object",
+      "required": ["id", "term", "source_text", "reason", "status", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "term": { "$ref": "#/$defs/non_empty_string" },
+        "source_text": { "$ref": "#/$defs/non_empty_string" },
+        "reason": { "$ref": "#/$defs/non_empty_string" },
+        "status": { "enum": ["unresolved", "resolved", "deferred"] },
+        "provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "query_variant": {
+      "type": "object",
+      "required": ["id", "kind", "query_candidate", "executable_candidate", "reason", "differences", "authority_class", "authority_status", "evidence_level", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "kind": { "enum": ["strict", "preferred", "broadened", "lens", "conflict"] },
+        "query_candidate": { "type": ["string", "null"] },
+        "executable_candidate": { "type": "boolean" },
+        "reason": { "$ref": "#/$defs/non_empty_string" },
+        "differences": { "$ref": "#/$defs/string_array" },
+        "authority_class": { "enum": ["exact_governed_truth", "candidate_retrieval", "alternate_lens", "illustrative_only"] },
+        "authority_status": { "$ref": "#/$defs/non_empty_string" },
+        "evidence_level": { "enum": ["R0", "R1", "R2", "R3", "R4", "R5", "R6"] },
+        "provenance": { "$ref": "#/$defs/string_array" },
+        "lens_id": { "$ref": "#/$defs/non_empty_string" }
+      },
+      "additionalProperties": false
+    },
+    "execution_selection": {
+      "type": "object",
+      "required": ["status", "selected_variant_id", "maze_query_projection"],
+      "properties": {
+        "status": { "enum": ["ready", "blocked", "no_query"] },
+        "selected_variant_id": { "type": ["string", "null"] },
+        "maze_query_projection": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "diagnostic": {
+      "type": "object",
+      "required": ["id", "kind", "severity", "blocking", "message", "related_ids"],
+      "properties": {
+        "id": { "$ref": "#/$defs/non_empty_string" },
+        "kind": { "enum": ["invalid_range", "contradiction", "unsupported_syntax", "unresolved_semantic", "context_conflict", "assumption", "breadth", "other"] },
+        "severity": { "enum": ["info", "warning", "error"] },
+        "blocking": { "type": "boolean" },
+        "message": { "$ref": "#/$defs/non_empty_string" },
+        "related_ids": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    },
+    "display": {
+      "type": "object",
+      "required": ["plain_text", "operator_syntax", "operator_tokens"],
+      "properties": {
+        "plain_text": { "type": ["string", "null"] },
+        "operator_syntax": { "type": ["string", "null"] },
+        "operator_tokens": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["semantic_ref", "field", "relation", "value", "polarity", "group_id", "softness"],
+            "properties": {
+              "semantic_ref": { "$ref": "#/$defs/non_empty_string" },
+              "field": { "$ref": "#/$defs/non_empty_string" },
+              "relation": { "$ref": "#/$defs/non_empty_string" },
+              "value": {},
+              "polarity": { "enum": ["include", "exclude"] },
+              "group_id": { "type": ["string", "null"] },
+              "softness": { "enum": ["hard", "soft"] }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommendation_handoff": {
+      "type": "object",
+      "required": ["candidate_truth_variant_id", "hard_constraint_ids", "preference_ids", "lens_ids", "classifications", "signals", "explanation_provenance"],
+      "properties": {
+        "candidate_truth_variant_id": { "type": ["string", "null"] },
+        "hard_constraint_ids": { "$ref": "#/$defs/string_array" },
+        "preference_ids": { "$ref": "#/$defs/string_array" },
+        "lens_ids": { "$ref": "#/$defs/string_array" },
+        "classifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["dimension", "value", "provenance"],
+            "properties": {
+              "dimension": { "$ref": "#/$defs/non_empty_string" },
+              "value": {},
+              "provenance": { "$ref": "#/$defs/string_array" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "value", "query_truth", "provenance"],
+            "properties": {
+              "kind": { "enum": ["role", "relationship_role", "repeatability", "adjacency", "efficiency", "budget", "edhrec_popularity", "game_changer", "theme_art", "result_breadth", "social_scope_proxy", "recommendation_policy", "context_provenance"] },
+              "value": {},
+              "query_truth": { "const": false },
+              "provenance": { "$ref": "#/$defs/string_array" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "explanation_provenance": { "$ref": "#/$defs/string_array" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
