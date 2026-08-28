@@ -43,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-589 - Calibration V3.2 Controlled Propagation](in-progress/VM-589-calibration-v3-2-controlled-propagation.md) - applying the frozen V3.2 rules to the reconciled 1,135-row eligible Master Lexicon population, producing a separate candidate workbook/diff/QA package, and stopping at Owner Review with runtime and raw provenance untouched.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
