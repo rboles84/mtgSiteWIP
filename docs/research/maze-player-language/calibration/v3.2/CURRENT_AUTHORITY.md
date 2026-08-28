@@ -7,7 +7,7 @@
 - Owner acceptance date: 2026-08-27
 - SHA-256: `f1a529c6f3d2739bfec15272767f24329b9017f97abf313a32897bb59b9a35e5`
 - Governing card: `VM-589`
-- Promotion commit: recorded by the VM-589 closeout commit after staged-scope validation
+- Promotion commit: `ecdacdbe4920b5edf053cdb9bcb4c5a5688f0bbd`
 
 This authority file is a byte-identical immutable copy of the accepted propagation candidate. Its hash is the exact hash accepted by the owner. The workbook's embedded candidate-review banner is retained because changing it would change the accepted payload; this manifest records the workbook's promoted lifecycle status.
 

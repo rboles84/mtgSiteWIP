@@ -2,11 +2,12 @@
 
 ID: VM-589
 Title: Calibration V3.2 Controlled Propagation
-Status: in-progress
+Status: done
 Type: governed data/workbook propagation
 Area: Implicit Maze, Plain Reading, player language, Scryfall grounding
 Priority: high
 Created: 2026-08-27
+Completed: 2026-08-27
 
 ## Summary
 
@@ -58,17 +59,19 @@ Use RobDev and the frozen V3.2 authority order. Reuse the existing workbook-veri
 - Already explicitly changed in the V3.2 authority workbook: 3 rows (`Counterspell`, `Reanimator`, `Group Slug`).
 - Actual automatic-evaluation population: 1,135 rows.
 - Difference from the expected 1,038: +97 eligible rows. The business estimate incorrectly treats 100 request-level calibration cases as 100 row-level propagations; only three changes are row-addressable in `Master_Lexicon`.
-- Candidate work is not production authority and must remain in progress until explicit owner acceptance.
+- Candidate work remained non-authoritative through review. The owner accepted exact SHA-256 `f1a529c6f3d2739bfec15272767f24329b9017f97abf313a32897bb59b9a35e5`; workbook authority was promoted without runtime authority.
 
-## Owner Review Candidate
+## Accepted Propagation Authority
 
-- Disposition: **OWNER ACCEPTED — CLOSEOUT IN PROGRESS**; authority promotion and governance closeout only.
+- Disposition: **DONE — OWNER ACCEPTED / WORKBOOK AUTHORITY PROMOTED**.
 - Eligible evaluation: 1,135 / 1,135 rows.
 - Outcome: 24 changed, 1,111 unchanged, 7 status-rank promotions, 1 downgrade, 12 Multi-Lens conversions.
 - Candidate totals: 666 Production-ready, 287 Review, 185 Semantic.
 - Candidate workbook SHA-256: `f1a529c6f3d2739bfec15272767f24329b9017f97abf313a32897bb59b9a35e5`.
+- Current authority: `docs/research/maze-player-language/calibration/v3.2/authority/Scryfall_Maze_Master_Calibration_V3_2_Propagation_Accepted.xlsx`.
+- Authority promotion commit: `ecdacdbe4920b5edf053cdb9bcb4c5a5688f0bbd`.
 - Validation: 34-sheet export/re-import PASS; 89/89 formulas preserved; zero formula-error cells; an independent all-sheet comparison found zero formula-definition changes and zero undeclared differences; all 24 diff rows have valid traces; raw corpus/source/authority hashes unchanged; all 34 rendered previews reviewed; existing workbook verifier completed successfully.
-- Owner decision remains required before any authority promotion, runtime propagation, merge, or card closeout.
+- Owner accepted workbook authority promotion and card closeout. Runtime propagation remains unauthorized and belongs to a separate future story.
 
 ## Owner Review Finding — Row 909
 
@@ -83,7 +86,7 @@ Use RobDev and the frozen V3.2 authority order. Reuse the existing workbook-veri
 - Row 909 now uses a target-one-opponent primary lane, a separately labeled all-opponents/spare-my-board alternate lane, and separate survivor lanes.
 - Row 909 is `Review` at `0.68`; targeted-opponent validation is explicitly deferred rather than implied.
 - Relative comparison against candidate `8f0aa041...` found exactly one changed Master source row, four expected Dashboard formula-result changes, zero formula-definition changes, and zero changes to the other 23 accepted rows.
-- RobQA regeneration and rendered self-QA passed; the candidate awaits only the bounded row-909 owner re-review.
+- RobQA regeneration and rendered self-QA passed; the owner accepted the bounded row-909 remediation.
 
 ## Owner Acceptance
 
@@ -93,3 +96,11 @@ Use RobDev and the frozen V3.2 authority order. Reuse the existing workbook-veri
 - The other 23 propagated rows remain accepted without reopening.
 - Owner authorized only durable workbook-authority promotion, provenance preservation, normal VM-589 Kanban closeout, scoped commits, and lightweight closeout checks.
 - Runtime implementation, Operator Hand, Plain Reading, toggle behavior, Archscry ranking, production JavaScript, generated product data, placement, recommendation behavior, and the next semantic-state story remain explicitly out of scope.
+
+## Closeout
+
+- The accepted candidate was copied byte-for-byte to the immutable authority path; candidate and authority hashes are identical.
+- The predecessor V3.2 workbook, evidence files, historical workbook sheets, raw `scryall_data_accumulation`, and unrelated VM-578 corpus remain preserved.
+- Lightweight closeout validation passed: accepted-hash identity, authority-path workbook verification, predecessor/corpus hash preservation, explicit staged-scope audit, producer syntax, authored-file whitespace checks, Kanban path/state checks, and final Git inspection.
+- Frozen provenance Markdown retains its original two-space hard line breaks; those exact paths were excluded from the authored-file whitespace check rather than normalized.
+- Deferred calibration classes remain separate: row-909 Production-ready validation, mana duration/repeatability, broad relationship/subjective archetypes, and the pre-existing `otag:reanimate` allowlist mismatch.

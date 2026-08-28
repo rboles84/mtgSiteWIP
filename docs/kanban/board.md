@@ -43,14 +43,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-589 - Calibration V3.2 Controlled Propagation](in-progress/VM-589-calibration-v3-2-controlled-propagation.md) - applying the frozen V3.2 rules to the reconciled 1,135-row eligible Master Lexicon population, producing a separate candidate workbook/diff/QA package, and stopping at Owner Review with runtime and raw provenance untouched.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
 
+- [VM-589 - Calibration V3.2 Controlled Propagation](done/VM-589-calibration-v3-2-controlled-propagation.md) - owner accepted exact workbook SHA-256 `f1a529c6...35e5`; the 24-row propagation, row-909 Review remediation, complete diff/QA package, immutable predecessor/evidence provenance, and current workbook-authority pointer are committed with all runtime surfaces untouched.
 - [VM-588 - Archscry Phase 2 Product Contract](done/VM-588-archscry-phase-2-product-contract.md) - exact candidate `b30abe05` passed fresh independent RobQA as Owner Review Ready; the three scoped artifacts define separate prior/observed facts, pure reconciliation, bounded reason-bearing exploration, 12 coherent fixtures, immutable reading semantics, and the Phase 3 proof boundary with no runtime change.
 - [VM-587 - Yore Behavioral Placement Remediation](done/VM-587-yore-behavioral-placement-remediation.md) - independently verified evidence stop: the corrected current population is Breya plus 11 legal exact-WUBR Partner pairs, but no two constructs pass independence, observability, semantic necessity, and anti-proxy review; Yore remains bounded with placement, dossier, runtime, and all other identities unchanged.
 - [VM-586 - Archscry Current-State Evidence & Red-Team Reconciliation](done/VM-586-archscry-current-state-evidence-red-team-reconciliation.md) - completed all-37 dossier/screenshot/trace evidence, both verified workbooks, actual-source red-team reconciliation, and the bounded owner queue; exact replacement candidate `fb2826aa` passed fresh independent RobQA as Owner Review Ready with VM-578 untouched.
