@@ -1,0 +1,3999 @@
+{
+  "schema_version": "2.0.0-research",
+  "purpose": "Five-pair adversarial local-Scryfall proving corpus. No production classifier or weights.",
+  "snapshot": {
+    "bulk_id": "27bf3214-1271-490b-bdfe-c0be6c23d02e",
+    "bulk_updated_at": "2026-08-20T21:01:56.219Z",
+    "source": "data/scryfall/raw/oracle-cards.json"
+  },
+  "builder_witnesses": {
+    "wr": {
+      "query": "id<=wr f:commander",
+      "membership_invariant": "None == guild expression == college expression; expression is downstream ranking only"
+    },
+    "ur": {
+      "query": "id<=ur f:commander",
+      "membership_invariant": "None == guild expression == college expression; expression is downstream ranking only"
+    },
+    "bg": {
+      "query": "id<=bg f:commander",
+      "membership_invariant": "None == guild expression == college expression; expression is downstream ranking only"
+    },
+    "ug": {
+      "query": "id<=ug f:commander",
+      "membership_invariant": "None == guild expression == college expression; expression is downstream ranking only"
+    },
+    "wb": {
+      "query": "id<=wb f:commander",
+      "membership_invariant": "None == guild expression == college expression; expression is downstream ranking only"
+    }
+  },
+  "preserved_seed": "proving-set.json (14 W/R cards; 18 original pairwise judgments)",
+  "cards": [
+    {
+      "name": "Aurelia, the Warleader",
+      "oracle_id": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "boros",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Tajic, Legion's Edge",
+      "oracle_id": "ae6f21a2-e6b6-4793-8343-e27310c0bea1",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "boros",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Hero of Bladehold",
+      "oracle_id": "454a8902-8120-4373-96ee-bbf352b04e8d",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Warleader's Call",
+      "oracle_id": "a751c07b-fc21-4854-96e7-f71abf4e86c9",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Osgir, the Reconstructor",
+      "oracle_id": "add020f8-a6ae-4ce1-8d4e-f48f3fd14767",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "lorehold",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Quintorius, Field Historian",
+      "oracle_id": "28b64167-b7ea-4b4f-8434-061298050366",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "lorehold",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Reconstruct History",
+      "oracle_id": "97fad58a-8ee4-4f01-a47a-5ddc9ed845af",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "setting-adjacent",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Sevinne's Reclamation",
+      "oracle_id": "1b9f9f5b-8712-4f00-90cb-1b7b9970eccc",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Akiri, Fearless Voyager",
+      "oracle_id": "c03ae426-2536-4c20-a73a-a24e816f76b0",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Hofri Ghostforge",
+      "oracle_id": "663d451b-f848-41cc-b541-0c6fe37d3d54",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "lorehold",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Teshar, Ancestor's Apostle",
+      "oracle_id": "d4193f50-33b5-4201-ba03-eb135eced7ff",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Sun Titan",
+      "oracle_id": "b2e950fb-cb7e-40a0-a311-5bbdd0477b29",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Goblin Welder",
+      "oracle_id": "9fc28e1f-f4ea-4bf8-9442-a36dba3b3b29",
+      "color_identity": [
+        "R"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Lorehold Command",
+      "oracle_id": "107becb1-f8a3-4777-b39f-a0456c2d580e",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "lorehold",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Boros Charm",
+      "oracle_id": "2679d0dd-ba30-4a1c-b6a0-b3ac6c790496",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Wear // Tear",
+      "oracle_id": "9842734c-1eac-4509-a731-4c22017ae586",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Boros Reckoner",
+      "oracle_id": "5f079a75-899e-467d-b443-3b87ce2fb548",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Aurelia, Exemplar of Justice",
+      "oracle_id": "2e1e0385-1537-4cb6-9d24-e4593d9a8f4a",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Blade Historian",
+      "oracle_id": "314f0a96-5e91-42a3-9d75-3f641f22a9ee",
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "setting-adjacent",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Lightning Bolt",
+      "oracle_id": "4457ed35-7c10-48c8-9776-456485fdf070",
+      "color_identity": [
+        "R"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Swords to Plowshares",
+      "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Solemn Simulacrum",
+      "oracle_id": "00c0543c-2a1f-4425-8283-4062d74a1637",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Command Tower",
+      "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Faithless Looting",
+      "oracle_id": "3d6fa57a-aa53-4b5c-b8af-a7612c823117",
+      "color_identity": [
+        "R"
+      ],
+      "commander_legal": true,
+      "pair_id": "wr",
+      "split": "holdout",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Niv-Mizzet, Parun",
+      "oracle_id": "33666a98-812f-4892-9f8d-33e0cbecc340",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "izzet",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Mizzix of the Izmagnus",
+      "oracle_id": "f787c6cf-a4ff-487b-a7b0-0f516e68510a",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "The Locust God",
+      "oracle_id": "e025a714-02da-4b0c-8021-cf3e8dc9b19e",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Thousand-Year Storm",
+      "oracle_id": "dd4cf149-2fae-40e5-b50b-639f6bcec65e",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Galvanic Iteration",
+      "oracle_id": "c51ed6e3-813b-49c4-b1de-7f92a77f8f6e",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Experimental Overload",
+      "oracle_id": "7851e4c8-020c-4a3d-88ed-0c97609cdfed",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Prismari Command",
+      "oracle_id": "fa3e28b1-131c-4223-81e0-18dfbab22c26",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "prismari",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Rootha, Mercurial Artist",
+      "oracle_id": "3735559f-efe5-43ad-9b3e-3ef127c0ceda",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "prismari",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Elemental Expressionist",
+      "oracle_id": "dfc45c58-821c-42f3-ab48-05b912748bdf",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "prismari",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Creative Outburst",
+      "oracle_id": "ffc79d71-5a1f-40a8-80af-84c85e12ba6e",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "prismari",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Sprite Dragon",
+      "oracle_id": "a9d8ab76-70a4-475e-b87e-4737c090553a",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Metallurgic Summonings",
+      "oracle_id": "7d5149c6-0e7e-438c-a554-5235c85e2426",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "setting-adjacent",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Counterspell",
+      "oracle_id": "cc187110-1148-4090-bbb8-e205694a39f5",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Opt",
+      "oracle_id": "713332c1-5bd8-400f-bfff-c1ca0697a043",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Ponder",
+      "oracle_id": "02090581-61aa-4348-ad57-451be8ee91c2",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Izzet Charm",
+      "oracle_id": "a07698f6-5ad5-49a3-9da2-f82d407f5cd7",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "izzet",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Izzet Signet",
+      "oracle_id": "2fda4fe7-8b0c-489c-a000-6d358e614e34",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "izzet",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Ral, Storm Conduit",
+      "oracle_id": "b7da26c9-78a6-41c5-a5ef-6555e8274d7a",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "izzet",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Electrodominance",
+      "oracle_id": "4a59d86e-405d-4c70-b2a5-c64f5cecfd9e",
+      "color_identity": [
+        "R"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Expansion // Explosion",
+      "oracle_id": "af6f771f-5154-4fb3-8ed4-768d71eea568",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Storm-Kiln Artist",
+      "oracle_id": "a145ff8c-5812-4bcb-bd16-9839dc25121d",
+      "color_identity": [
+        "R"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Expressive Iteration",
+      "oracle_id": "c7aecca5-2f67-4245-ab2d-e723d8b23a67",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Aether Gale",
+      "oracle_id": "b21d6482-1b3a-47e6-98a5-3067f5f3818b",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Talisman of Creativity",
+      "oracle_id": "14d2979d-5728-42d7-a027-0eb1f754655d",
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ur",
+      "split": "holdout",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Meren of Clan Nel Toth",
+      "oracle_id": "0310dfdb-0498-488d-9f1a-279f8239e024",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Jarad, Golgari Lich Lord",
+      "oracle_id": "87e65e36-9483-49fe-b644-2caca092107f",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "golgari",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Vraska, Golgari Queen",
+      "oracle_id": "131096a3-2d53-4ec2-96d3-fcb58e698a13",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "golgari",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Mazirek, Kraul Death Priest",
+      "oracle_id": "e0420f2c-d578-421e-ae75-e7dc5f70661a",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Deadbridge Chant",
+      "oracle_id": "506667b1-7922-4959-a5b3-0f8abe8c3615",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Life from the Loam",
+      "oracle_id": "ac8fba34-512c-4f24-999a-ab72f1ce4acb",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Witherbloom Command",
+      "oracle_id": "7cc81fb3-495c-47cd-8c56-96197d87e9e0",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "witherbloom",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Dina, Soul Steeper",
+      "oracle_id": "2121bcb4-f5fe-447f-9112-c7e5b5c45baf",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "witherbloom",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Daemogoth Woe-Eater",
+      "oracle_id": "290323d7-d8cb-4706-87d9-b920a4e2f680",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "witherbloom",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Witherbloom Apprentice",
+      "oracle_id": "696f554d-0485-48a5-9273-3f6fb7d16a5d",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "witherbloom",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Pest Summoning",
+      "oracle_id": "f6e0cb77-4115-4948-8e1e-fdb774b1b254",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "witherbloom",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Golgari Findbroker",
+      "oracle_id": "e5456b35-d7a9-4717-90df-c6c46f1ec437",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "golgari",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Underrealm Lich",
+      "oracle_id": "e1bce9c3-300c-4a9d-abe0-a1f02d3a1105",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Izoni, Thousand-Eyed",
+      "oracle_id": "5a210b32-6e1f-4578-bd8b-4e481b761159",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "golgari",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Golgari Charm",
+      "oracle_id": "f0ab7166-9fcf-46e5-af2c-b7f628db4789",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "golgari",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Reanimate",
+      "oracle_id": "a044474a-cd72-4e9d-bd8d-a08f2de9cdc0",
+      "color_identity": [
+        "B"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Cultivate",
+      "oracle_id": "8b755881-a72d-4e21-a369-d2924eb4585a",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Sol Ring",
+      "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Skullclamp",
+      "oracle_id": "65986c1b-8e51-4604-b685-d82fa7d1263a",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Poison-Tip Archer",
+      "oracle_id": "d0e810bb-5f38-4045-a718-30d423c05659",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Old Stickfingers",
+      "oracle_id": "1d85eec2-80db-466c-bd48-d2a12866e8bd",
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Fynn, the Fangbearer",
+      "oracle_id": "c0b1fba1-4338-4671-934b-098689ad2085",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Solemn Simulacrum",
+      "oracle_id": "00c0543c-2a1f-4425-8283-4062d74a1637",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Command Tower",
+      "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "bg",
+      "split": "holdout",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Prime Speaker Vannifar",
+      "oracle_id": "b543bfa2-0174-4dd8-9ee6-09b92fb44934",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Prime Speaker Zegana",
+      "oracle_id": "311e9368-696a-47e7-aa2f-3ef1b1a92e2b",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Incubation Druid",
+      "oracle_id": "34428f42-03ac-4795-8286-6cbea796df2b",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Zameck Guildmage",
+      "oracle_id": "98250fad-7fd0-431e-a87e-551185d26ec1",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Vorel of the Hull Clade",
+      "oracle_id": "3001f971-c4db-4176-89b5-e7f4a8890c0f",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Quandrix Command",
+      "oracle_id": "9c0f7cdc-9095-40ae-bf83-75a5ffda72b9",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Zimone, Quandrix Prodigy",
+      "oracle_id": "ee2ef1e0-6803-4eb5-8664-605438c67505",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Fractal Summoning",
+      "oracle_id": "ce690421-db1d-4177-a2db-338f29aab623",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Quandrix Cultivator",
+      "oracle_id": "73a63c92-6dce-4804-bcd4-3fcc942cf270",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Manifestation Sage",
+      "oracle_id": "d8bcd896-cae9-4733-a437-165644b8b0e8",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Deekah, Fractal Theorist",
+      "oracle_id": "6b071146-2f83-4fda-a55a-46fcb74e6f28",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "quandrix",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Esix, Fractal Bloom",
+      "oracle_id": "9d22960b-babc-4cf3-b228-d32e13bc6014",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Adrix and Nev, Twincasters",
+      "oracle_id": "12a6cad9-eb42-43bd-9e68-aaf862cd83db",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Growth Spiral",
+      "oracle_id": "34bcc217-dd91-45a0-90d7-a94d02f1f317",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Coiling Oracle",
+      "oracle_id": "69fd4ddf-9ed8-4c56-bef3-9944daf05e4f",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Beast Within",
+      "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Pongify",
+      "oracle_id": "05849bd6-8f38-4031-be2b-e2aa03beb8cc",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Counterspell",
+      "oracle_id": "cc187110-1148-4090-bbb8-e205694a39f5",
+      "color_identity": [
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Cultivate",
+      "oracle_id": "8b755881-a72d-4e21-a369-d2924eb4585a",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Simic Charm",
+      "oracle_id": "c767aa2e-0a95-401f-8e36-d90a87648eab",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Simic Ascendancy",
+      "oracle_id": "57c1a98e-c4fb-4144-9e3e-d0fe6789ba26",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "simic",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Biogenic Upgrade",
+      "oracle_id": "30812870-87c0-469c-95a5-811d5a181e72",
+      "color_identity": [
+        "G"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Hydroid Krasis",
+      "oracle_id": "6bd872b2-5c40-4e11-9a7f-0136a51b0642",
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Sol Ring",
+      "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "ug",
+      "split": "holdout",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Teysa Karlov",
+      "oracle_id": "644eeefd-e684-4ca8-8aef-a892ca130c07",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Karlov of the Ghost Council",
+      "oracle_id": "647d7988-9a5d-4700-9238-938d0d5fae12",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Debt to the Deathless",
+      "oracle_id": "6130f22d-7901-4f9f-b777-27bb0dacc063",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Orzhov Advokist",
+      "oracle_id": "d5e9942e-096f-433f-8668-4b594f3c1b02",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Orzhov Pontiff",
+      "oracle_id": "3620ef25-d9e2-4460-b25f-592ff7df681b",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Tithe Drinker",
+      "oracle_id": "06b1fd96-a3ad-4ebd-9ea4-b3cfb4c9c43d",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Silverquill Command",
+      "oracle_id": "6075b999-75c5-41c8-898d-ee612ba79a92",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Killian, Ink Duelist",
+      "oracle_id": "e233cb5b-7237-4271-8157-9179cc897b6c",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Inkling Summoning",
+      "oracle_id": "999a9310-d145-4c1a-8518-9d96602ca672",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Closing Statement",
+      "oracle_id": "79ac7b6a-1c25-45f6-84b4-5c4a78d6fd6e",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Silverquill Silencer",
+      "oracle_id": "df9ab83c-850a-4be7-89cd-5122353081f6",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Felisa, Fang of Silverquill",
+      "oracle_id": "39144f72-789e-457a-a7e7-862f90c34e15",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Shadrix Silverquill",
+      "oracle_id": "2143f413-7baa-4fd6-a7ca-32f52bfa553f",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "silverquill",
+      "provenance_plane": "native",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Bastion of Remembrance",
+      "oracle_id": "c7f33cea-2ec8-4081-9208-a5b1d86721b3",
+      "color_identity": [
+        "B"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Vindicate",
+      "oracle_id": "63c1ac21-e3d8-40c2-8c09-3f31c52992ef",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Anguished Unmaking",
+      "oracle_id": "ad09b3c3-c8e7-481c-8c45-e7f234935117",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "development",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Swords to Plowshares",
+      "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+      "color_identity": [
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "card_draw_advantage",
+      "research_function_classification": "card_draw_advantage",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Sign in Blood",
+      "oracle_id": "c6207f6a-a624-4754-88f5-dbe700c841ff",
+      "color_identity": [
+        "B"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "ramp_resource_development",
+      "research_function_classification": "ramp_resource_development",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    },
+    {
+      "name": "Read the Bones",
+      "oracle_id": "5bf4d8d9-a2b2-4dba-ac05-9d4470a89db2",
+      "color_identity": [
+        "B"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "removal_interaction",
+      "research_function_classification": "removal_interaction",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "strong_guild_or_college"
+    },
+    {
+      "name": "Orzhov Charm",
+      "oracle_id": "26f8626a-ce64-450c-bda5-833df2fbb4fb",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "protection",
+      "research_function_classification": "protection",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "shared_or_overlap"
+    },
+    {
+      "name": "Orzhov Signet",
+      "oracle_id": "de3dcb5d-775a-479f-99f5-d1883ed9b1b5",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "recursion_recovery",
+      "research_function_classification": "recursion_recovery",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": "orzhov",
+      "provenance_plane": "native",
+      "test_role": "false_friend"
+    },
+    {
+      "name": "Despark",
+      "oracle_id": "bd16434d-55ea-4c5a-a9ef-752971a4af16",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "token_board_development",
+      "research_function_classification": "token_board_development",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "affiliation_function_mismatch"
+    },
+    {
+      "name": "Solemn Simulacrum",
+      "oracle_id": "00c0543c-2a1f-4425-8283-4062d74a1637",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "artifact_equipment",
+      "research_function_classification": "artifact_equipment",
+      "relevance_band": "function_equivalent",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "flavor_mechanics_disagreement"
+    },
+    {
+      "name": "Command Tower",
+      "oracle_id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "color_identity": [],
+      "commander_legal": true,
+      "pair_id": "wb",
+      "split": "holdout",
+      "requested_function": "finisher_closing_pressure",
+      "research_function_classification": "finisher_closing_pressure",
+      "relevance_band": "control",
+      "function_provenance": "research taxonomy mapping; local Oracle text inspected",
+      "native_affiliation": null,
+      "provenance_plane": "off_plane_or_colorless",
+      "test_role": "identity_should_not_matter_control"
+    }
+  ],
+  "pairwise_judgments": [
+    {
+      "id": "WR-01",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Aurelia, the Warleader",
+      "candidate_b": "Tajic, Legion's Edge",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "boros_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-02",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Hero of Bladehold",
+      "candidate_b": "Warleader's Call",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "lorehold_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-03",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Osgir, the Reconstructor",
+      "candidate_b": "Quintorius, Field Historian",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-04",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "protection",
+      "candidate_a": "Reconstruct History",
+      "candidate_b": "Sevinne's Reclamation",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "boros_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-05",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "recursion_recovery",
+      "candidate_a": "Akiri, Fearless Voyager",
+      "candidate_b": "Hofri Ghostforge",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "lorehold_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-06",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "token_board_development",
+      "candidate_a": "Teshar, Ancestor's Apostle",
+      "candidate_b": "Sun Titan",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-07",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "artifact_equipment",
+      "candidate_a": "Goblin Welder",
+      "candidate_b": "Lorehold Command",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "boros_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-08",
+      "pair_id": "wr",
+      "split": "development",
+      "functional_request": "finisher_closing_pressure",
+      "candidate_a": "Boros Charm",
+      "candidate_b": "Wear // Tear",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "lorehold_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-09",
+      "pair_id": "wr",
+      "split": "holdout",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Boros Reckoner",
+      "candidate_b": "Aurelia, Exemplar of Justice",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-10",
+      "pair_id": "wr",
+      "split": "holdout",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Blade Historian",
+      "candidate_b": "Lightning Bolt",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "boros_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-11",
+      "pair_id": "wr",
+      "split": "holdout",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Swords to Plowshares",
+      "candidate_b": "Solemn Simulacrum",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "lorehold_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "WR-12",
+      "pair_id": "wr",
+      "split": "holdout",
+      "functional_request": "protection",
+      "candidate_a": "Command Tower",
+      "candidate_b": "Faithless Looting",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "boros",
+        "lorehold"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#boros",
+        "identity-signal-matrix.json#lorehold"
+      ]
+    },
+    {
+      "id": "UR-01",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Niv-Mizzet, Parun",
+      "candidate_b": "Mizzix of the Izmagnus",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "izzet_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-02",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "The Locust God",
+      "candidate_b": "Thousand-Year Storm",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "prismari_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-03",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Galvanic Iteration",
+      "candidate_b": "Experimental Overload",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-04",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "protection",
+      "candidate_a": "Prismari Command",
+      "candidate_b": "Rootha, Mercurial Artist",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "izzet_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-05",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "recursion_recovery",
+      "candidate_a": "Elemental Expressionist",
+      "candidate_b": "Creative Outburst",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "prismari_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-06",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "token_board_development",
+      "candidate_a": "Sprite Dragon",
+      "candidate_b": "Metallurgic Summonings",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-07",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "artifact_equipment",
+      "candidate_a": "Counterspell",
+      "candidate_b": "Opt",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "izzet_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-08",
+      "pair_id": "ur",
+      "split": "development",
+      "functional_request": "finisher_closing_pressure",
+      "candidate_a": "Ponder",
+      "candidate_b": "Izzet Charm",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "prismari_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-09",
+      "pair_id": "ur",
+      "split": "holdout",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Izzet Signet",
+      "candidate_b": "Ral, Storm Conduit",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-10",
+      "pair_id": "ur",
+      "split": "holdout",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Electrodominance",
+      "candidate_b": "Expansion // Explosion",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "izzet_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-11",
+      "pair_id": "ur",
+      "split": "holdout",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Storm-Kiln Artist",
+      "candidate_b": "Expressive Iteration",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "prismari_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "UR-12",
+      "pair_id": "ur",
+      "split": "holdout",
+      "functional_request": "protection",
+      "candidate_a": "Aether Gale",
+      "candidate_b": "Talisman of Creativity",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "izzet",
+        "prismari"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#izzet",
+        "identity-signal-matrix.json#prismari"
+      ]
+    },
+    {
+      "id": "BG-01",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Meren of Clan Nel Toth",
+      "candidate_b": "Jarad, Golgari Lich Lord",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "golgari_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-02",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Vraska, Golgari Queen",
+      "candidate_b": "Mazirek, Kraul Death Priest",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "witherbloom_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-03",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Deadbridge Chant",
+      "candidate_b": "Life from the Loam",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-04",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "protection",
+      "candidate_a": "Witherbloom Command",
+      "candidate_b": "Dina, Soul Steeper",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "golgari_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-05",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "recursion_recovery",
+      "candidate_a": "Daemogoth Woe-Eater",
+      "candidate_b": "Witherbloom Apprentice",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "witherbloom_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-06",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "token_board_development",
+      "candidate_a": "Pest Summoning",
+      "candidate_b": "Golgari Findbroker",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-07",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "artifact_equipment",
+      "candidate_a": "Underrealm Lich",
+      "candidate_b": "Izoni, Thousand-Eyed",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "golgari_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-08",
+      "pair_id": "bg",
+      "split": "development",
+      "functional_request": "finisher_closing_pressure",
+      "candidate_a": "Golgari Charm",
+      "candidate_b": "Reanimate",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "witherbloom_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-09",
+      "pair_id": "bg",
+      "split": "holdout",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Cultivate",
+      "candidate_b": "Sol Ring",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-10",
+      "pair_id": "bg",
+      "split": "holdout",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Skullclamp",
+      "candidate_b": "Poison-Tip Archer",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "golgari_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-11",
+      "pair_id": "bg",
+      "split": "holdout",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Old Stickfingers",
+      "candidate_b": "Fynn, the Fangbearer",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "witherbloom_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "BG-12",
+      "pair_id": "bg",
+      "split": "holdout",
+      "functional_request": "protection",
+      "candidate_a": "Solemn Simulacrum",
+      "candidate_b": "Command Tower",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "golgari",
+        "witherbloom"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#golgari",
+        "identity-signal-matrix.json#witherbloom"
+      ]
+    },
+    {
+      "id": "UG-01",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Prime Speaker Vannifar",
+      "candidate_b": "Prime Speaker Zegana",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "simic_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-02",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Incubation Druid",
+      "candidate_b": "Zameck Guildmage",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "quandrix_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-03",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Vorel of the Hull Clade",
+      "candidate_b": "Quandrix Command",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-04",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "protection",
+      "candidate_a": "Zimone, Quandrix Prodigy",
+      "candidate_b": "Fractal Summoning",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "simic_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-05",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "recursion_recovery",
+      "candidate_a": "Quandrix Cultivator",
+      "candidate_b": "Manifestation Sage",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "quandrix_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-06",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "token_board_development",
+      "candidate_a": "Deekah, Fractal Theorist",
+      "candidate_b": "Esix, Fractal Bloom",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-07",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "artifact_equipment",
+      "candidate_a": "Adrix and Nev, Twincasters",
+      "candidate_b": "Growth Spiral",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "simic_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-08",
+      "pair_id": "ug",
+      "split": "development",
+      "functional_request": "finisher_closing_pressure",
+      "candidate_a": "Coiling Oracle",
+      "candidate_b": "Beast Within",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "quandrix_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-09",
+      "pair_id": "ug",
+      "split": "holdout",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Pongify",
+      "candidate_b": "Counterspell",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-10",
+      "pair_id": "ug",
+      "split": "holdout",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Cultivate",
+      "candidate_b": "Simic Charm",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "simic_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-11",
+      "pair_id": "ug",
+      "split": "holdout",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Simic Ascendancy",
+      "candidate_b": "Biogenic Upgrade",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "quandrix_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "UG-12",
+      "pair_id": "ug",
+      "split": "holdout",
+      "functional_request": "protection",
+      "candidate_a": "Hydroid Krasis",
+      "candidate_b": "Sol Ring",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "simic",
+        "quandrix"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#simic",
+        "identity-signal-matrix.json#quandrix"
+      ]
+    },
+    {
+      "id": "WB-01",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Teysa Karlov",
+      "candidate_b": "Karlov of the Ghost Council",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "orzhov_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-02",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Debt to the Deathless",
+      "candidate_b": "Orzhov Advokist",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "silverquill_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-03",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Orzhov Pontiff",
+      "candidate_b": "Tithe Drinker",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-04",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "protection",
+      "candidate_a": "Silverquill Command",
+      "candidate_b": "Killian, Ink Duelist",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "orzhov_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-05",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "recursion_recovery",
+      "candidate_a": "Inkling Summoning",
+      "candidate_b": "Closing Statement",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "silverquill_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-06",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "token_board_development",
+      "candidate_a": "Silverquill Silencer",
+      "candidate_b": "Felisa, Fang of Silverquill",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-07",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "artifact_equipment",
+      "candidate_a": "Shadrix Silverquill",
+      "candidate_b": "Bastion of Remembrance",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "orzhov_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-08",
+      "pair_id": "wb",
+      "split": "development",
+      "functional_request": "finisher_closing_pressure",
+      "candidate_a": "Vindicate",
+      "candidate_b": "Anguished Unmaking",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "silverquill_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-09",
+      "pair_id": "wb",
+      "split": "holdout",
+      "functional_request": "card_draw_advantage",
+      "candidate_a": "Swords to Plowshares",
+      "candidate_b": "Sign in Blood",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-10",
+      "pair_id": "wb",
+      "split": "holdout",
+      "functional_request": "ramp_resource_development",
+      "candidate_a": "Read the Bones",
+      "candidate_b": "Orzhov Charm",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "orzhov_may_lift_if_exact_contribution",
+      "expected_college": "tie_or_no_lift",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-11",
+      "pair_id": "wb",
+      "split": "holdout",
+      "functional_request": "removal_interaction",
+      "candidate_a": "Orzhov Signet",
+      "candidate_b": "Despark",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "function_first",
+      "expected_guild": "tie_or_no_lift",
+      "expected_college": "silverquill_may_lift_if_exact_contribution",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    },
+    {
+      "id": "WB-12",
+      "pair_id": "wb",
+      "split": "holdout",
+      "functional_request": "protection",
+      "candidate_a": "Solemn Simulacrum",
+      "candidate_b": "Command Tower",
+      "candidate_a_relevance_band": "function_equivalent",
+      "candidate_b_relevance_band": "function_equivalent",
+      "expected_none": "tie",
+      "expected_guild": "function_first",
+      "expected_college": "function_first",
+      "tie_allowed": true,
+      "uncertainty_allowed": true,
+      "must_not_cross_function_tier": true,
+      "expected_contribution_ids": [
+        "orzhov",
+        "silverquill"
+      ],
+      "prohibited_contribution_ids": [
+        "native_affiliation_alone",
+        "flavor_only",
+        "shared_substrate_only"
+      ],
+      "overlap_expected": true,
+      "rationale": "Adversarial same-band comparison; direct function relevance governs before expression.",
+      "evidence_refs": [
+        "identity-signal-matrix.json#orzhov",
+        "identity-signal-matrix.json#silverquill"
+      ]
+    }
+  ],
+  "external_gap_ledger": []
+}

@@ -1,0 +1,398 @@
+{
+  "schema_version": "0.2-research",
+  "status": "proposal_only_no_weights",
+  "cross_pair_invariants": [
+    "explicit selection only",
+    "query_truth:false",
+    "same function tier only",
+    "native affiliation cannot pass function guard",
+    "worldview and flavor are explanation-only",
+    "unknown means no lift"
+  ],
+  "identities": [
+    {
+      "id": "boros",
+      "pair_id": "wr",
+      "description": "coordinated accountable present-action",
+      "family": "team_action",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_026",
+        "boros_legion_claim_031"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/boros/metaphysics.md",
+      "faction_claims": [
+        "boros_legion_claim_025",
+        "boros_legion_claim_029"
+      ],
+      "placement_cross_check": "collision_boros_vs_lorehold_gate3",
+      "generated_cross_check": "data/placement-model.json#/factions/WR",
+      "commander_bridge": "auxiliary: commander_compass",
+      "extractability": "Oracle attack-team/protection pattern",
+      "era": "persistent worldview; Battalion/Mentor recurring historical",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "generic combat",
+        "solitary aggression",
+        "name/watermark"
+      ],
+      "false_positive": "haste or damage alone",
+      "false_negative": "off-plane coordinated protection",
+      "overlap": "combat and tokens",
+      "contradiction": "none; omit if function mismatch",
+      "confidence": "medium",
+      "maintenance": "set-era review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "ranking_capable",
+      "evidence_bridge": "team/protection"
+    },
+    {
+      "id": "lorehold",
+      "pair_id": "wr",
+      "description": "history and evidence made active",
+      "family": "recovery_history",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "lorehold_core_0005",
+        "lorehold_core_0006",
+        "lorehold_mechanic_0009"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/lorehold/metaphysics.md",
+      "faction_claims": [
+        "lorehold_core_0005",
+        "lorehold_location_0009"
+      ],
+      "placement_cross_check": "collision_boros_vs_lorehold_gate3",
+      "generated_cross_check": "data/placement-model.json#/factions/LOREHOLD",
+      "commander_bridge": "auxiliary: commander_compass",
+      "extractability": "Oracle recovery/replay/history-role pattern",
+      "era": "persistent worldview; flashback/leaves-graveyard era-tagged",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "bare artifact",
+        "bare Spirit",
+        "bare graveyard"
+      ],
+      "false_positive": "relic name without role",
+      "false_negative": "off-plane recursion",
+      "overlap": "artifacts, Spirits, graveyard",
+      "contradiction": "none; no direct affiliation inference",
+      "confidence": "medium",
+      "maintenance": "set-era review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "ranking_capable",
+      "evidence_bridge": "recovery/history"
+    },
+    {
+      "id": "izzet",
+      "pair_id": "ur",
+      "description": "technical experiment and iterative discovery",
+      "family": "experiment",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "claim_izzet_league_0003",
+        "claim_izzet_league_0004",
+        "claim_izzet_league_0006"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/izzet/metaphysics.md",
+      "faction_claims": [
+        "claim_izzet_league_0005",
+        "claim_izzet_league_0006"
+      ],
+      "placement_cross_check": "data/raw-factions/izzet_league/izzet_league.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "prototype/iteration exact-role classifier",
+      "era": "persistent setting; mechanics era-tagged",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "spell-only",
+        "elemental-only"
+      ],
+      "false_positive": "any copied spell",
+      "false_negative": "off-plane inventions",
+      "overlap": "spells and damage",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "explanation_only",
+      "evidence_bridge": "no deterministic separation"
+    },
+    {
+      "id": "prismari",
+      "pair_id": "ur",
+      "description": "elemental art and trained expression",
+      "family": "expression",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "prismari_claim_002",
+        "prismari_claim_003",
+        "prismari_claim_004"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/prismari/metaphysics.md",
+      "faction_claims": [
+        "prismari_claim_005",
+        "prismari_claim_006"
+      ],
+      "placement_cross_check": "data/raw-factions/prismari/prismari.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "performance/elemental-expression role",
+      "era": "persistent setting; set implementation tagged",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "instant/sorcery alone",
+        "elemental alone"
+      ],
+      "false_positive": "spectacle flavor",
+      "false_negative": "off-plane expressive effect",
+      "overlap": "spells, elementals",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "native_affiliation_explanation_only",
+      "evidence_bridge": "native-only"
+    },
+    {
+      "id": "golgari",
+      "pair_id": "bg",
+      "description": "reclamation through decay and survival",
+      "family": "reclamation",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "golgari_swarm_claim_001",
+        "golgari_swarm_claim_002",
+        "golgari_swarm_claim_007"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/golgari/metaphysics.md",
+      "faction_claims": [
+        "golgari_swarm_claim_003",
+        "golgari_swarm_claim_006"
+      ],
+      "placement_cross_check": "data/raw-factions/golgari_swarm/golgari_swarm.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "reclamation/discarded-value exact role",
+      "era": "persistent worldview",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "generic graveyard",
+        "generic resilience"
+      ],
+      "false_positive": "one death trigger",
+      "false_negative": "off-plane recycling",
+      "overlap": "life/death and creatures",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "ranking_capable",
+      "evidence_bridge": "reclamation/recovery"
+    },
+    {
+      "id": "witherbloom",
+      "pair_id": "bg",
+      "description": "embodied essence craft",
+      "family": "essence",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "witherbloom_claim_002",
+        "witherbloom_claim_003",
+        "witherbloom_claim_006"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/witherbloom/metaphysics.md",
+      "faction_claims": [
+        "witherbloom_claim_004",
+        "witherbloom_claim_005"
+      ],
+      "placement_cross_check": "data/raw-factions/witherbloom/witherbloom.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "life/death exchange, remedy/toxin/ecology role",
+      "era": "persistent setting",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "pest alone",
+        "death alone"
+      ],
+      "false_positive": "lifegain only",
+      "false_negative": "off-plane alchemy",
+      "overlap": "life/death",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-INTENT-IN-CARD-TEXT",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "unresolved",
+      "evidence_bridge": "intent not observable"
+    },
+    {
+      "id": "simic",
+      "pair_id": "ug",
+      "description": "living-system adaptation",
+      "family": "adaptation",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "simic_combine_claim_001",
+        "simic_combine_claim_002",
+        "simic_combine_claim_007"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/simic/metaphysics.md",
+      "faction_claims": [
+        "simic_combine_claim_003",
+        "simic_combine_claim_004"
+      ],
+      "placement_cross_check": "data/raw-factions/simic_combine/simic_combine.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "biological adaptation/managed improvement role",
+      "era": "persistent worldview",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "counters alone",
+        "ramp alone"
+      ],
+      "false_positive": "any grow effect",
+      "false_negative": "off-plane biomancy",
+      "overlap": "growth and counters",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "ranking_capable",
+      "evidence_bridge": "biological adaptation"
+    },
+    {
+      "id": "quandrix",
+      "pair_id": "ug",
+      "description": "formal pattern and numeromancy",
+      "family": "pattern",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "quandrix_claim_002",
+        "quandrix_claim_003",
+        "quandrix_claim_006"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/quandrix/metaphysics.md",
+      "faction_claims": [
+        "quandrix_claim_004",
+        "quandrix_claim_005"
+      ],
+      "placement_cross_check": "data/raw-factions/quandrix/quandrix.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "fractal/pattern/model exact role",
+      "era": "persistent setting; set implementation tagged",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "large creature",
+        "token alone"
+      ],
+      "false_positive": "math flavor",
+      "false_negative": "off-plane system model",
+      "overlap": "tokens, growth, counters",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-SPARSE-OFFPLANE",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "native_affiliation_explanation_only",
+      "evidence_bridge": "sparse off-plane"
+    },
+    {
+      "id": "orzhov",
+      "pair_id": "wb",
+      "description": "obligation and institutional leverage",
+      "family": "obligation",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "orzhov_syndicate_claim_001",
+        "orzhov_syndicate_claim_002",
+        "orzhov_syndicate_claim_007"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/orzhov/metaphysics.md",
+      "faction_claims": [
+        "orzhov_syndicate_claim_003",
+        "orzhov_syndicate_claim_006"
+      ],
+      "placement_cross_check": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "deal/debt/obligation role",
+      "era": "persistent worldview",
+      "intended_use": "same-tier ordering",
+      "anti_signals": [
+        "lifegain",
+        "drain",
+        "sacrifice"
+      ],
+      "false_positive": "generic tax",
+      "false_negative": "off-plane contract effect",
+      "overlap": "hierarchy and removal",
+      "contradiction": "no role → no lift",
+      "confidence": "medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-EMPIRICAL-PAIR",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "ranking_capable_narrow",
+      "evidence_bridge": "debt/obligation only"
+    },
+    {
+      "id": "silverquill",
+      "pair_id": "wb",
+      "description": "rhetoric and reputational influence",
+      "family": "eloquence",
+      "shared_status": "distinct_candidate",
+      "role": "mechanical_candidate",
+      "internal_identity_claims": [
+        "silverquill_claim_002",
+        "silverquill_claim_003",
+        "silverquill_claim_006"
+      ],
+      "metaphysical_cross_check": "docs/architecture/colors/silverquill/metaphysics.md",
+      "faction_claims": [
+        "silverquill_claim_004",
+        "silverquill_claim_005"
+      ],
+      "placement_cross_check": "data/raw-factions/silverquill/silverquill.placement.json",
+      "generated_cross_check": "data/placement-model.json",
+      "commander_bridge": "auxiliary guidance",
+      "extractability": "public language/influence role; usually weak",
+      "era": "persistent setting; implementation tagged",
+      "intended_use": "same-tier ordering only after review",
+      "anti_signals": [
+        "removal",
+        "lifegain",
+        "token alone"
+      ],
+      "false_positive": "ink/flavor words",
+      "false_negative": "off-plane political effect",
+      "overlap": "leadership and hierarchy",
+      "contradiction": "flavor-only → explanation only",
+      "confidence": "low-medium",
+      "maintenance": "per-set review",
+      "gap_id": "G-ORACLE-RHETORIC",
+      "proposed_role": "mechanical_candidate",
+      "final_research_disposition": "explanation_only",
+      "evidence_bridge": "rhetoric not deterministic"
+    }
+  ]
+}
