@@ -16,6 +16,8 @@ import {
 const LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS = /(?:\bo:|\bft:|\bstorm\b|spell chain|\bknowledge\b|\bstudy\b|\bhungry\b|\bdevouring\b|\baggro\b|\baggressive\b)/i;
 
 const mazeHtml = readFileSync(new URL("../../maze/index.html", import.meta.url), "utf8");
+const manaCss = readFileSync(new URL("../../assets/vendor/mana/css/mana.min.css", import.meta.url), "utf8");
+const manaAbilityIconSlugs = new Set([...manaCss.matchAll(/\.ms-ability-([a-z0-9-]+)/g)].map((match) => match[1]));
 const parserSeedFixture = JSON.parse(readFileSync(new URL("../../data/maze/scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
 const groundingFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
 const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
@@ -25,8 +27,35 @@ assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\
 assert.doesNotMatch(mazeHtml, /<input\b[^>]*id="search-input"/);
 assert.match(mazeHtml, /id="search-copy-btn"[^>]*data-action="copy-query"/);
 assert.match(mazeHtml, /id="search-scryfall-link"[^>]*aria-disabled="true"/);
+assert.ok(
+  mazeHtml.indexOf('id="builder-panel"') < mazeHtml.indexOf('class="search-input-row"'),
+  "Loom construction must precede the live-query action region in DOM and focus order"
+);
+assert.equal((mazeHtml.match(/id="search-input"/g) || []).length, 1, "Loom must retain one authoritative visible live query");
+assert.doesNotMatch(mazeHtml, /id="builder-generated-query"/, "redundant generated-query output must be removed");
+assert.match(mazeHtml, /<fieldset class="builder-group builder-group-colors">[\s\S]*?<legend>Colors<\/legend>/);
+assert.match(mazeHtml, /<fieldset class="builder-group">[\s\S]*?<legend>Card Type<\/legend>/);
+assert.match(mazeHtml, /<fieldset class="builder-group builder-group-abilities">[\s\S]*?<legend>Abilities<\/legend>/);
+assert.match(mazeHtml, /<fieldset class="builder-group">[\s\S]*?<legend>Refine<\/legend>/);
+assert.match(mazeHtml, /<details class="color-relation-picker" id="color-relation-picker">[\s\S]*?Fits Commander colors[\s\S]*?Exactly these printed colors[\s\S]*?Includes these printed colors[\s\S]*?Only these printed colors/);
+assert.doesNotMatch(mazeHtml, /<span class="bl">(?:WUBRG|Colorless|Type)<\/span>/, "redundant Loom micro-labels must not be visible");
+assert.doesNotMatch(mazeHtml, /<label class="bl" for="color-op">Color relation<\/label>/, "color relation must be named by its closed selector");
+assert.doesNotMatch(mazeHtml, /<legend>Mechanics<\/legend>/, "Loom must not generalize keyword abilities into mechanics");
+assert.match(mazeHtml, /id="colorless-only-btn"[^>]*aria-pressed="false"[\s\S]*?Colorless only/);
+assert.match(mazeHtml, /id="exclude-colorless"[^>]*>[\s\S]*?Exclude colorless cards/);
+assert.match(mazeHtml, /id="kw-add-btn"[^>]*data-action="add-keyword">Add<\/button>/);
+assert.match(mazeHtml, /id="kw-input"[^>]*role="combobox"[^>]*aria-autocomplete="list"[^>]*aria-controls="kw-suggestions"[^>]*aria-expanded="false"/);
+assert.match(mazeHtml, /id="kw-suggestions"[^>]*role="listbox"/, "More abilities suggestions must expose listbox semantics");
+assert.match(mazeHtml, /class="visually-hidden" id="builder-summary"/, "Loom summary must not be a second visible reflection");
+assert.match(mazeHtml, /<aside class="current-weave" id="current-weave"[^>]*aria-labelledby="current-weave-label"/, "Current Weave must remain a passive labeled presentation");
+assert.equal((mazeHtml.match(/data-action="reset-builder"/g) || []).length, 1, "Loom must expose exactly one Reset Loom action");
+for (const color of ["w", "u", "b", "r", "g", "c"]) {
+  assert.match(mazeHtml, new RegExp(`<i class="ms ms-${color} ms-cost" aria-hidden="true"><\\/i>`), `Loom must use the local Mana Font ${color.toUpperCase()} pip`);
+}
+assert.match(mazeHtml, /id="results-header" tabindex="-1"/);
+assert.match(mazeHtml, /id="res-count" role="status" aria-live="polite"/);
 assert.match(mazeHtml, /<details class="sb-section sb-section-recent" id="recent-section"/);
-assert.match(mazeHtml, /<details class="sb-section sb-section-color">[\s\S]*id="color-grid"/);
+assert.match(mazeHtml, /<details class="sb-section sb-section-color" id="sidebar-color-section">[\s\S]*id="color-grid"/);
 
 const apiUrl = new URL(buildScryfallApiSearchUrl("otag:mana-rock", {
   unique: "art",
@@ -202,18 +231,297 @@ assert.deepEqual(parseAlternativeApi("{bad json"), {});
 
 assert.equal(stripApiMetadataFromQuery("otag:board-wipe order:released direction:desc unique:prints"), "otag:board-wipe");
 
-await runMazeDomMetadataCases();
-await runLiveShardDossierSidebarCases();
-await runColorlessStaleWuRestoreCase();
-await runLiveFourColorArchscryCases();
-await runConflictingFourColorActiveFitCase();
-await runStaleFourColorLabelRestoreCase();
-await runMarduArchscryOperatorPrecedenceCase();
-await runJeskaiArchscryOperatorPrecedenceCase();
-await runTechnicalRgwuPublicGuardCase();
-await runMazeUrlBootCase();
+if (process.argv.includes("--vm592-focused")) {
+  await runVm592LoomCases();
+  console.log("VM-592 focused Loom search cases passed.");
+} else {
+  await runMazeDomMetadataCases();
+  await runLiveShardDossierSidebarCases();
+  await runColorlessStaleWuRestoreCase();
+  await runLiveFourColorArchscryCases();
+  await runConflictingFourColorActiveFitCase();
+  await runStaleFourColorLabelRestoreCase();
+  await runMarduArchscryOperatorPrecedenceCase();
+  await runJeskaiArchscryOperatorPrecedenceCase();
+  await runTechnicalRgwuPublicGuardCase();
+  await runMazeUrlBootCase();
 
-console.log("Maze search metadata helper cases passed.");
+  console.log("Maze search metadata helper cases passed.");
+}
+
+async function runVm592LoomCases() {
+  const dom = installMazeDomHarness();
+  window.location.search = "?from=archscry&fit=JUND&factionName=Jund&readingId=vm592-review&returnUrl=..%2Farchscry%2Findex.html";
+  window.location.href = `http://localhost/maze/index.html${window.location.search}`;
+
+  await import("../../assets/js/maze/research-init.js?vm592-focused");
+  await dom.dispatchWindowEvent("load");
+  window.setMode("builder");
+
+  const neutralColorLabelCases = {
+    W: "White", U: "Blue", B: "Black", R: "Red", G: "Green", C: "Colorless",
+    WU: "White–Blue", UB: "Blue–Black", BR: "Black–Red", RG: "Red–Green", GW: "Green–White",
+    WB: "White–Black", UR: "Blue–Red", BG: "Black–Green", RW: "Red–White", GU: "Green–Blue",
+    GWU: "Green–White–Blue", WUB: "White–Blue–Black", UBR: "Blue–Black–Red", BRG: "Black–Red–Green", RGW: "Red–Green–White",
+    WBG: "White–Black–Green", URW: "Blue–Red–White", BGU: "Black–Green–Blue", RWB: "Red–White–Black", GUR: "Green–Blue–Red",
+    UBRG: "Blue–Black–Red–Green", BRGW: "Black–Red–Green–White", RGWU: "Red–Green–White–Blue", GWUB: "Green–White–Blue–Black", WUBR: "White–Blue–Black–Red",
+    WUBRG: "Five-color"
+  };
+  Object.entries(neutralColorLabelCases).forEach(([colors, expectedLabel]) => {
+    assert.equal(window.weaveColorLabel([...colors].reverse()), expectedLabel, `${colors} must use a neutral Current Weave color label regardless of selection order`);
+  });
+  assert.equal(window.weaveColorLabel([]), "", "an empty color selection must retain the neutral Current Weave state");
+
+  groundingFixture.catalogs.keywordAbilities.forEach((keyword) => {
+    const slug = keyword.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const expectedClass = manaAbilityIconSlugs.has(slug) ? `ms-ability-${slug}` : "";
+    assert.equal(window.abilityIconClass(keyword), expectedClass, `${keyword} must use an exact vendored Mana mapping or remain text-only`);
+  });
+
+  const input = document.getElementById("search-input");
+  assert.equal(input.value, "f:commander", "cold Loom must start from its Commander-first default");
+  assert.equal(document.getElementById("loom-dossier-context").textContent, "Jund dossier context available · not applied to filters");
+  assert.equal(document.getElementById("sidebar-color-section").hidden, true, "Loom must hide duplicate sidebar color controls");
+  assert.equal(document.getElementById("sidebar-format-section").hidden, true, "Loom must hide duplicate sidebar format controls");
+  assert.equal(document.getElementById("clear-search-btn").hidden, true, "Loom must hide the duplicate generic Clear/Reset action");
+  assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
+  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
+  assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
+  assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
+  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
+  const coldQuery = input.value;
+  window.renderCurrentWeave();
+  assert.equal(input.value, coldQuery, "rendering Current Weave must not change the live query");
+
+  const initialCreatureButton = document.getElementById("type-checks").children.find((button) => button.dataset.value === "creature");
+  assert.equal(getRenderedText(initialCreatureButton), "Creature", "type icon reinforcement must preserve the semantic text label");
+  assert.equal(initialCreatureButton.children[0].getAttribute("aria-hidden"), "true", "decorative type icons must be hidden from assistive technology");
+  const initialHasteButton = document.getElementById("ability-checks").children.find((button) => button.dataset.keyword === "haste");
+  assert.equal(getRenderedText(initialHasteButton), "Haste", "ability icon reinforcement must preserve the semantic text label");
+  assert.equal(initialHasteButton.children[0].getAttribute("aria-hidden"), "true", "decorative ability icons must be hidden from assistive technology");
+  document.getElementById("rarity-checks").children.forEach((button) => {
+    assert.ok(getRenderedText(button), "rarity text must remain visible beside the generic glyph");
+    assert.equal(button.children[0].getAttribute("aria-hidden"), "true");
+  });
+
+  const loomPips = [...document.querySelectorAll(".cpip")];
+  const whitePip = loomPips.find((pip) => pip.dataset.c === "W");
+  const bluePip = loomPips.find((pip) => pip.dataset.c === "U");
+  document.querySelector(".page").onclick?.({ target: whitePip });
+  document.querySelector(".page").onclick?.({ target: bluePip });
+  assert.equal(input.value, "id<=wu f:commander");
+  assert.match(document.getElementById("builder-summary").textContent, /Commander colors: WU · Fits these Commander colors/);
+  assert.equal(document.getElementById("current-weave-title").textContent, "White–Blue fit");
+  assert.equal(document.getElementById("current-weave-count").textContent, "1 choice woven");
+  assert.equal(document.getElementById("current-weave-primary").classList.contains("hidden"), true, "identity-only state must not claim there are no choices");
+  const oneChoiceQuery = input.value;
+  assert.equal(window.weaveChoiceCount(), 1);
+  assert.equal(input.value, oneChoiceQuery, "reading the Current Weave choice count must not change query state");
+
+  const creatureButton = document.getElementById("type-checks").children.find((button) => button.dataset.value === "creature");
+  document.querySelector(".page").onclick?.({ target: creatureButton });
+  const keywordInput = document.getElementById("kw-input");
+  const hasteAbility = document.getElementById("ability-checks").children.find((button) => button.dataset.keyword === "haste");
+  document.querySelector(".page").onclick?.({ target: hasteAbility });
+  assert.equal(input.value, "id<=wu t:creature f:commander kw:haste", "common ability chip must commit the governed keyword query");
+  keywordInput.value = "strike";
+  keywordInput.oninput?.({ target: keywordInput });
+  assert.equal(keywordInput.getAttribute("aria-expanded"), "true", "typing must open governed ability suggestions");
+  assert.ok(document.getElementById("kw-suggestions").children.length >= 2, "strike must expose navigable governed suggestions");
+  document.getElementById("kw-suggestions").children.forEach((option) => {
+    assert.equal(option.children[0].getAttribute("aria-hidden"), "true", "verified suggestion glyphs must be presentation-only");
+    assert.ok(getRenderedText(option), "ability suggestion accessible names must retain visible text");
+  });
+  keywordInput.onkeydown?.({ key: "ArrowDown", target: keywordInput, preventDefault() {} });
+  assert.equal(document.getElementById("kw-suggestions").children[0].getAttribute("aria-selected"), "true", "ArrowDown must activate the first suggestion");
+  keywordInput.onkeydown?.({ key: "ArrowDown", target: keywordInput, preventDefault() {} });
+  assert.equal(document.getElementById("kw-suggestions").children[1].getAttribute("aria-selected"), "true", "a second ArrowDown must advance without wrapping");
+  keywordInput.onkeydown?.({ key: "ArrowUp", target: keywordInput, preventDefault() {} });
+  assert.equal(document.getElementById("kw-suggestions").children[0].getAttribute("aria-selected"), "true", "ArrowUp must move to the preceding option");
+  keywordInput.onkeydown?.({ key: "ArrowDown", target: keywordInput, preventDefault() {} });
+  keywordInput.onkeydown?.({ key: "Enter", target: keywordInput, preventDefault() {} });
+  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "Enter must preserve a multiword keyword");
+  assert.equal(keywordInput.getAttribute("aria-expanded"), "false", "selecting an active suggestion must close the listbox");
+  const firstStrikeChip = document.getElementById("kw-chips").children.find((chip) => chip.dataset.keyword === "first strike");
+  assert.equal(firstStrikeChip.children[0].className, "ms ms-ability-first-strike", "selected governed abilities must retain their verified Mana glyph");
+  assert.match(getRenderedText(firstStrikeChip), /First strike/, "selected ability glyphs must not replace their text label");
+  keywordInput.value = "first strike";
+  keywordInput.onkeydown?.({ key: "Enter", target: keywordInput, preventDefault() {} });
+  assert.equal((input.value.match(/first strike/g) || []).length, 1, "typed and suggestion selection must share canonical ability state without duplicates");
+  keywordInput.value = "ward";
+  keywordInput.onkeydown?.({ key: ",", target: keywordInput, preventDefault() {} });
+  assert.match(input.value, /kw:ward/, "comma commit must remain supported");
+  const selectedWard = document.getElementById("ability-checks").children.find((button) => button.dataset.keyword === "ward");
+  document.querySelector(".page").onclick?.({ target: selectedWard });
+  keywordInput.value = "lifelink";
+  document.querySelector(".page").onclick?.({ target: document.getElementById("kw-add-btn") });
+  assert.match(input.value, /kw:lifelink/, "Add must commit a governed ability into the same state");
+  const selectedLifelink = document.getElementById("ability-checks").children.find((button) => button.dataset.keyword === "lifelink");
+  document.querySelector(".page").onclick?.({ target: selectedLifelink });
+  const beforeEscapeQuery = input.value;
+  keywordInput.value = "fly";
+  keywordInput.oninput?.({ target: keywordInput });
+  keywordInput.onkeydown?.({ key: "ArrowDown", target: keywordInput, preventDefault() {} });
+  keywordInput.onkeydown?.({ key: "Escape", target: keywordInput, preventDefault() {}, stopPropagation() {} });
+  assert.equal(document.getElementById("kw-suggestions").classList.contains("hidden"), true, "Escape must close suggestions");
+  assert.equal(document.activeElement, keywordInput, "Escape must retain focus in the combobox");
+  assert.equal(input.value, beforeEscapeQuery, "Escape must preserve existing Loom selections");
+  assert.match(document.getElementById("current-weave-primary").textContent, /Creature · Haste · First strike/);
+  keywordInput.value = "investigate";
+  document.querySelector(".page").onclick?.({ target: document.getElementById("kw-add-btn") });
+  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "keyword actions must not be presented as keyword abilities");
+  assert.match(document.getElementById("kw-validation").textContent, /supported keyword ability/);
+  keywordInput.value = "";
+
+  const liveOpenUrl = new URL(document.getElementById("search-scryfall-link").href);
+  assert.equal(liveOpenUrl.searchParams.get("q"), input.value, "Open must use the live projection before Search");
+  window.copyQuery();
+  await Promise.resolve();
+  assert.equal(dom.getCopiedText(), input.value, "Copy must use the live projection before Search");
+
+  window.setMode("raw");
+  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "Loom to Operator must preserve the visible query");
+  assert.equal(document.getElementById("sidebar-color-section").hidden, false, "Operator must restore sidebar color controls");
+  assert.equal(document.getElementById("sidebar-format-section").hidden, false, "Operator must restore sidebar format controls");
+  window.setMode("builder");
+  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "Operator to Loom must restore the builder projection");
+  assert.equal(document.getElementById("clear-search-btn").hidden, true, "returning to Loom must restore the single-reset treatment");
+
+  const colorRelation = document.getElementById("color-op");
+  const relationButtons = document.querySelectorAll('[data-action="set-color-relation"]');
+  const relationPicker = document.getElementById("color-relation-picker");
+  const relationTrigger = document.getElementById("color-relation-trigger");
+  const relationQueryBeforeKeyboard = input.value;
+  relationTrigger.onkeydown?.({ key: "ArrowDown", target: relationTrigger, preventDefault() {} });
+  assert.equal(relationPicker.open, true, "ArrowDown from the disclosure trigger must open the relation choices");
+  assert.equal(document.activeElement, relationButtons[0], "opening the relation disclosure must focus the selected choice");
+  dom.dispatchDocumentEvent("keydown", { key: "ArrowDown", target: relationButtons[0], preventDefault() {} });
+  assert.equal(document.activeElement, relationButtons[1], "relation arrow navigation must move predictably without wrapping");
+  dom.dispatchDocumentEvent("keydown", { key: "Escape", target: relationButtons[1], preventDefault() {} });
+  assert.equal(relationPicker.open, false, "Escape must close the relation disclosure without selecting");
+  assert.equal(input.value, relationQueryBeforeKeyboard, "Escape must preserve the prior relation and query");
+  assert.equal(document.activeElement, relationTrigger, "Escape must return focus to the relation trigger");
+  document.querySelector(".page").onclick?.({ target: relationButtons.find((button) => button.dataset.value === "c") });
+  assert.equal(input.value, "c=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "exact printed-color relation must remain distinct");
+  assert.match(document.getElementById("builder-summary").textContent, /Exactly these printed colors/);
+  document.querySelector(".page").onclick?.({ target: relationButtons.find((button) => button.dataset.value === "id") });
+  assert.equal(colorRelation.value, "id");
+  document.querySelector(".page").onclick?.({ target: hasteAbility });
+
+  const rareButton = document.getElementById("rarity-checks").children.find((button) => button.dataset.value === "r");
+  const mythicButton = document.getElementById("rarity-checks").children.find((button) => button.dataset.value === "m");
+  document.querySelector(".page").onclick?.({ target: rareButton });
+  assert.match(input.value, /r:r/, "Rare must retain its existing query projection");
+  document.querySelector(".page").onclick?.({ target: mythicButton });
+  assert.match(input.value, /\(r:r OR r:m\)/, "multi-rarity projection must remain unchanged");
+  assert.equal(rareButton.getAttribute("aria-pressed"), "true");
+  document.querySelector(".page").onclick?.({ target: rareButton });
+  assert.doesNotMatch(input.value, /r:r/, "toggling Rare off must remove it");
+  document.querySelector(".page").onclick?.({ target: mythicButton });
+  assert.doesNotMatch(input.value, /r:m/, "toggling Mythic off must remove it");
+  assert.equal(input.value, "id<=wu t:creature f:commander kw:\"first strike\"", "activating a selected common ability must remove it");
+  document.querySelector(".page").onclick?.({ target: hasteAbility });
+
+  const invalidStart = dom.fetchUrls.length;
+  document.getElementById("cmc-min").value = "5";
+  document.getElementById("cmc-max").value = "2";
+  document.getElementById("cmc-min").oninput?.({ target: document.getElementById("cmc-min") });
+  assert.match(document.getElementById("mv-validation").textContent, /Minimum mana value cannot be greater/);
+  assert.equal(document.getElementById("current-weave-title").textContent, "Needs attention");
+  assert.equal(document.getElementById("current-weave-primary").textContent, "Mana value range conflicts.");
+  assert.equal(document.getElementById("color-validation").textContent, "", "only the affected group may show a validation message");
+  assert.equal(document.getElementById("search-copy-btn").disabled, true);
+  await window.doSearch();
+  assert.equal(dom.fetchUrls.length, invalidStart, "invalid mana value range must not reach Scryfall");
+  assert.equal(document.activeElement, document.getElementById("cmc-min"));
+  assert.equal(document.getElementById("cmc-min").value, "5");
+  assert.equal(document.getElementById("cmc-max").value, "2");
+
+  document.getElementById("cmc-max").value = "6";
+  document.getElementById("cmc-max").oninput?.({ target: document.getElementById("cmc-max") });
+  assert.equal(document.getElementById("mv-validation").classList.contains("hidden"), true);
+  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+  document.getElementById("cmc-min").value = "";
+  document.getElementById("cmc-max").value = "";
+  document.getElementById("cmc-max").oninput?.({ target: document.getElementById("cmc-max") });
+
+  const executedQuery = input.value;
+  const loomResultStart = dom.fetchUrls.length;
+  dom.setFetchResponses([{
+    object: "list",
+    total_cards: 1,
+    data: makeTestCards(1, "Loom"),
+    has_more: false
+  }]);
+  document.getElementById("search-btn").focus();
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, loomResultStart + 1);
+  assert.equal(latestFetchUrl(dom.fetchUrls).searchParams.get("q"), executedQuery, "executed Loom query must match the live reflection");
+  assert.equal(document.activeElement, document.getElementById("search-btn"), "successful Search must preserve focus");
+  assert.equal(document.getElementById("results-header").scrollIntoViewOptions, undefined, "successful Search must not force result scrolling");
+  assert.match(getRenderedText(document.getElementById("res-count")), /Showing 1 of 1 cards/);
+  assert.equal(document.getElementById("loom-result-status").textContent, "1 card found");
+  assert.equal(document.getElementById("current-weave-state").textContent, "1 card found", "completed result count must reflect in Current Weave");
+  document.querySelector(".page").onclick?.({ target: document.getElementById("view-results-btn") });
+  assert.equal(document.activeElement, document.getElementById("results-header"), "View results must deliberately move focus");
+  assert.deepEqual(document.getElementById("results-header").scrollIntoViewOptions, { behavior: "smooth", block: "start" });
+
+  window.resetBuilderFilters();
+  assert.equal(document.getElementById("bld-format").value, "commander");
+  assert.equal(document.getElementById("color-op").value, "id");
+  assert.equal(input.value, "f:commander");
+  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+  assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
+  assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
+  assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
+  assert.equal(document.getElementById("current-weave-state").textContent, "Ready to search");
+  assert.doesNotMatch(document.querySelector(".maze-toast")?.textContent || "", /Loom reset/, "reset must not create a persistent Loom reset toast");
+
+  document.querySelector(".page").onclick?.({ target: document.getElementById("colorless-only-btn") });
+  assert.equal(input.value, "id:c f:commander", "Colorless only must remain exact colorless identity");
+  document.querySelector(".page").onclick?.({ target: whitePip });
+  assert.equal(input.value, "id<=w f:commander", "selecting W must replace Colorless only instead of generating mixed C syntax");
+  document.querySelector(".page").onclick?.({ target: bluePip });
+  const excludeColorless = document.getElementById("exclude-colorless");
+  excludeColorless.checked = true;
+  excludeColorless.onchange?.({ target: excludeColorless });
+  assert.equal(input.value, "id<=wu -id:c f:commander", "verified exclusion syntax must be reflected live");
+
+  window.resetBuilderFilters();
+  ["W", "U", "B", "R"].forEach((color) => {
+    document.querySelector(".page").onclick?.({ target: loomPips.find((pip) => pip.dataset.c === color) });
+  });
+  document.querySelector(".page").onclick?.({ target: relationButtons.find((button) => button.dataset.value === "c>=") });
+  ["creature", "instant", "sorcery", "artifact", "enchantment"].forEach((type) => {
+    document.querySelector(".page").onclick?.({ target: document.getElementById("type-checks").children.find((button) => button.dataset.value === type) });
+  });
+  ["flying", "haste", "vigilance", "trample", "deathtouch", "hexproof"].forEach((keyword) => {
+    document.querySelector(".page").onclick?.({ target: document.getElementById("ability-checks").children.find((button) => button.dataset.keyword === keyword) });
+  });
+  ["double strike", "menace", "toxic"].forEach((keyword) => {
+    keywordInput.value = keyword;
+    document.querySelector(".page").onclick?.({ target: document.getElementById("kw-add-btn") });
+  });
+  ["c", "r", "m"].forEach((rarity) => {
+    document.querySelector(".page").onclick?.({ target: document.getElementById("rarity-checks").children.find((button) => button.dataset.value === rarity) });
+  });
+  const format = document.getElementById("bld-format");
+  format.value = "modern";
+  format.onchange?.({ target: format });
+  const longQuery = input.value;
+  assert.ok(longQuery.length > 180, "the deterministic long-query case must exercise natural wrapping");
+  assert.match(longQuery, /c>=wubr/);
+  assert.match(longQuery, /f:modern/);
+  assert.match(longQuery, /kw:\"double strike\"/);
+  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), longQuery, "Open must retain the complete wrapped query");
+  window.copyQuery();
+  await Promise.resolve();
+  assert.equal(dom.getCopiedText(), longQuery, "Copy must retain the complete wrapped query");
+  const longQueryBeforeWeave = input.value;
+  window.renderCurrentWeave();
+  assert.equal(input.value, longQueryBeforeWeave, "long-query Current Weave presentation must remain read-only");
+  window.resetBuilderFilters();
+}
 
 async function runMazeDomMetadataCases() {
   const dom = installMazeDomHarness();
@@ -249,6 +557,7 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("quick-search-list").children.length, 12);
   assert.equal(document.getElementById("color-grid").children.length, 15);
   assert.equal(document.getElementById("type-checks").children.length, 8);
+  assert.equal(document.getElementById("ability-checks").children.length, 8);
   assert.equal(document.getElementById("rarity-checks").children.length, 4);
   assert.equal(document.getElementById("reading-path-list").children.length, 4);
   assert.equal(document.body.dataset.mazeMode, "ai");
@@ -612,6 +921,66 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "true");
 
   window.setMode("builder");
+  assert.equal(document.getElementById("search-input-label").textContent, "Live Scryfall query");
+  assert.equal(document.getElementById("search-input").readOnly, true);
+  assert.equal(document.getElementById("loom-dossier-context").textContent, "Witherbloom College dossier context available \u00b7 not applied to filters");
+  assert.equal(input.value, "f:commander", "dossier context must not alter the default Loom query");
+  assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
+  assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
+
+  const loomPips = [...document.querySelectorAll(".cpip")];
+  const whitePip = loomPips.find((pip) => pip.dataset.c === "W");
+  const bluePip = loomPips.find((pip) => pip.dataset.c === "U");
+  document.querySelector(".page").onclick?.({ target: whitePip });
+  document.querySelector(".page").onclick?.({ target: bluePip });
+  assert.equal(input.value, "id<=wu f:commander");
+  assert.match(document.getElementById("builder-summary").textContent, /Commander colors: WU \u00b7 Fits these Commander colors/);
+  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), "id<=wu f:commander");
+  window.copyQuery();
+  await Promise.resolve();
+  assert.equal(dom.getCopiedText(), "id<=wu f:commander", "Copy must use the refined live projection before Search");
+
+  window.setMode("raw");
+  assert.equal(input.value, "id<=wu f:commander", "Loom to Operator must preserve the visible query");
+  window.setMode("builder");
+  assert.equal(input.value, "id<=wu f:commander", "Operator to Loom must restore the builder projection");
+
+  const invalidStart = dom.fetchUrls.length;
+  document.getElementById("cmc-min").value = "5";
+  document.getElementById("cmc-max").value = "2";
+  document.getElementById("cmc-min").oninput?.({ target: document.getElementById("cmc-min") });
+  assert.match(document.getElementById("mv-validation").textContent, /Minimum mana value cannot be greater/);
+  assert.equal(document.getElementById("search-copy-btn").disabled, true);
+  await window.doSearch();
+  assert.equal(dom.fetchUrls.length, invalidStart, "invalid mana value range must not reach Scryfall");
+  assert.equal(document.activeElement, document.getElementById("cmc-min"));
+  assert.equal(document.getElementById("cmc-min").value, "5");
+  assert.equal(document.getElementById("cmc-max").value, "2");
+
+  document.getElementById("cmc-max").value = "6";
+  document.getElementById("cmc-max").oninput?.({ target: document.getElementById("cmc-max") });
+  assert.equal(document.getElementById("mv-validation").classList.contains("hidden"), true);
+  assert.equal(document.getElementById("search-copy-btn").disabled, false);
+
+  document.getElementById("cmc-min").value = "";
+  document.getElementById("cmc-max").value = "";
+  document.getElementById("cmc-max").oninput?.({ target: document.getElementById("cmc-max") });
+  const loomResultStart = dom.fetchUrls.length;
+  dom.setFetchResponses([{
+    object: "list",
+    total_cards: 1,
+    data: makeTestCards(1, "Loom"),
+    has_more: false
+  }]);
+  document.getElementById("search-btn").focus();
+  await window.doSearch();
+  await waitForFetchCount(dom.fetchUrls, loomResultStart + 1);
+  lastUrl = latestFetchUrl(dom.fetchUrls);
+  assert.equal(lastUrl.searchParams.get("q"), "id<=wu f:commander", "executed Loom query must match the live WU reflection");
+  assert.equal(document.activeElement, document.getElementById("search-btn"), "successful Search must preserve focus");
+  assert.equal(document.getElementById("results-header").scrollIntoViewOptions, undefined, "successful Search must not force result scrolling");
+  assert.match(getRenderedText(document.getElementById("res-count")), /Showing 1 of 1 cards/);
+
   document.getElementById("bld-format").value = "modern";
   input.value = "f:modern";
   window.clearSearchInput();
@@ -624,7 +993,8 @@ async function runMazeDomMetadataCases() {
   assert.equal(document.body.dataset.mazeMode, "builder");
   assert.equal(document.getElementById("bld-format").value, "commander");
   assert.equal(input.value, "f:commander");
-  assert.equal(document.getElementById("builder-generated-query").textContent, "f:commander");
+  assert.equal(document.getElementById("color-op").value, "id");
+  assert.equal(document.getElementById("search-copy-btn").disabled, false);
 
   window.setMode("raw");
   renderQueryInspector({
@@ -1482,6 +1852,10 @@ function makeTestCards(count, prefix) {
   }));
 }
 
+function getRenderedText(element) {
+  return `${element?.textContent || ""}${(element?.children || []).map((child) => getRenderedText(child)).join("")}`;
+}
+
 function latestFetchUrl(fetchUrls) {
   return new URL(fetchUrls.at(-1));
 }
@@ -1502,6 +1876,7 @@ function installMazeDomHarness() {
   let copiedText = "";
   let altButtons = [];
   const windowEvents = new Map();
+  const documentEvents = new Map();
   const localStorageValues = new Map();
 
   class FakeClassList {
@@ -1589,6 +1964,10 @@ function installMazeDomHarness() {
       return child;
     }
 
+    append(...children) {
+      children.forEach((child) => this.appendChild(child));
+    }
+
     replaceChildren(...children) {
       this.children = [];
       this.textContent = "";
@@ -1651,7 +2030,23 @@ function installMazeDomHarness() {
       return target === this || this.children.some((child) => child.contains?.(target));
     }
 
-    focus() {}
+    closest(selector) {
+      let node = this;
+      while (node) {
+        if (matchesSelector(node, selector)) return node;
+        node = node.parentNode;
+      }
+      return null;
+    }
+
+    focus() {
+      documentStub.activeElement = this;
+      this.focused = true;
+    }
+
+    scrollIntoView(options) {
+      this.scrollIntoViewOptions = options || {};
+    }
 
     select() {}
   }
@@ -1678,6 +2073,10 @@ function installMazeDomHarness() {
     if (selector.startsWith(".")) return node.classList.contains(selector.slice(1));
     if (selector === "[data-stash-toggle-count]") return Object.hasOwn(node.dataset, "stashToggleCount");
     if (selector === "[data-action]") return Boolean(node.dataset.action);
+    const roleMatch = selector.match(/^\[role="([^"]+)"\]$/);
+    if (roleMatch) return node.getAttribute("role") === roleMatch[1];
+    const actionMatch = selector.match(/^\[data-action="([^"]+)"\]$/);
+    if (actionMatch) return node.dataset.action === actionMatch[1];
     return false;
   }
 
@@ -1711,11 +2110,14 @@ function installMazeDomHarness() {
   }
 
   const body = createElement("body", "body");
+  const documentElement = createElement("html", "html");
   const page = createElement("main");
   page.className = "page";
   body.appendChild(page);
   const documentStub = {
     body,
+    documentElement,
+    activeElement: null,
     createElement,
     createTextNode(text) {
       const node = createElement("#text");
@@ -1733,7 +2135,9 @@ function installMazeDomHarness() {
       if (selector === ".qi-alt") return altButtons;
       return allElements.filter((node) => matchesSelector(node, selector));
     },
-    addEventListener() {}
+    addEventListener(event, handler) {
+      documentEvents.set(event, handler);
+    }
   };
 
   [
@@ -1742,21 +2146,56 @@ function installMazeDomHarness() {
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
     "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
     "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
-    "kw-input", "kw-suggestions", "kw-chips", "builder-generated-query", "builder-summary",
-    "color-op", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
-    "maze-mode-context-label", "maze-mode-context-copy", "discovery-path-list",
-    "quick-search-list", "color-grid", "type-checks", "rarity-checks", "reading-path-section",
+    "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation",
+    "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
+    "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "loom-dossier-context", "search-input-label", "clear-search-btn", "discovery-path-list",
+    "quick-search-list", "color-grid", "type-checks", "ability-checks", "rarity-checks", "reading-path-section",
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
     "maze-return-link", "maze-return-dismiss",
-    "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link"
+    "stash-drawer-toggle", "search-copy-btn", "search-scryfall-link", "sidebar-color-section", "sidebar-format-section",
+    "loom-result-delivery", "loom-result-status", "view-results-btn", "current-weave", "current-weave-pips",
+    "current-weave-title", "current-weave-primary", "current-weave-secondary", "current-weave-count", "current-weave-state"
   ].forEach((id) => {
     const tagName = ["qi-scryfall", "search-scryfall-link"].includes(id)
       ? "a"
       : id === "search-input"
         ? "textarea"
-        : "div";
+        : ["exclude-colorless", "cmc-min", "cmc-max", "kw-input"].includes(id)
+          ? "input"
+          : ["color-op", "bld-format", "sb-format"].includes(id)
+            ? "select"
+            : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn"].includes(id)
+              ? "button"
+              : id === "color-relation-picker"
+                ? "details"
+              : "div";
     body.appendChild(createElement(tagName, id));
   });
+
+  ["W", "U", "B", "R", "G"].forEach((color) => {
+    const pip = createElement("button");
+    pip.className = "cpip";
+    pip.dataset.c = color;
+    pip.dataset.color = color;
+    pip.dataset.action = "toggle-color";
+    pip.setAttribute("aria-pressed", "false");
+    page.appendChild(pip);
+  });
+
+  const colorlessButton = documentStub.getElementById("colorless-only-btn");
+  colorlessButton.dataset.action = "toggle-colorless-only";
+  colorlessButton.setAttribute("aria-pressed", "false");
+  const keywordAddButton = documentStub.getElementById("kw-add-btn");
+  keywordAddButton.dataset.action = "add-keyword";
+  ["id", "c", "c>=", "c<="].forEach((value) => {
+    const button = createElement("button");
+    button.dataset.action = "set-color-relation";
+    button.dataset.value = value;
+    button.setAttribute("aria-pressed", String(value === "id"));
+    documentStub.getElementById("color-relation-picker").appendChild(button);
+  });
+  const viewResultsButton = documentStub.getElementById("view-results-btn");
+  viewResultsButton.dataset.action = "view-results";
 
   documentStub.getElementById("stash-drawer-toggle").dataset.stashToggleCount = "true";
 
@@ -1770,6 +2209,9 @@ function installMazeDomHarness() {
     },
     addEventListener(event, handler) {
       windowEvents.set(event, handler);
+    },
+    matchMedia() {
+      return { matches: false };
     }
   };
 
@@ -1852,6 +2294,9 @@ function installMazeDomHarness() {
     },
     async dispatchWindowEvent(event) {
       await windowEvents.get(event)?.({ type: event });
+    },
+    dispatchDocumentEvent(event, payload) {
+      return documentEvents.get(event)?.(payload);
     },
     getCopiedText: () => copiedText
   };

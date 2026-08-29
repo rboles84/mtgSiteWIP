@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
-import { buildVisualBuilderQuery, parseKeywordInput } from "../../assets/js/maze/research-builder.js";
+import {
+  buildVisualBuilderQuery,
+  parseKeywordInput,
+  validateVisualBuilderFilters
+} from "../../assets/js/maze/research-builder.js";
 
 const KEYWORDS = [
   "cascade", "convoke", "cycling", "deathtouch", "defender", "double strike",
@@ -10,6 +14,23 @@ const KEYWORDS = [
 ].sort();
 
 const cases = [
+  {
+    name: "Commander-first WU default",
+    filters: {
+      colors: ["U", "W"],
+      format: "commander"
+    },
+    expected: "id<=wu f:commander"
+  },
+  {
+    name: "printed exact colors stay semantically distinct",
+    filters: {
+      colors: ["W", "U"],
+      colorOp: "c",
+      format: "commander"
+    },
+    expected: "c=wu f:commander"
+  },
   {
     name: "screenshot builder combo",
     filters: {
@@ -55,6 +76,32 @@ const cases = [
     expected: "c:c t:artifact"
   },
   {
+    name: "colorless identity stays exact when selected alone",
+    filters: {
+      colors: ["C"],
+      colorOp: "id",
+      format: "commander"
+    },
+    expected: "id:c f:commander"
+  },
+  {
+    name: "Commander colors can exclude exact colorless identity",
+    filters: {
+      colors: ["B", "R"],
+      colorOp: "id",
+      excludeColorless: true,
+      format: "commander"
+    },
+    expected: "id<=br -id:c f:commander"
+  },
+  {
+    name: "haste commits as a keyword query",
+    filters: {
+      keywords: parseKeywordInput("haste", KEYWORDS)
+    },
+    expected: "kw:haste"
+  },
+  {
     name: "mana value range",
     filters: {
       colors: ["B"],
@@ -65,6 +112,35 @@ const cases = [
     expected: "c>=b mv>=2 mv<=5"
   }
 ];
+
+assert.deepEqual(
+  validateVisualBuilderFilters({ cmcMin: "5", cmcMax: "2" }),
+  {
+    valid: false,
+    code: "builder_invalid_mana_value_range",
+    field: "cmcMin",
+    message: "Minimum mana value cannot be greater than maximum mana value. Adjust either value before searching."
+  },
+  "minimum mana value above maximum must block locally"
+);
+
+assert.equal(
+  validateVisualBuilderFilters({ colors: ["W", "C"], colorOp: "id" }).code,
+  "builder_mixed_colorless_unresolved",
+  "mixed colorless Commander-fit state must fail closed pending Owner Review"
+);
+
+assert.equal(
+  validateVisualBuilderFilters({ colors: ["W", "C"], colorOp: "c" }).code,
+  "builder_mixed_colorless_unresolved",
+  "mixed colorless and colored state must fail closed for alternate relations too"
+);
+
+assert.doesNotMatch(
+  buildVisualBuilderQuery({ colors: ["W", "C"], colorOp: "id" }),
+  /id<=wc/,
+  "unresolved mixed colorless state must never generate id<=wc"
+);
 
 let failures = 0;
 

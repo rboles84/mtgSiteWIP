@@ -18,6 +18,28 @@ const functionalTagQuery = "otag:counterspell otag:draw is:commander legal:comma
 
 const cases = [
   {
+    name: "Loom to Operator preserves live query",
+    state: {
+      previousMode: "builder",
+      nextMode: "raw",
+      currentValue: "id<=wu t:creature f:commander",
+      lastSmartInput: "",
+      lastSmartQuery: ""
+    },
+    expected: { value: "id<=wu t:creature f:commander", changed: false }
+  },
+  {
+    name: "Operator to Loom leaves builder continuity intact",
+    state: {
+      previousMode: "raw",
+      nextMode: "builder",
+      currentValue: "id<=wu t:creature f:commander",
+      lastSmartInput: "",
+      lastSmartQuery: ""
+    },
+    expected: { value: "id<=wu t:creature f:commander", changed: false }
+  },
+  {
     name: "smart to raw shows compiled query",
     state: {
       previousMode: "ai",

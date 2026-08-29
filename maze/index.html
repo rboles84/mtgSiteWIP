@@ -112,7 +112,7 @@
     <div class="mode-row" role="group" aria-label="Maze search modes">
       <button class="mode-btn mode-card on" id="mode-ai" type="button" data-action="set-mode" data-mode="ai" aria-pressed="true"><span class="mode-card-kicker">Human language</span><span class="mode-card-title">The Plain Reading</span><span class="mode-card-copy">Describe the card you want in plain English.</span><span class="mode-card-example">red vampires that sacrifice creatures</span></button>
       <button class="mode-btn mode-card" id="mode-raw" type="button" data-action="set-mode" data-mode="raw" aria-pressed="false"><span class="mode-card-kicker">Scryfall syntax</span><span class="mode-card-title">The Operator's Hand</span><span class="mode-card-copy">Use exact operators and normalized syntax.</span><span class="mode-card-example">ci&lt;=br t:creature o:sacrifice f:commander</span></button>
-      <button class="mode-btn mode-card" id="mode-builder" type="button" data-action="set-mode" data-mode="builder" aria-pressed="false"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span><span class="mode-card-copy">Shape colors, types, formats, value, and keywords into a search.</span><span class="mode-card-example">filters become Scryfall syntax</span></button>
+      <button class="mode-btn mode-card" id="mode-builder" type="button" data-action="set-mode" data-mode="builder" aria-pressed="false"><span class="mode-card-kicker">Visual query</span><span class="mode-card-title">The Loom</span><span class="mode-card-copy">Shape colors, card types, abilities, and refinements into a search.</span><span class="mode-card-example">filters become Scryfall syntax</span></button>
     </div>
 
     <div class="maze-search-shell">
@@ -121,8 +121,141 @@
         <p id="maze-mode-context-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
       </div>
 
+      <!-- The Loom (shown only in builder mode) -->
+      <div class="builder-panel hidden" id="builder-panel">
+        <div class="builder-head">
+          <div>
+            <span class="builder-kicker">The Loom</span>
+            <h2>Shape a Commander search</h2>
+            <p>Choose what you want. The Loom builds the Scryfall query as you refine it.</p>
+          </div>
+          <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
+        </div>
+
+        <div class="maze-dossier-context hidden" id="loom-dossier-context" role="status" aria-live="polite"></div>
+
+        <div class="builder-compose-grid">
+          <div class="builder-control-stack">
+        <fieldset class="builder-group builder-group-colors">
+          <legend>Colors</legend>
+          <div class="builder-color-main">
+            <div class="color-pips" id="color-pips" role="group" aria-label="White, blue, black, red, and green Commander colors" aria-describedby="color-validation">
+              <button class="cpip" type="button" data-c="W" data-action="toggle-color" data-color="W" aria-label="White Commander color" aria-pressed="false"><i class="ms ms-w ms-cost" aria-hidden="true"></i></button>
+              <button class="cpip" type="button" data-c="U" data-action="toggle-color" data-color="U" aria-label="Blue Commander color" aria-pressed="false"><i class="ms ms-u ms-cost" aria-hidden="true"></i></button>
+              <button class="cpip" type="button" data-c="B" data-action="toggle-color" data-color="B" aria-label="Black Commander color" aria-pressed="false"><i class="ms ms-b ms-cost" aria-hidden="true"></i></button>
+              <button class="cpip" type="button" data-c="R" data-action="toggle-color" data-color="R" aria-label="Red Commander color" aria-pressed="false"><i class="ms ms-r ms-cost" aria-hidden="true"></i></button>
+              <button class="cpip" type="button" data-c="G" data-action="toggle-color" data-color="G" aria-label="Green Commander color" aria-pressed="false"><i class="ms ms-g ms-cost" aria-hidden="true"></i></button>
+            </div>
+            <span class="builder-color-divider" aria-hidden="true"></span>
+            <button class="colorless-only-btn" id="colorless-only-btn" type="button" data-action="toggle-colorless-only" aria-pressed="false"><i class="ms ms-c ms-cost" aria-hidden="true"></i><span>Colorless only</span></button>
+          </div>
+          <div class="builder-color-options" id="builder-color-options">
+            <details class="color-relation-picker" id="color-relation-picker">
+              <summary class="color-relation-trigger" id="color-relation-trigger" aria-describedby="color-validation">
+                <span id="color-relation-label">Fits Commander colors</span><span class="color-relation-caret" aria-hidden="true">&#9662;</span>
+              </summary>
+              <div class="color-relation-options" role="group" aria-label="Color relation">
+                <button type="button" data-action="set-color-relation" data-value="id" aria-pressed="true">Fits Commander colors</button>
+                <button type="button" data-action="set-color-relation" data-value="c" aria-pressed="false">Exactly these printed colors</button>
+                <button type="button" data-action="set-color-relation" data-value="c&gt;=" aria-pressed="false">Includes these printed colors</button>
+                <button type="button" data-action="set-color-relation" data-value="c&lt;=" aria-pressed="false">Only these printed colors</button>
+              </div>
+            </details>
+            <input id="color-op" type="hidden" value="id">
+            <label class="exclude-colorless-option hidden" id="exclude-colorless-option" for="exclude-colorless">
+              <input id="exclude-colorless" type="checkbox">
+              <span>Exclude colorless cards</span>
+            </label>
+          </div>
+          <div class="builder-validation hidden" id="color-validation" role="alert" aria-live="assertive"></div>
+        </fieldset>
+
+        <fieldset class="builder-group">
+          <legend>Card Type</legend>
+          <div class="type-checks" id="type-checks" role="group" aria-label="Card types"></div>
+        </fieldset>
+
+        <fieldset class="builder-group builder-group-abilities">
+          <legend>Abilities</legend>
+          <div class="ability-checks" id="ability-checks" role="group" aria-label="Common keyword abilities"></div>
+          <details class="more-abilities" id="more-abilities">
+            <summary>More abilities</summary>
+            <div class="more-abilities-panel">
+              <div class="kw-control">
+                <div class="kw-wrap" id="kw-wrap">
+                  <label class="visually-hidden" for="kw-input">Keyword ability to add</label>
+                  <input class="kw-input" id="kw-input" type="text" placeholder="first strike" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-describedby="kw-help kw-validation" aria-controls="kw-suggestions" aria-expanded="false" autocomplete="off">
+                  <div class="kw-suggestions hidden" id="kw-suggestions" role="listbox" aria-label="Keyword ability suggestions"></div>
+                </div>
+                <button class="kw-add-btn" id="kw-add-btn" type="button" data-action="add-keyword">Add</button>
+              </div>
+              <p class="builder-field-help" id="kw-help">Search supported keyword abilities. Press Enter, comma, or Add to commit.</p>
+            </div>
+          </details>
+          <div class="kw-active-chips" id="kw-chips" aria-label="Selected additional abilities" aria-live="polite"></div>
+          <div class="builder-validation hidden" id="kw-validation" role="alert" aria-live="assertive"></div>
+        </fieldset>
+          </div>
+
+          <aside class="current-weave" id="current-weave" aria-labelledby="current-weave-label">
+            <span class="current-weave-kicker" id="current-weave-label">Current Weave</span>
+            <div class="current-weave-mark" aria-hidden="true">
+              <span class="current-weave-ring current-weave-ring-outer"></span>
+              <span class="current-weave-ring current-weave-ring-inner"></span>
+              <span class="current-weave-pips" id="current-weave-pips"></span>
+            </div>
+            <div class="current-weave-copy">
+              <h3 id="current-weave-title">Commander</h3>
+              <p class="current-weave-primary" id="current-weave-primary">No choices woven yet.</p>
+              <p class="current-weave-secondary" id="current-weave-secondary">Choose a color, card type, ability, or refinement.</p>
+            </div>
+            <div class="current-weave-status">
+              <span id="current-weave-count">0 choices woven</span>
+              <strong id="current-weave-state">Ready to search</strong>
+            </div>
+          </aside>
+        </div>
+
+        <fieldset class="builder-group">
+          <legend>Refine</legend>
+          <div class="refine-row">
+          <div class="refine-control">
+            <label class="bl" for="bld-format">Format</label>
+            <select class="bld-select" id="bld-format">
+              <option value="">Any format</option>
+              <option value="standard">Standard</option>
+              <option value="pioneer">Pioneer</option>
+              <option value="modern">Modern</option>
+              <option value="legacy">Legacy</option>
+              <option value="vintage">Vintage</option>
+              <option value="commander" selected>Commander</option>
+              <option value="pauper">Pauper</option>
+            </select>
+          </div>
+          <div class="refine-control">
+            <span class="bl" id="mana-value-label">Mana value</span>
+            <div class="cmc-inputs" role="group" aria-labelledby="mana-value-label" aria-describedby="mv-validation">
+              <label class="visually-hidden" for="cmc-min">Minimum mana value</label>
+              <input class="cmc-input" id="cmc-min" type="number" min="0" max="20" placeholder="min" aria-describedby="mv-validation">
+              <span class="builder-range-separator" aria-hidden="true">to</span>
+              <label class="visually-hidden" for="cmc-max">Maximum mana value</label>
+              <input class="cmc-input" id="cmc-max" type="number" min="0" max="20" placeholder="max" aria-describedby="mv-validation">
+            </div>
+          </div>
+          <div class="refine-control">
+            <span class="bl" id="rarity-label">Rarity</span>
+            <div class="rarity-checks" id="rarity-checks" role="group" aria-labelledby="rarity-label"></div>
+          </div>
+          </div>
+          <div class="builder-validation hidden" id="mv-validation" role="alert" aria-live="assertive"></div>
+        </fieldset>
+
+        <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
+      </div>
+
       <div class="search-input-row">
         <div class="search-wrap">
+          <label class="search-input-label" id="search-input-label" for="search-input">Search query</label>
           <span class="search-icon" id="search-icon">*</span>
           <textarea class="s-input" id="search-input" rows="2"
             aria-label="Maze search query"
@@ -136,6 +269,10 @@
           <span>Reading Finds</span>
           <span class="stash-drawer-count" data-stash-toggle-count>0</span>
         </button>
+        <div class="loom-result-delivery hidden" id="loom-result-delivery">
+          <span id="loom-result-status" role="status" aria-live="polite" aria-atomic="true"></span>
+          <button class="query-action-btn" id="view-results-btn" type="button" data-action="view-results">View results</button>
+        </div>
       </div>
 
       <div class="query-inspector hidden" id="query-inspector" aria-live="polite">
@@ -154,75 +291,6 @@
         </div>
       </div>
     </div>
-
-  <!-- The Loom (shown only in builder mode) -->
-  <div class="builder-panel hidden" id="builder-panel">
-    <div class="builder-head">
-      <div>
-        <span class="builder-kicker">The Loom</span>
-        <h2>Query loom</h2>
-      </div>
-      <div class="builder-head-actions">
-        <p>Set color, type, format, mana value, and keyword constraints, then search or switch to The Operator's Hand to keep the syntax visible.</p>
-        <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset board</button>
-      </div>
-    </div>
-    <div class="builder-row">
-      <span class="bl">Colors</span>
-      <div class="color-pips" id="color-pips">
-        <button class="cpip cpip-W" type="button" data-c="W" data-action="toggle-color" data-color="W" aria-label="Toggle white" aria-pressed="false">W</button>
-        <button class="cpip cpip-U" type="button" data-c="U" data-action="toggle-color" data-color="U" aria-label="Toggle blue" aria-pressed="false">U</button>
-        <button class="cpip cpip-B" type="button" data-c="B" data-action="toggle-color" data-color="B" aria-label="Toggle black" aria-pressed="false">B</button>
-        <button class="cpip cpip-R" type="button" data-c="R" data-action="toggle-color" data-color="R" aria-label="Toggle red" aria-pressed="false">R</button>
-        <button class="cpip cpip-G" type="button" data-c="G" data-action="toggle-color" data-color="G" aria-label="Toggle green" aria-pressed="false">G</button>
-        <button class="cpip cpip-C" type="button" data-c="C" data-action="toggle-color" data-color="C" aria-label="Toggle colorless" aria-pressed="false">C</button>
-      </div>
-      <select class="color-op" id="color-op" aria-label="Color operator">
-        <option value="c">exactly</option>
-        <option value="c>=">at least (includes)</option>
-        <option value="c<=">at most</option>
-        <option value="id">commander identity</option>
-      </select>
-    </div>
-    <div class="builder-row">
-      <span class="bl">Type</span>
-      <div class="type-checks" id="type-checks"></div>
-    </div>
-    <div class="builder-row">
-      <span class="bl">Format</span>
-      <select class="bld-select" id="bld-format" aria-label="Builder format">
-        <option value="">Any format</option>
-        <option value="standard">Standard</option>
-        <option value="pioneer">Pioneer</option>
-        <option value="modern">Modern</option>
-        <option value="legacy">Legacy</option>
-        <option value="vintage">Vintage</option>
-        <option value="commander" selected>Commander</option>
-        <option value="pauper">Pauper</option>
-      </select>
-      <span class="bl" style="margin-left:12px">Rarity</span>
-      <div class="rarity-checks" id="rarity-checks"></div>
-    </div>
-    <div class="builder-row">
-      <span class="bl">CMC</span>
-      <div class="cmc-inputs">
-        <input class="cmc-input" id="cmc-min" type="number" min="0" max="20" placeholder="min" aria-label="Minimum mana value">
-        <span style="color:var(--text-muted);font-size:0.85rem">to</span>
-        <input class="cmc-input" id="cmc-max" type="number" min="0" max="20" placeholder="max" aria-label="Maximum mana value">
-      </div>
-      <span class="bl" style="margin-left:12px">Keywords</span>
-      <div class="kw-wrap" id="kw-wrap">
-        <input class="kw-input" id="kw-input" type="text" placeholder="shroud, flying, lifelink..." aria-label="Keyword autocomplete">
-        <div class="kw-suggestions hidden" id="kw-suggestions"></div>
-      </div>
-      <div class="kw-active-chips" id="kw-chips"></div>
-    </div>
-    <div class="builder-output" aria-live="polite">
-      <span>Generated syntax</span>
-      <code id="builder-generated-query">Select filters to shape a query.</code>
-      <p id="builder-summary">No visual filters selected yet.</p>
-    </div>
-  </div>
 </div>
 </section>
 
@@ -247,11 +315,11 @@
       <summary class="sb-summary"><span class="sb-label">Helper Searches</span></summary>
       <div id="quick-search-list"></div>
     </details>
-    <details class="sb-section sb-section-color">
+    <details class="sb-section sb-section-color" id="sidebar-color-section">
       <summary class="sb-summary"><span class="sb-label">By Color</span></summary>
       <div class="color-grid" id="color-grid"></div>
     </details>
-    <div class="sb-section">
+    <div class="sb-section" id="sidebar-format-section">
       <div class="sb-label">Format</div>
       <select class="sb-select" id="sb-format">
         <option value="">Any format</option>
@@ -289,8 +357,8 @@
       </div>
     </div>
     <div class="err-msg hidden" id="err-msg"></div>
-    <div class="results-header hidden" id="results-header">
-      <span class="res-count" id="res-count"></span>
+    <div class="results-header hidden" id="results-header" tabindex="-1">
+      <span class="res-count" id="res-count" role="status" aria-live="polite" aria-atomic="true"></span>
       <select class="res-order" id="res-order">
         <option value="name">A-Z</option>
         <option value="edhrec">EDHREC popularity</option>

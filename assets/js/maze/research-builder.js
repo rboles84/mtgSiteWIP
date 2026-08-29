@@ -11,11 +11,16 @@ const COLOR_ORDER = ["W", "U", "B", "R", "G", "C"];
  * @param {string} [filters.cmcMin] - Minimum mana value.
  * @param {string} [filters.cmcMax] - Maximum mana value.
  * @param {string[]} [filters.keywords] - Selected keyword abilities.
+ * @param {boolean} [filters.excludeColorless] - Exclude exact colorless identity from Commander-fit colors.
  * @returns {string} Built Scryfall query.
  */
 export function buildVisualBuilderQuery(filters = {}) {
   const parts = [];
-  const colorQuery = buildColorFilterQuery(filters.colors || [], filters.colorOp || "c");
+  const colorQuery = buildColorFilterQuery(
+    filters.colors || [],
+    filters.colorOp || "id",
+    Boolean(filters.excludeColorless)
+  );
   if (colorQuery) parts.push(colorQuery);
 
   const types = normalizeList(filters.types);
@@ -36,6 +41,40 @@ export function buildVisualBuilderQuery(filters = {}) {
   }
 
   return parts.join(" ");
+}
+
+/**
+ * Detects contradictions and unresolved Loom states before route execution.
+ * This remains a route-local builder guard; it does not wire MazeSemanticState v1.
+ * @param {object} filters - Visual Builder filter state.
+ * @returns {{valid:boolean, code:string, field:string, message:string}} Validation result.
+ */
+export function validateVisualBuilderFilters(filters = {}) {
+  const colors = new Set((filters.colors || []).map((color) => String(color || "").toUpperCase()));
+  const hasColorless = colors.has("C");
+  const hasColoredPip = ["W", "U", "B", "R", "G"].some((color) => colors.has(color));
+
+  if (hasColorless && hasColoredPip) {
+    return {
+      valid: false,
+      code: "builder_mixed_colorless_unresolved",
+      field: "colors",
+      message: "Colorless only cannot be combined with W, U, B, R, or G. Choose one path."
+    };
+  }
+
+  const min = String(filters.cmcMin ?? "").trim();
+  const max = String(filters.cmcMax ?? "").trim();
+  if (min && max && Number(min) > Number(max)) {
+    return {
+      valid: false,
+      code: "builder_invalid_mana_value_range",
+      field: "cmcMin",
+      message: "Minimum mana value cannot be greater than maximum mana value. Adjust either value before searching."
+    };
+  }
+
+  return { valid: true, code: "", field: "", message: "" };
 }
 
 /**
@@ -75,15 +114,17 @@ export function parseKeywordInput(value, knownKeywords = []) {
  * Builds the Scryfall color filter for the Visual Builder operator state.
  * @param {string[]} colors - Selected color symbols.
  * @param {string} colorOp - Color operator from the builder select.
+ * @param {boolean} excludeColorless - Whether to exclude exact colorless identity.
  * @returns {string} Scryfall color or identity query fragment.
  */
-function buildColorFilterQuery(colors, colorOp) {
+function buildColorFilterQuery(colors, colorOp, excludeColorless = false) {
   if (!colors.length) return "";
   const colorText = sortBuilderColors(colors).toLowerCase();
+  if (colorText.includes("c") && colorText !== "c") return "";
 
   if (colorText === "c") return colorOp === "id" ? "id:c" : "c:c";
   if (colorOp === "c") return `c=${colorText}`;
-  if (colorOp === "id") return `id<=${colorText}`;
+  if (colorOp === "id") return `id<=${colorText}${excludeColorless ? " -id:c" : ""}`;
   return `${colorOp}${colorText}`;
 }
 

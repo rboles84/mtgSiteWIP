@@ -1,6 +1,6 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
-import { buildVisualBuilderQuery, parseKeywordInput } from "./research-builder.js";
+import { buildVisualBuilderQuery, parseKeywordInput, validateVisualBuilderFilters } from "./research-builder.js";
 import {
   loadPlainReadingSemanticRegistryFromUrl,
   loadScryfallGroundingFromUrl,
@@ -47,6 +47,10 @@ let displayPage = 0;
 let hasMore = false;
 let nextPageUrl = null;
 let totalCards = 0;
+let loomResultStatusText = "";
+let loomWeaveResultQuery = "";
+let loomWeaveResultCount = null;
+let searchReturnFocusEl = null;
 let recentSearches = [];
 let toastTimeout;
 let selectAutoFilledInputOnFocus = false;
@@ -55,6 +59,7 @@ let scratchpadState = null;
 let activeModalCard = null;
 let modalReturnFocusEl = null;
 let stashDragState = null;
+let activeKeywordSuggestionIndex = -1;
 
 const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
@@ -292,13 +297,26 @@ const STASH_SECTIONS = READING_FIND_SECTION_CONFIG;
 
 const bFilters = {
   colors: [],
-  colorOp: "c",
+  colorOp: "id",
   types: [],
   format: DEFAULT_FORMAT,
   keywords: [],
   cmcMin: "",
   cmcMax: "",
-  rarities: []
+  rarities: [],
+  excludeColorless: false
+};
+
+const BUILDER_COLOR_RELATION_LABELS = {
+  id: "Fits these Commander colors",
+  c: "Exactly these printed colors",
+  "c>=": "Includes these printed colors",
+  "c<=": "Only these printed colors"
+};
+
+const BUILDER_COLOR_RELATION_TRIGGER_LABELS = {
+  ...BUILDER_COLOR_RELATION_LABELS,
+  id: "Fits Commander colors"
 };
 
 const MODE_CONTENT = {
@@ -311,8 +329,8 @@ const MODE_CONTENT = {
     copy: "Write exact Scryfall operators. Maze will preserve the syntax, normalize small glue words when needed, and send the query directly."
   },
   builder: {
-    label: "Visual query active",
-    copy: "Shape constraints with controls instead of memorizing operators. The generated syntax stays visible as you refine the search."
+    label: "The Loom",
+    copy: "Shape a Commander-first card search with visual controls, then inspect the real Scryfall query before you search, copy, or open it."
   }
 };
 
@@ -357,17 +375,93 @@ const COLOR_LABELS = [
   { c: "WR", label: "Boros", q: "id<=wr" }
 ];
 
-const LEGACY_KEYWORDS = [
+const FALLBACK_KEYWORD_ABILITIES = [
   "cascade", "convoke", "cycling", "deathtouch", "defender", "double strike",
-  "equip", "escape", "explore", "first strike", "flash", "flying", "haste",
-  "hexproof", "indestructible", "investigate", "kicker", "landfall", "lifelink",
-  "menace", "morph", "proliferate", "protection", "prowess", "reach", "scry",
-  "shroud", "surveil", "trample", "vigilance", "ward"
+  "equip", "escape", "first strike", "flash", "flying", "haste", "hexproof",
+  "indestructible", "kicker", "lifelink", "menace", "morph", "protection",
+  "prowess", "reach", "shroud", "trample", "vigilance", "ward"
 ].sort();
-let keywordVocabulary = [...LEGACY_KEYWORDS];
+let keywordVocabulary = [...FALLBACK_KEYWORD_ABILITIES];
+
+const COMMON_ABILITIES = [
+  { value: "flying", label: "Flying" },
+  { value: "haste", label: "Haste" },
+  { value: "vigilance", label: "Vigilance" },
+  { value: "trample", label: "Trample" },
+  { value: "deathtouch", label: "Deathtouch" },
+  { value: "lifelink", label: "Lifelink" },
+  { value: "ward", label: "Ward" },
+  { value: "hexproof", label: "Hexproof" }
+];
 
 const TYPES = ["Creature", "Instant", "Sorcery", "Enchantment", "Artifact", "Planeswalker", "Land", "Battle"];
 const RARITIES = [{ v: "c", l: "Common" }, { v: "u", l: "Uncommon" }, { v: "r", l: "Rare" }, { v: "m", l: "Mythic" }];
+const TYPE_ICON_CLASSES = Object.freeze({
+  artifact: "ms-artifact",
+  battle: "ms-battle",
+  creature: "ms-creature",
+  enchantment: "ms-enchantment",
+  instant: "ms-instant",
+  land: "ms-land",
+  planeswalker: "ms-planeswalker",
+  sorcery: "ms-sorcery"
+});
+const VERIFIED_ABILITY_ICON_SLUGS = Object.freeze([
+  "afflict", "afterlife", "aftermath", "annihilator", "ascend", "backup", "bargain", "battle-cry",
+  "blitz", "boast", "casualty", "changeling", "cleave", "companion", "convoke", "craft", "crew",
+  "cycling", "deathtouch", "decayed", "defender", "delve", "disguise", "disturb", "double-strike",
+  "embalm", "enchant", "enlist", "escape", "eternalize", "evolve", "exalted", "exploit", "fabricate",
+  "fading", "fear", "first-strike", "flash", "flying", "for-mirrodin", "forestwalk", "foretell", "gift",
+  "haste", "haunt", "hexproof", "hideaway", "impending", "improvise", "indestructible", "infect",
+  "ingest", "intimidate", "islandwalk", "kicker", "lifelink", "menace", "mentor", "morph",
+  "mountainwalk", "mutate", "ninjutsu", "offspring", "outlast", "plainswalk", "protection", "prototype",
+  "prowess", "reach", "read-ahead", "reconfigure", "riot", "saddle", "shroud", "skulk", "soulshift",
+  "specialize", "spectacle", "spree", "swampwalk", "toxic", "training", "trample", "undying", "unearth",
+  "vigilance", "ward"
+]);
+const RARITY_LABELS = Object.freeze(Object.fromEntries(RARITIES.map((rarity) => [rarity.v, rarity.l])));
+const WEAVE_COLOR_LABELS = Object.freeze({
+  W: "White",
+  U: "Blue",
+  B: "Black",
+  R: "Red",
+  G: "Green",
+  C: "Colorless",
+  WU: "White–Blue",
+  UB: "Blue–Black",
+  BR: "Black–Red",
+  RG: "Red–Green",
+  GW: "Green–White",
+  WB: "White–Black",
+  UR: "Blue–Red",
+  BG: "Black–Green",
+  RW: "Red–White",
+  GU: "Green–Blue",
+  GWU: "Green–White–Blue",
+  WUB: "White–Blue–Black",
+  UBR: "Blue–Black–Red",
+  BRG: "Black–Red–Green",
+  RGW: "Red–Green–White",
+  WBG: "White–Black–Green",
+  URW: "Blue–Red–White",
+  BGU: "Black–Green–Blue",
+  RWB: "Red–White–Black",
+  GUR: "Green–Blue–Red",
+  UBRG: "Blue–Black–Red–Green",
+  BRGW: "Black–Red–Green–White",
+  RGWU: "Red–Green–White–Blue",
+  GWUB: "Green–White–Blue–Black",
+  WUBR: "White–Blue–Black–Red",
+  WUBRG: "Five-color"
+});
+const WEAVE_MANA_ACCENTS = Object.freeze({
+  W: "#f5efc7",
+  U: "#77b9e8",
+  B: "#9f9198",
+  R: "#d97858",
+  G: "#6faf82",
+  C: "#c8bfb4"
+});
 const MODE_IDS = ["ai", "raw", "builder"];
 
 // DOM utility and modal focus helpers.
@@ -378,6 +472,36 @@ const MODE_IDS = ["ai", "raw", "builder"];
  */
 function normalizeSearchInputValue(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function abilityIconClass(value) {
+  const slug = String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return VERIFIED_ABILITY_ICON_SLUGS.includes(slug) ? `ms-ability-${slug}` : "";
+}
+
+function weaveColorLabel(colors = []) {
+  const selected = new Set(colors.map((color) => String(color || "").toUpperCase()).filter(Boolean));
+  if (!selected.size) return "";
+  const match = Object.entries(WEAVE_COLOR_LABELS).find(([key]) => (
+    key.length === selected.size && [...key].every((color) => selected.has(color))
+  ));
+  return match?.[1] || "";
+}
+
+function sizeLoomQueryInput(input = document.getElementById("search-input")) {
+  if (!input?.style) return;
+  if (currentMode !== "builder") {
+    input.style.height = "";
+    return;
+  }
+  input.style.height = "auto";
+  if (Number.isFinite(input.scrollHeight) && input.scrollHeight > 0) {
+    input.style.height = `${Math.max(76, input.scrollHeight + 2)}px`;
+  }
 }
 
 function clearNode(node) {
@@ -441,6 +565,20 @@ function createActionButton({
   if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
   button.textContent = text;
   return button;
+}
+
+function appendManaIconLabel(node, iconClass, label) {
+  if (!node) return;
+  clearNode(node);
+  if (iconClass) {
+    const icon = document.createElement("i");
+    icon.className = `ms ${iconClass}`;
+    icon.setAttribute("aria-hidden", "true");
+    node.appendChild(icon);
+  }
+  const text = document.createElement("span");
+  text.textContent = label;
+  node.appendChild(text);
 }
 
 function createTransformIconButton(options = {}) {
@@ -718,20 +856,20 @@ async function initializeParserDictionary() {
   try {
     const dictionary = await loadDictionaryFromSeedUrl("data/maze/scryfall-parser-seed-2026.json");
     setScryfallDictionary(dictionary);
-    setKeywordVocabulary(dictionary);
   } catch (error) {
     console.warn("Parser seed unavailable; using built-in parser dictionary.", error);
-    setKeywordVocabulary();
   }
 
   try {
     const grounding = await loadScryfallGroundingFromUrl("data/scryfall/grounding/scryfall-grounding.json");
     setScryfallGrounding(grounding);
     setScryfallSyntaxDisplayLookup(grounding);
+    setKeywordAbilityVocabulary(grounding);
   } catch (error) {
     console.warn("Scryfall grounding unavailable; grounded Plain Reading compiler disabled.", error);
     setScryfallGrounding(null);
     setScryfallSyntaxDisplayLookup(null);
+    setKeywordAbilityVocabulary();
   }
 
   try {
@@ -744,67 +882,15 @@ async function initializeParserDictionary() {
 }
 
 /**
- * Refreshes Loom keyword suggestions from local parser vocabulary while preserving legacy coverage.
- * @param {object} [dictionary] - Seed-expanded parser dictionary.
+ * Refreshes Loom ability suggestions from the governed Scryfall keyword-ability catalog.
+ * @param {object} [grounding] - Checked-in Scryfall grounding inventory.
  */
-function setKeywordVocabulary(dictionary) {
-  const derivedKeywords = getKeywordVocabularyFromDictionary(dictionary);
-  const missingLegacy = dictionary
-    ? LEGACY_KEYWORDS.filter((keyword) => !derivedKeywords.includes(keyword))
-    : [];
-  if (missingLegacy.length) {
-    console.warn(`Parser keyword vocabulary missing legacy suggestions: ${missingLegacy.join(", ")}`);
-  }
-  keywordVocabulary = [...new Set([...derivedKeywords, ...LEGACY_KEYWORDS])].sort((a, b) => a.localeCompare(b));
-}
-
-/**
- * Builds Loom keyword suggestions from the loaded parser dictionary.
- * Kept local to avoid making Maze boot depend on a newly added named export
- * when a browser still has an older dictionary module in cache.
- * @param {object} [dictionary] - Seed-expanded parser dictionary.
- * @returns {string[]} Sorted keyword vocabulary.
- */
-function getKeywordVocabularyFromDictionary(dictionary) {
-  const terms = new Set();
-  Object.entries(dictionary?.keywords || {}).forEach(([trigger, output]) => {
-    addKeywordVocabularyTerm(terms, trigger);
-    extractKeywordVocabularyTerms(output).forEach((term) => addKeywordVocabularyTerm(terms, term));
-  });
-  return [...terms].sort((a, b) => a.localeCompare(b));
-}
-
-/**
- * Adds a normalized keyword suggestion term.
- * @param {Set<string>} terms - Keyword vocabulary being collected.
- * @param {string} value - Raw trigger or Scryfall output term.
- */
-function addKeywordVocabularyTerm(terms, value) {
-  const clean = String(value || "")
-    .toLowerCase()
-    .replace(/[()]/g, " ")
-    .replace(/['\u2019]/g, "")
-    .replace(/[^a-z0-9+\/ -]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/^["']|["']$/g, "");
-  if (clean) terms.add(clean);
-}
-
-/**
- * Extracts canonical keyword names from Scryfall keyword filters.
- * @param {string} output - Scryfall query fragment.
- * @returns {string[]} Keyword terms.
- */
-function extractKeywordVocabularyTerms(output) {
-  const pattern = /\bkw:(?:"([^"]+)"|'([^']+)'|([^\s()]+))/gi;
-  const terms = [];
-  let match;
-  while ((match = pattern.exec(String(output || "")))) {
-    const term = match[1] || match[2] || match[3] || "";
-    if (term && !/[<>=]/.test(term)) terms.push(term);
-  }
-  return terms;
+function setKeywordAbilityVocabulary(grounding) {
+  const governedAbilities = (grounding?.catalogs?.keywordAbilities || [])
+    .map((value) => String(value || "").trim().toLowerCase())
+    .filter(Boolean);
+  keywordVocabulary = [...new Set(governedAbilities.length ? governedAbilities : FALLBACK_KEYWORD_ABILITIES)]
+    .sort((a, b) => a.localeCompare(b));
 }
 
 /**
@@ -829,6 +915,7 @@ async function initializeResearchArchives() {
   initializeScratchpad();
   buildColorGrid();
   buildTypeChecks();
+  buildAbilityChecks();
   buildRarityChecks();
   initializeDefaultFormatControls();
   bindMazeControls();
@@ -925,32 +1012,67 @@ function setMode(mode) {
   const input = document.getElementById("search-input");
   const icon = document.getElementById("search-icon");
   const builder = document.getElementById("builder-panel");
+  const modeContext = document.getElementById("maze-mode-context");
+  const inputLabel = document.getElementById("search-input-label");
+  const clearButton = document.getElementById("clear-search-btn");
   if (!input || !icon || !builder) return;
   updateModeContent(mode);
   if (mode === "ai") {
     input.className = "s-input";
+    input.readOnly = false;
+    input.removeAttribute("readonly");
+    input.setAttribute("aria-label", "Maze search query");
     input.placeholder = "e.g. red and black orcs, green haste, blue removal";
+    if (inputLabel) inputLabel.textContent = "Search query";
+    if (clearButton) {
+      clearButton.textContent = "Clear";
+      clearButton.hidden = false;
+    }
     icon.textContent = "*";
     icon.style.color = "";
     builder.classList.add("hidden");
+    modeContext?.classList.remove("hidden");
   } else if (mode === "raw") {
     input.className = "s-input mono";
+    input.readOnly = false;
+    input.removeAttribute("readonly");
+    input.setAttribute("aria-label", "Scryfall syntax query");
     input.placeholder = "e.g. c:r kw:haste mv<=3 f:modern";
+    if (inputLabel) inputLabel.textContent = "Scryfall query";
+    if (clearButton) {
+      clearButton.textContent = "Clear";
+      clearButton.hidden = false;
+    }
     icon.textContent = ">";
     icon.style.color = "var(--maze-gold-2)";
     document.getElementById("mode-raw").classList.add("teal-mode");
     builder.classList.add("hidden");
+    modeContext?.classList.remove("hidden");
   } else {
     input.className = "s-input mono";
-    input.placeholder = "Visual filters generate syntax here";
-    icon.textContent = "=";
-    icon.style.color = "var(--maze-gold-2)";
+    input.readOnly = true;
+    input.setAttribute("readonly", "");
+    input.setAttribute("aria-label", "Live Loom query");
+    input.placeholder = "The Loom will reflect a valid query here";
+    if (inputLabel) inputLabel.textContent = "Live Scryfall query";
+    if (clearButton) {
+      clearButton.textContent = "Clear";
+      clearButton.hidden = true;
+    }
+    icon.textContent = "";
+    icon.style.color = "";
     document.getElementById("mode-builder").classList.add("teal-mode");
     builder.classList.remove("hidden");
+    modeContext?.classList.add("hidden");
     rebuildFromFilters();
   }
 
   syncInputForModeSwitch(input, previousMode, mode);
+  sizeLoomQueryInput(input);
+  updateLoomSidebarVisibility(mode);
+  updateDossierContextDisclosure(mode);
+  updateLoomResultDelivery();
+  refreshInitialStateForMode();
 }
 
 function updateModeContent(mode) {
@@ -959,6 +1081,29 @@ function updateModeContent(mode) {
   const contextCopy = document.getElementById("maze-mode-context-copy");
   if (contextLabel) contextLabel.textContent = content.label;
   if (contextCopy) contextCopy.textContent = content.copy;
+}
+
+function updateDossierContextDisclosure(mode = currentMode) {
+  const disclosure = document.getElementById("loom-dossier-context");
+  if (!disclosure) return;
+  const handoff = readArchscryMazeHandoff();
+  const dossierKey = resolveDossierActiveKey(handoff?.fit || handoff?.guild || "");
+  const factionName = String(
+    handoff?.factionName || DOSSIER_DISPLAY_NAMES.get(dossierKey) || handoff?.fit || handoff?.guild || ""
+  ).trim();
+  const shouldShow = mode === "builder" && Boolean(factionName);
+  disclosure.classList.toggle("hidden", !shouldShow);
+  disclosure.textContent = shouldShow
+    ? `${factionName} dossier context available \u00b7 not applied to filters`
+    : "";
+}
+
+function updateLoomSidebarVisibility(mode = currentMode) {
+  const shouldHide = mode === "builder";
+  ["sidebar-color-section", "sidebar-format-section"].forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) section.hidden = shouldHide;
+  });
 }
 
 /**
@@ -1012,6 +1157,21 @@ async function doSearch() {
   const rawInput = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
   if (!rawInput && currentMode !== "builder") return;
 
+  if (currentMode === "builder") {
+    rebuildFromFilters();
+    const validation = validateVisualBuilderFilters(bFilters);
+    if (!validation.valid) {
+      clearError();
+      focusInvalidBuilderControl(validation);
+      return;
+    }
+  }
+
+  loomResultStatusText = "";
+  loomWeaveResultQuery = "";
+  loomWeaveResultCount = null;
+  updateLoomResultDelivery();
+  renderCurrentWeave();
   setLoading(true);
   clearError();
   displayPage = 0;
@@ -1189,6 +1349,11 @@ function handleBlockedQueryResult(queryResult, {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
+  loomResultStatusText = "";
+  loomWeaveResultQuery = "";
+  loomWeaveResultCount = null;
+  updateLoomResultDelivery();
+  renderCurrentWeave();
   updateSearchActions("", {});
   showQueryInspector(queryResult.query || "", reason, diagnostics, queryResult.api || {}, {
     inputValue,
@@ -1314,6 +1479,42 @@ function renderResults(append = false) {
   document.getElementById("more-count").textContent = canLoad
     ? `${Math.max(totalCards - showing, 0)} more available`
     : `All ${allResults.length} cards loaded`;
+
+  if (!append) {
+    loomResultStatusText = `${totalCards.toLocaleString()} ${totalCards === 1 ? "card" : "cards"} found`;
+    loomWeaveResultQuery = currentQuery;
+    loomWeaveResultCount = totalCards;
+    updateLoomResultDelivery();
+    renderCurrentWeave();
+  }
+}
+
+function deliverResultDestination(target) {
+  if (!target) return;
+  const reduceMotion = document.documentElement?.dataset?.reduceMotion === "true"
+    || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
+  target.focus?.({ preventScroll: true });
+  target.scrollIntoView?.({
+    behavior: reduceMotion ? "auto" : "smooth",
+    block: "start"
+  });
+}
+
+function updateLoomResultDelivery() {
+  const delivery = document.getElementById("loom-result-delivery");
+  const status = document.getElementById("loom-result-status");
+  if (!delivery || !status) return;
+  const shouldShow = currentMode === "builder" && Boolean(loomResultStatusText);
+  delivery.classList.toggle("hidden", !shouldShow);
+  status.textContent = shouldShow ? loomResultStatusText : "";
+}
+
+function viewLoomResults() {
+  const resultsHeader = document.getElementById("results-header");
+  const target = resultsHeader?.classList.contains("hidden")
+    ? document.getElementById("state-panel")
+    : resultsHeader;
+  deliverResultDestination(target);
 }
 
 /**
@@ -1590,11 +1791,12 @@ function buildTypeChecks() {
   TYPES.forEach((type) => {
     const value = type.toLowerCase();
     const button = createActionButton({
-      className: "cb-label",
+      className: "cb-label type-chip",
       text: type,
       action: "toggle-type",
       dataset: { value }
     });
+    appendManaIconLabel(button, TYPE_ICON_CLASSES[value], type);
     button.id = `cb-type-${value}`;
     button.classList.toggle("checked", bFilters.types.includes(value));
     setAriaPressed(button, bFilters.types.includes(value));
@@ -1611,11 +1813,12 @@ function buildRarityChecks() {
   clearNode(el);
   RARITIES.forEach((rarity) => {
     const button = createActionButton({
-      className: "cb-label",
+      className: `cb-label rarity-chip rarity-${rarity.v}`,
       text: rarity.l,
       action: "toggle-rarity",
       dataset: { value: rarity.v }
     });
+    appendManaIconLabel(button, "ms-rarity", rarity.l);
     button.id = `cb-rar-${rarity.v}`;
     button.classList.toggle("checked", bFilters.rarities.includes(rarity.v));
     setAriaPressed(button, bFilters.rarities.includes(rarity.v));
@@ -1647,15 +1850,86 @@ function getActiveFormatFilter() {
  * @param {string} color - Color symbol.
  */
 function toggleColor(color) {
+  if (!color || color === "C") return;
+  bFilters.colors = bFilters.colors.filter((selected) => selected !== "C");
   const index = bFilters.colors.indexOf(color);
   if (index >= 0) bFilters.colors.splice(index, 1);
   else bFilters.colors.push(color);
+  syncBuilderColorControls();
+  rebuildFromFilters();
+}
+
+/**
+ * Builds the governed common keyword-ability controls.
+ */
+function buildAbilityChecks() {
+  const el = document.getElementById("ability-checks");
+  if (!el) return;
+  clearNode(el);
+  COMMON_ABILITIES.forEach((ability) => {
+    const active = bFilters.keywords.includes(ability.value);
+    const button = createActionButton({
+      className: "ability-chip",
+      text: ability.label,
+      action: "toggle-ability",
+      dataset: { keyword: ability.value }
+    });
+    appendManaIconLabel(button, abilityIconClass(ability.value), ability.label);
+    button.id = `ability-${ability.value}`;
+    button.classList.toggle("checked", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.setAttribute("aria-label", `${active ? "Remove" : "Add"} ${ability.label} ability`);
+    el.appendChild(button);
+  });
+}
+
+function toggleColorlessOnly() {
+  const isActive = bFilters.colors.length === 1 && bFilters.colors[0] === "C";
+  bFilters.colors = isActive ? [] : ["C"];
+  bFilters.excludeColorless = false;
+  syncBuilderColorControls();
+  rebuildFromFilters();
+}
+
+function syncBuilderColorControls() {
   document.querySelectorAll(".cpip").forEach((pip) => {
     const active = bFilters.colors.includes(pip.dataset.c);
     pip.classList.toggle("on", active);
     setAriaPressed(pip, active);
   });
+  const colorlessButton = document.getElementById("colorless-only-btn");
+  const colorlessActive = bFilters.colors.length === 1 && bFilters.colors[0] === "C";
+  colorlessButton?.classList.toggle("on", colorlessActive);
+  setAriaPressed(colorlessButton, colorlessActive);
+  document.getElementById("builder-color-options")?.classList.toggle("hidden", colorlessActive);
+}
+
+function setBuilderColorRelation(value, options = {}) {
+  const nextValue = Object.prototype.hasOwnProperty.call(BUILDER_COLOR_RELATION_LABELS, value) ? value : "id";
+  bFilters.colorOp = nextValue;
+  const control = document.getElementById("color-op");
+  if (control) control.value = nextValue;
+  if (bFilters.colorOp !== "id") {
+    bFilters.excludeColorless = false;
+    const exclusion = document.getElementById("exclude-colorless");
+    if (exclusion) exclusion.checked = false;
+  }
+  syncBuilderColorRelationControl();
   rebuildFromFilters();
+  if (options.restoreFocus !== false) document.getElementById("color-relation-trigger")?.focus?.();
+}
+
+function syncBuilderColorRelationControl() {
+  const selectedValue = bFilters.colorOp || "id";
+  const label = document.getElementById("color-relation-label");
+  if (label) label.textContent = BUILDER_COLOR_RELATION_TRIGGER_LABELS[selectedValue] || BUILDER_COLOR_RELATION_TRIGGER_LABELS.id;
+  document.querySelectorAll('[data-action="set-color-relation"]').forEach((button) => {
+    const active = button.dataset.value === selectedValue;
+    button.classList.toggle("selected", active);
+    setAriaPressed(button, active);
+  });
+  const picker = document.getElementById("color-relation-picker");
+  if (picker) picker.open = false;
 }
 
 /**
@@ -1692,14 +1966,45 @@ function toggleRarity(value, label = document.getElementById(`cb-rar-${value}`))
  * Rebuilds the raw query field from Visual Builder state.
  */
 function rebuildFromFilters() {
-  bFilters.colorOp = document.getElementById("color-op")?.value || "c";
+  bFilters.colorOp = document.getElementById("color-op")?.value || "id";
   bFilters.format = document.getElementById("bld-format")?.value || "";
   bFilters.cmcMin = document.getElementById("cmc-min")?.value || "";
   bFilters.cmcMax = document.getElementById("cmc-max")?.value || "";
+  bFilters.excludeColorless = bFilters.colorOp === "id" && Boolean(document.getElementById("exclude-colorless")?.checked);
+  updateExcludeColorlessControl();
   const query = buildFilterQuery();
+  const validation = validateVisualBuilderFilters(bFilters);
   const input = document.getElementById("search-input");
-  if (input) input.value = query;
-  updateBuilderOutput(query);
+  if (input) {
+    input.value = query;
+    sizeLoomQueryInput(input);
+  }
+  updateBuilderOutput(validation);
+  updateBuilderValidation(validation);
+  renderCurrentWeave({ query, validation });
+  if (currentMode === "builder") updateSearchActions(validation.valid ? query : "", {});
+}
+
+function toggleAbility(keyword) {
+  const value = String(keyword || "").trim().toLowerCase();
+  if (!value) return;
+  const index = bFilters.keywords.indexOf(value);
+  if (index >= 0) bFilters.keywords.splice(index, 1);
+  else bFilters.keywords.push(value);
+  renderKwChips();
+  rebuildFromFilters();
+}
+
+function updateExcludeColorlessControl() {
+  const option = document.getElementById("exclude-colorless-option");
+  const checkbox = document.getElementById("exclude-colorless");
+  const hasWubrg = bFilters.colors.some((color) => color !== "C");
+  const shouldShow = bFilters.colorOp === "id" && hasWubrg && !bFilters.colors.includes("C");
+  option?.classList.toggle("hidden", !shouldShow);
+  if (!shouldShow) {
+    bFilters.excludeColorless = false;
+    if (checkbox) checkbox.checked = false;
+  }
 }
 
 /**
@@ -1710,57 +2015,109 @@ function buildFilterQuery() {
   return buildVisualBuilderQuery(bFilters);
 }
 
-function updateBuilderOutput(query = buildFilterQuery()) {
-  const queryEl = document.getElementById("builder-generated-query");
+function updateBuilderOutput(validation = validateVisualBuilderFilters(bFilters)) {
   const summaryEl = document.getElementById("builder-summary");
-  if (queryEl) queryEl.textContent = query || "Select filters to shape a query.";
-  if (summaryEl) summaryEl.textContent = formatBuilderSummary();
+  if (summaryEl) summaryEl.textContent = validation.valid
+    ? formatBuilderSummary()
+    : "";
+}
+
+function updateBuilderValidation(validation = validateVisualBuilderFilters(bFilters)) {
+  const colorMessage = document.getElementById("color-validation");
+  const manaValueMessage = document.getElementById("mv-validation");
+  const cmcMin = document.getElementById("cmc-min");
+  const cmcMax = document.getElementById("cmc-max");
+  const colorRelationTrigger = document.getElementById("color-relation-trigger");
+  const colorPips = document.getElementById("color-pips");
+  [colorMessage, manaValueMessage].forEach((message) => {
+    if (!message) return;
+    message.textContent = "";
+    message.classList.add("hidden");
+  });
+  [cmcMin, cmcMax, colorRelationTrigger, colorPips].forEach((control) => control?.removeAttribute("aria-invalid"));
+  if (validation.valid) return;
+
+  if (validation.field === "cmcMin") {
+    if (manaValueMessage) {
+      manaValueMessage.textContent = validation.message;
+      manaValueMessage.classList.remove("hidden");
+    }
+    cmcMin?.setAttribute("aria-invalid", "true");
+    cmcMax?.setAttribute("aria-invalid", "true");
+  } else if (validation.field === "colors") {
+    if (colorMessage) {
+      colorMessage.textContent = validation.message;
+      colorMessage.classList.remove("hidden");
+    }
+    colorRelationTrigger?.setAttribute("aria-invalid", "true");
+    colorPips?.setAttribute("aria-invalid", "true");
+  }
+}
+
+function focusInvalidBuilderControl(validation) {
+  updateBuilderValidation(validation);
+  let target = null;
+  if (validation.field === "cmcMin") {
+    target = document.getElementById("cmc-min");
+  } else if (validation.field === "colors") {
+    target = document.getElementById("colorless-only-btn") || document.getElementById("color-relation-trigger");
+  }
+  target?.focus?.();
 }
 
 function resetBuilderFilters() {
   bFilters.colors = [];
-  bFilters.colorOp = "c";
+  bFilters.colorOp = "id";
   bFilters.types = [];
   bFilters.format = DEFAULT_FORMAT;
   bFilters.keywords = [];
   bFilters.cmcMin = "";
   bFilters.cmcMax = "";
   bFilters.rarities = [];
+  bFilters.excludeColorless = false;
 
   const colorOp = document.getElementById("color-op");
   const builderFormat = document.getElementById("bld-format");
   const cmcMin = document.getElementById("cmc-min");
   const cmcMax = document.getElementById("cmc-max");
   const keywordInput = document.getElementById("kw-input");
-  if (colorOp) colorOp.value = "c";
+  const excludeColorless = document.getElementById("exclude-colorless");
+  if (colorOp) colorOp.value = "id";
   if (builderFormat) builderFormat.value = DEFAULT_FORMAT;
   if (cmcMin) cmcMin.value = "";
   if (cmcMax) cmcMax.value = "";
   if (keywordInput) keywordInput.value = "";
+  if (excludeColorless) excludeColorless.checked = false;
 
-  document.querySelectorAll(".cpip").forEach((pip) => {
-    pip.classList.toggle("on", false);
-    setAriaPressed(pip, false);
-  });
+  syncBuilderColorControls();
+  syncBuilderColorRelationControl();
   document.querySelectorAll(".cb-label").forEach((chip) => {
     chip.classList.toggle("checked", false);
     setAriaPressed(chip, false);
   });
-  document.getElementById("kw-suggestions")?.classList.add("hidden");
+  closeKeywordSuggestions();
   renderKwChips();
-  rebuildFromFilters();
-  setMode("builder");
   clearError();
   resetSearchResults();
+  setMode("builder");
   document.getElementById("query-inspector")?.classList.add("hidden");
-  showToast("Loom reset");
+  const summary = document.getElementById("builder-summary");
+  if (summary) summary.textContent = "Loom reset. Commander format is ready.";
 }
 
 function formatBuilderSummary() {
   const parts = [];
   if (bFilters.colors.length) {
-    const colorMode = document.getElementById("color-op")?.selectedOptions?.[0]?.textContent || bFilters.colorOp;
-    parts.push(`Colors: ${bFilters.colors.join("")} (${colorMode})`);
+    const colorMode = BUILDER_COLOR_RELATION_LABELS[bFilters.colorOp] || bFilters.colorOp;
+    const orderedColors = ["W", "U", "B", "R", "G", "C"].filter((color) => bFilters.colors.includes(color));
+    const colorText = orderedColors.length === 1 && orderedColors[0] === "C"
+      ? "Colorless"
+      : orderedColors.join("");
+    const relationText = bFilters.colorOp === "id" && colorText === "Colorless"
+      ? "exact colorless identity"
+      : colorMode;
+    parts.push(`Commander colors: ${colorText} \u00b7 ${relationText}`);
+    if (bFilters.excludeColorless) parts.push("Colorless identity excluded");
   }
   if (bFilters.types.length) parts.push(`Types: ${bFilters.types.join(", ")}`);
   if (bFilters.format) parts.push(`Format: ${bFilters.format}`);
@@ -1769,7 +2126,122 @@ function formatBuilderSummary() {
     parts.push(`Mana value: ${bFilters.cmcMin || "0"} to ${bFilters.cmcMax || "any"}`);
   }
   if (bFilters.keywords.length) parts.push(`Keywords: ${bFilters.keywords.join(", ")}`);
-  return parts.length ? parts.join(" | ") : "No visual filters selected yet.";
+  return parts.length ? parts.join(" | ") : "No optional filters selected.";
+}
+
+function weaveColorTitle() {
+  const orderedColors = ["W", "U", "B", "R", "G", "C"].filter((color) => bFilters.colors.includes(color));
+  if (orderedColors.length === 1 && orderedColors[0] === "C") return "Colorless";
+  if (!orderedColors.length) return "Commander";
+
+  const colorLabel = weaveColorLabel(orderedColors) || orderedColors.join("");
+  if (bFilters.colorOp === "c") return `${colorLabel} · exact printed colors`;
+  if (bFilters.colorOp === "c>=") return `${colorLabel} · includes printed colors`;
+  if (bFilters.colorOp === "c<=") return `${colorLabel} · only printed colors`;
+  return `${colorLabel} fit`;
+}
+
+function weaveChoiceCount() {
+  let count = 0;
+  if (bFilters.colors.length) count += 1;
+  if (bFilters.excludeColorless) count += 1;
+  count += bFilters.types.length;
+  count += bFilters.keywords.length;
+  count += bFilters.rarities.length;
+  if (bFilters.cmcMin !== "") count += 1;
+  if (bFilters.cmcMax !== "") count += 1;
+  if (bFilters.format && bFilters.format !== DEFAULT_FORMAT) count += 1;
+  return count;
+}
+
+function renderCurrentWeavePips() {
+  const pipWrap = document.getElementById("current-weave-pips");
+  const panel = document.getElementById("current-weave");
+  if (!pipWrap || !panel) return;
+  clearNode(pipWrap);
+  const orderedColors = ["W", "U", "B", "R", "G", "C"].filter((color) => bFilters.colors.includes(color));
+  orderedColors.forEach((color) => {
+    const pip = document.createElement("i");
+    pip.className = `ms ms-${color.toLowerCase()} ms-cost`;
+    pip.setAttribute("aria-hidden", "true");
+    pipWrap.appendChild(pip);
+  });
+  pipWrap.classList.toggle("is-empty", orderedColors.length === 0);
+  const accents = orderedColors.map((color) => WEAVE_MANA_ACCENTS[color]).filter(Boolean);
+  const edge = accents.length > 1
+    ? `conic-gradient(from 35deg, ${accents.join(", ")}, ${accents[0]})`
+    : accents[0] || "linear-gradient(145deg, rgba(247, 215, 132, 0.72), rgba(90, 220, 205, 0.28))";
+  panel.style?.setProperty?.("--weave-edge", edge);
+}
+
+/**
+ * Renders a passive presentation of existing Loom state. This function only reads
+ * builder/query/result state and never writes bFilters or the executable query.
+ */
+function renderCurrentWeave(options = {}) {
+  const panel = document.getElementById("current-weave");
+  if (!panel) return;
+  const validation = options.validation || validateVisualBuilderFilters(bFilters);
+  const query = normalizeSearchInputValue(
+    Object.hasOwn(options, "query") ? options.query : buildFilterQuery()
+  );
+  const title = document.getElementById("current-weave-title");
+  const primary = document.getElementById("current-weave-primary");
+  const secondary = document.getElementById("current-weave-secondary");
+  const count = document.getElementById("current-weave-count");
+  const state = document.getElementById("current-weave-state");
+  const choices = weaveChoiceCount();
+  const formatLabel = bFilters.format
+    ? `${bFilters.format.charAt(0).toUpperCase()}${bFilters.format.slice(1)}`
+    : "Any format";
+
+  renderCurrentWeavePips();
+  if (title) title.textContent = weaveColorTitle();
+  if (count) count.textContent = `${choices} ${choices === 1 ? "choice" : "choices"} woven`;
+  primary?.classList.remove("hidden");
+
+  if (!validation.valid) {
+    panel.dataset.weaveState = "invalid";
+    if (title) title.textContent = "Needs attention";
+    if (primary) primary.textContent = validation.field === "cmcMin"
+      ? "Mana value range conflicts."
+      : "Color selection conflicts.";
+    if (secondary) secondary.textContent = validation.field === "cmcMin"
+      ? "Correct the range in Refine."
+      : "Correct the selection in Colors.";
+    if (state) state.textContent = "Not ready to search";
+    return;
+  }
+
+  const detailParts = [
+    ...bFilters.types.map((type) => `${type.charAt(0).toUpperCase()}${type.slice(1)}`),
+    ...bFilters.keywords.map((keyword) => `${keyword.charAt(0).toUpperCase()}${keyword.slice(1)}`),
+    ...bFilters.rarities.map((rarity) => RARITY_LABELS[rarity] || rarity)
+  ];
+  const refinementParts = [];
+  if (bFilters.excludeColorless) refinementParts.push("Colorless excluded");
+  if (bFilters.cmcMin !== "" || bFilters.cmcMax !== "") {
+    refinementParts.push(`Mana value ${bFilters.cmcMin || "0"} to ${bFilters.cmcMax || "any"}`);
+  }
+  refinementParts.push(formatLabel);
+
+  panel.dataset.weaveState = "ready";
+  if (primary) {
+    const hasSelectedQualities = detailParts.length > 0;
+    primary.classList.toggle("hidden", !hasSelectedQualities && choices > 0);
+    primary.textContent = hasSelectedQualities
+      ? detailParts.join(" · ")
+      : choices > 0 ? "" : "No choices woven yet.";
+  }
+  if (secondary) secondary.textContent = detailParts.length || choices
+    ? refinementParts.join(" · ")
+    : "Choose a color, card type, ability, or refinement.";
+  const hasCurrentResults = loomWeaveResultCount !== null
+    && normalizeSearchInputValue(loomWeaveResultQuery) === query;
+  if (state) state.textContent = hasCurrentResults
+    ? `${loomWeaveResultCount.toLocaleString()} ${loomWeaveResultCount === 1 ? "card" : "cards"} found`
+    : "Ready to search";
+  panel.dataset.weaveState = hasCurrentResults ? "results" : "ready";
 }
 
 /**
@@ -1777,11 +2249,77 @@ function formatBuilderSummary() {
  * @param {KeyboardEvent} event - Keyboard event.
  */
 function handleKwKey(event) {
+  const options = getKeywordSuggestionOptions();
+  if (event.key === "ArrowDown" && options.length) {
+    event.preventDefault();
+    setActiveKeywordSuggestion(Math.min(activeKeywordSuggestionIndex + 1, options.length - 1));
+    return;
+  }
+  if (event.key === "ArrowUp" && options.length) {
+    event.preventDefault();
+    const nextIndex = activeKeywordSuggestionIndex < 0
+      ? 0
+      : Math.max(activeKeywordSuggestionIndex - 1, 0);
+    setActiveKeywordSuggestion(nextIndex);
+    return;
+  }
+  if (event.key === "Escape" && options.length) {
+    event.preventDefault();
+    event.stopPropagation();
+    closeKeywordSuggestions();
+    event.target.focus?.();
+    return;
+  }
+  if (event.key === "Enter" && activeKeywordSuggestionIndex >= 0) {
+    event.preventDefault();
+    const activeOption = options[activeKeywordSuggestionIndex];
+    if (activeOption?.dataset.keyword) addKeyword(activeOption.dataset.keyword);
+    return;
+  }
   if (event.key === "Enter" || event.key === ",") {
     event.preventDefault();
     const value = event.target.value.trim().toLowerCase();
     if (value) addKeyword(value);
   }
+}
+
+function getKeywordSuggestionOptions() {
+  const box = document.getElementById("kw-suggestions");
+  if (!box || box.classList.contains("hidden")) return [];
+  return [...box.querySelectorAll('[role="option"]')];
+}
+
+function setActiveKeywordSuggestion(index) {
+  const options = getKeywordSuggestionOptions();
+  const input = document.getElementById("kw-input");
+  if (!options.length || index < 0) {
+    activeKeywordSuggestionIndex = -1;
+    input?.removeAttribute("aria-activedescendant");
+    options.forEach((option) => {
+      option.classList.remove("active");
+      option.setAttribute("aria-selected", "false");
+    });
+    return;
+  }
+  activeKeywordSuggestionIndex = Math.min(index, options.length - 1);
+  options.forEach((option, optionIndex) => {
+    const active = optionIndex === activeKeywordSuggestionIndex;
+    option.classList.toggle("active", active);
+    option.setAttribute("aria-selected", String(active));
+  });
+  const activeOption = options[activeKeywordSuggestionIndex];
+  if (activeOption?.id) input?.setAttribute("aria-activedescendant", activeOption.id);
+  activeOption?.scrollIntoView?.({ block: "nearest" });
+}
+
+function closeKeywordSuggestions() {
+  const box = document.getElementById("kw-suggestions");
+  const input = document.getElementById("kw-input");
+  clearNode(box);
+  box?.classList.add("hidden");
+  input?.setAttribute("aria-expanded", "false");
+  input?.removeAttribute("aria-activedescendant");
+  activeKeywordSuggestionIndex = -1;
 }
 
 /**
@@ -1794,8 +2332,7 @@ function showKwSuggestions(value) {
   if (!box) return;
 
   if (!input) {
-    clearNode(box);
-    box.classList.add("hidden");
+    closeKeywordSuggestions();
     return;
   }
 
@@ -1809,21 +2346,26 @@ function showKwSuggestions(value) {
     .slice(0, 8);
 
   if (!matches.length) {
-    clearNode(box);
-    box.classList.add("hidden");
+    closeKeywordSuggestions();
     return;
   }
 
   clearNode(box);
-  matches.forEach((keyword) => {
-    box.appendChild(createActionButton({
-      className: "kw-sug",
-      text: keyword,
-      action: "add-keyword",
-      dataset: { keyword }
-    }));
+  activeKeywordSuggestionIndex = -1;
+  matches.forEach((keyword, index) => {
+    const option = document.createElement("div");
+    option.className = "kw-sug";
+    option.id = `kw-suggestion-${index}`;
+    option.setAttribute("role", "option");
+    option.setAttribute("aria-selected", "false");
+    option.dataset.action = "add-keyword";
+    option.dataset.keyword = keyword;
+    const label = `${keyword.charAt(0).toUpperCase()}${keyword.slice(1)}`;
+    appendManaIconLabel(option, abilityIconClass(keyword), label);
+    box.appendChild(option);
   });
   box.classList.remove("hidden");
+  document.getElementById("kw-input")?.setAttribute("aria-expanded", "true");
 }
 
 /**
@@ -1831,13 +2373,34 @@ function showKwSuggestions(value) {
  * @param {string} keyword - Keyword text to add.
  */
 function addKeyword(keyword) {
-  parseKeywordInput(keyword, keywordVocabulary).forEach((item) => {
+  const input = document.getElementById("kw-input");
+  const requestedKeyword = String(keyword || input?.value || "").trim();
+  if (!requestedKeyword) {
+    input?.focus();
+    return;
+  }
+  const requestedItems = parseKeywordInput(requestedKeyword, keywordVocabulary);
+  const unsupportedItems = requestedItems.filter((item) => !keywordVocabulary.includes(item));
+  const validation = document.getElementById("kw-validation");
+  if (!requestedItems.length || unsupportedItems.length) {
+    if (validation) {
+      validation.textContent = "Choose a supported keyword ability.";
+      validation.classList.remove("hidden");
+    }
+    input?.setAttribute("aria-invalid", "true");
+    input?.focus();
+    return;
+  }
+  validation?.classList.add("hidden");
+  if (validation) validation.textContent = "";
+  input?.removeAttribute("aria-invalid");
+  requestedItems.forEach((item) => {
     if (!bFilters.keywords.includes(item)) bFilters.keywords.push(item);
   });
   renderKwChips();
   rebuildFromFilters();
-  document.getElementById("kw-input").value = "";
-  document.getElementById("kw-suggestions").classList.add("hidden");
+  if (input) input.value = "";
+  closeKeywordSuggestions();
 }
 
 /**
@@ -1854,17 +2417,27 @@ function removeKeyword(keyword) {
  * Renders active keyword chips.
  */
 function renderKwChips() {
+  buildAbilityChecks();
   const chips = document.getElementById("kw-chips");
   if (!chips) return;
   clearNode(chips);
-  bFilters.keywords.forEach((keyword) => {
-    chips.appendChild(createActionButton({
+  const commonValues = new Set(COMMON_ABILITIES.map((ability) => ability.value));
+  bFilters.keywords.filter((keyword) => !commonValues.has(keyword)).forEach((keyword) => {
+    const label = `${keyword.charAt(0).toUpperCase()}${keyword.slice(1)}`;
+    const chip = createActionButton({
       className: "kw-chip",
-      text: `${keyword} x`,
+      text: "",
       action: "remove-keyword",
       dataset: { keyword },
       ariaLabel: `Remove keyword ${keyword}`
-    }));
+    });
+    appendManaIconLabel(chip, abilityIconClass(keyword), label);
+    const removeMark = document.createElement("span");
+    removeMark.className = "kw-chip-remove";
+    removeMark.setAttribute("aria-hidden", "true");
+    removeMark.textContent = "×";
+    chip.appendChild(removeMark);
+    chips.appendChild(chip);
   });
 }
 
@@ -2627,7 +3200,16 @@ function updateSearchActions(query = currentQuery, api = currentSearchApi) {
  */
 function copyQuery() {
   const inputValue = normalizeSearchInputValue(document.getElementById("search-input")?.value || "");
-  const copyText = currentQuery || inputValue || lastSmartInput;
+  if (currentMode === "builder") {
+    const validation = validateVisualBuilderFilters(bFilters);
+    if (!validation.valid) {
+      focusInvalidBuilderControl(validation);
+      return;
+    }
+  }
+  const copyText = currentMode === "builder"
+    ? inputValue
+    : currentQuery || inputValue || lastSmartInput;
   copyTextToClipboard(copyText, "Query copied");
 }
 
@@ -2681,6 +3263,10 @@ function resetSearchResults() {
   hasMore = false;
   nextPageUrl = null;
   totalCards = 0;
+  loomResultStatusText = "";
+  loomWeaveResultQuery = "";
+  loomWeaveResultCount = null;
+  updateLoomResultDelivery();
 
   clearNode(document.getElementById("card-grid"));
   document.getElementById("card-grid").classList.add("hidden");
@@ -2698,6 +3284,12 @@ function resetSearchResults() {
  * @returns {string} Initial state HTML.
  */
 function buildInitialStateHtml() {
+  if (currentMode === "builder") {
+    return `
+      <div class="state-title">Build a query above, then Search to see matching cards.</div>
+      <div class="state-sub">The live query stays available while you refine it. <a href="https://scryfall.com/docs/syntax" target="_blank" rel="noopener" style="color:var(--maze-gold-2)">Scryfall syntax reference &nearr;</a></div>
+    `;
+  }
   return `
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.2">
       <circle cx="24" cy="24" r="18" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="4 3"/>
@@ -2712,14 +3304,29 @@ function buildInitialStateHtml() {
   `;
 }
 
+function refreshInitialStateForMode() {
+  const panel = document.getElementById("state-panel");
+  const resultsHeader = document.getElementById("results-header");
+  if (!panel || !resultsHeader?.classList.contains("hidden")) return;
+  const isInitialState = !panel.classList.contains("empty-result-active")
+    && !panel.querySelector(".state-spinner")
+    && !panel.querySelector(".empty-archive");
+  if (isInitialState) panel.innerHTML = buildInitialStateHtml();
+}
+
 /**
  * Toggles loading presentation for search execution.
  * @param {boolean} on - Whether loading state is active.
  */
 function setLoading(on) {
   const btn = document.getElementById("search-btn");
+  if (on && document.activeElement === btn) searchReturnFocusEl = btn;
   btn.disabled = on;
   btn.textContent = on ? "..." : "Search";
+  if (!on && searchReturnFocusEl) {
+    searchReturnFocusEl.focus?.({ preventScroll: true });
+    searchReturnFocusEl = null;
+  }
   if (on) {
     const panel = document.getElementById("state-panel");
     panel.classList.remove("empty-result-active");
@@ -2770,6 +3377,11 @@ async function showNoResultsState(query) {
   document.getElementById("empty-query").textContent = query;
   panel.classList.add("empty-result-active");
   panel.style.display = "flex";
+  loomResultStatusText = "No cards found";
+  loomWeaveResultQuery = query;
+  loomWeaveResultCount = 0;
+  updateLoomResultDelivery();
+  renderCurrentWeave();
 
   const card = await ResearchSearch.scryfallRandom("kw:deathtouch");
   if (card?.object === "card") renderNoResultsCard(card);
@@ -3408,7 +4020,7 @@ function bindMazeControls() {
   window.addEventListener("resize", resetStashDragForMobile);
 
   document.getElementById("search-input")?.addEventListener("keydown", handleSearchInputKeydown);
-  document.getElementById("color-op")?.addEventListener("change", rebuildFromFilters);
+  document.getElementById("exclude-colorless")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
   document.getElementById("cmc-max")?.addEventListener("input", rebuildFromFilters);
@@ -3416,6 +4028,8 @@ function bindMazeControls() {
     showKwSuggestions(event.target.value);
   });
   document.getElementById("kw-input")?.addEventListener("keydown", handleKwKey);
+  document.getElementById("color-relation-trigger")?.addEventListener("keydown", handleColorRelationTriggerKeydown);
+  document.getElementById("color-relation-picker")?.addEventListener("toggle", handleColorRelationToggle);
   document.getElementById("sb-format")?.addEventListener("change", (event) => {
     applyFormatFilter(event.target.value);
   });
@@ -3433,6 +4047,33 @@ function bindMazeControls() {
     if (event.target === event.currentTarget) closeModal();
   });
 
+}
+
+function getColorRelationOptions() {
+  return [...document.querySelectorAll('[data-action="set-color-relation"]')];
+}
+
+function focusSelectedColorRelationOption(fallbackIndex = 0) {
+  const options = getColorRelationOptions();
+  if (!options.length) return;
+  const selected = options.find((option) => option.dataset.value === bFilters.colorOp);
+  (selected || options[Math.min(Math.max(fallbackIndex, 0), options.length - 1)])?.focus?.();
+}
+
+function handleColorRelationTriggerKeydown(event) {
+  if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+  event.preventDefault();
+  const picker = document.getElementById("color-relation-picker");
+  if (!picker) return;
+  picker.open = true;
+  requestAnimationFrame(() => focusSelectedColorRelationOption(
+    event.key === "ArrowUp" ? getColorRelationOptions().length - 1 : 0
+  ));
+}
+
+function handleColorRelationToggle(event) {
+  if (!event.currentTarget?.open) return;
+  requestAnimationFrame(() => focusSelectedColorRelationOption());
 }
 
 function handleMazeActionClick(event) {
@@ -3464,11 +4105,20 @@ function handleMazeActionClick(event) {
     case "toggle-color":
       toggleColor(actionNode.dataset.color || "");
       return;
+    case "toggle-colorless-only":
+      toggleColorlessOnly();
+      return;
+    case "set-color-relation":
+      setBuilderColorRelation(actionNode.dataset.value || "id");
+      return;
     case "toggle-type":
       toggleType(actionNode.dataset.value || "", actionNode);
       return;
     case "toggle-rarity":
       toggleRarity(actionNode.dataset.value || "", actionNode);
+      return;
+    case "toggle-ability":
+      toggleAbility(actionNode.dataset.keyword || "");
       return;
     case "add-keyword":
       addKeyword(actionNode.dataset.keyword || "");
@@ -3488,6 +4138,9 @@ function handleMazeActionClick(event) {
       return;
     case "load-more":
       loadMore();
+      return;
+    case "view-results":
+      viewLoomResults();
       return;
     case "copy-stash-export":
     case "copy-scratchpad-export":
@@ -3557,6 +4210,33 @@ function handleMazeActionChange(event) {
 }
 
 function handleMazeGlobalKeydown(event) {
+  const colorRelationPicker = document.getElementById("color-relation-picker");
+  const relationOption = event.target?.closest?.('[data-action="set-color-relation"]');
+  if (relationOption && ["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+    const options = getColorRelationOptions();
+    const currentIndex = options.indexOf(relationOption);
+    if (currentIndex >= 0) {
+      event.preventDefault();
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowDown") nextIndex = Math.min(currentIndex + 1, options.length - 1);
+      if (event.key === "ArrowUp") nextIndex = Math.max(currentIndex - 1, 0);
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = options.length - 1;
+      options[nextIndex]?.focus?.();
+      return;
+    }
+  }
+  if (event.key === "Escape" && colorRelationPicker?.open) {
+    event.preventDefault();
+    colorRelationPicker.open = false;
+    document.getElementById("color-relation-trigger")?.focus?.();
+    return;
+  }
+  if (event.key === "Escape" && !document.getElementById("kw-suggestions")?.classList.contains("hidden")) {
+    closeKeywordSuggestions();
+    document.getElementById("kw-input")?.focus?.();
+    return;
+  }
   if (event.key === "Escape" && document.body.dataset.stashOpen === "true" && !isModalOpen()) {
     event.preventDefault();
     setStashDrawerOpen(false);
@@ -3574,8 +4254,12 @@ function handleMazeGlobalKeydown(event) {
 }
 
 function handleMazeDocumentClick(event) {
+  const colorRelationPicker = document.getElementById("color-relation-picker");
+  if (colorRelationPicker?.open && !colorRelationPicker.contains(event.target)) {
+    colorRelationPicker.open = false;
+  }
   if (!document.getElementById("kw-wrap")?.contains(event.target)) {
-    document.getElementById("kw-suggestions")?.classList.add("hidden");
+    closeKeywordSuggestions();
   }
 }
 
@@ -3677,6 +4361,11 @@ function exposeWindowHandlers() {
     clearSearchInput,
     handleSearchInputKeydown,
     resetBuilderFilters,
+    renderCurrentWeave,
+    weaveColorLabel,
+    weaveChoiceCount,
+    abilityIconClass,
+    sizeLoomQueryInput,
     applyFormatFilter,
     loadMore,
     setStashDrawerOpen,
@@ -3687,4 +4376,5 @@ function exposeWindowHandlers() {
 }
 
 window.addEventListener("load", initializeResearchArchives);
+window.addEventListener("resize", () => sizeLoomQueryInput());
 exposeWindowHandlers();
