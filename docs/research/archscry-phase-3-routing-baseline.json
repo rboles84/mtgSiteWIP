@@ -1,0 +1,2071 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Read-only Archscry Phase 3 current-routing baseline over the accepted deterministic all-37 witness authority.",
+  "source_paths": {
+    "model": "data/gate-b1-placement-model.json",
+    "factions": "data/factions.json",
+    "witnesses": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json"
+  },
+  "versions": {
+    "model_version": "vm551-gate-b1-placement-engine-v1",
+    "instrument_version": "vm551-gate-b1-instrument-v2",
+    "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+    "result_version": "2026-08-09-gate-b1-v1"
+  },
+  "population": 37,
+  "production_route_match_count": 37,
+  "question_counts": {
+    "fixed": 4,
+    "total_minimum": 6,
+    "total_median": 8,
+    "total_maximum": 8,
+    "total_distribution": {
+      "6": 6,
+      "7": 4,
+      "8": 27
+    },
+    "adaptive_minimum": 2,
+    "adaptive_median": 4,
+    "adaptive_maximum": 4,
+    "adaptive_distribution": {
+      "2": 6,
+      "3": 4,
+      "4": 27
+    }
+  },
+  "result_state_distribution": {
+    "primary": 35,
+    "close": 1,
+    "insufficient": 1
+  },
+  "c01_c04_floor": {
+    "candidate_frontier_minimum": 2,
+    "candidate_frontier_median": 4,
+    "candidate_frontier_maximum": 8,
+    "candidate_frontier_distribution": {
+      "2": 3,
+      "3": 10,
+      "4": 8,
+      "5": 4,
+      "6": 3,
+      "7": 1,
+      "8": 8
+    },
+    "qualified_identity_minimum": 0,
+    "qualified_identity_median": 0,
+    "qualified_identity_maximum": 0,
+    "qualified_identity_distribution": {
+      "0": 37
+    },
+    "directional_construct_minimum": 0,
+    "directional_construct_median": 3,
+    "directional_construct_maximum": 4,
+    "directional_construct_distribution": {
+      "0": 1,
+      "1": 4,
+      "2": 12,
+      "3": 12,
+      "4": 8
+    }
+  },
+  "exact_same_stage_utility_ties": {
+    "count": 4,
+    "witness_count": 4,
+    "branch_equivalent_count": 1,
+    "note": "Equal scalar utility is observable, but the current engine does not certify branch-equivalent evidence exposure, stopping, or terminal results.",
+    "opportunities": [
+      {
+        "identity_key": "BG",
+        "before_question_number": 5,
+        "selected_question_id": "b1.hall.interaction-window.v1",
+        "utility": 0.82,
+        "opportunity_ids": [
+          "b1.hall.information-to-plan.v1",
+          "b1.hall.interaction-window.v1"
+        ],
+        "candidate_frontier": [
+          "JESKAI",
+          "WR"
+        ],
+        "reachable_terminal_signatures_by_opportunity": {
+          "b1.hall.interaction-window.v1": [
+            "contradictory|",
+            "insufficient|",
+            "mixed|GLINT,UB",
+            "mixed|GRIXIS,UB",
+            "mixed|WUBRG,WG",
+            "primary|ABZAN",
+            "primary|B",
+            "primary|BANT",
+            "primary|BG",
+            "primary|ESPER",
+            "primary|GLINT",
+            "primary|GRIXIS",
+            "primary|GRIXIS,UB",
+            "primary|INK",
+            "primary|JESKAI",
+            "primary|LOREHOLD",
+            "primary|MARDU",
+            "primary|PRISMARI",
+            "primary|R",
+            "primary|RG",
+            "primary|TEMUR",
+            "primary|U",
+            "primary|UB",
+            "primary|UG",
+            "primary|UR",
+            "primary|WG",
+            "primary|WITHERBLOOM",
+            "primary|WR",
+            "primary|WU"
+          ],
+          "b1.hall.information-to-plan.v1": [
+            "contradictory|",
+            "insufficient|",
+            "mixed|GLINT,UB",
+            "mixed|GRIXIS,UB",
+            "primary|B",
+            "primary|BANT",
+            "primary|BG",
+            "primary|ESPER",
+            "primary|GLINT",
+            "primary|GRIXIS",
+            "primary|GRIXIS,UB",
+            "primary|JESKAI",
+            "primary|LOREHOLD",
+            "primary|U",
+            "primary|UB",
+            "primary|UG",
+            "primary|WITHERBLOOM",
+            "primary|WR",
+            "primary|WU"
+          ]
+        },
+        "branch_outcome_sets_equal": false
+      },
+      {
+        "identity_key": "GLINT",
+        "before_question_number": 7,
+        "selected_question_id": "b1.hall.interaction-window.v1",
+        "utility": 0.348949,
+        "opportunity_ids": [
+          "b1.hall.information-to-plan.v1",
+          "b1.hall.interaction-window.v1"
+        ],
+        "candidate_frontier": [
+          "W",
+          "WU",
+          "MARDU",
+          "DUNE",
+          "JUND",
+          "RG",
+          "WR",
+          "R"
+        ],
+        "reachable_terminal_signatures_by_opportunity": {
+          "b1.hall.interaction-window.v1": [
+            "insufficient|",
+            "primary|DUNE",
+            "primary|GLINT",
+            "primary|R",
+            "primary|U",
+            "primary|WU"
+          ],
+          "b1.hall.information-to-plan.v1": [
+            "insufficient|",
+            "primary|DUNE",
+            "primary|R",
+            "primary|WU"
+          ]
+        },
+        "branch_outcome_sets_equal": false
+      },
+      {
+        "identity_key": "PRISMARI",
+        "before_question_number": 7,
+        "selected_question_id": "b1.hall.theme.v1",
+        "utility": 0.0075,
+        "opportunity_ids": [
+          "b1.hall.sacrifice.v1",
+          "b1.hall.theme.v1"
+        ],
+        "candidate_frontier": [
+          "BR",
+          "PRISMARI"
+        ],
+        "reachable_terminal_signatures_by_opportunity": {
+          "b1.hall.theme.v1": [
+            "contradictory|",
+            "insufficient|",
+            "primary|PRISMARI"
+          ],
+          "b1.hall.sacrifice.v1": [
+            "contradictory|",
+            "insufficient|",
+            "primary|PRISMARI"
+          ]
+        },
+        "branch_outcome_sets_equal": true
+      },
+      {
+        "identity_key": "UG",
+        "before_question_number": 5,
+        "selected_question_id": "b1.hall.interaction-window.v1",
+        "utility": 0.82,
+        "opportunity_ids": [
+          "b1.hall.information-to-plan.v1",
+          "b1.hall.interaction-window.v1"
+        ],
+        "candidate_frontier": [
+          "JESKAI",
+          "WR"
+        ],
+        "reachable_terminal_signatures_by_opportunity": {
+          "b1.hall.interaction-window.v1": [
+            "contradictory|",
+            "insufficient|",
+            "mixed|GRIXIS,UB",
+            "mixed|WUBRG,WG",
+            "primary|ABZAN",
+            "primary|B",
+            "primary|BANT",
+            "primary|BG",
+            "primary|ESPER",
+            "primary|GLINT",
+            "primary|GLINT,UB",
+            "primary|GRIXIS",
+            "primary|GRIXIS,UB",
+            "primary|INK",
+            "primary|JESKAI",
+            "primary|LOREHOLD",
+            "primary|MARDU",
+            "primary|PRISMARI",
+            "primary|R",
+            "primary|RG",
+            "primary|TEMUR",
+            "primary|U",
+            "primary|UB",
+            "primary|UG",
+            "primary|UR",
+            "primary|WG",
+            "primary|WITHERBLOOM",
+            "primary|WR",
+            "primary|WU"
+          ],
+          "b1.hall.information-to-plan.v1": [
+            "contradictory|",
+            "insufficient|",
+            "mixed|GRIXIS,UB",
+            "primary|B",
+            "primary|BANT",
+            "primary|BG",
+            "primary|ESPER",
+            "primary|GLINT",
+            "primary|GLINT,UB",
+            "primary|GRIXIS",
+            "primary|GRIXIS,UB",
+            "primary|JESKAI",
+            "primary|LOREHOLD",
+            "primary|U",
+            "primary|UB",
+            "primary|UG",
+            "primary|WITHERBLOOM",
+            "primary|WR",
+            "primary|WU"
+          ]
+        },
+        "branch_outcome_sets_equal": false
+      }
+    ]
+  },
+  "rows": [
+    {
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 6,
+        "candidate_frontier": [
+          "ABZAN",
+          "W",
+          "WG",
+          "JESKAI",
+          "WR",
+          "R"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 1.945801
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.hall.interaction-window.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "ABZAN"
+        ],
+        "primary": "ABZAN",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "B",
+      "identity_name": "Black",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "JUND",
+          "R",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.604722
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "B"
+        ],
+        "primary": "B",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "BANT"
+        ],
+        "primary": "BANT",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03"
+        ],
+        "candidate_frontier_count": 2,
+        "candidate_frontier": [
+          "JESKAI",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.82
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "BG"
+        ],
+        "primary": "BG",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.hall.sacrifice.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "BR"
+        ],
+        "primary": "BR",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "GRIXIS",
+          "GLINT",
+          "JUND",
+          "MARDU",
+          "R",
+          "RG",
+          "TEMUR",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 0.687564
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "COLORLESS"
+        ],
+        "primary": "COLORLESS",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "BR",
+          "PRISMARI",
+          "R",
+          "UR",
+          "GRIXIS",
+          "UB",
+          "ABZAN",
+          "B"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 0.97896
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "DUNE"
+        ],
+        "primary": "DUNE",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "ESPER",
+      "identity_name": "Esper",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GRIXIS",
+          "GLINT",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.990417
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "ESPER"
+        ],
+        "primary": "ESPER",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "G",
+      "identity_name": "Green",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 5,
+        "candidate_frontier": [
+          "G",
+          "RG",
+          "JESKAI",
+          "R",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.010519
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "highest_responsible_candidate_trails_unqualified_internal_candidate",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "G"
+        ],
+        "primary": "G",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "JUND",
+          "R",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.604722
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "GLINT"
+        ],
+        "primary": "GLINT",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "GRIXIS",
+      "identity_name": "Grixis",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GRIXIS",
+          "GLINT",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.990417
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "GRIXIS"
+        ],
+        "primary": "GRIXIS",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "INK",
+      "identity_name": "Ink / Altruism",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03"
+        ],
+        "candidate_frontier_count": 5,
+        "candidate_frontier": [
+          "ABZAN",
+          "W",
+          "WG",
+          "JESKAI",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 2.198722
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "INK"
+        ],
+        "primary": "INK",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GRIXIS",
+          "GLINT",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.990417
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "JESKAI"
+        ],
+        "primary": "JESKAI",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "JUND",
+      "identity_name": "Jund",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 5,
+        "candidate_frontier": [
+          "G",
+          "RG",
+          "JESKAI",
+          "R",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.010519
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "next_question_cannot_improve_responsible_top_boundary",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "close",
+        "public_names": [
+          "JUND",
+          "RG"
+        ],
+        "primary": "JUND",
+        "cardinality": 2
+      }
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 1,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "R",
+          "RG",
+          "G",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.98375
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "insufficient",
+        "reason": "no_responsible_named_placement",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "LOREHOLD"
+        ],
+        "primary": "LOREHOLD",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "MARDU",
+      "identity_name": "Mardu Horde",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.hall.sacrifice.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "MARDU"
+        ],
+        "primary": "MARDU",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "NAYA",
+      "identity_name": "Naya",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "single_named_direction_with_unresolved_alternatives",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "NAYA"
+        ],
+        "primary": "NAYA",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "R",
+          "PRISMARI",
+          "GRIXIS",
+          "BR",
+          "GLINT",
+          "JUND",
+          "MARDU",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.0846
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "PRISMARI"
+        ],
+        "primary": "PRISMARI",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "GLINT",
+          "JUND",
+          "MARDU",
+          "R",
+          "RG",
+          "TEMUR",
+          "WR",
+          "GRIXIS"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 0.813454
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "QUANDRIX"
+        ],
+        "primary": "QUANDRIX",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "R",
+      "identity_name": "Red",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "R"
+        ],
+        "primary": "R",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 5,
+        "candidate_frontier": [
+          "G",
+          "RG",
+          "JESKAI",
+          "R",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.010519
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "next_question_cannot_improve_responsible_top_boundary",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "RG"
+        ],
+        "primary": "RG",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 6,
+        "candidate_frontier": [
+          "ABZAN",
+          "W",
+          "WG",
+          "JESKAI",
+          "WR",
+          "R"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 1.945801
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "SILVERQUILL"
+        ],
+        "primary": "SILVERQUILL",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 1,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "JUND",
+          "R",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.604722
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "insufficient",
+        "reason": "no_responsible_named_placement",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "SULTAI"
+        ],
+        "primary": "SULTAI",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "highest_responsible_candidate_trails_unqualified_internal_candidate",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "TEMUR"
+        ],
+        "primary": "TEMUR",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 3,
+      "total_questions": 7,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GRIXIS",
+          "GLINT",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.990417
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.crucible.disruption-boundary.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "U"
+        ],
+        "primary": "U",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 3,
+      "total_questions": 7,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C02"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "GRIXIS",
+          "UB",
+          "ABZAN",
+          "B",
+          "BANT",
+          "BG",
+          "BR",
+          "COLORLESS"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.648342
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.crucible.yore-glint.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "UB"
+        ],
+        "primary": "UB",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C03"
+        ],
+        "candidate_frontier_count": 2,
+        "candidate_frontier": [
+          "JESKAI",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.82
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "UG"
+        ],
+        "primary": "UG",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "R",
+          "RG",
+          "G",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.98375
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "UR"
+        ],
+        "primary": "UR",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "W",
+      "identity_name": "White",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 2,
+      "total_questions": 6,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "candidate_frontier_count": 6,
+        "candidate_frontier": [
+          "R",
+          "ABZAN",
+          "JUND",
+          "RG",
+          "W",
+          "WG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 1.507507
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.hall.interaction-window.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "W"
+        ],
+        "primary": "W",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 2,
+        "candidate_frontier": [
+          "JESKAI",
+          "R"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 0.875
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "single_named_direction_with_unresolved_alternatives",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WB"
+        ],
+        "primary": "WB",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 3,
+      "total_questions": 7,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C03"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "WR",
+          "GRIXIS",
+          "ABZAN",
+          "BANT",
+          "BG",
+          "G",
+          "GLINT",
+          "INK"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 0.80769
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": true,
+        "next_question_id": "b1.crucible.bant.v1"
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WG"
+        ],
+        "primary": "WG",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WITCH",
+      "identity_name": "Witch / Growth",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 2,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "PRISMARI",
+          "BR",
+          "R",
+          "UR",
+          "GRIXIS",
+          "UB",
+          "ABZAN",
+          "B"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 0.91646
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "contradictory",
+        "reason": "supported_candidate_has_conflicting_dependencies",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WITCH"
+        ],
+        "primary": "WITCH",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02",
+          "C04"
+        ],
+        "candidate_frontier_count": 3,
+        "candidate_frontier": [
+          "R",
+          "JUND",
+          "RG"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.pressure.v1",
+        "selected_next_utility": 2.605555
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WITHERBLOOM"
+        ],
+        "primary": "WITHERBLOOM",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C03"
+        ],
+        "candidate_frontier_count": 7,
+        "candidate_frontier": [
+          "ABZAN",
+          "JUND",
+          "R",
+          "RG",
+          "W",
+          "WG",
+          "WR"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 1.403457
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "primary",
+        "reason": "clear_separation",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WR"
+        ],
+        "primary": "WR",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 3,
+      "total_questions": 7,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GLINT",
+          "JUND",
+          "MARDU"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.875625
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "next_question_cannot_improve_responsible_top_boundary",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WU"
+        ],
+        "primary": "WU",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [],
+        "candidate_frontier_count": 8,
+        "candidate_frontier": [
+          "ABZAN",
+          "B",
+          "BANT",
+          "BG",
+          "BR",
+          "COLORLESS",
+          "DUNE",
+          "ESPER"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.commitment.v1",
+        "selected_next_utility": 0.845643
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "close",
+        "reason": "single_named_direction_with_unresolved_alternatives",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "primary",
+        "public_names": [
+          "WUBRG"
+        ],
+        "primary": "WUBRG",
+        "cardinality": 1
+      }
+    },
+    {
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "expected_public_contract": "INTENTIONAL_BOUNDED_STATE",
+      "route_matches_current_selection": true,
+      "fixed_questions": 4,
+      "adaptive_questions": 4,
+      "total_questions": 8,
+      "refinement_questions": 0,
+      "floor": {
+        "observed_constructs": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "directional_constructs": [
+          "C01",
+          "C02"
+        ],
+        "candidate_frontier_count": 4,
+        "candidate_frontier": [
+          "JESKAI",
+          "GRIXIS",
+          "GLINT",
+          "JUND"
+        ],
+        "qualified_count": 0,
+        "selected_next_question_id": "b1.hall.interaction-window.v1",
+        "selected_next_utility": 0.990417
+      },
+      "terminal_stopping": {
+        "stop": true,
+        "state": "insufficient",
+        "reason": "no_responsible_named_placement",
+        "can_improve": false,
+        "next_question_id": null
+      },
+      "public_result": {
+        "result_state": "insufficient",
+        "public_names": [],
+        "primary": "UB",
+        "cardinality": 0
+      }
+    }
+  ]
+}

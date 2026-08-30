@@ -8,7 +8,7 @@ This document consolidates the approved Loom v0/v1 direction, Commander Compass 
 
 ### Phase 1 — Current Production Truth
 
-Status: `ACCEPTED / FROZEN`
+Status: `DONE / FROZEN`
 
 - Acceptance date: 2026-08-23
 - Evidence authority: [VM-586](../kanban/done/VM-586-archscry-current-state-evidence-red-team-reconciliation.md)
@@ -21,11 +21,33 @@ Phase 1 is frozen for redesign planning. Reopen it only under the invalidation o
 
 ### Phase 2 — New Product Contract
 
-Status: `NEXT`
+Status: `DONE / ACCEPTED`
 
-Product-contract planning is authorized around `self_reported_prior`, `observed_gameplay_fit`, and explicit agreement/disagreement reconciliation. `self_reported_prior` is context, not automatic score or qualification. Yore is a mandatory design/test case.
+The accepted product contract keeps `self_reported_prior`, `observed_gameplay_fit`, and reconciliation separate. `self_reported_prior` remains player-authored context and never becomes placement evidence, score, qualification, routing, stopping, candidate, ranking, or tie-breaking authority. See [VM-588](../kanban/done/VM-588-archscry-phase-2-product-contract.md).
 
-Phase 2 implementation has not started. UI implementation, including self-identification UI, is not authorized until the product contract is accepted.
+### Phase 3 — Experienced / Returning Player Routing Proof
+
+Status: `RESEARCH COMPLETE / IMPLEMENTATION BLOCKED / POST-LAUNCH DEFERRED`
+
+Current routing has no certified branch-equivalent question opportunity seam. Equal scalar question utility is insufficient because question order can change reachable evidence and public-result exposure. VM-594 therefore authorizes no shortened questionnaire or assisted routing implementation; the current prior-blind route remains authoritative.
+
+### Phase 4 — Current Full Placement Behavior
+
+Status: `PROTECTED`
+
+Current no-prior/full Placement behavior remains intact. Phase 3 does not reopen or alter the existing questionnaire, evidence, candidate, scoring, ranking, qualification, stopping, result, refinement, telemetry, persistence, or Yore boundaries.
+
+### Phase 5 — Conditional Ontology Work
+
+Status: `CONDITIONAL ONLY`
+
+No ontology work is created by the Phase 3 blocker. Any future ontology scope requires its own evidence and authorization.
+
+### Phase 6 — UI / Product Implementation
+
+Status: `FUTURE / SEPARATELY GOVERNED`
+
+Future UI or product implementation remains separately governed. Phase 3 provides no implementation authority.
 
 ## Purpose
 
