@@ -1,0 +1,14 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-guild-batch-04.md",
+  "baseline_sha": "83edd40edb9c5c3cbb2d956242cbcde4c03c0b40",
+  "identity_key": "UB",
+  "identity_name": "House Dimir",
+  "canonical_anchor": "Secrecy, observation, anonymity, and selective disclosure turn information into hidden leverage.",
+  "start_here_taxonomy": ["Hidden Information Leverage", "Surveil Filtering", "Covert Infiltration"],
+  "what_to_look_for_taxonomy": ["Hidden Information Leverage", "Surveil Filtering", "Covert Infiltration"],
+  "rendered_exclusions": ["generic blue-black control, mill, theft, or evasion as Dimir proof", "generated factions data used as evidence", "malformed when-X-is-not-Y boundary", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "unsupported same-color product labeled Native"],
+  "precon_contract": { "native": [], "exact_color_required": ["Sneak Attack", "Mind Flayarrrs", "Revenant Recon", "Fae Dominion", "Undead Unleashed"], "stretch_allowed": true }
+}

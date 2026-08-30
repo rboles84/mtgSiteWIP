@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-602 — SIRF Guild Batch 04](done/VM-602-sirf-guild-batch-04.md) - exception batch accepted; Dimir, Gruul, Selesnya, Izzet, and Golgari passed raw-provenance, exact-taxonomy, section-role, precon-relationship, VM-595, rendered, and accepted-control gates in one cycle each.
+
 - [VM-601 — SIRF Guild Batch 03](done/VM-601-sirf-guild-batch-03.md) - exception batch accepted; Azorius, Boros, Orzhov, and Simic passed raw-provenance, exact-taxonomy, section-role, precon-relationship, VM-595, rendered, and accepted-control gates in one cycle each.
 
 - [VM-600 — SIRF Remaining Mono-Colors](done/VM-600-sirf-remaining-mono-colors.md) - exception-based batch accepted; Blue, Black, Red, and Green passed exact taxonomy, rendered section-role, recommendation, VM-595, generated-freshness, and accepted-control gates in one cycle each.

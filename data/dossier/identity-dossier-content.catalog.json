@@ -53,7 +53,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you observe first, control disclosure, value anonymity, and prefer advantage that does not require public credit.",
         "tension_failure_mode": "Watch for this tension: It resists transparency as an automatic virtue and visible legitimacy as the only valid form of power.",
-        "certified_boundary_self_check": "This is less likely to fit when generic control, mill, theft, or evasive play is not Dimir without secrecy or information asymmetry as the active method."
+        "certified_boundary_self_check": "Control, mill, theft, and evasive play do not establish Dimir by themselves; secrecy or information asymmetry must be the active method."
       },
       "how_this_plays": {
         "role": "The concealed hand",
@@ -67,23 +67,23 @@
         {
           "item_id": "lookfor_ub_1_hidden_information_leverage",
           "title": "Hidden Information Leverage",
-          "copy": "Use Dimir when secrecy, backroom positioning, observation, and selective disclosure lead over generic UB mechanics.",
-          "source_locator": "data/factions.json#/factions/UB/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Map hands and future options, reveal little, and make information decisive before opponents can respond.",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0018",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_ub_2_surveil_texture",
-          "title": "Information Filtering",
-          "copy": "Use surveil as verified information filtering, not as a claim that mill or graveyard gameplay defines the guild.",
-          "source_locator": "data/factions.json#/factions/UB/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_ub_2_surveil_filtering",
+          "title": "Surveil Filtering",
+          "copy": "Use Surveil to curate the next draw and graveyard access; filtering supports the plan only when secrecy still creates leverage.",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_005",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_ub_3_public_surface_guardrail",
-          "title": "Visible-Plan Boundary",
-          "copy": "Keep Dimir adjacent when the answer is mainly public law, visible obligation, spectacle, rhetoric, or biological optimization.",
-          "source_locator": "data/factions.json#/factions/UB/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_ub_3_covert_infiltration",
+          "title": "Covert Infiltration",
+          "copy": "Use evasive agents or selective theft to open an unseen access point, not as generic blue-black value.",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0017",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -143,7 +143,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you trust instinct, authenticity, clan, territory, and direct action rooted in a concrete loss or endangered wild place.",
         "tension_failure_mode": "Watch for this tension: It distrusts institutions that broke their promises, abstraction that ignores material damage, and patience demanded by beneficiaries of the system.",
-        "certified_boundary_self_check": "This is less likely to fit when generic rage, stompy play, or destruction is not Gruul without wildness, territory, clan, or resistance to imposed order."
+        "certified_boundary_self_check": "Rage, stompy play, and destruction do not establish Gruul by themselves; look for wildness, territory, clan, or resistance to imposed order."
       },
       "how_this_plays": {
         "role": "The breaker of gates",
@@ -155,25 +155,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_rg_1_zoo_aggro",
-          "title": "Zoo / Aggro",
-          "copy": "Wild Nacatl, Bloodbraid Elf, Questing Beast. The most efficient bodies at each cost, ending games before midrange finds its footing.",
-          "source_locator": "data/factions.json#/factions/RG/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_rg_1_wild_reclamation",
+          "title": "Wild Reclamation",
+          "copy": "Ramp toward creatures and land pressure that let the wild reclaim space from imposed systems; raw size without that grievance is not the guild.",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0028",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_rg_2_ramp",
-          "title": "Ramp",
-          "copy": "Accelerate mana with dorks and land spells, then deploy threats your opponent simply cannot race.",
-          "source_locator": "data/factions.json#/factions/RG/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_rg_2_clan_fed_pressure",
+          "title": "Clan-Fed Pressure",
+          "copy": "Build combat around clan belonging and territorial defense so the board attacks as a local force, not a civic army or spectacle.",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0049",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_rg_3_ponza_land_denial",
-          "title": "Ponza / Land Denial",
-          "copy": "Blood Moon and Stone Rain lock opponents out of their mana base, then slam threats into a field they can't answer.",
-          "source_locator": "data/factions.json#/factions/RG/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_rg_3_riot_momentum",
+          "title": "Riot Momentum",
+          "copy": "Choose haste or growth as a creature enters, then turn that choice into immediate embodied pressure.",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_mechanic_0040",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -188,7 +188,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you want harmony, collective care, nature, preservation, consensus, and a community larger than private ambition.",
         "tension_failure_mode": "Watch for this tension: It resists self-only ambition, conflict for its own sake, and procedure, debt, or force replacing belonging.",
-        "certified_boundary_self_check": "This is less likely to fit when tokens, counters, enchantments, or pleasant company are not Selesnya when individual distinction remains more important than shared care."
+        "certified_boundary_self_check": "Tokens, counters, enchantments, and pleasant company do not establish Selesnya by themselves; the distinguishing question is whether individual action yields to shared care and communal purpose."
       },
       "how_this_plays": {
         "role": "The chorus",
@@ -202,23 +202,23 @@
         {
           "item_id": "lookfor_wg_1_convoke_community",
           "title": "Convoke Community",
-          "copy": "Use creatures working together as gameplay play pattern for shared labor and communal purpose.",
-          "source_locator": "data/factions.json#/factions/WG/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Use creatures working together to pay for the next spell, making shared labor a playable construction plan.",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_006",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_wg_2_go_wide_caretaking",
           "title": "Go-Wide Caretaking",
-          "copy": "Build a board that feels like a protected community, while remembering tokens alone are not lore proof.",
-          "source_locator": "data/factions.json#/factions/WG/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Build and protect a wide board whose creatures make one another safer and stronger; tokens alone are not guild proof.",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_0018",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_wg_3_harmony_and_preservation",
-          "title": "Harmony And Preservation",
-          "copy": "Favor play patterns that express mutual care, protection, and shared purpose over individual glory.",
-          "source_locator": "data/factions.json#/factions/WG/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "title": "Harmony and Preservation",
+          "copy": "Use protection, lifegain, or anthem effects when they preserve a shared living community rather than one hero's glory.",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_0019",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -278,7 +278,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you follow questions, enjoy prototypes and repeated testing, treat being wrong as information, and prefer the next experiment to the finished answer.",
         "tension_failure_mode": "Watch for this tension: It resists premature closure, untested repetition, and emotional certainty that substitutes for investigation.",
-        "certified_boundary_self_check": "This is less likely to fit when spellslinger volume, artifacts, or novelty are not Izzet when there is no experiment, discovery, prototype, or useful breakthrough."
+        "certified_boundary_self_check": "Spellslinger volume, artifacts, and novelty do not establish Izzet by themselves; look for experiment, discovery, prototypes, or a useful breakthrough."
       },
       "how_this_plays": {
         "role": "The live experiment",
@@ -290,25 +290,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_ur_1_tempo_delver",
-          "title": "Tempo / Delver",
-          "copy": "Delver of Secrets backed by Daze and Force of Will. Deploy a threat, protect it with single mana, answer everything else for free.",
-          "source_locator": "data/factions.json#/factions/UR/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_ur_1_prototype_velocity",
+          "title": "Prototype Velocity",
+          "copy": "Build through repeated tests, copying and adjusting effects until one prototype becomes the useful breakthrough that changes the turn.",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0058",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_ur_2_storm",
-          "title": "Storm",
-          "copy": "Chain rituals and cantrips until a Storm spell copies itself enough times to kill the table in one turn.",
-          "source_locator": "data/factions.json#/factions/UR/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_ur_2_jump_start_iteration",
+          "title": "Jump-Start Iteration",
+          "copy": "Use Jump-start to turn a discarded card into another trial of a known spell, keeping the experiment moving after the first cast.",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0050",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_ur_3_spells_matter_phoenix",
-          "title": "Spells-Matter / Phoenix",
-          "copy": "Faithless Looting and cantrips fuel Arclight Phoenix, which returns from the graveyard every time you cast three spells.",
-          "source_locator": "data/factions.json#/factions/UR/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_ur_3_overload_breakthrough",
+          "title": "Overload Breakthrough",
+          "copy": "Use Overload when a narrow prototype is ready to scale across every valid target, converting an experiment into a table-wide result.",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0046",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -323,7 +323,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you find meaning in reclamation, patience, discarded material, self-sustaining cycles, and life emerging from death.",
         "tension_failure_mode": "Watch for this tension: It resists denial of mortality, preservation that blocks renewal, and hierarchies pretending they do not decay.",
-        "certified_boundary_self_check": "This is less likely to fit when graveyard value, morbidity, resilience, or sacrifice is not Golgari without a death-to-life cycle that feeds continued survival."
+        "certified_boundary_self_check": "Graveyard value, morbidity, resilience, and sacrifice do not establish Golgari by themselves; the distinguishing method is a death-to-life cycle that feeds survival or renewal."
       },
       "how_this_plays": {
         "role": "The survivor",
@@ -335,25 +335,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_bg_1_rock_bgx_midrange",
-          "title": "Rock / BGx Midrange",
-          "copy": "Thoughtseize strips threats. Tarmogoyf wins combat. Liliana grinds. Simply the best individual cards in black and green.",
-          "source_locator": "data/factions.json#/factions/BG/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_bg_1_reclamation_midrange",
+          "title": "Reclamation Midrange",
+          "copy": "Trade resources patiently, then reclaim discarded or destroyed material so each exchange feeds the next stage of survival.",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_0018",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_bg_2_graveyard_value",
-          "title": "Graveyard Value",
-          "copy": "Grim Flayer fills the graveyard, Traverse the Ulvenwald tutors into threats, and every card recurs from the bin.",
-          "source_locator": "data/factions.json#/factions/BG/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_bg_2_graveyard_resource_loops",
+          "title": "Graveyard Resource Loops",
+          "copy": "Move cards through death and the graveyard so spent creatures become fuel, return, or support for the living board.",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_007",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_bg_3_dredge",
-          "title": "Dredge",
-          "copy": "Stinkweed Imp replaces draws with massive milling - Narcomoeba and Prized Amalgam enter for free, Creeping Chill deals damage before a single attack.",
-          "source_locator": "data/factions.json#/factions/BG/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_bg_3_undergrowth_and_renewal",
+          "title": "Undergrowth and Renewal",
+          "copy": "Use Undergrowth to measure the dead as active material, then turn that count into renewed pressure or resilience.",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_006",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {

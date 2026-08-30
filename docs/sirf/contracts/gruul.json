@@ -1,0 +1,14 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-guild-batch-04.md",
+  "baseline_sha": "83edd40edb9c5c3cbb2d956242cbcde4c03c0b40",
+  "identity_key": "RG",
+  "identity_name": "Gruul Clans",
+  "canonical_anchor": "Wildness, clan, territory, and direct resistance to imposed urban order.",
+  "start_here_taxonomy": ["Wild Reclamation", "Clan-Fed Pressure", "Riot Momentum"],
+  "what_to_look_for_taxonomy": ["Wild Reclamation", "Clan-Fed Pressure", "Riot Momentum"],
+  "rendered_exclusions": ["generic red-green rage, stompy play, or destruction as Gruul proof", "generated factions data used as evidence", "malformed when-X-is-not-Y boundary", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "unsupported same-color product labeled Native"],
+  "precon_contract": { "native": [], "exact_color_required": ["Draconic Destruction", "Exit From Exile", "Upgrades Unleashed"], "stretch_allowed": true }
+}

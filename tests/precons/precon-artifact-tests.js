@@ -566,9 +566,11 @@ const liveSimicRecs = buildPreconRecommendations({
   preconThemeTaxonomy: themeTaxonomy,
 });
 
-assert.ok(liveSimicRecs.nativeExact.length > 0, "expected the live catalog to surface at least one Simic-native exact-match precon");
-assert.ok(liveSimicRecs.otherExact.length > 0, "expected the live catalog to keep same-color sibling decks visible");
-assert.ok(liveSimicRecs.nativeExact.every((entry) => entry.colorIdentityKey === "UG"), "expected live Simic native exact matches to stay in-color");
+assert.equal(liveSimicRecs.nativeExact.length, 0, "expected the accepted Simic contract to omit unsupported Native relationships");
+assert.ok(liveSimicRecs.otherExact.length > 0, "expected the live catalog to keep same-color decks visible as Exact-color fits");
+for (const deckName of ["Jump Scare!", "Tricky Terrain", "Swell the Host", "Reap the Tides", "Explorers of the Deep", "Elven Council"]) {
+  assert.ok(liveSimicRecs.otherExact.some((entry) => entry.deckName === deckName), `expected ${deckName} to remain available as an Exact-color Simic starting point`);
+}
 assert.ok(liveSimicRecs.otherExact.every((entry) => entry.colorIdentityKey === "UG"), "expected live Simic other exact matches to stay in-color");
 assert.ok(
   liveSimicRecs.stretch.every((entry) => entry.colorIdentityKey.length === 3 && entry.colorIdentityKey.includes("U") && entry.colorIdentityKey.includes("G")),
@@ -586,13 +588,13 @@ assert.equal(
 assert.equal(liveSimicPreview.hasOverflow, liveSimicPreview.totalCount > PRECON_PREVIEW_LIMIT, "expected Simic overflow state to reflect total pool size");
 assert.deepEqual(
   liveSimicPreview.visible.map((entry) => entry.slug),
-  liveSimicRecs.nativeExact.slice(0, PRECON_PREVIEW_LIMIT).map((entry) => entry.slug),
-  "expected live Simic preview to preserve ranking inside the native exact group before other groups"
+  liveSimicRecs.otherExact.slice(0, PRECON_PREVIEW_LIMIT).map((entry) => entry.slug),
+  "expected live Simic preview to preserve ranking inside the accepted Exact-color group"
 );
 assert.deepEqual(
   liveSimicPreview.remaining.map((entry) => entry.previewGroup),
-  ["nativeExact", "nativeExact", "otherExact", "otherExact", "stretch", "stretch"],
-  "expected live Simic remaining cards to preserve native, other exact, then stretch order after the first four"
+  ["otherExact", "otherExact", "otherExact", "otherExact", "stretch", "stretch"],
+  "expected live Simic remaining cards to preserve Exact-color, then Stretch order after the first four"
 );
 
 const silverquillDossier = {
@@ -645,13 +647,11 @@ const liveOrzhovRecs = buildPreconRecommendations({
   preconThemeTaxonomy: themeTaxonomy,
 });
 
-assert.equal(liveOrzhovRecs.nativeExact.length, 4, "expected Orzhov to surface its curated guild-native exact-match precons");
-assert.equal(liveOrzhovRecs.otherExact.length, 2, "expected Orzhov to keep Silverquill-native exact matches visible but separate");
-assert.deepEqual(
-  liveOrzhovRecs.otherExact.map((entry) => entry.deckName).sort(),
-  ["Silverquill Influence", "Silverquill Statement"].sort(),
-  "expected Orzhov to keep the Silverquill-owned exact matches in the sibling exact lane"
-);
+assert.equal(liveOrzhovRecs.nativeExact.length, 0, "expected the accepted Orzhov contract to omit unsupported Native relationships");
+assert.equal(liveOrzhovRecs.otherExact.length, 6, "expected Orzhov to keep all same-color products visible as Exact-color fits");
+for (const deckName of ["Call the Spirits", "Blood Rites", "Growing Threat", "Party Time", "Silverquill Influence", "Silverquill Statement"]) {
+  assert.ok(liveOrzhovRecs.otherExact.some((entry) => entry.deckName === deckName), `expected ${deckName} to remain available as an Exact-color Orzhov starting point`);
+}
 
 const liveOrzhovPreview = selectPreconPreviewRecommendations(liveOrzhovRecs);
 assert.equal(liveOrzhovPreview.visible.length, PRECON_PREVIEW_LIMIT, "expected Orzhov preview to cap visible precon cards at four");
@@ -659,13 +659,13 @@ assert.equal(liveOrzhovPreview.remaining.length, 4, "expected Orzhov preview to 
 assert.equal(liveOrzhovPreview.hasOverflow, true, "expected Orzhov preview to show overflow state for dense WB recommendation pools");
 assert.deepEqual(
   liveOrzhovPreview.visible.map((entry) => entry.slug),
-  liveOrzhovRecs.nativeExact.slice(0, PRECON_PREVIEW_LIMIT).map((entry) => entry.slug),
-  "expected Orzhov preview to preserve native exact ranking and defer other exact cards beyond the visible cap"
+  liveOrzhovRecs.otherExact.slice(0, PRECON_PREVIEW_LIMIT).map((entry) => entry.slug),
+  "expected Orzhov preview to preserve accepted Exact-color ranking"
 );
 assert.deepEqual(
   liveOrzhovPreview.remaining.map((entry) => entry.previewGroup),
   ["otherExact", "otherExact", "stretch", "stretch"],
-  "expected Orzhov reveal cards to preserve other exact before stretch order"
+  "expected Orzhov reveal cards to preserve Exact-color before Stretch order"
 );
 
 const liveMonoGreenRecs = buildPreconRecommendations({
@@ -707,7 +707,8 @@ const liveDimirRecs = buildPreconRecommendations({
 });
 const liveDimirPreview = selectPreconPreviewRecommendations(liveDimirRecs);
 assert.equal(liveDimirPreview.visible.length, PRECON_PREVIEW_LIMIT, "expected Dimir preview to cap dense exact-color pools at four");
-assert.ok(liveDimirPreview.visible.every((entry) => entry.previewGroup === "nativeExact"), "expected Dimir preview to prioritize native exact cards when the native group fills the cap");
+assert.equal(liveDimirRecs.nativeExact.length, 0, "expected the accepted Dimir contract to omit unsupported Native relationships");
+assert.ok(liveDimirPreview.visible.every((entry) => entry.previewGroup === "otherExact"), "expected Dimir preview to preserve accepted Exact-color ranking when no Native group exists");
 
 const bantDossier = {
   commanderLane: {

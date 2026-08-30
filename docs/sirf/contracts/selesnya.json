@@ -1,0 +1,14 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-guild-batch-04.md",
+  "baseline_sha": "83edd40edb9c5c3cbb2d956242cbcde4c03c0b40",
+  "identity_key": "WG",
+  "identity_name": "Selesnya Conclave",
+  "canonical_anchor": "Harmony, collective care, nature, and preservation through a community larger than private ambition.",
+  "start_here_taxonomy": ["Convoke Community", "Go-Wide Caretaking", "Harmony and Preservation"],
+  "what_to_look_for_taxonomy": ["Convoke Community", "Go-Wide Caretaking", "Harmony and Preservation"],
+  "rendered_exclusions": ["generic tokens, counters, enchantments, or pleasant company as Selesnya proof", "generated factions data used as evidence", "malformed when-X-is-not-Y boundary", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "unsupported same-color product labeled Native"],
+  "precon_contract": { "native": ["Token Triumph"], "exact_color_required": ["Virtue and Valor", "Coven Counters"], "stretch_allowed": true }
+}
