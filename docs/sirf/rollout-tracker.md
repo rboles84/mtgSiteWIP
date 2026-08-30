@@ -13,6 +13,10 @@
 | GRIXIS | shard | ACCEPTED | 1 | 0 | 3 | 1 | 1 | PASS | `.5000 / 1` -> `.1512 / 0` | exception accepted | accepted |
 | JUND | shard | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | `.1333 / 0` | exception accepted | accepted |
 | NAYA | shard | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | `.1884 / 0` | exception accepted | accepted |
+| ABZAN | wedge | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | `.2523 / 0` | exception accepted | accepted |
+| JESKAI | wedge | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | `.2093 / 0` | exception accepted; warning disposition recorded | accepted |
+| MARDU | wedge | ACCEPTED | 1 | 1 | 3 | 1 | 1 | PASS | `.6250 / 1` -> `.2375 / 0` | exception accepted; warning disposition recorded | accepted |
+| SULTAI | wedge | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | `.1569 / 0` | exception accepted | accepted |
 | W | mono-color | ACCEPTED | 0 | 0 | 2 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
 | U | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | B | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
@@ -29,7 +33,7 @@
 | UR | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | BG | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | ESPER | shard | ACCEPTED | 0 | 0 | 3 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
-| Remaining 10 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
+| Remaining 6 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
 
 Batch 01 also repaired one shared P1 generated-catalog freshness defect: optional runtime JSON now uses the existing `no-store` fetch policy. The repair changed no accepted identity semantics and all three golden controls pass.
 
@@ -44,6 +48,8 @@ Guild Batch 04 accepted Dimir, Gruul, Selesnya, Izzet, and Golgari after one cyc
 College Wave 05 accepted Prismari, Quandrix, Silverquill, and Witherbloom after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and Silverquill's thresholded cross-section collision. Eight authored product records now use official Wizards decklist sources; four 2026 featured alternates remain distinct from their face commanders, and all eight explicit college relationships render Native before Exact and Stretch.
 
 Shard Wave 06 accepted Bant, Grixis, Jund, and Naya after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and the frozen Bant/Grixis cross-section collisions. All four Native sets remain intentionally empty and every actual dossier renders Exact before Stretch.
+
+Wedge Wave 07 accepted Abzan, Jeskai, Mardu, and Sultai after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and Mardu's frozen cross-section collision. The shared precon provider/builder owner now supports all four wedge keys; Abzan Armor, Jeskai Striker, Mardu Surge, and Sultai Arisen reproduce from the official Wizards decklist as Native with face and featured commanders kept distinct. Fresh review classifies the two existing Jeskai/Mardu model-owned inhibitor warnings as valid architecture exceptions outside the five SIRF surfaces, retains their provenance boundary, and suppresses neither warning.
 
 ## VM-603 All-37 Checkpoint — PASS
 

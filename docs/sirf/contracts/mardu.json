@@ -1,0 +1,23 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-wedge-wave-07.md",
+  "baseline_sha": "c523529ccf60b478fa90ef691102c1d8b7784973",
+  "identity_key": "MARDU",
+  "identity_name": "Mardu",
+  "canonical_anchor": "Red-centered speed joins martial order and ruthless opportunity in a coordinated commitment to the opening.",
+  "start_here_taxonomy": ["Raid Momentum", "War-Name Oath", "Ruthless Opening"],
+  "what_to_look_for_taxonomy": ["Raid Momentum", "War-Name Oath", "Ruthless Opening"],
+  "rendered_exclusions": ["generic RWB aggression or sacrifice as Mardu proof", "Kolaghan continuity presented as Mardu continuity", "Commander products presented as Tarkir canon", "generated factions data used as evidence", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "Mardu Surge omitted from Native or its featured commander presented as the face commander"],
+  "precon_contract": { "native": ["Mardu Surge"], "exact_color_required": ["Most Wanted", "Revival Trance", "Hail, Caesar", "Vampiric Bloodlust", "Heavenly Inferno", "Ruthless Regiment", "Legends' Legacy"], "stretch_allowed": true },
+  "guardrail_warning_disposition": {
+    "classification": "VALID_ARCHITECTURE_EXCEPTION_OUTSIDE_SCOPED_SURFACES",
+    "owner": "scripts/build/build-faction-artifacts.mjs#BIOLOGICAL_PRIORS.MARDU",
+    "warning": "Waits for permission, comfort, or perfect safety when the honest opening asks for decisive action under a code.",
+    "semantic_basis": ["mardu_claim_0002", "mardu_claim_0003", "mardu_claim_0007"],
+    "scoped_surface_effect": "none",
+    "reason": "The shared faction builder intentionally contributes one model-owned biological-prior inhibitor beyond raw Placement text. Fresh review confirms that decisive action under a code is consistent with certified Mardu meaning while remaining outside the five SIRF dossier sections.",
+    "protection": "Retain the warning and provenance boundary; do not suppress it, copy it into raw Placement, or change protected Placement semantics."
+  }
+}

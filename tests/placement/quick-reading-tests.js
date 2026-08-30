@@ -2124,8 +2124,8 @@ const abzanLaneText = [
   ...abzanCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(abzanLaneText, /endures through layered defenses/);
-assert.match(abzanLaneText, /Counters Matter, Lifegain, Tokens/);
-assert.match(abzanLaneText, /Commander support, not canon proof/);
+assert.match(abzanLaneText, /Family Endurance, Ancestor Obligation, Perennial Defense/);
+assert.match(abzanLaneText, /Choose whether family endurance.*first board reset/);
 assert.doesNotMatch(
   abzanLaneText,
   /generic three-color goodstuff|Dromoka.*continuity|Exact WBG|Commander products as canon/i
@@ -2203,8 +2203,8 @@ const sultaiLaneText = [
   ...sultaiCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(sultaiLaneText, /turns graveyards, stolen resources, and hidden information into table advantage/);
-assert.match(sultaiLaneText, /Graveyard, Theft, Self-Mill/);
-assert.match(sultaiLaneText, /Commander table texture|table texture/);
+assert.match(sultaiLaneText, /Resource Conversion, Necromantic Utility, Calculated Ruthlessness/);
+assert.match(sultaiLaneText, /Choose whether resource conversion.*pays for the advantage/);
 assert.doesNotMatch(
   sultaiLaneText,
   /generic BGU goodstuff|Silumgar continuity|Dragonstorm backfill|Commander products as canon|mechanics-as-canon|Exact BGU|\/bgu\/|\/bug\/|\/ubg\/|\/gub\//i
@@ -2248,8 +2248,8 @@ const marduLaneText = [
   ...marduCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(marduLaneText, /turns early pressure, attack triggers, expendable bodies, and removal into a coordinated charge/);
-assert.match(marduLaneText, /Aggro, Tokens, Sacrifice/);
-assert.match(marduLaneText, /Commander table texture|table texture/);
+assert.match(marduLaneText, /Raid Momentum, War-Name Oath, Ruthless Opening/);
+assert.match(marduLaneText, /Choose whether raid momentum.*keep that commitment moving/);
 assert.doesNotMatch(
   marduLaneText,
   /generic RWB goodstuff|generic WBR goodstuff|Kolaghan continuity|Dragonstorm backfill|Commander products as canon|mechanics-as-canon|Exact RWB|Exact WBR|\/rwb\/|\/wbr\//i
@@ -2293,8 +2293,8 @@ const jeskaiLaneText = [
   ...jeskaiCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(jeskaiLaneText, /turns timing, protection, copies, and disciplined pressure into table texture/);
-assert.match(jeskaiLaneText, /Spellslinger, Tempo, Control/);
-assert.match(jeskaiLaneText, /Commander table texture|table texture/);
+assert.match(jeskaiLaneText, /Disciplined Tempo, Cunning In Motion, Monastery Practice/);
+assert.match(jeskaiLaneText, /Choose whether disciplined tempo.*preparation into action/);
 assert.doesNotMatch(
   jeskaiLaneText,
   /generic URW goodstuff|generic WUR goodstuff|Ojutai continuity|Dragonstorm backfill|Commander products as canon|mechanics-as-canon|Exact URW|Exact WUR|\/urw\/|\/wur\/|support-only|claim-bearing|manual-fill|raw packet|canon proof|review-gated|source_authored_review_gated|not_placement_eligible/i

@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-606 — SIRF Wedge Wave 07](done/VM-606-sirf-wedge-wave-07.md) - exception batch accepted; Abzan, Jeskai, Mardu, and Sultai passed exact taxonomy, raw provenance, official Tarkir Native reproduction, explicit guardrail-warning disposition, scoped VM-595, rendered, and accepted-control gates in one cycle each.
+
 - [VM-605 — SIRF Shard Wave 06](done/VM-605-sirf-shard-wave-06.md) - exception batch accepted; Bant, Grixis, Jund, and Naya passed exact taxonomy, raw provenance, section-role, scoped VM-595, empty-Native, rendered, and accepted-control gates in one cycle each.
 
 - [VM-604 — SIRF Strixhaven College Wave 05](done/VM-604-sirf-strixhaven-college-wave-05.md) - exception batch accepted; Prismari, Quandrix, Silverquill, and Witherbloom passed exact taxonomy, raw provenance, official precon authority, section-role, scoped VM-595, rendered, and accepted-control gates in one cycle each.

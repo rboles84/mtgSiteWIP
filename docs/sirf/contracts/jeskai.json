@@ -1,0 +1,23 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-wedge-wave-07.md",
+  "baseline_sha": "c523529ccf60b478fa90ef691102c1d8b7784973",
+  "identity_key": "JESKAI",
+  "identity_name": "Jeskai",
+  "canonical_anchor": "Blue-centered cunning turns knowledge, discipline, action, and shared form into trained insight that knows when to move.",
+  "start_here_taxonomy": ["Disciplined Tempo", "Cunning In Motion", "Monastery Practice"],
+  "what_to_look_for_taxonomy": ["Disciplined Tempo", "Cunning In Motion", "Monastery Practice"],
+  "rendered_exclusions": ["generic WUR spells or martial aesthetics as Jeskai proof", "Ojutai continuity presented as Jeskai continuity", "Commander products presented as Tarkir canon", "generated factions data used as evidence", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "Jeskai Striker omitted from Native or its featured commander presented as the face commander"],
+  "precon_contract": { "native": ["Jeskai Striker"], "exact_color_required": ["Family Matters", "Creative Energy", "Science!", "Mystic Intellect", "Timeless Wisdom", "Riders of Rohan", "Divine Convocation", "Counter Intelligence", "Planeswalker Party", "Political Puppets", "Timey-Wimey"], "stretch_allowed": true },
+  "guardrail_warning_disposition": {
+    "classification": "VALID_ARCHITECTURE_EXCEPTION_OUTSIDE_SCOPED_SURFACES",
+    "owner": "scripts/build/build-faction-artifacts.mjs#BIOLOGICAL_PRIORS.JESKAI",
+    "warning": "Mistakes practice, restraint, or study for the whole answer when trained insight is asking to move.",
+    "semantic_basis": ["jeskai_claim_0002", "jeskai_claim_0003"],
+    "scoped_surface_effect": "none",
+    "reason": "The shared faction builder intentionally contributes one model-owned biological-prior inhibitor beyond raw Placement text. Fresh review confirms that trained insight becoming action is consistent with certified Jeskai meaning while remaining outside the five SIRF dossier sections.",
+    "protection": "Retain the warning and provenance boundary; do not suppress it, copy it into raw Placement, or change protected Placement semantics."
+  }
+}
