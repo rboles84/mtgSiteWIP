@@ -32,3 +32,14 @@ Batch 02 accepted Blue, Black, Red, and Green after one repair cycle each. It re
 Guild Batch 03 accepted Azorius, Boros, Orzhov, and Simic after one cycle each. It repaired the same provenance, taxonomy, section-role, and boundary families plus sixteen unsupported Native product relationships while preserving First Flight as the evidence-backed Azorius exception.
 
 Guild Batch 04 accepted Dimir, Gruul, Selesnya, Izzet, and Golgari after one cycle each. It repaired fifteen raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and fourteen unsupported Native product relationships while preserving Token Triumph for Selesnya and Seize Control for Izzet as evidence-backed exceptions. The shared precon regression owner now protects accepted empty-Native contracts and Exact → Stretch preview order.
+
+## VM-603 All-37 Checkpoint — PASS
+
+- Baseline: `dc680a0de967ff041a4f0f5861544abc75fb71ec`.
+- Rendered collection: 37/37 identities and 74/74 desktop/mobile views; all five scoped sections present; no horizontal-overflow failure.
+- Engine reconciliation: 36 `PASS_MATCH`; Yore retains the one intentional bounded `NO_RESULT`; zero mismatch/error.
+- Accepted controls: 16/16 promoted contracts plus WUBRG, Temur, and Lorehold goldens PASS.
+- Owner correction: Turtle Power! reproduces from `data/precons/vox-mana-precons.source.json` with Leonardo, the Balance as main commander and Heroes in a Half Shell as alternate; provider matrix 155/155 and actual WUBRG render PASS.
+- VM-595: 1,376 prose units, 1,653 sentences, 26,644 words, 57 exact groups, 724 occurrences, 17 substitution groups, 11 within-dossier candidates; no new truth blocker or accepted-control regression.
+- Remaining queue: Prismari, Quandrix, Silverquill, Witherbloom; Bant, Grixis, Jund, Naya, Abzan, Jeskai, Mardu, Sultai; Dune, Glint, Ink, Witch, Yore; Colorless.
+- Detailed report: `docs/sirf/reports/2026-08-30-sirf-all-37-checkpoint.md`.

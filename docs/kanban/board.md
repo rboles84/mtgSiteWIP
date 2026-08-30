@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-603 — SIRF All-37 Periodic Checkpoint](done/VM-603-sirf-all-37-periodic-checkpoint.md) - all 37 identities and 74 desktop/mobile renders pass; 16 promoted contracts and three golden controls remain intact; fresh VM-595 metrics are recorded; and the Owner-supplied Turtle Power!/Leonardo correction reproduces through source, builders, provider fixture, and actual WUBRG render.
+
 - [VM-602 — SIRF Guild Batch 04](done/VM-602-sirf-guild-batch-04.md) - exception batch accepted; Dimir, Gruul, Selesnya, Izzet, and Golgari passed raw-provenance, exact-taxonomy, section-role, precon-relationship, VM-595, rendered, and accepted-control gates in one cycle each.
 
 - [VM-601 — SIRF Guild Batch 03](done/VM-601-sirf-guild-batch-03.md) - exception batch accepted; Azorius, Boros, Orzhov, and Simic passed raw-provenance, exact-taxonomy, section-role, precon-relationship, VM-595, rendered, and accepted-control gates in one cycle each.

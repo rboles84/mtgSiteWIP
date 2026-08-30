@@ -23,10 +23,11 @@ import {
 import { withGateAPublicState } from "../../assets/js/archscry/archscry-presentation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const BASELINE_SHA = "db9a16a40c2bfb7d0d493eacef348f19d70bb05a";
-const AUDIT_DATE = "2026-08-22";
-const THREAD_ID = "01a02cd6-bce7-7832-9558-3075c52f146a";
-const AUDIT_SLUG = `archscry-current-state-${AUDIT_DATE}`;
+const argValue = (name) => process.argv.find((arg) => arg.startsWith(`${name}=`))?.slice(name.length + 1) || "";
+const BASELINE_SHA = argValue("--baseline") || "db9a16a40c2bfb7d0d493eacef348f19d70bb05a";
+const AUDIT_DATE = argValue("--audit-date") || "2026-08-22";
+const THREAD_ID = argValue("--thread-id") || "01a02cd6-bce7-7832-9558-3075c52f146a";
+const AUDIT_SLUG = argValue("--audit-slug") || `archscry-current-state-${AUDIT_DATE}`;
 const DOC_ROOT = path.join(ROOT, "docs", "audits", AUDIT_SLUG);
 const WORKBOOK_ROOT = path.join(ROOT, "outputs", THREAD_ID, AUDIT_SLUG);
 const LARGE_ROOT = path.join(WORKBOOK_ROOT, "evidence");

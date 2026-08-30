@@ -2651,3 +2651,19 @@ SIRF v0.2 should operate like this:
 > Move to the next identity only when the current identity is trustworthy, useful, and rendered correctly.
 
 This is the deployment model for the remaining 34 identities.
+
+---
+
+# 59. VM-603 Post-Guild All-37 Checkpoint
+
+The checkpoint from accepted Batch 04 baseline `dc680a0de967ff041a4f0f5861544abc75fb71ec` passes:
+
+- 37/37 identities and 74/74 desktop/mobile Dossier Review renders collected;
+- all five scoped surfaces present with reconciled desktop/mobile taxonomy and recommendation-group counts;
+- all 16 promoted contracts and WUBRG/Temur/Lorehold golden controls pass;
+- Yore retains its intentional bounded `NO_RESULT`; 36 other engine witnesses pass exactly;
+- the fresh VM-595 producer/check passes with 1,376 prose units, 1,653 sentences, 26,644 words, 57 exact groups, 724 occurrences, 17 substitution groups, and 11 within-dossier candidates;
+- the Owner-supplied Turtle Power! source correction reproduces normally with Leonardo, the Balance as face commander and Heroes in a Half Shell only as alternate;
+- no new SIRF defect class, accepted-contract regression, or generated-artifact freshness uncertainty remains.
+
+The Ravnica guild wave is complete. Continue exception automation with the remaining 18 identities, preferably the four remaining Strixhaven colleges next while retaining Lorehold as the college golden control. Full checkpoint evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-all-37-checkpoint.md`.

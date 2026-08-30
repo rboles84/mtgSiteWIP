@@ -5,15 +5,15 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const CURRENT_BASELINE_SHA = "fbea856b2a480d722db58401598c9d8a9b704baf";
-const RENDERED_EVIDENCE_BASELINE_SHA = "db9a16a40c2bfb7d0d493eacef348f19d70bb05a";
+const CURRENT_BASELINE_SHA = "dc680a0de967ff041a4f0f5861544abc75fb71ec";
+const RENDERED_EVIDENCE_BASELINE_SHA = "dc680a0de967ff041a4f0f5861544abc75fb71ec";
 const EXPECTED_IDENTITIES = 37;
 const FRESH_CORPUS = process.argv.includes("--fresh-corpus");
 const CORPUS_FILE = path.join(
   ROOT,
   "docs",
   "audits",
-  "archscry-current-state-2026-08-30",
+  "sirf-all-37-checkpoint-2026-08-30",
   "dossier",
   "dossier-review-current-state.json",
 );
@@ -463,7 +463,7 @@ function buildAudit() {
   return {
     schema_version: "vm595-placement-language-trust-audit-v1",
     audit_id: "VM-595",
-    generated_at: "2026-08-29",
+    generated_at: "2026-08-30",
     current_production_baseline_sha: CURRENT_BASELINE_SHA,
     rendered_evidence_baseline_sha: RENDERED_EVIDENCE_BASELINE_SHA,
     rendered_evidence_path: slash(path.relative(ROOT, CORPUS_FILE)),
@@ -474,7 +474,7 @@ function buildAudit() {
       compared_owner_paths: DOSSIER_OWNER_PATHS,
       committed_owner_drift: historicalDrift,
       working_tree_owner_drift: workingDrift,
-      explanation: FRESH_CORPUS ? "A complete fresh 37/37 Dossier Review corpus was collected after the reconciled owner-path changes; historic corpus equivalence is intentionally not used." : "VM-586 browser-rendered all 37 dossiers through VM-579. No dossier owner or input changed between that exact baseline and fbea856, and the working tree contains no owner-path edit, so the complete rendered corpus is current-equivalent without duplicating the browser harness.",
+      explanation: FRESH_CORPUS ? "A complete fresh 37/37 Dossier Review corpus was collected after the reconciled owner-path changes; historic corpus equivalence is intentionally not used." : "VM-603 browser-rendered all 37 dossiers from the exact pushed Batch 04 baseline. The corpus and producer share that accepted SHA, and the working tree contains no dossier-owner edit.",
     },
     population: {
       expected_identities: EXPECTED_IDENTITIES,

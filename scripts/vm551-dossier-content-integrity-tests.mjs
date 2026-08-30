@@ -271,7 +271,7 @@ assert.equal(
 );
 assert.equal(
   presentationForFaction("WUBRG").loreRole,
-  "No universal lore role follows from Five-Color. Coalition, integration, and synthesis are optional Vox Mana readings for particular decks."
+  "Five-Color has represented tribes spanning the color pie, coalitions, magical breadth, multicolor systems, rainbow imagery, and other context-specific ideas. Vox Mana treats coalition, integration, and synthesis as possible readings rather than universal doctrine."
 );
 const greenStart = buildCommanderStartingLane({ faction: factions.G, guidance: factions.G.commander_compass });
 assert.doesNotMatch(JSON.stringify(greenStart), /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);
@@ -279,7 +279,7 @@ assert.doesNotMatch(indexSource, /identity-appropriate Commander exploration pat
 assert.doesNotMatch(commanderDossierSource, /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);
 assert.doesNotMatch(matrixSource, /controlled expression|source-bound|without adding certainty to the result/i);
 assert.match(indexSource, /EDUCATION_SURFACE_PRIORITY[\s\S]*?"start-here"[\s\S]*?"why-this-fit"[\s\S]*?"test-the-fit"[\s\S]*?"what-to-look-for"/, "glossary allocation must follow the approved page-level surface priority");
-assert.match(indexSource, /educationalTermAllocation\.has\(help\.recordId\)/, "glossary allocation should assign each canonical record once per page");
+assert.match(indexSource, /educationalTermAllocation\.get\(help\.recordId\)/, "glossary allocation should assign each canonical record to one semantic field per page");
 assert.match(indexSource, /renderedEducationalTerms\.has\(help\.recordId\)/, "glossary rendering should decorate each canonical record once per page");
 assert.doesNotMatch(indexSource, /renderEducationalText\(presentation\.[a-z_]+, "how-this-plays"\)/, "How This Plays is outside the glossary teaching surfaces");
 assert.doesNotMatch(indexSource, /Sharpen This Reading/, "valid named readings must not ask another question merely to fill an explanation card");
