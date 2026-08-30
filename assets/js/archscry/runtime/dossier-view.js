@@ -58,8 +58,7 @@ import {
   buildFlavorEchoesHtml,
   canonicalUsageCardId,
   cardVoiceAvailabilityForFaction,
-  factionCardRationaleRecords,
-  filterPreconRecommendationsForEditorialCards,
+  dedupePreconRecommendationsByProduct,
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
@@ -985,7 +984,7 @@ export function buildPreconCardHtml(precon) {
     </div>`;
 }
 
-export function buildPreconSectionHtml(preconRecommendations, excludedCardIds = new Set()) {
+export function buildPreconSectionHtml(preconRecommendations) {
   const preview = selectPreconPreviewRecommendations(preconRecommendations);
   if (!preconRecommendations?.hasAny || !preview.visible.length) {
     return `
@@ -995,7 +994,7 @@ export function buildPreconSectionHtml(preconRecommendations, excludedCardIds = 
       </div>`;
   }
 
-  const remaining = preview.remaining.filter((precon) => !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander)));
+  const remaining = preview.remaining;
   const canExpand = remaining.length > 0;
   const remainingCount = remaining.length;
   const collapsedLabel = `Display other ${remainingCount}`;
@@ -1773,33 +1772,15 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     preconCatalog: APP_STATE.preconCatalog,
     preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
   });
-  const preconCommanderIds = new Set(["nativeExact", "otherExact", "stretch"]
-    .flatMap((group) => preconRecommendations[group] || [])
-    .map((precon) => canonicalUsageCardId(precon.mainCommander)));
-  const editorialCardUsage = new Set();
-  const rationaleRecords = factionCardRationaleRecords(faction);
-  const nonPreconRationales = rationaleRecords.filter((record) => !preconCommanderIds.has(canonicalUsageCardId(record.card.name)));
-  for (const record of nonPreconRationales.length ? nonPreconRationales : rationaleRecords.slice(0, 1)) {
-    addUsageCards(editorialCardUsage, [record.card.name]);
-  }
-  for (const record of (APP_STATE.cardVoiceCatalog?.records || []).filter((entry) => entry.identity_key === faction.key)) {
-    addUsageCards(editorialCardUsage, [record.card?.name]);
-  }
-  const usablePreconRecommendations = filterPreconRecommendationsForEditorialCards(preconRecommendations, editorialCardUsage);
+  const usablePreconRecommendations = dedupePreconRecommendationsByProduct(preconRecommendations);
   const matrixFlavorSnippets = matrixFlavorSnippetsForFaction(faction);
-  const pageCardUsage = new Set();
-  const preconPreview = selectPreconPreviewRecommendations(usablePreconRecommendations);
-  const visiblePrecons = preconPreview.visible;
-  addUsageCards(pageCardUsage, visiblePrecons.map((precon) => precon.mainCommander));
-  const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: pageCardUsage });
-  addUsageCards(pageCardUsage, flavorEchoes.map((entry) => entry.card));
-  const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: pageCardUsage });
+  const editorialCardUsage = new Set();
+  const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: editorialCardUsage });
+  addUsageCards(editorialCardUsage, flavorEchoes.map((entry) => entry.card));
+  const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: editorialCardUsage });
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
-  addUsageCards(pageCardUsage, cardVoices.map((entry) => entry.card));
-  addUsageCards(pageCardUsage, preconPreview.remaining
-    .filter((precon) => !pageCardUsage.has(canonicalUsageCardId(precon.mainCommander)))
-    .map((precon) => precon.mainCommander));
-  const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, pageCardUsage);
+  addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
+  const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
   const baseMazePaths = buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy });
   const placementMazeContext = buildArchscryMazeContext({ result: reviewMode ? null : result, dossier, faction });
   const mazeContext = reviewMode

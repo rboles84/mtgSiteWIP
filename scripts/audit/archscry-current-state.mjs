@@ -28,6 +28,11 @@ const BASELINE_SHA = argValue("--baseline") || "db9a16a40c2bfb7d0d493eacef348f19
 const AUDIT_DATE = argValue("--audit-date") || "2026-08-22";
 const THREAD_ID = argValue("--thread-id") || "01a02cd6-bce7-7832-9558-3075c52f146a";
 const AUDIT_SLUG = argValue("--audit-slug") || `archscry-current-state-${AUDIT_DATE}`;
+const EXPECTED_PRODUCT_RUNTIME_DIFF = argValue("--expected-product-runtime-diff")
+  .split(",")
+  .map((value) => value.trim().replaceAll("\\", "/"))
+  .filter(Boolean)
+  .sort();
 const DOC_ROOT = path.join(ROOT, "docs", "audits", AUDIT_SLUG);
 const WORKBOOK_ROOT = path.join(ROOT, "outputs", THREAD_ID, AUDIT_SLUG);
 const LARGE_ROOT = path.join(WORKBOOK_ROOT, "evidence");
@@ -122,9 +127,9 @@ function verifyBaseline() {
   assert.equal(main, BASELINE_SHA, `local main drifted from accepted baseline: ${main}`);
   assert.equal(originMain, BASELINE_SHA, `origin/main drifted from accepted baseline: ${originMain}`);
   assert.deepEqual(aheadBehind, [0, 0], `main/origin-main ahead-behind drifted: ${aheadBehind.join("/")}`);
-  assert.deepEqual(productDirty, [], `working tree contains product-runtime drift: ${productDirty.join(", ")}`);
-  assert.deepEqual(productDrift, [], `current checkout product files differ from baseline: ${productDrift.join(", ")}`);
-  assert.ok(head === BASELINE_SHA || process.argv.includes("--allow-candidate"), `HEAD ${head} is not the accepted baseline; use --allow-candidate only for a tooling/docs candidate whose product diff is empty`);
+  assert.deepEqual([...productDirty].sort(), EXPECTED_PRODUCT_RUNTIME_DIFF, `working tree product-runtime drift differs from the declared candidate: ${productDirty.join(", ")}`);
+  assert.deepEqual([...productDrift].sort(), EXPECTED_PRODUCT_RUNTIME_DIFF, `current checkout product files differ from the declared candidate: ${productDrift.join(", ")}`);
+  assert.ok(head === BASELINE_SHA || process.argv.includes("--allow-candidate"), `HEAD ${head} is not the accepted baseline; use --allow-candidate only for a declared candidate whose product diff is exact`);
 
   return {
     baseline_sha: BASELINE_SHA,
@@ -136,6 +141,7 @@ function verifyBaseline() {
     behind: aheadBehind[1],
     dirty_paths: dirtyPaths,
     excluded_unrelated_paths: dirtyPaths.filter((file) => file.startsWith(VM578_PREFIX)),
+    expected_product_runtime_diff: EXPECTED_PRODUCT_RUNTIME_DIFF,
     product_runtime_diff_from_baseline: productDrift,
   };
 }

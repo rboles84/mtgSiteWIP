@@ -51,6 +51,18 @@ Shard Wave 06 accepted Bant, Grixis, Jund, and Naya after one cycle each. It rep
 
 Wedge Wave 07 accepted Abzan, Jeskai, Mardu, and Sultai after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and Mardu's frozen cross-section collision. The shared precon provider/builder owner now supports all four wedge keys; Abzan Armor, Jeskai Striker, Mardu Surge, and Sultai Arisen reproduce from the official Wizards decklist as Native with face and featured commanders kept distinct. Fresh review classifies the two existing Jeskai/Mardu model-owned inhibitor warnings as valid architecture exceptions outside the five SIRF surfaces, retains their provenance boundary, and suppresses neither warning.
 
+## VM-607 Post-Wave-07 All-37 Checkpoint — PASS
+
+- Baseline: `232cd84168bd201f8ea0ed57bfd37f4bcb139896`.
+- Shared repair: products de-duplicate by stable catalog slug in Native → Exact → Stretch precedence; editorial card identity is no longer allowed to erase a product from Precon Starting Points.
+- Blast radius: 155 products inspected; eight suppressed products restored, including Jund `Power Hungry` and WUBRG `Eldrazi Incursion`.
+- Rendered collection: 37/37 identities, 74/74 full-page desktop/mobile views, all five sections, no overflow, no duplicate products, exact desktop/mobile relationship parity.
+- Accepted controls: 28/28 promoted contracts and WUBRG / Temur / Lorehold goldens PASS.
+- Engine: 36 `PASS_MATCH`, bounded Yore `NO_RESULT`, zero mismatch/error.
+- VM-595: 1,383 prose units, 1,642 sentences, 26,736 words, 53 exact groups, 702 occurrences, 17 substitution groups, and 8 within-dossier candidates.
+- Remaining queue: Dune, Glint, Ink, Witch, Yore, and Colorless. Wave 08 begins automatically with the five four-color identities.
+- Detailed report: `docs/sirf/reports/2026-08-30-sirf-post-wave-07-all-37-checkpoint.md`.
+
 ## VM-603 All-37 Checkpoint — PASS
 
 - Baseline: `dc680a0de967ff041a4f0f5861544abc75fb71ec`.

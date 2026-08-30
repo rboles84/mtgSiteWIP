@@ -5,18 +5,17 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const CURRENT_BASELINE_SHA = "dc680a0de967ff041a4f0f5861544abc75fb71ec";
-const RENDERED_EVIDENCE_BASELINE_SHA = "dc680a0de967ff041a4f0f5861544abc75fb71ec";
+const argValue = (name) => process.argv.find((arg) => arg.startsWith(`${name}=`))?.slice(name.length + 1) || "";
+const CURRENT_BASELINE_SHA = argValue("--baseline") || "dc680a0de967ff041a4f0f5861544abc75fb71ec";
+const RENDERED_EVIDENCE_BASELINE_SHA = argValue("--evidence-baseline") || CURRENT_BASELINE_SHA;
+const EXPECTED_DOSSIER_OWNER_DIFF = argValue("--expected-dossier-owner-diff")
+  .split(",")
+  .map((value) => value.trim().replaceAll("\\", "/"))
+  .filter(Boolean)
+  .sort();
 const EXPECTED_IDENTITIES = 37;
 const FRESH_CORPUS = process.argv.includes("--fresh-corpus");
-const CORPUS_FILE = path.join(
-  ROOT,
-  "docs",
-  "audits",
-  "sirf-all-37-checkpoint-2026-08-30",
-  "dossier",
-  "dossier-review-current-state.json",
-);
+const CORPUS_FILE = path.join(ROOT, argValue("--corpus") || "docs/audits/sirf-all-37-checkpoint-2026-08-30/dossier/dossier-review-current-state.json");
 const OUTPUT_FILE = path.join(ROOT, "docs", "research", "placement-language-trust-audit.json");
 const DOSSIER_OWNER_PATHS = [
   "archscry",
@@ -402,8 +401,8 @@ function verifyRepositoryAndCorpus() {
     .split(/\r?\n/).map(slash).filter(Boolean);
   if (!FRESH_CORPUS) {
     assert.deepEqual(historicalDrift, [], `dossier ownership drift invalidates VM-586 rendered evidence: ${historicalDrift.join(", ")}`);
-    assert.deepEqual(workingDrift, [], `working-tree dossier ownership drift invalidates the frozen audit population: ${workingDrift.join(", ")}`);
   }
+  assert.deepEqual([...workingDrift].sort(), EXPECTED_DOSSIER_OWNER_DIFF, `working-tree dossier ownership drift differs from the declared audit candidate: ${workingDrift.join(", ")}`);
 
   const corpus = readJson(CORPUS_FILE);
   assert.ok(FRESH_CORPUS || corpus.audit_baseline_sha === RENDERED_EVIDENCE_BASELINE_SHA);

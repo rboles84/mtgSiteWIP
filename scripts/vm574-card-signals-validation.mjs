@@ -4,8 +4,6 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   buildCommanderStarterCards,
-  buildPreconRecommendations,
-  selectPreconPreviewRecommendations,
 } from "../assets/js/archscry/commander-dossier.js";
 import { normalizeArchscryMediaKey } from "./archscry-media-projection-core.mjs";
 
@@ -13,8 +11,6 @@ globalThis.VM_SESSION = globalThis.VM_SESSION || {};
 const {
   addUsageCards,
   canonicalUsageCardId,
-  factionCardRationaleRecords,
-  filterPreconRecommendationsForEditorialCards,
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
@@ -180,42 +176,11 @@ function indexAppState(mediaIndex, cardRationaleCatalog, cardVoiceCatalog, preco
 }
 
 function pageUsageForFaction(faction, dossierStarterCards) {
-  const dossier = {
-    faction,
-    targetFactionKey: faction.key,
-    starterCards: dossierStarterCards,
-  };
-  const preconRecommendations = buildPreconRecommendations({
-    faction,
-    dossier,
-    readingTagRefs: [],
-    starterProfile: {},
-    preconCatalog: APP_STATE.preconCatalog,
-    preconThemeTaxonomy: APP_STATE.preconThemeTaxonomy,
-  });
-  const preconCommanderIds = new Set(["nativeExact", "otherExact", "stretch"]
-    .flatMap((group) => preconRecommendations[group] || [])
-    .map((precon) => canonicalUsageCardId(precon.mainCommander)));
-  const editorialCardUsage = new Set();
-  const rationaleRecords = factionCardRationaleRecords(faction);
-  const nonPreconRationales = rationaleRecords.filter((record) => !preconCommanderIds.has(canonicalUsageCardId(record.card.name)));
-  for (const record of nonPreconRationales.length ? nonPreconRationales : rationaleRecords.slice(0, 1)) {
-    addUsageCards(editorialCardUsage, [record.card.name]);
-  }
-  for (const record of (APP_STATE.cardVoiceCatalog?.records || []).filter((entry) => entry.identity_key === faction.key)) {
-    addUsageCards(editorialCardUsage, [record.card?.name]);
-  }
-  const usablePreconRecommendations = filterPreconRecommendationsForEditorialCards(preconRecommendations, editorialCardUsage);
-  const preconPreview = selectPreconPreviewRecommendations(usablePreconRecommendations);
   const pageCardUsage = new Set();
-  addUsageCards(pageCardUsage, preconPreview.visible.map((precon) => precon.mainCommander));
   const flavorEchoes = selectApprovedCardRationales({ faction, excludedCardIds: pageCardUsage });
   addUsageCards(pageCardUsage, flavorEchoes.map((entry) => entry.card));
   const cardVoices = selectApprovedCardVoices({ faction, excludedCardIds: pageCardUsage });
   addUsageCards(pageCardUsage, cardVoices.map((entry) => entry.card));
-  addUsageCards(pageCardUsage, preconPreview.remaining
-    .filter((precon) => !pageCardUsage.has(canonicalUsageCardId(precon.mainCommander)))
-    .map((precon) => precon.mainCommander));
   return {
     pageCardUsage,
     visibleStarterCards: filterStarterCardsForUsage(dossierStarterCards, pageCardUsage),

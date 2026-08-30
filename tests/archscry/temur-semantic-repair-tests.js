@@ -8,7 +8,7 @@ import { buildPreconRecommendations, selectPreconPreviewRecommendations } from "
 import { renderPlayerCopy } from "../../assets/js/archscry/runtime/render-utils.js";
 
 globalThis.VM_SESSION = {};
-const { canonicalUsageCardId, filterPreconRecommendationsForEditorialCards } = await import("../../assets/js/archscry/runtime/content.js");
+const { canonicalUsageCardId, dedupePreconRecommendationsByProduct } = await import("../../assets/js/archscry/runtime/content.js");
 const { buildPreconSectionHtml, preconRationaleForDisplay } = await import("../../assets/js/archscry/runtime/dossier-view.js");
 
 const readJson = (path) => JSON.parse(fs.readFileSync(path, "utf8"));
@@ -66,13 +66,12 @@ assert.equal(temurPrecons.nativeExact[0]?.sourcePage, "https://magic.wizards.com
 assert.ok(temurPrecons.otherExact.every((precon) => precon.deckName !== "Temur Roar"), "Native Temur Roar must not fall into the generic exact-color group");
 assert.ok(temurPrecons.stretch.every((precon) => precon.deckName !== "Temur Roar"), "Native Temur Roar must not fall into the nearby stretch group");
 assert.equal(selectPreconPreviewRecommendations(temurPrecons).visible[0]?.deckName, "Temur Roar", "Native Temur Roar must lead the rendered precon preview");
-const renderedTemurPrecons = filterPreconRecommendationsForEditorialCards(
-  temurPrecons,
-  new Set([canonicalUsageCardId("Eshki, Temur's Roar")])
-);
+const temurEditorialCardIds = new Set([canonicalUsageCardId("Eshki, Temur's Roar")]);
+assert.ok(temurEditorialCardIds.has(canonicalUsageCardId(temurPrecons.nativeExact[0]?.mainCommander)), "the regression fixture must retain the cross-role Eshki overlap");
+const renderedTemurPrecons = dedupePreconRecommendationsByProduct(temurPrecons);
 assert.equal(renderedTemurPrecons.nativeExact[0]?.deckName, "Temur Roar", "the real renderer path must retain Native Temur Roar when editorial cards share Eshki");
 assert.equal(selectPreconPreviewRecommendations(renderedTemurPrecons).visible[0]?.deckName, "Temur Roar", "the real renderer path must lead with Native Temur Roar");
-const renderedTemurPreconHtml = buildPreconSectionHtml(renderedTemurPrecons, new Set([canonicalUsageCardId("Eshki, Temur's Roar")]));
+const renderedTemurPreconHtml = buildPreconSectionHtml(renderedTemurPrecons);
 assert.match(renderedTemurPreconHtml, /data-precon-group="nativeExact"[\s\S]*?Native fit[\s\S]*?Temur Roar[\s\S]*?Eshki, Temur&#039;s Roar/);
 assert.ok(renderedTemurPreconHtml.indexOf("Temur Roar") < renderedTemurPreconHtml.indexOf("Mirror Mastery"), "the rendered precon HTML must place Native Temur Roar before exact-color Mirror Mastery");
 assert.equal((renderedTemurPreconHtml.match(/class="precon-title">Temur Roar</g) || []).length, 1, "Temur Roar must render exactly once");

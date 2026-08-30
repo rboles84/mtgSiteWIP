@@ -234,15 +234,16 @@ assert.equal(buildFlavorEchoesHtml([{ card: genericAzoriusCard }], factions.WU),
 assert.match(indexSource, /dossier\/card-rationale-catalog\.json/);
 assert.match(indexSource, /dossier\/card-voice-catalog\.json/);
 assert.match(indexSource, /Cards That Sound Like This/);
-assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
+assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: editorialCardUsage \}\)/);
 assert.match(indexSource, /Number\(left\.slot \|\| 1\) - Number\(right\.slot \|\| 1\)/, "card voices must preserve explicit slot order before presentation priority");
 assert.match(indexSource, /cardVoiceAvailabilityForFaction\(\{ faction \}\)/, "card voice resolution must expose an explicit availability state");
 assert.match(indexSource, /data-card-voice-unavailable/, "missing or malformed card voice authority must render an intentional unavailable state");
 assert.equal(CARD_VOICE_SECTION_INTRO, "Lines of Magic flavor that sound like this reading.", "card voice introduction must remain accurate for one- and two-slot states");
 assert.match(indexSource, /CARD_VOICE_SECTION_INTRO/, "runtime must consume the shared review/display copy contract");
-assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: pageCardUsage \}\)/);
-assert.match(indexSource, /visiblePrecons\.map\(\(precon\) => precon\.mainCommander\)/, "precon commanders must reserve their canonical card identity first");
-assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, pageCardUsage\)/, "Card Signal References must consume the page-level usage plan");
+assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: editorialCardUsage \}\)/);
+assert.match(indexSource, /dedupePreconRecommendationsByProduct\(preconRecommendations\)/, "precon products must de-duplicate by stable product identity before rendering");
+assert.doesNotMatch(indexSource, /visiblePrecons\.map\(\(precon\) => precon\.mainCommander\)/, "precon commanders must not reserve editorial card identity across section roles");
+assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, editorialCardUsage\)/, "Card Signal References must consume only the editorial-card usage plan");
 
 assert.match(indexSource, /Why This Fit/);
 assert.match(indexSource, /Test the Fit/);

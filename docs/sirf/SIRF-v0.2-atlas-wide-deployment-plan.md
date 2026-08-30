@@ -2667,3 +2667,21 @@ The checkpoint from accepted Batch 04 baseline `dc680a0de967ff041a4f0f5861544abc
 - no new SIRF defect class, accepted-contract regression, or generated-artifact freshness uncertainty remains.
 
 The Ravnica guild wave is complete. Continue exception automation with the remaining 18 identities, preferably the four remaining Strixhaven colleges next while retaining Lorehold as the college golden control. Full checkpoint evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-all-37-checkpoint.md`.
+
+---
+
+# 60. VM-607 Post-Wave-07 All-37 Checkpoint
+
+The checkpoint from accepted Wave 07 baseline `232cd84168bd201f8ea0ed57bfd37f4bcb139896` passes after one Owner-authorized shared repair:
+
+- 37/37 identities and 74/74 full-page desktop/mobile Dossier Review renders were freshly recollected;
+- all five scoped surfaces are present, with zero horizontal overflow, zero duplicate product names, and exact desktop/mobile product relationship parity;
+- all 28 promoted SIRF contracts and WUBRG/Temur/Lorehold goldens pass;
+- Jund renders all six required Exact products, including `Power Hungry`, while Prossh remains available as a distinct editorial card;
+- precon products now de-duplicate only by stable catalog slug, in Native → Exact → Stretch precedence; face or alternate commander overlap with editorial cards cannot remove a product;
+- the full 155-product blast radius and eight restored products are covered by systemic regression tests;
+- the current-state producer passes with 36 `PASS_MATCH`, bounded Yore `NO_RESULT`, and zero mismatch/error;
+- the fresh VM-595 producer/check passes with 1,383 prose units, 1,642 sentences, 26,736 words, 53 exact groups, 702 occurrences, 17 substitution groups, and 8 within-dossier candidates;
+- no Placement, scoring, routing, qualification, identity semantics, product facts, generated precon artifact, or CRIT-001 truth changed.
+
+Continue exception automation with Wave 08: Dune, Glint, Ink, Witch, and Yore. Colorless remains queued after that wave. Full evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-post-wave-07-all-37-checkpoint.md`.

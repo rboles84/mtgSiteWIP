@@ -50,6 +50,7 @@
     "test:source-generated": "node scripts/validate/validate-source-generated-guardrails.mjs",
     "test:identity-dossier-content": "node scripts/build/build-identity-dossier-content-catalog.mjs --check",
     "test:wubrg-semantic-repair": "node tests/archscry/wubrg-semantic-repair-tests.js",
+    "test:sirf-precon-composer": "node tests/archscry/sirf-precon-composer-tests.js",
     "test:sirf-all-37-checkpoint": "node tests/archscry/sirf-all-37-checkpoint-tests.js",
     "test:semantic-readiness": "node tests/semantic/semantic-readiness-tests.js && node tests/semantic/semantic-candidate-scope-tests.js && node scripts/validate/validate-semantic-readiness.mjs --fixtures && node scripts/build/build-semantic-readiness-provenance.mjs --check",
     "test:bias": "node tests/placement/quick-reading-bias.js",

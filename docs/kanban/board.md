@@ -43,6 +43,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -56,6 +57,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-607 — SIRF Post-Wave-07 All-37 Checkpoint](done/VM-607-sirf-post-wave-07-periodic-checkpoint.md) - Owner-authorized shared product-slug composer repair restored eight cross-role products, including Jund `Power Hungry`; 37/74 fresh renders, 28 contracts, three goldens, current-state reconciliation, and VM-595 all pass.
 - [VM-606 — SIRF Wedge Wave 07](done/VM-606-sirf-wedge-wave-07.md) - exception batch accepted; Abzan, Jeskai, Mardu, and Sultai passed exact taxonomy, raw provenance, official Tarkir Native reproduction, explicit guardrail-warning disposition, scoped VM-595, rendered, and accepted-control gates in one cycle each.
 
 - [VM-605 — SIRF Shard Wave 06](done/VM-605-sirf-shard-wave-06.md) - exception batch accepted; Bant, Grixis, Jund, and Naya passed exact taxonomy, raw provenance, section-role, scoped VM-595, empty-Native, rendered, and accepted-control gates in one cycle each.

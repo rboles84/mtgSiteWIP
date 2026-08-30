@@ -131,16 +131,25 @@ export function addUsageCards(target, cards = []) {
   return target;
 }
 
-export function filterPreconRecommendationsForEditorialCards(preconRecommendations = {}, excludedCardIds = new Set()) {
+export const PRECON_RELATIONSHIP_GROUP_ORDER = Object.freeze(["nativeExact", "otherExact", "stretch"]);
+
+export function canonicalPreconProductId(precon) {
+  return String(precon?.slug || "").trim();
+}
+
+export function dedupePreconRecommendationsByProduct(preconRecommendations = {}) {
   const filtered = { ...preconRecommendations };
-  for (const group of ["nativeExact", "otherExact", "stretch"]) {
-    filtered[group] = group === "nativeExact"
-      ? [...(preconRecommendations[group] || [])]
-      : (preconRecommendations[group] || []).filter((precon) => (
-          !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander))
-        ));
+  const seenProductIds = new Set();
+  for (const group of PRECON_RELATIONSHIP_GROUP_ORDER) {
+    filtered[group] = (preconRecommendations[group] || []).filter((precon) => {
+      const productId = canonicalPreconProductId(precon);
+      if (!productId) return true;
+      if (seenProductIds.has(productId)) return false;
+      seenProductIds.add(productId);
+      return true;
+    });
   }
-  filtered.hasAny = ["nativeExact", "otherExact", "stretch"].some((group) => filtered[group].length > 0);
+  filtered.hasAny = PRECON_RELATIONSHIP_GROUP_ORDER.some((group) => filtered[group].length > 0);
   return filtered;
 }
 
