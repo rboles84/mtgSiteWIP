@@ -2820,7 +2820,7 @@
         "test_the_fit": {
           "positive_self_check": "This may fit if you study before committing, build models, practice deliberately, and want tools or education to overcome starting limits.",
           "tension_failure_mode": "Watch for this tension: Blue challenges Red's immediate feeling and Green's acceptance of the given, while Black asks whether knowledge produces usable agency.",
-          "certified_boundary_self_check": "This is less likely to fit when if instinct, fate, or the present impulse should be final and further understanding only delays truth, mono-Blue is a false center."
+          "certified_boundary_self_check": "Mono-Blue is a false center if instinct, fate, or the present impulse should be final and further understanding only delays truth."
         },
         "how_this_plays": {
           "role": "The patient planner",
@@ -2835,26 +2835,26 @@
             "item_id": "lookfor_u_1_draw_go_control",
             "title": "Draw-Go Control",
             "copy": "Hold mana, gather cards, answer threats on the stack, and win once the table runs out of clean openings.",
-            "source_locator": "data/factions.json#/factions/U/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_u_2_spellslinger_tokens",
             "title": "Spellslinger Tokens",
             "copy": "Turn instants and sorceries into repeatable pressure while keeping interaction available.",
-            "source_locator": "data/factions.json#/factions/U/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_u_3_artifacts_and_clones",
             "title": "Artifacts and Clones",
             "copy": "Use tools, copies, and engines to turn observed structures into your own advantage.",
-            "source_locator": "data/factions.json#/factions/U/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "081decb888fc287ac15353d36c5b11a8e04a6ea21fd549bdaccb792ac2613baf",
+      "copy_sha256": "2521abd1e63506f80dd59a4fd893bc2e0d8ef527cd228af535cc55e4d7c9751e",
       "provenance": {
         "certified_profile": "data/raw-factions/blue/blue.profile.json",
         "certified_claims": [
@@ -2934,7 +2934,7 @@
         "test_the_fit": {
           "positive_self_check": "This may fit if you accept hard costs, refuse to wait for fairness, and convert resources, loss, loyalty, or death into self-determination.",
           "tension_failure_mode": "Watch for this tension: Black challenges White's group-first morality and Green's destiny/acceptance, while Red shares individualism but rejects excessive calculation.",
-          "certified_boundary_self_check": "This is less likely to fit when if power must never serve the self, paying a cost is inherently corrupt, or dependence is always more virtuous than agency, mono-Black is a false center."
+          "certified_boundary_self_check": "Mono-Black is a false center if power must never serve the self, paying a cost is inherently corrupt, or dependence is always more virtuous than agency."
         },
         "how_this_plays": {
           "role": "The resource converter",
@@ -2949,26 +2949,26 @@
             "item_id": "lookfor_b_1_life_payment_engines",
             "title": "Life Payment Engines",
             "copy": "Spend life as fuel, draw deeper than the table expects, and convert risk into reach.",
-            "source_locator": "data/factions.json#/factions/B/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_b_2_aristocrats_and_sacrifice",
             "title": "Aristocrats and Sacrifice",
             "copy": "Turn creatures into cards, drain, removal, and inevitability through repeated exchange.",
-            "source_locator": "data/factions.json#/factions/B/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_b_3_reanimator_control",
             "title": "Reanimator Control",
             "copy": "Treat the graveyard as a second resource line and make death feel temporary.",
-            "source_locator": "data/factions.json#/factions/B/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "8e10d7db3d22f06985f53012bae37459a2cef43cd59eaff565f0f3a053b4eaf1",
+      "copy_sha256": "637cf964e8c9d7b0c6cb418bd32ee0d85d57c69190b7d45360139baee70ab034",
       "provenance": {
         "certified_profile": "data/raw-factions/black/black.profile.json",
         "certified_claims": [
@@ -3048,7 +3048,7 @@
         "test_the_fit": {
           "positive_self_check": "This may fit if you trust emotion as information, act before overthinking kills the moment, and value freedom from artificial restraint.",
           "tension_failure_mode": "Watch for this tension: Red challenges White's security and Blue's deliberation, while Black can sharpen its self-interest and Green can root its intuition.",
-          "certified_boundary_self_check": "This is less likely to fit when if every variable must be approved, feeling is unreliable by definition, or safety always outranks the living moment, mono-Red is a false center."
+          "certified_boundary_self_check": "Mono-Red is a false center if every variable must be approved, feeling is unreliable by definition, or safety always outranks the living moment."
         },
         "how_this_plays": {
           "role": "The first mover",
@@ -3063,26 +3063,26 @@
             "item_id": "lookfor_r_1_burn_and_damage",
             "title": "Burn and Damage",
             "copy": "Turn feeling into direct pressure with clean damage, fast clocks, and threat math the table cannot ignore.",
-            "source_locator": "data/factions.json#/factions/R/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_r_2_haste_aggro",
             "title": "Haste Aggro",
             "copy": "Commit quickly, attack before the table stabilizes, and make the first honest move matter.",
-            "source_locator": "data/factions.json#/factions/R/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_r_3_impulse_draw_and_treasures",
             "title": "Impulse Draw and Treasures",
             "copy": "Use cards and mana in the moment, converting temporary windows into explosive Commander turns.",
-            "source_locator": "data/factions.json#/factions/R/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "4b313f582a529bd014cbba71ed5af14393170ad6b9d399bdc115eed1a749de00",
+      "copy_sha256": "e6cacd32d92832d700b036e43c9f9cffec1200bbe074fc921789138580901ca8",
       "provenance": {
         "certified_profile": "data/raw-factions/red/red.profile.json",
         "certified_claims": [
@@ -3162,7 +3162,7 @@
         "test_the_fit": {
           "positive_self_check": "This may fit if you trust organic growth, old patterns, land, kinship, patience, and the living order more than redesign for its own sake.",
           "tension_failure_mode": "Watch for this tension: Green challenges Blue's nurture/engineering and Black's free-will domination, while White shares responsibility and Red shares intuition.",
-          "certified_boundary_self_check": "This is less likely to fit when if every limit must be engineered away, life and land are merely fuel, or belonging is only a constraint on individual will, mono-Green is a false center."
+          "certified_boundary_self_check": "Mono-Green is a false center if every limit must be engineered away, life and land are merely fuel, or belonging is only a constraint on individual will."
         },
         "how_this_plays": {
           "role": "The rooted grower",
@@ -3177,26 +3177,26 @@
             "item_id": "lookfor_g_1_ramp_and_big_mana",
             "title": "Ramp and Big Mana",
             "copy": "Root into lands, widen your resource base, and let patience become overwhelming scale.",
-            "source_locator": "data/factions.json#/factions/G/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_g_2_apex_creatures",
             "title": "Apex Creatures",
             "copy": "Cast massive living threats, trample through stalled boards, and make physical presence answer the table.",
-            "source_locator": "data/factions.json#/factions/G/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_g_3_landfall_and_creature_value",
             "title": "Landfall and Creature Value",
             "copy": "Treat land drops and creatures as a living engine that draws cards, grows boards, and keeps flourishing.",
-            "source_locator": "data/factions.json#/factions/G/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "4bf4b8a2d92b9ed72936762c1f2a60827727c7a000f9f678b9d14eb8c0557433",
+      "copy_sha256": "c8da238afbfc138971883929b8cf52fad5fbbd837c62509b1376296be82633d6",
       "provenance": {
         "certified_profile": "data/raw-factions/green/green.profile.json",
         "certified_claims": [

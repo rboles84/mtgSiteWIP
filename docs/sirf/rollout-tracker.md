@@ -6,10 +6,16 @@
 | TEMUR | wedge | ACCEPTED_GOLDEN | 0 | 0 | 0 | 0 | complete | PASS | baseline | accepted | golden |
 | LOREHOLD | college | ACCEPTED_GOLDEN | 0 | 0 | 0 | 0 | complete | PASS | baseline | accepted | golden |
 | W | mono-color | ACCEPTED | 0 | 0 | 2 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
+| U | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| B | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| R | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| G | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | BR | Ravnica guild | ACCEPTED | 0 | 1 | 3 | 0 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
 | ESPER | shard | ACCEPTED | 0 | 0 | 3 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
-| Remaining 31 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
+| Remaining 27 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
 
 Batch 01 also repaired one shared P1 generated-catalog freshness defect: optional runtime JSON now uses the existing `no-store` fetch policy. The repair changed no accepted identity semantics and all three golden controls pass.
 
 Future batches must pass the mandatory rendered Cross-Section Redundancy Gate and record a section-role matrix before commit or push. VM-595 remains a detector; low similarity alone does not establish section-role separation.
+
+Batch 02 accepted Blue, Black, Red, and Green after one repair cycle each. It repaired raw-provenance direction, exact taxonomy fidelity, Start Here / How This Plays role separation, and the mono boundary grammar family without changing Placement or accepted-control semantics.

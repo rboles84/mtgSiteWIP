@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-600 — SIRF Remaining Mono-Colors](done/VM-600-sirf-remaining-mono-colors.md) - exception-based batch accepted; Blue, Black, Red, and Green passed exact taxonomy, rendered section-role, recommendation, VM-595, generated-freshness, and accepted-control gates in one cycle each.
+
 - [VM-599 — SIRF Diversity Batch 01](done/VM-599-sirf-diversity-batch-01.md) - Owner Accepted and validated; White, Rakdos, and Esper contracts are promoted, the mandatory rendered Cross-Section Redundancy Gate governs exception-based atlas automation, and unresolved redundancy now blocks batch commit/push.
 
 - [VM-597 — Temur Semantic Repair](done/VM-597-temur-semantic-repair.md) - Owner Accepted; Temur's provenance, optional-lens boundary, Native Fit precon ordering, composed dossier copy, and source-derived precon game-plan cues are complete. Placement and WUBRG work remain protected.
