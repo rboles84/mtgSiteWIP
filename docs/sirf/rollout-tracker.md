@@ -11,11 +11,17 @@
 | R | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | G | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | BR | Ravnica guild | ACCEPTED | 0 | 1 | 3 | 0 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
+| WU | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| WR | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| WB | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| UG | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | ESPER | shard | ACCEPTED | 0 | 0 | 3 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
-| Remaining 27 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
+| Remaining 23 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
 
 Batch 01 also repaired one shared P1 generated-catalog freshness defect: optional runtime JSON now uses the existing `no-store` fetch policy. The repair changed no accepted identity semantics and all three golden controls pass.
 
 Future batches must pass the mandatory rendered Cross-Section Redundancy Gate and record a section-role matrix before commit or push. VM-595 remains a detector; low similarity alone does not establish section-role separation.
 
 Batch 02 accepted Blue, Black, Red, and Green after one repair cycle each. It repaired raw-provenance direction, exact taxonomy fidelity, Start Here / How This Plays role separation, and the mono boundary grammar family without changing Placement or accepted-control semantics.
+
+Guild Batch 03 accepted Azorius, Boros, Orzhov, and Simic after one cycle each. It repaired the same provenance, taxonomy, section-role, and boundary families plus sixteen unsupported Native product relationships while preserving First Flight as the evidence-backed Azorius exception.

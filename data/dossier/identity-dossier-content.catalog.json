@@ -8,7 +8,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you trust documented rules, precedent, enforceable fairness, and institutions that prevent harm before crisis.",
         "tension_failure_mode": "Watch for this tension: It distrusts private exceptions, impulsive intervention, and justice that cannot be made legible to everyone.",
-        "certified_boundary_self_check": "This is less likely to fit when a successful rule-breaker, secret broker, or battlefield protector is not Azorius when public procedure is treated as disposable."
+        "certified_boundary_self_check": "A rule-breaker, secret broker, or battlefield protector is not necessarily Azorius; the distinguishing question is whether public procedure remains the accountable method."
       },
       "how_this_plays": {
         "role": "The arbiter",
@@ -20,25 +20,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_wu_1_draw_go_control",
-          "title": "Draw-Go Control",
-          "copy": "Hold up mana every turn. Counter threats at instant speed. Win with one resilient finisher after the opponent exhausts their resources.",
-          "source_locator": "data/factions.json#/factions/WU/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wu_1_public_rule_setting",
+          "title": "Public Rule-Setting",
+          "copy": "Use visible taxes and restrictions to establish which actions remain available, with the rule serving an accountable table plan rather than delay for its own sake.",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0021",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_wu_2_prison_control",
-          "title": "Prison Control",
-          "copy": "Deploy asymmetric restrictions - Thalia, Detention Sphere, Rule of Law - that prevent opponents from executing their game plan.",
-          "source_locator": "data/factions.json#/factions/WU/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wu_2_procedural_permission",
+          "title": "Procedural Permission",
+          "copy": "Hold mana and answer the spell that changes the table, making careful systems and enforceable procedure the reason for restraint.",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0020",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_wu_3_tempo_spirits",
-          "title": "Tempo / Spirits",
-          "copy": "Flash threats and counterspells in the same turn. Deploy a creature, protect it, answer opposition with open mana.",
-          "source_locator": "data/factions.json#/factions/WU/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wu_3_timed_enforcement",
+          "title": "Timed Enforcement",
+          "copy": "Act at the declared window, protect the board that follows the rule, and use Addendum-like timing as procedural texture instead of generic control proof.",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0024",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -233,7 +233,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you treat deals, hierarchy, status, repayment, and long consequences as real sources of power.",
         "tension_failure_mode": "Watch for this tension: It distrusts obligation-free sentiment, chaotic power that cannot be collected, and impartial rules that ignore available leverage.",
-        "certified_boundary_self_check": "This is less likely to fit when lifegain, drain, sacrifice, taxes, or recursion are not Orzhov without debt, deal, tithe, hierarchy, or enforceable obligation."
+        "certified_boundary_self_check": "Lifegain, drain, sacrifice, taxes, and recursion do not establish Orzhov by themselves; look for debt, deals, tithes, hierarchy, or enforceable obligation."
       },
       "how_this_plays": {
         "role": "The creditor",
@@ -248,22 +248,22 @@
           "item_id": "lookfor_wb_1_obligation_engines",
           "title": "Obligation Engines",
           "copy": "Sacrifice or death-trigger shells can be Orzhov-flavored only when framed as contract, repayment, afterlife play pattern, or institutional leverage rather than automatic lore proof.",
-          "source_locator": "data/factions.json#/factions/WB/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0018",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_wb_2_payment_pressure",
           "title": "Payment Pressure",
           "copy": "Taxing, drain, and control cards are Commander play pattern; they need debt, deal, payment, or hierarchy framing before they become Orzhov-adjacent.",
-          "source_locator": "data/factions.json#/factions/WB/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0020",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_wb_3_afterlife_tokens",
-          "title": "Afterlife Tokens",
-          "copy": "Spirit or token play echoes Orzhov only when tied to afterlife mechanics and obligation context, not all death or spirit decks.",
-          "source_locator": "data/factions.json#/factions/WB/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wb_3_afterlife_accounts",
+          "title": "Afterlife Accounts",
+          "copy": "Use Afterlife tokens when death keeps an obligation in circulation; generic Spirit or token play does not open an Orzhov account by itself.",
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_006",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -368,7 +368,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you study organisms, iterate pragmatically, and accept biological intervention when it helps life adapt, heal, or endure.",
         "tension_failure_mode": "Watch for this tension: It resists untouched-nature absolutism, disposable-life engineering, and abstraction detached from living consequences.",
-        "certified_boundary_self_check": "This is less likely to fit when counters, ramp, card draw, lands, or optimization are not Simic without biological study, adaptation, medicine, clade, or organism-level change."
+        "certified_boundary_self_check": "Counters, ramp, card draw, lands, and optimization do not establish Simic by themselves; look for biological study, adaptation, medicine, clades, or organism-level change."
       },
       "how_this_plays": {
         "role": "The adapter",
@@ -383,22 +383,22 @@
           "item_id": "lookfor_ug_1_living_system_value",
           "title": "Living-System Value",
           "copy": "Ramp, card draw, and creature scale are Commander-adjacent tools; they need organism-level adaptation context before they read as Simic identity.",
-          "source_locator": "data/factions.json#/factions/UG/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_007",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_ug_2_biological_adaptation",
           "title": "Biological Adaptation",
           "copy": "+1/+1 counters, evolve, graft, proliferate, mutate, and Adapt are play pattern only unless they express biological improvement.",
-          "source_locator": "data/factions.json#/factions/UG/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_006",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_ug_3_clade_research_and_pressure_response",
-          "title": "Clade Research And Pressure Response",
+          "title": "Clade Research and Pressure Response",
           "copy": "Creature experimentation fits Simic when it stays tied to clades, medicine, living systems, and adaptation under pressure.",
-          "source_locator": "data/factions.json#/factions/UG/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_0019",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -413,7 +413,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you want visible harm answered now, value loyalty and moral clarity, and accept discipline when it makes protection effective.",
         "tension_failure_mode": "Watch for this tension: It resists bureaucratic delay, moral ambiguity used as an excuse, and rules that shield the wrong people.",
-        "certified_boundary_self_check": "This is less likely to fit when combat, equipment, soldiers, or righteous anger are not Boros when force is no longer answerable to protection and public duty."
+        "certified_boundary_self_check": "Combat, equipment, soldiers, and righteous anger do not establish Boros by themselves; force becomes Boros-specific when it serves accountable public protection and team duty."
       },
       "how_this_plays": {
         "role": "The responder",
@@ -425,25 +425,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_wr_1_go_wide_aggro",
-          "title": "Go-Wide Aggro",
-          "copy": "Raise the Alarm, Legion's Landing, Rally the Peasants. Flood the board with tokens and win through an alpha strike.",
-          "source_locator": "data/factions.json#/factions/WR/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wr_1_battalion_formation",
+          "title": "Battalion Formation",
+          "copy": "Attack as a coordinated unit so the formation, not generic speed, turns combat into accountable public pressure.",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_012",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_wr_2_burn_heroic",
-          "title": "Burn / Heroic",
-          "copy": "Monastery Swiftspear and Goblin Guide backed by Lightning Bolt and Boros Charm - the fastest possible clock.",
-          "source_locator": "data/factions.json#/factions/WR/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wr_2_mentor_the_front_line",
+          "title": "Mentor the Front Line",
+          "copy": "Let an established attacker train the next one, building a disciplined team whose growth serves protection and duty.",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_006",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_wr_3_equipment_voltron",
-          "title": "Equipment Voltron",
-          "copy": "Sram and Puresteel Paladin draw cards off every equipment, closing games with one overwhelming threat.",
-          "source_locator": "data/factions.json#/factions/WR/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_wr_3_equipped_protection",
+          "title": "Equipped Protection",
+          "copy": "Build one protected responder when equipment supports visible civic defense; a lone Voltron threat without public duty remains only red-white gameplay.",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_007",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {

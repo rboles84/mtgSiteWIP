@@ -1,0 +1,14 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-guild-batch-03.md",
+  "baseline_sha": "c2315ae3fc9ebced488ea1ddd42a709dd96eb0e7",
+  "identity_key": "WU",
+  "identity_name": "Azorius Senate",
+  "canonical_anchor": "Public law, documented procedure, and enforceable civic structure as accountable protection.",
+  "start_here_taxonomy": ["Public Rule-Setting", "Procedural Permission", "Timed Enforcement"],
+  "what_to_look_for_taxonomy": ["Public Rule-Setting", "Procedural Permission", "Timed Enforcement"],
+  "rendered_exclusions": ["generic white-blue control as Azorius proof", "generated factions data used as evidence", "malformed when-X-is-not-Y boundary", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "unsupported same-color product labeled Native"],
+  "precon_contract": { "native": ["First Flight"], "exact_color_required": ["Spirit Squadron", "Phantom Premonition", "Buckle Up"], "stretch_allowed": true }
+}
