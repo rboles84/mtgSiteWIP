@@ -9,6 +9,10 @@
 | QUANDRIX | college | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | SILVERQUILL | college | ACCEPTED | 1 | 1 | 3 | 1 | 1 | PASS | `.3939 / 1` -> `.1579 / 0` | exception accepted | accepted |
 | WITHERBLOOM | college | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
+| BANT | shard | ACCEPTED | 1 | 0 | 3 | 1 | 1 | PASS | `.5263 / 1` -> `.1481 / 0` | exception accepted | accepted |
+| GRIXIS | shard | ACCEPTED | 1 | 0 | 3 | 1 | 1 | PASS | `.5000 / 1` -> `.1512 / 0` | exception accepted | accepted |
+| JUND | shard | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | `.1333 / 0` | exception accepted | accepted |
+| NAYA | shard | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | `.1884 / 0` | exception accepted | accepted |
 | W | mono-color | ACCEPTED | 0 | 0 | 2 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
 | U | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | B | mono-color | ACCEPTED | 1 | 0 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
@@ -25,7 +29,7 @@
 | UR | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | BG | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | ESPER | shard | ACCEPTED | 0 | 0 | 3 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
-| Remaining 14 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
+| Remaining 10 identities | mixed | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
 
 Batch 01 also repaired one shared P1 generated-catalog freshness defect: optional runtime JSON now uses the existing `no-store` fetch policy. The repair changed no accepted identity semantics and all three golden controls pass.
 
@@ -38,6 +42,8 @@ Guild Batch 03 accepted Azorius, Boros, Orzhov, and Simic after one cycle each. 
 Guild Batch 04 accepted Dimir, Gruul, Selesnya, Izzet, and Golgari after one cycle each. It repaired fifteen raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and fourteen unsupported Native product relationships while preserving Token Triumph for Selesnya and Seize Control for Izzet as evidence-backed exceptions. The shared precon regression owner now protects accepted empty-Native contracts and Exact → Stretch preview order.
 
 College Wave 05 accepted Prismari, Quandrix, Silverquill, and Witherbloom after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and Silverquill's thresholded cross-section collision. Eight authored product records now use official Wizards decklist sources; four 2026 featured alternates remain distinct from their face commanders, and all eight explicit college relationships render Native before Exact and Stretch.
+
+Shard Wave 06 accepted Bant, Grixis, Jund, and Naya after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and the frozen Bant/Grixis cross-section collisions. All four Native sets remain intentionally empty and every actual dossier renders Exact before Stretch.
 
 ## VM-603 All-37 Checkpoint — PASS
 

@@ -918,39 +918,39 @@
       "identity_key": "BANT",
       "identity_name": "Bant",
       "test_the_fit": {
-        "positive_self_check": "This may fit if you want a Commander deck that chooses a worthy threat or board plan, surrounds it with support, protects it carefully, and makes excellence feel accountable to the whole.",
-        "tension_failure_mode": "Watch for this tension: It resists Black-style private leverage and Red-style unsanctioned impulse; internally it must keep discipline open to correction.",
-        "certified_boundary_self_check": "This is less likely to fit when generic value, denial control, hierarchy for its own sake, or a lone champion with no communal trust is not Bant."
+        "positive_self_check": "You may fit here when you want excellence to remain accountable to a community, with visible support and protection behind the line you choose.",
+        "tension_failure_mode": "Bant's discipline can become rigid when public honor stops listening to correction, or when supporting a worthy line turns into hierarchy for its own sake.",
+        "certified_boundary_self_check": "One efficient threat, a denial lock, or generic three-color value does not make a deck Bant; communal trust must shape how excellence is supported."
       },
       "how_this_plays": {
-        "role": "The supported champion",
-        "how_opponents_read_it": "Opponents feel the deck choosing one line, protecting it carefully, and making every support piece look like public trust made visible.",
-        "emotional_pressure": "Pressure through honor, refinement, protection, and the question of whether strength can remain worthy while others stand behind it.",
-        "lore_role": "Alara shard context read through source-grounded White-centered order, Blue refinement, Green belonging, sigils, exalted support, and communal honor",
-        "mechanical_expression": "In Commander, this can show up through exalted, auras, equipment, blink, ETB value, enchantress, Clues, counters, and protection",
-        "table_experience": "one protected champion, refined support, living order, and communal trust becoming visible pressure"
+        "role": "The public standard-bearer",
+        "how_opponents_read_it": "The table sees a declared threat advancing behind visible protection and coordinated permanents.",
+        "emotional_pressure": "Opponents must decide whether to answer the focal attacker or dismantle the network that keeps it credible.",
+        "lore_role": "White-centered Bant turns refinement, belonging, sigils, and earned honor into a public standard rather than private privilege",
+        "mechanical_expression": "A single attack, repeated creature value, or enchantment package can concentrate the board's resources without requiring a prison plan",
+        "table_experience": "measured development, declared commitment, and layered protection turn one line into an accountable challenge"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_bant_1_exalted_champion",
           "title": "Exalted Champion",
           "copy": "Protect and elevate one clean attacker while the rest of the board makes that line worthy.",
-          "source_locator": "data/factions.json#/factions/BANT/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0006",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_bant_2_creature_forward_value",
           "title": "Creature-Forward Value",
           "copy": "Use creatures, blink, Clues, and protective growth as a communal engine rather than detached efficiency.",
-          "source_locator": "data/factions.json#/factions/BANT/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0017",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_bant_3_enchantress_and_aura_order",
           "title": "Enchantress and Aura Order",
           "copy": "Turn enchantments, auras, and equipment into visible support for a creature-centered plan.",
-          "source_locator": "data/factions.json#/factions/BANT/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0007",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -1008,39 +1008,39 @@
       "identity_key": "GRIXIS",
       "identity_name": "Grixis",
       "test_the_fit": {
-        "positive_self_check": "This may fit if you want a Commander deck that treats removal, discard, recursion, sacrifice, and spell pressure as tools for staying alive and converting one narrow opening into control of the table.",
-        "tension_failure_mode": "Watch for this tension: It rejects White moral/order permission and Green renewal/acceptance as governing constraints; internally it risks treating every weakness as exploitable.",
-        "certified_boundary_self_check": "This is less likely to fit when generic evil, villain aesthetics, spellslinger, control, graveyards, or aggression are not Grixis without calculated survival and urgent leverage."
+        "positive_self_check": "You may fit here when you want to study the table's weak point, preserve your agency under pressure, and act before a narrow opening disappears.",
+        "tension_failure_mode": "Grixis can treat every weakness as permission to exploit it, letting survival and self-advocacy harden into predation.",
+        "certified_boundary_self_check": "Villain aesthetics, control, graveyards, aggression, or spell volume alone do not make a deck Grixis; calculated survival and urgent leverage must govern the plan."
       },
       "how_this_plays": {
-        "role": "The survival strategist",
-        "how_opponents_read_it": "Opponents feel the deck measuring weak points, preserving the answer that matters, and taking the opening before the table can close it.",
-        "emotional_pressure": "Pressure through scarcity, calculation, urgency, and the feeling that every delayed answer becomes someone else's advantage.",
-        "lore_role": "Alara shard context read through source-grounded Black-centered survival, Blue calculation, and Red immediacy",
-        "mechanical_expression": "In Commander, this can show up through removal, discard, sacrifice, recursion, card draw, and spell pressure",
-        "table_experience": "survival control, calculated pressure, and urgent openings that make each answer feel spent for a reason"
+        "role": "The opening hunter",
+        "how_opponents_read_it": "The table sees resources held back until one player's defenses or hand can no longer cover the decisive turn.",
+        "emotional_pressure": "Every delayed answer risks becoming the opening another player uses first.",
+        "lore_role": "Black-centered Grixis combines self-preservation with Blue analysis and Red immediacy without reducing the shard to generic evil",
+        "mechanical_expression": "Selective interaction, resource conversion, and a timed finishing sequence make preparation visible only when it matters",
+        "table_experience": "scarcity narrows the options, then one fast conversion changes who controls the next turn"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_grixis_1_survival_control",
           "title": "Survival Control",
           "copy": "Use information, removal, and timing to stay alive long enough to decide which opening matters.",
-          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0003",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_grixis_2_leverage_engines",
           "title": "Leverage Engines",
           "copy": "Turn cards, life, resources, and table pressure into the next survivable advantage.",
-          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0004",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_grixis_3_volatile_spell_pressure",
           "title": "Volatile Spell Pressure",
           "copy": "Act quickly when the window opens, pairing calculation with decisive red-black force.",
-          "source_locator": "data/factions.json#/factions/GRIXIS/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0005",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -1053,39 +1053,39 @@
       "identity_key": "JUND",
       "identity_name": "Jund",
       "test_the_fit": {
-        "positive_self_check": "This may fit if you want a Commander deck that acts from pressure instead of waiting for permission: attacking, feeding resources, forcing blocks, using the graveyard, and accepting consequences as part of the plan.",
-        "tension_failure_mode": "Watch for this tension: It rejects White order and Blue overthinking; internally it must distinguish honest instinct from overconsumption.",
-        "certified_boundary_self_check": "This is less likely to fit when generic violence, monsters, sacrifice, devour, or competitive \"Jund\" play is not the shard identity without Red-led self-truth fed by Black appetite and Green instinct."
+        "positive_self_check": "You may fit here when you want action to follow honest instinct, with appetite and survival making every committed resource carry a consequence.",
+        "tension_failure_mode": "Jund must distinguish a truthful impulse from overconsumption; freedom loses its integrity when appetite excuses every destructive act.",
+        "certified_boundary_self_check": "Violence, monsters, sacrifice, Devour, or competitive midrange alone do not make a deck Jund; Red-led self-truth must be fed by Black appetite and Green instinct."
       },
       "how_this_plays": {
-        "role": "The appetite engine",
-        "how_opponents_read_it": "Opponents feel the deck as pressure made visible: the board asks what they can survive before they know which piece matters most.",
-        "emotional_pressure": "Pressure through instinct, appetite, survival, and consequences that arrive before the table finishes bargaining.",
-        "lore_role": "Alara shard, Red-centered self-truth, Black appetite, Green instinct, and consequence under pressure",
-        "mechanical_expression": "Combat, sacrifice, graveyard value, counters, damage, and resource conversion as mechanical echoes, not lore-canon examples",
-        "table_experience": "pressure becoming visible through attacks, spent resources, graveyards, and consequences that force the table to show what it can survive"
+        "role": "The consequence maker",
+        "how_opponents_read_it": "The board commits early enough that blocks, removal, and life totals become choices the table cannot postpone.",
+        "emotional_pressure": "Each exchange asks whether opponents can afford the next attack after paying for the last one.",
+        "lore_role": "Red-centered Jund makes self-truth physical through Black appetite, Green instinct, and survival under consequence",
+        "mechanical_expression": "Attacks, sacrifice, graveyard reuse, and damage conversion make spent resources continue to matter",
+        "table_experience": "the first commitment forces real exchanges, and the surviving engine turns those costs into the next threat"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_jund_1_instinctive_pressure",
           "title": "Instinctive Pressure",
           "copy": "Act from gut truth and force the table to answer the motion while the window is still alive.",
-          "source_locator": "data/factions.json#/factions/JUND/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0003",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_jund_2_appetite_engines",
           "title": "Appetite Engines",
           "copy": "Turn resources, bodies, graveyards, and combat pressure into consequence-bearing momentum.",
-          "source_locator": "data/factions.json#/factions/JUND/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0006",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_jund_3_feral_value",
           "title": "Feral Value",
           "copy": "Use Green instinct and Black self-interest to keep pressure alive after the first strike.",
-          "source_locator": "data/factions.json#/factions/JUND/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0007",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -1098,39 +1098,39 @@
       "identity_key": "NAYA",
       "identity_name": "Naya",
       "test_the_fit": {
-        "positive_self_check": "This may fit if you want a Commander deck that grows mana, protects a living board, and turns creature-forward scale into pressure without losing the bond that holds the whole together.",
-        "tension_failure_mode": "Watch for this tension: It rejects Blue control and Black extraction; internally it must keep abundance from becoming mere size or overgrowth.",
-        "certified_boundary_self_check": "This is less likely to fit when big creatures, tokens, go-wide play, or nature aesthetics are not Naya without care, bond, place, and Green-centered belonging."
+        "positive_self_check": "You may fit here when you want growth, instinct, and protective care to place creatures inside one living whole rather than a collection of isolated threats.",
+        "tension_failure_mode": "Naya's abundance can become mere size or overgrowth when the bond among place, creatures, and greater-good care disappears.",
+        "certified_boundary_self_check": "Big creatures, tokens, go-wide play, or nature aesthetics alone do not make a deck Naya; care, bond, place, and Green-centered belonging must hold the board together."
       },
       "how_this_plays": {
-        "role": "The living-world guardian",
-        "how_opponents_read_it": "Opponents feel the deck as a protected board becoming a habitat: mana grows, creatures gather, and scale turns belonging into pressure.",
-        "emotional_pressure": "Pressure through abundance, instinct, protection, and the sense that the whole living world is moving at once.",
-        "lore_role": "Alara shard, Green-centered living abundance, White care for the whole, Red instinct, and belonging inside a larger natural world",
-        "mechanical_expression": "Ramp, protection, creature engines, tokens, counters, lands, and combat patterns that show abundance, instinct, and creature-forward scale",
-        "table_experience": "grow mana, guard the living whole, build a protected board, and let creature-forward scale make the table answer abundance"
+        "role": "The habitat builder",
+        "how_opponents_read_it": "The table sees mana and creatures accumulate into a board whose pieces protect and amplify one another.",
+        "emotional_pressure": "A single answer may remove a body without stopping the habitat that produced it.",
+        "lore_role": "Green-centered Naya joins natural role and place with White care for the whole and Red loyalty to living bonds",
+        "mechanical_expression": "Mana development, creature engines, protective effects, and combat scaling let the board behave like an interconnected habitat",
+        "table_experience": "steady cultivation becomes a coordinated swing once the board can survive the table's cleanest answer"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_naya_1_living_abundance",
           "title": "Living Abundance",
           "copy": "Let growth become a board presence that feels rooted in place, relation, and the larger natural whole.",
-          "source_locator": "data/factions.json#/factions/NAYA/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0003",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_naya_2_instinctive_protection",
           "title": "Instinctive Protection",
           "copy": "Move quickly when the bond is threatened, with Red immediacy held by White care.",
-          "source_locator": "data/factions.json#/factions/NAYA/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0006",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_naya_3_creature_forward_scale",
           "title": "Creature-Forward Scale",
           "copy": "Use scale as an expression of life and belonging rather than a generic size contest.",
-          "source_locator": "data/factions.json#/factions/NAYA/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0004",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {

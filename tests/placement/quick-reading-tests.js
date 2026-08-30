@@ -1790,8 +1790,13 @@ assert.deepEqual(
   ["Voltron", "Counters Matter", "Enchantments"],
   "expected Bant starter search tags to be explicit support/search-assist metadata"
 );
+assert.deepEqual(
+  bantGuidance.starterDirections,
+  ["Exalted Champion", "Creature-Forward Value", "Enchantress and Aura Order"],
+  "expected Bant to expose the accepted SIRF construction taxonomy"
+);
 assert.match(bantGuidance.commanderPlan, /one worthy line of action/);
-assert.match(bantGuidance.spellcraftIdentity, /reinforce public trust and refined communal order/);
+assert.match(bantGuidance.spellcraftIdentity, /^Choose whether an exalted champion, creature-forward value, or enchantress and aura order/);
 assert.match(bantGuidance.tableCautionReviewRule, /VM-159A\/VM-168 source limits/);
 assert.doesNotMatch(
   [
@@ -1840,8 +1845,8 @@ const bantLaneText = [
   ...bantCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(bantCommanderLane.copy, /protects one worthy line of action/);
-assert.match(bantLaneText, /Voltron, Counters Matter, Enchantments/);
-assert.match(bantLaneText, /reinforce public trust and refined communal order/);
+assert.match(bantLaneText, /Exalted Champion, Creature-Forward Value, Enchantress and Aura Order/);
+assert.match(bantLaneText, /Choose whether an exalted champion, creature-forward value, or enchantress and aura order/);
 assert.match(bantLaneText, /Protect the line that carries the table's trust/);
 assert.doesNotMatch(
   bantLaneText,
@@ -1885,7 +1890,7 @@ const bantHardeningText = renderCommanderDossierText(bantHardeningDossier);
 const bantVisibleText = bantHardeningText.replace(/https?:\/\/\S+/g, "");
 assert.match(bantHardeningText, /Bant Commander decks/);
 assert.match(bantHardeningText, /protects one worthy line of action/i);
-assert.match(bantHardeningText, /reinforce public trust and refined communal order/i);
+assert.match(bantHardeningText, /Choose whether an exalted champion, creature-forward value, or enchantress and aura order/i);
 assert.doesNotMatch(
   bantVisibleText,
   /\bWUG\b|Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|recognizable Commander table role|Commander mechanics that make the faction plan visible|playable pattern|personality label|\/bant\//i,
@@ -2012,8 +2017,8 @@ const grixisLaneText = [
   ...grixisCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(grixisLaneText, /survives first, studies the weakness/);
-assert.match(grixisLaneText, /Control, Spellslinger, Aristocrats/);
-assert.match(grixisLaneText, /express survival, calculation, and urgency/);
+assert.match(grixisLaneText, /Survival Control, Leverage Engines, Volatile Spell Pressure/);
+assert.match(grixisLaneText, /Choose whether survival control, leverage engines, or volatile spell pressure/);
 assert.doesNotMatch(
   grixisLaneText,
   /VM-166|raw claims beyond|manual-review material|playable pattern|personality label|recognizable Commander table role|Exact UBR|UBR Commander decks/i
@@ -2055,8 +2060,8 @@ const jundLaneText = [
   ...jundCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(jundCommanderLane.copy, /pressure sets the clock, sacrifice pays the cost, attrition narrows the table, and drain turns appetite into consequence/);
-assert.match(jundLaneText, /Midrange, Aggro, Counters Matter/);
-assert.match(jundLaneText, /express appetite, survival, and consequence/);
+assert.match(jundLaneText, /Instinctive Pressure, Appetite Engines, Feral Value/);
+assert.match(jundLaneText, /Choose whether instinctive pressure, appetite engines, or feral value/);
 assert.doesNotMatch(jundLaneText, /VM-179|raw claims beyond|manual-review material/);
 assert.match(jundLaneText, /Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine/);
 assert.doesNotMatch(jundLaneText, /Exact BRG|playable pattern|personality label|recognizable Commander table role/i);
@@ -2086,8 +2091,9 @@ const nayaLaneText = [
   ...nayaCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(nayaLaneText, /can grow mana into a protected board/);
-assert.match(nayaLaneText, /Ramp, Big Mana, Tokens/);
-assert.match(nayaLaneText, /guard the living whole/);
+assert.match(nayaLaneText, /Living Abundance, Instinctive Protection, Creature-Forward Scale/);
+assert.match(nayaLaneText, /Choose whether living abundance, instinctive protection, or creature-forward scale/);
+assert.match(nayaLaneText, /protect the living board/);
 assert.doesNotMatch(
   nayaLaneText,
   /sacrifice small pieces|drain the table|attrition into a clock|appetite|Exact RGW|BRG|Spellslinger|generic RGW goodstuff|generic big-creature-only/i

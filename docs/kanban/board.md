@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-605 — SIRF Shard Wave 06](done/VM-605-sirf-shard-wave-06.md) - exception batch accepted; Bant, Grixis, Jund, and Naya passed exact taxonomy, raw provenance, section-role, scoped VM-595, empty-Native, rendered, and accepted-control gates in one cycle each.
+
 - [VM-604 — SIRF Strixhaven College Wave 05](done/VM-604-sirf-strixhaven-college-wave-05.md) - exception batch accepted; Prismari, Quandrix, Silverquill, and Witherbloom passed exact taxonomy, raw provenance, official precon authority, section-role, scoped VM-595, rendered, and accepted-control gates in one cycle each.
 
 - [VM-603 — SIRF All-37 Periodic Checkpoint](done/VM-603-sirf-all-37-periodic-checkpoint.md) - all 37 identities and 74 desktop/mobile renders pass; 16 promoted contracts and three golden controls remain intact; fresh VM-595 metrics are recorded; and the Owner-supplied Turtle Power!/Leonardo correction reproduces through source, builders, provider fixture, and actual WUBRG render.
