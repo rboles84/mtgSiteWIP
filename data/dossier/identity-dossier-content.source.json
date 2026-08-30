@@ -2056,43 +2056,43 @@
       "identity_name": "Prismari College",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you want an idea or emotion to be felt through a chosen medium and accept practice, technique, and revision as part of authentic expression.",
-          "tension_failure_mode": "Watch for this tension: It resists technique without feeling, feeling without form, and usefulness or proof treated as the only standards of seriousness.",
-          "certified_boundary_self_check": "This is less likely to fit when big spells, spectacle, novelty, or performance are not Prismari when expressive purpose and disciplined medium are absent."
+          "positive_self_check": "You may fit here when you want an idea or emotion to be felt through a chosen medium, and you accept practice, technique, and revision as part of authentic expression.",
+          "tension_failure_mode": "The central tension is technique without feeling versus feeling without form; Prismari also resists usefulness or proof as the only standards of seriousness.",
+          "certified_boundary_self_check": "Big spells, spectacle, novelty, or performance alone do not make a deck Prismari; expressive purpose and disciplined medium must do the work."
         },
         "how_this_plays": {
           "role": "The crescendo",
-          "how_opponents_read_it": "Opponents feel the deck building toward a visible turn where expression and impact become the same thing.",
-          "emotional_pressure": "Pressure through spectacle, spellcraft, and large expressive turns.",
+          "how_opponents_read_it": "The table sees resources held for a turn where expression and impact arrive together.",
+          "emotional_pressure": "Anticipation rises as the deck prepares one visible performance that may change the room at once.",
           "lore_role": "artists, elemental performers, and spellcraft prodigies",
-          "mechanical_expression": "Magecraft, big instants and sorceries, treasures, copying, and expressive spell turns",
-          "table_experience": "performance pressure, elemental swing turns, and spells that announce themselves"
+          "mechanical_expression": "Setup, protection, and copy effects converge on a chosen spell, while Elemental payoffs keep the performance present after it resolves",
+          "table_experience": "a public rehearsal followed by one practiced sequence meant to become the turn everyone remembers"
         },
         "what_to_look_for": [
           {
-            "item_id": "lookfor_prismari_1_big_spell_storm",
-            "title": "Big Spell Storm",
-            "copy": "Galazeth Prismari converts artifacts to mana - chain massive instants and sorceries, generate elemental tokens, close out the game in one explosive turn.",
-            "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_prismari_1_elemental_performance",
+            "title": "Elemental Performance",
+            "copy": "Look for fire, ice, water, wind, stone, lightning, and other elemental forces used as the medium of the spell rather than as generic damage or value.",
+            "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_003",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_prismari_2_spells_matter_tokens",
-            "title": "Spells-Matter Tokens",
-            "copy": "Every spell you cast creates an elemental. Cast enough spells, attack with enough elementals, and the game ends.",
-            "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_prismari_2_opus_scale_spellcraft",
+            "title": "Opus-Scale Spellcraft",
+            "copy": "Look for disciplined setup that gives a large spell or copied sequence expressive purpose; size is the culmination of the performance, not proof of Prismari by itself.",
+            "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_prismari_3_izzet_control_tempo",
-            "title": "Izzet Control / Tempo",
-            "copy": "Counter the threats that matter, answer everything else with removal, and close with one resilient threat backed by open mana.",
-            "source_locator": "data/factions.json#/factions/PRISMARI/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_prismari_3_technique_and_expression",
+            "title": "Technique & Expression",
+            "copy": "Look for training, visualization, and artistic theory carrying passion into a form the table can feel; technique and expression should remain in active tension.",
+            "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
+            "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "078ef500eb72530f12d8c8273f7a4a09db8ca22f836b4d686ef0da822f485090",
+      "copy_sha256": "4da8cb0c7c0f3d06cdcb4b684f3e94bd5619138bbb81d71d3a210e3ded468da3",
       "provenance": {
         "certified_profile": "data/raw-factions/prismari/prismari.profile.json",
         "certified_claims": [
@@ -2260,43 +2260,43 @@
       "identity_name": "Witherbloom College",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you learn through bodies, remedies, poisons, medicine, mortuary practice, and cost-aware movement of life energy.",
-          "tension_failure_mode": "Watch for this tension: It resists sanitized abstraction, optimization blind to bodily cost, and graveyard aesthetics with no living-essence practice.",
-          "certified_boundary_self_check": "This is less likely to fit when lifegain, life payment, pests, sacrifice, decay, or nature are not Witherbloom without study, brewing, healing/harm, or vitality exchange."
+          "positive_self_check": "You may fit here when you learn through bodies, remedies, poisons, medicine, mortuary practice, and cost-aware movement of life energy.",
+          "tension_failure_mode": "Witherbloom holds cultivation against extraction: care and growth remain beside harm, death-facing practice, and the cost of using living essence.",
+          "certified_boundary_self_check": "Lifegain, life payment, Pests, sacrifice, decay, or nature alone do not make a deck Witherbloom; study, brewing, healing and harm, or vitality exchange must define the method."
         },
         "how_this_plays": {
           "role": "The life-exchanger",
-          "how_opponents_read_it": "Opponents feel the deck converting bodies, pests, and life totals into a working engine.",
-          "emotional_pressure": "Pressure through life exchange, sacrifice, drain, and practical survival.",
+          "how_opponents_read_it": "The table sees small bodies and shifting life totals become fuel, so removing one outlet may not end the exchange.",
+          "emotional_pressure": "Both gains and losses advance the engine, making ordinary combat math an unreliable signal of safety.",
           "lore_role": "pest mages, essence workers, bog naturalists, and life-cycle scholars",
-          "mechanical_expression": "Pest tokens, sacrifice, lifegain, lifedrain, recursion, and essence exchange",
-          "table_experience": "metabolic pressure where every gain, loss, and small body feeds the engine"
+          "mechanical_expression": "Pests and life-total changes keep resources moving between bodies, graveyard, and board instead of leaving one protected centerpiece",
+          "table_experience": "each exchange carries a visible cost, while the deck keeps finding another useful form for what was spent"
         },
         "what_to_look_for": [
           {
             "item_id": "lookfor_witherbloom_1_essence_exchange",
             "title": "Essence Exchange",
             "copy": "Life gain, life loss, Pests, sacrifice, healing, harm, and death triggers are Witherbloom signals when they express embodied life/death exchange.",
-            "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
+            "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_witherbloom_2_remedies_and_poisons",
             "title": "Remedies and Poisons",
             "copy": "Brewing, medicine, toxicology, and mortuary practice show Witherbloom when they turn living essence into practical craft.",
-            "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0021",
+            "source_role": "certified_claim_translation"
           },
           {
             "item_id": "lookfor_witherbloom_3_field_biology_and_cost",
             "title": "Field Biology and Cost",
             "copy": "Witherbloom becomes clearest when biological, ecological, or body-level evidence matters more than abstract proof alone.",
-            "source_locator": "data/factions.json#/factions/WITHERBLOOM/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023",
+            "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "97f2655ddc47186d79d46577fd56e5d8a7ac019815a7ad1e323a25eb59b4209a",
+      "copy_sha256": "73bb37e3f538d8b2213603fdc8cf9ad671a85c3457a4de5740a6adb51b2dc361",
       "provenance": {
         "certified_profile": "data/raw-factions/witherbloom/witherbloom.profile.json",
         "certified_claims": [
@@ -2410,43 +2410,43 @@
       "identity_name": "Quandrix College",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you find beauty in proof, patterns, symmetry, models, precision, and problems whose underlying structure takes patience to reveal.",
-          "tension_failure_mode": "Watch for this tension: It resists approximation when rigor is available, intuition replacing evidence, and commitment before proof.",
-          "certified_boundary_self_check": "This is less likely to fit when doubling, X spells, tokens, counters, or scaling are not Quandrix without mathematics, pattern, model, proof, or abstract structure."
+          "positive_self_check": "You may fit here when you find beauty in proof, patterns, symmetry, models, precision, and problems whose underlying structure takes patience to reveal.",
+          "tension_failure_mode": "Quandrix keeps discovery and construction in tension: is the pattern a natural force being found, or a mind-made model becoming real?",
+          "certified_boundary_self_check": "Doubling, X spells, tokens, counters, or scaling alone do not make a deck Quandrix; mathematics, pattern, model, proof, or abstract structure must define the method."
         },
         "how_this_plays": {
           "role": "The pattern engine",
-          "how_opponents_read_it": "Opponents feel the deck scaling from small proofs into board states that become hard to calculate.",
-          "emotional_pressure": "Pressure through structure, doubling, counters, and math that becomes physical.",
+          "how_opponents_read_it": "The table sees small, measured advantages begin to compound into a board state that is hard to calculate.",
+          "emotional_pressure": "Each correct setup step makes the next ordinary answer less likely to be enough.",
           "lore_role": "mathematicians, theorists, fractal mages, and pattern seekers",
-          "mechanical_expression": "Fractals, doubling, counters, ramp, tokens, and exponential scaling",
-          "table_experience": "mathematical inevitability and advantages that compound past ordinary answers"
+          "mechanical_expression": "Ramp supplies the variables; a doubler or scalable payoff turns them into growth by proportion rather than simple addition",
+          "table_experience": "a proof unfolding in public until the board has crossed from manageable quantities into a new scale"
         },
         "what_to_look_for": [
           {
             "item_id": "lookfor_quandrix_1_fractal_counters",
             "title": "Fractal Counters",
-            "copy": "Tanazir Quandrix doubles +1/+1 counters on entry and scales every creature to his power when attacking - mathematical inevitability made physical.",
-            "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "copy": "Look for counters and Fractal bodies that make measured growth visible, with mathematical structure rather than generic green-blue improvement defining the lane.",
+            "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0019",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_quandrix_2_token_doubling",
-            "title": "Token Doubling",
-            "copy": "Adrix and Nev double every token you create - one Fractal becomes two, two become four, the math compounds until combat ends the game.",
-            "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_quandrix_2_pattern_multiplication",
+            "title": "Pattern Multiplication",
+            "copy": "Look for repetition, symmetry, copying, or doubling that turns one established pattern into a larger structure rather than merely adding generic token value.",
+            "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0020",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_quandrix_3_simic_ramp_big_threats",
-            "title": "Simic Ramp / Big Threats",
-            "copy": "Green ramp accelerates past the curve into enormous blue-green threats backed by countermagic - the oldest and most reliable Simic strategy.",
-            "source_locator": "data/factions.json#/factions/QUANDRIX/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_quandrix_3_scalable_equations",
+            "title": "Scalable Equations",
+            "copy": "Look for mana, lands, X spells, or scalable bodies whose output follows an explicit model or proportion; generic ramp and large threats are not enough.",
+            "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0028",
+            "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "04f25513db3f2156b4a932c59c251f80e688b56972d5770efb49284692952aba",
+      "copy_sha256": "dff2e6d05147560844fa36e5e4f8e3a68f73f665f67c5c742d67e1f3a5f8277c",
       "provenance": {
         "certified_profile": "data/raw-factions/quandrix/quandrix.profile.json",
         "certified_claims": [
@@ -2572,43 +2572,43 @@
       "identity_name": "Silverquill College",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you lead, persuade, inspire, criticize, or pressure through precise spoken, written, signed, or magical expression.",
-          "tension_failure_mode": "Watch for this tension: It resists vague communication, words dismissed as decoration, and influence hidden behind debt, secrecy, or procedure.",
-          "certified_boundary_self_check": "This is less likely to fit when ambition, politics, counters, aggression, or charisma are not Silverquill without language or rhetoric doing the work."
+          "positive_self_check": "You may fit here when you lead, persuade, inspire, criticize, or pressure through precise spoken, written, signed, or magical expression.",
+          "tension_failure_mode": "Silverquill asks whether eloquence becomes responsible leadership and uplift or intimidation, competition, and status pressure.",
+          "certified_boundary_self_check": "Ambition, politics, counters, aggression, or charisma alone do not make a deck Silverquill; language or rhetoric must be doing the work."
         },
         "how_this_plays": {
           "role": "The table speaker",
-          "how_opponents_read_it": "Opponents feel the deck turning attacks, deals, and words into pressure.",
-          "emotional_pressure": "Pressure through rhetoric, politics, counters, and social combat.",
+          "how_opponents_read_it": "The table has to account for who can be persuaded, criticized, rewarded, or made into the next public target.",
+          "emotional_pressure": "Every attack and deal carries a visible social message, not just a combat calculation.",
           "lore_role": "orators, duelists, poets, and social power brokers",
-          "mechanical_expression": "Inkling tokens, counters, combat negotiation, goad-like pressure, and life-drain politics",
-          "table_experience": "public pressure, sharpened alliances, and words that become damage"
+          "mechanical_expression": "Counters and Inklings make successful influence visible, while attack incentives and targeted interaction keep changing the public combat line",
+          "table_experience": "alliances sharpen in public, and the deck's chosen speaker can turn attention into material advantage"
         },
         "what_to_look_for": [
           {
             "item_id": "lookfor_silverquill_1_word_magic_and_rhetorical_influence",
             "title": "Word-Magic and Rhetorical Influence",
             "copy": "Use Silverquill evidence when language, rhetoric, signed/spoken/written expression, or ink-and-light word magic is the active method. Do not treat generic black-white power as Silverquill proof.",
-            "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0019",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_silverquill_2_leadership_critique_and_social_pressure",
-            "title": "Leadership, Critique, and Social Pressure",
-            "copy": "Silverquill can lead, inspire, intimidate, or compete through precise communication; keep that reading bounded to language-centered evidence.",
-            "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_silverquill_2_leadership_and_social_pressure",
+            "title": "Leadership and Social Pressure",
+            "copy": "Look for precise communication that clarifies, persuades, uplifts, intimidates, competes, or changes status; generic manipulation is not the college's method.",
+            "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0021",
+            "source_role": "certified_claim_translation"
           },
           {
-            "item_id": "lookfor_silverquill_3_support_only_product_navigation",
-            "title": "Exact Silverquill Starting Points",
-            "copy": "Look for the exact Silverquill Influence commanders when you want a starting point built around the college's named product.",
-            "source_locator": "data/factions.json#/factions/SILVERQUILL/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_silverquill_3_visible_reputation",
+            "title": "Visible Reputation",
+            "copy": "Look for influence that is public or remembered through rhetoric and social force, not leverage whose real engine is secrecy, debt, or procedure.",
+            "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0024",
+            "source_role": "certified_claim_translation"
           }
         ]
       },
-      "copy_sha256": "081aa58b4c53b3dbd538b195ad467469c96a2f8d86644b8fabf4dfe38921d7ba",
+      "copy_sha256": "19cfeeab99efc9073d7a64d60b21f38d4a9d35eb28aefcb6334773fad4147a7b",
       "provenance": {
         "certified_profile": "data/raw-factions/silverquill/silverquill.profile.json",
         "certified_claims": [

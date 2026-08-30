@@ -1,0 +1,14 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-college-wave-05.md",
+  "baseline_sha": "e8eae710699bff855ed512ad8deca427196068a5",
+  "identity_key": "WITHERBLOOM",
+  "identity_name": "Witherbloom College",
+  "canonical_anchor": "Life and death are living essences studied and used through medicine, poison, mortuary practice, and practical craft.",
+  "start_here_taxonomy": ["Essence Exchange", "Remedies and Poisons", "Field Biology and Cost"],
+  "what_to_look_for_taxonomy": ["Essence Exchange", "Remedies and Poisons", "Field Biology and Cost"],
+  "rendered_exclusions": ["generic Golgari decay as Witherbloom proof", "generated factions data used as evidence", "fallback taxonomy appended as primary lanes", "Start Here mechanics inventory repeated as How This Plays", "unsupported same-color product labeled Native"],
+  "precon_contract": { "native": ["Witherbloom Pestilence", "Witherbloom Witchcraft"], "exact_color_required": ["Plunder the Graves", "Death Toll", "Squirreled Away", "Elven Empire"], "stretch_allowed": true }
+}
