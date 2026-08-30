@@ -344,8 +344,8 @@ Question:
 
 Must provide:
 
-- distinct Commander lanes;
-- actionable starting points;
+- distinct broad Commander lanes;
+- actionable help choosing where to begin building;
 - no one-size-fits-all sequence unless canonically/structurally warranted.
 
 Must not primarily explain metaphysics.
@@ -377,7 +377,9 @@ Must provide:
 - emotional/table pressure;
 - lore translation;
 - mechanical expression;
-- table experience.
+- table experience and behavior.
+
+Must describe how the identity manifests at the table rather than repeat Start Here construction advice.
 
 Must not become a list of disclaimers.
 
@@ -397,6 +399,8 @@ where a faction/college relationship exists.
 
 For structural color identities such as WUBRG, exact color may itself be the primary relationship.
 
+Each recommendation must add concrete recorded product and actual game-plan information rather than repeat its relationship badge.
+
 ## 7.5 What to Look For
 
 Question:
@@ -406,6 +410,11 @@ Question:
 Must align with Start Here.
 
 Primary taxonomy must not diverge between these two sections.
+
+Start Here and What to Look For must use the same curated taxonomy when one exists, but they must not contain identical explanatory content:
+
+- Start Here helps the player choose a lane;
+- What to Look For defines how to recognize that lane or pattern.
 
 ---
 
@@ -625,9 +634,82 @@ Precons:
 
 concrete product examples.
 
-## 12.2 Cross-section duplication failure
+## 12.2 Mandatory Acceptance Gate — Cross-Section Redundancy
 
-If two sections provide the same decision/understanding, SIRF should flag section-role collision.
+For every identity, RobQA must compare the five scoped player-facing sections in the actual rendered dossier:
+
+1. Start Here;
+2. Test the Fit;
+3. How This Plays;
+4. Precon Starting Points;
+5. What to Look For.
+
+For each section, record:
+
+- its principal responsibility;
+- its principal claim;
+- its mechanics or theme inventory;
+- the player decision it supports;
+- the unique information it contributes.
+
+FAIL the identity when two sections communicate substantially the same claim for substantially the same purpose, even when:
+
+- wording differs;
+- synonyms are used;
+- sentence order changes;
+- one paragraph is shorter;
+- exact-string or Jaccard similarity remains below the automated threshold.
+
+Repeated terms are not automatically defects. A core term may appear in multiple sections when each occurrence performs a different section responsibility. For example:
+
+- a mechanic may appear in Start Here as a build lane and in How This Plays as table translation;
+- a precon may appear as a concrete example without becoming identity proof;
+- a lore concept may support Test the Fit without being repeated as the full Start Here plan.
+
+The failure condition is:
+
+> Two visible blocks give the player substantially the same decision or understanding.
+
+### Required repair behavior
+
+When cross-section redundancy is found:
+
+1. determine which section owns the repeated concept;
+2. preserve the concept in its correct owner;
+3. remove or rewrite the redundant occurrence;
+4. identify the unique responsibility of the now-thinner section;
+5. replace removed repetition with the nearest existing source-grounded detail that serves that section;
+6. do not invent filler;
+7. regenerate affected artifacts through their owners;
+8. rerender the complete dossier;
+9. rerun the scoped VM-595 checks;
+10. repeat until every section adds distinct player value or a defined stop condition applies.
+
+This gate preserves both governing rules:
+
+> Every visible block must add a new player decision or understanding.
+
+> If removing repetition creates an empty surface, replace it with the nearest existing source-grounded detail—not invented prose.
+
+### Required positive and negative acceptance evidence
+
+The RobQA report must include this compact section-role matrix for each identity:
+
+| Section | Principal responsibility | Principal claim | New player decision or understanding | Redundancy result |
+|---|---|---|---|---|
+| Start Here | Choose a broad build lane and begin construction | identity-specific | distinct build choice | PASS / FAIL |
+| Test the Fit | Establish fit, internal tension, and false-positive boundary | identity-specific | distinct suitability judgment | PASS / FAIL |
+| How This Plays | Translate the identity into table behavior | identity-specific | distinct play-experience understanding | PASS / FAIL |
+| Precon Starting Points | Show concrete recorded products and their actual game plans | identity-specific | distinct product/strategy decision | PASS / FAIL |
+| What to Look For | Define the distinct lanes and patterns named by the identity | identity-specific | distinct recognition rule | PASS / FAIL |
+
+PASS requires:
+
+- every section has a distinct primary responsibility;
+- no unresolved same-purpose semantic duplication remains;
+- Start Here and What to Look For remain taxonomically aligned without becoming copies;
+- Precon rationale adds strategy/product information rather than repeating badges;
+- How This Plays describes table behavior rather than repeating Start Here construction advice.
 
 ---
 
@@ -772,15 +854,22 @@ Do not duplicate its functionality.
 
 It currently detects:
 
-- exact duplicate sentence groups;
-- identity-substitution groups;
-- repeated five-word openings;
+- exact duplicate sentences;
+- identity-substitution patterns;
+- repeated openings;
 - synthetic cadence;
+- Jaccard similarity;
 - within-dossier redundancy;
 - section-role overlap;
 - utility-copy dominance;
-- audit/process language;
-- grammar/composition issues.
+- process-language leakage;
+- malformed grammar and composition.
+
+VM-595 is a detector, not the complete semantic judgment. A low automated similarity score does not prove that section roles are separated. RobQA must still compare the actual rendered sections as one page and judge the player-facing information gain.
+
+The combined acceptance gate is:
+
+> VM-595 detection + section-role contract + rendered semantic comparison + information-gain review.
 
 System relationship:
 
@@ -894,11 +983,11 @@ Are Native / Exact / Stretch and face commanders correct?
 
 ## R10 — Section Ownership
 
-Does each section perform one distinct job?
+Does each section perform one distinct primary job, with a recorded principal claim and player decision?
 
 ## R11 — Player Usefulness
 
-Does the page help the player decide/understand?
+Does each section add a new player decision or understanding?
 
 ## R12 — Copy Quality
 
@@ -914,7 +1003,7 @@ Is shared prose only used where shared prose belongs?
 
 ## R15 — Section-Role Collision
 
-Are adjacent sections repeating meaning?
+Do any two scoped sections communicate substantially the same claim for substantially the same purpose, regardless of wording or automated similarity score?
 
 ## R16 — Process-Language Leakage
 
@@ -930,7 +1019,9 @@ Does visible output exactly match accepted sets, exclusions, and ordering?
 
 ## R19 — Surface Information Gain
 
-Does every visible block add a new player decision or understanding?
+Does every visible block contribute unique, section-owned information, with source-grounded replacement when repetition is removed?
+
+The Cross-Section Redundancy Gate strengthens R10, R11, R15, and R19. It does not add another scored rubric dimension.
 
 Maximum score: 38
 
@@ -1106,6 +1197,8 @@ Run focused tests.
 ## Gate 6 — Rendered Contract QA
 
 Validate final visible sets, exclusions, ordering, and copy.
+
+Apply the mandatory Cross-Section Redundancy Gate to the complete rendered dossier. Record the section-role matrix, not only lexical similarity results.
 
 ## Gate 7 — P3
 
@@ -1329,6 +1422,8 @@ If a new defect family appears, update framework before full rollout.
 
 After diversity validation, process remaining identities in batches of 3–5.
 
+Operate by exception: RobQA autonomously repairs ordinary, clearly owned P2/P3 redundancy and advances the batch when all gates pass. Owner review is reserved for the explicit ambiguity, authority, golden-semantic, and non-convergence stop conditions in this plan.
+
 Suggested grouping strategy:
 
 ## Group by identity type
@@ -1441,7 +1536,9 @@ Verify:
 - exclusions;
 - ordering;
 - information gain;
-- section roles.
+- section roles;
+- the required Cross-Section Redundancy Gate matrix;
+- semantic separation even when VM-595 lexical similarity is low.
 
 ## Pass 9 — VM-595 Rescan
 
@@ -1462,9 +1559,9 @@ Repair proven remaining P1–P3.
 
 Maximum 3 cycles.
 
-## Pass 12 — Owner Review
+## Pass 12 — Batch Acceptance or Exception
 
-Return concise reasoned report.
+Return a concise reasoned report. When all gates pass, advance the identity into the batch without a routine Owner pause. Escalate only under the controlling stop conditions.
 
 ---
 
@@ -1507,8 +1604,11 @@ After each 3–5 identity batch:
 5. review shared root causes;
 6. apply any safe shared fix once;
 7. rerun batch;
-8. produce batch summary;
-9. proceed only if no shared regression.
+8. apply the Cross-Section Redundancy Gate to each complete rendered dossier;
+9. produce the required section-role matrices and batch summary;
+10. proceed only if no shared regression or unresolved same-purpose semantic duplication remains.
+
+An automated batch may not commit or push while any identity fails the Cross-Section Redundancy Gate.
 
 ---
 
@@ -1567,7 +1667,7 @@ apply Source-Grounded Replacement.
 
 # 37. Cross-Section Composition QA
 
-Read the five sections as one page.
+Section 12.2 is the governing acceptance gate. Read the five sections as one rendered page, complete the required section-role matrix, and compare semantic purpose rather than depending on exact strings or thresholded similarity.
 
 For every repeated concept, ask:
 
@@ -1587,6 +1687,8 @@ What to Look For:
 - duplicates same lane explanation
 
 Fix by assigning one owner.
+
+After the repair, rerender the complete dossier and rerun the scoped VM-595 checks. A low similarity score is evidence from the detector, not proof of section-role separation.
 
 ---
 
@@ -1663,6 +1765,13 @@ Every material fix must produce:
 
 | Section | Finding | Severity | Root Cause | Evidence | Fix | Why | Protection | Rendered Result |
 |---|---|---:|---|---|---|---|---|---|
+
+For every identity, also include the Section 12.2 section-role matrix:
+
+| Section | Principal responsibility | Principal claim | New player decision or understanding | Redundancy result |
+|---|---|---|---|---|
+
+The matrix is positive and negative acceptance evidence: it must show both the unique value each section contributes and that no unresolved same-purpose duplication remains.
 
 Also report:
 
@@ -1828,7 +1937,11 @@ A batch is complete when:
 - recommendations pass;
 - golden three pass;
 - VM-595 batch delta acceptable;
+- every identity passes the Cross-Section Redundancy Gate in the actual rendered dossier;
+- every identity has a complete section-role matrix with distinct responsibilities and information gain;
 - shared fixes do not regress unaffected controls.
+
+Unresolved cross-section redundancy prohibits batch commit and push.
 
 ---
 
@@ -2001,6 +2114,7 @@ Do not use Reddit, EDHREC, blogs, YouTube, Draftsim, Moxfield, or other communit
 16. Fallback data may not append to explicit curated sets unless augmentation is expressly authorized.
 17. Positive assertions are insufficient: protect important exclusions and ordering too.
 18. Tests proving source/catalog state do not substitute for actual rendered validation.
+19. VM-595 is a detector, not complete semantic judgment; every identity must pass the rendered Cross-Section Redundancy Gate before batch commit or push.
 
 ## Per-identity loop
 
@@ -2020,11 +2134,12 @@ For each identity:
 12. Render the actual dossier through the same Owner-facing path.
 13. Compare accepted semantic sets against actual rendered sets, including negative/exclusion assertions.
 14. Verify Native / Exact / Stretch and face commander/product facts.
-15. Verify each section adds unique information rather than repeating another section or visible badge.
-16. Run VM-595 or a scoped language-trust rescan.
-17. Repair remaining proven P1–P3 findings.
-18. Repeat up to three autonomous cycles.
-19. Stop at Owner Review or an explicit blocker.
+15. Complete the Cross-Section Redundancy Gate against the full rendered dossier: record each section's responsibility, claim, mechanics/theme inventory, player decision, and unique information.
+16. FAIL when two sections provide substantially the same decision or understanding for substantially the same purpose, even if lexical similarity is below threshold.
+17. Run VM-595 or a scoped language-trust rescan.
+18. Repair remaining proven P1–P3 findings.
+19. Rerender the complete dossier and repeat up to three autonomous cycles.
+20. Stop at Owner Review only for a defined stop condition; otherwise advance when all gates pass.
 
 Do not exceed three autonomous cycles per identity.
 
@@ -2081,6 +2196,15 @@ If removal leaves a useful surface empty, use the nearest existing source-ground
 
 Do not invent filler solely to populate the layout.
 
+Repeated terms are allowed when each occurrence performs a different section responsibility. The defect is same-purpose semantic duplication, not shared vocabulary.
+
+For each identity, record:
+
+| Section | Principal responsibility | Principal claim | New player decision or understanding | Redundancy result |
+|---|---|---|---|---|
+
+PASS requires distinct primary responsibilities, no unresolved same-purpose duplication, aligned-but-distinct Start Here and What to Look For, strategy-bearing precon rationales, and table-behavior-focused How This Plays copy.
+
 ## Shared defects
 
 If the same defect appears in 2 or more identities and a shared composer/filter/renderer owns it:
@@ -2107,6 +2231,12 @@ Use VM-595 to detect:
 - utility-copy dominance;
 - grammar/composition defects.
 
+VM-595 remains a detector. Low exact-string or Jaccard similarity does not prove section-role separation.
+
+Use the combined gate:
+
+> VM-595 detection + section-role contract + rendered semantic comparison + information-gain review.
+
 Do not optimize raw duplicate count to zero.
 
 Preserve legitimate shared UI instructions and strong identity-specific voice.
@@ -2119,9 +2249,21 @@ RobQA may directly repair:
 - proven P2 where the accepted semantic contract determines the answer;
 - proven P1 implementation defects when authoritative evidence and root cause are definitive.
 
+Ordinary, proven cross-section redundancy is a P2 or P3 that RobQA should repair autonomously when the correct section owner and existing source-grounded replacement are clear.
+
 RobQA must not invent new metaphysics or identity doctrine when evidence is ambiguous.
 
 If ambiguity remains after governed evidence and permitted verification, stop with a blocker.
+
+For cross-section redundancy, stop for Owner input only when:
+
+- the correct section owner is ambiguous;
+- removing duplication would require a new semantic interpretation;
+- official sources conflict;
+- the repair would alter accepted golden semantics;
+- three repair cycles fail to converge.
+
+Do not stop for routine, clearly owned redundancy. These redundancy-specific rules do not weaken stricter P0/P1, evidence, or protected-workflow stop conditions elsewhere in SIRF.
 
 ## Golden identities
 
@@ -2168,6 +2310,8 @@ Protect:
 
 Process identities in batches of 3–5.
 
+Exception-based automation is enabled after the accepted diversity batch. Routine, clearly owned P2/P3 findings should be repaired in the loop without an Owner pause; only the defined stop conditions become exceptions.
+
 After each batch:
 
 1. rerun golden WUBRG/Temur/Lorehold;
@@ -2175,7 +2319,11 @@ After each batch:
 3. run VM-595 batch rescan;
 4. report new shared root causes;
 5. report before/after language-trust changes;
-6. stop for Owner Review if a new defect family or SIRF gap appears.
+6. after source/model repairs and artifact regeneration, apply the Cross-Section Redundancy Gate to each actual rendered dossier;
+7. record the required section-role matrix and rerun scoped VM-595 checks;
+8. stop for Owner Review only when a defined exception or a new defect family/SIRF gap appears.
+
+Even when commit and push are otherwise authorized, an automated batch may not commit or push with unresolved cross-section redundancy.
 
 ## Required fix report
 
@@ -2226,6 +2374,7 @@ For each identity stop at Owner Review when:
 - rendered contract passes;
 - recommendations pass;
 - section information gain passes;
+- the rendered Cross-Section Redundancy Gate and section-role matrix pass;
 - VM-595 scoped result is acceptable;
 - golden identities remain stable if shared code changed.
 
@@ -2261,7 +2410,7 @@ This is the last deliberate framework-validation checkpoint before the broad atl
 If the diversity batch produces no new major defect family:
 
 - freeze v0.2 deployment rules;
-- continue atlas rollout.
+- continue atlas rollout through exception-based batch automation.
 
 If it exposes a new generic failure:
 
@@ -2316,25 +2465,27 @@ Use strong positive controls between risk-heavy identities.
 
 The Owner should not need to manually deep-read all 34 the way WUBRG, Temur, and Lorehold were calibrated.
 
-Use risk-based Owner sampling.
+Use exception-based Owner review. Risk-based sampling may happen separately, but it does not block an otherwise passing automated batch.
 
-Require detailed manual Owner review for:
+Stop the batch for Owner input when:
 
-- any identity with P0/P1;
-- any identity requiring external official-source verification;
-- any identity that changes shared composer/recommender/filtering behavior;
-- any identity requiring 2+ repair cycles;
-- any identity exposing a new SIRF defect family;
-- any high-profile/launch-critical identity.
+- an unresolved P0/P1 or ownership conflict remains;
+- official sources conflict or a new semantic interpretation is required;
+- a shared repair would alter accepted golden semantics;
+- a new SIRF defect family appears;
+- three repair cycles fail to converge.
 
-Allow lighter review for identities with:
+Allow automated batch acceptance for identities with:
 
 - no factual changes;
-- one-cycle P2/P3 cleanup;
+- clearly owned P2/P3 cleanup that converges within three cycles;
 - rendered contract PASS;
 - recommendation PASS;
 - golden/shared regressions PASS;
-- VM-595 improvement.
+- VM-595 improvement;
+- Cross-Section Redundancy Gate PASS.
+
+Routine, clearly owned cross-section redundancy that RobQA repairs and proves through the rendered gate does not require a separate Owner pause.
 
 The loop must summarize exactly what changed and why so Owner review takes minutes rather than hours.
 
@@ -2379,6 +2530,8 @@ Each identity should return:
 ## Rendered contract result
 
 ## Information-gain review
+
+## Cross-section section-role matrix
 
 ## VM-595 language delta
 
@@ -2434,6 +2587,8 @@ Do not:
 - append fallback meaning to curated taxonomies;
 - treat expected-set inclusion as equivalent to rendered-set equality;
 - replace deleted redundancy with invented filler.
+- treat a low VM-595 similarity score as proof that rendered section roles are distinct;
+- commit or push a batch with unresolved cross-section redundancy.
 
 ---
 
@@ -2465,6 +2620,7 @@ Before starting the remaining 34:
 - [ ] Create SIRF rollout tracker.
 - [ ] Run diversity batch.
 - [ ] Review any framework gaps.
+- [ ] Enable exception-based batches only after the rendered Cross-Section Redundancy Gate is mandatory.
 - [ ] Begin remaining batches.
 
 ---
@@ -2486,6 +2642,7 @@ SIRF v0.2 should operate like this:
 > Verify important exclusions and ordering.  
 > Verify semantic relationships survive downstream filters.  
 > Verify every block teaches something new.  
+> Compare all five rendered sections semantically and record the section-role matrix.
 > Replace removed redundancy with existing source-grounded detail when useful.  
 > Run VM-595.  
 > Let RobQA fix proven P1–P3.  

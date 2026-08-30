@@ -44,6 +44,7 @@ It defines:
 - Start Here / Test the Fit / How This Plays / Precon Starting Points / What to Look For responsibilities;
 - Native > Exact > Stretch recommendation semantics;
 - rendered-contract equality;
+- the mandatory rendered Cross-Section Redundancy Gate and section-role matrix;
 - curated-directions-over-fallback behavior;
 - root-cause requirements;
 - RobQA repair authority;
@@ -236,6 +237,14 @@ Ask:
 
 If the answer is none, the block is redundant.
 
+The governing plan's [Mandatory Acceptance Gate — Cross-Section Redundancy](SIRF-v0.2-atlas-wide-deployment-plan.md#122-mandatory-acceptance-gate--cross-section-redundancy) requires RobQA to compare Start Here, Test the Fit, How This Plays, Precon Starting Points, and What to Look For as one actual rendered dossier. Each section must have a distinct responsibility, principal claim, player decision, and unique contribution. Shared terms are allowed when they perform different section jobs; two blocks that give substantially the same decision or understanding for the same purpose FAIL even when wording and automated similarity scores differ.
+
+The required report is a compact section-role matrix with:
+
+`Section | Principal responsibility | Principal claim | New player decision or understanding | Redundancy result`
+
+Unresolved cross-section redundancy prohibits batch commit and push.
+
 ## 6. Source-grounded replacement
 
 If redundant copy is removed and a surface becomes too empty, replace it with the nearest existing governed/source-grounded detail.
@@ -338,6 +347,20 @@ System relationship:
 **VM-595 = detector**  
 **SIRF = decision/root-cause framework**  
 **RobQA = closed-loop verifier/remediator**
+
+VM-595 continues to detect exact duplicates, identity-substitution patterns, repeated openings, Jaccard similarity, within-dossier redundancy, process-language leakage, and malformed grammar. A low automated score does not prove that section roles are separate.
+
+The complete acceptance gate is:
+
+**VM-595 detection + section-role contract + rendered semantic comparison + information-gain review**
+
+---
+
+# Exception-Based Atlas Automation
+
+The accepted White/Rakdos/Esper diversity batch enables exception-based atlas batches. After source/model repair and artifact regeneration, RobQA must apply the Cross-Section Redundancy Gate to the actual rendered dossier and rerun scoped VM-595 before any batch commit or push.
+
+RobQA should repair routine, clearly owned P2/P3 redundancy autonomously. Stop for Owner input only when the correct section owner is ambiguous, the repair needs a new semantic interpretation, official sources conflict, accepted golden semantics would change, or three repair cycles fail to converge. Other stricter SIRF stop conditions remain controlling.
 
 ---
 
@@ -460,3 +483,5 @@ Do not silently continue by guessing.
 The SIRF workspace is operating correctly when:
 
 > The governing plan is stable, accepted semantic contracts are recorded, each run has a reproducible baseline and report, RobQA can explain the root cause and reason for every material repair, golden identities protect shared infrastructure changes, VM-595 measures language trust, and the remaining atlas can be repaired in controlled batches without repeatedly rediscovering the same defect classes manually.
+
+Every automated batch must also prove through the rendered section-role matrix that each of the five scoped sections adds distinct player value before commit and push.

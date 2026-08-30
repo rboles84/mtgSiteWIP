@@ -318,7 +318,7 @@ export function playerFacingIdentityDisplayLabel(faction = {}) {
 
 export async function loadOptionalJson(path, label) {
   try {
-    const response = await fetch(path);
+    const response = await fetch(path, CORE_DATA_FETCH_OPTIONS);
     if (!response.ok) {
       throw new Error(`${response.status} ${response.statusText}`);
     }

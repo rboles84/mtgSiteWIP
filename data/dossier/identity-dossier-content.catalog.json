@@ -98,7 +98,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you value performance, provocation, sensation, release, and an act whose audience can see both intensity and cost.",
         "tension_failure_mode": "Watch for this tension: It rejects respectability, hidden pressure, and restraint that disguises what people actually want.",
-        "certified_boundary_self_check": "This is less likely to fit when private cruelty, ordinary aggression, sacrifice mechanics, or random chaos are not Rakdos when there is no act, audience, or consequence."
+        "certified_boundary_self_check": "This is less likely to fit if the deck offers only private cruelty, ordinary aggression, sacrifice mechanics, or random chaos without an act, audience, or visible consequence."
       },
       "how_this_plays": {
         "role": "The spectacle engine",
@@ -110,25 +110,25 @@
       },
       "what_to_look_for": [
         {
-          "item_id": "lookfor_br_1_rakdos_midrange",
-          "title": "Rakdos Midrange",
-          "copy": "Thoughtseize into Bloodtithe Harvester into Fable of the Mirror-Breaker. Efficient threats, precise removal, pressure from every angle.",
-          "source_locator": "data/factions.json#/factions/BR/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_br_1_spectacle_pressure",
+          "title": "Spectacle Pressure",
+          "copy": "Deal damage or force life loss in public, then turn the table's reaction into the next advantage.",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_005",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_br_2_aristocrats",
-          "title": "Aristocrats",
-          "copy": "Blood Artist and Mayhem Devil drain the table one sacrifice trigger at a time. Every creature dying generates value.",
-          "source_locator": "data/factions.json#/factions/BR/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_br_2_risk_for_release",
+          "title": "Risk for Release",
+          "copy": "Spend cards, life, or creatures to make the turn feel immediate, provocative, and costly.",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0017",
+          "source_role": "certified_claim_translation"
         },
         {
-          "item_id": "lookfor_br_3_sacrifice_aggro",
-          "title": "Sacrifice Aggro",
-          "copy": "Generate cheap fodder, feed it to sac outlets for damage payoffs, and kill before the opponent stabilizes.",
-          "source_locator": "data/factions.json#/factions/BR/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "item_id": "lookfor_br_3_sacrifice_with_consequence",
+          "title": "Sacrifice with Consequence",
+          "copy": "Use sacrifice and damage triggers when each cost advances the act; generic value alone is not the Cult.",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0021",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -695,7 +695,7 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you value shared standards, protection of the vulnerable, dependable obligations, and group safety over private exception.",
         "tension_failure_mode": "Watch for this tension: White challenges Black's self-priority and Red's unrestrained immediacy, while Green can question whether White's systems listen to living reality.",
-        "certified_boundary_self_check": "This is less likely to fit when if rules are inherently oppression, private power owes nothing to others, or impulse should outrank communal safety, mono-White is a false center."
+        "certified_boundary_self_check": "This is less likely to fit if you treat rules as inherently oppressive, believe private power owes nothing to others, or want impulse to outrank communal safety."
       },
       "how_this_plays": {
         "role": "The shelter-builder",
@@ -710,22 +710,22 @@
           "item_id": "lookfor_w_1_protective_tokens",
           "title": "Protective Tokens",
           "copy": "Build a resilient board, widen the field, and make combat answer shared protection.",
-          "source_locator": "data/factions.json#/factions/W/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_w_2_taxes_and_rules",
           "title": "Taxes and Rules",
           "copy": "Set costs, slow greedy lines, and force the table to play through standards.",
-          "source_locator": "data/factions.json#/factions/W/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_w_3_equipment_and_guardians",
           "title": "Equipment and Guardians",
           "copy": "Suit up one clean threat, protect it, and turn structure into pressure.",
-          "source_locator": "data/factions.json#/factions/W/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
@@ -965,37 +965,37 @@
       "test_the_fit": {
         "positive_self_check": "This may fit if you want a Commander deck that sets up carefully, keeps answers ready, and turns knowledge into advantage before the table realizes its best line has narrowed.",
         "tension_failure_mode": "Watch for this tension: It rejects Red impulse and Green acceptance as final answers; internally it must keep improvement from turning the unoptimized into an error to erase.",
-        "certified_boundary_self_check": "This is less likely to fit when generic control, artifacts as decoration, or power without an applied-knowledge improvement project is not Esper."
+        "certified_boundary_self_check": "This is less likely to fit if you want generic control, artifacts as decoration, or power without an applied-knowledge improvement project."
       },
       "how_this_plays": {
         "role": "The system refiner",
         "how_opponents_read_it": "Opponents feel the deck making the future smaller and cleaner: cards turn into options, options turn into answers, and answers arrive exactly when the table thought it had room.",
         "emotional_pressure": "Pressure through precision, planning, information advantage, and the sense that the game is being redesigned while it is still happening.",
-        "lore_role": "Alara shard context read through source-grounded Blue-centered perfectibility, White ordered improvement, and Black focused control",
-        "mechanical_expression": "In Commander, this can show up through control, card advantage, library setup, artifacts, lifegain, reanimation value, tokens, and evasive pressure",
-        "table_experience": "careful setup, protected engines, clean answers, and a future that narrows as Esper understands the table"
+        "lore_role": "Blue-centered perfectibility, supported by White's ordered improvement and Black's focused control",
+        "mechanical_expression": "Card selection improves future draws, answers shrink opposing options, and a protected value engine converts preparation into lasting advantage",
+        "table_experience": "careful setup, open options, a protected engine, and a clean pivot from answers into a finish"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_esper_1_perfectibility_control",
           "title": "Perfectibility Control",
           "copy": "Use knowledge, timing, and structure to make the table's future narrower and cleaner.",
-          "source_locator": "data/factions.json#/factions/ESPER/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0003",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_esper_2_information_engines",
           "title": "Information Engines",
           "copy": "Turn cards, libraries, and planning into the resources that decide what may happen next.",
-          "source_locator": "data/factions.json#/factions/ESPER/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0005",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_esper_3_artifact_oriented_value",
           "title": "Artifact-Oriented Value",
           "copy": "Use artifact language as support for designed improvement, not as the whole identity by itself.",
-          "source_locator": "data/factions.json#/factions/ESPER/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0006",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {
