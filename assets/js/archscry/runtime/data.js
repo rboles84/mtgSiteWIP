@@ -303,7 +303,7 @@ export function buildArchscryAuthoredCardLookup(index) {
 
 export function playerFacingIdentityDisplayLabel(faction = {}) {
   const expressionKind = String(faction.identity?.expression_kind || "").toLowerCase();
-  if (String(faction.key || "").toUpperCase() === "WUBRG") return "WUBRG";
+  if (String(faction.key || "").toUpperCase() === "WUBRG") return "Five-Color";
   if (expressionKind === "college") return String(faction.name || "").replace(/\s+College$/i, "").trim();
   return String(faction.identity?.routing?.label || faction.name || faction.key || "").trim();
 }

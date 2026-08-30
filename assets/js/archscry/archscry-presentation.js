@@ -197,12 +197,12 @@ export const FACTION_PRESENTATION = {
   },
   LOREHOLD: {
     shortName: "Lorehold",
-    tableRole: "The field historian",
-    opponentRead: "Opponents feel the deck turning old material into present danger: relics, spirits, and remembered battles.",
-    emotionalPressure: "Pressure through history, evidence, artifact recursion, and memory that refuses to stay still.",
-    loreRole: "archaeologists, spirit scholars, and combat historians",
-    mechanics: "Spirit tokens, artifact recursion, graveyard artifacts, combat value, and historic payoffs",
-    tableExperience: "history fighting back and old resources becoming live pressure",
+    tableRole: "History in action",
+    opponentRead: "Relics, Spirits, recovered spells, and remembered battles keep turning old resources into new problems.",
+    emotionalPressure: "Uncertainty, reuse, and reconstruction make old material feel active again.",
+    loreRole: "archaeologists, spirit scholars, and field researchers",
+    mechanics: "Cards leaving graveyards, Spirit witnesses, artifact reconstruction, and commander-led spells or combat",
+    tableExperience: "History fights back: a Spirit becomes a witness, a relic becomes a tool again, or a recovered spell turns an old lesson into the next play.",
     thesis: "Lorehold read you as someone who goes into the ruins because the past is still active. White gives testimony and duty; red gives motion and heat. Together, the deck turns memory into a battlefield resource.",
     closeReason: "history, artifacts, memory, and active investigation",
     forkQuestion: "What does the past prove when it is allowed to fight back?",
@@ -346,17 +346,17 @@ export const FACTION_PRESENTATION = {
   },
   TEMUR: {
     shortName: "Temur",
-    tableRole: "The elemental survivor",
-    opponentRead: "Opponents feel the deck listening before it strikes: mana gathers, the board watches for the right signal, and strength arrives as terrain, instinct, and storm move together.",
-    emotionalPressure: "Pressure through survival, attunement, mental fortitude, and the sense that the wild has already answered before the action lands.",
-    loreRole: "Tarkir wedge, Green-centered survival, Blue mental fortitude, Red direct action, Qal Sisma endurance, shamanic listening, and elemental memory",
-    mechanics: "Dragons, ramp, copying, energy, artifacts, counters, X-spells, and ravenous lines as Commander-facing ways to show force, scale, and adaptive timing without turning deck mechanics into Tarkir lore",
-    tableExperience: "listen for the opening, grow the mana and board, then let instinct and elemental force make one clean turn matter",
-    thesis: "Temur reads your answers as survival learning to listen before it moves. Green keeps the body, terrain, and instinct centered, Blue turns perception into mental fortitude, and Red gives the earned signal enough force to act.",
-    closeReason: "survival, instinct, mental fortitude, shamanic listening, elemental memory, and earned strength",
-    forkQuestion: "What signal is worth trusting when survival has no room for noise?",
-    direction: "moves toward attunement, instinct, and Commander expression",
-    selfCheck: "This may fit if you want a Commander deck that grows resources, watches for the right signal, and turns dragons, copying, counters, or huge force into table texture for survival through attunement.",
+    tableRole: "Adaptive pressure shaped by the chosen Commander plan",
+    opponentRead: "The plan may present substantial creatures, growing mana, open interaction, copied spells, or scaling threats—never one fixed sequence.",
+    emotionalPressure: "Build strength, assess the moment, and turn it into decisive action.",
+    loreRole: "Temur is Tarkir's Green-centered clan of savagery, rooted in Qal Sisma, family groups, formal roles, and whisperers; the Endless Song belongs to modern Dragonstorm lore.",
+    mechanics: "Ferocious is Khans-era Temur; Formidable belongs to Atarka. Dragons and other Commander packages are optional expressions, not Temur's canonical mechanic.",
+    tableExperience: "Creature, mana, and spell builds create different table rhythms. Survival Through Attunement is an optional Vox Mana lens for reading the board before committing force.",
+    thesis: "Temur holds Green's acceptance, Blue's knowledge, and Red's action in tension.",
+    closeReason: "Green-centered savagery, strength, instinct, knowledge, action, Qal Sisma, and era-scoped Temur lore",
+    forkQuestion: "Which balance of strength, understanding, and decisive action best fits the deck you want to build?",
+    direction: "offers several Commander expressions rather than one required play script",
+    selfCheck: "This may fit if you want strength, knowledge, and action to serve one focused deck plan.",
   },
   SULTAI: {
     shortName: "Sultai",
@@ -485,18 +485,18 @@ export const FACTION_PRESENTATION = {
     selfCheck: "This may fit if you want the deck-building constraint itself to matter, with Wastes and reliable colorless sources serving the plan instead of generic costs or five-color Eldrazi blurring it.",
   },
   WUBRG: {
-    shortName: "WUBRG",
-    tableRole: "The full-spectrum integrator",
-    opponentRead: "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
-    emotionalPressure: "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
-    loreRole: "The all-five-color expression: coalition and synthesis, with each color contributing to the whole plan",
-    mechanics: "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure that make all five colors matter in play",
-    tableExperience: "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift",
-    thesis: "Your answers point to a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.",
-    closeReason: "all five colors present, full-spectrum integration, coalition, color breadth, and tradeoffs that keep access from becoming goodstuff",
-    forkQuestion: "What does every color contribute that the others cannot carry alone?",
-    direction: "moves toward all-five-color synthesis and full-spectrum Commander expression",
-    selfCheck: "This may fit if you want a Commander deck where every color matters and mana infrastructure is part of the discipline.",
+    shortName: "Five-Color",
+    tableRole: "The commander determines the deck's engine, tribe, payoff, or tool suite; Five-Color supplies the access that plan needs.",
+    opponentRead: "The commander often shows what all-five access is for—whether that is a tribe, toolbox, engine, payoff, or broad interaction suite.",
+    emotionalPressure: "Five-Color can create uncertainty through breadth because several kinds of tools may be available; the actual engine determines where that pressure comes from.",
+    loreRole: "Five-Color has represented tribes spanning the color pie, coalitions, magical breadth, multicolor systems, rainbow imagery, and other context-specific ideas. Vox Mana treats coalition, integration, and synthesis as possible readings rather than universal doctrine.",
+    mechanics: "Direct Five-Color mechanics ask you to assemble or spend all five colors. Other builds use broad access for color-count payoffs, land-type engines, multicolor systems, typal reach, or toolbox breadth.",
+    tableExperience: "once the mana works, the table experience follows the deck's actual reason for being Five-Color: rainbow payoff, typal access, integration, or a broader toolbox",
+    thesis: "All five colors are available. What brings them together depends on the deck.",
+    closeReason: "access to all five colors materially serves a commander, tribe, mechanic, theme, toolbox, or payoff",
+    forkQuestion: "What brings all five colors together in this deck?",
+    direction: "moves toward a deck-specific Five-Color plan supported by reliable color access",
+    selfCheck: "This may fit if access to White, Blue, Black, Red, and Green materially serves your commander, tribe, mechanic, theme, toolbox, or payoff.",
   },
 };
 
@@ -630,7 +630,7 @@ function applyLiveFourColorExactCommanderPolicy(entries = [], identity = "") {
 function getFaction(factions, key) {
   const faction = factions?.[key] || null;
   return String(faction?.key || key || "").toUpperCase() === "WUBRG"
-    ? { ...faction, name: "WUBRG" }
+    ? { ...faction, name: "Five-Color" }
     : faction;
 }
 

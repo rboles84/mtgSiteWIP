@@ -133,6 +133,37 @@
     ],
     "core_identity_id": "temur_core_identity_gate3"
   },
+  "semantic_model": {
+    "identity_floor": "Official design presents Temur as Green-centered Green-Blue-Red savagery; official Tarkir lore supplies the era-specific culture, roles, whisperers, and modern Endless Song context.",
+    "interpretive_lens": "Vox Mana interpretation: Survival Through Attunement reads Temur lore and color tension together as listening before decisive action. It is an optional Commander archetype, not a universal Temur rule.",
+    "exploration_archetypes": [
+      {
+        "title": "Large Creatures / Ferocious",
+        "copy": "Start with substantial creatures and the Khans-era Ferocious anchor, then choose the Commander support that makes those threats matter.",
+        "classification": "official_mechanical_anchor"
+      },
+      {
+        "title": "Ramp / Big Mana",
+        "copy": "Use Green-Blue-Red resource growth to support expensive spells, activated abilities, or larger threats; this is a Commander direction, not Tarkir lore.",
+        "classification": "commander_exploration"
+      },
+      {
+        "title": "Spells / Copying",
+        "copy": "Build around interaction, spells, or copied effects when the commander gives those tools a clear job; this is a broader Commander expression, not Temur Frontier culture.",
+        "classification": "commander_exploration"
+      },
+      {
+        "title": "Survival Through Attunement",
+        "copy": "Optional Vox Mana archetype: a deck can translate Temur's survival, whisperer, and elemental imagery into reading the board before committing force.",
+        "classification": "optional_vox_mana_archetype"
+      }
+    ],
+    "mechanic_boundaries": {
+      "ferocious": "Official Khans-era Temur mechanical anchor.",
+      "formidable": "Atarka Clan mechanic; related timeline context, not an ordinary Temur progression.",
+      "commander_expressions": "Dragons, ramp, copying, counters, X-spells, energy, and artifacts are possible Commander lanes with differing evidence strength; none alone defines Tarkir Temur."
+    }
+  },
   "structure": {
     "summary": "The safe structural floor is source-rich and live-pilot scoped: Temur is a Tarkir GUR wedge with Green center, Khans-era Qal Sisma survival evidence, shamanic and elemental memory evidence, modern Dragonstorm-era material, and explicit VM-208 runtime boundaries.",
     "supported_elements": [
@@ -353,8 +384,21 @@
     }
   ],
   "mechanics": {
-    "summary": "VM-206 does not establish Temur mechanics as raw claims beyond the source-bound design and lore floor. Dragons, ramp, energy, artifacts, copying, non-hand casting, artifact tokens, counters, X-spells, and ravenous remain support-only operator material.",
-    "supported_mechanics": [],
+    "summary": "Ferocious is the official Khans-era Temur mechanical anchor. Formidable is Atarka-specific; Dragons, ramp, energy, artifacts, copying, non-hand casting, artifact tokens, counters, X-spells, and ravenous remain Commander-facing or support-only material rather than Temur Frontier identity.",
+    "supported_mechanics": [
+      {
+        "name": "Ferocious",
+        "era": "Khans-era Temur",
+        "classification": "official_mechanical_anchor",
+        "claim_ids": ["temur_claim_0012"]
+      },
+      {
+        "name": "Formidable",
+        "era": "Atarka Clan",
+        "classification": "timeline_boundary",
+        "notes": "Do not render as an ordinary Temur upgrade."
+      }
+    ],
     "commander_curation_patterns": [
       {
         "pattern": "Exact GUR Commander rows can provide support-only operator vocabulary around dragons, ramp, energy, artifacts, copying spells or creatures, instant copying, non-hand casting, artifact tokens, counters, X-spells, and ravenous.",
@@ -367,7 +411,8 @@
     "source_ids": [
       "src_vm_temur_source_ledger_20260531",
       "src_vm_temur_research_dossier_20260531",
-      "src_vm_temur_manual_fill_20260531"
+      "src_vm_temur_manual_fill_20260531",
+      "src_wotc_khans_mechanics_20140902"
     ],
     "notes": "Support-only material must not raise raw-claim confidence, create raw claims, or imply placement readiness."
   },

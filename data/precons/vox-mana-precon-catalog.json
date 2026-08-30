@@ -1,7 +1,7 @@
 {
   "_meta": {
     "schema_version": "vox-mana-precon-catalog-v2.1",
-    "generated_by": "research/build-precon-artifacts.mjs",
+    "generated_by": "scripts/build/build-precon-artifacts.mjs",
     "source_schema_version": "vox-mana-precons-source-v2.1",
     "theme_taxonomy_version": "vox-mana-precon-themes-v1",
     "record_count": 155
@@ -473,7 +473,7 @@
     {
       "slug": "lorehold-spirit-quintorius-history-chaser",
       "sourceIndex": 4,
-      "sourcePage": "https://cardgamebase.com/commander-precons/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/secrets-of-strixhaven-commander-decklists",
       "productSection": "Secrets of Strixhaven Commander Precons",
       "deckName": "Lorehold Spirit",
       "deckSearchQuery": "Lorehold Spirit",
@@ -510,7 +510,7 @@
           "matched": true
         }
       },
-      "deckDescription": "An unusual take on White-Red that cares about cards leaving the graveyard and Spirit creatures. The main commander is a powerful planeswalker, which is a distinctive feature. Differs significantly from typical aggressive White-Red decks.",
+      "deckDescription": "The official Secrets of Strixhaven Lorehold deck led by Quintorius, History Chaser. Its commander turns cards leaving your graveyard into Spirit tokens, creating a specific graveyard-leaves and Spirit route.",
       "mainStrategy": "Trigger effects by removing cards from the graveyard, supported by Spirit creature synergies, with the commander generating value from graveyard interaction",
       "notesMechanicsMentioned": "Cards leaving graveyard synergies; Spirit creature type; commander is a planeswalker",
       "iconicCards": [
@@ -779,15 +779,17 @@
       ]
     },
     {
-      "slug": "turtle-power-heroes-in-a-half-shell",
+      "slug": "turtle-power-leonardo-the-balance",
       "sourceIndex": 6,
-      "sourcePage": "https://cardgamebase.com/commander-precons/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/teenage-mutant-ninja-turtles-commander-decklist",
       "productSection": "TMNT Commander Precon",
       "deckName": "Turtle Power!",
       "deckSearchQuery": "Turtle Power!",
-      "mainCommander": "Heroes in a Half Shell",
-      "commanderSearchQuery": "Heroes in a Half Shell",
-      "secondaryCommanders": [],
+      "mainCommander": "Leonardo, the Balance",
+      "commanderSearchQuery": "Leonardo, the Balance",
+      "secondaryCommanders": [
+        "Heroes in a Half Shell"
+      ],
       "factionRefs": [],
       "colors": [
         "White",
@@ -924,6 +926,7 @@
       ],
       "searchTerms": [
         "turtle power",
+        "leonardo the balance",
         "heroes in a half shell",
         "tmnt commander precon",
         "turtles +1/+1 counters selecting commanders",
@@ -944,7 +947,7 @@
     {
       "slug": "dance-of-the-elements-ashling-the-limitless",
       "sourceIndex": 7,
-      "sourcePage": "https://cardgamebase.com/commander-precons/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/lorwyn-eclipsed-commander-decklists",
       "productSection": "Lorwyn Eclipsed Commander Precons",
       "deckName": "Dance of the Elements",
       "deckSearchQuery": "Dance of the Elements",
@@ -2587,7 +2590,7 @@
     {
       "slug": "temur-roar-eshki-temur-s-roar",
       "sourceIndex": 18,
-      "sourcePage": "https://cardgamebase.com/commander-precons/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists",
       "productSection": "Tarkir: Dragonstorm Commander Precons",
       "deckName": "Temur Roar",
       "deckSearchQuery": "Temur Roar",
@@ -2596,7 +2599,9 @@
       "secondaryCommanders": [
         "Ureni of the Unwritten"
       ],
-      "factionRefs": [],
+      "factionRefs": [
+        "TEMUR"
+      ],
       "colors": [
         "Blue",
         "Red",
@@ -8056,7 +8061,7 @@
     {
       "slug": "draconic-domination-the-ur-dragon",
       "sourceIndex": 54,
-      "sourcePage": "https://cardgamebase.com/commander-precons-2011-2019/",
+      "sourcePage": "https://magic.wizards.com/en/news/feature/commander-2017-edition-decklists-2017-08-11",
       "productSection": "Commander 2017",
       "deckName": "Draconic Domination",
       "deckSearchQuery": "Draconic Domination",
@@ -9933,7 +9938,7 @@
           "matched": true
         }
       },
-      "deckDescription": "A Kalemne-led Boros deck built around creatures with CMC 5 or greater that earn experience counters, growing Kalemne into an increasingly powerful double-striker. Primarily a Giants-flavored big-creature aggro deck with an experience counter twist. Contains strong reprints despite being the least popular C15 deck.",
+      "deckDescription": "A Kalemne-led red-white deck built around creatures with CMC 5 or greater that earn experience counters, growing Kalemne into an increasingly powerful double-striker. It is a Giants-flavored big-creature aggro deck with an experience-counter twist.",
       "mainStrategy": "Play expensive creatures (CMC 5+) to earn experience counters that grow Kalemne; win through combat with double-strike, vigilance Kalemne plus an army of giants",
       "notesMechanicsMentioned": "Experience counters from 5+ CMC spells; Kalemne double strike and vigilance scaling; Giants tribal flavor; big-creature aggro",
       "iconicCards": [
@@ -13860,7 +13865,7 @@
     {
       "slug": "lorehold-legacies-osgir-the-reconstructor",
       "sourceIndex": 91,
-      "sourcePage": "https://cardgamebase.com/commander-precons-2020-2021/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/commander-2021-edition-decklists-2021-04-05",
       "productSection": "Commander 2021 / Strixhaven Commander",
       "deckName": "Lorehold Legacies",
       "deckSearchQuery": "Lorehold Legacies",
@@ -13897,9 +13902,9 @@
           "matched": true
         }
       },
-      "deckDescription": "An Osgir-led Boros artifact deck that sacrifices artifacts and creates two token copies of them from the graveyard when Osgir's activated ability resolves, enabling recursive artifact loops and a non-aggro Red-White plan.",
-      "mainStrategy": "Sacrifice artifacts to generate value; use Osgir's ability to reanimate and double artifacts from the graveyard; milestone Boros precon praised as a major power upgrade for the color pair",
-      "notesMechanicsMentioned": "Artifact sacrifice for graveyard doubling via Osgir; artifact recursion and copying; Boros artifact identity milestone; strong out-of-box power",
+      "deckDescription": "The official Commander 2021 Lorehold deck led by Osgir, the Reconstructor. Osgir makes this product a specific artifact sacrifice-and-reconstruction route, not a universal Lorehold mechanic.",
+      "mainStrategy": "Sacrifice artifacts for value, then use Osgir to turn artifact cards in the graveyard into reconstructed token copies.",
+      "notesMechanicsMentioned": "Artifact sacrifice for graveyard token copies via Osgir; artifact recursion and copying.",
       "iconicCards": [
         "Archeomancer's Map",
         "Monologue Tax",
@@ -13938,16 +13943,16 @@
         "valueEngine": 4
       },
       "recommendationProfile": {
-        "recommendedFor": "Artifact players who want a Boros deck that finally delivers on the color pair's potential; players who enjoy graveyard artifact recursion with doubling payoffs",
+        "recommendedFor": "Artifact players who enjoy graveyard artifact recursion with token-copy payoffs",
         "notRecommendedFor": "Players wanting traditional Boros aggro; this deck plays nothing like a typical Red-White combat deck",
-        "voxManaPlacementFit": "Boros players who feel constrained by the color pair's typical limitations - Osgir turns artifact sacrifice into a doubling engine that makes Boros feel as powerful as any other color combination"
+        "voxManaPlacementFit": "Osgir turns artifact sacrifice and graveyard cards into a commander-specific reconstruction engine."
       },
       "learningProfile": {
         "colorPhilosophySummary": "White's orderly artifact construction and Red's creative destruction combine in Osgir - nothing is wasted, everything sacrificed is doubled and returned, making the battlefield a perpetual forge",
         "whatThisDeckTeachesAboutItsColors": "Shows how a commander can express Boros through artifact recursion and combo lines rather than only through aggression",
         "beginnerLesson": "Teaches artifact sacrifice and recursion in a clean two-color context; Osgir's doubling ability is intuitive and makes the payoff of sacrificing artifacts immediately visible",
         "strategyLesson": "Teaches how artifact sacrifice feeds recursion which enables further sacrifice - a self-sustaining loop that generates value every turn without needing external draw engines",
-        "voxManaBasicsPageUse": "Strong example of a milestone Boros precon; excellent for explaining how commanders can redefine color pair expectations and why Lorehold Legacies was praised as a breakthrough",
+        "voxManaBasicsPageUse": "A focused example of how a commander can turn artifact sacrifice and graveyard cards into a reconstruction engine.",
         "relatedArchetypes": [
           "artifacts",
           "sacrifice",
@@ -15187,7 +15192,7 @@
           "matched": true
         }
       },
-      "deckDescription": "A Wyleth-led Boros equipment and Aura deck that draws cards equal to the number of Auras and Equipment attached to Wyleth when he attacks. Solves Boros's card draw problem by making the commander the draw engine himself. A focused voltron strategy that sustains itself through combat.",
+      "deckDescription": "A Wyleth-led red-white Equipment and Aura deck that draws cards equal to the number of Auras and Equipment attached to Wyleth when he attacks. The commander provides the deck's draw engine. It is a focused voltron strategy sustained through combat.",
       "mainStrategy": "Equip and enchant Wyleth to draw cards equal to the number of Auras and Equipment attached; build one enormous threat with card advantage fueling the strategy",
       "notesMechanicsMentioned": "Card draw on attack equal to attached Auras and Equipment; equipment and Aura synergy; Wyleth as draw engine; voltron combat strategy",
       "iconicCards": [
@@ -18006,7 +18011,7 @@
     {
       "slug": "sliver-swarm-sliver-gravemother",
       "sourceIndex": 117,
-      "sourcePage": "https://cardgamebase.com/commander-precons-2022-2023/",
+      "sourcePage": "https://magic.wizards.com/en/news/announcements/commander-masters-commander-decklists",
       "productSection": "Commander Masters",
       "deckName": "Sliver Swarm",
       "deckSearchQuery": "Sliver Swarm",
@@ -20242,8 +20247,8 @@
           "matched": true
         }
       },
-      "deckDescription": "A Neyali-led Boros attacking token deck where Neyali gives all attacking tokens double strike and exiles the top card of your library when an attacking token deals damage, castable until end of turn. A distinctly different Boros token experience that generates card advantage directly through combat.",
-      "mainStrategy": "Create tokens and attack aggressively; Neyali gives attacking tokens double strike and exiles cards to cast when tokens deal damage; a distinctly different Boros token deck",
+      "deckDescription": "A Neyali-led red-white attacking token deck where Neyali gives all attacking tokens double strike and exiles the top card of your library when an attacking token deals damage, castable until end of turn. A distinctly different red-white token experience that generates card advantage directly through combat.",
+      "mainStrategy": "Create tokens and attack aggressively; Neyali gives attacking tokens double strike and exiles cards to cast when tokens deal damage; a distinctly different red-white token deck",
       "notesMechanicsMentioned": "Neyali double strike for all attacking tokens; impulse draw from attacking token damage; token-specific combat trigger; combat card advantage generation",
       "iconicCards": [
         "Clever Concealment",
@@ -22141,7 +22146,7 @@
     {
       "slug": "painbow-jared-carthalion",
       "sourceIndex": 143,
-      "sourcePage": "https://cardgamebase.com/commander-precons-2022-2023/",
+      "sourcePage": "https://magic.wizards.com/en/news/feature/dominaria-united-commander-decklists-2022-08-19",
       "productSection": "Dominaria United Commander",
       "deckName": "Painbow",
       "deckSearchQuery": "Painbow",

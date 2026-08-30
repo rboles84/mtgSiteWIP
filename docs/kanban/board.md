@@ -43,11 +43,20 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
+
+- [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
+
+- [VM-596 — WUBRG Semantic Repair](in-progress/VM-596-wubrg-semantic-repair.md) - Owner Accepted; final Five-Color semantics, Rainbow Payoffs alignment, official precon verification, Turtle Power! face-commander correction, and repetition cleanup passed owner review. The candidate remains uncommitted; exact-SHA certification/integration requires separate authorization.
+
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-597 — Temur Semantic Repair](done/VM-597-temur-semantic-repair.md) - Owner Accepted; Temur's provenance, optional-lens boundary, Native Fit precon ordering, composed dossier copy, and source-derived precon game-plan cues are complete. Placement and WUBRG work remain protected.
 
 - [VM-594 — Archscry Phase 3 Experienced-Player Routing Proof](done/VM-594-archscry-phase-3-experienced-player-routing-proof.md) - Owner Accepted; Phase 3 is research complete, implementation blocked, and post-launch deferred because current routing has no certified branch-equivalent question opportunity seam. The prior-blind Placement remains authoritative, with runtime, telemetry, persistence, VM-593, and VM-578 untouched.
 - [VM-593 — Loom Identity Lens v0 Research](done/VM-593-loom-identity-lens-v0-research.md) - owner accepted the closed five-pair Loom identity-expression evidence package: 120 cards, 60 pairwise assertions, query-neutral downstream-only preference/recommendation ownership, asymmetric final dispositions, and zero post-correction external escalations; no Loom/Maze/Placement runtime implementation was performed.

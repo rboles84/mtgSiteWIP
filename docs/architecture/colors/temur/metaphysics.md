@@ -6,7 +6,7 @@
 
 **Support status:** `Vox Mana synthesis`; not MTG canon doctrine.
 
-Temur metaphysics treats listening as survival: Green accepts that the living world already contains the path, Blue learns the world's patterns without trying to cage them, and Red acts before the moment is lost.
+`Vox Mana synthesis`: Temur can be read through listening as survival—Green accepting the living world, Blue seeking knowledge, and Red acting before the moment is lost. This is not an official universal Temur metaphysic.
 
 The canon-backed floor is narrower than the image may feel. VM-203 supports Temur as the Green-centered `GUR` Tarkir wedge, savagery as its design attribute, Khans-era Qal Sisma survival and whispering, Fate Reforged / Yasova-era bridge context, Atarka Clan suppression as a contrast boundary, and modern Dragonstorm-era Endless Song material as timeline-labeled modern Temur. Everything beyond that must either cite the VM-203 packet or remain `Manual fill required`.
 
@@ -16,13 +16,13 @@ Evidence anchors: `docs/research/temur/temur-evidence-ledger.md` rows `TEMUR-EVI
 
 ### The World As Signal
 
-Temur begins from the Green-centered premise that the world is not silent. Terrain, spirits, ancestors, beasts, weather, hunger, and enemy motion all carry signals. Vox Mana may write Temur as listening to the world, but must keep the phrase tied to survival, whispering, elemental memory, and accepted natural order rather than unsupported mysticism.
+Official lore establishes terrain, spirits, ancestors, beasts, weather, and survival pressures; `Vox Mana synthesis` may describe them as a world that is not silent. The latter framing must remain labeled rather than being promoted to color-pie doctrine.
 
 Evidence anchors: `TEMUR-EVID-001`, `TEMUR-EVID-003`, `TEMUR-EVID-006`, `TEMUR-EVID-008`, `TEMUR-EVID-019`, and `TEMUR-EVID-023`.
 
 ### Knowledge Without Domestication
 
-Blue gives Temur knowledge, mental fortitude, problem solving, and pattern recognition, but VM-203 does not support turning Temur into an academic or institutional identity. Temur knowledge is a survival practice: whisperers warn, guide, commune, divine, and help the clan decide where to move, shelter, hunt, or fight.
+Official design gives Blue knowledge, mental fortitude, and problem solving. Official lore gives whisperers warning, guidance, communion, divination, and survival coordination. `Vox Mana synthesis` may read these together as knowledge in a survival practice, but must not present whisperers as Blue by direct canon.
 
 Evidence anchors: `TEMUR-EVID-004`, `TEMUR-EVID-008`, `TEMUR-EVID-017`, `TEMUR-EVID-020`, `TEMUR-EVID-023`, and `TEMUR-EVID-024`.
 

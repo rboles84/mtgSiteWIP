@@ -11,14 +11,6 @@ export const SYSTEM_COPY_REPLACEMENTS = [
   { pattern: systemCopyPattern(["specific", "grievance"]), replacement: "specific pressure" },
   { pattern: /\bCI\s+([WUBRG]{1,5})\b/g, replacement: "Color Identity: $1" },
   { pattern: systemCopyPattern(["Read", "In", "Apocrypha"], "g"), replacement: "Read in the source library" },
-  {
-    pattern: /Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims\./g,
-    replacement: "Keeps five-color breadth focused by making every color and every included tool contribute to the plan.",
-  },
-  {
-    pattern: /Vox Mana Five-Color expression for all five colors present, coalition, synthesis, and strict separation from official-faction, goodstuff-only, Colorless, and four-color leakage/g,
-    replacement: "The Five-Color expression: all five colors present, coalition and synthesis, with each color contributing to the whole plan",
-  },
   { pattern: /\u00e2\u20ac\u201d/g, replacement: "-" },
   { pattern: /\u00e2\u20ac\u0153|\u00e2\u20ac\u009d/g, replacement: '"' },
   { pattern: /\u00e2\u20ac\u2122/g, replacement: "'" },

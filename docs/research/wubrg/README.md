@@ -23,6 +23,7 @@ This packet is the source-owned gate for adding WUBRG / Five-Color to Vox Mana a
 - `wubrg-layer2-gold-findings.md` records the Layer 2 readiness decision before Layer 1 promotion.
 - `wubrg-manual-fill.md` records intentionally deferred fields and support-only items.
 - `wubrg-depth-readiness-matrix.md` gates VM-368 through VM-370 depth work before raw/profile edits.
+- `wubrg-external-evidence-audit.md` preserves the owner-supplied external research synthesis used by VM-596 to challenge over-universalized Five-Color copy. Its evidence-ledger source cells contain no primary-source locators, so it is shaping and reconciliation context only, not claim-bearing authority.
 
 ## Evidence Rules
 
@@ -32,3 +33,4 @@ This packet is the source-owned gate for adding WUBRG / Five-Color to Vox Mana a
 - Unsupported local prose is shaping-only, discovery-only, or stale-or-unverified.
 - Empty or deferred fields are acceptable. Do not pad WUBRG to match other identities' field counts.
 - Layer 2 readiness must pass before WUBRG enters Layer 1 runtime data.
+- An external synthesis can inform questions and boundaries, but no claim may be promoted from it without a reproducible underlying primary-source locator.

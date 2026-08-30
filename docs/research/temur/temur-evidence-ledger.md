@@ -38,6 +38,7 @@ Status: VM-203 evidence ledger. Temur remains non-live and review-gated.
 | TEMUR-EVID-030 | Vox Mana synthesis | Vox Mana may later frame Temur as Green-centered survival through attunement, instinct, endurance, shamanic listening, elemental memory, and strength earned in harsh terrain, provided this is labeled as synthesis and tied to rows above. | TEMUR-EVID-001 through TEMUR-EVID-026 | Label as Vox Mana synthesis; not MTG canon. |
 | TEMUR-EVID-031 | Guardrail | VM-203 leaves Temur non-live: no architecture docs, raw-faction JSON, runtime keys, generated artifacts, schemas, Maze changes, route changes, Home preview changes, placement model changes, or Supabase changes. | VM-203 scope | Stop gate. |
 | TEMUR-EVID-032 | Support-only | The official Tarkir: Dragonstorm Commander decklist verifies `Temur Roar` as a product deck with `Eshki, Temur's Roar` as face commander and `Ureni of the Unwritten` as featured commander. | TEMUR-SRC-015 | Product/deck navigation only; not Tarkir canon, popularity, metagame, legality, or placement evidence. |
+| TEMUR-EVID-033 | Promoted | Khans-era Ferocious is the Temur signature ability word and checks for a creature with power 4 or greater. | TEMUR-SRC-016 | Official mechanical-design anchor; do not turn it into a timeless cultural philosophy or Commander requirement. |
 
 ## Manual-Fill Rows
 

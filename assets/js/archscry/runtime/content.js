@@ -134,9 +134,11 @@ export function addUsageCards(target, cards = []) {
 export function filterPreconRecommendationsForEditorialCards(preconRecommendations = {}, excludedCardIds = new Set()) {
   const filtered = { ...preconRecommendations };
   for (const group of ["nativeExact", "otherExact", "stretch"]) {
-    filtered[group] = (preconRecommendations[group] || []).filter((precon) => (
-      !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander))
-    ));
+    filtered[group] = group === "nativeExact"
+      ? [...(preconRecommendations[group] || [])]
+      : (preconRecommendations[group] || []).filter((precon) => (
+          !excludedCardIds.has(canonicalUsageCardId(precon.mainCommander))
+        ));
   }
   filtered.hasAny = ["nativeExact", "otherExact", "stretch"].some((group) => filtered[group].length > 0);
   return filtered;

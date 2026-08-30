@@ -1021,7 +1021,7 @@ async function replay(page, origin, witness) {
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.equal(ui.literalColorless, false, `literal Colorless token remained in ${JSON.stringify(ui.literalColorlessNodes)}`);
   if (witness.identity_key === "COLORLESS" && ui.state === "named") assert.deepEqual(ui.basicLandCards, ["Wastes"]);
   if (witness.identity_key === "WUBRG" && ui.state === "named") {
-    assert.equal(ui.guildName, "WUBRG", "WUBRG public hero retained the internal long identity name");
+    assert.equal(ui.guildName, "Five-Color", "WUBRG public hero must use the preferred Five-Color label");
     assert.deepEqual(ui.wubrgLongIdentityLabels, [], "WUBRG emitted Five-Color / WUBRG as a public identity label");
     assert.ok(ui.wubrgCatalogTerms.length >= 1, "WUBRG normalization rewrote legitimate five-color matters catalog terminology");
     assert.equal(ui.wubrgOpeningIdentityLabels.length, 1, `WUBRG opening repeated the identity label: ${ui.wubrgOpeningText}`);

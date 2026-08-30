@@ -126,11 +126,15 @@ export function buildCommanderStartingLane({
   const budget = starterProfile?.budget_band || "mid";
   const experience = starterProfile?.experience_level || "returning";
   const guidance = getCommanderFactionGuidance(faction);
-  const laneTags = guidance?.starterSearchTags?.length
+  const laneTags = guidance?.starterDirections?.length
+    ? guidance.starterDirections
+    : guidance?.starterSearchTags?.length
     ? guidance.starterSearchTags
     : tagLanes.map((lane) => lane.tagName);
   const institutionWord = getExpressionKindLabel(faction);
-  const strategicDirections = unique([...laneTags, ...archetypes]).slice(0, 4);
+  const strategicDirections = unique(
+    guidance?.starterDirections?.length ? laneTags : [...laneTags, ...archetypes]
+  ).slice(0, 4);
   const researchLanes = strategicDirections.length
     ? strategicDirections.join(", ")
     : `${colorIdentity || "the chosen color identity"} fundamentals`;
@@ -152,7 +156,7 @@ export function buildCommanderStartingLane({
   const tableCaution = guidance?.tableCautionText ||
     "Wait for the table to spend its answers, hold interaction, and rebuild before committing your last engine.";
 
-  const copy = `One way to explore ${faction?.name || "this path"} is a Commander deck that ${plan}. Start here, then adjust the budget, complexity, and table role to fit your deck.`;
+  const copy = guidance?.startingLaneCopy || `One way to explore ${faction?.name || "this path"} is a Commander deck that ${String(plan || "").replace(/[.]+\s*$/, "")}. Adjust the budget, complexity, and table role to fit your deck.`;
 
   return {
     title: "Start With This Commander Plan",
@@ -172,10 +176,10 @@ export function buildCommanderStartingLane({
         label: "Possible directions",
         copy: `Explore ${researchLanes}. Compare these lanes to see which one matches the deck you want to build.`,
       },
-      {
+      ...(guidance?.starterDirections?.length ? [] : [{
         label: "Why these appear",
         copy: `These directions connect the ${institutionWord.toLowerCase()} Commander guidance with the themes shown in this dossier. Choose only the lanes that fit the deck you want to explore.`,
-      },
+      }]),
       {
         label: `${institutionWord} spellcraft`,
         copy: compactSentence(spellcraft),
@@ -860,10 +864,10 @@ export function buildCommanderDossier({
   const rawFaction = factions[activeKey];
   const rawPrimaryFaction = factions[primaryKey] || rawFaction;
   const faction = String(activeKey || "").toUpperCase() === "WUBRG"
-    ? { ...rawFaction, name: "WUBRG" }
+    ? { ...rawFaction, name: "Five-Color" }
     : rawFaction;
   const primaryFaction = String(primaryKey || "").toUpperCase() === "WUBRG"
-    ? { ...rawPrimaryFaction, name: "WUBRG" }
+    ? { ...rawPrimaryFaction, name: "Five-Color" }
     : rawPrimaryFaction;
 
   if (!faction) {

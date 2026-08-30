@@ -947,10 +947,17 @@ export function preconPreviewChips(precon) {
   return chips;
 }
 
+export function preconRationaleForDisplay(precon, previewGroup) {
+  const text = String(precon?.publicRationale?.text || "").trim();
+  const strategy = String(precon?.mainStrategy || "").trim();
+  const repeatsFitBadge = /^This deck shares the reading's .+ color identity\. The precon catalog records /i.test(text);
+  return previewGroup !== "stretch" && repeatsFitBadge ? strategy : text;
+}
+
 export function buildPreconCardHtml(precon) {
   const previewGroup = precon?.previewGroup || precon?.group || (precon?.lane === "stretch" ? "stretch" : "otherExact");
   const badge = PRECON_BADGE_META[previewGroup] || PRECON_BADGE_META.otherExact;
-  const publicRationale = precon?.publicRationale?.text || "";
+  const publicRationale = preconRationaleForDisplay(precon, previewGroup);
   const rationaleProvenance = precon?.publicRationale?.provenance || null;
   const chips = preconPreviewChips(precon);
   const commanderRationale = `This card appears because it is the cataloged main commander of ${precon.deckName}.`;

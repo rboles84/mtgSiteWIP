@@ -17532,7 +17532,7 @@
       "canonical_file": "data/raw-factions/lorehold/lorehold.profile.json",
       "canonical_pointer": "/site_surface",
       "canonical_id": null,
-      "canonical_content_hash": "sha256:6673f48ad27e29a5f08572d9ad1d09dc31e84a357c39a36681c12166cf9c31e0",
+      "canonical_content_hash": "sha256:c4a128b2ba61fb74649167efa9d76563513e99a3a1b00de8a6b3a5794aa1c81f",
       "evidence_claim_ids": [
         "claim_lorehold_core_0001",
         "claim_lorehold_core_0003",
@@ -30934,6 +30934,25 @@
         "src_wotc_tarkir_dragons_pg_part_2",
         "src_wotc_tarkir_dragonstorm_pg_part_2",
         "src_wotc_tarkir_khans_pg_part_2"
+      ],
+      "generated_consumers": [
+        "data/factions.json#/factions/TEMUR",
+        "data/placement-model.json#/factions/TEMUR",
+        "supabase/functions/guild-recruiter/faction-context.ts#FACTION_CONTEXT/TEMUR"
+      ],
+      "contract_version": "v1.1"
+    },
+    {
+      "identity_key": "TEMUR",
+      "canonical_file": "data/raw-factions/temur/temur.profile.json",
+      "canonical_pointer": "/mechanics/supported_mechanics/0",
+      "canonical_id": null,
+      "canonical_content_hash": "sha256:e2495fee13c05e6390e83e0ff3dfb3f2c711b797558555e750dcc4a9dc5c643d",
+      "evidence_claim_ids": [
+        "temur_claim_0012"
+      ],
+      "evidence_source_ids": [
+        "src_wotc_khans_mechanics_20140902"
       ],
       "generated_consumers": [
         "data/factions.json#/factions/TEMUR",
@@ -48418,7 +48437,7 @@
       "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
       "canonical_pointer": "/core_identity",
       "canonical_id": "wubrg_core_identity_gate3",
-      "canonical_content_hash": "sha256:d0b4504b3e4bdb2dd87763ddfdc737fc4decbc5d60cabed5bc94456569ec8f17",
+      "canonical_content_hash": "sha256:385d01cde949ac77f23b99e98d84c8098d5a01ab224a5b2edaffe3857562375b",
       "evidence_claim_ids": [
         "wubrg_claim_0001",
         "wubrg_claim_0002",
@@ -48451,7 +48470,7 @@
       "canonical_file": "data/raw-factions/wubrg/wubrg.profile.json",
       "canonical_pointer": "/profile",
       "canonical_id": "wubrg_profile_gate3",
-      "canonical_content_hash": "sha256:aa939cecf259869fd39e275da653d3c146f51fbcf960ab30cf84d81dc587a41c",
+      "canonical_content_hash": "sha256:91ff7aa4e65a1aa91b5402f1105620d5674a868792a70c4953041b8371ba2a66",
       "evidence_claim_ids": [
         "wubrg_claim_0001",
         "wubrg_claim_0002",

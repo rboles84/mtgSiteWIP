@@ -613,7 +613,7 @@ assert.equal(
   "WUBRG",
   "expected layered identity meta to preserve WUBRG as the technical code"
 );
-const suppliedWubrgHeroThesis = "Five-Color read your answers as a table where all five voices were present. White asked for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging.";
+const suppliedWubrgHeroThesis = "All five colors are available. What brings them together depends on the deck.";
 const expectedWubrgNoEvidenceCopy = "Five-Color / WUBRG appears in the saved reading, but the available detail does not include a direct positive answer signal for this view. No stronger explanation is claimed.";
 const wubrgHeroResult = {
   faction: "WUBRG",
@@ -651,11 +651,11 @@ assert.equal(
   "expected a synthetic WUBRG fixture without an evidence ledger to preserve the explicit explanation limitation"
 );
 const wubrgPresentation = presentationForFaction(factionsData.factions.WUBRG);
-assert.match(wubrgPresentation.direction, /full-spectrum Commander expression/, "expected WUBRG adjacent direction to use full-spectrum Commander expression copy");
+assert.match(wubrgPresentation.direction, /deck-specific Five-Color plan/, "expected WUBRG adjacent direction to stay deck-specific");
 assert.match(
   buildContrastCopy(factionsData.factions.WUBRG, factionsData.factions.BG),
-  /full-spectrum Commander expression/,
-  "expected WUBRG adjacent-fit contrast copy to expose the supplied adjacent direction"
+  /deck-specific Five-Color plan/,
+  "expected WUBRG adjacent-fit contrast copy to preserve the supplied conditional direction"
 );
 const wubrgDossier = buildCommanderDossier({
   factions: factionsData.factions,
@@ -667,13 +667,13 @@ const wubrgDossier = buildCommanderDossier({
 });
 assert.match(
   wubrgDossier.commanderLane.copy,
-  /uses all five colors deliberately: build reliable fixing, decide what each color contributes, and keep the deck focused on how those colors work together/,
-  "expected WUBRG Start Here copy to use concrete player-facing five-color guidance"
+  /starts by asking why the deck is Five-Color, then builds reliable fixing/,
+  "expected WUBRG Start Here copy to name purpose before infrastructure"
 );
 assert.match(
   wubrgDossier.resultSummaryStrip.playPattern.body,
-  /In play, Five-Color \/ WUBRG wants full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift/,
-  "expected WUBRG play pattern to use supplied wants-full-color-access copy"
+  /Once the mana works, the table experience follows the deck's actual reason for being Five-Color/,
+  "expected WUBRG play pattern to teach deck-specific Five-Color modes"
 );
 assert.doesNotMatch(
   wubrgDossier.resultSummaryStrip.playPattern.body,
@@ -699,8 +699,8 @@ assert.deepEqual(
 );
 assert.deepEqual(
   wubrgPreconPreview.visible.map((entry) => entry.mainCommander),
-  ["Jared Carthalion", "Ulalek, Fused Atrocity", "Sliver Gravemother", "Heroes in a Half Shell"],
-  "expected WUBRG precon Commander targets to stay unchanged after display label polish"
+  ["Jared Carthalion", "Ulalek, Fused Atrocity", "Sliver Gravemother", "Leonardo, the Balance"],
+  "expected WUBRG precon Commander targets to retain the verified Turtle Power! face commander"
 );
 const wubrgDeckLinksByName = new Map((factionsData.factions.WUBRG.deck_links || []).map((link) => [link.name, link]));
 assert.equal(
@@ -2460,7 +2460,7 @@ assert.equal(temurIdentityMeta, "Temur");
 assert.match(temurDirectoryText, /https:\/\/edhrec\.com\/commanders\/temur\b/);
 assert.match(temurDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/temur-commanders\b/);
 assert.doesNotMatch(temurDirectoryText, /commanders\/(?:gur|urg)\b|\/Commander\/(?:gur|urg)-commanders/i);
-assert.match(temurPresentationText, /Commander-facing ways to show force|table texture for survival through attunement/i);
+assert.match(temurPresentationText, /Ferocious.*Khans-era Temur anchor|optional Vox Mana archetype/i);
 assert.doesNotMatch(
   `${temurVisibleText} ${temurPresentationText} ${temurIdentityMeta}`,
   /\b(?:GUR|GRU|UGR|URG|RGU|RUG)\b|Exact GUR|generic GUR|generic three-color goodstuff|Atarka.*continuity|Commander products as canon|Dragonstorm backfill|support-only|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/temur\/|\/gur\//i,

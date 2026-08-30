@@ -67,7 +67,7 @@ export const APP_STATE = {
 export function getFaction(key) {
   const faction = APP_STATE.factions[key] || null;
   return String(faction?.key || key || "").toUpperCase() === "WUBRG"
-    ? { ...faction, name: "WUBRG" }
+    ? { ...faction, name: "Five-Color" }
     : faction;
 }
 

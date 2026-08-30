@@ -266,12 +266,12 @@ assert.match(renderPlayerCopy("Spend true {C}, not &#x67;eneric mana."), /not ge
 assert.doesNotMatch(renderPlayerCopy("Spend true {C}."), /\{C\}/);
 assert.equal(
   renderPlayerCopy("Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims."),
-  "Keeps five-color breadth focused by making every color and every included tool contribute to the plan.",
-  "the exact WUBRG boundary copy must render as player guidance rather than audit commentary"
+  "Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims.",
+  "the renderer must not silently strengthen bounded WUBRG source copy into universal integration doctrine"
 );
 assert.equal(
   presentationForFaction("WUBRG").loreRole,
-  "The all-five-color expression: coalition and synthesis, with each color contributing to the whole plan"
+  "No universal lore role follows from Five-Color. Coalition, integration, and synthesis are optional Vox Mana readings for particular decks."
 );
 const greenStart = buildCommanderStartingLane({ faction: factions.G, guidance: factions.G.commander_compass });
 assert.doesNotMatch(JSON.stringify(greenStart), /color-legal starting direction|curated or dossier-supported|recorded answers do not prove/i);

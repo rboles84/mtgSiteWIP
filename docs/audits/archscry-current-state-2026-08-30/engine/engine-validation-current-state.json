@@ -1,0 +1,2497 @@
+{
+  "schema_version": "1.0.0",
+  "audit_baseline_sha": "db9a16a40c2bfb7d0d493eacef348f19d70bb05a",
+  "expected_identity_count": 37,
+  "witness_inventory": {
+    "authority": "Current-engine live route plus existing approved optional refinement; authored preview routes are excluded.",
+    "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+    "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+    "schema_version": "1.0.0",
+    "generated_from_model_version": "vm551-gate-b1-placement-engine-v1",
+    "expected_rows": 37,
+    "actual_rows": 37,
+    "named_witnesses": 36,
+    "intentional_bounded_witnesses": 1,
+    "model_source": "data/gate-b1-placement-model.json",
+    "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea"
+  },
+  "versions": {
+    "engine": "vm551-gate-b1-placement-engine-v1",
+    "result": "2026-08-09-gate-b1-v1",
+    "instrument": "vm551-gate-b1-instrument-v2",
+    "mapping": "vm551-gate-b1-mapping-v2-instrument-completion"
+  },
+  "rows": [
+    {
+      "audit_id": "ENGINE-W",
+      "expected_identity_key": "W",
+      "expected_identity_name": "White",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "W",
+      "directional_result_identity": "W",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "W",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "W"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.procedure"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/w.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "72ca79e7b8c36be90783aa1bdd4329185a06c711af6179920d1faab09644c120"
+    },
+    {
+      "audit_id": "ENGINE-U",
+      "expected_identity_key": "U",
+      "expected_identity_name": "Blue",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 7,
+      "main_question_count": 7,
+      "refinement_question_count": 0,
+      "actual_final_identity": "U",
+      "directional_result_identity": "U",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "U",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "U"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.after"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/u.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "82f5f7a39961a5fd119546bbb871e6526efe99cd03fd331fa7460ceb06ee4dee"
+    },
+    {
+      "audit_id": "ENGINE-B",
+      "expected_identity_key": "B",
+      "expected_identity_name": "Black",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "B",
+      "directional_result_identity": "B",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "B",
+      "raw_numeric_score": 0.6875,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "B"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.resources"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.convert"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/b.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "2d1e4f99e0389271fbe4b2272d2c0b93e736d3bf82046742681efd015e37fdf1"
+    },
+    {
+      "audit_id": "ENGINE-R",
+      "expected_identity_key": "R",
+      "expected_identity_name": "Red",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "R",
+      "directional_result_identity": "R",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "R",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "R"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.coordinate"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.act"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/r.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "8db2fea3337598fc719dad0c95f7e0f44806fde2ad972e6c3b569c7c69eb8a30"
+    },
+    {
+      "audit_id": "ENGINE-G",
+      "expected_identity_key": "G",
+      "expected_identity_name": "Green",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "G",
+      "directional_result_identity": "G",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "RG",
+      "raw_numeric_score": 0.916667,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": true,
+      "frontier": [
+        "G"
+      ],
+      "stop_reason": "highest_responsible_candidate_trails_unqualified_internal_candidate",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.resources"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.staged"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.adapt"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/g.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "c5ca273638a3cf86a67131a8f49c64a313aad06858f10a3ee6f139abe30f8197"
+    },
+    {
+      "audit_id": "ENGINE-WU",
+      "expected_identity_key": "WU",
+      "expected_identity_name": "Azorius Senate",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 7,
+      "main_question_count": 7,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WU",
+      "directional_result_identity": "WU",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "W",
+      "raw_numeric_score": 0.833333,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WU"
+      ],
+      "stop_reason": "next_question_cannot_improve_responsible_top_boundary",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.before"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.procedure"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/wu.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "cd5c63c545efebfce65f8f2bd461d2d48fccae14d7f91b6d5b142a5b7570b8dc"
+    },
+    {
+      "audit_id": "ENGINE-WR",
+      "expected_identity_key": "WR",
+      "expected_identity_name": "Boros Legion",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WR",
+      "directional_result_identity": "WR",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WR",
+      "raw_numeric_score": 1,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WR"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.abundance"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.intervene"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/wr.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "24e37cb3eeccd8bc03f9775c078a3e517040646dab155fa9e76145379eb1777f"
+    },
+    {
+      "audit_id": "ENGINE-BR",
+      "expected_identity_key": "BR",
+      "expected_identity_name": "Cult of Rakdos",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "BR",
+      "directional_result_identity": "BR",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "BR",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "BR"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.embrace"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/br.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "253f5ebacb28c2034c14a4d7e6cc8a1c769ab522f208917b742bc7b037c46f0b"
+    },
+    {
+      "audit_id": "ENGINE-BG",
+      "expected_identity_key": "BG",
+      "expected_identity_name": "Golgari Swarm",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "BG",
+      "directional_result_identity": "BG",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "BG",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "BG"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.split"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.reclaim"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/bg.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "25e7c633e05cc09e3b1fe2dad4d28a55469b29aca650ee9e14f9cf575e8151d4"
+    },
+    {
+      "audit_id": "ENGINE-RG",
+      "expected_identity_key": "RG",
+      "expected_identity_name": "Gruul Clans",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "RG",
+      "directional_result_identity": "RG",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "JUND",
+      "raw_numeric_score": 1,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": true,
+      "frontier": [
+        "RG"
+      ],
+      "stop_reason": "next_question_cannot_improve_responsible_top_boundary",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.combat"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.preserve"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/rg.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "2cb08c2dc7a74d6be43a60e58deb070bd541bce9a92f3a2989c8238215aacf59"
+    },
+    {
+      "audit_id": "ENGINE-UB",
+      "expected_identity_key": "UB",
+      "expected_identity_name": "House Dimir",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 7,
+      "main_question_count": 7,
+      "refinement_question_count": 0,
+      "actual_final_identity": "UB",
+      "directional_result_identity": "UB",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "UB",
+      "raw_numeric_score": 0.75,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "UB"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.purpose"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/ub.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "fe6fd29649a97c0d1919f9bb4d1098c16362d3da31fd68df9c76706ba0c0e004"
+    },
+    {
+      "audit_id": "ENGINE-UR",
+      "expected_identity_key": "UR",
+      "expected_identity_name": "Izzet League",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "UR",
+      "directional_result_identity": "UR",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "UR",
+      "raw_numeric_score": 0.666667,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "UR"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.small"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.workshop"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/ur.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "f1c4dc2990c335256de9232fac9555a78d8be37fade9535a3426f1b4184222bf"
+    },
+    {
+      "audit_id": "ENGINE-WB",
+      "expected_identity_key": "WB",
+      "expected_identity_name": "Orzhov Syndicate",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WB",
+      "directional_result_identity": "WB",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WB",
+      "raw_numeric_score": 0.645833,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WB"
+      ],
+      "stop_reason": "single_named_direction_with_unresolved_alternatives",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.resources"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.wb.v1",
+          "answer_id": "b1.crucible.wb.v1.terms"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/wb.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "1368379b03350f8fc8dd8243c55dd8ec625595ea38f547aa53c24a799193fc2e"
+    },
+    {
+      "audit_id": "ENGINE-WG",
+      "expected_identity_key": "WG",
+      "expected_identity_name": "Selesnya Conclave",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 7,
+      "main_question_count": 7,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WG",
+      "directional_result_identity": "WG",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WG",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WG"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.respond"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.access"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.purpose"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/wg.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "8a542de4a86876c75e10c607b6e47bc48ef5e4c592bd5e3118bcf5c5c779a19c"
+    },
+    {
+      "audit_id": "ENGINE-UG",
+      "expected_identity_key": "UG",
+      "expected_identity_name": "Simic Combine",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "UG",
+      "directional_result_identity": "UG",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "UG",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "UG"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.split"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.staged"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.adapt"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/ug.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "33b6191ab9b33efb0077d3f5296252ea48209109d852e44e6a7d5e08c5164849"
+    },
+    {
+      "audit_id": "ENGINE-LOREHOLD",
+      "expected_identity_key": "LOREHOLD",
+      "expected_identity_name": "Lorehold College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 9,
+      "main_question_count": 8,
+      "refinement_question_count": 1,
+      "actual_final_identity": "LOREHOLD",
+      "directional_result_identity": "LOREHOLD",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "LOREHOLD",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "LOREHOLD"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.small"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.replace"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.before"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.reuse"
+        },
+        {
+          "question_id": "b1.crucible.wr.v1",
+          "answer_id": "b1.crucible.wr.v1.recover",
+          "refinement": true
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/lorehold.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "01c31eebd279a141632176bd32c1619cc28c1f92e2823d72a786f5baaea4bc88"
+    },
+    {
+      "audit_id": "ENGINE-PRISMARI",
+      "expected_identity_key": "PRISMARI",
+      "expected_identity_name": "Prismari College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "PRISMARI",
+      "directional_result_identity": "PRISMARI",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "PRISMARI",
+      "raw_numeric_score": 1,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "PRISMARI"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.respond"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.hall.theme.v1",
+          "answer_id": "b1.hall.theme.v1.reliable"
+        },
+        {
+          "question_id": "b1.crucible.ur.v1",
+          "answer_id": "b1.crucible.ur.v1.showcase"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/prismari.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "49aa256293da9c1ad2b2fc6801f3747faf4b4f97e8d87fa21fb1b3e582ce65d5"
+    },
+    {
+      "audit_id": "ENGINE-QUANDRIX",
+      "expected_identity_key": "QUANDRIX",
+      "expected_identity_name": "Quandrix College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "QUANDRIX",
+      "directional_result_identity": "QUANDRIX",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "QUANDRIX",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "QUANDRIX"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.respond"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.long"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.scale"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/quandrix.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "971d0832ba17a8da8f1ea0449a8582ddf88100596731c67c3a1da532fd75f4e1"
+    },
+    {
+      "audit_id": "ENGINE-SILVERQUILL",
+      "expected_identity_key": "SILVERQUILL",
+      "expected_identity_name": "Silverquill College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "SILVERQUILL",
+      "directional_result_identity": "SILVERQUILL",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "SILVERQUILL",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "SILVERQUILL"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.pivot"
+        },
+        {
+          "question_id": "b1.crucible.wb.v1",
+          "answer_id": "b1.crucible.wb.v1.influence"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/silverquill.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "8804ad7c23f88acfe546e28e53bfa0355aeaeb5a4ec370c8027ac4b86aeb8d85"
+    },
+    {
+      "audit_id": "ENGINE-WITHERBLOOM",
+      "expected_identity_key": "WITHERBLOOM",
+      "expected_identity_name": "Witherbloom College",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WITHERBLOOM",
+      "directional_result_identity": "WITHERBLOOM",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WITHERBLOOM",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WITHERBLOOM"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.crucible.bg.v1",
+          "answer_id": "b1.crucible.bg.v1.exchange"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/witherbloom.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "8acdad57801a5064407f0f8cb216cfed86315430f93f77a7bb10579d4927f7f8"
+    },
+    {
+      "audit_id": "ENGINE-BANT",
+      "expected_identity_key": "BANT",
+      "expected_identity_name": "Bant",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "BANT",
+      "directional_result_identity": "BANT",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "BANT",
+      "raw_numeric_score": 0.916667,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "BANT"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.limit"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.coordinate"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.access"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.crucible.bant.v1",
+          "answer_id": "b1.crucible.bant.v1.refine"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/bant.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "7c83ee486a523d2858fb26db0a9609f4713e708383f7fa9d2bc694ee19092537"
+    },
+    {
+      "audit_id": "ENGINE-ESPER",
+      "expected_identity_key": "ESPER",
+      "expected_identity_name": "Esper",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "ESPER",
+      "directional_result_identity": "ESPER",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "ESPER",
+      "raw_numeric_score": 0.7875,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "ESPER"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.before"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.crucible.esper.v1",
+          "answer_id": "b1.crucible.esper.v1.designed"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/esper.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "e347f1e0403c20153193f8bb4f03b3bda8cc9fb6d01170271285fee8c60a87bd"
+    },
+    {
+      "audit_id": "ENGINE-GRIXIS",
+      "expected_identity_key": "GRIXIS",
+      "expected_identity_name": "Grixis",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "GRIXIS",
+      "directional_result_identity": "GRIXIS",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "GRIXIS",
+      "raw_numeric_score": 0.9375,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "GRIXIS"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.consolidate"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.grixis.v1",
+          "answer_id": "b1.crucible.grixis.v1.convert"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/grixis.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "9c4b4cec7d3a85a0420ad270824703589d7e7b6345095d4e9b3ac35ef5c195ff"
+    },
+    {
+      "audit_id": "ENGINE-JUND",
+      "expected_identity_key": "JUND",
+      "expected_identity_name": "Jund",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "JUND",
+      "directional_result_identity": "JUND",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "close",
+      "public_confidence_state": "close",
+      "raw_numeric_leader": "R",
+      "raw_numeric_score": 0.916667,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": true,
+      "frontier": [
+        "JUND",
+        "RG"
+      ],
+      "stop_reason": "next_question_cannot_improve_responsible_top_boundary",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.recover"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.combat"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/jund.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "780c094e0872ad3df1c2788b182a393c40872cd9d9aa3f5a76060f75309e74e1"
+    },
+    {
+      "audit_id": "ENGINE-NAYA",
+      "expected_identity_key": "NAYA",
+      "expected_identity_name": "Naya",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "NAYA",
+      "directional_result_identity": "NAYA",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "NAYA",
+      "raw_numeric_score": 0.645833,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "NAYA"
+      ],
+      "stop_reason": "single_named_direction_with_unresolved_alternatives",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.abundance"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.staged"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.preserve"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/naya.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "70d6bdf02026d3b1271493886b8c73a00d1f82c48070a2d8cc823f454e8938b6"
+    },
+    {
+      "audit_id": "ENGINE-ABZAN",
+      "expected_identity_key": "ABZAN",
+      "expected_identity_name": "Abzan Houses",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "ABZAN",
+      "directional_result_identity": "ABZAN",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "ABZAN",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "ABZAN"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.terms"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/abzan.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "d2f6cca475918ca2ef2af80cf7d8cb9b2282c7cab2142da68c2976943d1e9c77"
+    },
+    {
+      "audit_id": "ENGINE-JESKAI",
+      "expected_identity_key": "JESKAI",
+      "expected_identity_name": "Jeskai Way",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "JESKAI",
+      "directional_result_identity": "JESKAI",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "JESKAI",
+      "raw_numeric_score": 0.75,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "JESKAI"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.split"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.open"
+        },
+        {
+          "question_id": "b1.crucible.jeskai.v1",
+          "answer_id": "b1.crucible.jeskai.v1.sequence"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/jeskai.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "fce870e07f2f87d38555155003456969a221b8b5e25a333c120b3e30af6451e9"
+    },
+    {
+      "audit_id": "ENGINE-MARDU",
+      "expected_identity_key": "MARDU",
+      "expected_identity_name": "Mardu Horde",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 6,
+      "main_question_count": 6,
+      "refinement_question_count": 0,
+      "actual_final_identity": "MARDU",
+      "directional_result_identity": "MARDU",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "MARDU",
+      "raw_numeric_score": 0.8125,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "MARDU"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.coordinate"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/mardu.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "8ffdbc0e2aef52f237368bda32c9b21a9c917e7b82b59ba119cc0e6f9d8255b1"
+    },
+    {
+      "audit_id": "ENGINE-SULTAI",
+      "expected_identity_key": "SULTAI",
+      "expected_identity_name": "Sultai Brood",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 9,
+      "main_question_count": 8,
+      "refinement_question_count": 1,
+      "actual_final_identity": "SULTAI",
+      "directional_result_identity": "SULTAI",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "SULTAI",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "SULTAI"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.convert"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.purpose"
+        },
+        {
+          "question_id": "b1.crucible.disruption-boundary.v1",
+          "answer_id": "b1.crucible.disruption-boundary.v1.preserve"
+        },
+        {
+          "question_id": "b1.crucible.sultai.v1",
+          "answer_id": "b1.crucible.sultai.v1.best",
+          "refinement": true
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/sultai.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "c041d634cd8ac54ec8402ba7a7cee58243fe5a4e6dbc9a04bbbca9a3d44e3d08"
+    },
+    {
+      "audit_id": "ENGINE-TEMUR",
+      "expected_identity_key": "TEMUR",
+      "expected_identity_name": "Temur Frontier",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "TEMUR",
+      "directional_result_identity": "TEMUR",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "NAYA",
+      "raw_numeric_score": 0.833333,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": true,
+      "frontier": [
+        "TEMUR"
+      ],
+      "stop_reason": "highest_responsible_candidate_trails_unqualified_internal_candidate",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.abundance"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.hall.sacrifice.v1",
+          "answer_id": "b1.hall.sacrifice.v1.preserve"
+        },
+        {
+          "question_id": "b1.crucible.temur.v1",
+          "answer_id": "b1.crucible.temur.v1.adapt"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/temur.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "a7dffb0dff8068451dce931bdcf784fa576a3a21dfb722bf178725d8bdecc2c9"
+    },
+    {
+      "audit_id": "ENGINE-DUNE",
+      "expected_identity_key": "DUNE",
+      "expected_identity_name": "Dune / Aggression",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "DUNE",
+      "directional_result_identity": "DUNE",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "DUNE",
+      "raw_numeric_score": 1,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "DUNE"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.waves"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.resources"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.short"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.front"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/dune.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "fbac75230ef35e280727d4cbe2918066c0b4b6eece37856589e05930e5d22fcc"
+    },
+    {
+      "audit_id": "ENGINE-GLINT",
+      "expected_identity_key": "GLINT",
+      "expected_identity_name": "Glint / Chaos",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "GLINT",
+      "directional_result_identity": "GLINT",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "GLINT",
+      "raw_numeric_score": 0.916667,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "GLINT"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "revisit_prior_answer",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.advance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.coordinate"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.procedure"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
+        },
+        {
+          "question_id": "b1.crucible.glint-dune.v1",
+          "answer_id": "b1.crucible.glint-dune.v1.shifting"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/glint.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "5cb3d8300585b1a195e38bba4c3f0307108f70b63a0900dc756476c4f18382b8"
+    },
+    {
+      "audit_id": "ENGINE-INK",
+      "expected_identity_key": "INK",
+      "expected_identity_name": "Ink / Altruism",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "INK",
+      "directional_result_identity": "INK",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "INK",
+      "raw_numeric_score": 0.729167,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "INK"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.protect"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.early"
+        },
+        {
+          "question_id": "b1.hall.threat.v1",
+          "answer_id": "b1.hall.threat.v1.avoid"
+        },
+        {
+          "question_id": "b1.crucible.dune-ink.v1",
+          "answer_id": "b1.crucible.dune-ink.v1.commons"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/ink.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "84567df75d009066215606650e4056815a73e76ce5bba28efd8dc57a773c6d64"
+    },
+    {
+      "audit_id": "ENGINE-WITCH",
+      "expected_identity_key": "WITCH",
+      "expected_identity_name": "Witch / Growth",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 10,
+      "main_question_count": 8,
+      "refinement_question_count": 2,
+      "actual_final_identity": "WITCH",
+      "directional_result_identity": "WITCH",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WITCH",
+      "raw_numeric_score": 0.916667,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WITCH"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.burst"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.abundance"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.long"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.central"
+        },
+        {
+          "question_id": "b1.crucible.ug.v1",
+          "answer_id": "b1.crucible.ug.v1.adapt"
+        },
+        {
+          "question_id": "b1.crucible.witch-yore.v1",
+          "answer_id": "b1.crucible.witch-yore.v1.compound",
+          "refinement": true
+        },
+        {
+          "question_id": "b1.crucible.ink-witch.v1",
+          "answer_id": "b1.crucible.ink-witch.v1.compound",
+          "refinement": true
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/witch.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "6acfb2163a822e353592a03eb3214a19eb13cf611fb0c596d900ff874c6173eb"
+    },
+    {
+      "audit_id": "ENGINE-YORE",
+      "expected_identity_key": "YORE",
+      "expected_identity_name": "Yore / Artifice",
+      "expected_public_contract": "INTENTIONAL_BOUNDED_STATE",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": null,
+      "directional_result_identity": "UB",
+      "match_status": "NO_RESULT",
+      "final_result_state": "insufficient",
+      "public_confidence_state": "insufficient",
+      "raw_numeric_leader": "UB",
+      "raw_numeric_score": 0.9375,
+      "raw_leader_qualified": false,
+      "selected_result_qualified": false,
+      "frontier": [],
+      "stop_reason": "no_responsible_named_placement",
+      "refinement_kind": "ask_targeted_question",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.balance"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.interaction-window.v1",
+          "answer_id": "b1.hall.interaction-window.v1.pressure"
+        },
+        {
+          "question_id": "b1.hall.information-to-plan.v1",
+          "answer_id": "b1.hall.information-to-plan.v1.exploit"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.overlap"
+        },
+        {
+          "question_id": "b1.crucible.yore-glint.v1",
+          "answer_id": "b1.crucible.yore-glint.v1.engineered"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/yore.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "04aade8f719e2d4fd050eb1460b75d968570b7f7122d52b0f4623b5c409939a9"
+    },
+    {
+      "audit_id": "ENGINE-COLORLESS",
+      "expected_identity_key": "COLORLESS",
+      "expected_identity_name": "Colorless",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "COLORLESS",
+      "directional_result_identity": "COLORLESS",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "COLORLESS",
+      "raw_numeric_score": 0.666667,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "COLORLESS"
+      ],
+      "stop_reason": "clear_separation",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.respond"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.board"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.pressure.v1",
+          "answer_id": "b1.hall.pressure.v1.engine"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.replace"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.reopen"
+        },
+        {
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.constraint"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/colorless.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "ad506184a3229ca750e7ca2d5c16a2bf005e3fa6224518cbbcac5537b288fbe7"
+    },
+    {
+      "audit_id": "ENGINE-WUBRG",
+      "expected_identity_key": "WUBRG",
+      "expected_identity_name": "Five-Color / WUBRG",
+      "expected_public_contract": "NAMED_DOSSIER",
+      "witness_status": "CURRENT_COMPATIBLE",
+      "answer_count": 8,
+      "main_question_count": 8,
+      "refinement_question_count": 0,
+      "actual_final_identity": "WUBRG",
+      "directional_result_identity": "WUBRG",
+      "match_status": "PASS_MATCH",
+      "final_result_state": "primary",
+      "public_confidence_state": "current-best-fit",
+      "raw_numeric_leader": "WUBRG",
+      "raw_numeric_score": 0.833333,
+      "raw_leader_qualified": true,
+      "selected_result_qualified": true,
+      "frontier": [
+        "WUBRG"
+      ],
+      "stop_reason": "single_named_direction_with_unresolved_alternatives",
+      "refinement_kind": "no_approved_discriminator",
+      "engine_version": "vm551-gate-b1-placement-engine-v1",
+      "result_version": "2026-08-09-gate-b1-v1",
+      "instrument_version": "vm551-gate-b1-instrument-v2",
+      "mapping_version": "vm551-gate-b1-mapping-v2-instrument-completion",
+      "selections": [
+        {
+          "question_id": "b1.gate.initiative.v1",
+          "answer_id": "b1.gate.initiative.v1.unsure"
+        },
+        {
+          "question_id": "b1.gate.visibility.v1",
+          "answer_id": "b1.gate.visibility.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.disruption.v1",
+          "answer_id": "b1.gate.disruption.v1.depends"
+        },
+        {
+          "question_id": "b1.gate.tempo.v1",
+          "answer_id": "b1.gate.tempo.v1.depends"
+        },
+        {
+          "question_id": "b1.hall.commitment.v1",
+          "answer_id": "b1.hall.commitment.v1.access"
+        },
+        {
+          "question_id": "b1.hall.setup.v1",
+          "answer_id": "b1.hall.setup.v1.change"
+        },
+        {
+          "question_id": "b1.hall.engine-shape.v1",
+          "answer_id": "b1.hall.engine-shape.v1.replace"
+        },
+        {
+          "question_id": "b1.crucible.colorless-wubrg.v1",
+          "answer_id": "b1.crucible.colorless-wubrg.v1.breadth"
+        }
+      ],
+      "trace_path": "outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-30/evidence/engine/traces/wubrg.json",
+      "witness_source": "docs/audits/vm551-all-37-dossier-closeout/live-placement-witnesses.json",
+      "witness_source_sha256": "3eb7607343fa4787c6e8df0f2f7babd7e2115293f13b5e5474961e237de755af",
+      "model_source": "data/gate-b1-placement-model.json",
+      "model_source_sha256": "1369c33417d92a4496a65694985d7e315d9f334d81f9c559a3f10c8d046583ea",
+      "trace_sha256": "2dce5cb32ceb8194d18b8d5b42534bbacacb6ae7e7f133c54b56736bab490743"
+    }
+  ]
+}

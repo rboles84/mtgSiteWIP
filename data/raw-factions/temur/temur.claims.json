@@ -426,6 +426,32 @@
           "interpretation_level": "bounded_paraphrase"
         }
       ]
+    },
+    {
+      "claim_id": "temur_claim_0012",
+      "faction_id": "temur",
+      "claim_type": "mechanics",
+      "statement": "Ferocious is the Khans-era Temur signature mechanic: an ability word for abilities that care about controlling a creature with power 4 or greater.",
+      "canon_status": "Official mechanical design",
+      "source_ids": [
+        "src_wotc_khans_mechanics_20140902"
+      ],
+      "evidence_rows": [
+        "TEMUR-EVID-033"
+      ],
+      "confidence": "High",
+      "notes": "Khans-era mechanical anchor only. Formidable belongs to the later Atarka Clan context and must not be rendered as an ordinary Temur upgrade.",
+      "semantic_role": "substantive_claim",
+      "evidence_locations": [
+        {
+          "source_id": "src_wotc_khans_mechanics_20140902",
+          "locator_type": "official_source_url",
+          "locator": "https://magic.wizards.com/en/news/feature/mechanics-khans-tarkir#ferocious",
+          "bounded_paraphrase": "The official mechanics article identifies Ferocious as the Temur signature mechanic and explains that it checks for a creature with power 4 or greater.",
+          "evidence_scope": "substantive_temur_mechanical_evidence",
+          "interpretation_level": "bounded_paraphrase"
+        }
+      ]
     }
   ],
   "claim_quality_summary": {

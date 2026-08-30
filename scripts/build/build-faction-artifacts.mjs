@@ -5118,6 +5118,22 @@ async function main() {
           archetypes: expressionDisplay.archetypes || existingDisplay.archetypes,
         }
       : {};
+    const wubrgDisplayOverrides = key === "WUBRG"
+      ? {
+          tagline: expressionDisplay.tagline || existingDisplay.tagline,
+          philosophy: expressionDisplay.philosophy || existingDisplay.philosophy,
+          lore_summary: expressionDisplay.lore_summary || existingDisplay.lore_summary,
+          core_tension: expressionDisplay.core_tension || existingDisplay.core_tension,
+          affinity: expressionDisplay.affinity || existingDisplay.affinity,
+          decree_voice: expressionDisplay.decree_voice || existingDisplay.decree_voice,
+          archetypes: expressionDisplay.archetypes || existingDisplay.archetypes,
+        }
+      : {};
+    const loreholdDisplayOverrides = key === "LOREHOLD"
+      ? {
+          philosophy: rawRecords.lorehold?.profile?.site_surface?.display_philosophy || existingDisplay.philosophy,
+        }
+      : {};
     const displayBase = ["NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].includes(key)
       ? {
           ...existingDisplay,
@@ -5130,6 +5146,8 @@ async function main() {
           ...expressionDisplay,
           ...existingDisplay,
           ...colorlessDisplayOverrides,
+          ...wubrgDisplayOverrides,
+          ...loreholdDisplayOverrides,
           staples: existingDisplay.staples || expressionDisplay.staples,
           land_base: ["COLORLESS", "WUBRG"].includes(key)
             ? expressionDisplay.land_base || existingDisplay.land_base

@@ -636,11 +636,14 @@ export function buildPublicPreconRationale({
   if (!precon?.deckName || !precon?.mainCommander || !candidateIdentity) return null;
   const facts = verifiedPreconFacts(precon);
   const factCopy = facts.length ? ` The precon catalog records ${facts.join(", ")}.` : "";
+  const wubrgPlanCopy = lane === "exact" && candidateIdentity === "WUBRG" && precon?.mainStrategy
+    ? `Recorded plan: ${precon.mainStrategy}.`
+    : "";
   const relationshipCopy = lane === "stretch"
     ? `This nearby option adds ${stretchColors.join(" and ") || "another color"} to the reading's ${preconColorIdentityLabel(activeIdentity)} color identity.`
     : `This deck shares the reading's ${preconColorIdentityLabel(candidateIdentity)} color identity.`;
   return {
-    text: `${relationshipCopy}${factCopy}`,
+    text: wubrgPlanCopy || `${relationshipCopy}${factCopy}`,
     facts,
     provenance: {
       authority: "data/precons/vox-mana-precons.source.json",

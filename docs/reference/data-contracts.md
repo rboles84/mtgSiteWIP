@@ -16,6 +16,7 @@ Vox Mana now uses a raw-plus-generated data flow:
 - `data/dossier/card-rationale-catalog.json` is the generated runtime catalog. It contains only source records explicitly marked `APPROVED_PUBLIC`; review-required, evidence-needed, rejected, and missing records never enter runtime.
 - `data/raw-factions/` keeps the raw faction folders, claims, placement guidance, and source metadata for provenance.
 - `data/factions.json` is the generated display surface used by dossier rendering.
+- `data/dossier/identity-dossier-content.source.json` is the approved authored dossier-copy source. `data/dossier/identity-dossier-content.catalog.json` is its runtime projection and must be regenerated with `npm run build:identity-dossier-content`; `npm run test:identity-dossier-content` rejects stale output, copy-hash drift, failed approvals, or WUBRG provenance that points back to generated runtime data.
 - `data/placement-model.json` is the generated adaptive placement model used by Archscry.
 - `data/placement-model.schema.json` describes the generated placement model shape.
 - `supabase/functions/guild-recruiter/faction-context.ts` is the generated server-side Scrying Terminal context.

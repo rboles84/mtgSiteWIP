@@ -2126,9 +2126,9 @@ assert.doesNotMatch(
 );
 
 const temurPresentation = presentationForFaction(factions.TEMUR);
-assert.match(temurPresentation.thesis, /survival learning to listen before it moves/i);
-assert.match(temurPresentation.tableExperience, /listen for the opening/i);
-assert.match(temurPresentation.mechanics, /Commander-facing ways to show force/i);
+assert.match(temurPresentation.thesis, /Green's acceptance, Blue's knowledge, and Red's action in tension/i);
+assert.match(temurPresentation.tableExperience, /optional Vox Mana lens/i);
+assert.match(temurPresentation.mechanics, /Ferocious.*Khans-era.*Formidable.*Atarka/i);
 assert.doesNotMatch(
   [
     temurPresentation.thesis,
@@ -2150,9 +2150,9 @@ const temurLaneText = [
   temurCommanderLane.copy,
   ...temurCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
-assert.match(temurLaneText, /listens for the right opening/);
-assert.match(temurLaneText, /Ramp, Big Mana, Spellslinger/);
-assert.match(temurLaneText, /Commander table texture/);
+assert.match(temurLaneText, /Large Creatures \/ Ferocious, Ramp \/ Big Mana, Spells \/ Copying, Survival Through Attunement — Vox Mana lens/);
+assert.match(temurLaneText, /Ferocious is Temur's Khans-era mechanical anchor/);
+assert.match(temurLaneText, /Formidable belongs to Atarka/);
 assert.doesNotMatch(
   temurLaneText,
   /support-only|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|generic GUR goodstuff|Atarka.*continuity|Commander products as canon|Dragonstorm backfill|Exact GUR|\/temur\/|\/gur\//i

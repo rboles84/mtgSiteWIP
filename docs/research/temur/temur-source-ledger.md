@@ -21,6 +21,7 @@ Status: VM-203 approved source ledger. Temur remains non-live and review-gated.
 | TEMUR-SRC-013 | Seed | `docs/research/temur/source-material/temur-frontier-lore-source-packet.md`, originally copied from former `docs/research/temur frontier/temur-frontier-lore-source-packet.md` | Discovery material, candidate source map, and open-thread queue. | Not approved evidence. Packet-shaped wording cannot cite itself. |
 | TEMUR-SRC-014 | Seed | `docs/research/temur/source-material/temur_research_report.html`, originally copied from former `docs/research/temur frontier/temur_research_report.html` | Structure-only discovery material. | Generated HTML cannot be canon evidence. |
 | TEMUR-SRC-015 | 2P | `https://magic.wizards.com/en/news/announcements/tarkir-dragonstorm-commander-decklists` | Official Tarkir: Dragonstorm Commander product row for `Temur Roar`, `Eshki, Temur's Roar`, `Ureni of the Unwritten`, deck name, color identity, and gallery/deck navigation. | Support-only. Not Tarkir canon, Temur lore, commander legality proof, popularity proof, metagame proof, or placement evidence. |
+| TEMUR-SRC-016 | 1 | `https://magic.wizards.com/en/news/feature/mechanics-khans-tarkir` | Official Khans mechanics source for Ferocious as Temur's signature ability word and its power-four-or-greater condition. | Khans-era mechanical design only; not a social philosophy, color-pie doctrine, or Commander deck mandate. |
 
 ## Exact GUR Commander Support Extraction
 

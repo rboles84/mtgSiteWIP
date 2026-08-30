@@ -3166,15 +3166,15 @@ export const FACTION_CONTEXT = {
         "label": "Temur"
       }
     },
-    "tagline": "Listen to the wild. Endure the cold. Strike with earned strength.",
-    "philosophy": "Temur treats survival as relationship with terrain, instinct, memory, and the living world. Green keeps the body and land centered, Blue listens for pattern and mental fortitude, and Red acts when the signal becomes clear.",
-    "core_tension": "Temur's virtue is strength earned by listening to the living world, but that strength can harden into isolation, suspicion, or force without wisdom.",
+    "tagline": "Green-centered savagery, strength, and survival—explored through several Commander lanes.",
+    "philosophy": "Temur holds Green's acceptance, Blue's knowledge, and Red's action in tension.",
+    "core_tension": "Strength and survival can turn toward isolation or force without reflection; Temur asks what knowledge and action make of that pressure.",
     "affinity": {
       "drawn_to": [
-        "survival shaped by listening before action",
-        "instinct tempered by mental fortitude",
-        "elemental memory and ancestral wild signals",
-        "earned strength in harsh terrain"
+        "Green-centered savagery and strength",
+        "Khans-era Ferocious and substantial threats",
+        "Qal Sisma, whisperer, and modern Endless Song lore with era labels",
+        "a chosen Commander lane rather than a mandated sequence"
       ],
       "repelled_by": [
         "generic same-color goodstuff",
@@ -3182,20 +3182,20 @@ export const FACTION_CONTEXT = {
         "Commander products treated as Tarkir canon",
         "Dragonstorm-era detail backfilled into Khans-era Temur"
       ],
-      "core_question": "What signal is worth trusting when survival has no room for noise?",
+      "core_question": "Which Commander expression makes Green-centered strength, knowledge, and action cohere at this table?",
       "interview_tells": [
-        "names survival, instinct, and mental fortitude before generic mechanics",
-        "treats terrain, ancestors, and elemental memory as signals to heed",
+        "distinguishes official design and lore from Vox Mana interpretation",
+        "uses Ferocious as the Khans-era anchor and bounds Formidable to Atarka",
         "keeps modern Dragonstorm Temur timeline-labeled",
-        "guards against generic same-color, Atarka, Commander-product, and seed-file false positives"
+        "separates Commander deck directions from Tarkir canon"
       ],
-      "not_to_be_confused_with": "Gruul centers Red-Green instinctive revolt; Simic centers Green-Blue adaptation; Izzet centers Blue-Red discovery; Naya centers living-world abundance; Bant centers sanctioned honor; Grixis centers survival leverage; Jund centers appetite and consequence; Abzan centers family endurance. Temur centers Green-led survival, instinct, mental fortitude, shamanic listening, and elemental memory."
+      "not_to_be_confused_with": "Gruul, Simic, and Izzet each express a two-color pairing; Temur is the Green-centered Tarkir wedge with its own Khans-era Ferocious anchor and bounded era lore. Do not reduce it to generic same-color value."
     },
     "decree_voice": {
-      "tone": "Feral, attentive, weathered, and protective without becoming generic dragon/ramp shorthand.",
-      "speaks_like": "A clan that waits for stone, ice, blood, and storm to answer before the strike lands.",
-      "example_opening": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves.",
-      "example_decree": "The reading turns toward harsh terrain, living memory, and the instinct that listens before it moves. Temur does not ask strength to be noise. It asks which signal the wild has already given you."
+      "tone": "Weathered and forceful, while keeping official lore, Commander expression, and Vox Mana interpretation distinct.",
+      "speaks_like": "A Green-centered Tarkir wedge whose source-bound history can inform, but not dictate, a Commander build.",
+      "example_opening": "The reading turns toward substantial force, hard-won resources, and a chosen Temur expression.",
+      "example_decree": "The reading turns toward substantial force, hard-won resources, and a chosen Temur expression. Let Ferocious anchor the Khans-era mechanic; let the Commander plan decide whether force, mana, or spells carry it forward."
     },
     "biological_expression": {
       "archetype": "The Elemental Survivor",
@@ -5474,15 +5474,15 @@ export const FACTION_CONTEXT = {
         "suppress_directory_links": true
       }
     },
-    "tagline": "Every color present. Every shortcut questioned.",
-    "philosophy": "Five-Color asks what happens when every color is allowed to speak and none can pretend it is the whole answer. White asks for structure, Blue for understanding, Black for agency, Red for motion, and Green for belonging; WUBRG is the negotiation among them.",
-    "core_tension": "Five-Color can hold every color in one plan, but it must resist becoming generic accumulation, false superiority, or unfocused goodstuff.",
+    "tagline": "All five colors are available. What brings them together depends on the deck.",
+    "philosophy": "Five-Color gives access to White, Blue, Black, Red, and Green. It does not establish one unified philosophy by itself; the commander, tribe, mechanic, theme, toolbox, or deck plan determines why all five colors are present.",
+    "core_tension": "Broader color access increases mana requirements and consistency pressure, while the reason for using that access remains deck-specific.",
     "affinity": {
       "drawn_to": [
-        "Every color having a meaningful role in one plan",
-        "Coalition, synthesis, and full-spectrum problem solving",
-        "Commander color identity as deck-construction breadth with real tradeoffs",
-        "Domain, converge, sunburst, WUBRG costs, and multicolor payoffs as support texture",
+        "A commander, tribe, mechanic, theme, toolbox, or payoff that calls for all five colors",
+        "Broad Commander color access with real mana requirements and consistency tradeoffs",
+        "Literal all-five requirements or WUBRG costs and activations as direct signals",
+        "Sunburst, converge, Domain, basic-land-type checks, multicolor, and typal themes with explicit qualification",
         "Source-bound deck navigation rather than unsupported recommendation claims"
       ],
       "repelled_by": [
@@ -5492,16 +5492,16 @@ export const FACTION_CONTEXT = {
         "Colorless conflation or four-color missing-color framing",
         "Support-only rows treated as legality, popularity, or lore proof"
       ],
-      "core_question": "What changes when every color is allowed into the plan, and what keeps the plan from becoming everything at once?",
+      "core_question": "Why does this deck need all five colors, and what plan, commander, tribe, mechanic, theme, or payoff brings them together?",
       "interview_tells": [
-        "Names all five colors as active contributors rather than access alone",
-        "Treats mana infrastructure as a discipline and cost",
-        "Keeps support links and Commander examples in a bounded role"
+        "Names a deck-specific reason for using all five colors",
+        "Distinguishes color fixing from ramp and treats reliable access as infrastructure",
+        "Qualifies mechanics by how directly they depend on Five-Color play"
       ]
     },
     "decree_voice": {
-      "tone": "Broad, lucid, coalition-minded, and skeptical of easy totality.",
-      "signature_line": "All five voices enter the room; the work is deciding which one leads now."
+      "tone": "Broad, lucid, conditional, and skeptical of easy totality.",
+      "signature_line": "All five colors are available. What brings them together depends on the deck."
     },
     "biological_expression": {
       "archetype": "The Full-Spectrum Integrator",
@@ -6849,7 +6849,7 @@ export const FACTION_CONTEXT = {
       }
     },
     "tagline": "Leave no stone unturned.",
-    "philosophy": "The College of Archaeomancy believes the past is not merely interesting but essential. Understanding history is how you predict the future. Every ruin contains a lesson. The dead are not silent if you know how to ask. Lorehold scholars are simultaneously the most scholarly and most physically reckless people in any room.",
+    "philosophy": "Lorehold treats history as something to recover, question, and put to use. Its scholars pore over artifacts and ancient texts, summon spirits as witnesses, and investigate what surviving records leave behind. White looks for preservation, precedent, and order; Red follows discovery, experience, and messy truths that refuse to stay neatly cataloged.",
     "core_tension": "Does history belong to order or to chaos? To careful systematic analysis or dangerous fieldwork? The college needs both traditions. Every student must choose - and then watch the choice shape everything afterward.",
     "affinity": {
       "drawn_to": [

@@ -1816,43 +1816,55 @@
       "identity_name": "Lorehold College",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you study ruins, records, relics, and the dead because the past contains usable lessons for the present.",
-          "tension_failure_mode": "Watch for this tension: It resists sanitized history, purely theoretical learning, and dismissal of old knowledge as irrelevant.",
-          "certified_boundary_self_check": "This is less likely to fit when red-White action, graveyard value, artifacts, or Spirits are not Lorehold without history, archaeology, records, relics, or learning from the past."
+          "positive_self_check": "You may find Lorehold in the urge to investigate old records, sites, relics, and spirits because they still have something to teach the present.",
+          "tension_failure_mode": "Lorehold lives between careful preservation and discovery that can be adventurous, messy, or risky. A deck can lean toward either side, but history should be doing real work.",
+          "certified_boundary_self_check": "Red-White action, artifacts, Spirits, or graveyard play alone do not make a deck Lorehold; the historical inquiry has to be part of the point."
         },
         "how_this_plays": {
-          "role": "The field historian",
-          "how_opponents_read_it": "Opponents feel the deck turning old material into present danger: relics, spirits, and remembered battles.",
-          "emotional_pressure": "Pressure through history, evidence, artifact recursion, and memory that refuses to stay still.",
-          "lore_role": "archaeologists, spirit scholars, and combat historians",
-          "mechanical_expression": "Spirit tokens, artifact recursion, graveyard artifacts, combat value, and historic payoffs",
-          "table_experience": "history fighting back and old resources becoming live pressure"
+          "role": "History in action",
+          "how_opponents_read_it": "Relics, Spirits, recovered spells, and remembered battles keep turning old resources into new problems.",
+          "emotional_pressure": "Uncertainty, reuse, and reconstruction make old material feel active again.",
+          "lore_role": "archaeologists, spirit scholars, and field researchers",
+          "mechanical_expression": "Cards leaving graveyards and Spirit witnesses in original Strixhaven; artifact reconstruction with Osgir; and commander-led spells or combat where that deck supports them",
+          "table_experience": "History fights back: a Spirit becomes a witness, a relic becomes a tool again, or a recovered spell turns an old lesson into the next play."
         },
         "what_to_look_for": [
           {
-            "item_id": "lookfor_lorehold_1_spirit_tribal",
-            "title": "Spirit Tribal",
-            "copy": "Hofri Ghostforge and graveyard recursion fuel an army of spirits that grow stronger every time they die and return.",
-            "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_lorehold_1_spirit_witnesses",
+            "title": "Spirit Witnesses / Graveyard-Leaves",
+            "copy": "Quintorius, History Chaser gives a commander-specific route where cards leaving graveyards call up Spirit tokens—an exploration lane, not a requirement for every Lorehold deck.",
+            "source_locator": "data/precons/vox-mana-precons.source.json#Lorehold Spirit",
+            "source_role": "native_precon_commander_exploration"
           },
           {
-            "item_id": "lookfor_lorehold_2_boros_artifacts",
-            "title": "Boros Artifacts",
-            "copy": "Osgir the Reconstructor doubles artifacts from the graveyard, turning every discarded relic into an army.",
-            "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_lorehold_2_relic_reconstruction",
+            "title": "Relic Reconstruction",
+            "copy": "Osgir, the Reconstructor offers an artifact-focused path: sacrifice and recover artifacts, then turn the recovered pieces into a board.",
+            "source_locator": "data/precons/vox-mana-precons.source.json#Lorehold Legacies",
+            "source_role": "native_precon_commander_exploration"
           },
           {
-            "item_id": "lookfor_lorehold_3_historic_sagas",
-            "title": "Historic / Sagas",
-            "copy": "Lorehold's saga synergies accumulate value through history - each chapter a lesson, each lesson a threat.",
-            "source_locator": "data/factions.json#/factions/LOREHOLD/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_lorehold_3_history_spells",
+            "title": "History & Spells",
+            "copy": "Velomachus Lorehold is a commander-led spells route: attack, uncover a spell, and let the founder’s card define the deck’s particular version of historical action.",
+            "source_locator": "data/raw-factions/lorehold/lorehold.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+            "source_role": "commander_exploration_taxonomy"
           }
         ]
       },
-      "copy_sha256": "a4d15d244725e19d62ffbea990b1bfc0bd75fd34ede55614a84db00da57f2351",
+      "semantic_model": {
+        "canonical_center": "college_of_archaeomancy",
+        "commander_lanes": [
+          "spirit_witnesses_graveyard_leaves",
+          "relic_reconstruction",
+          "history_and_spells",
+          "combat_history_when_commander_supported"
+        ],
+        "history_fighting_back": "vox_mana_play_translation",
+        "historic_term_guard": "magic_rules_term_not_synonym_for_historical",
+        "mechanic_scope": "product_and_commander_specific_not_universal_lorehold_doctrine"
+      },
+      "copy_sha256": "93b04baa533e038d399ce9ffc106aa6f7c7c5d5a914b37dd3a658043232be056",
       "provenance": {
         "certified_profile": "data/raw-factions/lorehold/lorehold.profile.json",
         "certified_claims": [
@@ -1959,7 +1971,7 @@
         ],
         "relationship_guide": "docs/reference/37-identity-player-relationship-guide.md#L101",
         "existing_presentation_lead": "assets/js/archscry-presentation.js#FACTION_PRESENTATION.LOREHOLD",
-        "existing_archetype_lead": "data/factions.json#/factions/LOREHOLD/archetypes",
+        "existing_archetype_lead": "data/precons/vox-mana-precons.source.json#Lorehold-Native-relationships",
         "evidence_roles": {
           "identity_meaning": "certified_claims_and_relationship_guide",
           "commander_translation": "existing_authored_copy_bounded_by_certified_claims",
@@ -4084,43 +4096,57 @@
       "identity_name": "Temur Frontier",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you want a Commander deck that grows resources, watches for the right signal, and turns dragons, copying, counters, or huge force into recognizable table pattern for survival through attunement.",
-          "tension_failure_mode": "Watch for this tension: It rejects White imposed order and Black opportunism; internally it must keep hard-earned strength from becoming isolation or force without wisdom.",
-          "certified_boundary_self_check": "This is less likely to fit when monsters, ferocity, elements, ramp, or same-color goodstuff is not Temur without Green-led attunement, mental fortitude, and action after listening."
+        "positive_self_check": "This may fit if you want strength, knowledge, and action to serve one focused deck plan.",
+      "tension_failure_mode": "Temur holds acceptance, knowledge, and action in tension. Let the commander give those pulls a shared purpose instead of treating three-color access as the plan.",
+        "certified_boundary_self_check": "This is less likely to fit when the only connection is Green-Blue-Red legality or generic value."
         },
         "how_this_plays": {
-          "role": "The elemental survivor",
-          "how_opponents_read_it": "Opponents feel the deck listening before it strikes: mana gathers, the board watches for the right signal, and strength arrives as terrain, instinct, and storm move together.",
-          "emotional_pressure": "Pressure through survival, attunement, mental fortitude, and the sense that the wild has already answered before the action lands.",
-          "lore_role": "Tarkir wedge, Green-centered survival, Blue mental fortitude, Red direct action, Qal Sisma endurance, shamanic listening, and elemental memory",
-          "mechanical_expression": "Dragons, ramp, copying, energy, artifacts, counters, X-spells, and ravenous lines as Commander-facing ways to show force, scale, and adaptive timing without turning deck mechanics into Tarkir lore",
-          "table_experience": "listen for the opening, grow the mana and board, then let instinct and elemental force make one clean turn matter"
+      "role": "Adaptive pressure, shaped by the chosen Commander plan.",
+        "how_opponents_read_it": "Depending on the build, opponents may see substantial creatures, growing mana, open interaction, copied spells, or scaling threats—not one fixed Temur sequence.",
+        "emotional_pressure": "Build strength, assess the moment, and turn it into decisive action.",
+        "lore_role": "Temur is Tarkir's Green-centered clan of savagery, grounded in Qal Sisma, family groups, formal roles, and whisperers. The Endless Song belongs to modern Dragonstorm-era lore.",
+        "mechanical_expression": "Ferocious is Khans-era Temur; Formidable belongs to Atarka. Dragons and other Commander packages are optional expressions, not Temur's canonical mechanic.",
+        "table_experience": "Creature, mana, and spell builds create different table rhythms. Survival Through Attunement is an optional Vox Mana lens for reading the board before committing force."
         },
         "what_to_look_for": [
           {
             "item_id": "lookfor_temur_1_survival_through_attunement",
-            "title": "Survival Through Attunement",
-            "copy": "Read the land, weather, memory, and body before committing force.",
-            "source_locator": "data/factions.json#/factions/TEMUR/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "title": "Large Creatures / Ferocious",
+        "copy": "Start with substantial creatures and power-four payoffs, then add the support that makes those threats matter.",
+            "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/0",
+            "source_role": "official_mechanical_anchor"
           },
           {
             "item_id": "lookfor_temur_2_instinct_with_mental_fortitude",
-            "title": "Instinct With Mental Fortitude",
-            "copy": "Let direct action follow perception rather than collapse into impulse alone.",
-            "source_locator": "data/factions.json#/factions/TEMUR/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "title": "Ramp / Big Mana",
+        "copy": "Accelerate into expensive threats, activated abilities, or spells that reward having more mana.",
+            "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/1",
+            "source_role": "commander_exploration"
           },
           {
             "item_id": "lookfor_temur_3_elemental_memory",
-            "title": "Elemental Memory",
-            "copy": "Treat ancestors, stone, ice, and song as support for survival without turning deferred mechanics into claims.",
-            "source_locator": "data/factions.json#/factions/TEMUR/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "title": "Spells / Copying",
+        "copy": "Build around interaction, spells, or copied effects when the commander gives those tools a clear job.",
+            "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/2",
+            "source_role": "commander_exploration"
+          },
+          {
+            "item_id": "lookfor_temur_4_survival_through_attunement",
+            "title": "Survival Through Attunement",
+        "title": "Survival Through Attunement — Vox Mana lens",
+        "copy": "An optional interpretive lens: read conditions before committing force.",
+            "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/3",
+            "source_role": "optional_vox_mana_archetype"
           }
         ]
       },
-      "copy_sha256": "51435c5ff896c0954cfd2e2f1440f71ad130a4bfb17b70a32bf6f4cc849f5f2f",
+  "copy_sha256": "678f664c41cb3e574c43609372bfd3942a9f9dcf602b8d17105372d1db988c24",
+      "semantic_model": {
+        "identity_floor": "Green-centered Green-Blue-Red savagery is official design commentary; Tarkir culture and modern Endless Song material are era-scoped lore.",
+        "survival_through_attunement": "optional_vox_mana_archetype",
+        "blue_whisperer_mapping": "vox_mana_interpretation",
+        "commander_lanes": "deckbuilding_directions_not_tarkir_lore"
+      },
       "provenance": {
         "certified_profile": "data/raw-factions/temur/temur.profile.json",
         "certified_claims": [
@@ -4167,10 +4193,10 @@
         ],
         "relationship_guide": "docs/reference/37-identity-player-relationship-guide.md#L201",
         "existing_presentation_lead": "assets/js/archscry-presentation.js#FACTION_PRESENTATION.TEMUR",
-        "existing_archetype_lead": "data/factions.json#/factions/TEMUR/archetypes",
+        "existing_archetype_lead": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes",
         "evidence_roles": {
           "identity_meaning": "certified_claims_and_relationship_guide",
-          "commander_translation": "existing_authored_copy_bounded_by_certified_claims",
+          "commander_translation": "raw_profile_semantic_model_bounded_by_certified_claims",
           "proposed_bridge": "evidence_validated_automatic"
         }
       },
@@ -4194,6 +4220,7 @@
             "temur_claim_0005",
             "temur_claim_0007",
             "temur_claim_0010",
+            "temur_claim_0012",
             "temur_claim_0008",
             "temur_claim_0009",
             "temur_claim_0006"
@@ -4206,6 +4233,7 @@
             "data/raw-factions/temur/temur.claims.json#temur_claim_0005",
             "data/raw-factions/temur/temur.claims.json#temur_claim_0007",
             "data/raw-factions/temur/temur.claims.json#temur_claim_0010",
+            "data/raw-factions/temur/temur.claims.json#temur_claim_0012",
             "data/raw-factions/temur/temur.claims.json#temur_claim_0008",
             "data/raw-factions/temur/temur.claims.json#temur_claim_0009",
             "data/raw-factions/temur/temur.claims.json#temur_claim_0006",
@@ -5302,43 +5330,64 @@
       "identity_name": "Five-Color / WUBRG",
       "proposed_public_copy": {
         "test_the_fit": {
-          "positive_self_check": "This may fit if you want a Commander deck where every color matters and mana infrastructure is part of the discipline.",
-          "tension_failure_mode": "Watch for this tension: Each color must accept limits imposed by the other four: order must listen, knowledge must act, agency must coexist, freedom must take responsibility, and belonging must permit change.",
-          "certified_boundary_self_check": "This is less likely to fit when generic goodstuff, access for its own sake, accumulation, superiority, or a deck where one color is decorative rather than meaningful is not the Five-Color synthesis."
+          "positive_self_check": "This may fit if access to White, Blue, Black, Red, and Green materially serves your commander, tribe, mechanic, theme, toolbox, or payoff.",
+          "tension_failure_mode": "Watch for this tension: broad color access asks more of the mana base and consistency, while the deck still needs a specific reason for being Five-Color.",
+          "certified_boundary_self_check": "This is less likely to fit when a narrower color identity serves the plan, or when all-five access is treated as proof of superiority, completion, or universal mastery."
         },
         "how_this_plays": {
-          "role": "The full-spectrum integrator",
-          "how_opponents_read_it": "Opponents feel the deck as breadth under discipline: every color is available, but each tool still has to justify its place.",
-          "emotional_pressure": "Pressure through coalition, full access, mana discipline, and the sense that every shortcut gets asked why it belongs.",
-          "lore_role": "The all-five-color expression: coalition and synthesis, with each color contributing to the whole plan",
-          "mechanical_expression": "Domain, converge, sunburst, WUBRG costs or activations, multicolor payoffs, basic-land-type checks, and mana infrastructure that make all five colors matter in play",
-          "table_experience": "full color access, deliberate fixing, many kinds of answers, and a plan that keeps breadth from becoming drift"
+          "role": "The commander determines the deck's engine, tribe, payoff, or tool suite; Five-Color supplies the access that plan needs.",
+          "how_opponents_read_it": "The commander often shows what all-five access is for—whether that is a tribe, toolbox, engine, payoff, or broad interaction suite.",
+          "emotional_pressure": "Five-Color can create uncertainty through breadth because several kinds of tools may be available; the actual engine determines where that pressure comes from.",
+          "lore_role": "Five-Color has represented tribes spanning the color pie, coalitions, magical breadth, multicolor systems, rainbow imagery, and other context-specific ideas. Vox Mana treats coalition, integration, and synthesis as possible readings rather than universal doctrine.",
+          "mechanical_expression": "Direct Five-Color mechanics ask you to assemble or spend all five colors. Other builds use broad access for color-count payoffs, land-type engines, multicolor systems, typal reach, or toolbox breadth.",
+          "table_experience": "Once the mana works, the table experience follows the deck's actual reason for being Five-Color: assembling a rainbow payoff, accessing a whole tribe, integrating multiple color roles, or drawing from a broader toolbox."
         },
         "what_to_look_for": [
           {
             "item_id": "lookfor_wubrg_1_full_spectrum_integrator",
             "title": "Full-Spectrum Integrator",
-            "copy": "Uses every color because the problem needs every mode of answer, not because every card is automatically welcome.",
-            "source_locator": "data/factions.json#/factions/WUBRG/archetypes/0",
-            "source_role": "existing_authored_commander_guidance"
+            "copy": "Optional Vox Mana archetype: coordinates distinct color contributions or requirements into one coherent plan without defining every Five-Color deck.",
+            "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/0",
+            "source_role": "optional_vox_mana_archetype"
           },
           {
-            "item_id": "lookfor_wubrg_2_coalition_builder",
-            "title": "Coalition Builder",
-            "copy": "Turns difference into a working table where structure, insight, agency, motion, and belonging can each matter.",
-            "source_locator": "data/factions.json#/factions/WUBRG/archetypes/1",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_wubrg_2_five_color_toolbox",
+            "title": "Five-Color Toolbox",
+            "copy": "Uses broad color access to assemble answers or effects selected by a particular commander or deck plan.",
+            "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/1",
+            "source_role": "deckbuilding_direction"
           },
           {
-            "item_id": "lookfor_wubrg_3_boundary_keeper",
-            "title": "Boundary Keeper",
-            "copy": "Refuses to let five-color breadth become superiority, Colorless proof, four-color leakage, or unsupported Commander claims.",
-            "source_locator": "data/factions.json#/factions/WUBRG/archetypes/2",
-            "source_role": "existing_authored_commander_guidance"
+            "item_id": "lookfor_wubrg_3_five_color_typal",
+            "title": "Five-Color Typal",
+            "copy": "Uses all five colors because a creature type, commander, or typal payoff spans the color pie.",
+            "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/2",
+            "source_role": "deckbuilding_direction"
+          },
+          {
+            "item_id": "lookfor_wubrg_4_rainbow_payoffs",
+            "title": "Rainbow Payoffs",
+            "copy": "Uses cards that reward assembling, spending, controlling, or representing several or all five colors, including WUBRG, sunburst, converge, color-count, or all-five requirements.",
+            "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/3",
+            "source_role": "deckbuilding_direction"
           }
         ]
       },
-      "copy_sha256": "e4d476e57896fa305df71a2e5238bd8be4b26105b9cd8c1b0bae706335345e80",
+      "copy_sha256": "1acebe999ad7c50dd5839a4c356c31b0019d2cfa66e602754cc49610393b267f",
+      "semantic_model": {
+        "identity_floor": "Five-Color means access to White, Blue, Black, Red, and Green at the Commander deck-construction layer; it does not supply one universal motive, role, metaphysics, or play pattern.",
+        "hero_anchor": "All five colors are available. What brings them together depends on the deck.",
+        "full_spectrum_integrator": "optional_vox_mana_archetype",
+        "mechanic_relationships": [
+          "direct_defining",
+          "direct_strong",
+          "strongly_associated",
+          "compatible_nonexclusive",
+          "situational",
+          "infrastructure",
+          "supportive_not_defining"
+        ]
+      },
       "provenance": {
         "certified_profile": "data/raw-factions/wubrg/wubrg.profile.json",
         "certified_claims": [
@@ -5377,14 +5426,15 @@
         ],
         "relationship_guide": "docs/reference/37-identity-player-relationship-guide.md#L265",
         "existing_presentation_lead": "assets/js/archscry-presentation.js#FACTION_PRESENTATION.WUBRG",
-        "existing_archetype_lead": "data/factions.json#/factions/WUBRG/archetypes",
+        "existing_archetype_lead": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes",
+        "research_reconciliation": "docs/research/wubrg/wubrg-external-evidence-audit.md (shaping only; supplied evidence ledger has no primary-source locators)",
         "evidence_roles": {
           "identity_meaning": "certified_claims_and_relationship_guide",
-          "commander_translation": "existing_authored_copy_bounded_by_certified_claims",
+          "commander_translation": "raw_profile_semantic_model_bounded_by_certified_claims",
           "proposed_bridge": "evidence_validated_automatic"
         }
       },
-      "limitations": "The packet preserves or deterministically reframes existing authored material for owner review. It does not claim that a player has these motives, that mechanics prove identity, or that an opponent will react in one fixed way.",
+      "limitations": "Five-Color has no universal role, motive, metaphysics, opponent reaction, or play pattern. The external evidence audit is retained as shaping-only research because it supplied no primary-source locators; certified claims and raw profile fields remain the claim-bearing authority.",
       "review_flags": [],
       "disposition": "APPROVED_PUBLIC",
       "owner_decision": null,

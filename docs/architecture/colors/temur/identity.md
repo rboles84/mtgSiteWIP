@@ -4,7 +4,7 @@
 
 ## Identity Overview
 
-Temur Frontier is Vox Mana's Green-centered `GUR` Tarkir wedge expression for survival through attunement, savagery, self-sufficiency, shamanic listening, elemental memory, and strength earned in harsh terrain. The VM-203 source packet supports a strong but bounded floor: Temur is the Green-Blue-Red wedge with Green as center; its design attribute is savagery; and its Tarkir expression is grounded in Qal Sisma survival, nomadic family groups, whisperers, frozen ancestors, the Wide Whisper, elemental magic, and the hard practicality of living with the land rather than conquering it.
+Temur Frontier is Vox Mana's Green-centered `GUR` Tarkir wedge expression. The supported floor is narrower: Temur is the Green-Blue-Red wedge with Green as center and savagery as its design attribute; its Tarkir lore includes Qal Sisma survival, nomadic family groups, whisperers, frozen ancestors, the Wide Whisper, and elemental magic. “Survival through attunement” and “elemental memory” are Vox Mana synthesis, not direct Wizards doctrine.
 
 This file keeps Temur non-live. It does not create a runtime `TEMUR` key, add `GUR` as an alias, create raw-faction JSON, create generated data, alter placement, or authorize route, Home, Maze, schema, Supabase, fixture, or builder changes.
 
@@ -17,7 +17,7 @@ Temur wants to survive by hearing what the world already knows before the next s
 In Vox Mana terms:
 
 - Green supplies the center: acceptance, harmony, inner strength, natural connection, physical growth, and life lived in accord with the surrounding world.
-- Blue supplies pattern-sense: knowledge, mental fortitude, problem solving, foresight, whisperer guidance, and the ability to read possible paths without replacing the wild with an institution.
+- Blue supplies knowledge, mental fortitude, and problem solving in official design commentary. Vox Mana may connect those ideas to Temur whisperer guidance and possible paths, but that connection is interpretation rather than a direct color assignment in lore.
 - Red supplies the immediate spark: freedom, action, emotion, impulse, heat, and the willingness to act while survival is still possible.
 
 The core drive is not generic ferocity or generic `GUR` value. It is an evidence-bound survival engine: Green roots the clan in the living world, Blue listens for patterns in spirits, memory, and terrain, and Red turns the heard signal into action before the ice closes.
@@ -50,7 +50,7 @@ Evidence anchors: `TEMUR-EVID-002`, `TEMUR-EVID-003`, `TEMUR-EVID-004`, `TEMUR-E
 
 ### Whispering As Knowledge In Service Of Nature
 
-Temur's Blue component is strongest when it serves the land rather than mastering it. Khans-era whispering, frozen memories, the Wide Whisper, ancestor spirits, elemental affinity, and modern whisperer guidance all support knowledge as listening, divination, warning, and survival coordination.
+`Vox Mana synthesis`: Temur's Blue component can be read as knowledge serving the land rather than mastering it. Khans-era whispering, frozen memories, the Wide Whisper, ancestor spirits, elemental affinity, and modern whisperer guidance are official lore; mapping those practices onto Blue is not.
 
 Evidence anchors: `TEMUR-EVID-004`, `TEMUR-EVID-008`, `TEMUR-EVID-017`, `TEMUR-EVID-020`, `TEMUR-EVID-023`, and `TEMUR-EVID-024`.
 
