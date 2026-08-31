@@ -993,9 +993,9 @@ const colorlessPlacementResult = {
 const colorlessGuidance = getCommanderFactionGuidance(factionsData.factions.COLORLESS);
 assert.equal(colorlessGuidance.shortName, "Colorless", "expected Colorless commander guidance to be keyed");
 assert.deepEqual(colorlessGuidance.starterSearchTags, ["Artifacts", "Big Mana", "Ramp"], "expected Colorless to prefer artifact, big-mana, and ramp deck-start tags");
-assert.match(colorlessGuidance.tableCautionText, /Develop Wastes, true \{C\} sources, and mana rocks first/i, "expected Colorless caution copy to protect true colorless mana");
-assert.match(colorlessGuidance.tableCautionText, /keep generic costs separate/i, "expected Colorless caution copy to preserve generic-vs-colorless separation");
-assert.equal(presentationForFaction(factionsData.factions.COLORLESS).tableRole, "The Engine Builder", "expected Colorless presentation role to avoid generic fallback roles");
+assert.match(colorlessGuidance.tableCautionText, /answer suite is narrower/i, "expected Colorless caution copy to protect the constrained interaction decision");
+assert.match(colorlessGuidance.tableCautionText, /flexible colorless interaction/i, "expected Colorless caution copy to preserve an actionable answer-suite decision");
+assert.equal(presentationForFaction(factionsData.factions.COLORLESS).tableRole, "The Constraint Engineer", "expected Colorless presentation role to avoid generic fallback roles");
 assert.doesNotMatch(
   presentationForFaction(factionsData.factions.COLORLESS).direction,
   /Colorless Commander expression/i,
@@ -1069,8 +1069,8 @@ const colorlessPlayPatternSummary = buildPlayPatternSummary({
   faction: factionsData.factions.COLORLESS,
   presentationForFaction,
 });
-assert.match(colorlessDossierText, /starts with the outside-WUBRG constraint/i);
-assert.match(colorlessDossierText, /Develop Wastes, true \{C\} sources, and mana rocks first/i);
+assert.match(colorlessDossierText, /strict colorless commander and legal card pool/i);
+assert.match(colorlessDossierText, /answer suite is narrower/i);
 assert.match(colorlessPlayPatternSummary.body, /wants to build infrastructure first/i, "expected Colorless play-pattern copy to be verb-led");
 assert.doesNotMatch(colorlessPlayPatternSummary.body, /wants to infrastructure first/i, "expected Colorless play-pattern copy not to use noun-led grammar");
 assert.doesNotMatch(

@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-609 — SIRF Colorless Wave 09](done/VM-609-sirf-colorless-wave-09.md) - accepted final identity wave; exact endpoint distinctions/taxonomy, official Eldrazi Unbound provenance, two-cycle redundancy closeout, VM-595, and responsive target/control renders pass.
+
 - [VM-608 — SIRF Four-Color Wave 08](done/VM-608-sirf-four-color-wave-08.md) - accepted Dune, Glint, Ink, Witch, and Yore after one cycle each; exact four-color/absent-color boundaries, five taxonomies, raw provenance, section roles, empty Native sets, VM-595, Yore `NO_RESULT`, and target/control renders pass.
 
 - [VM-607 — SIRF Post-Wave-07 All-37 Checkpoint](done/VM-607-sirf-post-wave-07-periodic-checkpoint.md) - Owner-authorized shared product-slug composer repair restored eight cross-role products, including Jund `Power Hungry`; 37/74 fresh renders, 28 contracts, three goldens, current-state reconciliation, and VM-595 all pass.

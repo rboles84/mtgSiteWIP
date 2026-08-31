@@ -1606,39 +1606,39 @@
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
       "test_the_fit": {
-        "positive_self_check": "This may fit if you want the deck-building constraint itself to matter, with Wastes and reliable colorless sources serving the plan instead of generic costs or five-color Eldrazi blurring it.",
-        "tension_failure_mode": "Watch for this tension: Every color asks which value guides the answer; Colorless asks whether the answer must be expressed in that value grammar at all.",
-        "certified_boundary_self_check": "This is less likely to fit when generic artifacts, generic mana, Eldrazi, Devoid, Phyrexia, or lack of colored pips do not prove Colorless; superiority over WUBRG is an explicit false fit."
+        "positive_self_check": "Choose this path when limiting the commander's color identity and legal card pool is part of the appeal, not merely the price of playing artifacts or Eldrazi.",
+        "tension_failure_mode": "The restriction cuts both ways: utility lands compete with dependable {C} sources, and familiar colored answers are unavailable even when the deck needs them.",
+        "certified_boundary_self_check": "Look elsewhere if the draw is only generic costs, an artifact theme, Devoid, Phyrexia, or five-color Eldrazi. None of those establishes strict Colorless identity, and Colorless is not superior to or more complete than WUBRG."
       },
       "how_this_plays": {
-        "role": "The Engine Builder",
-        "how_opponents_read_it": "Opponents see the deck assemble infrastructure before the threat: reliable colorless mana, mana rocks, utility lands, and one payoff large enough to test every answer.",
-        "emotional_pressure": "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
-        "lore_role": "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
-        "mechanical_expression": "Reliable colorless mana, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
-        "table_experience": "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time"
+        "role": "The Constraint Engineer",
+        "how_opponents_read_it": "Opponents usually see mana infrastructure first, then learn whether the payoff is artifact machinery, a colorless nonartifact engine, or Eldrazi scale.",
+        "emotional_pressure": "The table must decide whether a mana piece is expendable or load-bearing; waiting for the expensive payoff can let the engine compound, while early removal may miss the card that matters.",
+        "lore_role": "Vox Mana treats Colorless as a bounded expression outside the five-color grammar, not an official Magic philosophy and not metaphysical nothingness.",
+        "mechanical_expression": "Wastes and other true {C} sources support a plan that may use artifact engines, colorless nonartifact cards, or Eldrazi. Those categories can share a deck without defining one another.",
+        "table_experience": "a resource-development opening that branches into machinery, nonartifact colorless payoffs, or enormous creatures rather than one prescribed archetype"
       },
       "what_to_look_for": [
         {
           "item_id": "lookfor_colorless_1_chosen_restriction",
           "title": "Chosen Restriction",
-          "copy": "Finds creativity in the strict outside-WUBRG constraint and the precision it demands.",
-          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/0",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Treats the empty Commander color identity and narrower legal card pool as the puzzle, never as superiority or completeness.",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0007",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_colorless_2_machine_and_void",
           "title": "Machine And Void",
-          "copy": "Keeps artifact function, Eldrazi alienness, Wastes austerity, and clean mana systems distinct.",
-          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/1",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Compares artifact engines, colorless nonartifact cards, Wastes, and Eldrazi as separate deck directions; none proves the others.",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0004",
+          "source_role": "certified_claim_translation"
         },
         {
           "item_id": "lookfor_colorless_3_boundary_discipline",
           "title": "Boundary Discipline",
-          "copy": "Refuses to let generic mana, cards asking for a color, artifacts, Devoid, five-color Eldrazi, or Phyrexia become Colorless proof.",
-          "source_locator": "data/factions.json#/factions/COLORLESS/archetypes/2",
-          "source_role": "existing_authored_commander_guidance"
+          "copy": "Separates generic costs from true {C}, then checks colored symbols, color indicators, and Devoid before deciding Commander legality.",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0003",
+          "source_role": "certified_claim_translation"
         }
       ],
       "provenance": {

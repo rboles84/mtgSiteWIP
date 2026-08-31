@@ -38,7 +38,7 @@
 | UR | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | BG | Ravnica guild | ACCEPTED | 1 | 1 | 2 | 1 | 1 | PASS | scoped PASS; 0 candidates | exception accepted | accepted |
 | ESPER | shard | ACCEPTED | 0 | 0 | 3 | 1 | 2 | PASS | scoped PASS; 0 candidates | accepted | accepted |
-| Remaining 1 identity | endpoint | QUEUED_EXCEPTION_AUTOMATION | — | — | — | — | 0 | not run | baseline established | exception-based | pending |
+| COLORLESS | endpoint | ACCEPTED | 1 | 2 | 2 | 1 | 2 | PASS | `.3929 / 1` -> `0 / 0` | exception accepted | accepted |
 
 Batch 01 also repaired one shared P1 generated-catalog freshness defect: optional runtime JSON now uses the existing `no-store` fetch policy. The repair changed no accepted identity semantics and all three golden controls pass.
 
@@ -57,6 +57,8 @@ Shard Wave 06 accepted Bant, Grixis, Jund, and Naya after one cycle each. It rep
 Wedge Wave 07 accepted Abzan, Jeskai, Mardu, and Sultai after one cycle each. It repaired twelve raw-claim provenance lanes, exact curated taxonomies, section-role and boundary defects, and Mardu's frozen cross-section collision. The shared precon provider/builder owner now supports all four wedge keys; Abzan Armor, Jeskai Striker, Mardu Surge, and Sultai Arisen reproduce from the official Wizards decklist as Native with face and featured commanders kept distinct. Fresh review classifies the two existing Jeskai/Mardu model-owned inhibitor warnings as valid architecture exceptions outside the five SIRF surfaces, retains their provenance boundary, and suppresses neither warning.
 
 Four-Color Wave 08 accepted Dune, Glint, Ink, Witch, and Yore after one cycle each. It repaired fifteen generated-self-citing provenance lanes, installed five exact curated taxonomies, separated construction choice from table behavior, made the exact four-color and absent-color boundary explicit, and labeled each metaphysical reading as bounded Vox Mana synthesis rather than official four-color doctrine. Native remains empty for all five; each Commander 2016 four-color product renders as Exact before Stretch. Yore retains its intentional bounded engine `NO_RESULT`.
+
+Colorless Wave 09 accepted the final identity after two cycles. It repaired three generated-self-citing provenance lanes, installed the exact three-lane taxonomy, separated Commander identity / generic costs / true `{C}` / artifacts / colorless nonartifacts / Devoid / Eldrazi / Wastes / official rules / Vox interpretation, and replaced the `Eldrazi Unbound` community source URL with the existing official Wizards decklist. `Eldrazi Unbound` remains the sole Native product with Zhulodok; Colorless has zero VM-595 within-dossier candidates.
 
 ## VM-607 Post-Wave-07 All-37 Checkpoint — PASS
 

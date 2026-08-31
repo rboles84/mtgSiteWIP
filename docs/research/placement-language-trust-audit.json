@@ -2,9 +2,9 @@
   "schema_version": "vm595-placement-language-trust-audit-v1",
   "audit_id": "VM-595",
   "generated_at": "2026-08-30",
-  "current_production_baseline_sha": "3c508e0bb1508a93e86054f7c13b5096720f76d9",
-  "rendered_evidence_baseline_sha": "3c508e0bb1508a93e86054f7c13b5096720f76d9",
-  "rendered_evidence_path": "outputs/vm608-sirf-four-color-wave-08/dossier-review-current-state.json",
+  "current_production_baseline_sha": "4a6e69c47d0e04521bbc8356a3940bc57a216387",
+  "rendered_evidence_baseline_sha": "4a6e69c47d0e04521bbc8356a3940bc57a216387",
+  "rendered_evidence_path": "outputs/vm609-sirf-colorless-wave-09/dossier-review-current-state.json",
   "render_mode": "DIRECT_DOSSIER_REVIEW",
   "review_route": "/archscry/?vm-dev-review=1",
   "current_composer_equivalence": {
@@ -24,7 +24,9 @@
     "working_tree_owner_drift": [
       "assets/js/archscry/dossier/foundation.js",
       "data/dossier/identity-dossier-content.catalog.json",
-      "data/dossier/identity-dossier-content.source.json"
+      "data/dossier/identity-dossier-content.source.json",
+      "data/precons/vox-mana-precon-catalog.json",
+      "data/precons/vox-mana-precons.source.json"
     ],
     "explanation": "A complete fresh 37/37 Dossier Review corpus was collected after the reconciled owner-path changes; historic corpus equivalence is intentionally not used."
   },
@@ -78,9 +80,9 @@
       "mana-base",
       "maze-discovery"
     ],
-    "prose_unit_count": 1378,
-    "sentence_count": 1627,
-    "word_count": 26493
+    "prose_unit_count": 1375,
+    "sentence_count": 1625,
+    "word_count": 26421
   },
   "methodology": {
     "ai_detection_used": false,
@@ -97,13 +99,13 @@
   },
   "quantitative": {
     "summary": {
-      "exact_cross_identity_duplicate_group_count": 50,
-      "exact_cross_identity_duplicate_occurrence_count": 686,
+      "exact_cross_identity_duplicate_group_count": 49,
+      "exact_cross_identity_duplicate_occurrence_count": 684,
       "substitution_normalized_duplicate_group_count": 17,
       "repeated_opening_group_count": 33,
       "repeated_five_gram_group_count": 238,
-      "cross_identity_near_similarity_pair_count": 476,
-      "within_dossier_redundancy_candidate_count": 4
+      "cross_identity_near_similarity_pair_count": 475,
+      "within_dossier_redundancy_candidate_count": 3
     },
     "exact_duplicate_groups": [
       {
@@ -1651,26 +1653,6 @@
             "section": "commander-deck-starts",
             "text": "Cast the largest instants and sorceries possible; Zaffai creates tokens and scries based on spell CMC, rewarding high-cost spells with escalating payoffs",
             "unit_id": "PRISMARI-022"
-          }
-        ]
-      },
-      {
-        "normalized": "choose only the lanes that fit the deck you want to explore",
-        "occurrence_count": 2,
-        "identity_count": 2,
-        "section_count": 1,
-        "examples": [
-          {
-            "identity_key": "COLORLESS",
-            "section": "start",
-            "text": "Choose only the lanes that fit the deck you want to explore.",
-            "unit_id": "COLORLESS-006"
-          },
-          {
-            "identity_key": "WUBRG",
-            "section": "start",
-            "text": "Choose only the lanes that fit the deck you want to explore.",
-            "unit_id": "WUBRG-006"
           }
         ]
       },
@@ -3757,26 +3739,6 @@
         ]
       },
       {
-        "normalized": "choose only the lanes that fit the deck you want to explore",
-        "occurrence_count": 2,
-        "identity_count": 2,
-        "section_count": 1,
-        "examples": [
-          {
-            "identity_key": "COLORLESS",
-            "section": "start",
-            "text": "Choose only the lanes that fit the deck you want to explore.",
-            "unit_id": "COLORLESS-006"
-          },
-          {
-            "identity_key": "WUBRG",
-            "section": "start",
-            "text": "Choose only the lanes that fit the deck you want to explore.",
-            "unit_id": "WUBRG-006"
-          }
-        ]
-      },
-      {
         "normalized": "control one of each party class wizard rogue cleric warrior to unlock maximum party payoffs nalia gives party members deathtouch and lets you draw when a party member deals damage",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -4680,8 +4642,8 @@
       },
       {
         "opening": "this may fit if you",
-        "occurrence_count": 22,
-        "identity_count": 22,
+        "occurrence_count": 21,
+        "identity_count": 21,
         "examples": [
           {
             "identity_key": "W",
@@ -4807,38 +4769,6 @@
         ]
       },
       {
-        "opening": "this is less likely to",
-        "occurrence_count": 6,
-        "identity_count": 6,
-        "examples": [
-          {
-            "identity_key": "W",
-            "section": "why",
-            "text": "This is less likely to fit if you treat rules as inherently oppressive, believe private power owes nothing to others, or want impulse to outrank communal safety."
-          },
-          {
-            "identity_key": "BR",
-            "section": "why",
-            "text": "This is less likely to fit if the deck offers only private cruelty, ordinary aggression, sacrifice mechanics, or random chaos without an act, audience, or visible consequence."
-          },
-          {
-            "identity_key": "ESPER",
-            "section": "why",
-            "text": "This is less likely to fit if you want generic control, artifacts as decoration, or power without an applied-knowledge improvement project."
-          },
-          {
-            "identity_key": "TEMUR",
-            "section": "why",
-            "text": "This is less likely to fit when the only connection is Green-Blue-Red legality or generic value."
-          },
-          {
-            "identity_key": "COLORLESS",
-            "section": "why",
-            "text": "This is less likely to fit when generic artifacts, generic mana, Eldrazi, Devoid, Phyrexia, or lack of colored pips do not prove Colorless; superiority over WUBRG is an explicit false fit."
-          }
-        ]
-      },
-      {
         "opening": "opponents feel the deck as",
         "occurrence_count": 5,
         "identity_count": 5,
@@ -4899,6 +4829,38 @@
             "identity_key": "YORE",
             "section": "commander-deck-starts",
             "text": "The precon catalog records Five-color matters / Domain, Rewarding high-color-pip casting costs, Domain/five-color matters, Politics."
+          }
+        ]
+      },
+      {
+        "opening": "this is less likely to",
+        "occurrence_count": 5,
+        "identity_count": 5,
+        "examples": [
+          {
+            "identity_key": "W",
+            "section": "why",
+            "text": "This is less likely to fit if you treat rules as inherently oppressive, believe private power owes nothing to others, or want impulse to outrank communal safety."
+          },
+          {
+            "identity_key": "BR",
+            "section": "why",
+            "text": "This is less likely to fit if the deck offers only private cruelty, ordinary aggression, sacrifice mechanics, or random chaos without an act, audience, or visible consequence."
+          },
+          {
+            "identity_key": "ESPER",
+            "section": "why",
+            "text": "This is less likely to fit if you want generic control, artifacts as decoration, or power without an applied-knowledge improvement project."
+          },
+          {
+            "identity_key": "TEMUR",
+            "section": "why",
+            "text": "This is less likely to fit when the only connection is Green-Blue-Red legality or generic value."
+          },
+          {
+            "identity_key": "WUBRG",
+            "section": "why",
+            "text": "This is less likely to fit when a narrower color identity serves the plan, or when all-five access is treated as proof of superiority, completion, or universal mastery."
           }
         ]
       },
@@ -5068,7 +5030,7 @@
     "repeated_five_grams": [
       {
         "ngram": "the deck you want to",
-        "occurrence_count": 40,
+        "occurrence_count": 39,
         "identity_count": 37
       },
       {
@@ -5873,8 +5835,8 @@
       },
       {
         "ngram": "this may fit if you",
-        "occurrence_count": 22,
-        "identity_count": 22
+        "occurrence_count": 21,
+        "identity_count": 21
       },
       {
         "ngram": "a commander deck that turns",
@@ -5922,11 +5884,6 @@
         "identity_count": 10
       },
       {
-        "ngram": "may fit if you want",
-        "occurrence_count": 9,
-        "identity_count": 9
-      },
-      {
         "ngram": "alone do not make a",
         "occurrence_count": 8,
         "identity_count": 8
@@ -5943,6 +5900,11 @@
       },
       {
         "ngram": "fill the rest with islands",
+        "occurrence_count": 8,
+        "identity_count": 8
+      },
+      {
+        "ngram": "may fit if you want",
         "occurrence_count": 8,
         "identity_count": 8
       },
@@ -5997,22 +5959,12 @@
         "identity_count": 6
       },
       {
-        "ngram": "is less likely to fit",
-        "occurrence_count": 6,
-        "identity_count": 6
-      },
-      {
         "ngram": "swamps based on your early",
         "occurrence_count": 6,
         "identity_count": 6
       },
       {
         "ngram": "the rest with plains and",
-        "occurrence_count": 6,
-        "identity_count": 6
-      },
-      {
-        "ngram": "this is less likely to",
         "occurrence_count": 6,
         "identity_count": 6
       },
@@ -6112,6 +6064,11 @@
         "identity_count": 5
       },
       {
+        "ngram": "is less likely to fit",
+        "occurrence_count": 5,
+        "identity_count": 5
+      },
+      {
         "ngram": "mana's bounded interpretation of exact",
         "occurrence_count": 5,
         "identity_count": 5
@@ -6148,6 +6105,11 @@
       },
       {
         "ngram": "the precon catalog records five",
+        "occurrence_count": 5,
+        "identity_count": 5
+      },
+      {
+        "ngram": "this is less likely to",
         "occurrence_count": 5,
         "identity_count": 5
       },
@@ -6260,7 +6222,7 @@
     "hedges": [
       {
         "pattern": "can",
-        "occurrence_count": 144,
+        "occurrence_count": 145,
         "identity_count": 37,
         "examples": [
           {
@@ -6297,7 +6259,7 @@
       },
       {
         "pattern": "may",
-        "occurrence_count": 46,
+        "occurrence_count": 47,
         "identity_count": 37,
         "examples": [
           {
@@ -6383,6 +6345,19 @@
         ]
       },
       {
+        "pattern": "usually",
+        "occurrence_count": 1,
+        "identity_count": 1,
+        "examples": [
+          {
+            "identity_key": "COLORLESS",
+            "section": "why",
+            "sentence": "Opponents usually see mana infrastructure first, then learn whether the payoff is artifact machinery, a colorless nonartifact engine, or Eldrazi scale.",
+            "count": 1
+          }
+        ]
+      },
+      {
         "pattern": "at times",
         "occurrence_count": 0,
         "identity_count": 0,
@@ -6408,12 +6383,6 @@
       },
       {
         "pattern": "sometimes",
-        "occurrence_count": 0,
-        "identity_count": 0,
-        "examples": []
-      },
-      {
-        "pattern": "usually",
         "occurrence_count": 0,
         "identity_count": 0,
         "examples": []
@@ -6459,8 +6428,8 @@
       },
       {
         "pattern": "pressure through",
-        "occurrence_count": 23,
-        "identity_count": 23,
+        "occurrence_count": 22,
+        "identity_count": 22,
         "examples": [
           {
             "identity_key": "W",
@@ -6496,8 +6465,8 @@
       },
       {
         "pattern": "this may fit if",
-        "occurrence_count": 23,
-        "identity_count": 23,
+        "occurrence_count": 22,
+        "identity_count": 22,
         "examples": [
           {
             "identity_key": "W",
@@ -6533,8 +6502,8 @@
       },
       {
         "pattern": "watch for this tension",
-        "occurrence_count": 22,
-        "identity_count": 22,
+        "occurrence_count": 21,
+        "identity_count": 21,
         "examples": [
           {
             "identity_key": "W",
@@ -6607,19 +6576,13 @@
       },
       {
         "pattern": "this is less likely to fit when",
-        "occurrence_count": 3,
-        "identity_count": 3,
+        "occurrence_count": 2,
+        "identity_count": 2,
         "examples": [
           {
             "identity_key": "TEMUR",
             "section": "why",
             "sentence": "This is less likely to fit when the only connection is Green-Blue-Red legality or generic value.",
-            "count": 1
-          },
-          {
-            "identity_key": "COLORLESS",
-            "section": "why",
-            "sentence": "This is less likely to fit when generic artifacts, generic mana, Eldrazi, Devoid, Phyrexia, or lack of colored pips do not prove Colorless; superiority over WUBRG is an explicit false fit.",
             "count": 1
           },
           {
@@ -9722,21 +9685,6 @@
           "unit_id": "SILVERQUILL-029",
           "text": "Use Silverquill evidence when language, rhetoric, signed/spoken/written expression, or ink-and-light word magic is the active method. Do not treat generic black-white power as Silverquill proof."
         }
-      },
-      {
-        "similarity": 0.3929,
-        "left": {
-          "identity_key": "COLORLESS",
-          "section": "start",
-          "unit_id": "COLORLESS-007",
-          "text": "sources, mana rocks, utility lands, artifact engines, and colorless finishers create strict Colorless footing while generic costs, Devoid, artifacts, and five-color Eldrazi stay separate."
-        },
-        "right": {
-          "identity_key": "COLORLESS",
-          "section": "why",
-          "unit_id": "COLORLESS-015",
-          "text": "Reliable colorless mana, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless"
-        }
       }
     ]
   },
@@ -11782,7 +11730,6 @@
     {
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "rendered_section_ids": [
         "start",
         "why",
@@ -11791,12 +11738,12 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 36,
-      "sentence_count": 42,
-      "word_count": 794,
-      "hedge_count": 6,
-      "within_dossier_similarity_candidate_count": 1,
-      "highest_within_dossier_similarity": 0.3929,
+      "prose_unit_count": 33,
+      "sentence_count": 40,
+      "word_count": 722,
+      "hedge_count": 9,
+      "within_dossier_similarity_candidate_count": 0,
+      "highest_within_dossier_similarity": 0,
       "evidence_unit_ids": [
         "COLORLESS-001",
         "COLORLESS-002",
@@ -11830,10 +11777,7 @@
         "COLORLESS-030",
         "COLORLESS-031",
         "COLORLESS-032",
-        "COLORLESS-033",
-        "COLORLESS-034",
-        "COLORLESS-035",
-        "COLORLESS-036"
+        "COLORLESS-033"
       ]
     },
     {
@@ -26235,7 +26179,6 @@
       "unit_id": "COLORLESS-001",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "hero",
       "role": "identity_thesis",
       "location": "hero.thesis",
@@ -26246,7 +26189,6 @@
       "unit_id": "COLORLESS-002",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.2",
@@ -26257,164 +26199,149 @@
       "unit_id": "COLORLESS-003",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.4",
-      "text": "One way to explore Colorless is a Commander deck that starts with the outside-WUBRG constraint: build reliable",
-      "word_count": 17
+      "text": "One way to explore Colorless is a Commander deck that starts by choosing a strict colorless commander and legal card pool, then decides whether artifact machinery, colorless nonartifact cards, or Eldrazi scale makes that restriction worth solving. Adjust the budget, complexity, and table role to fit your deck.",
+      "word_count": 48
     },
     {
       "unit_id": "COLORLESS-004",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
-      "location": "panels.start.line.5",
-      "text": ", then make mana rocks, utility lands, and colorless finishers prove why the limit was chosen. Adjust the budget, complexity, and table role to fit your deck.",
-      "word_count": 26
+      "location": "panels.start.line.6",
+      "text": "Explore Chosen Restriction, Machine And Void, Boundary Discipline. Compare these lanes to see which one matches the deck you want to build.",
+      "word_count": 22
     },
     {
       "unit_id": "COLORLESS-005",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
-      "location": "panels.start.line.7",
-      "text": "Explore Artifacts, Big Mana, Ramp, Chosen Restriction. Compare these lanes to see which one matches the deck you want to build.",
-      "word_count": 21
+      "location": "panels.start.line.9",
+      "text": "as different deck-building questions: generic costs accept any mana, while",
+      "word_count": 10
     },
     {
       "unit_id": "COLORLESS-006",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
-      "location": "panels.start.line.9",
-      "text": "These directions connect the colorless Commander guidance with the themes shown in this dossier. Choose only the lanes that fit the deck you want to explore.",
-      "word_count": 26
+      "location": "panels.start.line.10",
+      "text": "requirements need sources that actually produce colorless mana. Use Wastes where dependable",
+      "word_count": 12
     },
     {
       "unit_id": "COLORLESS-007",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "start",
       "role": "rendered_panel_prose",
-      "location": "panels.start.line.12",
-      "text": "sources, mana rocks, utility lands, artifact engines, and colorless finishers create strict Colorless footing while generic costs, Devoid, artifacts, and five-color Eldrazi stay separate.",
-      "word_count": 24
+      "location": "panels.start.line.13",
+      "text": "The answer suite is narrower, so reserve flexible colorless interaction for the permanents your chosen engine cannot race or ignore.",
+      "word_count": 20
     },
     {
       "unit_id": "COLORLESS-008",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
-      "section": "start",
+      "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.start.line.15",
-      "text": "sources, and mana rocks first, keep generic costs separate, and verify artifacts, Devoid, Eldrazi, or five-color Eldrazi before calling them native Colorless.",
-      "word_count": 22
+      "location": "panels.why.line.3",
+      "text": "Choose this path when limiting the commander's color identity and legal card pool is part of the appeal, not merely the price of playing artifacts or Eldrazi.",
+      "word_count": 27
     },
     {
       "unit_id": "COLORLESS-009",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.3",
-      "text": "This may fit if you want the deck-building constraint itself to matter, with Wastes and reliable colorless sources serving the plan instead of generic costs or five-color Eldrazi blurring it.",
-      "word_count": 30
+      "location": "panels.why.line.5",
+      "text": "The restriction cuts both ways: utility lands compete with dependable",
+      "word_count": 10
     },
     {
       "unit_id": "COLORLESS-010",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.5",
-      "text": "Watch for this tension: Every color asks which value guides the answer; Colorless asks whether the answer must be expressed in that value grammar at all.",
-      "word_count": 26
+      "location": "panels.why.line.6",
+      "text": "sources, and familiar colored answers are unavailable even when the deck needs them.",
+      "word_count": 13
     },
     {
       "unit_id": "COLORLESS-011",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.7",
-      "text": "This is less likely to fit when generic artifacts, generic mana, Eldrazi, Devoid, Phyrexia, or lack of colored pips do not prove Colorless; superiority over WUBRG is an explicit false fit.",
-      "word_count": 31
+      "location": "panels.why.line.8",
+      "text": "Look elsewhere if the draw is only generic costs, an artifact theme, Devoid, Phyrexia, or five-color Eldrazi. None of those establishes strict Colorless identity, and Colorless is not superior to or more complete than WUBRG.",
+      "word_count": 35
     },
     {
       "unit_id": "COLORLESS-012",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.13",
-      "text": "Opponents see the deck assemble infrastructure before the threat: reliable colorless mana, mana rocks, utility lands, and one payoff large enough to test every answer.",
-      "word_count": 25
+      "location": "panels.why.line.14",
+      "text": "Opponents usually see mana infrastructure first, then learn whether the payoff is artifact machinery, a colorless nonartifact engine, or Eldrazi scale.",
+      "word_count": 21
     },
     {
       "unit_id": "COLORLESS-013",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.15",
-      "text": "Pressure through outside-WUBRG precision, chosen restriction, machine logic, and the sense that every resource has to justify its slot.",
-      "word_count": 19
+      "location": "panels.why.line.16",
+      "text": "The table must decide whether a mana piece is expendable or load-bearing; waiting for the expensive payoff can let the engine compound, while early removal may miss the card that matters.",
+      "word_count": 31
     },
     {
       "unit_id": "COLORLESS-014",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.18",
-      "text": "Vox Mana Colorless expression for outside-WUBRG precision, chosen restriction, artifacts, Wastes, Eldrazi scale, and strict generic/colorless separation",
-      "word_count": 17
+      "location": "panels.why.line.19",
+      "text": "Vox Mana treats Colorless as a bounded expression outside the five-color grammar, not an official Magic philosophy and not metaphysical nothingness.",
+      "word_count": 21
     },
     {
       "unit_id": "COLORLESS-015",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.20",
-      "text": "Reliable colorless mana, Wastes, artifact engines, big mana, utility lands, and colorless finishers as Commander examples that support the reading without collapsing artifacts, Eldrazi, Devoid, or five-color Eldrazi into Colorless",
-      "word_count": 30
+      "location": "panels.why.line.22",
+      "text": "sources support a plan that may use artifact engines, colorless nonartifact cards, or Eldrazi. Those categories can share a deck without defining one another.",
+      "word_count": 24
     },
     {
       "unit_id": "COLORLESS-016",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.22",
-      "text": "infrastructure first, then one oversized threat, artifact engine, or inevitability piece at a time",
-      "word_count": 14
+      "location": "panels.why.line.24",
+      "text": "a resource-development opening that branches into machinery, nonartifact colorless payoffs, or enormous creatures rather than one prescribed archetype",
+      "word_count": 18
     },
     {
       "unit_id": "COLORLESS-017",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.24",
+      "location": "panels.why.line.26",
       "text": "Lines of Magic flavor that sound like this reading.",
       "word_count": 9
     },
@@ -26422,10 +26349,9 @@
       "unit_id": "COLORLESS-018",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.27",
+      "location": "panels.why.line.29",
       "text": "\"The emergence of the Eldrazi isn't necessarily a bad thing, as long as you've already lived a fulfilling and complete life without regrets.\" —Javad Nasrin, Ondu relic hunter",
       "word_count": 28
     },
@@ -26433,10 +26359,9 @@
       "unit_id": "COLORLESS-019",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.30",
+      "location": "panels.why.line.32",
       "text": "Cards whose verified play patterns give you a concrete way to explore this reading.",
       "word_count": 14
     },
@@ -26444,10 +26369,9 @@
       "unit_id": "COLORLESS-020",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.33",
+      "location": "panels.why.line.35",
       "text": "Omarthis shows one way Colorless can support +1/+1 counter growth: it grows when another colorless creature receives counters, then manifests cards equal to its counters when it dies.",
       "word_count": 29
     },
@@ -26455,10 +26379,9 @@
       "unit_id": "COLORLESS-021",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "why",
       "role": "rendered_panel_prose",
-      "location": "panels.why.line.37",
+      "location": "panels.why.line.39",
       "text": "Zhulodok shows the Eldrazi-scale side of Colorless: colorless spells cast from hand with mana value seven or greater receive cascade twice.",
       "word_count": 21
     },
@@ -26466,7 +26389,6 @@
       "unit_id": "COLORLESS-022",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.2",
@@ -26477,7 +26399,6 @@
       "unit_id": "COLORLESS-023",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.3",
@@ -26488,7 +26409,6 @@
       "unit_id": "COLORLESS-024",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.11",
@@ -26499,7 +26419,6 @@
       "unit_id": "COLORLESS-025",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.20",
@@ -26510,40 +26429,36 @@
       "unit_id": "COLORLESS-026",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.26",
-      "text": "Finds creativity in the strict outside-WUBRG constraint and the precision it demands.",
-      "word_count": 12
+      "text": "Treats the empty Commander color identity and narrower legal card pool as the puzzle, never as superiority or completeness.",
+      "word_count": 19
     },
     {
       "unit_id": "COLORLESS-027",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.28",
-      "text": "Keeps artifact function, Eldrazi alienness, Wastes austerity, and clean mana systems distinct.",
-      "word_count": 12
+      "text": "Compares artifact engines, colorless nonartifact cards, Wastes, and Eldrazi as separate deck directions; none proves the others.",
+      "word_count": 17
     },
     {
       "unit_id": "COLORLESS-028",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
-      "location": "panels.commander-deck-starts.line.30",
-      "text": "Refuses to let generic mana, cards asking for a color, artifacts, Devoid, five-color Eldrazi, or Phyrexia become Colorless proof.",
-      "word_count": 19
+      "location": "panels.commander-deck-starts.line.31",
+      "text": ", then checks colored symbols, color indicators, and Devoid before deciding Commander legality.",
+      "word_count": 12
     },
     {
       "unit_id": "COLORLESS-029",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.3",
@@ -26554,7 +26469,6 @@
       "unit_id": "COLORLESS-030",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.5",
@@ -26565,7 +26479,6 @@
       "unit_id": "COLORLESS-031",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.11",
@@ -26576,7 +26489,6 @@
       "unit_id": "COLORLESS-032",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "maze-discovery",
       "role": "rendered_panel_prose",
       "location": "panels.maze-discovery.line.3",
@@ -26587,45 +26499,11 @@
       "unit_id": "COLORLESS-033",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
-      "expression_type": "colorless",
       "section": "maze-discovery",
       "role": "rendered_panel_prose",
       "location": "panels.maze-discovery.line.16",
       "text": "Explore the complete 37-identity atlas whenever you want to compare this identity with other Commander paths.",
       "word_count": 16
-    },
-    {
-      "unit_id": "COLORLESS-034",
-      "identity_key": "COLORLESS",
-      "identity_name": "Colorless",
-      "expression_type": "colorless",
-      "section": "mana-base",
-      "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:premium.line.2",
-      "text": "Best when you need reliable colorless mana early and enough speed to reach colorless finishers before the table stabilizes.",
-      "word_count": 19
-    },
-    {
-      "unit_id": "COLORLESS-035",
-      "identity_key": "COLORLESS",
-      "identity_name": "Colorless",
-      "expression_type": "colorless",
-      "section": "mana-base",
-      "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:midrange.line.2",
-      "text": "The practical upgrade lane: Wastes, proven colorless sources, utility lands, and artifact mana that keep the restriction consistent.",
-      "word_count": 18
-    },
-    {
-      "unit_id": "COLORLESS-036",
-      "identity_key": "COLORLESS",
-      "identity_name": "Colorless",
-      "expression_type": "colorless",
-      "section": "mana-base",
-      "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:utility.line.2",
-      "text": "Use utility lands as deck machinery, not decoration; Reflecting Pool-style effects need another source that can make colorless mana before they help the plan.",
-      "word_count": 24
     },
     {
       "unit_id": "WUBRG-001",

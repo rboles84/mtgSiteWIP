@@ -1017,9 +1017,10 @@ export const COMMANDER_FACTION_GUIDANCE = {
     bleedWarnings: ["avoid collapsing true {C}, generic mana, artifacts, Eldrazi, Wastes, Devoid, Phyrexia, or five-color Eldrazi into one Colorless identity"],
     preferredArchetypeTags: ["Artifacts", "Big Mana", "Ramp"],
     starterSearchTags: ["Artifacts", "Big Mana", "Ramp"],
-    commanderPlan: "starts with the outside-WUBRG constraint: build reliable {C}, then make mana rocks, utility lands, and colorless finishers prove why the limit was chosen",
-    spellcraftIdentity: "Wastes, true {C} sources, mana rocks, utility lands, artifact engines, and colorless finishers create strict Colorless footing while generic costs, Devoid, artifacts, and five-color Eldrazi stay separate.",
-    tableCautionText: "Develop Wastes, true {C} sources, and mana rocks first, keep generic costs separate, and verify artifacts, Devoid, Eldrazi, or five-color Eldrazi before calling them native Colorless.",
+    starterDirections: ["Chosen Restriction", "Machine And Void", "Boundary Discipline"],
+    commanderPlan: "starts by choosing a strict colorless commander and legal card pool, then decides whether artifact machinery, colorless nonartifact cards, or Eldrazi scale makes that restriction worth solving",
+    spellcraftIdentity: "Treat generic costs and true {C} as different deck-building questions: generic costs accept any mana, while {C} requirements need sources that actually produce colorless mana. Use Wastes where dependable {C} access matters.",
+    tableCautionText: "The answer suite is narrower, so reserve flexible colorless interaction for the permanents your chosen engine cannot race or ignore.",
     tableCautionReviewRule: "If text treats Colorless as a sixth color, WUBRG mastery, generic mana, all artifacts, Devoid, Phyrexia, or five-color Eldrazi, rebind it to VM-324, VM-326, VM-334, and VM-337 source boundaries.",
   },
   WUBRG: {

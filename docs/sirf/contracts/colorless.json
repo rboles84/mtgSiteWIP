@@ -1,0 +1,31 @@
+{
+  "schema_version": "sirf-v0.2-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_date": "2026-08-30",
+  "acceptance_record": "docs/sirf/reports/2026-08-30-sirf-colorless-wave-09.md",
+  "baseline_sha": "4a6e69c47d0e04521bbc8356a3940bc57a216387",
+  "identity_key": "COLORLESS",
+  "identity_name": "Colorless",
+  "canonical_anchor": "Colorless is a controlled non-color identity outside WUBRG, with strict separation among Commander color identity, object colorlessness, generic costs, true {C}, artifacts, colorless nonartifact cards, Devoid, Eldrazi, Wastes, rules facts, setting lore, and bounded Vox interpretation.",
+  "colorless_authority": {
+    "wubrg_colors": [],
+    "core_symbol": "C",
+    "is_sixth_color": false,
+    "identity_wide_official_philosophy": false,
+    "metaphysical_nothingness": false,
+    "artifacts_equivalent_to_identity": false,
+    "eldrazi_equivalent_to_identity": false,
+    "generic_mana_equivalent_to_colorless_mana": false,
+    "devoid_proves_colorless_commander_legality": false
+  },
+  "start_here_taxonomy": ["Chosen Restriction", "Machine And Void", "Boundary Discipline"],
+  "what_to_look_for_taxonomy": ["Chosen Restriction", "Machine And Void", "Boundary Discipline"],
+  "rendered_exclusions": ["sixth-color framing", "superiority or completeness over WUBRG", "metaphysical nothingness presented as universal Colorless doctrine", "all artifacts presented as Colorless identity", "all Colorless decks presented as Eldrazi", "generic costs presented as true {C}", "Devoid presented as strict Colorless Commander legality", "five-color Eldrazi presented as native Colorless", "generated factions data used as evidence", "fallback taxonomy appended as primary lanes", "Start Here construction advice repeated as How This Plays"],
+  "precon_contract": {
+    "native": ["Eldrazi Unbound"],
+    "native_face_commander": "Zhulodok, Void Gorger",
+    "exact_color_required": [],
+    "stretch_allowed": false,
+    "five_color_comparator_excluded": "Eldrazi Incursion"
+  }
+}
