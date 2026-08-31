@@ -2116,3 +2116,34 @@ html.vm-dialog-open body {
   transition: none !important;
   animation: none !important;
 }
+
+/* Semantic typography: route concepts are expressive; workflows remain instrumental. */
+body[data-vm-current="strategium"] button,
+body[data-vm-current="strategium"] input,
+body[data-vm-current="strategium"] select,
+body[data-vm-current="strategium"] textarea,
+body[data-vm-current="strategium"] h2,
+body[data-vm-current="strategium"] h3,
+body[data-vm-current="strategium"] h4,
+body[data-vm-current="strategium"] [class*="-kicker"],
+body[data-vm-current="strategium"] [class*="-label"],
+body[data-vm-current="strategium"] [class*="-meta"],
+body[data-vm-current="strategium"] [class*="-status"],
+body[data-vm-current="strategium"] [class*="-title"],
+body[data-vm-current="strategium"] [class*="-heading"],
+body[data-vm-current="strategium"] table {
+  font-family: var(--font-ui);
+}
+
+body[data-vm-current="strategium"] h1,
+body[data-vm-current="strategium"] .vm-section-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+body[data-vm-current="strategium"] .vm-hero-lead,
+body[data-vm-current="strategium"] .vm-lesson-dialog-copy,
+body[data-vm-current="strategium"] .vm-result-copy,
+body[data-vm-current="strategium"] .vm-path-copy {
+  font-family: var(--font-reading);
+}

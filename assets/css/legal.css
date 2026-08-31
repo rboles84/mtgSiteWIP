@@ -101,7 +101,7 @@ body[data-page="terms"] .vm-bg__stars {
 .summary-eyebrow,
 .section-kicker,
 .meta-pill {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-size: var(--text-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -114,13 +114,13 @@ body[data-page="terms"] .vm-bg__stars {
 
 .legal-page h1 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(3rem, 6.6vw, 5.2rem);
   line-height: 0.96;
   color: var(--gold-l);
   letter-spacing: 0;
   margin: 0;
   text-shadow: 0 0 28px rgba(247, 215, 132, 0.18);
-  font-variation-settings: "opsz" 96, "wght" 600, "SOFT" 50;
 }
 
 .lede {
@@ -255,7 +255,7 @@ body[data-page="terms"] .vm-bg__stars {
   padding: var(--s-5) 0 0;
   border-top: 1px solid var(--legal-line);
   color: var(--text-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-size: var(--text-xs);
 }
 

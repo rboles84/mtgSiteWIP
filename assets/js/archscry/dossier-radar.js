@@ -458,7 +458,7 @@ function initDossierManaRadar({ result, faction, profile, identityLayers = null 
             color: "#e6ddc6",
             padding: 10,
             font: {
-              family: "Fraunces, Georgia, serif",
+              family: "Outfit, system-ui, sans-serif",
               size: 13,
               weight: "600",
             },

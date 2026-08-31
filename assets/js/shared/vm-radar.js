@@ -557,7 +557,7 @@
         const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
         ctx.save();
         ctx.fillStyle = options.color || "rgba(255,255,255,0.72)";
-        ctx.font = options.font || "500 10px Fraunces, Georgia, serif";
+        ctx.font = options.font || "500 10px Outfit, system-ui, sans-serif";
         ctx.textAlign = "center";
         meta.data.forEach((point, index) => {
           const tier = strengthWord(Number(dataset.data[index]));

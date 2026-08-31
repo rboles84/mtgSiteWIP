@@ -129,6 +129,11 @@ const legacyFontPatterns = [
   ["fonts.googleapis", /\bfonts\.googleapis\b/i],
   ["fonts.gstatic", /\bfonts\.gstatic\b/i],
 ];
+const inactiveTypographyPatterns = [
+  ["Fraunces", /\bFraunces\b/i],
+  ["Spectral", /\bSpectral\b/i],
+  ["Source Serif 4", /\bSource Serif 4\b/i],
+];
 
 function getSectionTags(source) {
   return [...source.matchAll(/<section\b[^>]*>/gi)].map(match => match[0]);
@@ -165,6 +170,34 @@ for (const file of liveFontRegressionFiles) {
       `${file} should not reference legacy Google font dependency "${label}"`
     );
   }
+}
+
+for (const file of liveFontRegressionFiles.filter(
+  file => file.replaceAll("\\", "/") !== "assets/css/fonts.css"
+)) {
+  const source = await readFile(file, "utf8");
+  for (const [label, pattern] of inactiveTypographyPatterns) {
+    expectAbsent(
+      source,
+      pattern,
+      `${file} should not actively reference retired typography family "${label}"`
+    );
+  }
+}
+
+const typographyTokens = await readFile("assets/css/tokens.css", "utf8");
+for (const requiredToken of [
+  /--font-brand:\s*'Cormorant SC'/,
+  /--font-display:\s*'Almendra'/,
+  /--font-reading:\s*'Lora'/,
+  /--font-text:\s*var\(--font-reading\)/,
+  /--font-ui:\s*'Outfit'/,
+  /--font-mono:\s*'IBM Plex Mono'/,
+]) {
+  expect(
+    requiredToken.test(typographyTokens),
+    `assets/css/tokens.css should preserve the semantic typography token contract (${requiredToken})`
+  );
 }
 
 for (const key of livePublicPageKeys) {
@@ -235,7 +268,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm612a">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -244,7 +277,11 @@ expectAbsent(
   "archscry/index.html should not ship inline <style> blocks"
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />'),
+  'index.html should load the pinned local Keyrune stylesheet'
+);
+expect(
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm612c" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -262,7 +299,7 @@ expect(
 );
 
 expect(
-  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css" />'),
+  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css?v=vm612" />'),
   'strategium/index.html should load "../assets/css/strategium.css"'
 );
 expect(
@@ -290,15 +327,25 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
   );
 }
 
-const homeTopbarLinkIndex = sources.home.indexOf('./assets/css/topbar.css');
-const homeRouteCssIndex = sources.home.indexOf('./assets/css/home.css');
+const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm612');
+const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm612c');
 expect(
-  homeTopbarLinkIndex !== -1 && homeRouteCssIndex !== -1 && homeTopbarLinkIndex < homeRouteCssIndex,
-  "index.html should load topbar.css before home.css"
+  homeTopbarLinkIndex !== -1 &&
+    homeKeyruneLinkIndex !== -1 &&
+    homeRouteCssIndex !== -1 &&
+    homeTopbarLinkIndex < homeKeyruneLinkIndex &&
+    homeKeyruneLinkIndex < homeRouteCssIndex,
+  "index.html should load topbar.css, then Keyrune, then home.css"
+);
+expect(
+  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm612c',
+  "index.html should keep home.css as the last stylesheet in the head"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm612a');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&
@@ -308,7 +355,7 @@ expect(
 
 const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
 expect(
-  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css",
+  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm612",
   "strategium/index.html should keep strategium.css as the last stylesheet in the head"
 );
 
@@ -349,11 +396,11 @@ for (const key of ["privacy", "terms"]) {
   const stylesheetHrefs = getStylesheetHrefs(sources[key]);
 
   expect(
-    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css">'),
+    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm612">'),
     `${file} should load "../assets/css/legal.css"`
   );
   expect(
-    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css",
+    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css?v=vm612",
     `${file} should keep legal.css as the last stylesheet in the head`
   );
   expectAbsent(

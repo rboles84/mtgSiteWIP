@@ -27,16 +27,14 @@
 <!-- Archscry assets inserted here (background, canvas, web component).
   See docs/handoffs/2026-05-19-1505-copilot-archscry-extract.md for details. -->
 
-<link rel="preload" href="./assets/fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="./assets/fonts/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="./assets/fonts/spectral-600-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="./assets/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="./assets/css/tokens.css" />
-<link rel="stylesheet" href="./assets/css/fonts.css" />
+<link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="./assets/css/tokens.css?v=vm612" />
+<link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
 <script src="assets/js/shared/vm-radar.js" defer></script>
 <link rel="stylesheet" href="./assets/css/layout.css" />
-<link rel="stylesheet" href="./assets/css/topbar.css" />
-<link rel="stylesheet" href="./assets/css/home.css" />
+<link rel="stylesheet" href="./assets/css/topbar.css?v=vm612" />
+<link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
+<link rel="stylesheet" href="./assets/css/home.css?v=vm612c" />
 </head>
 
 <!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
@@ -119,10 +117,10 @@
         <div class="vm-hero-copy">
           <div class="vm-eyebrow">VOX MANA</div>
           <h1 class="vm-hero-title" id="home-preview-title">
-            <span>Your colors</span>
-            <span>have a</span>
-            <span>shape.</span>
+            <span>Find your place</span>
+            <span>Shape your play</span>
           </h1>
+          <div class="vm-hero-signature" aria-hidden="true"><i class="ss ss-fdn ss-mythic" aria-hidden="true"></i></div>
           <p class="vm-hero-lede">Vox Mana is a Commander identity and taste compass. It helps you understand your colors, placement, play patterns, and what to look for when exploring commanders or decks elsewhere.</p>
           <p class="vm-hero-note">Not a deckbuilder: Vox Mana helps you choose a direction before you build or browse decklists somewhere else.</p>
 
@@ -705,7 +703,7 @@
               </g>
 
               <!-- ══ LABEL ROW ══ -->
-              <g font-family="Fraunces,Georgia,serif" font-size="9.5" fill="#c89a38" letter-spacing="0.02em">
+              <g font-family="Outfit,system-ui,sans-serif" font-size="9.5" fill="#c89a38" letter-spacing="0.02em">
                 <text x="34"  y="96" text-anchor="middle" opacity="0.88">Order</text>
                 <text x="147" y="96" text-anchor="middle" opacity="0.88">Knowledge</text>
                 <text x="260" y="96" text-anchor="middle" opacity="0.88">Ambition</text>

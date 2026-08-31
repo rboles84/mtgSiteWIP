@@ -78,15 +78,20 @@
   --success-bg: oklch(56.323% 0.12581 152.776 / 0.12);
 
   /* TYPOGRAPHY
-     Display = Fraunces Variable (rare, ceremonial)
-     Text    = Source Serif 4 Variable (body)
-     Mono    = IBM Plex Mono (labels, taxonomy, terminal voice)
+     Brand   = Cormorant SC (Vox Mana institutional identity)
+     Display = Almendra (important ideas and destinations)
+     Reading = Lora (body and unclassified heading safe-failure)
+     UI      = Outfit (navigation, controls, labels, and functional headings)
+     Mono    = IBM Plex Mono (literal syntax, identifiers, and machine data)
 
      System fallbacks ship if the WOFF2s are not loaded yet.
      The site stays readable with zero swap shift.
   */
-  --font-display:  'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-text:     'Spectral', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-brand:    'Cormorant SC', Georgia, 'Times New Roman', serif;
+  --font-display:  'Almendra', Georgia, 'Times New Roman', serif;
+  --font-reading:  'Lora', Georgia, 'Times New Roman', serif;
+  --font-text:     var(--font-reading);
+  --font-ui:       'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:     'IBM Plex Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
 
   /* TYPE SCALE
@@ -220,7 +225,6 @@
     line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
-    font-variation-settings: "opsz" 16;
   }
 
   /* GLOBAL GRAIN TEXTURE
@@ -257,10 +261,9 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-weight: 600;
     line-height: 1.2;
-    font-variation-settings: "opsz" 32, "wght" 600, "SOFT" 50;
   }
 
   /* UTILITY */
