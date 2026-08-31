@@ -13,8 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-551 — Gate B1 Preview Owner Follow-ups](backlog/VM-551-gate-b1-preview-owner-followups.md) - separately records blank/placeholder preview content, inert Maze actions, a clipped Commander-lane tooltip, and the insufficient-result continuation question; no repair or result-recovery redesign is authorized.
-
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-551 — Gate B1 Preview Owner Follow-ups](done/VM-551-gate-b1-preview-owner-followups.md) - owner manually verified Ink and Golgari Maze actions, card/Mana Notes presentation, and Commander-lane tooltip behavior; no defect reproduced. Owner accepted restart-only insufficient preview results, so no repair is needed and the separately gated preview follow-up is closed.
 
 - [VM-610 — SIRF Final All-37 Atlas Checkpoint](done/VM-610-sirf-final-all-37-atlas-checkpoint.md) - SIRF Atlas Complete; 37/74 final renders, 34 contracts, three goldens, normalized/enriched VM-595, explicit candidate dispositions, and no remaining identity queue pass.
 
