@@ -41,8 +41,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-612 - Semantic Typography System Upgrade](in-progress/VM-612-semantic-typography-system-upgrade.md) - Owner Review Ready after the Archscry revisions and durable Home signature remediation; locally vendored Keyrune 3.19.0 now renders the fixed FDN mythic mark between 20%-enlarged symmetrical rules, exact punctuation is approved, focused static/asset/rendered desktop-mobile QA passes, and the `font-upgrade` candidate remains uncommitted.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-612 - Semantic Typography System Upgrade](done/VM-612-semantic-typography-system-upgrade.md) - owner accepted all public typography surfaces plus the final Archscry and Home revisions; exact product candidate `b84662c5` passes narrow integration validation, includes pinned local Keyrune 3.19.0 beside Mana Font, and is authorized for normal branch/PR integration with no further product work.
 
 - [VM-611 - Unmerged Branch Archival Cleanup](done/VM-611-unmerged-branch-archival-cleanup.md) - all 16 local tips not merged into `main` are preserved by pushed annotated `archive/` tags at their exact SHAs; rejected, failed, superseded, audit-only, and historical dispositions remain unchanged before redundant local refs are removed.
 
