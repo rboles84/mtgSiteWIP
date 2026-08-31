@@ -54,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-613 - Establish the Vox Mana Field Guide and Onboarding Contract](done/VM-613-field-guide-onboarding-contract.md) - Owner Accepted; the final authority locks the optional four-route Guide, small-primary-choice intent hierarchy, result-versus-dossier instruction boundary, explicit reversible Maze context, restrained reference cap, existing-work disposition, and VM-615 fresh-session validation prerequisite with production runtime unchanged.
+
 - [VM-612 - Semantic Typography System Upgrade](done/VM-612-semantic-typography-system-upgrade.md) - owner accepted all public typography surfaces plus the final Archscry and Home revisions; exact product candidate `b84662c5` passes narrow integration validation, includes pinned local Keyrune 3.19.0 beside Mana Font, and is authorized for normal branch/PR integration with no further product work.
 
 - [VM-611 - Unmerged Branch Archival Cleanup](done/VM-611-unmerged-branch-archival-cleanup.md) - all 16 local tips not merged into `main` are preserved by pushed annotated `archive/` tags at their exact SHAs; rejected, failed, superseded, audit-only, and historical dispositions remain unchanged before redundant local refs are removed.
