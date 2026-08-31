@@ -252,8 +252,8 @@ body.vm-maze-route :focus-visible {
 .btn-more,
 .maze-return-link,
 .res-order {
-  font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  letter-spacing: 0.16em;
+  font-family: var(--font-ui, system-ui, sans-serif);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -268,8 +268,8 @@ body.vm-maze-route :focus-visible {
   color: var(--maze-ink);
   font-family: var(--font-display, Georgia, serif);
   font-size: clamp(2rem, 3.2vw, 3.35rem);
+  font-weight: 700;
   line-height: 1.08;
-  font-variation-settings: "opsz" 40, "wght" 620, "SOFT" 55;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
@@ -3429,4 +3429,62 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 [data-reduce-motion="true"] .empty-card-frame,
 [data-reduce-motion="true"] .empty-card-frame img {
   transition: none !important;
+}
+
+/* Semantic typography: destination identity, interface, reading, and literal syntax. */
+body.vm-maze-route button,
+body.vm-maze-route input,
+body.vm-maze-route select,
+body.vm-maze-route textarea,
+.mode-card-title,
+.builder-head h2,
+.builder-group legend,
+.current-weave-copy h3,
+.empty-title,
+.empty-card-name,
+.m-name,
+.state-title,
+.stash-title,
+.maze-mode-context span,
+.maze-disclosure-meta,
+.search-input-label,
+.qi-label,
+.qi-group-label,
+.builder-badge,
+.builder-kicker,
+.current-weave-kicker,
+.current-weave-status,
+.builder-row .bl,
+.refine-control > .bl,
+.builder-output span,
+.more-count,
+.empty-card-artist,
+.m-meta-k,
+.m-price,
+.stash-export-fallback label,
+.maze-toast {
+  font-family: var(--font-ui);
+}
+
+.mode-card-title,
+.builder-head h2,
+.builder-group legend,
+.current-weave-copy h3,
+.empty-title,
+.empty-card-name,
+.m-name,
+.state-title,
+.stash-title {
+  font-weight: 600;
+}
+
+body.vm-maze-route code,
+body.vm-maze-route .s-prefix,
+body.vm-maze-route .s-input.mono,
+body.vm-maze-route .qi-query,
+body.vm-maze-route .builder-output code,
+body.vm-maze-route .recent-item,
+body.vm-maze-route .stash-export-fallback textarea,
+body.vm-maze-route #mode-raw .mode-card-example {
+  font-family: var(--font-mono);
 }

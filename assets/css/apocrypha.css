@@ -1941,3 +1941,35 @@ body[data-page="apocrypha"] .vm-bg__stars {
     bottom: 0.75rem;
   }
 }
+
+/* Semantic typography: editorial hierarchy, reading, and registry interface. */
+body[data-page="apocrypha"] button,
+body[data-page="apocrypha"] input,
+body[data-page="apocrypha"] select,
+body[data-page="apocrypha"] textarea,
+body[data-page="apocrypha"] h3,
+body[data-page="apocrypha"] h4,
+body[data-page="apocrypha"] [class*="-kicker"],
+body[data-page="apocrypha"] [class*="label"],
+body[data-page="apocrypha"] [class*="-meta"],
+body[data-page="apocrypha"] [class*="-status"],
+body[data-page="apocrypha"] [class*="-badge"],
+body[data-page="apocrypha"] [class*="-title"],
+body[data-page="apocrypha"] .apoc-ledger th,
+body[data-page="apocrypha"] .apoc-stat-list dt {
+  font-family: var(--font-ui);
+}
+
+body[data-page="apocrypha"] .apoc-hero__copy h1,
+body[data-page="apocrypha"] main h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+body[data-page="apocrypha"] .apoc-subtitle,
+body[data-page="apocrypha"] .apoc-lede,
+body[data-page="apocrypha"] .apoc-note,
+body[data-page="apocrypha"] .apoc-source-summary,
+body[data-page="apocrypha"] .apoc-reference-card p {
+  font-family: var(--font-reading);
+}

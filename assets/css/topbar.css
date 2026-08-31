@@ -152,10 +152,10 @@
 }
 
 .vm-brand-text {
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-brand);
+  font-weight: 700;
   font-size: 0.88rem;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: inherit;
   white-space: nowrap;
@@ -194,10 +194,10 @@
   color: color-mix(in srgb, var(--text-dim) 74%, #f2dfb2 26%);
   text-decoration: none;
   white-space: nowrap;
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-weight: 600;
   font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.72);
   transition: color var(--dur-fast) var(--ease-out);
@@ -567,7 +567,7 @@ body.vm-feedback-open {
   border-radius: 8px;
   background: rgba(3, 6, 11, 0.72);
   color: var(--text);
-  font-family: var(--font-text);
+  font-family: var(--font-ui);
   font-size: 0.94rem;
   letter-spacing: 0;
   line-height: 1.5;
@@ -973,15 +973,39 @@ body.vm-feedback-open {
   color: var(--gold-l);
 }
 
+/* Semantic typography: shared navigation and feedback are interface, not syntax. */
+.vm-feedback-button,
+.vm-feedback-header h2,
+.vm-feedback-step h3,
+.vm-feedback-close,
+.vm-feedback-context dt,
+.vm-feedback-context dd,
+.vm-feedback-field,
+.vm-feedback-field input,
+.vm-feedback-field textarea,
+.vm-feedback-manual-copy,
+.vm-feedback-field small,
+.vm-feedback-count,
+.vm-feedback-fallback p,
+.vm-feedback-captcha-status,
+.vm-feedback-primary,
+.vm-feedback-secondary,
+.vm-feedback-status,
+.vm-menu-link,
+.vm-menu-item,
+.vm-menu-item-status {
+  font-family: var(--font-ui);
+}
+
 @media (max-width: 1360px) {
   .vm-brand-text {
     font-size: 0.82rem;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.1em;
   }
 
   .vm-nav-link {
     font-size: 0.68rem;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.1em;
   }
 
   .vm-nav-link + .vm-nav-link {

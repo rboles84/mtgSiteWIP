@@ -190,22 +190,26 @@ body.vm-archscry-route .flavor-echo-kicker,
 body.vm-archscry-route .land-tier-label,
 body.vm-archscry-route .guide-tier,
 body.vm-archscry-route .staple-cat-label {
-  font-family: var(--font-mono);
-  letter-spacing: 0.18em;
+  font-family: var(--font-ui);
+  letter-spacing: 0.1em;
 }
 
 body.vm-archscry-route .landing-title,
+body.vm-archscry-route .decree-title,
+body.vm-archscry-route .guild-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
 body.vm-archscry-route .quick-title,
 body.vm-archscry-route .interview-title,
-body.vm-archscry-route .decree-title,
-body.vm-archscry-route .guild-name,
 body.vm-archscry-route .empty-state h2 {
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 40, "wght" 620, "SOFT" 55;
+  font-family: var(--font-ui);
+  font-weight: 600;
 }
 
 body.vm-archscry-route .landing-title {
-  max-width: 14ch;
+  max-width: 21ch;
   font-size: clamp(2.7rem, 5.8vw, 4.9rem);
   margin-bottom: 1.15rem;
   color: #f0deab;
@@ -4365,4 +4369,50 @@ body.vm-archscry-route .precon-provider-links{
     max-height: none;
     margin: 0.5rem;
   }
+}
+
+/* Semantic typography: Archscry is a modern instrument inside an editorial world. */
+body.vm-archscry-route button,
+body.vm-archscry-route input:not(#terminal-input),
+body.vm-archscry-route textarea,
+body.vm-archscry-route select,
+body.vm-archscry-route h2,
+body.vm-archscry-route h3,
+body.vm-archscry-route h4,
+body.vm-archscry-route [class*="-eyebrow"],
+body.vm-archscry-route [class*="-kicker"],
+body.vm-archscry-route [class*="-label"],
+body.vm-archscry-route [class*="-meta"],
+body.vm-archscry-route [class*="-status"],
+body.vm-archscry-route [class*="-badge"],
+body.vm-archscry-route [class*="-tag"],
+body.vm-archscry-route [class*="-title"],
+body.vm-archscry-route [class*="-name"],
+body.vm-archscry-route [class*="-headline"],
+body.vm-archscry-route [class*="score-"],
+body.vm-archscry-route [class*="service-"] {
+  font-family: var(--font-ui);
+}
+
+body.vm-archscry-route .landing-title,
+body.vm-archscry-route .decree-title,
+body.vm-archscry-route .guild-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+body.vm-archscry-route .landing-sub,
+body.vm-archscry-route .decree-tagline,
+body.vm-archscry-route .vm-card-voice-text,
+body.vm-archscry-route .identity-story-copy,
+body.vm-archscry-route .archscry-card-dialog-oracle,
+body.vm-archscry-route .archscry-card-dialog-flavor {
+  font-family: var(--font-reading);
+}
+
+body.vm-archscry-route #terminal-input,
+body.vm-archscry-route .terminal-message,
+body.vm-archscry-route #terminal-status,
+body.vm-archscry-route code {
+  font-family: var(--font-mono);
 }

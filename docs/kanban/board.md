@@ -41,6 +41,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-612 - Semantic Typography System Upgrade](in-progress/VM-612-semantic-typography-system-upgrade.md) - Owner Review Ready after the Archscry revisions and durable Home signature remediation; locally vendored Keyrune 3.19.0 now renders the fixed FDN mythic mark between 20%-enlarged symmetrical rules, exact punctuation is approved, focused static/asset/rendered desktop-mobile QA passes, and the `font-upgrade` candidate remains uncommitted.
+
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
