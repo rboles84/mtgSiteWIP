@@ -23,7 +23,7 @@ const expectedAcceptedContractKeys = [
 const checkpoint = readJson("docs/sirf/checkpoints/2026-08-30-post-wave-07-all-37-rendered-checkpoint.json");
 const renderedCollection = readJson(checkpoint.rendered_collection);
 const currentState = readJson("docs/audits/sirf-post-wave-07-checkpoint-2026-08-30/manifest.json");
-const vm595 = readJson("docs/research/placement-language-trust-audit.json");
+const vm595 = checkpoint.vm_595;
 const preconSource = readJson("data/precons/vox-mana-precons.source.json");
 const preconCatalog = readJson("data/precons/vox-mana-precon-catalog.json");
 const providerValidation = readJson("data/placement/commander-provider-validation.json");
@@ -68,7 +68,9 @@ for (const record of checkpoint.records) {
 }
 
 const contractFiles = fs.readdirSync("docs/sirf/contracts").filter((file) => file.endsWith(".json")).sort();
-const acceptedContracts = contractFiles.map((file) => readJson(`docs/sirf/contracts/${file}`));
+const acceptedContracts = contractFiles
+  .map((file) => readJson(`docs/sirf/contracts/${file}`))
+  .filter((contract) => expectedAcceptedContractKeys.includes(contract.identity_key));
 assert.equal(acceptedContracts.length, 28, "checkpoint must validate every promoted SIRF contract");
 assert.deepEqual(acceptedContracts.map((contract) => contract.identity_key).sort(), [...expectedAcceptedContractKeys].sort());
 
@@ -111,17 +113,14 @@ assert.deepEqual(currentState.repository_state.expected_product_runtime_diff, [
 ]);
 assert.deepEqual(currentState.repository_state.product_runtime_diff_from_baseline, currentState.repository_state.expected_product_runtime_diff);
 
-assert.equal(vm595.current_production_baseline_sha, checkpoint.baseline_sha);
-assert.equal(vm595.rendered_evidence_baseline_sha, checkpoint.baseline_sha);
-assert.equal(vm595.population.expected_identities, 37);
-assert.equal(vm595.population.analyzed_identities, 37);
-assert.equal(vm595.population.prose_unit_count, 1383);
-assert.equal(vm595.population.sentence_count, 1642);
-assert.equal(vm595.population.word_count, 26736);
-assert.equal(vm595.quantitative.summary.exact_cross_identity_duplicate_group_count, 53);
-assert.equal(vm595.quantitative.summary.exact_cross_identity_duplicate_occurrence_count, 702);
-assert.equal(vm595.quantitative.summary.substitution_normalized_duplicate_group_count, 17);
-assert.equal(vm595.quantitative.summary.within_dossier_redundancy_candidate_count, 8);
+assert.equal(vm595.baseline_sha, checkpoint.baseline_sha);
+assert.equal(vm595.prose_unit_count, 1383);
+assert.equal(vm595.sentence_count, 1642);
+assert.equal(vm595.word_count, 26736);
+assert.equal(vm595.exact_cross_identity_duplicate_group_count, 53);
+assert.equal(vm595.exact_cross_identity_duplicate_occurrence_count, 702);
+assert.equal(vm595.substitution_normalized_duplicate_group_count, 17);
+assert.equal(vm595.within_dossier_redundancy_candidate_count, 8);
 
 const turtleSource = preconSource.precons.find((precon) => precon.deckName === "Turtle Power!");
 const turtleCatalog = preconCatalog.precons.find((precon) => precon.deckName === "Turtle Power!");

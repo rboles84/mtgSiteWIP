@@ -2413,7 +2413,7 @@ const yoreLaneText = [
   ...yoreCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(yoreLaneText, /turns artifacts, sacrifice, recursion, and controlled engines into table texture/);
-assert.match(yoreLaneText, /Artifacts, Aristocrats, Control/);
+assert.match(yoreLaneText, /Engineered Agency, Artifice And Archive, Controlled Overreach/);
 assert.match(yoreLaneText, /four-color without Green worldview/);
 assert.doesNotMatch(
   yoreLaneText,
@@ -2485,7 +2485,7 @@ const glintLaneText = [
   ...glintCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(glintLaneText, /adaptive appetite|living-force adaptation|storm-fed identity/i);
-assert.match(glintLaneText, /Spellslinger, Aggro, Midrange/);
+assert.match(glintLaneText, /Adaptive Appetite, Storm-Fed Opportunity, Predatory Overreach/);
 assert.match(glintLaneText, /full non-White frame|White-style civic restraint/i);
 assert.doesNotMatch(
   glintLaneText,
@@ -2533,7 +2533,7 @@ const duneLaneText = [
   ...duneCommanderLane.details.flatMap((detail) => [detail.label, detail.copy]),
 ].join(" ");
 assert.match(duneLaneText, /organized territorial pressure|force-backed solidarity|survival-minded multiplication/i);
-assert.match(duneLaneText, /Aggro, Tokens, Midrange/);
+assert.match(duneLaneText, /Organized Territorial Pressure, Common-Front Momentum, Conquest Overreach/);
 assert.match(duneLaneText, /generic combat shell|same-color pile|non-Blue territorial frame/i);
 assert.doesNotMatch(
   duneLaneText,

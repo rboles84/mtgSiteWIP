@@ -2685,3 +2685,22 @@ The checkpoint from accepted Wave 07 baseline `232cd84168bd201f8ea0ed57bfd37f4bc
 - no Placement, scoring, routing, qualification, identity semantics, product facts, generated precon artifact, or CRIT-001 truth changed.
 
 Continue exception automation with Wave 08: Dune, Glint, Ink, Witch, and Yore. Colorless remains queued after that wave. Full evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-post-wave-07-all-37-checkpoint.md`.
+
+---
+
+# 61. Wave 08 Four-Color Completion
+
+The four-color wave from accepted VM-607 baseline `3c508e0bb1508a93e86054f7c13b5096720f76d9` passes:
+
+- Dune, Glint, Ink, Witch, and Yore each converged in one exception-repair cycle;
+- each contract pins the exact four-color combination, absent color, Vox Mana expression label, Commander 2016 support theme, and the absence of an official identity-wide philosophy;
+- fifteen What to Look For lanes now resolve to certified raw claims rather than generated dossier output;
+- each Start Here set exactly equals its accepted What to Look For set, with fallback/legacy extras excluded;
+- Four-Color Spellcraft owns construction choice while Test the Fit owns suitability/boundary and How This Plays owns table behavior;
+- Native remains empty and the actual renderer shows the appropriate Commander 2016 exact-color product before Stretch products;
+- all five target dossiers and WUBRG, Temur, Lorehold, White, Rakdos, and Esper controls pass at 1280×720 and 375×812 without horizontal overflow;
+- Yore retains its bounded engine `NO_RESULT` while its direct dossier and accepted contract pass;
+- the fresh VM-595 producer/check passes with 1,378 prose units, 1,627 sentences, 26,493 words, 50 exact groups, 686 occurrences, 17 substitution groups, and 4 within-dossier candidates; every Wave 08 identity has zero candidates;
+- all thirty-three promoted contracts and the WUBRG/Temur/Lorehold goldens pass, with Placement, scoring, routing, qualification, CRIT-001 truth, and precon provider facts unchanged.
+
+Continue exception automation with the final endpoint Wave 09 for Colorless. After its independent commit and push, run the final 37/74 atlas checkpoint and closeout. Full evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-four-color-wave-08.md`.

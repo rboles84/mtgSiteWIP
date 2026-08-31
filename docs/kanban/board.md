@@ -43,7 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -56,6 +55,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-608 — SIRF Four-Color Wave 08](done/VM-608-sirf-four-color-wave-08.md) - accepted Dune, Glint, Ink, Witch, and Yore after one cycle each; exact four-color/absent-color boundaries, five taxonomies, raw provenance, section roles, empty Native sets, VM-595, Yore `NO_RESULT`, and target/control renders pass.
 
 - [VM-607 — SIRF Post-Wave-07 All-37 Checkpoint](done/VM-607-sirf-post-wave-07-periodic-checkpoint.md) - Owner-authorized shared product-slug composer repair restored eight cross-role products, including Jund `Power Hungry`; 37/74 fresh renders, 28 contracts, three goldens, current-state reconciliation, and VM-595 all pass.
 - [VM-606 — SIRF Wedge Wave 07](done/VM-606-sirf-wedge-wave-07.md) - exception batch accepted; Abzan, Jeskai, Mardu, and Sultai passed exact taxonomy, raw provenance, official Tarkir Native reproduction, explicit guardrail-warning disposition, scoped VM-595, rendered, and accepted-control gates in one cycle each.
