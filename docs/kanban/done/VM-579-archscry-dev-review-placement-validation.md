@@ -99,7 +99,7 @@ Reuse the existing production dossier renderer and placement engine. Add only th
 ## Notes
 
 - Baseline: `main` at `b79a366`, one registered worktree.
-- VM-578 belongs to the Player Language Corpus V1 work on `vm578-player-language-corpus-v1`; that identity, branch, and corpus must not be touched or reused.
+- VM-578 belongs to the Player Language Corpus V1 work preserved by `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42`; that identity and corpus must not be touched or reused.
 - Existing unrelated untracked `docs/research/maze-player-language/corpus/` content is owner work and must not be touched.
 - VM-573, VM-575, VM-576, and VM-577 are closed; no in-flight overlap was found on the intended runtime owners.
 

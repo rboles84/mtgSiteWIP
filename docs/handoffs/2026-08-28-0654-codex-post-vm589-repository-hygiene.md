@@ -36,7 +36,7 @@ Perform a bounded repository-hygiene pass after accepted VM-589: make the accept
 - Fetched `origin` and fast-forward pushed local `main` from remote tip `e875c624` through accepted VM-589 closeout `e4d53909`; no force push was used.
 - Proved authority-promotion commit `ecdacdbe` and VM-589 closeout commit `e4d53909` are reachable from `origin/main`.
 - Deleted three local branch pointers proven fully reachable from `main`: `codex/vm580-vm583-owner-qa-remediation`, `codex/vm586-archscry-current-state-evidence`, and `vm577-scryfall-maze-master-verification`.
-- Retained all 15 branches with commits not reachable from `main`, including the historical `vm578-player-language-corpus-v1` branch.
+- At the time, retained all 15 branches with commits not reachable from `main`, including VM-578; it is now preserved by `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42`.
 - Verified the accepted authority workbook SHA-256 remains `f1a529c6f3d2739bfec15272767f24329b9017f97abf313a32897bb59b9a35e5`.
 - Confirmed no disposable propagation scratch/render/temp artifacts exist. The byte-identical propagation candidate remains governed review provenance named by the authority manifest.
 - Left `docs/research/maze-player-language/corpus/vm578.zip` untouched. Its entries correspond to the 12 corpus outputs on the unintegrated VM-578 branch, but no authority explicitly disposes of the owner archive.

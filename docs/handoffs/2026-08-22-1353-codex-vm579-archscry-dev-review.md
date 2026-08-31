@@ -5,14 +5,14 @@
 - Agent name: Codex (`/root`, RobDev implementation)
 - Task requested: Expose clean local development seams into the existing production Archscry dossier renderer and placement engine, without new product machinery or broad architecture work; proceed through RobDev, independent RobQA, and owner-review readiness.
 - Related Kanban card, docs, or plans: `docs/kanban/in-progress/VM-579-archscry-dev-review-placement-validation.md`; supplied `archscry-dev-review-placement-validation-goal.md`; `docs/dev/RobDevPass.md`; `docs/qa/RobQAPass.md`.
-- Work identity correction: VM-578 is owned by Player Language Corpus V1 on `vm578-player-language-corpus-v1`. This Archscry work is VM-579. No VM-578 branch, card, or corpus artifact was changed.
+- Work identity correction: VM-578 is owned by Player Language Corpus V1 preserved by `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42`. This Archscry work is VM-579. No VM-578 branch, card, or corpus artifact was changed.
 
 ## Files reviewed
 
 - Mandatory handoff index and recent VM-573, VM-575, VM-576, and VM-577 handoffs/cards.
 - Current Kanban board, related dossier/placement plans, `RobDevPass.md`, and `RobQAPass.md`.
 - Production Archscry route boot, state, dossier composer/renderer/controls, questionnaire, Gate B1 engine exports, persistence helpers, telemetry adapter, identity registry, all-37 witness/review authority, focused tests, and package scripts.
-- Current branches/worktrees, including the separate `vm578-player-language-corpus-v1` branch.
+- Current branches/worktrees, including the VM-578 archival tag `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42`.
 
 ## Files changed
 
@@ -128,7 +128,7 @@ See the selected-test and rendered-evidence sections above. `npm ci` restored on
 ## Not touched
 
 - Placement model/engine semantics, generated data, factions/identity layers, telemetry adapter/events, auth/profile schema, shared persistence helpers, Maze runtime, Scryfall data/media, VM-576 transform code, and production deployment behavior.
-- `vm578-player-language-corpus-v1` and all Player Language Corpus V1 artifacts.
+- `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42` and all Player Language Corpus V1 artifacts.
 - Pre-existing unrelated `docs/research/maze-player-language/corpus/vm578.zip` owner file.
 
 ## Follow-up recommendations

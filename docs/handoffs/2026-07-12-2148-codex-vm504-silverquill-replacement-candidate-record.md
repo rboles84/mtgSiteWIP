@@ -24,7 +24,7 @@ Task requested: Record the replacement VM-504 Silverquill recovery candidate SHA
 
 ## What changed
 
-Recorded replacement Silverquill recovery candidate `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` for independent Gate 5 review. Superseded rejected candidate `078310b428d66e3f1423fb897d919040542a4593` remains preserved by safety ref `backup/vm-504-rejected-silverquill-candidate-078310b`. Silverquill remains uncertified; no certification commit exists.
+Recorded replacement Silverquill recovery candidate `b9cd9e914c280e9c40c7a977b8f7c07204614d3e` for independent Gate 5 review. Superseded rejected candidate `078310b428d66e3f1423fb897d919040542a4593` remains preserved by archival tag `archive/rejected-vm504-silverquill-candidate-16127d0` at exact archived branch tip `16127d0fc8960ec78c57c1742bb2c264399042ef`. Silverquill remains uncertified; no certification commit exists.
 
 ## Why it changed
 
@@ -35,7 +35,7 @@ Independent review requested changes for candidate hygiene/workflow integrity: r
 - Replacement candidate parent/review base: `3baa8307cf1d6b23aab1564b866e6580e500cf66`.
 - Replacement candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`.
 - Superseded rejected candidate: `078310b428d66e3f1423fb897d919040542a4593`.
-- Safety ref: `backup/vm-504-rejected-silverquill-candidate-078310b`.
+- Safety ref: `archive/rejected-vm504-silverquill-candidate-16127d0` at exact archived branch tip `16127d0fc8960ec78c57c1742bb2c264399042ef`.
 - Candidate-scope guard has no confidence/calibration findings.
 - Remaining candidate-scope findings are documented Silverquill-scoped display-source exceptions: `data/identity-layers.json` and generated `data/factions.json` identity-layer content.
 

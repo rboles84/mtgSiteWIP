@@ -113,7 +113,7 @@ Replacement candidate SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`.
 Replacement candidate parent SHA: `3baa8307cf1d6b23aab1564b866e6580e500cf66`
 Replacement candidate recovery SHA: `b9cd9e914c280e9c40c7a977b8f7c07204614d3e`
 Superseded rejected candidate SHA: `078310b428d66e3f1423fb897d919040542a4593`
-Safety ref: `backup/vm-504-rejected-silverquill-candidate-078310b`
+Safety ref: `archive/rejected-vm504-silverquill-candidate-16127d0` at exact archived branch tip `16127d0fc8960ec78c57c1742bb2c264399042ef`
 Workflow state: awaiting independent Gate 5 review. Silverquill remains uncertified; no certification commit exists.
 
 

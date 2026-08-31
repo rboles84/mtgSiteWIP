@@ -1058,7 +1058,7 @@ Corrected replacement candidate SHA: `da2e9ef4036c427c17dca66c5a1a9d9a8fe03436`.
 - Superseded rejected workflow-record SHA: `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`.
 - Earlier superseded failed candidate SHA: `abff94b91e94b99a6b2a77b71806a9d005ecec76`.
 - Earlier superseded failed workflow-record SHA: `25420bad09715645ba4af37f07cac097b3e7966d`.
-- Safety refs preserved: `backup/vm-509-boros-rejected-candidate-c2f5d06`, `backup/vm-509-boros-rejected-workflow-d7f2523`, `backup/vm-509-boros-failed-candidate-abff94b`, `backup/vm-509-boros-failed-workflow-25420ba`.
+- Safety refs preserved: `archive/rejected-vm509-boros-candidate-c2f5d06` at `c2f5d064460a007f0dca6be95b7beabb4ca85026`, `archive/rejected-vm509-boros-workflow-d7f2523` at `d7f2523d53cfbc6420e75c83b9ab03192158a1a1`, `archive/failed-vm509-boros-candidate-abff94b` at `abff94b91e94b99a6b2a77b71806a9d005ecec76`, and `archive/failed-vm509-boros-workflow-25420ba` at `25420bad09715645ba4af37f07cac097b3e7966d`.
 - Independent reviewer: APPROVE EXACT SHA.
 - Certification commit: this VM-509 certification commit; exact SHA is reported in the task final after commit creation.
 - Boros is certified semantically_ready under CRIT-001 Contract v1.1.

@@ -54,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-611 - Unmerged Branch Archival Cleanup](done/VM-611-unmerged-branch-archival-cleanup.md) - all 16 local tips not merged into `main` are preserved by pushed annotated `archive/` tags at their exact SHAs; rejected, failed, superseded, audit-only, and historical dispositions remain unchanged before redundant local refs are removed.
+
 - [VM-551 — Gate B1 Preview Owner Follow-ups](done/VM-551-gate-b1-preview-owner-followups.md) - owner manually verified Ink and Golgari Maze actions, card/Mana Notes presentation, and Commander-lane tooltip behavior; no defect reproduced. Owner accepted restart-only insufficient preview results, so no repair is needed and the separately gated preview follow-up is closed.
 
 - [VM-610 — SIRF Final All-37 Atlas Checkpoint](done/VM-610-sirf-final-all-37-atlas-checkpoint.md) - SIRF Atlas Complete; 37/74 final renders, 34 contracts, three goldens, normalized/enriched VM-595, explicit candidate dispositions, and no remaining identity queue pass.

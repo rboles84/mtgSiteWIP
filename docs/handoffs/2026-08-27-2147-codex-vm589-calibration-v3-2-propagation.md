@@ -17,7 +17,7 @@ Apply the frozen Implicit Maze Calibration V3.2 rules to the remaining eligible 
 - Divergence from `origin/main` at pre-flight: 0 behind / 2 ahead.
 - Candidate/change SHA: none; this owner-review package is uncommitted.
 - Pre-existing untracked V3.2 authority, evidence, query-reference, and VM-578 corpus inputs were preserved.
-- A separate historical branch, `vm578-player-language-corpus-v1` at `0204cfa`, exists and was not merged, rewritten, or used as a worktree target.
+- A separate historical archive tag, `archive/historical-vm578-player-language-corpus-0204cfa` at `0204cfa2c402f647dad68585bcd96b59dd4bcd42`, preserves the VM-578 object; it was not merged, rewritten, or used as a worktree target.
 
 ## Files reviewed
 

@@ -27,6 +27,8 @@ DRIFT-020 certified candidate: `399ba34243f5b421da4d3a0c251a37bcbc4bd5fa`
 Gate 3+4 / Gate 5 candidate workflow: `docs/handoffs/2026-07-21-2213-codex-vm525-jund-candidate-workflow.md`
 Candidate recovery SHA: `b275fc62aca3ed67bcdc624ea59b3ee15cdeae04`
 Superseded candidate attempts: `ba606b702832ce84baf45055562808f9b971e897`, `4a2c6462c4967f661bfa5357805fc155d2d5a746`
+
+Archival refs for those unapproved superseded tips: `archive/superseded-vm525-jund-ba606b7` at `ba606b702832ce84baf45055562808f9b971e897`; `archive/superseded-vm525-jund-candidate-4a2c646` at `4a2c6462c4967f661bfa5357805fc155d2d5a746`.
 Independent review SHA: `dee26b0246713a9b7d687c9fd2dfb96db2cfd9d2`
 Certification commit: `PENDING_VM525_CERTIFICATION_COMMIT_SHA`
 Certification handoff: `docs/handoffs/2026-07-21-2300-codex-vm525-jund-certification.md`
