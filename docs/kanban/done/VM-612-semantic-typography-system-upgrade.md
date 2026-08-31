@@ -10,7 +10,7 @@ Semantic Typography System Upgrade
 
 ## Status
 
-Owner Review Ready - typography, Archscry revisions, and durable Home FDN mythic signature on `font-upgrade`
+Done - Owner Accepted; integration authorized
 
 ## Type
 
@@ -205,6 +205,23 @@ readability, clipping, and voice separation. Do not treat this card as visual ac
   both paragraphs contained, and the CTA complete on one line.
 - No CSS, markup structure, accessibility, responsive, or JavaScript change was required.
 - Candidate remains uncommitted, unpushed, and unmerged for owner review.
+
+## Owner Acceptance And Closeout
+
+- Owner acceptance: 2026-08-30. The owner reviewed all public pages, accepted the semantic typography
+  system, Archscry copy and headline measure, Home punctuation, and the enlarged fixed Foundations
+  mythic signature, and reported that all pages look good.
+- Exact accepted product candidate: `b84662c5a3990cb27d7cc07186eb720994ca7329` on `font-upgrade`.
+- The only integration-time normalization after rendered owner review removed trailing spaces from
+  OFL/license text and Keyrune CSS comments; it changed no runtime rule, font binary, markup, or visual
+  output.
+- Final narrow validation passed: HTML validation, JS lint, frontend smoke, staged diff hygiene, 12/12
+  new WOFF2 signatures, complete non-empty Keyrune runtime assets/classes, and localhost HTTP/MIME
+  checks for Home, Keyrune CSS/WOFF2, and Almendra.
+- CPU-heavy placement, journey, synthetic, mutation, recovery, and all-identity suites were not
+  required because the accepted presentation work did not change those protected contracts.
+- VM-612 is product-complete and administratively closed. Integration is authorized through the
+  repository's normal branch/PR path; no additional product or visual work remains.
 
 ## Owner Review Follow-Up - Archscry Headline Measure
 
