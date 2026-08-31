@@ -2721,3 +2721,20 @@ The final identity wave from accepted Wave 08 baseline `4a6e69c47d0e04521bbc8356
 - all thirty-four contracts and WUBRG/Temur/Lorehold goldens are ready for final checkpoint replay.
 
 No identity remains queued. Run the final fresh 37-identity / 74-render checkpoint before atlas closeout. Full evidence and disposition live at `docs/sirf/reports/2026-08-30-sirf-colorless-wave-09.md`.
+
+---
+
+# 63. VM-610 Final Atlas Closeout
+
+VM-610 completes the deployment definition of done at exact Wave 09 baseline `216a0355673beb086830db21029446d1d9bf120d`.
+
+- All 37 identities and 74 responsive Owner-facing renders pass.
+- All 34 promoted contracts and WUBRG / Temur / Lorehold goldens pass.
+- WUBRG's non-equal taxonomies are governed by one accepted identity-specific golden surface-role contract; the default exact-equality rule remains mandatory elsewhere.
+- All three remaining VM-595 within-dossier candidates have explicit non-blocking dispositions; none is deferred.
+- Normalized visible-panel metrics are compared apples-to-apples; richer all-interactive-panel totals are reported separately.
+- The historical Dimir Card Signal References assertion is proven outside VM-610 ownership and outside the five SIRF surfaces, while the rendered Dimir contract passes.
+- The Owner packet is bounded to launch-relevant exceptions, factual repairs, accepted redundancy, representative samples, and disposition.
+- No identity remains queued.
+
+Final status: `PASS_FINAL_ATLAS_CLOSEOUT`.

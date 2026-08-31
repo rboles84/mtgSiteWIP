@@ -1,0 +1,23 @@
+{
+  "schema_version": "sirf-v0.2-golden-surface-role-contract-v1",
+  "status": "ACCEPTED",
+  "owner_acceptance_basis": "WUBRG golden semantic contract and VM-610 explicit final gate",
+  "identity_key": "WUBRG",
+  "identity_name": "Five-Color",
+  "default_rule_preserved": "Every promoted non-golden SIRF contract must retain exact Start Here / What to Look For taxonomy equality. This WUBRG-only contract does not generalize or weaken that rule.",
+  "start_here": {
+    "principal_responsibility": "Turn all-five access into a buildable first decision by pairing mana-system readiness with a chosen deck purpose.",
+    "accepted_exact_set": ["Fixing & Ramp", "Rainbow Payoffs", "Full-Spectrum Integrator", "Five-Color Toolbox"],
+    "identity_specific_item": "Fixing & Ramp",
+    "identity_specific_item_role": "Construction prerequisite: the player must decide whether the mana system can support the chosen all-five plan before choosing cards."
+  },
+  "what_to_look_for": {
+    "principal_responsibility": "Name observable deck, commander, and card signals that explain why all five colors are present.",
+    "accepted_exact_set": ["Full-Spectrum Integrator", "Five-Color Toolbox", "Five-Color Typal", "Rainbow Payoffs"],
+    "identity_specific_item": "Five-Color Typal",
+    "identity_specific_item_role": "Browsing signal: a creature type, commander, or typal payoff spanning the color pie is visible evidence for an all-five deck purpose."
+  },
+  "shared_items": ["Rainbow Payoffs", "Full-Spectrum Integrator", "Five-Color Toolbox"],
+  "surface_role_distinction": "Fixing & Ramp belongs to Start Here because it changes the player's construction sequence; Five-Color Typal belongs to What to Look For because it is an observable browsing signal. The shared items are used once to choose a plan and once to recognize evidence for that plan. The two surfaces therefore do not make substantially the same claim for the same purpose.",
+  "redundancy_result": "PASS_ACCEPTED_IDENTITY_SPECIFIC_SURFACE_ROLE_DISTINCTION"
+}

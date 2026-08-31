@@ -1,0 +1,179 @@
+{
+  "schema_version": "sirf-v0.2-final-all-37-atlas-checkpoint-v1",
+  "status": "PASS",
+  "checkpoint_date": "2026-08-30",
+  "checkpoint_phase": "FINAL_ATLAS_CLOSEOUT",
+  "baseline_sha": "216a0355673beb086830db21029446d1d9bf120d",
+  "route": "/archscry/?vm-dev-review=1&reviewIdentity=<key>&panel=start&layout=all",
+  "viewports": [{ "width": 1280, "height": 720 }, { "width": 375, "height": 812 }],
+  "scoped_sections": ["Start Here", "Test the Fit", "How This Plays", "Precon Starting Points", "What to Look For"],
+  "identity_count": 37,
+  "rendered_record_count": 74,
+  "screenshot_count": 74,
+  "accepted_contract_count": 34,
+  "golden_control_count": 3,
+  "wubrg_surface_role_contract": "docs/sirf/contracts/goldens/wubrg-surface-role.json",
+  "rendered_collection": "outputs/vm610-sirf-final-atlas-checkpoint/final-rendered-collection.json",
+  "vm_595_evidence": "outputs/vm610-sirf-final-atlas-checkpoint/dossier-review-current-state.json",
+  "repair_cycle_count": 0,
+  "finding_totals": { "P0": 0, "P1": 0, "P2": 0, "P3": 0 },
+  "engine_reconciliation": {
+    "pass_match": 36,
+    "no_result": 1,
+    "bounded_no_result_identity": "YORE",
+    "mismatch": 0,
+    "engine_error": 0,
+    "witness_check": "PASS",
+    "historical_certification_note": "The separate historical certification builder still stops on House Dimir's pre-existing omitted Card Signal References. That surface is outside the five SIRF sections and was unchanged by this checkpoint."
+  },
+  "section_role_matrix": [
+    {"section":"Start Here","principal_responsibility":"Orient the player to distinct Commander starting lanes.","principal_claim":"These are the clearest deck-building directions for entering the identity.","new_player_decision_or_understanding":"Choose a first lane to explore.","redundancy_result":"PASS"},
+    {"section":"Test the Fit","principal_responsibility":"Provide positive and boundary self-checks.","principal_claim":"The identity fits these motivations and stops fitting at these boundaries.","new_player_decision_or_understanding":"Decide whether the identity describes the desired play experience.","redundancy_result":"PASS"},
+    {"section":"How This Plays","principal_responsibility":"Translate the identity into deck and table behavior.","principal_claim":"These mechanics, roles, pressures, and table experiences express the identity in play.","new_player_decision_or_understanding":"Understand what piloting and facing the deck feels like.","redundancy_result":"PASS"},
+    {"section":"Precon Starting Points","principal_responsibility":"Compare governed ready-made products by relationship lane.","principal_claim":"These Native, Exact, and Stretch products are concrete entry points, not identity proof.","new_player_decision_or_understanding":"Choose which complete product is worth inspecting or buying.","redundancy_result":"PASS"},
+    {"section":"What to Look For","principal_responsibility":"Provide observable browsing signals.","principal_claim":"These named traits are the signals to seek in commanders, cards, and decklists.","new_player_decision_or_understanding":"Recognize the identity while browsing new material.","redundancy_result":"PASS"}
+  ],
+  "section_role_matrix_identity_coverage": 37,
+  "accepted_taxonomy_result": {
+    "contracts_checked": 34,
+    "contract_exact_set_pass": 34,
+    "golden_equal_set_pass": 2,
+    "golden_specific_exception_count": 1,
+    "golden_specific_exception": "WUBRG contract-owned identity-specific surface-role distinction",
+    "unexpected_exception_count": 0,
+    "required_items_present": true,
+    "unapproved_or_legacy_items_absent": true
+  },
+  "taxonomy_inventory": {
+    "W": ["Protective Tokens", "Taxes and Rules", "Equipment and Guardians"],
+    "U": ["Draw-Go Control", "Spellslinger Tokens", "Artifacts and Clones"],
+    "B": ["Life Payment Engines", "Aristocrats and Sacrifice", "Reanimator Control"],
+    "R": ["Burn and Damage", "Haste Aggro", "Impulse Draw and Treasures"],
+    "G": ["Ramp and Big Mana", "Apex Creatures", "Landfall and Creature Value"],
+    "WU": ["Public Rule-Setting", "Procedural Permission", "Timed Enforcement"],
+    "WR": ["Battalion Formation", "Mentor the Front Line", "Equipped Protection"],
+    "BR": ["Spectacle Pressure", "Risk for Release", "Sacrifice with Consequence"],
+    "BG": ["Reclamation Midrange", "Graveyard Resource Loops", "Undergrowth and Renewal"],
+    "RG": ["Wild Reclamation", "Clan-Fed Pressure", "Riot Momentum"],
+    "UB": ["Hidden Information Leverage", "Surveil Filtering", "Covert Infiltration"],
+    "UR": ["Prototype Velocity", "Jump-Start Iteration", "Overload Breakthrough"],
+    "WB": ["Obligation Engines", "Payment Pressure", "Afterlife Accounts"],
+    "WG": ["Convoke Community", "Go-Wide Caretaking", "Harmony and Preservation"],
+    "UG": ["Living-System Value", "Biological Adaptation", "Clade Research and Pressure Response"],
+    "LOREHOLD": ["Spirit Witnesses / Graveyard-Leaves", "Relic Reconstruction", "History & Spells"],
+    "PRISMARI": ["Elemental Performance", "Opus-Scale Spellcraft", "Technique & Expression"],
+    "QUANDRIX": ["Fractal Counters", "Pattern Multiplication", "Scalable Equations"],
+    "SILVERQUILL": ["Word-Magic and Rhetorical Influence", "Leadership and Social Pressure", "Visible Reputation"],
+    "WITHERBLOOM": ["Essence Exchange", "Remedies and Poisons", "Field Biology and Cost"],
+    "BANT": ["Exalted Champion", "Creature-Forward Value", "Enchantress and Aura Order"],
+    "ESPER": ["Perfectibility Control", "Information Engines", "Artifact-Oriented Value"],
+    "GRIXIS": ["Survival Control", "Leverage Engines", "Volatile Spell Pressure"],
+    "JUND": ["Instinctive Pressure", "Appetite Engines", "Feral Value"],
+    "NAYA": ["Living Abundance", "Instinctive Protection", "Creature-Forward Scale"],
+    "ABZAN": ["Family Endurance", "Ancestor Obligation", "Perennial Defense"],
+    "JESKAI": ["Disciplined Tempo", "Cunning In Motion", "Monastery Practice"],
+    "MARDU": ["Raid Momentum", "War-Name Oath", "Ruthless Opening"],
+    "SULTAI": ["Resource Conversion", "Necromantic Utility", "Calculated Ruthlessness"],
+    "TEMUR": ["Large Creatures / Ferocious", "Ramp / Big Mana", "Spells / Copying", "Survival Through Attunement — Vox Mana lens"],
+    "DUNE": ["Organized Territorial Pressure", "Common-Front Momentum", "Conquest Overreach"],
+    "GLINT": ["Adaptive Appetite", "Storm-Fed Opportunity", "Predatory Overreach"],
+    "INK": ["Protected Public Abundance", "Open Knowledge Pact", "Self-Erasure Risk"],
+    "WITCH": ["Patient Cultivation", "Calculated Expansion", "Sterile Control Risk"],
+    "YORE": ["Engineered Agency", "Artifice And Archive", "Controlled Overreach"],
+    "COLORLESS": ["Chosen Restriction", "Machine And Void", "Boundary Discipline"],
+    "WUBRG": {
+      "start_here": ["Fixing & Ramp", "Rainbow Payoffs", "Full-Spectrum Integrator", "Five-Color Toolbox"],
+      "what_to_look_for": ["Full-Spectrum Integrator", "Five-Color Toolbox", "Five-Color Typal", "Rainbow Payoffs"],
+      "disposition": "ACCEPTED_GOLDEN_SPECIFIC_SHAPE"
+    }
+  },
+  "precon_results": {
+    "desktop_mobile_lane_parity": "PASS_37_OF_37",
+    "exclusive_membership": "PASS_37_OF_37",
+    "relationship_order": ["Native", "Exact", "Stretch"],
+    "duplicate_products": 0,
+    "leonardo": {"identity":"WUBRG","product":"Turtle Power!","relationship":"Exact","main_commander":"Leonardo, the Balance","alternate_commander":"Heroes in a Half Shell","result":"PASS"},
+    "jund": {"product":"Power Hungry","relationship":"Exact","result":"PASS"},
+    "colorless": {"native":["Eldrazi Unbound"],"exact":[],"stretch":[],"main_commander":"Zhulodok, Void Gorger","excluded":"Eldrazi Incursion","result":"PASS"}
+  },
+  "vm_595": {
+    "status": "PASS",
+    "baseline_sha": "216a0355673beb086830db21029446d1d9bf120d",
+    "normalized_comparison": {
+      "method": "Visible rendered panels only; all interactive_segments are excluded from both the published Wave 09 corpus and the final corpus.",
+      "wave_09": {"prose_unit_count":1268,"sentence_count":1518,"word_count":25210,"exact_cross_identity_duplicate_group_count":46,"exact_cross_identity_duplicate_occurrence_count":577,"substitution_normalized_duplicate_group_count":17,"repeated_opening_group_count":30,"repeated_five_gram_group_count":219,"cross_identity_near_similarity_pair_count":475,"within_dossier_redundancy_candidate_count":3},
+      "final": {"prose_unit_count":1268,"sentence_count":1518,"word_count":25210,"exact_cross_identity_duplicate_group_count":46,"exact_cross_identity_duplicate_occurrence_count":577,"substitution_normalized_duplicate_group_count":17,"repeated_opening_group_count":30,"repeated_five_gram_group_count":219,"cross_identity_near_similarity_pair_count":475,"within_dossier_redundancy_candidate_count":3},
+      "delta": {"prose_unit_count":0,"sentence_count":0,"word_count":0,"exact_cross_identity_duplicate_group_count":0,"exact_cross_identity_duplicate_occurrence_count":0,"substitution_normalized_duplicate_group_count":0,"repeated_opening_group_count":0,"repeated_five_gram_group_count":0,"cross_identity_near_similarity_pair_count":0,"within_dossier_redundancy_candidate_count":0}
+    },
+    "enriched_final": {
+      "method": "All visible rendered panels plus all seven or eight interactive segment panels for every identity; 290 interactive segments total.",
+      "prose_unit_count": 1408,
+      "sentence_count": 1658,
+      "word_count": 26718,
+      "exact_cross_identity_duplicate_group_count": 55,
+      "exact_cross_identity_duplicate_occurrence_count": 696,
+      "substitution_normalized_duplicate_group_count": 17,
+      "repeated_opening_group_count": 33,
+      "repeated_five_gram_group_count": 238,
+      "cross_identity_near_similarity_pair_count": 475,
+      "within_dossier_redundancy_candidate_count": 3
+    },
+    "candidate_dispositions": [
+      {
+        "identity_key": "LOREHOLD",
+        "similarity": 0.65,
+        "left_unit": "LOREHOLD-005",
+        "right_unit": "LOREHOLD-012",
+        "classification": "accepted golden overlap",
+        "disposition": "PASS — Start Here uses the Strixhaven/Osgir/commander boundary to constrain the player's construction lane; How This Plays uses the same governed facts to identify which mechanics are canonical, commander-owned, or optional. Same evidence, different decision purpose."
+      },
+      {
+        "identity_key": "TEMUR",
+        "similarity": 0.5714,
+        "left_unit": "TEMUR-006",
+        "right_unit": "TEMUR-015",
+        "classification": "accepted golden overlap",
+        "disposition": "PASS — Start Here prevents a player from treating Formidable, dragons, or packages as the initial identity lane; How This Plays states the canonical mechanic boundary. Same protected fact, different construction versus interpretation purpose."
+      },
+      {
+        "identity_key": "SILVERQUILL",
+        "similarity": 0.3939,
+        "left_unit": "SILVERQUILL-001",
+        "right_unit": "SILVERQUILL-029",
+        "classification": "intentional information reuse",
+        "disposition": "PASS — the hero defines language or word magic as Silverquill's active method; What to Look For operationalizes that definition as a browsing inclusion/exclusion test. The analyzer buckets What to Look For under the combined commander-deck-starts panel, but the visible block serves a distinct recognition decision."
+      }
+    ],
+    "unresolved_semantic_redundancy_count": 0,
+    "deferred_candidate_count": 0
+  },
+  "unrelated_non_sirf_test_debt": {
+    "identity_key": "UB",
+    "assertion": "UB omitted all authored Card Signal References",
+    "failing_path": "scripts/build-vm551-all-37-certification.mjs:86",
+    "owned_paths_checked": ["data/factions.json", "scripts/build-vm551-all-37-certification.mjs", "docs/audits/vm551-all-37-certification-2026-08-15"],
+    "candidate_owned_path_diff": [],
+    "sirf_scope_relation": "Card Signal References is outside the five SIRF surfaces and no VM-610 candidate path owns its authored source, assertion, or historical certification artifact.",
+    "dimir_rendered_contract": "PASS",
+    "dimir_desktop_mobile_five_sections": "PASS",
+    "disposition": "RECORDED_UNRELATED_NON_SIRF_TEST_DEBT"
+  },
+  "owner_packet": {
+    "unresolved_exceptions": [],
+    "high_risk_factual_repairs": ["Turtle Power! / Leonardo, the Balance producer path", "four 2026 wedge face-versus-featured commander distinctions", "Colorless rules and Eldrazi Unbound source authority"],
+    "accepted_remaining_redundancy": ["Lorehold accepted golden overlap", "Temur accepted golden overlap", "Silverquill intentional information reuse"],
+    "representative_rendered_sample": ["WUBRG desktop", "Colorless mobile", "Jund desktop", "Dimir desktop/mobile contract assertion"],
+    "final_launch_disposition": "PASS — no Owner inspection of all 37 pages is required."
+  },
+  "rendered_result": {
+    "desktop": "PASS_37_OF_37",
+    "mobile": "PASS_37_OF_37",
+    "all_five_sections": "PASS_74_OF_74",
+    "horizontal_overflow": 0,
+    "desktop_mobile_taxonomy_parity": "PASS_37_OF_37",
+    "desktop_mobile_precon_parity": "PASS_37_OF_37",
+    "interactive_segment_count": 290,
+    "interactive_segment_range_per_identity": [7, 8]
+  },
+  "remaining_queued_identities": []
+}

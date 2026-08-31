@@ -2,9 +2,9 @@
   "schema_version": "vm595-placement-language-trust-audit-v1",
   "audit_id": "VM-595",
   "generated_at": "2026-08-30",
-  "current_production_baseline_sha": "4a6e69c47d0e04521bbc8356a3940bc57a216387",
-  "rendered_evidence_baseline_sha": "4a6e69c47d0e04521bbc8356a3940bc57a216387",
-  "rendered_evidence_path": "outputs/vm609-sirf-colorless-wave-09/dossier-review-current-state.json",
+  "current_production_baseline_sha": "216a0355673beb086830db21029446d1d9bf120d",
+  "rendered_evidence_baseline_sha": "216a0355673beb086830db21029446d1d9bf120d",
+  "rendered_evidence_path": "outputs/vm610-sirf-final-atlas-checkpoint/dossier-review-current-state.json",
   "render_mode": "DIRECT_DOSSIER_REVIEW",
   "review_route": "/archscry/?vm-dev-review=1",
   "current_composer_equivalence": {
@@ -21,13 +21,7 @@
       "data/taxonomy/vox-mana-precon-themes.json"
     ],
     "committed_owner_drift": [],
-    "working_tree_owner_drift": [
-      "assets/js/archscry/dossier/foundation.js",
-      "data/dossier/identity-dossier-content.catalog.json",
-      "data/dossier/identity-dossier-content.source.json",
-      "data/precons/vox-mana-precon-catalog.json",
-      "data/precons/vox-mana-precons.source.json"
-    ],
+    "working_tree_owner_drift": [],
     "explanation": "A complete fresh 37/37 Dossier Review corpus was collected after the reconciled owner-path changes; historic corpus equivalence is intentionally not used."
   },
   "population": {
@@ -80,9 +74,9 @@
       "mana-base",
       "maze-discovery"
     ],
-    "prose_unit_count": 1375,
-    "sentence_count": 1625,
-    "word_count": 26421
+    "prose_unit_count": 1408,
+    "sentence_count": 1658,
+    "word_count": 26718
   },
   "methodology": {
     "ai_detection_used": false,
@@ -99,8 +93,8 @@
   },
   "quantitative": {
     "summary": {
-      "exact_cross_identity_duplicate_group_count": 49,
-      "exact_cross_identity_duplicate_occurrence_count": 684,
+      "exact_cross_identity_duplicate_group_count": 55,
+      "exact_cross_identity_duplicate_occurrence_count": 696,
       "substitution_normalized_duplicate_group_count": 17,
       "repeated_opening_group_count": 33,
       "repeated_five_gram_group_count": 238,
@@ -734,7 +728,7 @@
             "identity_key": "W",
             "section": "mana-base",
             "text": "Best when you want speed, consistency, and fewer tapped lands.",
-            "unit_id": "W-033"
+            "unit_id": "W-034"
           },
           {
             "identity_key": "U",
@@ -790,49 +784,49 @@
             "identity_key": "W",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "W-034"
+            "unit_id": "W-036"
           },
           {
             "identity_key": "U",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "U-036"
+            "unit_id": "U-037"
           },
           {
             "identity_key": "B",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "B-036"
+            "unit_id": "B-037"
           },
           {
             "identity_key": "R",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "R-036"
+            "unit_id": "R-037"
           },
           {
             "identity_key": "G",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "G-035"
+            "unit_id": "G-036"
           },
           {
             "identity_key": "WU",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "WU-037"
+            "unit_id": "WU-038"
           },
           {
             "identity_key": "WR",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "WR-037"
+            "unit_id": "WR-038"
           },
           {
             "identity_key": "BR",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "BR-038"
+            "unit_id": "BR-039"
           }
         ]
       },
@@ -846,49 +840,49 @@
             "identity_key": "U",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "U-037"
+            "unit_id": "U-038"
           },
           {
             "identity_key": "B",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "B-037"
+            "unit_id": "B-038"
           },
           {
             "identity_key": "R",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "R-037"
+            "unit_id": "R-038"
           },
           {
             "identity_key": "G",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "G-036"
+            "unit_id": "G-037"
           },
           {
             "identity_key": "WU",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "WU-038"
+            "unit_id": "WU-039"
           },
           {
             "identity_key": "WR",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "WR-038"
+            "unit_id": "WR-039"
           },
           {
             "identity_key": "BR",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "BR-039"
+            "unit_id": "BR-040"
           },
           {
             "identity_key": "BG",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "BG-038"
+            "unit_id": "BG-039"
           }
         ]
       },
@@ -1577,6 +1571,26 @@
         ]
       },
       {
+        "normalized": "breeding poolrejuvenating springshinterland harborbarkchannel pathwaytemple of mystery",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "UG",
+            "section": "mana-base",
+            "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+            "unit_id": "UG-037"
+          },
+          {
+            "identity_key": "QUANDRIX",
+            "section": "mana-base",
+            "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+            "unit_id": "QUANDRIX-036"
+          }
+        ]
+      },
+      {
         "normalized": "cast enchantments to gain experience counters use those counters to make progressively larger spirit tokens win through enchantment synergies and a growing token army",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -1653,6 +1667,26 @@
             "section": "commander-deck-starts",
             "text": "Cast the largest instants and sorceries possible; Zaffai creates tokens and scries based on spell CMC, rewarding high-cost spells with escalating payoffs",
             "unit_id": "PRISMARI-022"
+          }
+        ]
+      },
+      {
+        "normalized": "command towerexotic orchardsunhome fortress of the legionmyriad landscape",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WR",
+            "section": "mana-base",
+            "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+            "unit_id": "WR-040"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "section": "mana-base",
+            "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+            "unit_id": "LOREHOLD-040"
           }
         ]
       },
@@ -1737,6 +1771,26 @@
         ]
       },
       {
+        "normalized": "godless shrineshattered sanctumisolated chapelbrightclimb pathwaytemple of silence",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WB",
+            "section": "mana-base",
+            "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+            "unit_id": "WB-038"
+          },
+          {
+            "identity_key": "SILVERQUILL",
+            "section": "mana-base",
+            "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+            "unit_id": "SILVERQUILL-036"
+          }
+        ]
+      },
+      {
         "normalized": "if your early interaction needs white lean plains",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -1753,6 +1807,26 @@
             "section": "mana-base",
             "text": "If your early interaction needs white, lean Plains.",
             "unit_id": "WITCH-029"
+          }
+        ]
+      },
+      {
+        "normalized": "overgrown tombundergrowth stadiumwoodland cemeterydarkbore pathwaytemple of malady",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "BG",
+            "section": "mana-base",
+            "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+            "unit_id": "BG-037"
+          },
+          {
+            "identity_key": "WITHERBLOOM",
+            "section": "mana-base",
+            "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+            "unit_id": "WITHERBLOOM-037"
           }
         ]
       },
@@ -1817,6 +1891,26 @@
         ]
       },
       {
+        "normalized": "sacred foundryspectator seatingclifftop retreatneedleverge pathwaytemple of triumph",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WR",
+            "section": "mana-base",
+            "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+            "unit_id": "WR-037"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "section": "mana-base",
+            "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+            "unit_id": "LOREHOLD-037"
+          }
+        ]
+      },
+      {
         "normalized": "sacrifice creatures and permanents to generate life drain effects slowly bleeding opponents while extracting value from the graveyard",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -1853,6 +1947,26 @@
             "section": "commander-deck-starts",
             "text": "Spend life aggressively to power effects; earn it back with life gain; Willowdusk converts life total changes into +1/+1 counters on creatures",
             "unit_id": "WITHERBLOOM-023"
+          }
+        ]
+      },
+      {
+        "normalized": "steam ventstraining centersulfur fallsriverglide pathwaytemple of epiphany",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "UR",
+            "section": "mana-base",
+            "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+            "unit_id": "UR-038"
+          },
+          {
+            "identity_key": "PRISMARI",
+            "section": "mana-base",
+            "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+            "unit_id": "PRISMARI-035"
           }
         ]
       },
@@ -2704,7 +2818,7 @@
             "identity_key": "W",
             "section": "mana-base",
             "text": "Best when you want speed, consistency, and fewer tapped lands.",
-            "unit_id": "W-033"
+            "unit_id": "W-034"
           },
           {
             "identity_key": "U",
@@ -2760,49 +2874,49 @@
             "identity_key": "W",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "W-034"
+            "unit_id": "W-036"
           },
           {
             "identity_key": "U",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "U-036"
+            "unit_id": "U-037"
           },
           {
             "identity_key": "B",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "B-036"
+            "unit_id": "B-037"
           },
           {
             "identity_key": "R",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "R-036"
+            "unit_id": "R-037"
           },
           {
             "identity_key": "G",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "G-035"
+            "unit_id": "G-036"
           },
           {
             "identity_key": "WU",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "WU-037"
+            "unit_id": "WU-038"
           },
           {
             "identity_key": "WR",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "WR-037"
+            "unit_id": "WR-038"
           },
           {
             "identity_key": "BR",
             "section": "mana-base",
             "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-            "unit_id": "BR-038"
+            "unit_id": "BR-039"
           }
         ]
       },
@@ -2816,49 +2930,49 @@
             "identity_key": "U",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "U-037"
+            "unit_id": "U-038"
           },
           {
             "identity_key": "B",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "B-037"
+            "unit_id": "B-038"
           },
           {
             "identity_key": "R",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "R-037"
+            "unit_id": "R-038"
           },
           {
             "identity_key": "G",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "G-036"
+            "unit_id": "G-037"
           },
           {
             "identity_key": "WU",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "WU-038"
+            "unit_id": "WU-039"
           },
           {
             "identity_key": "WR",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "WR-038"
+            "unit_id": "WR-039"
           },
           {
             "identity_key": "BR",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "BR-039"
+            "unit_id": "BR-040"
           },
           {
             "identity_key": "BG",
             "section": "mana-base",
             "text": "Expect more tapped lands, but the deck will still function.",
-            "unit_id": "BG-038"
+            "unit_id": "BG-039"
           }
         ]
       },
@@ -3659,6 +3773,26 @@
         ]
       },
       {
+        "normalized": "breeding poolrejuvenating springshinterland harborbarkchannel pathwaytemple of mystery",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "UG",
+            "section": "mana-base",
+            "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+            "unit_id": "UG-037"
+          },
+          {
+            "identity_key": "QUANDRIX",
+            "section": "mana-base",
+            "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+            "unit_id": "QUANDRIX-036"
+          }
+        ]
+      },
+      {
         "normalized": "cast enchantments to gain experience counters use those counters to make progressively larger spirit tokens win through enchantment synergies and a growing token army",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -3735,6 +3869,26 @@
             "section": "commander-deck-starts",
             "text": "Cast the largest instants and sorceries possible; Zaffai creates tokens and scries based on spell CMC, rewarding high-cost spells with escalating payoffs",
             "unit_id": "PRISMARI-022"
+          }
+        ]
+      },
+      {
+        "normalized": "command towerexotic orchardsunhome fortress of the legionmyriad landscape",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WR",
+            "section": "mana-base",
+            "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+            "unit_id": "WR-040"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "section": "mana-base",
+            "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+            "unit_id": "LOREHOLD-040"
           }
         ]
       },
@@ -3819,6 +3973,26 @@
         ]
       },
       {
+        "normalized": "godless shrineshattered sanctumisolated chapelbrightclimb pathwaytemple of silence",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WB",
+            "section": "mana-base",
+            "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+            "unit_id": "WB-038"
+          },
+          {
+            "identity_key": "SILVERQUILL",
+            "section": "mana-base",
+            "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+            "unit_id": "SILVERQUILL-036"
+          }
+        ]
+      },
+      {
         "normalized": "if your early interaction needs <identity> lean plains",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -3835,6 +4009,26 @@
             "section": "mana-base",
             "text": "If your early interaction needs white, lean Plains.",
             "unit_id": "WITCH-029"
+          }
+        ]
+      },
+      {
+        "normalized": "overgrown tombundergrowth stadiumwoodland cemeterydarkbore pathwaytemple of malady",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "BG",
+            "section": "mana-base",
+            "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+            "unit_id": "BG-037"
+          },
+          {
+            "identity_key": "WITHERBLOOM",
+            "section": "mana-base",
+            "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+            "unit_id": "WITHERBLOOM-037"
           }
         ]
       },
@@ -3899,6 +4093,26 @@
         ]
       },
       {
+        "normalized": "sacred foundryspectator seatingclifftop retreatneedleverge pathwaytemple of triumph",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "WR",
+            "section": "mana-base",
+            "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+            "unit_id": "WR-037"
+          },
+          {
+            "identity_key": "LOREHOLD",
+            "section": "mana-base",
+            "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+            "unit_id": "LOREHOLD-037"
+          }
+        ]
+      },
+      {
         "normalized": "sacrifice creatures and permanents to generate life drain effects slowly bleeding opponents while extracting value from the graveyard",
         "occurrence_count": 2,
         "identity_count": 2,
@@ -3935,6 +4149,26 @@
             "section": "commander-deck-starts",
             "text": "Spend life aggressively to power effects; earn it back with life gain; Willowdusk converts life total changes into +1/+1 counters on creatures",
             "unit_id": "WITHERBLOOM-023"
+          }
+        ]
+      },
+      {
+        "normalized": "steam ventstraining centersulfur fallsriverglide pathwaytemple of epiphany",
+        "occurrence_count": 2,
+        "identity_count": 2,
+        "section_count": 1,
+        "examples": [
+          {
+            "identity_key": "UR",
+            "section": "mana-base",
+            "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+            "unit_id": "UR-038"
+          },
+          {
+            "identity_key": "PRISMARI",
+            "section": "mana-base",
+            "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+            "unit_id": "PRISMARI-035"
           }
         ]
       },
@@ -6222,7 +6456,7 @@
     "hedges": [
       {
         "pattern": "can",
-        "occurrence_count": 145,
+        "occurrence_count": 146,
         "identity_count": 37,
         "examples": [
           {
@@ -9701,9 +9935,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 34,
-      "sentence_count": 40,
-      "word_count": 606,
+      "prose_unit_count": 36,
+      "sentence_count": 42,
+      "word_count": 625,
       "hedge_count": 5,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -9741,7 +9975,9 @@
         "W-031",
         "W-032",
         "W-033",
-        "W-034"
+        "W-034",
+        "W-035",
+        "W-036"
       ]
     },
     {
@@ -9756,9 +9992,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 44,
-      "word_count": 651,
+      "prose_unit_count": 38,
+      "sentence_count": 45,
+      "word_count": 661,
       "hedge_count": 3,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -9799,7 +10035,8 @@
         "U-034",
         "U-035",
         "U-036",
-        "U-037"
+        "U-037",
+        "U-038"
       ]
     },
     {
@@ -9814,9 +10051,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 43,
-      "word_count": 646,
+      "prose_unit_count": 38,
+      "sentence_count": 44,
+      "word_count": 657,
       "hedge_count": 5,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -9857,7 +10094,8 @@
         "B-034",
         "B-035",
         "B-036",
-        "B-037"
+        "B-037",
+        "B-038"
       ]
     },
     {
@@ -9872,9 +10110,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 44,
-      "word_count": 653,
+      "prose_unit_count": 38,
+      "sentence_count": 45,
+      "word_count": 665,
       "hedge_count": 7,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -9915,7 +10153,8 @@
         "R-034",
         "R-035",
         "R-036",
-        "R-037"
+        "R-037",
+        "R-038"
       ]
     },
     {
@@ -9930,9 +10169,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 36,
-      "sentence_count": 43,
-      "word_count": 661,
+      "prose_unit_count": 37,
+      "sentence_count": 44,
+      "word_count": 672,
       "hedge_count": 3,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -9972,7 +10211,8 @@
         "G-033",
         "G-034",
         "G-035",
-        "G-036"
+        "G-036",
+        "G-037"
       ]
     },
     {
@@ -9987,9 +10227,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 43,
-      "word_count": 742,
+      "prose_unit_count": 39,
+      "sentence_count": 44,
+      "word_count": 750,
       "hedge_count": 6,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10031,7 +10271,8 @@
         "WU-035",
         "WU-036",
         "WU-037",
-        "WU-038"
+        "WU-038",
+        "WU-039"
       ]
     },
     {
@@ -10046,9 +10287,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 46,
-      "word_count": 721,
+      "prose_unit_count": 40,
+      "sentence_count": 48,
+      "word_count": 736,
       "hedge_count": 3,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10090,7 +10331,9 @@
         "WR-035",
         "WR-036",
         "WR-037",
-        "WR-038"
+        "WR-038",
+        "WR-039",
+        "WR-040"
       ]
     },
     {
@@ -10105,9 +10348,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 39,
-      "sentence_count": 45,
-      "word_count": 713,
+      "prose_unit_count": 41,
+      "sentence_count": 47,
+      "word_count": 727,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10150,7 +10393,9 @@
         "BR-036",
         "BR-037",
         "BR-038",
-        "BR-039"
+        "BR-039",
+        "BR-040",
+        "BR-041"
       ]
     },
     {
@@ -10165,9 +10410,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 43,
-      "word_count": 679,
+      "prose_unit_count": 40,
+      "sentence_count": 45,
+      "word_count": 695,
       "hedge_count": 5,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10209,7 +10454,9 @@
         "BG-035",
         "BG-036",
         "BG-037",
-        "BG-038"
+        "BG-038",
+        "BG-039",
+        "BG-040"
       ]
     },
     {
@@ -10224,9 +10471,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 40,
-      "sentence_count": 45,
-      "word_count": 720,
+      "prose_unit_count": 42,
+      "sentence_count": 47,
+      "word_count": 734,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10270,7 +10517,9 @@
         "RG-037",
         "RG-038",
         "RG-039",
-        "RG-040"
+        "RG-040",
+        "RG-041",
+        "RG-042"
       ]
     },
     {
@@ -10285,9 +10534,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 43,
-      "word_count": 678,
+      "prose_unit_count": 38,
+      "sentence_count": 44,
+      "word_count": 685,
       "hedge_count": 6,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10328,7 +10577,8 @@
         "UB-034",
         "UB-035",
         "UB-036",
-        "UB-037"
+        "UB-037",
+        "UB-038"
       ]
     },
     {
@@ -10343,9 +10593,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 39,
-      "sentence_count": 46,
-      "word_count": 717,
+      "prose_unit_count": 40,
+      "sentence_count": 47,
+      "word_count": 724,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10388,7 +10638,8 @@
         "UR-036",
         "UR-037",
         "UR-038",
-        "UR-039"
+        "UR-039",
+        "UR-040"
       ]
     },
     {
@@ -10403,9 +10654,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 39,
-      "sentence_count": 45,
-      "word_count": 750,
+      "prose_unit_count": 41,
+      "sentence_count": 47,
+      "word_count": 764,
       "hedge_count": 5,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10448,7 +10699,9 @@
         "WB-036",
         "WB-037",
         "WB-038",
-        "WB-039"
+        "WB-039",
+        "WB-040",
+        "WB-041"
       ]
     },
     {
@@ -10463,9 +10716,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 43,
-      "word_count": 653,
+      "prose_unit_count": 39,
+      "sentence_count": 44,
+      "word_count": 660,
       "hedge_count": 3,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10507,7 +10760,8 @@
         "WG-035",
         "WG-036",
         "WG-037",
-        "WG-038"
+        "WG-038",
+        "WG-039"
       ]
     },
     {
@@ -10522,9 +10776,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 44,
-      "word_count": 691,
+      "prose_unit_count": 39,
+      "sentence_count": 45,
+      "word_count": 698,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10566,7 +10820,8 @@
         "UG-035",
         "UG-036",
         "UG-037",
-        "UG-038"
+        "UG-038",
+        "UG-039"
       ]
     },
     {
@@ -10581,9 +10836,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 45,
-      "word_count": 770,
+      "prose_unit_count": 40,
+      "sentence_count": 48,
+      "word_count": 792,
       "hedge_count": 7,
       "within_dossier_similarity_candidate_count": 1,
       "highest_within_dossier_similarity": 0.65,
@@ -10624,7 +10879,10 @@
         "LOREHOLD-034",
         "LOREHOLD-035",
         "LOREHOLD-036",
-        "LOREHOLD-037"
+        "LOREHOLD-037",
+        "LOREHOLD-038",
+        "LOREHOLD-039",
+        "LOREHOLD-040"
       ]
     },
     {
@@ -10639,9 +10897,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 36,
-      "sentence_count": 44,
-      "word_count": 727,
+      "prose_unit_count": 37,
+      "sentence_count": 45,
+      "word_count": 734,
       "hedge_count": 6,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10681,7 +10939,8 @@
         "PRISMARI-033",
         "PRISMARI-034",
         "PRISMARI-035",
-        "PRISMARI-036"
+        "PRISMARI-036",
+        "PRISMARI-037"
       ]
     },
     {
@@ -10696,9 +10955,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 42,
-      "word_count": 726,
+      "prose_unit_count": 38,
+      "sentence_count": 43,
+      "word_count": 733,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10739,7 +10998,8 @@
         "QUANDRIX-034",
         "QUANDRIX-035",
         "QUANDRIX-036",
-        "QUANDRIX-037"
+        "QUANDRIX-037",
+        "QUANDRIX-038"
       ]
     },
     {
@@ -10754,9 +11014,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 45,
-      "word_count": 722,
+      "prose_unit_count": 38,
+      "sentence_count": 46,
+      "word_count": 729,
       "hedge_count": 7,
       "within_dossier_similarity_candidate_count": 1,
       "highest_within_dossier_similarity": 0.3939,
@@ -10797,7 +11057,8 @@
         "SILVERQUILL-034",
         "SILVERQUILL-035",
         "SILVERQUILL-036",
-        "SILVERQUILL-037"
+        "SILVERQUILL-037",
+        "SILVERQUILL-038"
       ]
     },
     {
@@ -10812,9 +11073,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 38,
-      "sentence_count": 43,
-      "word_count": 703,
+      "prose_unit_count": 39,
+      "sentence_count": 44,
+      "word_count": 710,
       "hedge_count": 4,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10856,7 +11117,8 @@
         "WITHERBLOOM-035",
         "WITHERBLOOM-036",
         "WITHERBLOOM-037",
-        "WITHERBLOOM-038"
+        "WITHERBLOOM-038",
+        "WITHERBLOOM-039"
       ]
     },
     {
@@ -10871,9 +11133,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 43,
-      "word_count": 713,
+      "prose_unit_count": 38,
+      "sentence_count": 44,
+      "word_count": 720,
       "hedge_count": 6,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -10914,7 +11176,8 @@
         "BANT-034",
         "BANT-035",
         "BANT-036",
-        "BANT-037"
+        "BANT-037",
+        "BANT-038"
       ]
     },
     {
@@ -11164,9 +11427,9 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 37,
-      "sentence_count": 42,
-      "word_count": 762,
+      "prose_unit_count": 38,
+      "sentence_count": 43,
+      "word_count": 769,
       "hedge_count": 7,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
@@ -11207,7 +11470,8 @@
         "ABZAN-034",
         "ABZAN-035",
         "ABZAN-036",
-        "ABZAN-037"
+        "ABZAN-037",
+        "ABZAN-038"
       ]
     },
     {
@@ -11730,6 +11994,7 @@
     {
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "rendered_section_ids": [
         "start",
         "why",
@@ -11738,10 +12003,10 @@
         "mana-base",
         "maze-discovery"
       ],
-      "prose_unit_count": 33,
-      "sentence_count": 40,
-      "word_count": 722,
-      "hedge_count": 9,
+      "prose_unit_count": 36,
+      "sentence_count": 43,
+      "word_count": 783,
+      "hedge_count": 10,
       "within_dossier_similarity_candidate_count": 0,
       "highest_within_dossier_similarity": 0,
       "evidence_unit_ids": [
@@ -11777,7 +12042,10 @@
         "COLORLESS-030",
         "COLORLESS-031",
         "COLORLESS-032",
-        "COLORLESS-033"
+        "COLORLESS-033",
+        "COLORLESS-034",
+        "COLORLESS-035",
+        "COLORLESS-036"
       ]
     },
     {
@@ -12199,6 +12467,17 @@
       "identity_key": "W",
       "identity_name": "White",
       "expression_type": "color",
+      "section": "starter-cards",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.starter-cards:permanents.line.2",
+      "text": "Authority of the ConsulsRule of LawCathars' Crusade",
+      "word_count": 7
+    },
+    {
+      "unit_id": "W-034",
+      "identity_key": "W",
+      "identity_name": "White",
+      "expression_type": "color",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:premium.line.2",
@@ -12206,7 +12485,18 @@
       "word_count": 10
     },
     {
-      "unit_id": "W-034",
+      "unit_id": "W-035",
+      "identity_key": "W",
+      "identity_name": "White",
+      "expression_type": "color",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Emeria's Call // Emeria, Shattered SkyclaveWar RoomEiganjo, Seat of the EmpireMistveil PlainsMyriad Landscape",
+      "word_count": 12
+    },
+    {
+      "unit_id": "W-036",
       "identity_key": "W",
       "identity_name": "White",
       "expression_type": "color",
@@ -12608,12 +12898,23 @@
       "expression_type": "color",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Otawara, Soaring CityMinamo, School at Water's EdgeMystic SanctuaryReliquary TowerWar Room",
+      "word_count": 10
+    },
+    {
+      "unit_id": "U-037",
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "expression_type": "color",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "U-037",
+      "unit_id": "U-038",
       "identity_key": "U",
       "identity_name": "Blue",
       "expression_type": "color",
@@ -13015,12 +13316,23 @@
       "expression_type": "color",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Cabal CoffersUrborg, Tomb of YawgmothTakenuma, Abandoned MireNykthos, Shrine to NyxBojuka Bog",
+      "word_count": 11
+    },
+    {
+      "unit_id": "B-037",
+      "identity_key": "B",
+      "identity_name": "Black",
+      "expression_type": "color",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "B-037",
+      "unit_id": "B-038",
       "identity_key": "B",
       "identity_name": "Black",
       "expression_type": "color",
@@ -13422,12 +13734,23 @@
       "expression_type": "color",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Valakut, the Molten PinnacleSokenzan, Crucible of DefianceDen of the BugbearWar RoomHanweir Battlements",
+      "word_count": 12
+    },
+    {
+      "unit_id": "R-037",
+      "identity_key": "R",
+      "identity_name": "Red",
+      "expression_type": "color",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "R-037",
+      "unit_id": "R-038",
       "identity_key": "R",
       "identity_name": "Red",
       "expression_type": "color",
@@ -13818,12 +14141,23 @@
       "expression_type": "color",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Gaea's CradleBoseiju, Who EnduresNykthos, Shrine to NyxYavimaya, Cradle of GrowthMosswort Bridge",
+      "word_count": 11
+    },
+    {
+      "unit_id": "G-036",
+      "identity_key": "G",
+      "identity_name": "Green",
+      "expression_type": "color",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "G-036",
+      "unit_id": "G-037",
       "identity_key": "G",
       "identity_name": "Green",
       "expression_type": "color",
@@ -14236,12 +14570,23 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Hallowed FountainSea of CloudsGlacial FortressHengegate PathwayTemple of Enlightenment",
+      "word_count": 8
+    },
+    {
+      "unit_id": "WU-038",
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "WU-038",
+      "unit_id": "WU-039",
       "identity_key": "WU",
       "identity_name": "Azorius Senate",
       "expression_type": "guild",
@@ -14654,9 +14999,9 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:midrange.line.2",
-      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-      "word_count": 11
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+      "word_count": 7
     },
     {
       "unit_id": "WR-038",
@@ -14665,9 +15010,31 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.2",
+      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
+      "word_count": 11
+    },
+    {
+      "unit_id": "WR-039",
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:budget.line.2",
       "text": "Playable entry point. Expect more tapped lands, but the deck will still function.",
       "word_count": 13
+    },
+    {
+      "unit_id": "WR-040",
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.3",
+      "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+      "word_count": 8
     },
     {
       "unit_id": "BR-001",
@@ -15083,9 +15450,9 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:midrange.line.2",
-      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-      "word_count": 11
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Blood CryptLuxury SuiteDragonskull SummitBlightstep PathwayTemple of Malice",
+      "word_count": 7
     },
     {
       "unit_id": "BR-039",
@@ -15094,9 +15461,31 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.2",
+      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
+      "word_count": 11
+    },
+    {
+      "unit_id": "BR-040",
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:budget.line.2",
       "text": "Playable entry point. Expect more tapped lands, but the deck will still function.",
       "word_count": 13
+    },
+    {
+      "unit_id": "BR-041",
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.3",
+      "text": "Command TowerExotic OrchardFabled PassageUrborg, Tomb of Yawgmoth",
+      "word_count": 7
     },
     {
       "unit_id": "BG-001",
@@ -15501,9 +15890,9 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:midrange.line.2",
-      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-      "word_count": 11
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+      "word_count": 7
     },
     {
       "unit_id": "BG-038",
@@ -15512,9 +15901,31 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.2",
+      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
+      "word_count": 11
+    },
+    {
+      "unit_id": "BG-039",
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:budget.line.2",
       "text": "Playable entry point. Expect more tapped lands, but the deck will still function.",
       "word_count": 13
+    },
+    {
+      "unit_id": "BG-040",
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.3",
+      "text": "Command TowerExotic OrchardSvogthos, the Restless TombUrborg, Tomb of Yawgmoth",
+      "word_count": 9
     },
     {
       "unit_id": "RG-001",
@@ -15928,6 +16339,17 @@
       "identity_key": "RG",
       "identity_name": "Gruul Clans",
       "expression_type": "guild",
+      "section": "starter-cards",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.starter-cards:permanents.line.2",
+      "text": "Fires of YavimayaRhythm of the WildGarruk's Uprising",
+      "word_count": 7
+    },
+    {
+      "unit_id": "RG-039",
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:premium.line.2",
@@ -15935,7 +16357,18 @@
       "word_count": 10
     },
     {
-      "unit_id": "RG-039",
+      "unit_id": "RG-040",
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Stomping GroundSpire GardenRootbound CragCragcrown PathwayTemple of Abandon",
+      "word_count": 7
+    },
+    {
+      "unit_id": "RG-041",
       "identity_key": "RG",
       "identity_name": "Gruul Clans",
       "expression_type": "guild",
@@ -15946,7 +16379,7 @@
       "word_count": 11
     },
     {
-      "unit_id": "RG-040",
+      "unit_id": "RG-042",
       "identity_key": "RG",
       "identity_name": "Gruul Clans",
       "expression_type": "guild",
@@ -16348,12 +16781,23 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Watery GraveMorphic PoolDrowned CatacombClearwater PathwayTemple of Deceit",
+      "word_count": 7
+    },
+    {
+      "unit_id": "UB-037",
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "UB-037",
+      "unit_id": "UB-038",
       "identity_key": "UB",
       "identity_name": "House Dimir",
       "expression_type": "guild",
@@ -16777,12 +17221,23 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+      "word_count": 7
+    },
+    {
+      "unit_id": "UR-039",
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "UR-039",
+      "unit_id": "UR-040",
       "identity_key": "UR",
       "identity_name": "Izzet League",
       "expression_type": "guild",
@@ -17206,9 +17661,9 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
-      "location": "interactive_segments.mana-base:midrange.line.2",
-      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
-      "word_count": 11
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+      "word_count": 7
     },
     {
       "unit_id": "WB-039",
@@ -17217,9 +17672,31 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.2",
+      "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
+      "word_count": 11
+    },
+    {
+      "unit_id": "WB-040",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:budget.line.2",
       "text": "Playable entry point. Expect more tapped lands, but the deck will still function.",
       "word_count": 13
+    },
+    {
+      "unit_id": "WB-041",
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.3",
+      "text": "Command TowerExotic OrchardUrborg, Tomb of YawgmothMyriad Landscape",
+      "word_count": 7
     },
     {
       "unit_id": "WG-001",
@@ -17624,12 +18101,23 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Temple GardenBountiful PromenadeSunpetal GroveBranchloft PathwayTemple of Plenty",
+      "word_count": 7
+    },
+    {
+      "unit_id": "WG-038",
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "WG-038",
+      "unit_id": "WG-039",
       "identity_key": "WG",
       "identity_name": "Selesnya Conclave",
       "expression_type": "guild",
@@ -18042,12 +18530,23 @@
       "expression_type": "guild",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+      "word_count": 7
+    },
+    {
+      "unit_id": "UG-038",
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "expression_type": "guild",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "UG-038",
+      "unit_id": "UG-039",
       "identity_key": "UG",
       "identity_name": "Simic Combine",
       "expression_type": "guild",
@@ -18436,6 +18935,17 @@
       "identity_key": "LOREHOLD",
       "identity_name": "Lorehold College",
       "expression_type": "college",
+      "section": "starter-cards",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.starter-cards:permanents.line.2",
+      "text": "Lorehold ExcavationSigil of the New DawnBattlemage's Bracers",
+      "word_count": 7
+    },
+    {
+      "unit_id": "LOREHOLD-036",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "expression_type": "college",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:premium.line.2",
@@ -18443,7 +18953,18 @@
       "word_count": 10
     },
     {
-      "unit_id": "LOREHOLD-036",
+      "unit_id": "LOREHOLD-037",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Sacred FoundrySpectator SeatingClifftop RetreatNeedleverge PathwayTemple of Triumph",
+      "word_count": 7
+    },
+    {
+      "unit_id": "LOREHOLD-038",
       "identity_key": "LOREHOLD",
       "identity_name": "Lorehold College",
       "expression_type": "college",
@@ -18454,7 +18975,7 @@
       "word_count": 11
     },
     {
-      "unit_id": "LOREHOLD-037",
+      "unit_id": "LOREHOLD-039",
       "identity_key": "LOREHOLD",
       "identity_name": "Lorehold College",
       "expression_type": "college",
@@ -18463,6 +18984,17 @@
       "location": "interactive_segments.mana-base:budget.line.2",
       "text": "Playable entry point. Expect more tapped lands, but the deck will still function.",
       "word_count": 13
+    },
+    {
+      "unit_id": "LOREHOLD-040",
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.3",
+      "text": "Command TowerExotic OrchardSunhome, Fortress of the LegionMyriad Landscape",
+      "word_count": 8
     },
     {
       "unit_id": "PRISMARI-001",
@@ -18845,12 +19377,23 @@
       "expression_type": "college",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Steam VentsTraining CenterSulfur FallsRiverglide PathwayTemple of Epiphany",
+      "word_count": 7
+    },
+    {
+      "unit_id": "PRISMARI-036",
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "PRISMARI-036",
+      "unit_id": "PRISMARI-037",
       "identity_key": "PRISMARI",
       "identity_name": "Prismari College",
       "expression_type": "college",
@@ -19252,12 +19795,23 @@
       "expression_type": "college",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Breeding PoolRejuvenating SpringsHinterland HarborBarkchannel PathwayTemple of Mystery",
+      "word_count": 7
+    },
+    {
+      "unit_id": "QUANDRIX-037",
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "QUANDRIX-037",
+      "unit_id": "QUANDRIX-038",
       "identity_key": "QUANDRIX",
       "identity_name": "Quandrix College",
       "expression_type": "college",
@@ -19659,12 +20213,23 @@
       "expression_type": "college",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Godless ShrineShattered SanctumIsolated ChapelBrightclimb PathwayTemple of Silence",
+      "word_count": 7
+    },
+    {
+      "unit_id": "SILVERQUILL-037",
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "SILVERQUILL-037",
+      "unit_id": "SILVERQUILL-038",
       "identity_key": "SILVERQUILL",
       "identity_name": "Silverquill College",
       "expression_type": "college",
@@ -20077,12 +20642,23 @@
       "expression_type": "college",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.3",
+      "text": "Overgrown TombUndergrowth StadiumWoodland CemeteryDarkbore PathwayTemple of Malady",
+      "word_count": 7
+    },
+    {
+      "unit_id": "WITHERBLOOM-038",
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "expression_type": "college",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:midrange.line.2",
       "text": "Good first upgrade lane: stronger fixing without chasing every premium land.",
       "word_count": 11
     },
     {
-      "unit_id": "WITHERBLOOM-038",
+      "unit_id": "WITHERBLOOM-039",
       "identity_key": "WITHERBLOOM",
       "identity_name": "Witherbloom College",
       "expression_type": "college",
@@ -20471,6 +21047,17 @@
       "identity_key": "BANT",
       "identity_name": "Bant",
       "expression_type": "shard",
+      "section": "starter-cards",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.starter-cards:permanents.line.2",
+      "text": "Finest HourDueling GroundsSigil of the Empty Throne",
+      "word_count": 7
+    },
+    {
+      "unit_id": "BANT-036",
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "expression_type": "shard",
       "section": "mana-base",
       "role": "rendered_interactive_prose",
       "location": "interactive_segments.mana-base:premium.line.2",
@@ -20478,7 +21065,7 @@
       "word_count": 10
     },
     {
-      "unit_id": "BANT-036",
+      "unit_id": "BANT-037",
       "identity_key": "BANT",
       "identity_name": "Bant",
       "expression_type": "shard",
@@ -20489,7 +21076,7 @@
       "word_count": 11
     },
     {
-      "unit_id": "BANT-037",
+      "unit_id": "BANT-038",
       "identity_key": "BANT",
       "identity_name": "Bant",
       "expression_type": "shard",
@@ -22558,6 +23145,17 @@
     },
     {
       "unit_id": "ABZAN-037",
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "expression_type": "wedge",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.3",
+      "text": "Overgrown TombGodless ShrineTemple GardenIndatha TriomeCaves of Koilos",
+      "word_count": 7
+    },
+    {
+      "unit_id": "ABZAN-038",
       "identity_key": "ABZAN",
       "identity_name": "Abzan Houses",
       "expression_type": "wedge",
@@ -26179,6 +26777,7 @@
       "unit_id": "COLORLESS-001",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "hero",
       "role": "identity_thesis",
       "location": "hero.thesis",
@@ -26189,6 +26788,7 @@
       "unit_id": "COLORLESS-002",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.2",
@@ -26199,6 +26799,7 @@
       "unit_id": "COLORLESS-003",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.4",
@@ -26209,6 +26810,7 @@
       "unit_id": "COLORLESS-004",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.6",
@@ -26219,6 +26821,7 @@
       "unit_id": "COLORLESS-005",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.9",
@@ -26229,6 +26832,7 @@
       "unit_id": "COLORLESS-006",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.10",
@@ -26239,6 +26843,7 @@
       "unit_id": "COLORLESS-007",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "start",
       "role": "rendered_panel_prose",
       "location": "panels.start.line.13",
@@ -26249,6 +26854,7 @@
       "unit_id": "COLORLESS-008",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.3",
@@ -26259,6 +26865,7 @@
       "unit_id": "COLORLESS-009",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.5",
@@ -26269,6 +26876,7 @@
       "unit_id": "COLORLESS-010",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.6",
@@ -26279,6 +26887,7 @@
       "unit_id": "COLORLESS-011",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.8",
@@ -26289,6 +26898,7 @@
       "unit_id": "COLORLESS-012",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.14",
@@ -26299,6 +26909,7 @@
       "unit_id": "COLORLESS-013",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.16",
@@ -26309,6 +26920,7 @@
       "unit_id": "COLORLESS-014",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.19",
@@ -26319,6 +26931,7 @@
       "unit_id": "COLORLESS-015",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.22",
@@ -26329,6 +26942,7 @@
       "unit_id": "COLORLESS-016",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.24",
@@ -26339,6 +26953,7 @@
       "unit_id": "COLORLESS-017",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.26",
@@ -26349,6 +26964,7 @@
       "unit_id": "COLORLESS-018",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.29",
@@ -26359,6 +26975,7 @@
       "unit_id": "COLORLESS-019",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.32",
@@ -26369,6 +26986,7 @@
       "unit_id": "COLORLESS-020",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.35",
@@ -26379,6 +26997,7 @@
       "unit_id": "COLORLESS-021",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "why",
       "role": "rendered_panel_prose",
       "location": "panels.why.line.39",
@@ -26389,6 +27008,7 @@
       "unit_id": "COLORLESS-022",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.2",
@@ -26399,6 +27019,7 @@
       "unit_id": "COLORLESS-023",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.3",
@@ -26409,6 +27030,7 @@
       "unit_id": "COLORLESS-024",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.11",
@@ -26419,6 +27041,7 @@
       "unit_id": "COLORLESS-025",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.20",
@@ -26429,6 +27052,7 @@
       "unit_id": "COLORLESS-026",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.26",
@@ -26439,6 +27063,7 @@
       "unit_id": "COLORLESS-027",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.28",
@@ -26449,6 +27074,7 @@
       "unit_id": "COLORLESS-028",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "commander-deck-starts",
       "role": "rendered_panel_prose",
       "location": "panels.commander-deck-starts.line.31",
@@ -26459,6 +27085,7 @@
       "unit_id": "COLORLESS-029",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.3",
@@ -26469,6 +27096,7 @@
       "unit_id": "COLORLESS-030",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.5",
@@ -26479,6 +27107,7 @@
       "unit_id": "COLORLESS-031",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "mana-base",
       "role": "rendered_panel_prose",
       "location": "panels.mana-base.line.11",
@@ -26489,6 +27118,7 @@
       "unit_id": "COLORLESS-032",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "maze-discovery",
       "role": "rendered_panel_prose",
       "location": "panels.maze-discovery.line.3",
@@ -26499,11 +27129,45 @@
       "unit_id": "COLORLESS-033",
       "identity_key": "COLORLESS",
       "identity_name": "Colorless",
+      "expression_type": "endpoint",
       "section": "maze-discovery",
       "role": "rendered_panel_prose",
       "location": "panels.maze-discovery.line.16",
       "text": "Explore the complete 37-identity atlas whenever you want to compare this identity with other Commander paths.",
       "word_count": 16
+    },
+    {
+      "unit_id": "COLORLESS-034",
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "expression_type": "endpoint",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:premium.line.2",
+      "text": "Best when you need reliable colorless mana early and enough speed to reach colorless finishers before the table stabilizes.",
+      "word_count": 19
+    },
+    {
+      "unit_id": "COLORLESS-035",
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "expression_type": "endpoint",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:midrange.line.2",
+      "text": "The practical upgrade lane: Wastes, proven colorless sources, utility lands, and artifact mana that keep the restriction consistent.",
+      "word_count": 18
+    },
+    {
+      "unit_id": "COLORLESS-036",
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "expression_type": "endpoint",
+      "section": "mana-base",
+      "role": "rendered_interactive_prose",
+      "location": "interactive_segments.mana-base:utility.line.2",
+      "text": "Use utility lands as deck machinery, not decoration; Reflecting Pool-style effects need another source that can make colorless mana before they help the plan.",
+      "word_count": 24
     },
     {
       "unit_id": "WUBRG-001",

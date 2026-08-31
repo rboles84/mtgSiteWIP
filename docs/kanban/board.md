@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-610 — SIRF Final All-37 Atlas Checkpoint](done/VM-610-sirf-final-all-37-atlas-checkpoint.md) - SIRF Atlas Complete; 37/74 final renders, 34 contracts, three goldens, normalized/enriched VM-595, explicit candidate dispositions, and no remaining identity queue pass.
+
 - [VM-609 — SIRF Colorless Wave 09](done/VM-609-sirf-colorless-wave-09.md) - accepted final identity wave; exact endpoint distinctions/taxonomy, official Eldrazi Unbound provenance, two-cycle redundancy closeout, VM-595, and responsive target/control renders pass.
 
 - [VM-608 — SIRF Four-Color Wave 08](done/VM-608-sirf-four-color-wave-08.md) - accepted Dune, Glint, Ink, Witch, and Yore after one cycle each; exact four-color/absent-color boundaries, five taxonomies, raw provenance, section roles, empty Native sets, VM-595, Yore `NO_RESULT`, and target/control renders pass.
