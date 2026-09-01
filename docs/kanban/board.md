@@ -13,6 +13,9 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
+- [VM-619 — Opt-In Field Guide Guided-Reading Mode](backlog/VM-619-opt-in-field-guide-guided-reading-mode.md) - separately governed discovery for a truthful, accessible, explicitly opt-in guided-reading capability; no tour library, runtime, or persistence work is authorized by VM-616.
+
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
@@ -40,6 +43,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-616 — Maze Context, Translation, and Recovery Onboarding](in-progress/VM-616-maze-context-translation-recovery-onboarding.md) - RobQA PASS / Owner Review Ready: diagnostic-led weak/zero recovery, four truthful context states with reversible URL-only independence, unchanged Find associations, Commander-color explanation, and optional `/guide/maze/` depth; no query or persistence redesign.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 

@@ -15,6 +15,8 @@ const routeChecks = [
   { label: "Guide -> Home", from: "guide/index.html", href: "../index.html" },
   { label: "Guide -> Archscry", from: "guide/index.html", href: "../archscry/index.html" },
   { label: "Guide -> Maze", from: "guide/index.html", href: "../maze/index.html" },
+  { label: "Maze Guide -> Guide", from: "guide/maze/index.html", href: "../index.html" },
+  { label: "Maze Guide -> Maze", from: "guide/maze/index.html", href: "../../maze/index.html" },
   { label: "Guide -> Strategium", from: "guide/index.html", href: "../strategium/index.html" },
   { label: "Guide -> Apocrypha", from: "guide/index.html", href: "../apocrypha/index.html" },
   { label: "Maze -> Home", from: "maze/index.html", href: "../index.html" },
@@ -217,12 +219,12 @@ if (
 ) {
   failures.push("Guide teaching smoke check failed: truthful specimens, four bounded CTAs, or router removal drifted");
 }
-for (const forbiddenRoute of ["guide/maze", "guide/reference"]) {
+for (const forbiddenRoute of ["guide/reference"]) {
   try {
     await access(path.resolve(root, forbiddenRoute));
     failures.push(`Guide scope check failed: later route ${forbiddenRoute} should not exist`);
   } catch {
-    // Expected: VM-614 does not create later Guide routes.
+    // Expected: VM-617 has not created the reference route.
   }
 }
 if (!archscryCssSource.includes(".table-identity-list > div > span:first-child{")) {

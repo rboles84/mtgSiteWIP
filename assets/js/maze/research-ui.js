@@ -124,6 +124,8 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     return;
   }
 
+  const shouldSignalGuideBeacon = reserveGuideBeaconSignal();
+
   diagnostics.innerHTML = `
     ${renderConfidence(groups.confidence)}
     ${renderChipGroup("API", apiItems)}
@@ -134,9 +136,53 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     ${renderChipGroup("Warnings", groups.warnings, "warn")}
     ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
     ${renderAlternatives(groups.alternatives)}
+    ${renderRecoveryGuidance(groups)}
+    <a class="qi-guide-link${shouldSignalGuideBeacon ? " is-signaling" : ""}" href="../guide/maze/">
+      <span class="qi-guide-mark" aria-hidden="true">✦</span>
+      <span class="qi-guide-copy">
+        <span class="qi-guide-eyebrow">Field Guide</span>
+        <span class="qi-guide-action">Read how to understand this search <span aria-hidden="true">→</span></span>
+      </span>
+    </a>
   `;
   bindAlternativeButtons();
+  bindGuideBeaconSignal(diagnostics.querySelector(".qi-guide-link"));
   diagnostics.classList.remove("hidden");
+}
+
+let hasPresentedGuideBeaconSignal = false;
+
+function reserveGuideBeaconSignal() {
+  if (hasPresentedGuideBeaconSignal) return false;
+  hasPresentedGuideBeaconSignal = true;
+  const reduceMotion = document.body?.dataset?.reduceMotion === "true"
+    || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
+  return !reduceMotion;
+}
+
+function bindGuideBeaconSignal(beacon) {
+  if (!beacon?.classList.contains("is-signaling")) return;
+  const settle = () => beacon.classList.remove("is-signaling");
+  beacon.addEventListener("pointerenter", settle, { once: true });
+  beacon.addEventListener("focusin", settle, { once: true });
+  beacon.addEventListener("animationend", (event) => {
+    if (event.animationName === "maze-guide-beacon-arrive") settle();
+  }, { once: true });
+}
+
+/**
+ * Gives one next action from existing public diagnostics without changing the query.
+ * @param {object} groups - Query Inspector diagnostic groups.
+ * @returns {string} Recovery guidance markup.
+ */
+function renderRecoveryGuidance(groups = {}) {
+  if (groups.unresolved?.length) {
+    return `<div class="qi-recovery"><strong>Maze could not map part of this request.</strong><span>Rephrase or remove one unresolved term, then search again.</span></div>`;
+  }
+  if (groups.warnings?.length) {
+    return `<div class="qi-recovery"><strong>Maze found something to review.</strong><span>Resolve the warning or choose an existing alternative, then search again.</span></div>`;
+  }
+  return "";
 }
 
 function groupDiagnosticsForInspector(diagnostics = []) {
