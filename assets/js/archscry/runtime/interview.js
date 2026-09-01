@@ -6,7 +6,7 @@ import {
 
 import {
   renderResult,
-} from "./dossier-view.js";
+} from "./dossier-view.js?v=vm615b";
 
 import {
   isScryingTerminalEnabled,

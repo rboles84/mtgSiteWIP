@@ -217,7 +217,7 @@ if (
 ) {
   failures.push("Guide teaching smoke check failed: truthful specimens, four bounded CTAs, or router removal drifted");
 }
-for (const forbiddenRoute of ["guide/reading", "guide/maze", "guide/reference"]) {
+for (const forbiddenRoute of ["guide/maze", "guide/reference"]) {
   try {
     await access(path.resolve(root, forbiddenRoute));
     failures.push(`Guide scope check failed: later route ${forbiddenRoute} should not exist`);

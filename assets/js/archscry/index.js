@@ -1,11 +1,11 @@
 import {
   bindArchscryControls,
-} from "./runtime/actions.js";
+} from "./runtime/actions.js?v=vm615b";
 
 import {
   renderInitializationError,
   restoreInitialView,
-} from "./runtime/boot.js";
+} from "./runtime/boot.js?v=vm615b";
 
 import {
   loadDeckTagCatalog,
@@ -23,14 +23,14 @@ import {
   returnToPrimaryReading,
   saveCurrentResult,
   switchAdjacentView,
-} from "./runtime/dossier-view.js";
+} from "./runtime/dossier-view.js?v=vm615b";
 
 import {
   openInterviewDossier,
   returnToInterviewSource,
   startInterviewFlow,
   submitInterview,
-} from "./runtime/interview.js";
+} from "./runtime/interview.js?v=vm615b";
 
 import {
   applyTerminalVisibility,
@@ -47,7 +47,7 @@ import {
   answerQuickQuestion,
   goBackQuickQuestion,
   startQuickFlow,
-} from "./runtime/questionnaire.js";
+} from "./runtime/questionnaire.js?v=vm615b";
 
 import {
   APP_STATE,
@@ -77,7 +77,7 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js";
+} from "./runtime/dossier-view.js?v=vm615b";
 
 export {
   renderPlayerCopy,

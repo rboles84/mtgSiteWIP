@@ -4,6 +4,7 @@ import { extname, join } from "node:path";
 const publicPages = {
   home: "index.html",
   guide: "guide/index.html",
+  guideReading: "guide/reading/index.html",
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
@@ -18,6 +19,7 @@ const publicPages = {
 const canonicalNavPages = [
   "index.html",
   "guide/index.html",
+  "guide/reading/index.html",
   "archscry/index.html",
   "maze/index.html",
   "strategium/index.html",
@@ -278,6 +280,7 @@ const acceptedNavOrder = ["home", "archscry", "maze", "strategium", "apocrypha"]
 const guideUtilityTargets = {
   "index.html": "./guide/index.html",
   "guide/index.html": "./index.html",
+  "guide/reading/index.html": "../index.html",
   "archscry/index.html": "../guide/index.html",
   "maze/index.html": "../guide/index.html",
   "strategium/index.html": "../guide/index.html",
@@ -349,7 +352,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm612a">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm615">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -552,7 +555,7 @@ expect(
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm612a');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm615');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&

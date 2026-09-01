@@ -17,6 +17,11 @@ const ROUTES = [
     canonical: "https://voxmana.io/guide/",
   },
   {
+    file: "guide/reading/index.html",
+    title: "Vox Mana - How to Read Your Dossier",
+    canonical: "https://voxmana.io/guide/reading/",
+  },
+  {
     file: "archscry/index.html",
     title: "Vox Mana - Commander Identity Reading",
     canonical: "https://voxmana.io/archscry/",
