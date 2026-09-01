@@ -129,6 +129,10 @@ function getDesktopNavOrder(source) {
   return [...nav.matchAll(/data-vm-nav="([^"]+)"/gi)].map(match => match[1]);
 }
 
+function getUtilitySource(source) {
+  return source.match(/<div\b[^>]*class="vm-utility"[^>]*>([\s\S]*?)<div\b[^>]*data-vm-menu-panel/gi)?.[0] ?? "";
+}
+
 const mazeRouteModules = [
   "assets/js/maze/research-init.js",
   "assets/js/maze/research-search.js",
@@ -270,13 +274,50 @@ for (const key of livePublicPageKeys) {
   }
 }
 
-const acceptedNavOrder = ["home", "guide", "archscry", "maze", "strategium", "apocrypha"];
+const acceptedNavOrder = ["home", "archscry", "maze", "strategium", "apocrypha"];
+const guideUtilityTargets = {
+  "index.html": "./guide/index.html",
+  "guide/index.html": "./index.html",
+  "archscry/index.html": "../guide/index.html",
+  "maze/index.html": "../guide/index.html",
+  "strategium/index.html": "../guide/index.html",
+  "strategium/find-a-table/index.html": "../../guide/index.html",
+  "strategium/before-game/index.html": "../../guide/index.html",
+  "strategium/during-game/index.html": "../../guide/index.html",
+  "strategium/review/index.html": "../../guide/index.html",
+  "strategium/console/index.html": "../../guide/index.html",
+  "apocrypha/index.html": "../guide/index.html",
+  "library/index.html": "../guide/index.html",
+  "privacy/index.html": "../guide/index.html",
+  "terms/index.html": "../guide/index.html",
+};
 for (const file of canonicalNavPages) {
   const source = await readFile(file, "utf8");
   const actualOrder = getDesktopNavOrder(source);
+  const utilitySource = getUtilitySource(source);
+  const utilityGuidePattern = new RegExp(
+    `<a\\b[^>]*class="vm-utility-link"[^>]*href="${guideUtilityTargets[file].replaceAll(".", "\\.")}"[^>]*data-vm-nav="guide"[^>]*>Guide<\\/a>`,
+    "i"
+  );
   expect(
     JSON.stringify(actualOrder) === JSON.stringify(acceptedNavOrder),
     `${file} should preserve canonical navigation order ${acceptedNavOrder.join(" -> ")}`
+  );
+  expect(
+    countMatches(utilitySource, /data-vm-nav="guide"/gi) === 1,
+    `${file} should expose Guide exactly once in the desktop utility source`
+  );
+  expect(
+    utilityGuidePattern.test(utilitySource),
+    `${file} should expose the route-correct Guide utility link ${guideUtilityTargets[file]}`
+  );
+  expect(
+    utilitySource.indexOf('data-vm-nav="guide"') < utilitySource.indexOf("data-vm-menu-trigger"),
+    `${file} should place Guide before the menu trigger so Feedback can insert between them`
+  );
+  expect(
+    source.includes("assets/js/shared/vm-topbar.js?v=vm618"),
+    `${file} should load the VM-618 shared topbar runtime cache key`
   );
 }
 
@@ -284,6 +325,11 @@ expectAbsent(
   scriptSources.topbar,
   /setAttribute\(\s*["']role["']\s*,\s*["']menuitem["']\s*\)/i,
   "assets/js/shared/vm-topbar.js should keep mirrored mobile links as plain links"
+);
+expect(
+  scriptSources.topbar.includes('clone.classList.remove("vm-nav-link")') &&
+    scriptSources.topbar.includes('guideClone.classList.add("vm-menu-link", "vm-menu-link--utility")'),
+  "assets/js/shared/vm-topbar.js should project primary links plus one utility Guide into mobile navigation"
 );
 expect(
   scriptSources.maze.includes('const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]"') &&
@@ -489,7 +535,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 }
 
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
-const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm612');
+const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
 const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm612c');
 expect(

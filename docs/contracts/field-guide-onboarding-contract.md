@@ -67,12 +67,17 @@ Top-level navigation label:
 
 **Guide**
 
-Accepted top-level order:
+Accepted desktop presentation:
 
-**Home · Guide · Archscry · The Implicit Maze · Strategium · Apocrypha**
+- primary destination pill: **Home · Archscry · The Implicit Maze · Strategium · Apocrypha**;
+- orientation/action utility area: **Guide · Feedback · menu**.
 
-The current runtime orders Apocrypha before Strategium. VM-614 owns the deliberate, all-route update to
-the accepted order; VM-613 does not change navigation.
+Guide remains a globally discoverable top-level onboarding utility, but its desktop presentation sits
+beside Feedback rather than inside the primary product-navigation pill. On mobile, the five primary
+destinations remain first and Guide follows once as the orientation/help entry before utility controls.
+This presentation refinement does not change the functional architecture: Guide still owns
+orientation/onboarding, while Archscry, Maze, Strategium, and Apocrypha remain product or specialist
+destinations.
 
 Public flavor hierarchy:
 
@@ -303,7 +308,7 @@ Suggested continuation patterns are functional, not frozen copy:
 
 ## Accessibility and interaction rules
 
-- The Guide is optional and directly reachable from desktop and mobile top navigation.
+- The Guide is optional and directly reachable from the desktop utility area and mobile navigation.
 - Every Guide page has a unique title, one clear `h1`, landmarks, and a skip target.
 - Meaning and navigation survive 200% zoom, narrow widths, font wrapping, and reduced motion.
 - No required explanation depends on animation, auto-rotation, color alone, a mana glyph without text,

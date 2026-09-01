@@ -332,6 +332,7 @@ try {
   const mobileState = await page.evaluate(() => ({
     active: document.querySelector('[data-vm-menu-nav] [aria-current="page"]')?.dataset.vmNav,
     clientWidth: document.documentElement.clientWidth,
+    guideCount: document.querySelectorAll('[data-vm-menu-nav] [data-vm-nav="guide"]').length,
     order: [...document.querySelectorAll("[data-vm-menu-nav] [data-vm-nav]")].map(link => link.dataset.vmNav),
     panelOpen: document.querySelector("[data-vm-menu-panel]")?.dataset.open,
     chapterColumns: getComputedStyle(document.querySelector(".guide-chapter")).gridTemplateColumns.split(" ").length,
@@ -342,9 +343,10 @@ try {
   }));
   expect(mobileState.panelOpen === "true", "Mobile menu should open from the shared trigger");
   expect(
-    JSON.stringify(mobileState.order) === JSON.stringify(["home", "guide", "archscry", "maze", "strategium", "apocrypha"]),
-    "Mobile menu should inherit the accepted navigation order"
+    JSON.stringify(mobileState.order) === JSON.stringify(["home", "archscry", "maze", "strategium", "apocrypha", "guide"]),
+    "Mobile menu should list primary destinations before the Guide utility"
   );
+  expect(mobileState.guideCount === 1, "Mobile menu should expose Guide exactly once");
   expect(mobileState.active === "guide", "Mobile Guide link should retain active state");
   expect(
     mobileModeState.operatorPressed === "true" && mobileModeState.operatorHidden === false && mobileModeState.plainHidden === true,

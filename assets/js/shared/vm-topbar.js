@@ -26,6 +26,12 @@
     return document.querySelector("[data-vm-menu-nav]");
   }
 
+  function getUtilityGuideLink() {
+    return document.querySelector(
+      '.vm-topbar .vm-utility .vm-utility-link[data-vm-nav="guide"]'
+    );
+  }
+
   function getFocusableItems(root) {
     return root.querySelectorAll(
       'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -54,12 +60,21 @@
     if (!desktopNav || !menuNavHost) return;
 
     var desktopLinks = desktopNav.querySelectorAll(".vm-nav-link");
+    var utilityGuideLink = getUtilityGuideLink();
     clearNode(menuNavHost);
 
     for (var i = 0; i < desktopLinks.length; i++) {
       var clone = desktopLinks[i].cloneNode(true);
+      clone.classList.remove("vm-nav-link");
       clone.classList.add("vm-menu-link");
       menuNavHost.appendChild(clone);
+    }
+
+    if (utilityGuideLink) {
+      var guideClone = utilityGuideLink.cloneNode(true);
+      guideClone.classList.remove("vm-utility-link");
+      guideClone.classList.add("vm-menu-link", "vm-menu-link--utility");
+      menuNavHost.appendChild(guideClone);
     }
   }
 
