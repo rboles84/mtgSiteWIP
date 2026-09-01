@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana - Field Guide</title>
+<meta name="description" content="Find where to begin in Vox Mana and see how Archscry, the Implicit Maze, Strategium, and Apocrypha connect.">
+<link rel="canonical" href="https://voxmana.io/guide/">
+<meta property="og:site_name" content="Vox Mana">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vox Mana - Field Guide">
+<meta property="og:description" content="A concise front door to Vox Mana's Commander identity, card discovery, learning, and source experiences.">
+<meta property="og:url" content="https://voxmana.io/guide/">
+<meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
+<meta property="og:image:alt" content="Vox Mana Field Guide atmosphere.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vox Mana - Field Guide">
+<meta name="twitter:description" content="Find where to begin and how Vox Mana's useful surfaces connect.">
+<meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
+<link rel="icon" type="image/svg+xml" href="../assets/img/vox-mana-header-logo.svg">
+
+<link rel="stylesheet" href="../assets/css/tokens.css?v=vm612">
+<link rel="stylesheet" href="../assets/css/fonts.css?v=vm612">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/topbar.css?v=vm612">
+<link rel="stylesheet" href="../assets/css/atmosphere.css">
+<link rel="stylesheet" href="../assets/css/components.css?v=vm612">
+<link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
+<link rel="stylesheet" href="../assets/css/maze.css?v=vm612">
+<link rel="stylesheet" href="../assets/css/guide.css?v=vm614r8">
+</head>
+<body class="vm-maze-route vm-guide-route" data-page="guide" data-vm-current="guide" data-bg="medium" data-vm-atmosphere="rich">
+
+<a class="guide-skip-link" href="#guide-main">Skip to the Field Guide</a>
+
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/webp" srcset="../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+    <img src="../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+  <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+</div>
+
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="../index.html" aria-label="Vox Mana home">
+    <span class="vm-brand-mark" aria-hidden="true">
+      <img src="../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high">
+    </span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+
+  <nav class="vm-nav" aria-label="Main Navigation">
+    <a class="vm-nav-link" href="../index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+    <a class="vm-nav-link" href="./index.html" data-vm-nav="guide" data-nav-hint="Where to begin">Guide<span class="vm-nav-hint" aria-hidden="true">Where to begin</span></a>
+    <a class="vm-nav-link" href="../archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+    <a class="vm-nav-link" href="../maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+    <a class="vm-nav-link" href="../strategium/index.html" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
+    <a class="vm-nav-link" href="../apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+  </nav>
+
+  <div class="vm-utility">
+    <button type="button" class="vm-menu-button" aria-label="Open menu" aria-expanded="false" aria-haspopup="true" aria-controls="vm-menu-panel" data-vm-menu-trigger>
+      <span class="vm-menu-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div id="vm-menu-panel" class="vm-menu-panel" data-open="false" data-vm-menu-panel>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
+      <button type="button" class="vm-menu-item" data-vm-toggle="reduce-motion" data-vm-tooltip-on="Stillness - on" data-vm-tooltip-off="Quiet the motion">
+        <span>Reduce motion</span>
+        <span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="guide-main" class="page guide-page" tabindex="-1" aria-labelledby="guide-title">
+  <section class="r-search-zone maze-command-deck guide-hero" aria-labelledby="guide-title">
+    <div class="maze-command-copy guide-hero-copy">
+      <span class="maze-eyebrow">Codex Vocifera // Vol. XXXII</span>
+      <h1 id="guide-title">A Planeswalker's Guide to Vox Mana</h1>
+      <p class="guide-brand-line">Find your place. Shape your play.</p>
+      <p class="guide-hero-orientation">See what each part of Vox Mana does, what it gives you, and where it can take you next.</p>
+    </div>
+  </section>
+
+  <div class="guide-story">
+    <section id="guide-archscry" class="r-main guide-chapter guide-chapter--archscry" aria-labelledby="guide-archscry-title">
+      <div class="guide-chapter-copy">
+        <span class="guide-kicker"><span>I //</span> <strong>Archscry</strong> <span>· Commander direction</span></span>
+        <h2 id="guide-archscry-title">See what your play choices point toward.</h2>
+        <p>Archscry asks about Commander table moments: what you protect, rebuild, pressure, or let unfold. Your answers support a direction, not a personality verdict.</p>
+        <p>Its dossier lets you inspect why that direction appeared, test the fit, see how it plays, browse Commander starting points, and carry discovery threads into the Maze.</p>
+        <p class="guide-question"><span>The question it answers</span>What kind of Commander direction sounds like me?</p>
+        <a class="guide-cta" data-guide-cta="archscry" href="../archscry/index.html">Start an Archscry reading <span aria-hidden="true">→</span></a>
+      </div>
+
+      <figure class="guide-specimen guide-reading-specimen" aria-labelledby="archscry-example-title">
+        <figcaption><span>Example</span><strong id="archscry-example-title">From a reading to something you can inspect</strong></figcaption>
+        <div class="guide-reading-stage">
+          <span>Reading complete</span>
+          <strong>Your answers support a Commander direction.</strong>
+          <small>Compare the strongest supported direction and its limits.</small>
+        </div>
+        <div class="guide-specimen-arrow" aria-hidden="true">↓</div>
+        <div class="guide-reading-stage guide-reading-stage--result">
+          <span>Placement dossier</span>
+          <strong>Open the result, then inspect the fit.</strong>
+          <div class="guide-dossier-tabs" aria-label="Example dossier sections">
+            <span>Start Here</span><span>Why This Fits</span><span>Commander Browsing Starts</span><span>Card Signals</span><span>Mana Notes</span><span>Maze Discovery</span>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section id="guide-maze" class="r-main guide-chapter guide-chapter--maze" aria-labelledby="guide-maze-title">
+      <figure class="guide-specimen guide-maze-specimen" aria-labelledby="maze-example-title">
+        <figcaption><span>Example</span><strong id="maze-example-title">Three ways to shape a search</strong></figcaption>
+        <div class="guide-mode-strip" role="group" aria-label="Inspect Implicit Maze search modes">
+          <button class="is-active" id="guide-maze-mode-plain" type="button" aria-pressed="true" aria-controls="guide-maze-panel-plain" data-guide-maze-mode="plain"><small>Human language</small>The Plain Reading</button>
+          <button id="guide-maze-mode-operator" type="button" aria-pressed="false" aria-controls="guide-maze-panel-operator" data-guide-maze-mode="operator"><small>Scryfall syntax</small>The Operator's Hand</button>
+          <button id="guide-maze-mode-loom" type="button" aria-pressed="false" aria-controls="guide-maze-panel-loom" data-guide-maze-mode="loom"><small>Visual query</small>The Loom</button>
+        </div>
+
+        <div class="guide-mode-stage" aria-live="polite">
+          <div id="guide-maze-panel-plain" class="guide-mode-panel" role="region" aria-labelledby="guide-maze-mode-plain" data-guide-maze-panel="plain">
+            <p class="guide-mode-intent">I know what I want to say.</p>
+            <div class="guide-query">
+              <span>Player describes</span>
+              <blockquote>Red vampires that sacrifice creatures.</blockquote>
+            </div>
+            <div class="guide-query guide-query--output">
+              <span>Maze translated</span>
+              <code>type:vampire type:creature c:r o:sacrifice</code>
+            </div>
+            <p class="guide-specimen-note">Exact output from the current Plain Reading compiler.</p>
+          </div>
+
+          <div id="guide-maze-panel-operator" class="guide-mode-panel" role="region" aria-labelledby="guide-maze-mode-operator" data-guide-maze-panel="operator" hidden>
+            <p class="guide-mode-intent">I know the exact search syntax.</p>
+            <div class="guide-query guide-query--operator">
+              <span>Scryfall query</span>
+              <code>c:r kw:haste mv&lt;=3 f:modern</code>
+            </div>
+            <div class="guide-direct-syntax">
+              <span aria-hidden="true">&gt;</span>
+              <p><strong>Direct syntax control</strong> Maze preserves explicit Scryfall operators and sends the query directly.</p>
+            </div>
+            <p class="guide-specimen-note">Current public Operator's Hand example and direct-query behavior.</p>
+          </div>
+
+          <div id="guide-maze-panel-loom" class="guide-mode-panel" role="region" aria-labelledby="guide-maze-mode-loom" data-guide-maze-panel="loom" hidden>
+            <p class="guide-mode-intent">I want to build the search visually.</p>
+            <div class="guide-loom-choices" aria-label="Example Loom selections">
+              <div><span>Commander colors</span><strong>Red</strong><small>Fits these Commander colors</small></div>
+              <div><span>Card type</span><strong>Creature</strong></div>
+              <div><span>Ability</span><strong>Haste</strong></div>
+              <div><span>Format</span><strong>Commander</strong></div>
+            </div>
+            <div class="guide-query guide-query--output">
+              <span>Current Weave</span>
+              <code>id&lt;=r t:creature f:commander kw:haste</code>
+            </div>
+            <p class="guide-specimen-note">Exact query produced by these current Loom controls.</p>
+          </div>
+        </div>
+      </figure>
+
+      <div class="guide-chapter-copy">
+        <span class="guide-kicker"><span>II //</span> <strong>The Implicit Maze</strong> <span>· Card discovery</span></span>
+        <h2 id="guide-maze-title">Turn an idea into a searchable path.</h2>
+        <p>The Implicit Maze can translate plain language, accept exact Scryfall syntax through the Operator's Hand, or build a query visually in the Loom.</p>
+        <p>You can arrive with a dossier thread or begin with a fresh idea. Reading Finds keeps useful cards together locally so they can return to the reading that started the search.</p>
+        <p class="guide-question"><span>The question it answers</span>What cards express or explore this direction?</p>
+        <a class="guide-cta" data-guide-cta="maze" href="../maze/index.html">Enter the Implicit Maze <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section id="guide-strategium" class="r-main guide-chapter guide-chapter--strategium" aria-labelledby="guide-strategium-title">
+      <div class="guide-chapter-copy">
+        <span class="guide-kicker"><span>III //</span> <strong>Strategium</strong> <span>· Table literacy</span></span>
+        <h2 id="guide-strategium-title">Learn the table around the deck.</h2>
+        <p>Strategium helps you read Commander moments, set expectations, and choose one clearer next step. Its guidance offers possible explanations, not judgments about a player or pod.</p>
+        <p>Start with the moment you are in, or use the Commander Console to study recurring table signals in more depth.</p>
+        <p class="guide-question"><span>The question it answers</span>What is happening at the Commander table?</p>
+        <a class="guide-cta" data-guide-cta="strategium" href="../strategium/index.html">Visit Strategium <span aria-hidden="true">→</span></a>
+      </div>
+
+      <figure class="guide-specimen guide-strategium-specimen" aria-labelledby="strategium-example-title">
+        <figcaption><span>Example</span><strong id="strategium-example-title">Two ways to find the useful lesson</strong></figcaption>
+        <div class="guide-lane">
+          <strong>Choose a game moment</strong>
+          <div><span>Finding a Table</span><span>Before the Game</span><span>During the Game</span><span>After the Game</span></div>
+        </div>
+        <div class="guide-lane guide-lane--deep">
+          <strong>Study the table</strong>
+          <div><span>Archetypes</span><span>Pod Readiness</span><span>Threat &amp; Pressure</span><span>Open Mana</span><span>Color Expectations</span></div>
+        </div>
+      </figure>
+    </section>
+
+    <section id="how-vox-connects" class="r-main guide-relationship" aria-labelledby="guide-relationship-title">
+      <header>
+        <span class="guide-kicker">IV // From direction to discovery</span>
+        <h2 id="guide-relationship-title">How Vox Mana fits together</h2>
+        <p>One compass, several ways in. This is a relationship, not a required route.</p>
+      </header>
+
+      <div class="guide-flow" aria-label="Vox Mana product relationship">
+        <div class="guide-flow-main">
+          <div><span>Archscry</span><p>How do I want Commander to feel?</p></div>
+          <span aria-hidden="true">→</span>
+          <div><span>Reading / Placement</span><p>Here is the direction supported by my answers.</p></div>
+          <span aria-hidden="true">→</span>
+          <div><span>Dossier</span><p>What does that direction mean?</p></div>
+          <span aria-hidden="true">→</span>
+          <div><span>The Implicit Maze</span><p>What cards express or explore that direction?</p></div>
+        </div>
+        <div class="guide-flow-support">
+          <div><span>Strategium</span><p>What is happening at the Commander table?</p></div>
+          <div><span>Apocrypha</span><p>Where do sources and evidence come from?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide-apocrypha" class="r-sidebar guide-sources" aria-labelledby="guide-apocrypha-title">
+      <div>
+        <span class="guide-kicker">V // Sources and evidence</span>
+        <h2 id="guide-apocrypha-title">See what Vox Mana is built from.</h2>
+      </div>
+      <p>Apocrypha is the public source library: use it when the question is where the project's lore, rules, and evidence came from.</p>
+      <a class="guide-cta" data-guide-cta="apocrypha" href="../apocrypha/index.html">Consult Apocrypha <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+</main>
+
+<footer class="maze-footer guide-footer" aria-labelledby="guide-footer-title">
+  <p id="guide-footer-title">Vox Mana is an unofficial fan project. Magic: The Gathering is &copy; Wizards of the Coast LLC.</p>
+  <p><a href="#guide-main">Back to top</a> &middot; <a href="../index.html">Home</a> &middot; <a href="../privacy/index.html">Privacy</a> &middot; <a href="../terms/index.html">Terms</a></p>
+</footer>
+
+<script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
+<script src="../assets/js/shared/reduce-motion.js" defer></script>
+<script src="../assets/js/shared/vm-feedback.js" defer></script>
+<script src="../assets/js/shared/vm-topbar.js" defer></script>
+<script src="../assets/js/guide/guide.js?v=vm614r7" defer></script>
+</body>
+</html>

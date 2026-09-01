@@ -54,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-614 — Build the Vox Mana Field Guide Foundation and Global Discoverability](done/VM-614-field-guide-foundation-global-discoverability.md) - Owner Accepted at exact candidate `06196825df786f7ae10509596169fe6e3b841417`; the teaching-first Guide, global discoverability, truthful three-mode Maze specimen, non-clickable relationship model, and compact Apocrypha endcap are complete with protected runtime unchanged.
+
 - [VM-613 - Establish the Vox Mana Field Guide and Onboarding Contract](done/VM-613-field-guide-onboarding-contract.md) - Owner Accepted; the final authority locks the optional four-route Guide, small-primary-choice intent hierarchy, result-versus-dossier instruction boundary, explicit reversible Maze context, restrained reference cap, existing-work disposition, and VM-615 fresh-session validation prerequisite with production runtime unchanged.
 
 - [VM-612 - Semantic Typography System Upgrade](done/VM-612-semantic-typography-system-upgrade.md) - owner accepted all public typography surfaces plus the final Archscry and Home revisions; exact product candidate `b84662c5` passes narrow integration validation, includes pinned local Keyrune 3.19.0 beside Mana Font, and is authorized for normal branch/PR integration with no further product work.

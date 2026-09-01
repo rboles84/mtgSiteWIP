@@ -126,6 +126,15 @@ so first-visit orientation remains concise. The approximate VM-614 hierarchy is:
 
 This hierarchy is an implementation constraint, not frozen final copy or layout.
 
+### VM-614 Guide-only presentation clarification - 2026-08-31
+
+The Owner has explicitly superseded the approximate three-equal-primary-choice rendering for the
+`/guide/` landing page only. The same intent coverage must now be taught through concise explanatory
+sections and truthful product specimens, with one principal continuation action per major surface,
+rather than repeated router cards. This does not change the accepted product architecture, the four Home
+functional paths, the four-route Guide V1 namespace, specialist content ownership, or any protected
+runtime semantic. No later Guide route is authorized by this clarification.
+
 The default for an unsure visitor is the concise, low-emphasis advice **If unsure, start with
 Archscry**. It must not force navigation, auto-select a default, require Archscry as onboarding, or
 visually subordinate Maze or another direct intent when the player already knows what they want. The
@@ -370,6 +379,8 @@ authority, the specialist authority controls and the conflict returns to Owner R
 
 ## Acceptance and change control
 
-This candidate becomes the VM-614+ authority only after explicit Owner acceptance. Changes that expand
-the IA, create mandatory onboarding, change the four-path architecture, rename Guide, reuse `/library/`,
-or move Strategium/Apocrypha content into Guide require a new owner-reviewed product decision.
+The Owner accepted the VM-614 product result at exact commit
+`06196825df786f7ae10509596169fe6e3b841417` on 2026-08-31. This contract therefore governs VM-614 and
+later Guide/onboarding work. Changes that expand the IA, create mandatory onboarding, change the
+four-path architecture, rename Guide, reuse `/library/`, or move Strategium/Apocrypha content into Guide
+require a new owner-reviewed product decision.

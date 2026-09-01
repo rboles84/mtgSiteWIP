@@ -5,12 +5,18 @@ import { readArchscryRuntimeSource } from "./lib/read-archscry-runtime-source.mj
 
 const root = process.cwd();
 const routeChecks = [
+  { label: "home -> Guide", from: "index.html", href: "./guide/index.html" },
   { label: "home -> Maze", from: "index.html", href: "./maze/index.html" },
   { label: "home -> Apocrypha", from: "index.html", href: "./apocrypha/index.html" },
   { label: "home -> Privacy", from: "index.html", href: "./privacy/index.html" },
   { label: "home -> Terms", from: "index.html", href: "./terms/index.html" },
   { label: "Archscry -> Home", from: "archscry/index.html", href: "../index.html" },
   { label: "Archscry -> Maze", from: "archscry/index.html", href: "../maze/index.html" },
+  { label: "Guide -> Home", from: "guide/index.html", href: "../index.html" },
+  { label: "Guide -> Archscry", from: "guide/index.html", href: "../archscry/index.html" },
+  { label: "Guide -> Maze", from: "guide/index.html", href: "../maze/index.html" },
+  { label: "Guide -> Strategium", from: "guide/index.html", href: "../strategium/index.html" },
+  { label: "Guide -> Apocrypha", from: "guide/index.html", href: "../apocrypha/index.html" },
   { label: "Maze -> Home", from: "maze/index.html", href: "../index.html" },
   { label: "Maze -> Archscry", from: "maze/index.html", href: "../archscry/index.html" },
   { label: "Strategium -> Home", from: "strategium/index.html", href: "../index.html" },
@@ -48,6 +54,8 @@ for (const check of routeChecks) {
 
 const mazeSource = await readFile(path.resolve(root, "maze/index.html"), "utf8");
 const homeSource = await readFile(path.resolve(root, "index.html"), "utf8");
+const guideSource = await readFile(path.resolve(root, "guide/index.html"), "utf8");
+const guideRuntimeSource = await readFile(path.resolve(root, "assets/js/guide/guide.js"), "utf8");
 const homeRuntimeSource = await readFile(path.resolve(root, "assets/js/home/home.js"), "utf8");
 const identityLayerSource = await readFile(path.resolve(root, "data/identity-layers.json"), "utf8");
 const identityLayerData = JSON.parse(identityLayerSource);
@@ -181,6 +189,42 @@ if (!archscrySource.includes('<footer class="app-footer"')) {
 if (/["'`]\/data\//.test(archscryRuntimeSource)) {
   failures.push("Archscry smoke check failed: runtime still contains root-relative /data/ references");
 }
+if ((homeSource.match(/class="vm-card reveal"/g) ?? []).length !== 4) {
+  failures.push("Home Guide discovery smoke check failed: the four functional path cards changed");
+}
+if (!homeSource.includes('class="vm-guide-discovery"') || !homeSource.includes('href="./guide/index.html"')) {
+  failures.push("Home Guide discovery smoke check failed: bounded Guide entry is missing");
+}
+if (!guideSource.includes('id="how-vox-connects"') || !guideSource.includes('data-vm-current="guide"')) {
+  failures.push("Guide smoke check failed: relationship section or active-state key is missing");
+}
+if (
+  (guideSource.match(/data-guide-cta="(?:archscry|maze|strategium|apocrypha)"/g) ?? []).length !== 4 ||
+  (guideSource.match(/<figure class="guide-specimen/g) ?? []).length !== 3 ||
+  !guideSource.includes('<h1 id="guide-title">A Planeswalker\'s Guide to Vox Mana</h1>') ||
+  !guideSource.includes('<p class="guide-brand-line">Find your place. Shape your play.</p>') ||
+  !guideSource.includes('type:vampire type:creature c:r o:sacrifice') ||
+  !guideSource.includes('c:r kw:haste mv&lt;=3 f:modern') ||
+  !guideSource.includes('id&lt;=r t:creature f:commander kw:haste') ||
+  (guideSource.match(/data-guide-maze-mode=/g) ?? []).length !== 3 ||
+  (guideSource.match(/data-guide-maze-panel=/g) ?? []).length !== 3 ||
+  !guideRuntimeSource.includes('button.addEventListener("click"') ||
+  !guideRuntimeSource.includes('button.setAttribute("aria-pressed"') ||
+  !guideSource.includes('possible explanations, not judgments') ||
+  guideSource.includes('guide-path-card') ||
+  guideSource.includes('Continue from here') ||
+  guideSource.includes('III // Continue')
+) {
+  failures.push("Guide teaching smoke check failed: truthful specimens, four bounded CTAs, or router removal drifted");
+}
+for (const forbiddenRoute of ["guide/reading", "guide/maze", "guide/reference"]) {
+  try {
+    await access(path.resolve(root, forbiddenRoute));
+    failures.push(`Guide scope check failed: later route ${forbiddenRoute} should not exist`);
+  } catch {
+    // Expected: VM-614 does not create later Guide routes.
+  }
+}
 if (!archscryCssSource.includes(".table-identity-list > div > span:first-child{")) {
   failures.push("Archscry smoke check failed: How This Plays label styling must not capture nested glossary terms");
 }
@@ -225,4 +269,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Frontend smoke checks passed for home, Maze, Archscry, Library alias, Privacy, and Terms.");
+console.log("Frontend smoke checks passed for Guide, Home, Maze, Archscry, Library alias, Privacy, and Terms.");
