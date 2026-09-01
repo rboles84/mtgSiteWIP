@@ -62,6 +62,7 @@
 .vm-menu-button,
 .vm-menu-panel,
 .vm-feedback-button,
+.vm-utility .vm-utility-link,
 .vm-utility .tb-identity,
 .vm-utility .tb-btn {
   backdrop-filter: blur(18px) saturate(1.12);
@@ -101,6 +102,7 @@
 .vm-menu-button::before,
 .vm-menu-panel::before,
 .vm-feedback-button::before,
+.vm-utility .vm-utility-link::before,
 .vm-utility .tb-identity::before,
 .vm-utility .tb-btn::before {
   content: "";
@@ -163,6 +165,7 @@
 }
 
 .vm-nav {
+  --vm-nav-separator-space: clamp(18px, 2vw, 30px);
   position: relative;
   z-index: 1;
   justify-self: center;
@@ -203,15 +206,14 @@
   transition: color var(--dur-fast) var(--ease-out);
 }
 
-.vm-nav-link + .vm-nav-link {
-  margin-left: clamp(18px, 2vw, 30px);
-  padding-left: clamp(18px, 2vw, 30px);
+.vm-nav > .vm-nav-link + .vm-nav-link {
+  margin-left: calc(var(--vm-nav-separator-space) + var(--vm-nav-separator-space));
 }
 
-.vm-nav-link + .vm-nav-link::before {
+.vm-nav > .vm-nav-link + .vm-nav-link::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: calc(0px - var(--vm-nav-separator-space));
   top: 50%;
   width: 4px;
   height: 4px;
@@ -333,6 +335,68 @@
   justify-content: flex-end;
   gap: 10px;
   min-width: 0;
+}
+
+.vm-utility .vm-utility-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.46rem 0.88rem;
+  border: 1px solid rgba(218, 184, 107, 0.28);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    linear-gradient(135deg, rgba(10, 16, 27, 0.94), rgba(4, 8, 16, 0.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 10px 24px rgba(0, 0, 0, 0.22);
+  color: color-mix(in srgb, var(--text-dim) 72%, #f2dfb2 28%);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.vm-utility .vm-utility-link:hover,
+.vm-utility .vm-utility-link:focus-visible {
+  color: #f4e2b4;
+  border-color: rgba(232, 201, 130, 0.48);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.014)),
+    linear-gradient(135deg, rgba(12, 19, 31, 0.97), rgba(6, 11, 20, 0.88));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 13px 30px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(212, 180, 97, 0.08);
+  transform: translateY(-1px);
+}
+
+.vm-utility .vm-utility-link[aria-current="page"] {
+  border-color: rgba(232, 201, 130, 0.62);
+  background:
+    linear-gradient(180deg, rgba(212, 180, 97, 0.11), rgba(255, 255, 255, 0.018)),
+    linear-gradient(135deg, rgba(13, 19, 30, 0.98), rgba(6, 10, 18, 0.9));
+  box-shadow:
+    inset 0 0 0 1px rgba(242, 219, 157, 0.12),
+    inset 0 -2px 0 rgba(212, 180, 97, 0.42),
+    0 12px 28px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(212, 180, 97, 0.12);
+  color: var(--gold-l);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
 }
 
 .vm-utility .tb-identity {
@@ -957,6 +1021,13 @@ body.vm-feedback-open {
     0 0 0 1px rgba(212, 180, 97, 0.05);
 }
 
+.vm-menu-link--utility {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(218, 184, 107, 0.14);
+  border-radius: 0 0 12px 12px;
+}
+
 .vm-menu-link .vm-nav-hint {
   display: none;
 }
@@ -975,6 +1046,7 @@ body.vm-feedback-open {
 
 /* Semantic typography: shared navigation and feedback are interface, not syntax. */
 .vm-feedback-button,
+.vm-utility .vm-utility-link,
 .vm-feedback-header h2,
 .vm-feedback-step h3,
 .vm-feedback-close,
@@ -1008,9 +1080,8 @@ body.vm-feedback-open {
     letter-spacing: 0.1em;
   }
 
-  .vm-nav-link + .vm-nav-link {
-    margin-left: 20px;
-    padding-left: 20px;
+  .vm-nav {
+    --vm-nav-separator-space: 20px;
   }
 }
 
@@ -1035,6 +1106,10 @@ body.vm-feedback-open {
   }
 
   .vm-nav {
+    display: none;
+  }
+
+  .vm-utility > .vm-utility-link {
     display: none;
   }
 
@@ -1103,6 +1178,7 @@ body.vm-feedback-open {
   .vm-menu-link,
   .vm-menu-item,
   .vm-feedback-button,
+  .vm-utility .vm-utility-link,
   .vm-utility .tb-btn {
     transition-duration: 0.01ms;
   }
