@@ -379,6 +379,8 @@ authority, the specialist authority controls and the conflict returns to Owner R
 
 ## Acceptance and change control
 
-This candidate becomes the VM-614+ authority only after explicit Owner acceptance. Changes that expand
-the IA, create mandatory onboarding, change the four-path architecture, rename Guide, reuse `/library/`,
-or move Strategium/Apocrypha content into Guide require a new owner-reviewed product decision.
+The Owner accepted the VM-614 product result at exact commit
+`06196825df786f7ae10509596169fe6e3b841417` on 2026-08-31. This contract therefore governs VM-614 and
+later Guide/onboarding work. Changes that expand the IA, create mandatory onboarding, change the
+four-path architecture, rename Guide, reuse `/library/`, or move Strategium/Apocrypha content into Guide
+require a new owner-reviewed product decision.

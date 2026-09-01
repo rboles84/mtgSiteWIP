@@ -2,9 +2,18 @@
 
 Date: 2026-08-31
 
-Disposition: **RobQA READY - Owner Review required**
+Disposition: **RobQA PASS - Owner Accepted**
 
 QA classification: QA-3 shared navigation/routing plus visible product UI
+
+## Acceptance binding
+
+- Owner accepted VM-614 on 2026-08-31 with no further product changes authorized during closeout.
+- Exact Owner-Accepted candidate: `06196825df786f7ae10509596169fe6e3b841417`.
+- The successful deterministic and rendered evidence below applies to that exact commit.
+- Closeout updates only lifecycle documentation; production files and protected product semantics remain
+  identical to the accepted candidate.
+- No owner judgment remains for VM-614.
 
 ## Owner finding disposition
 

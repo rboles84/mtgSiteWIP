@@ -2,7 +2,7 @@
 
 ID: VM-614
 Title: Build the Vox Mana Field Guide Foundation and Global Discoverability
-Status: Owner Review Ready - Surgical Hero Width Correction
+Status: Done - Owner Accepted
 Type: Product UI / Navigation / Documentation
 Area: Guide, global navigation, Home discoverability
 Priority: high
@@ -329,4 +329,19 @@ this card unless VM-614 introduces a new regression.
 - Existing atmosphere on Home, Archscry, Maze, Strategium, Apocrypha, and legal routes is explicitly
   protected and unchanged by this finding remediation.
 - Broad fresh-session Archscry browser smoke remains intentionally skipped as the accepted VM-615 gap.
-- Disposition: **RobQA READY - Owner Review required**.
+- Disposition: **RobQA PASS - Owner Accepted**.
+
+## Owner-Accepted Closeout - 2026-08-31
+
+- **Owner decision:** VM-614 is Owner Accepted with no remaining product, visual, copy, interaction, or
+  polish change authorized during closeout.
+- **Exact accepted candidate:** `06196825df786f7ae10509596169fe6e3b841417` on
+  `codex/vm-614-field-guide-foundation`.
+- **Accepted result:** the full-width Guide hero; Archscry, Maze, and Strategium teaching sections and
+  specimens; the accessible three-mode Maze inspector and exact examples; the non-clickable relationship
+  model; the compact Apocrypha endcap; Guide navigation; and the separate non-pillar Home discovery link.
+- **Deferred note preserved:** Section IV interaction remains only a possible VM-617 polish question, not
+  a requirement, current authorization, or reason to create another card.
+- **Lifecycle result:** card moved from In Progress to Done; QA disposition advanced from READY to PASS;
+  accepted production files remain frozen at the exact candidate commit; closeout changes are metadata only.
+- **Later work:** VM-615, VM-616, and VM-617 were not started.
