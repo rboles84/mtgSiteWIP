@@ -1,7 +1,7 @@
 # VM-615 — Turn an Archscry Result Into an Understandable Next Decision
 
 ID: VM-615
-Status: In Progress — Owner Review required
+Status: Done — Owner Accepted
 Type: Contextual onboarding / Guide route / dossier presentation
 Area: Archscry result, dossier directory, `/guide/reading/`
 Priority: High
@@ -150,3 +150,15 @@ uncommitted at Owner Review.
 - Focused HTML/copy/static/browser checks and desktop/mobile render sanity pass; no protected runtime
   behavior changed.
 - Status remains **In Progress — Owner Review required**. No commit, push, PR, merge, VM-616, or VM-617.
+
+## Owner-Accepted closeout — 2026-09-01
+
+- Owner Accepted the complete VM-615 product result without further product, copy, layout, interaction,
+  semantic, or onboarding changes.
+- Exact immutable Owner-Accepted candidate: `8dcd6d2cb4861c3a13af8e9eb01c66253db5f617`.
+- RobQA disposition: **PASS — Owner Accepted** using the successful focused VM-615 evidence and narrow
+  closeout integrity verification.
+- The known fresh-session Archscry browser-smoke gap remains unresolved and explicitly outside VM-615's
+  completed claim.
+- `/guide/reading/` exists; `/guide/maze/` and `/guide/reference/` remain absent.
+- VM-616 and VM-617 remain unstarted. PR/merge requires separate explicit destination authorization.

@@ -2,7 +2,8 @@
 
 Date: 2026-08-31
 Branch: `codex/vm-615-reading-dossier-onboarding`
-Disposition: **READY FOR OWNER REVIEW — not Owner Accepted**
+Disposition: **RobQA PASS — Owner Accepted**
+Accepted candidate: `8dcd6d2cb4861c3a13af8e9eb01c66253db5f617`
 
 ## RobQA classification
 
@@ -132,4 +133,16 @@ Judge only:
 - Focused rerun: HTML lint, copy boundaries, VM-615 static regression, VM-615 browser regression,
   desktop/mobile rendered sanity, and `git diff --check` all pass.
 - No dossier controls, Placement/dossier semantics, state, Maze, or other protected runtime behavior changed.
-- Disposition remains **READY FOR OWNER REVIEW — not Owner Accepted**.
+- Disposition advanced to **RobQA PASS — Owner Accepted** at exact candidate
+  `8dcd6d2cb4861c3a13af8e9eb01c66253db5f617` on 2026-09-01.
+
+## Owner-Accepted closeout — 2026-09-01
+
+- The Owner accepted the complete reviewed VM-615 candidate exactly as rendered after the two bounded
+  semantic corrections.
+- Narrow closeout verification reconfirmed the exact hero/specimen copy, skip-link contract, route
+  presence/absence, card/board lifecycle integrity, and unchanged accepted production files.
+- The known fresh-session Archscry browser-smoke gap remains unresolved and is not included in VM-615's
+  completed validation claim.
+- No additional product, runtime, semantic, interaction, layout, copy, or onboarding change was made after
+  the accepted candidate commit.
