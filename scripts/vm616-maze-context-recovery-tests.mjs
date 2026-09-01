@@ -1,0 +1,110 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+
+import { resolveMazeQueryRequest } from "../assets/js/maze/maze-query-core.js";
+import { setPlainReadingSemanticRegistry, setScryfallGrounding } from "../assets/js/maze/scryfall-grounded-compiler.js";
+
+const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, guideCss, metadataSource, htmlValidator] = await Promise.all([
+  readFile(new URL("../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8").then(JSON.parse),
+  readFile(new URL("../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8").then(JSON.parse),
+  readFile(new URL("../maze/index.html", import.meta.url), "utf8"),
+  readFile(new URL("../assets/css/maze.css", import.meta.url), "utf8"),
+  readFile(new URL("../assets/js/maze/research-init.js", import.meta.url), "utf8"),
+  readFile(new URL("../assets/js/maze/research-ui.js", import.meta.url), "utf8"),
+  readFile(new URL("../guide/maze/index.html", import.meta.url), "utf8"),
+  readFile(new URL("../assets/css/guide-maze.css", import.meta.url), "utf8"),
+  readFile(new URL("./check-route-metadata.mjs", import.meta.url), "utf8"),
+  readFile(new URL("./validate-frontend-html.mjs", import.meta.url), "utf8"),
+]);
+
+setScryfallGrounding(grounding);
+setPlainReadingSemanticRegistry(semantics);
+
+const strong = resolveMazeQueryRequest({
+  mode: "ai",
+  input: "Red vampires that sacrifice creatures",
+  options: { format: "commander", order: "name", unique: "cards" },
+});
+assert.equal(strong.query, "type:vampire type:creature c:r o:sacrifice");
+assert.equal(strong.executionBlocked, false);
+assert.equal(strong.diagnostics.find(item => item.code === "parser_confidence")?.details?.confidence, 0.96);
+assert.ok(!strong.diagnostics.some(item => item.code === "parser_unresolved_term"));
+
+const weak = resolveMazeQueryRequest({
+  mode: "ai",
+  input: "Black Lotus with mana value 99 in Commander",
+  options: { format: "commander", order: "name", unique: "cards" },
+});
+assert.equal(weak.query, "c:b legal:commander");
+assert.equal(weak.diagnostics.find(item => item.code === "parser_confidence")?.details?.confidence, 0.63);
+assert.deepEqual(
+  weak.diagnostics.filter(item => item.code === "parser_unresolved_term").map(item => item.details.term),
+  ["lotus", "mana", "value"],
+);
+
+const validZeroWitness = resolveMazeQueryRequest({
+  mode: "raw",
+  input: "f:commander mv=99",
+  options: { format: "commander", useFormatDefault: false },
+});
+assert.equal(validZeroWitness.query, "f:commander mv=99");
+assert.equal(validZeroWitness.parserMode, "raw");
+assert.ok(!validZeroWitness.diagnostics.some(item => item.code === "parser_unresolved_term"));
+
+const commanderFit = resolveMazeQueryRequest({
+  mode: "builder",
+  builderFilters: { colors: ["W", "U"], colorOp: "id", format: "commander" },
+});
+const printedExact = resolveMazeQueryRequest({
+  mode: "builder",
+  builderFilters: { colors: ["W", "U"], colorOp: "c", format: "commander" },
+});
+assert.equal(commanderFit.query, "id<=wu f:commander");
+assert.equal(printedExact.query, "c=wu f:commander");
+
+assert.match(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search[\s\S]*?Search independently/);
+assert.match(mazeHtml, /Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color\./);
+assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
+assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/"/g) || []).length, 1, "working Maze should expose one canonical top-entry Guide invitation");
+assert.doesNotMatch(mazeUi, /guide\/maze\/#recovery/, "canonical working-Maze Guide action must not skip to the recovery section");
+assert.match(mazeUi, /qi-guide-eyebrow">Field Guide[\s\S]*?Read how to understand this search/);
+assert.match(mazeUi, /let hasPresentedGuideBeaconSignal = false[\s\S]*?function reserveGuideBeaconSignal[\s\S]*?hasPresentedGuideBeaconSignal = true/);
+assert.match(mazeUi, /function bindGuideBeaconSignal[\s\S]*?classList\.remove\("is-signaling"\)[\s\S]*?pointerenter[\s\S]*?focusin[\s\S]*?animationend/);
+const guideBeaconSignalSeam = mazeUi.slice(mazeUi.indexOf("let hasPresentedGuideBeaconSignal"), mazeUi.indexOf("function renderRecoveryGuidance"));
+assert.doesNotMatch(guideBeaconSignalSeam, /localStorage|sessionStorage/, "Guide Beacon signal must remain page-visit state only");
+assert.match(mazeUi, /Maze could not map part of this request\.[\s\S]*?Rephrase or remove one unresolved term, then search again\./);
+assert.match(mazeRuntime, /The query ran, but no cards matched\.[\s\S]*?Broaden or remove one constraint, then search again\./);
+assert.match(mazeRuntime, /function classifyRecoveryDiagnostics[\s\S]*?parser_unresolved_term[\s\S]*?level === "warning"[\s\S]*?return "valid"/);
+assert.match(mazeRuntime, /url\.searchParams\.set\("independent", "1"\)/);
+assert.match(mazeRuntime, /history\.pushState[\s\S]*?refreshReadingContextPresentation/);
+assert.match(mazeRuntime, /function readActiveArchscryMazeHandoff\(\)[\s\S]*?isIndependentSearch\(\) \? null : readArchscryMazeHandoff\(\)/);
+assert.match(mazeRuntime, /Searching independently[\s\S]*?not using the retained reading[\s\S]*?New Finds will not be attached[\s\S]*?existing Finds remain unchanged/);
+assert.match(mazeRuntime, /function restoreReadingContext\(\)[\s\S]*?searchParams\.delete\("independent"\)[\s\S]*?history\.pushState/);
+assert.match(mazeRuntime, /action\.dataset\.action = "restore-reading-context"/);
+assert.match(mazeRuntime, /action\.textContent = "Restore reading context"/);
+const independentAction = mazeRuntime.slice(mazeRuntime.indexOf("function searchIndependently"), mazeRuntime.indexOf("function refreshReadingContextPresentation"));
+assert.doesNotMatch(independentAction, /localStorage\.(?:setItem|removeItem|clear)/, "independent search must not rewrite handoff or saved-reading storage");
+assert.match(mazeCss, /\.maze-reading-context[\s\S]*?\.qi-recovery[\s\S]*?\.qi-guide-link/);
+assert.match(mazeCss, /@keyframes maze-guide-beacon-arrive[\s\S]*?6%[\s\S]*?37%[\s\S]*?68%/);
+assert.match(mazeCss, /\.qi-guide-link\.is-signaling::after[\s\S]*?animation: maze-guide-beacon-arrive 4800ms ease-in-out 1 both/);
+assert.match(mazeCss, /\.qi-guide-link:hover::after,[\s\S]*?\.qi-guide-link:focus-visible::after[\s\S]*?animation: none/);
+assert.match(mazeCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.qi-guide-link::after/);
+
+assert.match(guideHtml, /<h1 id="maze-guide-title">Read the search\. Change one thing\.<\/h1>/);
+assert.match(guideHtml, /Red vampires that sacrifice creatures[\s\S]*?type:vampire type:creature c:r o:sacrifice/);
+assert.match(guideHtml, /Black Lotus with mana value 99 in Commander[\s\S]*?c:b legal:commander[\s\S]*?Unresolved: lotus, mana, value/);
+assert.match(guideHtml, /f:commander mv=99/);
+assert.match(guideHtml, /id="recovery"/, "internal recovery anchor should remain available for direct/reference links");
+assert.match(guideHtml, /Standalone search[\s\S]*?Reading available[\s\S]*?Dossier thread[\s\S]*?Searching independently/);
+assert.match(guideHtml, /new Finds are not attached to that reading[\s\S]*?existing Finds remain unchanged[\s\S]*?Restore reading context/);
+assert.match(guideHtml, /White \+ blue includes cards whose color identity stays within WU/);
+assert.match(guideHtml, /Reading Finds keeps useful cards together locally\. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone\. It is not a deckbuilder\./);
+assert.doesNotMatch(guideHtml, /Reading Finds keeps useful cards with the current reading trail/);
+assert.equal((guideHtml.match(/class="guide-cta"/g) || []).length, 1, "Maze Guide should end with one working-product CTA");
+assert.ok(!guideHtml.includes("VM-616"), "public Guide copy must not expose the work-item ID");
+assert.doesNotMatch(guideHtml, /parser contract|semantic-state|calibration|storage key|handoff JSON/i);
+assert.match(guideCss, /grid-template-columns: repeat\(2[\s\S]*?@media \(max-width: 820px\)/);
+assert.match(metadataSource, /guide\/maze\/index\.html[\s\S]*?https:\/\/voxmana\.io\/guide\/maze\//);
+assert.match(htmlValidator, /guideMaze: "guide\/maze\/index\.html"/);
+
+console.log("VM-616 Maze context and recovery static tests passed.");

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vox Mana - Read and Recover a Maze Search</title>
+<meta name="description" content="Read what the Maze translated, understand reading context and Commander colors, and recover from weak or zero-result searches without silent query changes.">
+<link rel="canonical" href="https://voxmana.io/guide/maze/">
+<meta property="og:site_name" content="Vox Mana">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vox Mana - Read and Recover a Maze Search">
+<meta property="og:description" content="A concise guide to Maze translation, context, color meaning, recovery, and useful result actions.">
+<meta property="og:url" content="https://voxmana.io/guide/maze/">
+<meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
+<meta property="og:image:alt" content="Vox Mana Maze guide atmosphere.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vox Mana - Read and Recover a Maze Search">
+<meta name="twitter:description" content="Understand what the Maze did and choose one truthful next action.">
+<meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/vox-mana-header-logo.svg">
+
+<link rel="stylesheet" href="../../assets/css/tokens.css?v=vm612">
+<link rel="stylesheet" href="../../assets/css/fonts.css?v=vm612">
+<link rel="stylesheet" href="../../assets/css/layout.css">
+<link rel="stylesheet" href="../../assets/css/topbar.css?v=vm618">
+<link rel="stylesheet" href="../../assets/css/atmosphere.css">
+<link rel="stylesheet" href="../../assets/css/components.css?v=vm612">
+<link rel="stylesheet" href="../../assets/vendor/mana/css/mana.min.css">
+<link rel="stylesheet" href="../../assets/css/maze.css?v=vm616">
+<link rel="stylesheet" href="../../assets/css/guide.css?v=vm614r8">
+<link rel="stylesheet" href="../../assets/css/guide-maze.css?v=vm616">
+</head>
+<body class="vm-maze-route vm-guide-route vm-guide-maze-route" data-page="guide-maze" data-vm-current="guide" data-bg="medium" data-vm-atmosphere="rich">
+
+<a class="guide-skip-link" href="#maze-guide-main">Skip to reading and recovering a Maze search</a>
+
+<div class="vm-bg" aria-hidden="true">
+  <picture class="vm-bg__picture">
+    <source type="image/webp" srcset="../../assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
+    <img src="../../assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async">
+  </picture>
+  <div class="vm-bg__nebula"></div>
+  <canvas class="vm-bg__stars" aria-hidden="true"></canvas>
+</div>
+
+<header class="vm-topbar" role="banner">
+  <a class="vm-brand" href="../../index.html" aria-label="Vox Mana home">
+    <span class="vm-brand-mark" aria-hidden="true"><img src="../../assets/img/vox-mana-header-logo.svg" alt="" width="44" height="44" decoding="async" fetchpriority="high"></span>
+    <span class="vm-brand-text">Vox Mana</span>
+  </a>
+  <nav class="vm-nav" aria-label="Main Navigation">
+    <a class="vm-nav-link" href="../../index.html" data-vm-nav="home" data-nav-hint="Identity signal hub">Home<span class="vm-nav-hint" aria-hidden="true">Identity signal hub</span></a>
+    <a class="vm-nav-link" href="../../archscry/index.html" data-vm-nav="archscry" data-nav-hint="Color identity reading">Archscry<span class="vm-nav-hint" aria-hidden="true">Color identity reading</span></a>
+    <a class="vm-nav-link" href="../../maze/index.html" data-vm-nav="maze" data-nav-hint="Guided card search">The Implicit Maze<span class="vm-nav-hint" aria-hidden="true">Guided card search</span></a>
+    <a class="vm-nav-link" href="../../strategium/index.html" data-vm-nav="strategium" data-nav-hint="Commander table literacy">Strategium<span class="vm-nav-hint" aria-hidden="true">Commander table literacy</span></a>
+    <a class="vm-nav-link" href="../../apocrypha/index.html" data-vm-nav="apocrypha" data-nav-hint="Lore and source library">Apocrypha<span class="vm-nav-hint" aria-hidden="true">Lore and source library</span></a>
+  </nav>
+  <div class="vm-utility">
+    <a class="vm-utility-link" href="../index.html" data-vm-nav="guide">Guide</a>
+    <button type="button" class="vm-menu-button" aria-label="Open menu" aria-expanded="false" aria-haspopup="true" aria-controls="vm-menu-panel" data-vm-menu-trigger>
+      <span class="vm-menu-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div id="vm-menu-panel" class="vm-menu-panel" data-open="false" data-vm-menu-panel>
+      <nav class="vm-menu-nav" aria-label="Mobile Navigation" data-vm-menu-nav></nav>
+      <button type="button" class="vm-menu-item" data-vm-toggle="reduce-motion" data-vm-tooltip-on="Stillness - on" data-vm-tooltip-off="Quiet the motion">
+        <span>Reduce motion</span><span class="vm-menu-item-status" data-vm-status>Off</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="maze-guide-main" class="page guide-page maze-guide-page" tabindex="-1" aria-labelledby="maze-guide-title">
+  <section class="r-search-zone maze-command-deck guide-hero maze-guide-hero" aria-labelledby="maze-guide-title">
+    <div class="maze-command-copy guide-hero-copy">
+      <span class="maze-eyebrow">Field Guide // The Implicit Maze</span>
+      <h1 id="maze-guide-title">Read the search. Change one thing.</h1>
+      <p class="guide-brand-line">The Maze shows its work.</p>
+      <p class="guide-hero-orientation">Use the translation, reading context, and result state to decide what to change next. The search stays in your hands.</p>
+    </div>
+  </section>
+
+  <div class="guide-story maze-guide-story">
+    <section id="translation" class="r-main maze-guide-section" aria-labelledby="translation-title">
+      <header class="maze-guide-section-head">
+        <span class="guide-kicker">I // What did Maze understand?</span>
+        <h2 id="translation-title">Read the request beside the query.</h2>
+        <p>In Plain Reading, <strong>You wrote</strong> preserves your words. <strong>Maze translated</strong> is the exact Scryfall query that ran. Recognized, ignored, warning, and unresolved rows explain the current translation.</p>
+      </header>
+      <div class="maze-translation-grid">
+        <figure class="guide-specimen maze-query-specimen">
+          <figcaption><span>Clean translation</span><strong>Current deterministic output</strong></figcaption>
+          <dl>
+            <div><dt>You wrote</dt><dd>Red vampires that sacrifice creatures</dd></div>
+            <div><dt>Maze translated</dt><dd><code>type:vampire type:creature c:r o:sacrifice</code></dd></div>
+          </dl>
+          <div class="maze-diagnostic-row"><span>Confidence 96%</span><span>Recognized: red, vampires, creatures, sacrifice</span><span>Ignored: that</span></div>
+        </figure>
+        <figure class="guide-specimen maze-query-specimen maze-query-specimen--warning">
+          <figcaption><span>Weak translation</span><strong>Part of the request was not mapped</strong></figcaption>
+          <dl>
+            <div><dt>You wrote</dt><dd>Black Lotus with mana value 99 in Commander</dd></div>
+            <div><dt>Maze translated</dt><dd><code>c:b legal:commander</code></dd></div>
+          </dl>
+          <div class="maze-diagnostic-row"><span>Confidence 63%</span><span>Recognized: black, Commander legal</span><span>Unresolved: lotus, mana, value</span></div>
+          <p class="maze-specimen-next"><strong>Next:</strong> Rephrase or remove one unresolved term, then search again.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section id="context" class="r-main maze-guide-section maze-context-section" aria-labelledby="context-title">
+      <header class="maze-guide-section-head">
+        <span class="guide-kicker">II // What is affecting this search?</span>
+        <h2 id="context-title">Context is visible; filters stay literal.</h2>
+        <p>A reading may keep a return path and associate new Reading Finds without adding hidden filters. A dossier thread can supply the query that opened the Maze. <strong>Search independently</strong> keeps the current query but does not use the retained reading: new Finds are not attached to that reading, while the reading and its existing Finds remain unchanged. Use <strong>Restore reading context</strong> or Back to return.</p>
+      </header>
+      <div class="maze-context-grid">
+        <div class="maze-context-states" aria-label="Supported Maze context states">
+          <article><span>Standalone search</span><p>No reading is changing this query.</p></article>
+          <article><span>Reading available</span><p>The return path and new Finds association remain; the query is unchanged.</p></article>
+          <article><span>Dossier thread</span><p>The query came from the dossier; no extra reading filters are added.</p></article>
+          <article><span>Searching independently</span><p>The retained reading and its existing Finds remain unchanged; new Finds are standalone until you restore the reading context.</p></article>
+        </div>
+        <figure class="guide-specimen maze-color-specimen">
+          <figcaption><span>Commander color relation</span><strong>Eligibility, not exact printed color</strong></figcaption>
+          <div class="maze-color-pips" aria-label="White and blue selected"><i class="ms ms-w ms-cost" aria-hidden="true"></i><i class="ms ms-u ms-cost" aria-hidden="true"></i><span>Fits Commander colors</span></div>
+          <p>White + blue includes cards whose color identity stays within WU: white, blue, WU, and colorless. A card does not need both selected colors.</p>
+          <p><strong>Printed-color alternatives remain separate:</strong> exactly these, includes these, and only these printed colors.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section id="recovery" class="r-main maze-guide-section" aria-labelledby="recovery-title">
+      <header class="maze-guide-section-head">
+        <span class="guide-kicker">III // Why did this search miss?</span>
+        <h2 id="recovery-title">Translation trouble and zero matches are different.</h2>
+        <p>Fix what Maze did not understand before broadening the query. If the translation is sound and the query returns zero cards, change one visible constraint yourself.</p>
+      </header>
+      <div class="maze-recovery-grid">
+        <article class="maze-recovery-card maze-recovery-card--warning">
+          <span>Maze did not fully understand</span>
+          <strong>Signs</strong>
+          <p>Unresolved terms, an important warning, or an existing ambiguity.</p>
+          <strong>Next action</strong>
+          <p>Rephrase or remove one unresolved element. Use an existing alternative when the inspector offers one.</p>
+        </article>
+        <article class="maze-recovery-card">
+          <span>The query ran; zero cards matched</span>
+          <strong>Signs</strong>
+          <p>A valid executable query, no material translation issue, and a zero result.</p>
+          <code>f:commander mv=99</code>
+          <strong>Next action</strong>
+          <p>Broaden or remove one constraint, then search again. Maze does not guess which constraint caused the miss.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="r-sidebar maze-guide-next" aria-labelledby="maze-next-title">
+      <div>
+        <span class="guide-kicker">IV // Useful results</span>
+        <h2 id="maze-next-title">Inspect, refine, or carry the thread forward.</h2>
+        <p>Open a card for detail, refine the visible query, set a useful card aside, or open the same query in Scryfall. Reading Finds keeps useful cards together locally. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone. It is not a deckbuilder.</p>
+      </div>
+      <a class="guide-cta" href="../../maze/index.html">Return to the Implicit Maze <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+</main>
+
+<footer class="maze-footer guide-footer" aria-labelledby="maze-guide-footer-title">
+  <p id="maze-guide-footer-title">Vox Mana is an unofficial fan project. Magic: The Gathering is &copy; Wizards of the Coast LLC.</p>
+  <p><a href="#maze-guide-main">Back to top</a> &middot; <a href="../index.html">Field Guide</a> &middot; <a href="../../index.html">Home</a> &middot; <a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+</footer>
+
+<script src="../../assets/js/shared/vm-rich-atmosphere.js" defer></script>
+<script src="../../assets/js/shared/reduce-motion.js" defer></script>
+<script src="../../assets/js/shared/vm-feedback.js" defer></script>
+<script src="../../assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+</body>
+</html>

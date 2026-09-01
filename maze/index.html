@@ -122,6 +122,14 @@
         <p id="maze-mode-context-copy">Describe the card you want in human language. Maze will translate the intent into Scryfall syntax before searching.</p>
       </div>
 
+      <div class="maze-reading-context" id="maze-reading-context" tabindex="-1">
+        <div class="maze-reading-context-copy" role="status" aria-live="polite" aria-atomic="true">
+          <span id="maze-reading-context-label">Standalone search</span>
+          <p id="maze-reading-context-detail">No reading is changing this query.</p>
+        </div>
+        <button class="maze-reading-context-action hidden" id="maze-reading-context-action" type="button" data-action="search-independently">Search independently</button>
+      </div>
+
       <!-- The Loom (shown only in builder mode) -->
       <div class="builder-panel hidden" id="builder-panel">
         <div class="builder-head">
@@ -132,8 +140,6 @@
           </div>
           <button class="builder-reset-btn" id="builder-reset-btn" type="button" data-action="reset-builder">Reset Loom</button>
         </div>
-
-        <div class="maze-dossier-context hidden" id="loom-dossier-context" role="status" aria-live="polite"></div>
 
         <div class="builder-compose-grid">
           <div class="builder-control-stack">
@@ -162,6 +168,7 @@
                 <button type="button" data-action="set-color-relation" data-value="c&lt;=" aria-pressed="false">Only these printed colors</button>
               </div>
             </details>
+            <p class="builder-field-help builder-color-relation-help">Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color.</p>
             <input id="color-op" type="hidden" value="id">
             <label class="exclude-colorless-option hidden" id="exclude-colorless-option" for="exclude-colorless">
               <input id="exclude-colorless" type="checkbox">

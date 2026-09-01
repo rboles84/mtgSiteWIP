@@ -280,7 +280,9 @@ async function runVm592LoomCases() {
 
   const input = document.getElementById("search-input");
   assert.equal(input.value, "f:commander", "cold Loom must start from its Commander-first default");
-  assert.equal(document.getElementById("loom-dossier-context").textContent, "Jund dossier context available · not applied to filters");
+  assert.equal(document.getElementById("maze-reading-context").dataset.state, "dossier-thread");
+  assert.equal(document.getElementById("maze-reading-context-label").textContent, "Jund dossier thread");
+  assert.equal(document.getElementById("maze-reading-context-detail").textContent, "This query came from your dossier. No extra reading filters are being added.");
   assert.equal(document.getElementById("sidebar-color-section").hidden, true, "Loom must hide duplicate sidebar color controls");
   assert.equal(document.getElementById("sidebar-format-section").hidden, true, "Loom must hide duplicate sidebar format controls");
   assert.equal(document.getElementById("clear-search-btn").hidden, true, "Loom must hide the duplicate generic Clear/Reset action");
@@ -923,7 +925,9 @@ async function runMazeDomMetadataCases() {
   window.setMode("builder");
   assert.equal(document.getElementById("search-input-label").textContent, "Live Scryfall query");
   assert.equal(document.getElementById("search-input").readOnly, true);
-  assert.equal(document.getElementById("loom-dossier-context").textContent, "Witherbloom College dossier context available \u00b7 not applied to filters");
+  assert.equal(document.getElementById("maze-reading-context").dataset.state, "dossier-thread");
+  assert.equal(document.getElementById("maze-reading-context-label").textContent, "Witherbloom College dossier thread");
+  assert.equal(document.getElementById("maze-reading-context-detail").textContent, "This query came from your dossier. No extra reading filters are being added.");
   assert.equal(input.value, "f:commander", "dossier context must not alter the default Loom query");
   assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
@@ -2148,7 +2152,7 @@ function installMazeDomHarness() {
     "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
     "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation",
     "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
-    "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "loom-dossier-context", "search-input-label", "clear-search-btn", "discovery-path-list",
+    "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
     "quick-search-list", "color-grid", "type-checks", "ability-checks", "rarity-checks", "reading-path-section",
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
     "maze-return-link", "maze-return-dismiss",
@@ -2164,7 +2168,7 @@ function installMazeDomHarness() {
           ? "input"
           : ["color-op", "bld-format", "sb-format"].includes(id)
             ? "select"
-            : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn"].includes(id)
+            : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"
               : id === "color-relation-picker"
                 ? "details"

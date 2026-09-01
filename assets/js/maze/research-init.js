@@ -923,7 +923,7 @@ async function initializeResearchArchives() {
   setMode("ai");
   updateSearchActions();
 
-  const launch = resolveMazeLaunchState(urlParams, readArchscryMazeHandoff() || {});
+  const launch = resolveMazeLaunchState(urlParams, readActiveArchscryMazeHandoff() || {});
   if (launch.from === "archscry" && launch.operatorQuery) {
     const launchPathType = urlParams.get("pathType") || launch.pathType || "";
     const initialLaunchOperatorQuery = normalizeLiveFourColorExactCommanderQuery(
@@ -1070,7 +1070,7 @@ function setMode(mode) {
   syncInputForModeSwitch(input, previousMode, mode);
   sizeLoomQueryInput(input);
   updateLoomSidebarVisibility(mode);
-  updateDossierContextDisclosure(mode);
+  updateReadingContextDisclosure();
   updateLoomResultDelivery();
   refreshInitialStateForMode();
 }
@@ -1083,19 +1083,87 @@ function updateModeContent(mode) {
   if (contextCopy) contextCopy.textContent = content.copy;
 }
 
-function updateDossierContextDisclosure(mode = currentMode) {
-  const disclosure = document.getElementById("loom-dossier-context");
-  if (!disclosure) return;
-  const handoff = readArchscryMazeHandoff();
+function updateReadingContextDisclosure() {
+  const context = document.getElementById("maze-reading-context");
+  const label = document.getElementById("maze-reading-context-label");
+  const detail = document.getElementById("maze-reading-context-detail");
+  const action = document.getElementById("maze-reading-context-action");
+  if (!context || !label || !detail || !action) return;
+  const retainedHandoff = readArchscryMazeHandoff();
+  const independent = isIndependentSearch();
+  const handoff = independent ? null : retainedHandoff;
+  const retainedDossierKey = resolveDossierActiveKey(retainedHandoff?.fit || retainedHandoff?.guild || "");
+  const retainedFactionName = String(
+    retainedHandoff?.factionName || DOSSIER_DISPLAY_NAMES.get(retainedDossierKey) || retainedHandoff?.fit || retainedHandoff?.guild || ""
+  ).trim();
   const dossierKey = resolveDossierActiveKey(handoff?.fit || handoff?.guild || "");
   const factionName = String(
     handoff?.factionName || DOSSIER_DISPLAY_NAMES.get(dossierKey) || handoff?.fit || handoff?.guild || ""
   ).trim();
-  const shouldShow = mode === "builder" && Boolean(factionName);
-  disclosure.classList.toggle("hidden", !shouldShow);
-  disclosure.textContent = shouldShow
-    ? `${factionName} dossier context available \u00b7 not applied to filters`
-    : "";
+  const launchedFromDossier = new URLSearchParams(location.search).get("from") === "archscry";
+  action.dataset.action = "search-independently";
+  action.textContent = "Search independently";
+  if (independent && retainedFactionName) {
+    context.dataset.state = "independent";
+    label.textContent = "Searching independently";
+    detail.textContent = "This search is not using the retained reading. New Finds will not be attached to that reading; the reading and its existing Finds remain unchanged.";
+    action.dataset.action = "restore-reading-context";
+    action.textContent = "Restore reading context";
+  } else if (factionName && launchedFromDossier) {
+    context.dataset.state = "dossier-thread";
+    label.textContent = `${factionName} dossier thread`;
+    detail.textContent = "This query came from your dossier. No extra reading filters are being added.";
+  } else if (factionName) {
+    context.dataset.state = "reading-available";
+    label.textContent = `${factionName} reading available`;
+    detail.textContent = "It keeps the return path and new Reading Finds association, but it is not changing this query.";
+  } else {
+    context.dataset.state = "standalone";
+    label.textContent = "Standalone search";
+    detail.textContent = "No reading is changing this query.";
+  }
+  action.classList.toggle("hidden", independent ? !retainedFactionName : !factionName);
+}
+
+function isIndependentSearch() {
+  return new URLSearchParams(location.search).get("independent") === "1";
+}
+
+function readActiveArchscryMazeHandoff() {
+  return isIndependentSearch() ? null : readArchscryMazeHandoff();
+}
+
+function searchIndependently() {
+  const url = new URL(location.href);
+  [
+    "from", "fit", "guild", "factionName", "sourceFaction", "readingTitle", "readingId",
+    "pathType", "plainReadingQuery", "operatorQuery", "returnUrl", "contextMode", "reviewIdentity"
+  ].forEach((key) => url.searchParams.delete(key));
+  const activeQuery = String(currentQuery || document.getElementById("search-input")?.value || "").trim();
+  if (activeQuery) url.searchParams.set("q", activeQuery);
+  else url.searchParams.delete("q");
+  url.searchParams.set("independent", "1");
+  history.pushState({ ...(history.state || {}), mazeIndependent: true }, "", url.href);
+  refreshReadingContextPresentation();
+  requestAnimationFrame(() => document.getElementById("maze-reading-context")?.focus?.({ preventScroll: true }));
+}
+
+function restoreReadingContext() {
+  const url = new URL(location.href);
+  url.searchParams.delete("independent");
+  history.pushState({ ...(history.state || {}), mazeIndependent: false }, "", url.href);
+  refreshReadingContextPresentation();
+  requestAnimationFrame(() => document.getElementById("maze-reading-context")?.focus?.({ preventScroll: true }));
+}
+
+function refreshReadingContextPresentation() {
+  updateReadingContextDisclosure();
+  const banner = document.getElementById("maze-return-banner");
+  const handoff = readActiveArchscryMazeHandoff();
+  if (handoff?.returnUrl && !handoff.returnBannerDismissed) renderArchscryReturnBanner(handoff);
+  else banner?.classList.remove("is-visible");
+  buildReadingPaths();
+  updateScratchpadReturnLink();
 }
 
 function updateLoomSidebarVisibility(mode = currentMode) {
@@ -1318,7 +1386,7 @@ async function triggerSearch(query, opts = {}) {
     if (isNoResultsResponse(data)) {
       const responseDiagnostics = buildSearchResponseDiagnostics(diagnostics, { totalCards: 0 });
       showQueryInspector(query, reason, responseDiagnostics, searchApi, { inputValue, normalized });
-      await showNoResultsState(query);
+      await showNoResultsState(query, diagnostics);
       return;
     }
     showError(data.details || data.warnings?.join("; ") || "Scryfall returned an error.");
@@ -2545,6 +2613,7 @@ function canonicalizeColorlessMazeLaunch(launch = {}, activeKey = "", pathType =
 }
 
 function initializeArchscryMazeHandoff(urlParams) {
+  if (urlParams.get("independent") === "1") return;
   if (urlParams.get("from") !== "archscry") {
     const existing = readArchscryMazeHandoff();
     if (existing?.returnUrl && !existing.returnBannerDismissed) {
@@ -2717,6 +2786,12 @@ function buildReadingPaths() {
   const section = document.getElementById("reading-path-section");
   const list = document.getElementById("reading-path-list");
   if (!section || !list) return;
+
+  if (isIndependentSearch()) {
+    section.style.display = "none";
+    clearNode(list);
+    return;
+  }
 
   const handoff = readArchscryMazeHandoff();
   const result = handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE ? null : getStoredPlacementResult();
@@ -3362,7 +3437,7 @@ function isNoResultsResponse(data) {
  * Shows a themed empty-results panel instead of a red error banner.
  * @param {string} query - Query that returned no cards.
  */
-async function showNoResultsState(query) {
+async function showNoResultsState(query, diagnostics = []) {
   clearError();
   allResults = [];
   totalCards = 0;
@@ -3373,7 +3448,7 @@ async function showNoResultsState(query) {
   document.getElementById("results-footer").classList.add("hidden");
 
   const panel = document.getElementById("state-panel");
-  panel.innerHTML = buildNoResultsHtml();
+  panel.innerHTML = buildNoResultsHtml(diagnostics);
   document.getElementById("empty-query").textContent = query;
   panel.classList.add("empty-result-active");
   panel.style.display = "flex";
@@ -3423,18 +3498,34 @@ function escapeHtml(value) {
  * Builds the empty-results panel HTML.
  * @returns {string} Empty-results HTML.
  */
-function buildNoResultsHtml() {
+function buildNoResultsHtml(diagnostics = []) {
+  const recoveryKind = classifyRecoveryDiagnostics(diagnostics);
+  const recoveryCopy = recoveryKind === "unresolved"
+    ? {
+        kicker: "Translation needs attention",
+        title: "Maze did not map the full request.",
+        copy: "Review the unresolved terms in the Query Inspector. Rephrase or remove one, then search again."
+      }
+    : recoveryKind === "warning"
+      ? {
+          kicker: "Translation needs review",
+          title: "Maze found a warning in this request.",
+          copy: "Review the warning or choose an existing alternative before broadening the search."
+        }
+      : {
+          kicker: "No match for this thread",
+          title: "The query ran, but no cards matched.",
+          copy: "No cards matched this exact combination. Broaden or remove one constraint, then search again."
+        };
   return `
     <div class="empty-archive">
       <a class="empty-card-link" id="empty-card-link" href="https://scryfall.com/card/rna/81/pestilent-spirit" target="_blank" rel="noopener">
         <div class="empty-card-frame" id="empty-card-frame">Searching for a strange specimen...</div>
       </a>
       <div>
-        <div class="empty-kicker">No match for this thread</div>
-        <div class="empty-title">The trail went cold.</div>
-        <div class="empty-copy">
-          No cards matched this exact search. Try loosening a color, removing one keyword, or switching an AND into an OR.
-        </div>
+        <div class="empty-kicker">${recoveryCopy.kicker}</div>
+        <div class="empty-title">${recoveryCopy.title}</div>
+        <div class="empty-copy">${recoveryCopy.copy}</div>
         <div class="empty-query" id="empty-query"></div>
         <div class="empty-card-lore hidden" id="empty-card-lore">
           <div class="empty-card-name" id="empty-card-name"></div>
@@ -3444,6 +3535,13 @@ function buildNoResultsHtml() {
       </div>
     </div>
   `;
+}
+
+function classifyRecoveryDiagnostics(diagnostics = []) {
+  const list = Array.isArray(diagnostics) ? diagnostics : [];
+  if (list.some((diagnostic) => diagnostic?.code === "parser_unresolved_term")) return "unresolved";
+  if (list.some((diagnostic) => diagnostic?.level === "warning")) return "warning";
+  return "valid";
 }
 
 /**
@@ -3536,7 +3634,7 @@ function isCardInScratchpad(card) {
 }
 
 function scratchpadContext() {
-  const handoff = readArchscryMazeHandoff() || {};
+  const handoff = readActiveArchscryMazeHandoff() || {};
   return {
     sourceContext: {
       context: "maze",
@@ -3819,7 +3917,7 @@ function updateScratchpadReturnLink(forceHidden = false) {
 }
 
 function currentDossierReturnUrl() {
-  const handoff = readArchscryMazeHandoff();
+  const handoff = readActiveArchscryMazeHandoff();
   if (!handoff?.returnUrl) return "";
   const fit = handoff.fit || handoff.guild || "";
   return appendReturnUrlParams(handoff.returnUrl, {
@@ -4037,6 +4135,7 @@ function bindMazeControls() {
     changeOrder(event.target.value, event.target.selectedOptions[0]?.dataset.dir);
   });
   document.getElementById("maze-return-dismiss")?.addEventListener("click", dismissArchscryReturnBanner);
+  window.addEventListener("popstate", refreshReadingContextPresentation);
   document.getElementById("scratchpad-title-input")?.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -4089,6 +4188,12 @@ function handleMazeActionClick(event) {
       return;
     case "clear-search":
       clearSearchInput();
+      return;
+    case "search-independently":
+      searchIndependently();
+      return;
+    case "restore-reading-context":
+      restoreReadingContext();
       return;
     case "reset-builder":
       resetBuilderFilters();

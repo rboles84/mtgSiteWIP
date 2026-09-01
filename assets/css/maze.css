@@ -402,17 +402,76 @@ body.vm-maze-route :focus-visible {
   line-height: 1.45;
 }
 
-.maze-dossier-context {
-  width: fit-content;
-  max-width: 100%;
-  padding: 0.62rem 0.78rem;
+.maze-reading-context {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 0.58rem 0.72rem;
   border: 1px solid var(--maze-line-soft);
-  border-radius: 999px;
-  background: rgba(247, 215, 132, 0.07);
-  color: var(--maze-muted);
+  border-radius: var(--maze-radius-md);
+  background: rgba(247, 215, 132, 0.055);
+  outline: none;
+}
+
+@keyframes maze-guide-beacon-arrive {
+  0%, 13%, 31%, 44%, 62%, 75%, 100% {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  6% {
+    opacity: 0.82;
+    transform: scale(1.018);
+  }
+  37% {
+    opacity: 0.72;
+    transform: scale(1.018);
+  }
+  68% {
+    opacity: 0.64;
+    transform: scale(1.018);
+  }
+}
+
+.maze-reading-context:focus-visible {
+  box-shadow: 0 0 0 3px rgba(247, 215, 132, 0.34);
+}
+
+.maze-reading-context-copy {
+  display: flex;
+  min-width: 0;
+  gap: 0.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.maze-reading-context-copy span {
+  color: var(--maze-gold-2);
   font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.maze-reading-context-copy p {
+  margin: 0;
+  color: var(--maze-muted);
+  font-size: 0.82rem;
   line-height: 1.4;
+}
+
+.maze-reading-context-action {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 0.42rem 0.68rem;
+  border: 1px solid var(--maze-teal-line);
+  border-radius: var(--maze-radius-sm);
+  background: rgba(74, 214, 200, 0.05);
+  color: var(--maze-teal);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  cursor: pointer;
 }
 
 body.vm-maze-route[data-maze-mode="raw"] .maze-mode-context {
@@ -834,6 +893,126 @@ body.vm-maze-route[data-maze-mode="builder"] .s-input {
   text-transform: uppercase;
 }
 
+.qi-recovery {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.65rem 0.72rem;
+  border-left: 2px solid #ffb3a9;
+  background: rgba(255, 107, 85, 0.06);
+}
+
+.qi-recovery strong {
+  color: var(--maze-ink);
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+}
+
+.qi-recovery span {
+  color: var(--maze-muted);
+  font-size: 0.82rem;
+}
+
+.qi-guide-link {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.62rem;
+  width: min(100%, 25rem);
+  min-width: 0;
+  padding: 0.58rem 0.68rem;
+  border: 1px solid rgba(247, 215, 132, 0.32);
+  border-radius: var(--maze-radius-sm);
+  background:
+    linear-gradient(105deg, rgba(247, 215, 132, 0.09), transparent 58%),
+    rgba(8, 11, 18, 0.56);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  color: var(--maze-ink);
+  font-family: var(--font-ui);
+  text-decoration: none;
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.qi-guide-link::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -1px;
+  pointer-events: none;
+  border: 1px solid rgba(247, 215, 132, 0.82);
+  border-radius: inherit;
+  box-shadow: 0 0 1rem rgba(247, 215, 132, 0.22);
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+.qi-guide-link.is-signaling::after {
+  animation: maze-guide-beacon-arrive 4800ms ease-in-out 1 both;
+}
+
+.qi-guide-mark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border: 1px solid rgba(247, 215, 132, 0.42);
+  border-radius: 50%;
+  background: rgba(247, 215, 132, 0.08);
+  color: var(--maze-gold-2);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.qi-guide-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-width: 0;
+  gap: 0.08rem;
+}
+
+.qi-guide-eyebrow {
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.qi-guide-action {
+  color: var(--maze-ink);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.qi-guide-link:hover,
+.qi-guide-link:focus-visible {
+  border-color: rgba(247, 215, 132, 0.78);
+  background-color: rgba(247, 215, 132, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(247, 215, 132, 0.12);
+  transform: translateY(-1px);
+}
+
+.qi-guide-link:hover::after,
+.qi-guide-link:focus-visible::after {
+  animation: none;
+  opacity: 0.58;
+  transform: none;
+}
+
+.qi-guide-link:hover .qi-guide-mark,
+.qi-guide-link:focus-visible .qi-guide-mark {
+  border-color: rgba(247, 215, 132, 0.82);
+  box-shadow: 0 0 0.75rem rgba(247, 215, 132, 0.24);
+}
+
 .qi-chip {
   padding: 0.18rem 0.5rem;
 }
@@ -932,10 +1111,6 @@ body.vm-maze-route[data-maze-mode="builder"] .s-input {
   font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
-.builder-panel > .maze-dossier-context {
-  grid-column: 1 / -1;
 }
 
 .builder-compose-grid {
@@ -1764,6 +1939,11 @@ body.vm-maze-route .bld-select:focus-visible {
   color: var(--maze-faint);
   font-size: 0.78rem;
   line-height: 1.4;
+}
+
+.builder-color-relation-help {
+  max-width: 68ch;
+  margin: 0;
 }
 
 .kw-input {
@@ -3387,6 +3567,8 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .btn-search,
   .btn-clear,
   .qi-btn,
+  .qi-guide-link,
+  .qi-guide-link::after,
   .btn-more,
   .m-btn,
   .transform-card-button,
@@ -3414,6 +3596,8 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 [data-reduce-motion="true"] .btn-search,
 [data-reduce-motion="true"] .btn-clear,
 [data-reduce-motion="true"] .qi-btn,
+[data-reduce-motion="true"] .qi-guide-link,
+[data-reduce-motion="true"] .qi-guide-link::after,
 [data-reduce-motion="true"] .btn-more,
 [data-reduce-motion="true"] .m-btn,
 [data-reduce-motion="true"] .stash-copy,

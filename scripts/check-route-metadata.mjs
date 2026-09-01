@@ -22,6 +22,11 @@ const ROUTES = [
     canonical: "https://voxmana.io/guide/reading/",
   },
   {
+    file: "guide/maze/index.html",
+    title: "Vox Mana - Read and Recover a Maze Search",
+    canonical: "https://voxmana.io/guide/maze/",
+  },
+  {
     file: "archscry/index.html",
     title: "Vox Mana - Commander Identity Reading",
     canonical: "https://voxmana.io/archscry/",

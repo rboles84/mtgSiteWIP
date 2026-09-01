@@ -66,6 +66,8 @@
     "test:guide-browser": "node scripts/guide-browser-smoke.mjs",
     "test:reading-guide": "node scripts/vm615-reading-dossier-onboarding-tests.mjs",
     "test:reading-guide-browser": "node scripts/vm615-reading-guide-browser.mjs",
+    "test:maze-onboarding": "node scripts/vm616-maze-context-recovery-tests.mjs",
+    "test:maze-onboarding-browser": "node scripts/vm616-maze-context-recovery-browser.mjs",
     "test:topbar-browser": "node scripts/topbar-browser-smoke.mjs",
     "test:browser-smoke": "node scripts/browser-smoke.mjs",
     "test:gate-compression": "node scripts/build/gate-compression-simulator.mjs",
