@@ -25,6 +25,7 @@ Commander players often know when a game feels right but struggle to explain why
 
 | Experience | Purpose |
 | --- | --- |
+| [Field Guide](guide/) | A concise starting point for choosing a useful Vox Mana path and seeing how the product fits together. |
 | [Archscry](archscry/) | A quick Commander identity reading that turns play-style answers into a placement result and explanatory dossier. |
 | [The Implicit Maze](maze/) | A search-support console that turns plain-language card intent, exact Scryfall syntax, or visual filters into inspectable card searches. |
 | [Strategium](strategium/) | A Commander learning surface for archetypes, table patterns, threat assessment, Rule 0 language, and reading the game. |
@@ -88,7 +89,7 @@ npm run test:browser-smoke
 | Path | What lives there |
 | --- | --- |
 | `index.html` | Public site entry point. |
-| `archscry/`, `maze/`, `strategium/`, `apocrypha/` | Primary public application routes. |
+| `guide/`, `archscry/`, `maze/`, `strategium/`, `apocrypha/` | Public orientation and application routes. |
 | `privacy/`, `terms/` | Public policy pages. |
 | `assets/` | Shared frontend assets (CSS, JavaScript, images, fonts). |
 | `data/` | Runtime data, schemas, and generated artifacts. |

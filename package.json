@@ -63,6 +63,7 @@
     "test:maze-results-layout": "node tests/maze/maze-results-layout-tests.js",
     "test:strategium-review": "node scripts/strategium-review-tests.mjs",
     "test:strategium-lifecycle": "node scripts/strategium-lifecycle-tests.mjs",
+    "test:guide-browser": "node scripts/guide-browser-smoke.mjs",
     "test:browser-smoke": "node scripts/browser-smoke.mjs",
     "test:gate-compression": "node scripts/build/gate-compression-simulator.mjs",
     "test:gate-live-bias": "node tests/placement/gate-compression-live-bias-tests.js",

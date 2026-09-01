@@ -3,6 +3,7 @@ import { extname, join } from "node:path";
 
 const publicPages = {
   home: "index.html",
+  guide: "guide/index.html",
   maze: "maze/index.html",
   archscry: "archscry/index.html",
   strategium: "strategium/index.html",
@@ -14,6 +15,23 @@ const publicPages = {
   terms: "terms/index.html",
 };
 
+const canonicalNavPages = [
+  "index.html",
+  "guide/index.html",
+  "archscry/index.html",
+  "maze/index.html",
+  "strategium/index.html",
+  "strategium/find-a-table/index.html",
+  "strategium/before-game/index.html",
+  "strategium/during-game/index.html",
+  "strategium/review/index.html",
+  "strategium/console/index.html",
+  "apocrypha/index.html",
+  "library/index.html",
+  "privacy/index.html",
+  "terms/index.html",
+];
+
 const sources = Object.fromEntries(
   await Promise.all(
     Object.entries(publicPages).map(async ([key, file]) => [key, await readFile(file, "utf8")])
@@ -22,7 +40,9 @@ const sources = Object.fromEntries(
 const scriptSources = {
   topbar: await readFile("assets/js/shared/vm-topbar.js", "utf8"),
   maze: await readFile("assets/js/maze/research-init.js", "utf8"),
+  guide: await readFile("assets/js/guide/guide.js", "utf8"),
 };
+const guideCssSource = await readFile("assets/css/guide.css", "utf8");
 const livePublicPageKeys = Object.keys(publicPages).filter(key => key !== "library");
 
 const failures = [];
@@ -102,6 +122,11 @@ function imageHasIntrinsicSize(tag) {
 
 function countMatches(source, pattern) {
   return [...source.matchAll(pattern)].length;
+}
+
+function getDesktopNavOrder(source) {
+  const nav = source.match(/<nav\b[^>]*aria-label="Main Navigation"[^>]*>([\s\S]*?)<\/nav>/i)?.[1] ?? "";
+  return [...nav.matchAll(/data-vm-nav="([^"]+)"/gi)].map(match => match[1]);
 }
 
 const mazeRouteModules = [
@@ -245,6 +270,16 @@ for (const key of livePublicPageKeys) {
   }
 }
 
+const acceptedNavOrder = ["home", "guide", "archscry", "maze", "strategium", "apocrypha"];
+for (const file of canonicalNavPages) {
+  const source = await readFile(file, "utf8");
+  const actualOrder = getDesktopNavOrder(source);
+  expect(
+    JSON.stringify(actualOrder) === JSON.stringify(acceptedNavOrder),
+    `${file} should preserve canonical navigation order ${acceptedNavOrder.join(" -> ")}`
+  );
+}
+
 expectAbsent(
   scriptSources.topbar,
   /setAttribute\(\s*["']role["']\s*,\s*["']menuitem["']\s*\)/i,
@@ -296,6 +331,132 @@ expectAbsent(
 expect(
   !getScriptTags(sources.home).some(inlineScriptIsExecutable),
   "index.html should not ship executable inline <script> blocks"
+);
+expect(
+  countMatches(sources.home, /class="vm-card reveal"/g) === 4,
+  "index.html should preserve exactly four functional Home path cards"
+);
+expect(
+  sources.home.includes('class="vm-guide-discovery"') &&
+    sources.home.includes('href="./guide/index.html"'),
+  "index.html should expose the bounded Guide discovery treatment outside the path cards"
+);
+
+expect(
+  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm612">') &&
+    sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm614r8">'),
+  "guide/index.html should inherit the actual Maze route stylesheet before its Guide adapters"
+);
+expect(
+  sources.guide.includes("background-vox-gateway-clean-13.webp") &&
+    !sources.guide.includes("background-apocrypha-library-clean-01.webp"),
+  "guide/index.html should use the Archscry/Maze gateway atmosphere instead of the Apocrypha background"
+);
+expect(
+  sources.guide.includes('class="vm-maze-route vm-guide-route"') &&
+    sources.guide.includes('data-vm-atmosphere="rich"') &&
+    sources.guide.includes('<canvas class="vm-bg__stars"') &&
+    sources.guide.includes('src="../assets/js/shared/vm-rich-atmosphere.js"'),
+  "guide/index.html should use the shared Archscry/Maze rich-atmosphere contract"
+);
+expect(
+  sources.guide.includes('class="r-search-zone maze-command-deck guide-hero"') &&
+    sources.guide.includes('class="maze-command-copy guide-hero-copy"') &&
+    countMatches(sources.guide, /class="r-main guide-chapter /g) === 3 &&
+    sources.guide.includes('class="r-main guide-relationship"') &&
+    sources.guide.includes('class="r-sidebar guide-sources"'),
+  "guide/index.html should reuse the Maze route, command-deck, main-surface, and sidebar primitives"
+);
+expect(
+  !sources.guide.includes('class="guide-identity"') &&
+    sources.guide.includes('<h1 id="guide-title">A Planeswalker\'s Guide to Vox Mana</h1>') &&
+    sources.guide.includes('<p class="guide-brand-line">Find your place. Shape your play.</p>') &&
+    sources.guide.includes('See what each part of Vox Mana does, what it gives you, and where it can take you next.') &&
+    !sources.guide.includes('Vox Mana Field Guide</span>'),
+  "guide/index.html should keep the exact Guide H1, subordinate tagline, orientation, and no duplicate visible title"
+);
+expectAbsent(
+  guideCssSource,
+  /body\.vm-guide-route(?:::before|::after|\s+\.vm-bg)|\.(?:guide-command-deck|guide-choice-grid|guide-choice)(?:\s|,|\{|:)/,
+  "assets/css/guide.css should remain an adapter and must not recreate the Maze background, command deck, or decision-card system"
+);
+expectAbsent(
+  sources.guide,
+  /<style\b[^>]*>/i,
+  "guide/index.html should not ship inline <style> blocks"
+);
+expect(
+  !getScriptTags(sources.guide).some(inlineScriptIsExecutable),
+  "guide/index.html should not ship executable inline <script> blocks"
+);
+expect(
+  countMatches(sources.guide, /<h1\b/gi) === 1 &&
+    sources.guide.includes('data-vm-current="guide"') &&
+    sources.guide.includes('src="../assets/js/guide/guide.js?v=vm614r7"'),
+  "guide/index.html should expose one h1 and the Guide active-state key"
+);
+expect(
+  !sources.guide.includes('guide-path-card') &&
+    !sources.guide.includes('guide-continuation-list') &&
+    !sources.guide.includes('III // Continue') &&
+    !sources.guide.includes('Continue from here') &&
+    !sources.guide.includes('What would help you next?'),
+  "guide/index.html should remove the superseded equal router cards and generic Continue cluster"
+);
+expect(
+  sources.guide.indexOf('id="guide-archscry"') < sources.guide.indexOf('id="guide-maze"') &&
+    sources.guide.indexOf('id="guide-maze"') < sources.guide.indexOf('id="guide-strategium"') &&
+    sources.guide.indexOf('id="guide-strategium"') < sources.guide.indexOf('id="how-vox-connects"') &&
+    sources.guide.indexOf('id="how-vox-connects"') < sources.guide.indexOf('id="guide-apocrypha"'),
+  "guide/index.html should keep the explanatory I -> II -> III -> IV -> V DOM and reading order"
+);
+expect(
+  sources.guide.includes('<strong>Archscry</strong> <span>· Commander direction</span>') &&
+    sources.guide.includes('<strong>The Implicit Maze</strong> <span>· Card discovery</span>') &&
+    sources.guide.includes('<strong>Strategium</strong> <span>· Table literacy</span>'),
+  "guide/index.html should visibly pair each product name with its teaching job"
+);
+expect(
+  countMatches(sources.guide, /data-guide-cta="(?:archscry|maze|strategium|apocrypha)"/g) === 4 &&
+    countMatches(sources.guide, /data-guide-cta="archscry"/g) === 1 &&
+    countMatches(sources.guide, /data-guide-cta="maze"/g) === 1 &&
+    countMatches(sources.guide, /data-guide-cta="strategium"/g) === 1 &&
+    countMatches(sources.guide, /data-guide-cta="apocrypha"/g) === 1,
+  "guide/index.html should expose exactly one principal body CTA for each major product"
+);
+expect(
+  countMatches(sources.guide, /<figure class="guide-specimen/g) === 3 &&
+    countMatches(sources.guide, /<figcaption><span>Example<\/span>/g) === 3 &&
+    sources.guide.includes('Red vampires that sacrifice creatures.') &&
+    sources.guide.includes('type:vampire type:creature c:r o:sacrifice') &&
+    sources.guide.includes('Exact output from the current Plain Reading compiler.'),
+  "guide/index.html should include three labeled, source-grounded specimens and the exact current Maze translation"
+);
+expect(
+  countMatches(sources.guide, /data-guide-maze-mode="(?:plain|operator|loom)"/g) === 3 &&
+    countMatches(sources.guide, /data-guide-maze-panel="(?:plain|operator|loom)"/g) === 3 &&
+    sources.guide.includes('aria-pressed="true" aria-controls="guide-maze-panel-plain"') &&
+    sources.guide.includes('c:r kw:haste mv&lt;=3 f:modern') &&
+    sources.guide.includes('id&lt;=r t:creature f:commander kw:haste') &&
+    sources.guide.includes('Current Weave') &&
+    sources.guide.includes('Fits these Commander colors'),
+  "guide/index.html should expose three truthful, controlled Maze specimen states"
+);
+expect(
+  scriptSources.guide.includes('button.addEventListener("click"') &&
+    scriptSources.guide.includes('button.addEventListener("keydown"') &&
+    scriptSources.guide.includes('button.setAttribute("aria-pressed"') &&
+    scriptSources.guide.includes('panel.hidden = panel.dataset.guideMazePanel !== mode'),
+  "Guide Maze mode controls should work through native click/keyboard activation and expose selected state"
+);
+const guideRelationshipSource = sources.guide.split('<section id="how-vox-connects"')[1]?.split('</section>')[0] || "";
+expect(
+  guideRelationshipSource.includes('class="guide-flow-main"') &&
+    guideRelationshipSource.includes('class="guide-flow-support"') &&
+    guideRelationshipSource.includes('<span>Strategium</span>') &&
+    guideRelationshipSource.includes('<span>Apocrypha</span>') &&
+    !guideRelationshipSource.includes('<a '),
+  "guide/index.html should render a non-clickable main relationship flow with parallel Strategium and supporting Apocrypha"
 );
 
 expect(
@@ -359,6 +520,13 @@ expect(
   "strategium/index.html should keep strategium.css as the last stylesheet in the head"
 );
 
+const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
+expect(
+  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm612" &&
+    guideStylesheetHrefs.at(-1) === "../assets/css/guide.css?v=vm614r8",
+  "guide/index.html should keep guide.css as the last stylesheet in the head"
+);
+
 expect(
   sources.maze.includes('src="../assets/js/maze/research-init.js"'),
   "maze/index.html should load the module from a relative file-safe path"
@@ -385,6 +553,7 @@ expectAbsent(
 
 const legalNavTargets = [
   'href="../index.html"',
+  'href="../guide/index.html"',
   'href="../archscry/index.html"',
   'href="../maze/index.html"',
   'href="../apocrypha/index.html"',

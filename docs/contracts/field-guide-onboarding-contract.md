@@ -126,6 +126,15 @@ so first-visit orientation remains concise. The approximate VM-614 hierarchy is:
 
 This hierarchy is an implementation constraint, not frozen final copy or layout.
 
+### VM-614 Guide-only presentation clarification - 2026-08-31
+
+The Owner has explicitly superseded the approximate three-equal-primary-choice rendering for the
+`/guide/` landing page only. The same intent coverage must now be taught through concise explanatory
+sections and truthful product specimens, with one principal continuation action per major surface,
+rather than repeated router cards. This does not change the accepted product architecture, the four Home
+functional paths, the four-route Guide V1 namespace, specialist content ownership, or any protected
+runtime semantic. No later Guide route is authorized by this clarification.
+
 The default for an unsure visitor is the concise, low-emphasis advice **If unsure, start with
 Archscry**. It must not force navigation, auto-select a default, require Archscry as onboarding, or
 visually subordinate Maze or another direct intent when the player already knows what they want. The

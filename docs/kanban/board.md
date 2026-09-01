@@ -41,6 +41,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-614 — Build the Vox Mana Field Guide Foundation and Global Discoverability](in-progress/VM-614-field-guide-foundation-global-discoverability.md) - Owner Review Ready after one surgical hero correction: the exact H1 and orientation now use the full desktop section width in a slimmer panel while mobile wrapping, all lower sections, and protected runtime remain unchanged.
+
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
