@@ -1,7 +1,7 @@
 # VM-618 — Move Guide to Topbar Utility and Correct Active Indicator Alignment
 
 ID: VM-618
-Status: In Progress — RobQA Ready / Owner Review required
+Status: Done — Owner Accepted
 Type: Shared navigation presentation and interaction repair
 Area: Shared public topbar / mobile navigation
 Priority: Focused post-VM-614 follow-up
@@ -17,6 +17,8 @@ balance.
 ## Source
 
 - Owner visual review after VM-614, dated 2026-08-31.
+- Owner acceptance dated 2026-08-31, bound to exact candidate
+  `c893cdc6c641902e4bdf095c088428f835af8ef5`.
 - Accepted VM-613 Field Guide/onboarding contract, refined only for navigation presentation.
 - Owner-Accepted VM-614 candidate `06196825df786f7ae10509596169fe6e3b841417`, which remains immutable.
 - Current shared topbar owners: `assets/css/topbar.css`, `assets/js/shared/vm-topbar.js`, and canonical
@@ -111,9 +113,9 @@ Review with exact changed files, tests, route/order/current-state evidence, and 
 - This card refines only where Guide is presented in shared navigation; Guide remains the same globally
   discoverable onboarding/orientation surface.
 
-## RobQA Result — 2026-08-31
+## RobQA Result — PASS / Owner Accepted — 2026-08-31
 
-**READY FOR OWNER REVIEW.** Focused static, smoke, metadata, copy-boundary, Guide-browser, and new
+**PASS — OWNER ACCEPTED.** Focused static, smoke, metadata, copy-boundary, Guide-browser, and new
 shared-topbar browser checks pass. The browser witness validates desktop utility order/current state,
 active-marker and separator geometry, keyboard focus, mobile order/single Guide projection, Escape/focus
 return, reduced motion, and the 200%-zoom equivalent layout. A real-browser cache finding was repaired by
@@ -128,4 +130,12 @@ versioning the shared topbar JavaScript URL; the static validator now prevents t
 - `npm.cmd run test:topbar-browser` — PASS
 - `git diff --check` — PASS
 - CPU-heavy semantic, placement, journey, mutation, recovery, and identity suites — NOT REQUIRED
-- Owner review remains the final judgment gate for the three bounded visual witnesses.
+- Owner accepted the exact rendered candidate and all three bounded visual witnesses.
+
+## Owner Acceptance
+
+The Owner accepts the desktop five-destination primary navigation, Guide · Feedback · menu utility
+order, restrained Guide current-page treatment, shared active-marker and separator geometry, and the
+single Guide mobile projection exactly as committed at
+`c893cdc6c641902e4bdf095c088428f835af8ef5`. The accepted runtime, tests, navigation contract, and route
+ownership documentation are immutable during closeout. VM-615, VM-616, and VM-617 remain unstarted.

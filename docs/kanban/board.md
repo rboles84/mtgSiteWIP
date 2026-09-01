@@ -41,8 +41,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-618 — Move Guide to Topbar Utility and Correct Active Indicator Alignment](in-progress/VM-618-guide-topbar-utility-active-indicator.md) - Owner Review Ready; surgical post-VM-614 shared-navigation refinement moves Guide beside Feedback, preserves one mobile Guide entry/current state, and corrects shared main-nav marker/separator geometry without changing Guide content or VM-615–617.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-618 — Move Guide to Topbar Utility and Correct Active Indicator Alignment](done/VM-618-guide-topbar-utility-active-indicator.md) - Owner Accepted at exact candidate `c893cdc6c641902e4bdf095c088428f835af8ef5`; the desktop primary pill remains product-only, Guide stays immediately before Feedback and exactly once on mobile, and shared active/separator geometry is accepted with protected product behavior unchanged.
 
 - [VM-614 — Build the Vox Mana Field Guide Foundation and Global Discoverability](done/VM-614-field-guide-foundation-global-discoverability.md) - Owner Accepted at exact candidate `06196825df786f7ae10509596169fe6e3b841417`; the teaching-first Guide, global discoverability, truthful three-mode Maze specimen, non-clickable relationship model, and compact Apocrypha endcap are complete with protected runtime unchanged.
 
