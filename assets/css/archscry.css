@@ -1195,6 +1195,106 @@ body.vm-archscry-route .dossier-console {
   margin-top: 1.25rem;
 }
 
+body.vm-archscry-route .dossier-orientation {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1.7fr) auto;
+  gap: clamp(0.8rem, 2vw, 1.25rem);
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: clamp(0.85rem, 2vw, 1.1rem);
+  border: 1px solid rgba(184, 149, 74, 0.2);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(184, 149, 74, 0.08), transparent 44%),
+    rgba(9, 9, 12, 0.76);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+body.vm-archscry-route .dossier-orientation-copy {
+  display: grid;
+  gap: 0.28rem;
+}
+
+body.vm-archscry-route .dossier-orientation-kicker {
+  color: var(--gold-l);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+body.vm-archscry-route .dossier-orientation h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.22;
+}
+
+body.vm-archscry-route .dossier-orientation p {
+  margin: 0;
+  color: var(--text-dim);
+  font-family: var(--font-reading);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+body.vm-archscry-route .dossier-orientation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+body.vm-archscry-route .dossier-orientation-actions button {
+  display: grid;
+  gap: 0.12rem;
+  min-height: 48px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(184, 149, 74, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  line-height: 1.25;
+  text-align: left;
+}
+
+body.vm-archscry-route .dossier-orientation-actions button:hover {
+  border-color: rgba(184, 149, 74, 0.42);
+  background: rgba(184, 149, 74, 0.08);
+}
+
+body.vm-archscry-route .dossier-orientation-actions button:focus-visible,
+body.vm-archscry-route .dossier-orientation-guide:focus-visible {
+  outline: 2px solid rgba(26, 170, 150, 0.92);
+  outline-offset: 2px;
+}
+
+body.vm-archscry-route .dossier-orientation-actions span {
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+body.vm-archscry-route .dossier-orientation-actions small {
+  color: var(--gold-l);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+body.vm-archscry-route .dossier-orientation-guide {
+  color: var(--gold-l);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22rem;
+}
+
 body.vm-archscry-route .dossier-console-grid {
   display: grid;
   grid-template-columns: minmax(190px, 230px) minmax(0, 1fr);
@@ -1376,6 +1476,14 @@ body.vm-archscry-route .lands-tiers .dossier-segment-panel[hidden] {
 
   body.vm-archscry-route .dossier-console-grid {
     display: block;
+  }
+
+  body.vm-archscry-route .dossier-orientation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.vm-archscry-route .dossier-orientation-guide {
+    justify-self: start;
   }
 
   body.vm-archscry-route .dossier-rail {
@@ -3312,6 +3420,10 @@ body.vm-archscry-route .saved-deck-link-note{
 }
 
 @media (max-width: 560px) {
+  body.vm-archscry-route .dossier-orientation-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   body.vm-archscry-route .dossier-mobile-tabs .dossier-tab-label--full {
     display: none;
   }

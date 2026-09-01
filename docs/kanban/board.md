@@ -54,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-615 — Turn an Archscry Result Into an Understandable Next Decision](done/VM-615-reading-dossier-onboarding.md) - Owner Accepted at exact candidate `8dcd6d2cb4861c3a13af8e9eb01c66253db5f617`; outcome-first results, intent-led dossier orientation, one canonical reading-Guide link, and the restrained `/guide/reading/` route are complete with protected Placement/dossier/Maze behavior unchanged and the known fresh-session gap preserved.
+
 - [VM-618 — Move Guide to Topbar Utility and Correct Active Indicator Alignment](done/VM-618-guide-topbar-utility-active-indicator.md) - Owner Accepted at exact candidate `c893cdc6c641902e4bdf095c088428f835af8ef5`; the desktop primary pill remains product-only, Guide stays immediately before Feedback and exactly once on mobile, and shared active/separator geometry is accepted with protected product behavior unchanged.
 
 - [VM-614 — Build the Vox Mana Field Guide Foundation and Global Discoverability](done/VM-614-field-guide-foundation-global-discoverability.md) - Owner Accepted at exact candidate `06196825df786f7ae10509596169fe6e3b841417`; the teaching-first Guide, global discoverability, truthful three-mode Maze specimen, non-clickable relationship model, and compact Apocrypha endcap are complete with protected runtime unchanged.

@@ -1,0 +1,249 @@
+/* VM-615: optional reading-and-dossier teaching route. */
+
+.reading-guide-page {
+  scroll-padding-top: calc(var(--vm-topbar-h, 92px) + 1rem);
+}
+
+.reading-guide-hero .guide-hero-copy h1 {
+  font-size: clamp(2.35rem, 4vw, 4rem);
+}
+
+.reading-guide-story {
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.reading-guide-section {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  min-height: 0;
+  padding: clamp(1rem, 2.8vw, 2rem);
+  scroll-margin-top: calc(var(--vm-topbar-h, 92px) + 1rem);
+}
+
+.reading-guide-meaning {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+}
+
+.reading-guide-copy,
+.reading-guide-section-head,
+.reading-guide-next > div:first-child {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+}
+
+.reading-guide-section h2,
+.reading-guide-next h2 {
+  margin: 0;
+  color: var(--maze-ink);
+  font-family: var(--font-ui);
+  font-size: clamp(1.55rem, 2.7vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.reading-guide-section p,
+.reading-guide-next p {
+  max-width: 62ch;
+  margin: 0;
+  color: rgba(239, 232, 216, 0.84);
+  font-family: var(--font-reading);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.64;
+}
+
+.reading-guide-flow {
+  gap: 0.9rem;
+}
+
+.reading-flow-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+.reading-flow-steps > div {
+  display: grid;
+  align-content: start;
+  gap: 0.32rem;
+  padding: 0.85rem;
+  border: 1px solid var(--maze-line-soft);
+  border-radius: var(--maze-radius-sm);
+  background: rgba(8, 11, 18, 0.52);
+}
+
+.reading-flow-steps > span {
+  align-self: center;
+  color: var(--maze-gold-2);
+  font-family: var(--font-ui);
+}
+
+.reading-flow-steps small,
+.reading-intent-grid article > span,
+.reading-dossier-directory > span {
+  color: var(--maze-gold-2);
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.reading-flow-steps strong {
+  color: var(--maze-ink);
+  font-family: var(--font-reading);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.42;
+}
+
+.reading-intent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.reading-intent-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--maze-line-soft);
+  border-radius: var(--maze-radius-md);
+  background:
+    linear-gradient(145deg, rgba(247, 215, 132, 0.055), transparent 45%),
+    rgba(7, 10, 17, 0.58);
+}
+
+.reading-intent-grid strong {
+  color: var(--maze-ink);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+.reading-intent-grid article p {
+  color: var(--maze-muted);
+  font-size: 0.9rem;
+  line-height: 1.52;
+}
+
+.reading-dossier-map {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.42fr) minmax(0, 1.58fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.reading-dossier-directory {
+  display: grid;
+  gap: 0.42rem;
+  padding: 1rem;
+  border: 1px solid var(--maze-line-strong);
+  border-radius: var(--maze-radius-md);
+  background: rgba(7, 10, 17, 0.72);
+}
+
+.reading-dossier-directory > span {
+  padding: 0.2rem 0.25rem 0.55rem;
+  border-bottom: 1px solid var(--maze-line-soft);
+  text-align: center;
+}
+
+.reading-dossier-directory strong {
+  padding: 0.48rem 0.58rem;
+  border: 1px solid var(--maze-line-soft);
+  border-radius: var(--maze-radius-sm);
+  color: rgba(239, 232, 216, 0.86);
+  font-family: var(--font-ui);
+  font-size: 0.73rem;
+  font-weight: 550;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.reading-dossier-roles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+  margin: 0;
+}
+
+.reading-dossier-roles > div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.78rem 0.85rem;
+  border-left: 2px solid var(--maze-gold-2);
+  background: rgba(247, 215, 132, 0.04);
+}
+
+.reading-dossier-roles dt {
+  color: var(--maze-gold-2);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.reading-dossier-roles dd {
+  margin: 0;
+  color: var(--maze-ink);
+  font-family: var(--font-reading);
+  font-size: 0.88rem;
+  line-height: 1.44;
+}
+
+.reading-guide-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  min-height: 0;
+  padding: clamp(1rem, 2.4vw, 1.45rem);
+}
+
+.reading-next-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.reading-next-actions .guide-cta {
+  margin: 0;
+}
+
+@media (max-width: 940px) {
+  .reading-guide-meaning,
+  .reading-dossier-map,
+  .reading-guide-next {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading-next-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .reading-flow-steps,
+  .reading-intent-grid,
+  .reading-dossier-roles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading-flow-steps > span {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-guide-page *,
+  .reading-guide-page *::before,
+  .reading-guide-page *::after {
+    scroll-behavior: auto !important;
+  }
+}

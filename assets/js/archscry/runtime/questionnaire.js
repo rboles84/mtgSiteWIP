@@ -21,7 +21,7 @@ import {
 import {
   renderBoundedResultShell,
   renderResult,
-} from "./dossier-view.js";
+} from "./dossier-view.js?v=vm615b";
 
 import {
   showSection,

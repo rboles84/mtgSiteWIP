@@ -2032,6 +2032,29 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     tiedPeerDossier: resultState === "tied" && isPrimary ? tiedPeerDossier : null,
   });
   const utilityActionsHtml = reviewMode ? "" : buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
+  const dossierOrientationHtml = reviewMode ? "" : `
+    <section class="dossier-orientation" aria-labelledby="dossier-orientation-title">
+      <div class="dossier-orientation-copy">
+        <div class="dossier-orientation-kicker">Choose one next decision</div>
+        <h3 id="dossier-orientation-title">What do you want from this result?</h3>
+        <p>You do not need to read every section. Start with the question that is useful now.</p>
+      </div>
+      <div class="dossier-orientation-actions" aria-label="Dossier starting points">
+        <button type="button" ${buildActionAttrs("set-dossier-panel", { panelId: "placement" })}>
+          <span>Understand the result</span><small>Placement</small>
+        </button>
+        <button type="button" ${buildActionAttrs("set-dossier-panel", { panelId: "start" })}>
+          <span>Choose a first deck direction</span><small>Start Here</small>
+        </button>
+        <button type="button" ${buildActionAttrs("set-dossier-panel", { panelId: "commander-deck-starts" })}>
+          <span>Compare Commander starting points</span><small>Commander Browsing Starts</small>
+        </button>
+        <button type="button" ${buildActionAttrs("set-dossier-panel", { panelId: "maze-discovery" })}>
+          <span>Keep exploring with cards</span><small>Maze Discovery</small>
+        </button>
+      </div>
+      <a class="dossier-orientation-guide" href="../guide/reading/index.html#dossier-map">How to read your dossier <span aria-hidden="true">→</span></a>
+    </section>`;
   const primaryName = reviewMode ? faction.name : result.faction_name || getFaction(result.faction)?.name || result.faction;
   const alternativeName = (tiedAlternative || closeAlternative?.match)?.faction_name ||
     getFaction((tiedAlternative || closeAlternative?.match)?.faction)?.name ||
@@ -2092,6 +2115,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     ${preconSectionHtml}
     <div class="decks-section">
       <div class="section-label">Commander Browsing Starts</div>
+      <p class="signals-intro">These are places to begin browsing this direction, not a definitive ranking.</p>
       <div class="decks-grid">${decksHtml}</div>
     </div>
     ${archetypeHtml ? `
@@ -2217,6 +2241,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     ${placementSnapshotHtml}`;
   const dossierConsoleHtml = `
     <div class="dossier-console" data-dossier-console data-dossier-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}" data-dossier-layout="${layoutMode}"${reviewMode ? " data-direct-review=\"true\"" : ""}>
+      ${dossierOrientationHtml}
       <div class="dossier-mobile-nav">
         <div class="dossier-mobile-tabs-shell" data-dossier-tabs-shell>
           <button class="dossier-tabs-scroll dossier-tabs-scroll--left" type="button" data-dossier-scroll-direction="left" ${buildActionAttrs("scroll-dossier-tabs", { direction: "left" })} aria-label="Show earlier dossier sections" hidden><span aria-hidden="true">&#8249;</span></button>
