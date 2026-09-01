@@ -1,7 +1,7 @@
 # VM-616 — Maze Context, Translation, and Recovery Onboarding
 
 ID: VM-616
-Status: Owner Review Ready — Owner decision pending
+Status: Done — Owner Accepted
 Type: Contextual onboarding / recovery presentation / Guide route
 Area: The Implicit Maze, `/guide/maze/`
 Priority: High
@@ -220,3 +220,19 @@ only the smallest truthful presentation slice and stop uncommitted at rendered O
   accepted VM-616 query/context/Find/history invariants pass.
 - Status returns to **Owner Review Ready**, not Owner Accepted. Home, Archscry, VM-619, VM-620, VM-617,
   persistence, dependencies, commit, push, and merge remain untouched.
+
+## Owner Acceptance and Candidate Binding — 2026-09-01
+
+- Owner Accepted the reviewed VM-616 result exactly as presented at immutable candidate
+  `73118b65f13157366b631afd70ac2d68e6d2b68d`.
+- Acceptance includes weak-translation and valid-zero recovery; all four context states; temporary
+  URL/history-only `independent=1`; unchanged reading-associated Finds and standalone independent Finds;
+  Commander-color explanation; `/guide/maze/`; corrected Reading Finds copy; and the sole canonical Guide
+  Beacon with its finite 4.8-second, three-beat, same-visit non-replaying signal, interaction suppression,
+  and reduced-motion behavior.
+- The inherited broad Maze assertion remains explicitly unchanged: runtime correctly produces `c:r` while
+  the stale broad expectation remains `c:r f:commander`. The focused VM-592 path passes.
+- VM-619 and VM-620 remain backlog-only, with VM-619 intended before VM-620. VM-617 was not started.
+- The accepted product and validation candidate is frozen at the exact SHA above. Lifecycle closeout makes
+  no product, copy, interaction, animation, query, context, persistence, Guide, layout, or test change.
+- PR and merge remain pending separate Owner authorization.

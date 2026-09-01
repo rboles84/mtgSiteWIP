@@ -13,8 +13,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
 - [VM-619 — Opt-In Field Guide Guided-Reading Mode](backlog/VM-619-opt-in-field-guide-guided-reading-mode.md) - separately governed discovery for a truthful, accessible, explicitly opt-in guided-reading capability; no tour library, runtime, or persistence work is authorized by VM-616.
+- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
@@ -44,8 +44,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-616 — Maze Context, Translation, and Recovery Onboarding](in-progress/VM-616-maze-context-translation-recovery-onboarding.md) - RobQA PASS / Owner Review Ready: diagnostic-led weak/zero recovery, four truthful context states with reversible URL-only independence, unchanged Find associations, Commander-color explanation, and optional `/guide/maze/` depth; no query or persistence redesign.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -58,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-616 — Maze Context, Translation, and Recovery Onboarding](done/VM-616-maze-context-translation-recovery-onboarding.md) - Owner Accepted at exact candidate `73118b65f13157366b631afd70ac2d68e6d2b68d`; weak/zero recovery, four truthful context states, temporary URL-only independence, unchanged Find associations, Commander-color semantics, `/guide/maze/`, and the finite same-visit Guide Beacon signal are complete with protected query and persistence behavior unchanged.
 
 - [VM-615 — Turn an Archscry Result Into an Understandable Next Decision](done/VM-615-reading-dossier-onboarding.md) - Owner Accepted at exact candidate `8dcd6d2cb4861c3a13af8e9eb01c66253db5f617`; outcome-first results, intent-led dossier orientation, one canonical reading-Guide link, and the restrained `/guide/reading/` route are complete with protected Placement/dossier/Maze behavior unchanged and the known fresh-session gap preserved.
 

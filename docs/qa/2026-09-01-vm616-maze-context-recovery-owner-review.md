@@ -2,8 +2,8 @@
 
 Date: 2026-09-01
 Branch: `codex/vm-616-maze-context-recovery`
-Disposition: **RobQA PASS — Owner Review Ready**
-Owner acceptance: **PENDING**
+Disposition: **RobQA PASS — Owner Accepted**
+Owner acceptance: **ACCEPTED** at exact candidate `73118b65f13157366b631afd70ac2d68e6d2b68d`
 
 ## RobQA classification
 
@@ -195,3 +195,20 @@ Judge only:
   browser onboarding, rendered witness inspection, and `git diff --check`.
 - **Owner judgment remaining:** whether three slow beats are perceptible yet restrained in normal use.
 - **Disposition:** **RobQA PASS — Owner Review Ready**. Owner acceptance remains pending.
+
+## Owner Acceptance and Exact Candidate — 2026-09-01
+
+- **Decision:** Owner Accepted the complete reviewed VM-616 result without further product change.
+- **Exact candidate:** `73118b65f13157366b631afd70ac2d68e6d2b68d`.
+- **Accepted scope:** weak translation; valid zero; the four context presentations; URL/history-only
+  `independent=1`; existing associated-Find preservation and standalone independent-Find behavior;
+  Commander-color explanation; `/guide/maze/`; corrected Reading Finds wording; and the sole canonical
+  Guide Beacon with its 3-beat 4.8-second finite signal, same-visit non-replay, hover/focus suppression,
+  natural completion, and reduced-motion static hierarchy.
+- **Inherited assertion:** deliberately preserved. The protected actual Operator output is `c:r`; the stale
+  broad-suite expectation is `c:r f:commander`. VM-616 does not own, repair, or weaken this mismatch; the
+  focused VM-592 path remains passing.
+- **Lifecycle isolation:** all accepted product and validation files are unchanged after candidate binding.
+  Only card/board/QA/handoff lifecycle records advance in the closeout commit.
+- **Follow-ups:** VM-619 and VM-620 remain separate backlog-only cards, with VM-619 ahead of VM-620. VM-617
+  remains unstarted. No additional Owner product judgment remains; PR/merge authorization remains separate.
