@@ -2,13 +2,28 @@
 
 ID: VM-621
 Title: Contextual Field Guide Guided-Reading Expansion
-Status: Owner Accepted — Combined Candidate Binding / Closeout In Progress
+Status: Done — Owner Accepted
 Type: Guided interaction / accessibility
 Area: Field Guide, Home, Archscry dossier, shared guided-reading lifecycle
 Priority: Owner finding
 Created: 2026-09-01
 
-## Summary
+## Accepted candidate — 2026-09-02
+
+- VM-620 scope candidate: `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`.
+- VM-621 scope candidate: `99ad6895400c858a6bfdd9cc99438b577950e4df`.
+- Combined Owner-Accepted deployable tip: `99ad6895400c858a6bfdd9cc99438b577950e4df`.
+- RobQA PASS — Owner Accepted; Owner accepted both flows and the exact final Home copy as one product state.
+- VM-620 alone is not authorized for integration. Only this combined VM-620 + VM-621 accepted state may be merged.
+- Scope B includes intact mixed visual/URL/registration/validation files because index-only reconstruction
+  was denied. VM-620 retains visual ownership; VM-621 owns Home/dossier configuration and explicit launch URLs.
+- Automated/browser accessibility contracts: PASS. Owner keyboard/visual/mechanical review: PASS.
+  Real screen-reader validation: NOT PERFORMED; optional future audit/nonblocking, no invented coverage.
+- Production/tests remain unchanged after binding. Lifecycle-only closeout and branch push authorized;
+  no PR/merge, VM-617 work or further guided route is authorized.
+- Exact files/evidence: `docs/handoffs/2026-09-02-1033-codex-vm620-vm621-owner-accepted-closeout.md`.
+
+## Binding and prior review history
 
 Owner accepted the reviewed combined VM-620 + VM-621 worktree on 2026-09-02 and authorized scope binding,
 lifecycle closeout and branch push. Only the complete combined tip is integration-eligible; no PR/merge is
@@ -92,7 +107,8 @@ Beacon signal; VM-621 owns the interaction resolution.
    VM-620 Beacon lifecycle, navigation, persistence, telemetry, account state, and VM-617 remain unchanged.
 6. Focused automation and rendered self-QA reach Owner Review Ready. Per the 2026-09-02 Owner decision,
    real screen-reader validation is NOT PERFORMED and is optional future audit coverage, not a review blocker.
-   Owner keyboard/mechanical/visual testing and the final Home copy recheck passed; no final acceptance inferred.
+   Owner keyboard/mechanical/visual testing and the final Home copy recheck passed; combined acceptance is
+   now explicitly recorded above, not inferred from those checks.
 
 ## Non-Goals
 

@@ -1,6 +1,6 @@
 # VM-620 Shared Field Guide Beacon — Owner Review
 
-**Status:** Owner Review Ready — VM-621 resolves the mismatch; combined final judgment pending
+**Status:** RobQA PASS — Done / Owner Accepted within the combined VM-620 + VM-621 state
 **Date:** 2026-09-01
 **Branch:** `codex/vm-620-shared-guide-beacon`
 **Baseline:** `9c572edb0232161c860ea199a508a73f99a5d6fd`
@@ -8,11 +8,16 @@
 
 ## RobQA classification
 
+Owner acceptance is bound to combined tip `99ad6895400c858a6bfdd9cc99438b577950e4df` (also VM-621 scope).
+VM-620 scope `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9` is accepted only as a component, never for standalone
+integration. Direct Owner authorization permits lifecycle-only closeout and push, not PR/merge or new work.
+The final combined packet governs acceptance; earlier readiness-only narrative below is historical evidence.
+
 - **Risk:** QA-2 for a shared, progressive-enhancement visual component, with bounded QA-3 regression protection for the accepted Maze recovery and guided-reading lifecycle.
 - **Changed behavior:** three approved contextual Guide invitations now share a recognizable static anatomy and one visibility-triggered, finite signal per logical Beacon per page visit.
 - **Protected contracts:** four Home product paths; four dossier decisions and tab behavior; Maze translation/recovery, Query Inspector, history, Finds, and exact guided URL; VM-619 four-step Driver lifecycle; ordinary desktop/mobile navigation; Guide content; Placement, persistence, account, and telemetry behavior.
 - **Not changed:** product semantics, generated/canonical data, Guide content, Driver vendor files, Placement, parser/calibration, storage, telemetry, account behavior, or VM-617.
-- **Review state:** final combined automation and Owner keyboard/mechanical/visual checks passed. Real screen-reader validation is NOT PERFORMED, optional future audit, not a blocker under the Owner decision. See [final combined packet](2026-09-02-vm620-vm621-combined-owner-review.md); neither card is Owner Accepted.
+- **Review state:** final combined automation and Owner keyboard/mechanical/visual checks passed; both cards are explicitly Owner Accepted at the combined tip. Real screen-reader validation is NOT PERFORMED, optional future audit/nonblocking. See [final combined packet](2026-09-02-vm620-vm621-combined-owner-review.md).
 
 ## Exact Beacon propagation
 

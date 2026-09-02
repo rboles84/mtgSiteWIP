@@ -2,13 +2,27 @@
 
 ID: VM-620
 Title: Shared Field Guide Beacon Discoverability and Visual Language
-Status: Owner Accepted — Combined Candidate Binding / Closeout In Progress
+Status: Done — Owner Accepted
 Type: Design-system discovery / contextual help
 Area: Field Guide, Home, Archscry, Maze, shared UI
 Priority: unranked
 Created: 2026-09-01
 
-## Summary
+## Accepted candidate — 2026-09-02
+
+- VM-620 scope candidate: `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`.
+- VM-621 scope candidate / combined Owner-Accepted deployable tip: `99ad6895400c858a6bfdd9cc99438b577950e4df`.
+- RobQA PASS — Owner Accepted, based on explicit combined acceptance and the final combined evidence.
+- VM-620 alone is not authorized for integration. Accepted only as a component of the combined VM-620 + VM-621 state.
+- Scope B retains intact mixed Home/dossier markup and destination-validation files; VM-620 still owns their
+  visual portions. Index-only reconstruction was denied, not claimed technically impossible.
+- Automated/browser accessibility contracts: PASS. Owner keyboard/visual/mechanical review: PASS.
+  Real screen-reader validation: NOT PERFORMED; optional future audit, nonblocking. VM-619 evidence unchanged.
+- Paired lifecycle-only closeout follows the repository's combined-card precedent. Production/tests are
+  unchanged after binding; output directories remain untracked. Branch push authorized; PR/merge is not.
+- Exact file ownership and final verification: `docs/handoffs/2026-09-02-1033-codex-vm620-vm621-owner-accepted-closeout.md`.
+
+## Binding and prior review history
 
 Owner accepted the reviewed combined VM-620 + VM-621 worktree on 2026-09-02 and authorized scope binding,
 lifecycle closeout and branch push. VM-620 scope is NOT independently authorized for integration; acceptance
@@ -25,7 +39,7 @@ Current review update (2026-09-02): VM-621 resolves the interaction mismatch; al
 browser regressions pass. Owner Home/dossier keyboard/mechanical/visual checks and final Home copy recheck
 passed. Real screen-reader validation: NOT PERFORMED, optional future audit and not a review blocker under
 the Owner decision. See `docs/qa/2026-09-02-vm620-vm621-combined-owner-review.md`. VM-620 remains visual-only;
-neither card is Owner Accepted. No commit, push, merge or VM-617 work.
+at that review stage neither card was Owner Accepted. The exact combined acceptance above now governs.
 
 Evaluate and, only after Owner approval, propagate a recognizable shared **Field Guide** beacon language to
 legitimate optional contextual-help invitations without turning every Guide link into an oversized CTA.
@@ -97,7 +111,7 @@ beacons.
 - Replaying attention on rerender or repeat navigation could become distracting.
 - Visual consistency must not imply a guided walkthrough where only a document link exists.
 
-## Owner Gate
+## Original implementation gate (historical)
 
 The Owner authorized this bounded implementation pass. Stop at rendered Owner Review readiness: do not
 self-accept, commit, push, merge, begin VM-617, extend Driver.js beyond Maze, or add guided reading to Home,

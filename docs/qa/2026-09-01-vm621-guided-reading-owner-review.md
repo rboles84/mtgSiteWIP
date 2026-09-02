@@ -1,11 +1,16 @@
 # VM-621 Guided-Reading Expansion — Owner Review
 
-Status: Owner Review Ready — combined final judgment pending; not Owner Accepted.
-Branch: `codex/vm-620-shared-guide-beacon` (combined uncommitted VM-620/621 work).
+Status: RobQA PASS — Done / Owner Accepted within the combined VM-620 + VM-621 state.
+Branch: `codex/vm-620-shared-guide-beacon` (combined accepted candidate, lifecycle-only closeout).
 Base / unchanged main: `9c572edb0232161c860ea199a508a73f99a5d6fd`.
 Gates: repo-local `robdev` / `robqa`, frozen `docs/dev/RobDevPass.md` / `docs/qa/RobQAPass.md`.
 
 ## Current disposition — 2026-09-02
+
+Owner explicitly accepts VM-621 scope / combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`.
+VM-620 scope `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9` is accepted only within that combined state and cannot
+integrate alone. Direct Owner authorization permits lifecycle-only closeout and push, with no PR/merge.
+Exact production/test bytes stay frozen. This acceptance supersedes prior readiness-only statements below.
 
 Owner manually verified the final Home Beacon → Step 1 → Step 4 → Done → static Guide correction: PASS.
 Automated accessibility contracts and Owner keyboard/visual interaction testing passed.
@@ -14,7 +19,7 @@ audit coverage, NOT a VM-620/621 review blocker. No NVDA/browser version, VoiceO
 PASS is claimed. The prior required/pending NVDA disposition is superseded.
 The final combined regression, including the strengthened VM-621 and accepted VM-619 browser suites, now
 passes. See [combined packet](2026-09-02-vm620-vm621-combined-owner-review.md) for current evidence and the
-five remaining Owner judgments. Neither card is self-accepted, committed or merged.
+five Owner judgments, now explicitly accepted. No self-acceptance or merge occurred.
 
 ## Owner copy correction — 2026-09-02
 
@@ -75,7 +80,7 @@ not prove the new interactions.
   confirmed Next/Done rather than X focus, and quiet Done-to-H1/static-URL cleanup.
 - Automated responsive checks passed at 390×844 and 720×500. Owner mechanical/visual testing now passed.
 - Real screen-reader validation was not performed; it is optional future audit coverage, not required for
-  this Owner Review. RobQA READY is supported by the final combined evidence; final acceptance remains open.
+  this Owner Review. RobQA PASS is supported by the final evidence and explicit combined Owner acceptance.
 
 ## Owner finding converted to an invariant
 

@@ -1,10 +1,31 @@
 # VM-620 + VM-621 — Final Combined Owner Review
 
-Status: RobQA READY / Owner Review; neither card Owner Accepted. No commit, push or merge.
+Status: RobQA PASS — VM-620 and VM-621 Done / Owner Accepted as one combined deployable state.
 Branch: `codex/vm-620-shared-guide-beacon`; one worktree, `C:/dev/voxmana.io`.
-HEAD, local main and origin/main: `9c572edb0232161c860ea199a508a73f99a5d6fd`.
-Candidate: current uncommitted combined worktree, NOT that baseline SHA alone.
+Unchanged local main / origin/main baseline: `9c572edb0232161c860ea199a508a73f99a5d6fd`.
+VM-620 scope candidate: `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`.
+VM-621 scope / exact combined Owner-Accepted deployable tip: `99ad6895400c858a6bfdd9cc99438b577950e4df`.
 Authority: latest Owner brief; separate VM-620/621 cards; repo-local RobDev/RobQA skills and frozen gates.
+
+## Explicit acceptance and closeout authority — 2026-09-02
+
+The Owner directly confirmed in chat acceptance of both cards at the exact combined candidate above and
+authorized lifecycle-only closeout and branch push. No PR, merge, squash, rebase, product/test change or
+VM-617 work is authorized. Both cards retain separate scope ownership and reference the same combined tip.
+VM-620 alone is not authorized for integration. Only the combined VM-620 + VM-621 Owner-Accepted state may
+eventually be merged. Earlier readiness-only wording and proposed binding strategy below are review history.
+
+The 36 changed production/test Git blobs and raw hashes match the reviewed candidate; all 43 captured review
+output files remain unchanged and untracked. Mixed Home/dossier markup, registration/validation wiring and
+VM-620 destination assertions were kept intact in scope B after index-only reconstruction was denied.
+Visual ownership remains VM-620; Home/dossier configurations and launch intent remain VM-621. This is an
+explicit file-level overlap, not a claim of technical inseparability or a second guided-reading engine.
+
+Automated/browser accessibility contracts: PASS. Owner keyboard/visual/mechanical testing: PASS.
+Real screen-reader validation: NOT PERFORMED. Optional future accessibility audit: not blocking.
+No NVDA/browser versions or VoiceOver/screen-reader PASS are inferred; historical VM-619 evidence is unchanged.
+The paired lifecycle-only closeout follows the existing VM-580–585 combined-card precedent; exact ownership
+and isolation checks are recorded in `docs/handoffs/2026-09-02-1033-codex-vm620-vm621-owner-accepted-closeout.md`.
 
 ## Owner evidence and accessibility disposition
 
@@ -125,7 +146,7 @@ Existing `outputs/owner-review/`, `outputs/vm616-owner-review/`, `outputs/vm619-
 six prior witnesses remain untracked and unchanged. Fresh VM-615/616/topbar witnesses are isolated beneath
 the new combined output directory. No existing evidence was deleted or overwritten.
 
-## Files by authority and candidate-binding recommendation
+## Files by authority and original candidate-binding recommendation
 
 | Owner | Production | Test / documentation ownership |
 | --- | --- | --- |
@@ -136,12 +157,13 @@ the new combined output directory. No existing evidence was deleted or overwritt
 This pass changes no production code. Only harness change: VM-620 browser accepts the same optional
 `VM_OWNER_REVIEW_OUTPUT` override as existing compatibility scripts; its default and assertions stay intact.
 
-Recommendation, NOT performed: after explicit Owner authorization, bind two scope-owned commits on this
+Historical recommendation, superseded by the actual binding disposition above: bind two scope-owned commits on this
 same branch (VM-620 visual first, VM-621 configuration/URL second), splitting shared files by owned hunks.
 Reference both commit SHAs and the final combined tip in both cards and review evidence. Review/accept the
 combined tip; do not integrate the intermediate visual-only state. If a shared hunk cannot be separated
 honestly, document it in the final integration commit rather than claiming independent acceptance.
-Repository workflow does not require a pre-review commit here. No staging, commit, push, PR or merge was done.
+Repository workflow did not require a pre-review commit. The later direct Owner instruction authorized
+candidate binding, lifecycle closeout and push, but not PR or merge.
 
 ## Explicit final answers
 
@@ -166,7 +188,7 @@ Repository workflow does not require a pre-review commit here. No staging, commi
 19. Real screen-reader coverage truthfully not performed? **Yes**, optional future audit, nonblocking.
 20. Signal means clicking actually helps orient the player? **Yes**, the tested three-Beacon flow fulfills that promise.
 
-## Owner judgment — only these five questions
+## Owner judgment — all five accepted
 
 1. Do Home, dossier and Maze now feel like one coherent Field Guide help system?
 2. Does each Beacon preserve the primary hierarchy of its page?
@@ -174,4 +196,4 @@ Repository workflow does not require a pre-review commit here. No staging, commi
 4. Does the finite magical signal make help discoverable without becoming irritating?
 5. Is the combined VM-620 + VM-621 experience ready to become the accepted contextual Field Guide pattern?
 
-Stop at Owner Review. No self-acceptance, merge, VM-617 work or guided expansion to any other route.
+Stop after lifecycle-only closeout and branch push. No PR, merge, VM-617 work or additional guided route.

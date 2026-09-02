@@ -41,10 +41,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-621 — Contextual Field Guide Guided-Reading Expansion](in-progress/VM-621-contextual-field-guide-guided-reading-expansion.md) - Owner Review Ready with VM-620; all requested final regressions and Owner keyboard/visual/copy checks pass. Real screen-reader validation NOT PERFORMED, optional future audit/nonblocking per Owner. Four-step Home/dossier configs reuse unchanged VM-619 lifecycle. Not Owner Accepted; uncommitted, no VM-617 work.
-
-- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](in-progress/VM-620-shared-field-guide-beacon-visual-language.md) - Owner Review Ready with separately governed VM-621 resolution; three contextual Beacons share finite visual language and matching opt-in orientation. Final combined regressions pass; visual ownership stays separate from guided behavior. Neither card accepted or integrated.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -57,6 +53,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](done/VM-620-shared-field-guide-beacon-visual-language.md) - Done — Owner Accepted; scope `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`, accepted only within combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`. Exactly three visual Beacons; not independently integration-safe. No PR/merge authorized.
+
+- [VM-621 — Contextual Field Guide Guided-Reading Expansion](done/VM-621-contextual-field-guide-guided-reading-expansion.md) - Done — Owner Accepted; scope and combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`. Four Home/dossier steps reuse unchanged VM-619 lifecycle; direct Guides static. Screen-reader testing NOT PERFORMED, optional/nonblocking. Only combined VM-620/621 may integrate; VM-617 unstarted.
 
 - [VM-619 — Opt-In Field Guide Guided-Reading Mode](done/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Accepted at exact candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`; explicit Maze intent launches four local Driver.js steps, then returns to the ordinary static Guide with accepted focus, cleanup, failure, replay, motion, and first-release Windows NVDA behavior. VoiceOver/Safari remains untested; VM-620/VM-617 and `/guide/reading/` remain untouched.
 
