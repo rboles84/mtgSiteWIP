@@ -355,7 +355,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm615">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm620">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -368,7 +368,7 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm612c" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm620" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -390,7 +390,8 @@ expect(
 );
 expect(
   sources.home.includes('class="vm-guide-discovery"') &&
-    sources.home.includes('href="./guide/index.html"'),
+    sources.home.includes('data-guide-beacon-id="home-guide-entry"') &&
+    sources.home.includes('href="./guide/?guided=vox-mana-intro"'),
   "index.html should expose the bounded Guide discovery treatment outside the path cards"
 );
 
@@ -421,7 +422,7 @@ expect(
 );
 expect(
   !sources.guide.includes('class="guide-identity"') &&
-    sources.guide.includes('<h1 id="guide-title">A Planeswalker\'s Guide to Vox Mana</h1>') &&
+    sources.guide.includes('<h1 id="guide-title" tabindex="-1">A Planeswalker\'s Guide to Vox Mana</h1>') &&
     sources.guide.includes('<p class="guide-brand-line">Find your place. Shape your play.</p>') &&
     sources.guide.includes('See what each part of Vox Mana does, what it gives you, and where it can take you next.') &&
     !sources.guide.includes('Vox Mana Field Guide</span>'),
@@ -543,7 +544,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
 const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm612c');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm620');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -553,12 +554,12 @@ expect(
   "index.html should load topbar.css, then Keyrune, then home.css"
 );
 expect(
-  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm612c',
+  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm620',
   "index.html should keep home.css as the last stylesheet in the head"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm615');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm620');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&
@@ -580,7 +581,7 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../assets/js/maze/research-init.js"'),
+  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm620"'),
   "maze/index.html should load the module from a relative file-safe path"
 );
 expect(

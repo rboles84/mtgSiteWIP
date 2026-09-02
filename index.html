@@ -34,7 +34,8 @@
 <link rel="stylesheet" href="./assets/css/layout.css" />
 <link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
 <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
-<link rel="stylesheet" href="./assets/css/home.css?v=vm612c" />
+<link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
+<link rel="stylesheet" href="./assets/css/home.css?v=vm620" />
 </head>
 
 <!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
@@ -770,8 +771,14 @@
     </p>
 
     <p class="vm-guide-discovery">
-      <span>New to Vox Mana?</span>
-      <a href="./guide/index.html">Start with the Guide <span aria-hidden="true">-&gt;</span></a>
+      <a class="vm-guide-beacon vm-guide-beacon--entry" href="./guide/?guided=vox-mana-intro" data-guide-beacon-id="home-guide-entry">
+        <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
+        <span class="vm-guide-beacon__copy">
+          <span class="vm-guide-beacon__eyebrow">Field Guide</span>
+          <span class="vm-guide-beacon__context">New to Vox Mana?</span>
+          <span class="vm-guide-beacon__action">Start with the Guide <span aria-hidden="true">-&gt;</span></span>
+        </span>
+      </a>
     </p>
 
     <div class="vm-card-grid">
@@ -829,6 +836,7 @@
 
 <script src="./assets/js/home/home.js" defer></script>
 <script src="./assets/js/shared/reduce-motion.js" defer></script>
+<script src="./assets/js/shared/guide-beacon.js?v=vm620" defer></script>
 <script src="./assets/js/shared/vm-feedback.js" defer></script>
 <script src="./assets/js/shared/vm-topbar.js?v=vm618" defer></script>
 </body>

@@ -194,7 +194,7 @@ if (/["'`]\/data\//.test(archscryRuntimeSource)) {
 if ((homeSource.match(/class="vm-card reveal"/g) ?? []).length !== 4) {
   failures.push("Home Guide discovery smoke check failed: the four functional path cards changed");
 }
-if (!homeSource.includes('class="vm-guide-discovery"') || !homeSource.includes('href="./guide/index.html"')) {
+if (!homeSource.includes('class="vm-guide-discovery"') || !homeSource.includes('href="./guide/?guided=vox-mana-intro"')) {
   failures.push("Home Guide discovery smoke check failed: bounded Guide entry is missing");
 }
 if (!guideSource.includes('id="how-vox-connects"') || !guideSource.includes('data-vm-current="guide"')) {
@@ -203,7 +203,7 @@ if (!guideSource.includes('id="how-vox-connects"') || !guideSource.includes('dat
 if (
   (guideSource.match(/data-guide-cta="(?:archscry|maze|strategium|apocrypha)"/g) ?? []).length !== 4 ||
   (guideSource.match(/<figure class="guide-specimen/g) ?? []).length !== 3 ||
-  !guideSource.includes('<h1 id="guide-title">A Planeswalker\'s Guide to Vox Mana</h1>') ||
+  !guideSource.includes('<h1 id="guide-title" tabindex="-1">A Planeswalker\'s Guide to Vox Mana</h1>') ||
   !guideSource.includes('<p class="guide-brand-line">Find your place. Shape your play.</p>') ||
   !guideSource.includes('type:vampire type:creature c:r o:sacrifice') ||
   !guideSource.includes('c:r kw:haste mv&lt;=3 f:modern') ||

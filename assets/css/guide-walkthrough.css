@@ -53,6 +53,8 @@
   outline-offset: 3px;
 }
 
+.vm-guide-route #guide-title:focus,
+.vm-guide-route #reading-guide-title:focus,
 .vm-guide-maze-route #maze-guide-title:focus {
   outline: none;
 }

@@ -13,8 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
-
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
@@ -42,6 +40,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-621 — Contextual Field Guide Guided-Reading Expansion](in-progress/VM-621-contextual-field-guide-guided-reading-expansion.md) - Owner Review Ready with VM-620; all requested final regressions and Owner keyboard/visual/copy checks pass. Real screen-reader validation NOT PERFORMED, optional future audit/nonblocking per Owner. Four-step Home/dossier configs reuse unchanged VM-619 lifecycle. Not Owner Accepted; uncommitted, no VM-617 work.
+
+- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](in-progress/VM-620-shared-field-guide-beacon-visual-language.md) - Owner Review Ready with separately governed VM-621 resolution; three contextual Beacons share finite visual language and matching opt-in orientation. Final combined regressions pass; visual ownership stays separate from guided behavior. Neither card accepted or integrated.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
