@@ -202,3 +202,54 @@ preflight, final combined Owner Review handoff and frozen RobDev/RobQA gates.
 - Push and remote alignment: pending at authoring, mandatory final verification before completion report.
 - Final response reports lifecycle SHA, unchanged main refs, remote alignment and clean tracked state.
 - PR/merge: not authorized and not performed.
+
+## Subsequent Owner-authorized integration — 2026-09-02
+
+Agent: Codex. The Owner now explicitly authorizes a PR from
+`codex/vm-620-shared-guide-beacon` to `main` and a **merge commit**, with no squash or rebase.
+This supersedes the earlier PR/merge stop only; both cards remain Done — Owner Accepted.
+
+Preserve all three exact commits:
+
+- VM-620 scope: `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`.
+- Combined accepted candidate: `99ad6895400c858a6bfdd9cc99438b577950e4df`.
+- Lifecycle closeout: `63cc57590ec5ddfba2c0c665049ddd2e7c58c71b`.
+
+VM-620 alone must never be integrated. The complete combined state through the lifecycle closeout is
+the minimum PR content. This additive integration record changes only this handoff, its index and the
+board's authorization note; all product/test files remain identical to the accepted candidate.
+
+RobDev compact packet: GitHub PR/merge and local main synchronization are the changed repository
+behavior; explicit Owner authorization and Git refs are authoritative. Reuse the same branch, sole
+worktree and existing GitHub merge mechanism. Consumers are main and its downstream deployment workflow;
+no production implementation, generated data or vendor edit is permitted. Risks are partial integration,
+history rewriting, accidental evidence staging and merge drift. Check exact ancestry, expected PR head,
+merge parents, candidate-tree equality and final clean status; stop if any cannot be proved.
+
+Preflight reviewed: current skill guides/frozen gates, workflow/cost policy, handoff/index, board, both
+Done cards, VM-621 preflight and final combined QA. The local and remote branch were aligned at
+`63cc57590ec5ddfba2c0c665049ddd2e7c58c71b`; main/origin/main were
+`9c572edb0232161c860ea199a508a73f99a5d6fd`. Local branch review confirmed only the three accepted commits
+ahead, no tracked dirt, unchanged product/test bytes and no output paths in the PR diff. The Owner's
+exact-candidate review/acceptance and direct merge instruction supply the review disposition; no new
+product judgment is requested.
+
+RobQA: QA-5 exact-history integration of the already Owner-Accepted QA-2/QA-3 state; documentation QA-0.
+Fresh pre-PR PASS: `test:vm619-guided-reading`, `test:vm620-guide-beacon`,
+`test:vm621-guided-reading`. These protect vendor hashes, static direct routes, three eligible Beacons,
+four-step configurations, final copy and shared lifecycle. Accepted browser/rendered evidence above
+remains valid at identical bytes. No new UI change or manual finding. CPU-heavy validation NOT REQUIRED;
+unrelated engine/Placement/parser/semantic suites remain skipped. Real screen-reader testing remains
+NOT PERFORMED, optional/nonblocking; no new accessibility certification is claimed.
+
+Post-merge gate: rerun the three narrow contracts; verify all three SHAs are ancestors, merge has two
+parents, integrated non-documentation tree matches the accepted candidate, local main/origin/main and
+remote main agree, both cards remain Done — Owner Accepted, direct Guide routes stay static, Driver
+hashes remain unchanged, `/guide/reference/` is absent and VM-617 remains unstarted. Verify all five
+Owner Review directories remain untracked and their captured evidence bytes unchanged. No branch or
+worktree deletion is requested. These checks and the resulting PR/merge/main SHAs are reported in the
+final integration response; they are pending at the time this pre-merge record is committed.
+
+Not touched: all protected behavior listed above, accepted product/test files, all review outputs,
+VM-617 and additional guided routes. Follow-up/next agent: none for this request; stop after successful
+merge/synchronization verification. Deployment success is not implied merely by merge completion.
