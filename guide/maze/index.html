@@ -73,7 +73,7 @@
   <section class="r-search-zone maze-command-deck guide-hero maze-guide-hero" aria-labelledby="maze-guide-title">
     <div class="maze-command-copy guide-hero-copy">
       <span class="maze-eyebrow">Field Guide // The Implicit Maze</span>
-      <h1 id="maze-guide-title">Read the search. Change one thing.</h1>
+      <h1 id="maze-guide-title" tabindex="-1">Read the search. Change one thing.</h1>
       <p class="guide-brand-line">The Maze shows its work.</p>
       <p class="guide-hero-orientation">Use the translation, reading context, and result state to decide what to change next. The search stays in your hands.</p>
     </div>
@@ -83,7 +83,7 @@
     <section id="translation" class="r-main maze-guide-section" aria-labelledby="translation-title">
       <header class="maze-guide-section-head">
         <span class="guide-kicker">I // What did Maze understand?</span>
-        <h2 id="translation-title">Read the request beside the query.</h2>
+        <h2 id="translation-title" tabindex="-1">Read the request beside the query.</h2>
         <p>In Plain Reading, <strong>You wrote</strong> preserves your words. <strong>Maze translated</strong> is the exact Scryfall query that ran. Recognized, ignored, warning, and unresolved rows explain the current translation.</p>
       </header>
       <div class="maze-translation-grid">
@@ -110,7 +110,7 @@
     <section id="context" class="r-main maze-guide-section maze-context-section" aria-labelledby="context-title">
       <header class="maze-guide-section-head">
         <span class="guide-kicker">II // What is affecting this search?</span>
-        <h2 id="context-title">Context is visible; filters stay literal.</h2>
+        <h2 id="context-title" tabindex="-1">Context is visible; filters stay literal.</h2>
         <p>A reading may keep a return path and associate new Reading Finds without adding hidden filters. A dossier thread can supply the query that opened the Maze. <strong>Search independently</strong> keeps the current query but does not use the retained reading: new Finds are not attached to that reading, while the reading and its existing Finds remain unchanged. Use <strong>Restore reading context</strong> or Back to return.</p>
       </header>
       <div class="maze-context-grid">
@@ -132,7 +132,7 @@
     <section id="recovery" class="r-main maze-guide-section" aria-labelledby="recovery-title">
       <header class="maze-guide-section-head">
         <span class="guide-kicker">III // Why did this search miss?</span>
-        <h2 id="recovery-title">Translation trouble and zero matches are different.</h2>
+        <h2 id="recovery-title" tabindex="-1">Translation trouble and zero matches are different.</h2>
         <p>Fix what Maze did not understand before broadening the query. If the translation is sound and the query returns zero cards, change one visible constraint yourself.</p>
       </header>
       <div class="maze-recovery-grid">
@@ -154,10 +154,10 @@
       </div>
     </section>
 
-    <section class="r-sidebar maze-guide-next" aria-labelledby="maze-next-title">
+    <section id="maze-guide-results" class="r-sidebar maze-guide-next" aria-labelledby="maze-next-title">
       <div>
         <span class="guide-kicker">IV // Useful results</span>
-        <h2 id="maze-next-title">Inspect, refine, or carry the thread forward.</h2>
+        <h2 id="maze-next-title" tabindex="-1">Inspect, refine, or carry the thread forward.</h2>
         <p>Open a card for detail, refine the visible query, set a useful card aside, or open the same query in Scryfall. Reading Finds keeps useful cards together locally. Finds saved with reading context can stay attached to that reading; independent Finds remain standalone. It is not a deckbuilder.</p>
       </div>
       <a class="guide-cta" href="../../maze/index.html">Return to the Implicit Maze <span aria-hidden="true">→</span></a>
@@ -174,5 +174,6 @@
 <script src="../../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../../assets/js/shared/vm-feedback.js" defer></script>
 <script src="../../assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+<script type="module" src="../../assets/js/guide/maze-walkthrough.js"></script>
 </body>
 </html>

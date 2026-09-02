@@ -65,9 +65,9 @@ assert.equal(printedExact.query, "c=wu f:commander");
 assert.match(mazeHtml, /id="maze-reading-context"[\s\S]*?Standalone search[\s\S]*?Search independently/);
 assert.match(mazeHtml, /Fits Commander colors includes cards whose color identity stays within the selected colors; a card does not need every selected color\./);
 assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
-assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/"/g) || []).length, 1, "working Maze should expose one canonical top-entry Guide invitation");
+assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/\?guided=maze-search"/g) || []).length, 1, "working Maze should expose one opt-in guided-reading invitation");
 assert.doesNotMatch(mazeUi, /guide\/maze\/#recovery/, "canonical working-Maze Guide action must not skip to the recovery section");
-assert.match(mazeUi, /qi-guide-eyebrow">Field Guide[\s\S]*?Read how to understand this search/);
+assert.match(mazeUi, /qi-guide-eyebrow">Field Guide[\s\S]*?Walk me through this search/);
 assert.match(mazeUi, /let hasPresentedGuideBeaconSignal = false[\s\S]*?function reserveGuideBeaconSignal[\s\S]*?hasPresentedGuideBeaconSignal = true/);
 assert.match(mazeUi, /function bindGuideBeaconSignal[\s\S]*?classList\.remove\("is-signaling"\)[\s\S]*?pointerenter[\s\S]*?focusin[\s\S]*?animationend/);
 const guideBeaconSignalSeam = mazeUi.slice(mazeUi.indexOf("let hasPresentedGuideBeaconSignal"), mazeUi.indexOf("function renderRecoveryGuidance"));
@@ -90,7 +90,7 @@ assert.match(mazeCss, /\.qi-guide-link\.is-signaling::after[\s\S]*?animation: ma
 assert.match(mazeCss, /\.qi-guide-link:hover::after,[\s\S]*?\.qi-guide-link:focus-visible::after[\s\S]*?animation: none/);
 assert.match(mazeCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.qi-guide-link::after/);
 
-assert.match(guideHtml, /<h1 id="maze-guide-title">Read the search\. Change one thing\.<\/h1>/);
+assert.match(guideHtml, /<h1 id="maze-guide-title" tabindex="-1">Read the search\. Change one thing\.<\/h1>/);
 assert.match(guideHtml, /Red vampires that sacrifice creatures[\s\S]*?type:vampire type:creature c:r o:sacrifice/);
 assert.match(guideHtml, /Black Lotus with mana value 99 in Commander[\s\S]*?c:b legal:commander[\s\S]*?Unresolved: lotus, mana, value/);
 assert.match(guideHtml, /f:commander mv=99/);

@@ -13,7 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-619 — Opt-In Field Guide Guided-Reading Mode](backlog/VM-619-opt-in-field-guide-guided-reading-mode.md) - separately governed discovery for a truthful, accessible, explicitly opt-in guided-reading capability; no tour library, runtime, or persistence work is authorized by VM-616.
 - [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -56,6 +55,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-619 — Opt-In Field Guide Guided-Reading Mode](done/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Accepted at exact candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`; explicit Maze intent launches four local Driver.js steps, then returns to the ordinary static Guide with accepted focus, cleanup, failure, replay, motion, and first-release Windows NVDA behavior. VoiceOver/Safari remains untested; VM-620/VM-617 and `/guide/reading/` remain untouched.
 
 - [VM-616 — Maze Context, Translation, and Recovery Onboarding](done/VM-616-maze-context-translation-recovery-onboarding.md) - Owner Accepted at exact candidate `73118b65f13157366b631afd70ac2d68e6d2b68d`; weak/zero recovery, four truthful context states, temporary URL-only independence, unchanged Find associations, Commander-color semantics, `/guide/maze/`, and the finite same-visit Guide Beacon signal are complete with protected query and persistence behavior unchanged.
 
