@@ -43,8 +43,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-619 — Opt-In Field Guide Guided-Reading Mode](in-progress/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Review remediation: exact opt-in Maze URL launches four locally served Driver.js reading steps; forward focus now lands on Next/Done, completion returns quietly to the Guide title, and approved Read/See/Understand/Act headings are rendered. Focused RobQA is green; Windows NVDA remains pending, and VM-620/VM-617 remain untouched.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -57,6 +55,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-619 — Opt-In Field Guide Guided-Reading Mode](done/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Accepted at exact candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`; explicit Maze intent launches four local Driver.js steps, then returns to the ordinary static Guide with accepted focus, cleanup, failure, replay, motion, and first-release Windows NVDA behavior. VoiceOver/Safari remains untested; VM-620/VM-617 and `/guide/reading/` remain untouched.
 
 - [VM-616 — Maze Context, Translation, and Recovery Onboarding](done/VM-616-maze-context-translation-recovery-onboarding.md) - Owner Accepted at exact candidate `73118b65f13157366b631afd70ac2d68e6d2b68d`; weak/zero recovery, four truthful context states, temporary URL-only independence, unchanged Find associations, Commander-color semantics, `/guide/maze/`, and the finite same-visit Guide Beacon signal are complete with protected query and persistence behavior unchanged.
 

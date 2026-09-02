@@ -1,8 +1,15 @@
 # VM-619 — Opt-In Maze Guided Reading Implementation
 
-**Status:** Owner Review candidate; not Owner Accepted
+**Status:** Done — Owner Accepted
 **Implemented:** 2026-09-01
 **Baseline:** `c36570f6b0bd9e254f43637660b7d467a277ef7b` on the sole worktree/branch `codex/vm-619-guided-reading-redteam`
+
+## Owner acceptance
+
+- Exact accepted product/validation candidate: `05ebc9021fed8dadd7dbb6f87255bddd605b0748`.
+- The required first-release Windows NVDA manual accessibility gate passed after the final focus remediation. Exact NVDA and browser versions were not supplied in the acceptance packet and are not inferred.
+- VoiceOver + Safari remains untested; no universal screen-reader certification is claimed.
+- Lifecycle closeout changes no production, copy, interaction, Driver, Guide, Beacon, styling, or validation file after candidate binding.
 
 ## Result
 
@@ -66,7 +73,7 @@ Owner Review exposed two presentation defects in the first candidate: Driver's d
 
 ## Limits
 
-- `PENDING OWNER MANUAL SCREEN-READER GATE`: Windows NVDA + Firefox or Chrome is required before Owner acceptance.
+- The required first-release Windows NVDA manual gate passed; its exact NVDA/browser versions were not supplied for the record.
 - VoiceOver + Safari was unavailable and remains an explicitly unverified cross-platform limitation.
-- The candidate uses truthful `role=dialog` without `aria-modal`; the static target/background stays in the accessibility tree. Manual NVDA must judge duplicate reading and announcement quality.
+- The accepted candidate uses truthful `role=dialog` without `aria-modal`; the static target/background stays in the accessibility tree.
 - This implementation is not a general tour framework and does not authorize a Reading Guide walkthrough.

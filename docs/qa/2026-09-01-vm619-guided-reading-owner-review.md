@@ -1,8 +1,17 @@
 # VM-619 Guided Reading — RobQA Owner Review
 
-**Disposition:** RobQA READY FOR OWNER MANUAL ACCESSIBILITY REVIEW
-**Acceptance:** Not Owner Accepted
-**Required pending gate:** `PENDING OWNER MANUAL SCREEN-READER GATE`
+**Disposition:** RobQA PASS — Owner Accepted
+**Acceptance:** ACCEPTED at exact candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`
+**Manual accessibility gate:** PASS — required first-release Windows NVDA review
+
+## Acceptance binding
+
+- Owner Accepted VM-619 on 2026-09-01 with no further product change authorized during closeout.
+- Exact Owner-Accepted candidate: `05ebc9021fed8dadd7dbb6f87255bddd605b0748`.
+- Manual environment as reported: Windows with NVDA. The acceptance packet did not supply the exact NVDA version or browser family/version; those values are intentionally not inferred.
+- The required first-release manual screen-reader/accessibility review passed after the Next/Done and quiet-H1 focus remediation. No universal screen-reader certification is claimed.
+- VoiceOver + Safari remains untested because that environment was unavailable; this is a cross-platform coverage limitation, not a PASS.
+- Closeout updates lifecycle documentation only. Production and validation files remain identical to the accepted candidate.
 
 ## RobQA classification
 
@@ -61,7 +70,9 @@ Use Windows NVDA with current Firefox or Chrome:
 
 If Mac/iPhone hardware becomes available, additionally test VoiceOver + Safari. Its absence is documented and does not silently count as a pass.
 
-## Owner judgments only
+## Owner judgments resolved
+
+The Owner accepted usefulness, four-step brevity, visual fit, focus/history lifecycle comfort, and the first opt-in guided-reading pattern exactly as tested.
 
 1. Does **Walk me through this search** feel meaningfully better than being dropped onto the Guide?
 2. Are the four steps short enough?

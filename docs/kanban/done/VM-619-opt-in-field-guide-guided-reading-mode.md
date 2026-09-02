@@ -2,7 +2,7 @@
 
 ID: VM-619
 Title: Opt-In Field Guide Guided-Reading Mode
-Status: In Progress — Owner Review
+Status: Done — Owner Accepted
 Type: Product discovery / guided onboarding
 Area: Field Guide, contextual onboarding, shared UI
 Priority: unranked
@@ -17,7 +17,7 @@ structure of a live Vox Mana surface without turning contextual Guide links into
 
 - VM-616 Owner Review found that a working-Maze Guide invitation needed stronger hierarchy, but explicitly
   kept any reusable walkthrough system outside VM-616.
-- `docs/kanban/in-progress/VM-616-maze-context-translation-recovery-onboarding.md` retains one canonical,
+- `docs/kanban/done/VM-616-maze-context-translation-recovery-onboarding.md` retains one canonical,
   ordinary Guide link and does not implement a tour library.
 - `docs/plans/2026-08-30-vm613-field-guide-sequence.md` keeps Field Guide routes optional and bounded.
 
@@ -91,8 +91,14 @@ structure of a live Vox Mana surface without turning contextual Guide links into
 - **Red-before-green invariant:** the dedicated browser harness first failed every forward-focus assertion plus the Done destination/outline assertion. The focused static contract also failed on the newly approved step copy before implementation.
 - **Smallest complete correction:** the lifecycle helper now assigns focus to the rendered forward action after Driver completes each popover render; completion focuses the static Guide H1 instead of the full main container; route-scoped CSS suppresses only that programmatic H1 outline; no dialog, history, target-restoration, or product semantics changed.
 - **Approved copy:** the four headings are now **Read the translation**, **See what affects the search**, **Understand why it missed**, and **Act on a useful result**. The explanatory bodies are unchanged.
-- **Validation:** focused VM-619 static/browser/review suites, frontend JS/HTML lint, Guide browser smoke, VM-616 static/rendered compatibility, regenerated witnesses, and real in-app route interaction all pass. Windows NVDA remains the Owner gate.
+- **Validation:** focused VM-619 static/browser/review suites, frontend JS/HTML lint, Guide browser smoke, VM-616 static/rendered compatibility, regenerated witnesses, and real in-app route interaction all pass. The Windows NVDA Owner gate subsequently passed and is bound below.
 
-## Owner Gate
+## Owner Acceptance and Candidate Binding — 2026-09-01
 
-Status is **RobQA READY FOR OWNER MANUAL ACCESSIBILITY REVIEW**, not Owner Accepted. The required Windows NVDA + Firefox or Chrome walkthrough remains `PENDING OWNER MANUAL SCREEN-READER GATE`. VoiceOver + Safari is unverified because that hardware/runtime was unavailable. Owner judgment is also required on usefulness, brevity, visual fit, and lifecycle comfort before acceptance.
+- Owner Accepted the complete reviewed VM-619 result exactly as tested at immutable candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`.
+- The required first-release Windows NVDA manual screen-reader/accessibility gate passed after the focus remediation. The acceptance packet did not provide the exact NVDA version or browser family/version, so those details remain unrecorded rather than inferred.
+- Acceptance establishes Vox Mana's first opt-in guided-reading pattern: **explicit request → short guided orientation → ordinary static Guide**. Automatic product tours remain prohibited.
+- Acceptance includes the exact four steps, locally pinned Driver.js 1.8.0, Next/Done initial focus, Close/Escape/Previous/keyboard behavior, quiet H1 completion focus, URL/history cleanup, replay and failure cleanup, both motion controls, and progressive enhancement.
+- Direct `/guide/maze/` remains static. Guided reading remains Maze-only; `/guide/reading/`, VM-620, and VM-617 were not started.
+- VoiceOver + Safari remains an explicit untested cross-platform coverage limitation; no universal screen-reader certification is claimed.
+- The accepted product and validation candidate is frozen at the exact SHA above. Lifecycle closeout changes only card/board/QA/report/handoff records; PR/merge remains pending separate authorization.
