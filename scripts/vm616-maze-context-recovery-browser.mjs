@@ -199,7 +199,7 @@ try {
     input: document.querySelector("#qi-input")?.textContent?.trim(),
     query: document.querySelector("#qi-query")?.textContent?.trim(),
     inspector: document.querySelector("#query-inspector")?.innerText || "",
-    guideLinks: document.querySelectorAll('#query-inspector a[href="../guide/maze/"]').length,
+    guideLinks: document.querySelectorAll('#query-inspector a[href="../guide/maze/?guided=maze-search"]').length,
     allGuideLinks: document.querySelectorAll('#query-inspector a[href*="guide/maze/"]').length,
     guideEyebrow: document.querySelector(".qi-guide-eyebrow")?.textContent?.trim(),
     guideAction: document.querySelector(".qi-guide-action")?.textContent?.trim(),
@@ -211,7 +211,7 @@ try {
   expect(weakState.inspector.includes("Rephrase or remove one unresolved term"), "Weak Plain Reading should expose one deterministic recovery action");
   expect(weakState.guideLinks === 1 && weakState.allGuideLinks === 1, "Working Maze should show exactly one canonical top-entry Guide action");
   expect(weakState.guideEyebrow === "Field Guide", "Guide Beacon should expose a compact functional eyebrow");
-  expect(weakState.guideAction === "Read how to understand this search →", "Guide Beacon should make a truthful, explicit Guide promise");
+  expect(weakState.guideAction === "Walk me through this search →", "Guide Beacon should make a truthful, explicit opt-in Guide promise");
   const beaconMotion = await page.$eval(".qi-guide-link", element => ({
     signaling: element.classList.contains("is-signaling"),
     animations: element.getAnimations({ subtree: true }).map(animation => ({
@@ -269,14 +269,18 @@ try {
     page.waitForNavigation({ waitUntil: "domcontentloaded" }),
     page.click(".qi-guide-link"),
   ]);
+  await page.waitForSelector(".driver-popover[role=dialog]", { visible: true });
   const canonicalGuideEntry = await page.evaluate(() => ({
     pathname: location.pathname,
+    search: location.search,
     hash: location.hash,
     scrollY,
     h1: document.querySelector("h1")?.textContent?.trim(),
+    activeSection: document.querySelector(".driver-active-element")?.id,
+    walkthroughTitle: document.querySelector(".driver-popover-title")?.textContent?.trim(),
   }));
-  expect(canonicalGuideEntry.pathname === "/guide/maze/" && canonicalGuideEntry.hash === "", "Canonical Maze Guide action should open the Guide root without a section fragment");
-  expect(canonicalGuideEntry.scrollY <= 1 && canonicalGuideEntry.h1 === "Read the search. Change one thing.", "Canonical Maze Guide action should enter at the normal top-of-page hero");
+  expect(canonicalGuideEntry.pathname === "/guide/maze/" && canonicalGuideEntry.search === "?guided=maze-search" && canonicalGuideEntry.hash === "", "Maze Guide action should open the exact opt-in guided-reading request without a section fragment");
+  expect(canonicalGuideEntry.h1 === "Read the search. Change one thing." && canonicalGuideEntry.activeSection === "translation" && canonicalGuideEntry.walkthroughTitle === "Read the translation", "Maze Guide action should preserve the accepted Guide and orient to Section I");
   await page.goBack({ waitUntil: "domcontentloaded" });
   expect(await page.evaluate(() => location.pathname) === "/maze/", "Back from the canonical Guide action should return predictably to Maze");
 

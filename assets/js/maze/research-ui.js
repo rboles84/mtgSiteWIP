@@ -137,11 +137,11 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
     ${renderAlternatives(groups.alternatives)}
     ${renderRecoveryGuidance(groups)}
-    <a class="qi-guide-link${shouldSignalGuideBeacon ? " is-signaling" : ""}" href="../guide/maze/">
+    <a class="qi-guide-link${shouldSignalGuideBeacon ? " is-signaling" : ""}" href="../guide/maze/?guided=maze-search">
       <span class="qi-guide-mark" aria-hidden="true">✦</span>
       <span class="qi-guide-copy">
         <span class="qi-guide-eyebrow">Field Guide</span>
-        <span class="qi-guide-action">Read how to understand this search <span aria-hidden="true">→</span></span>
+        <span class="qi-guide-action">Walk me through this search <span aria-hidden="true">→</span></span>
       </span>
     </a>
   `;

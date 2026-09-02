@@ -1,0 +1,94 @@
+.driver-popover.vm-guide-walkthrough-popover {
+  width: min(24rem, calc(100vw - 2rem));
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 1rem 1rem 0.9rem;
+  color: #f4ead4;
+  background: linear-gradient(145deg, rgba(22, 27, 33, 0.98), rgba(8, 12, 17, 0.98));
+  border: 1px solid rgba(219, 181, 102, 0.6);
+  border-radius: 0.8rem;
+  box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.55), 0 0 1.5rem rgba(219, 181, 102, 0.12);
+  font-family: var(--font-ui);
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-title {
+  color: #f4d99b;
+  font-family: var(--font-reading);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-description {
+  color: #e5dccb;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-close-btn {
+  color: #e5dccb;
+  text-shadow: none;
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-close-btn:hover,
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-close-btn:focus-visible {
+  color: #fff7e6;
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button {
+  min-height: 2.4rem;
+  padding: 0.45rem 0.72rem;
+  color: #f4ead4;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(219, 181, 102, 0.5);
+  border-radius: 0.45rem;
+  text-shadow: none;
+}
+
+.driver-popover.vm-guide-walkthrough-popover .driver-popover-footer button:hover {
+  color: #0b0e12;
+  background: #e4c47f;
+}
+
+.driver-popover.vm-guide-walkthrough-popover button:focus-visible {
+  outline: 3px solid #fff1b8;
+  outline-offset: 3px;
+}
+
+.vm-guide-maze-route #maze-guide-title:focus {
+  outline: none;
+}
+
+.driver-active .driver-active-element,
+.driver-active .driver-active-element * {
+  pointer-events: none !important;
+}
+
+@media (max-width: 640px) {
+  .driver-popover.vm-guide-walkthrough-popover {
+    width: calc(100vw - 1.25rem);
+    max-width: calc(100vw - 1.25rem);
+    padding: 0.9rem 0.9rem 0.8rem;
+  }
+
+  .driver-popover.vm-guide-walkthrough-popover .driver-popover-footer {
+    gap: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .driver-popover.vm-guide-walkthrough-popover,
+  .driver-overlay,
+  .driver-active-element {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+html[data-reduce-motion="true"] .driver-popover.vm-guide-walkthrough-popover,
+html[data-reduce-motion="true"] .driver-overlay,
+html[data-reduce-motion="true"] .driver-active-element,
+body[data-reduce-motion="true"] .driver-popover.vm-guide-walkthrough-popover,
+body[data-reduce-motion="true"] .driver-overlay,
+body[data-reduce-motion="true"] .driver-active-element {
+  transition: none !important;
+  animation: none !important;
+}

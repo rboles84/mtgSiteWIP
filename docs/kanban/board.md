@@ -13,7 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-619 — Opt-In Field Guide Guided-Reading Mode](backlog/VM-619-opt-in-field-guide-guided-reading-mode.md) - separately governed discovery for a truthful, accessible, explicitly opt-in guided-reading capability; no tour library, runtime, or persistence work is authorized by VM-616.
 - [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
 
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
@@ -43,6 +42,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-619 — Opt-In Field Guide Guided-Reading Mode](in-progress/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Review remediation: exact opt-in Maze URL launches four locally served Driver.js reading steps; forward focus now lands on Next/Done, completion returns quietly to the Guide title, and approved Read/See/Understand/Act headings are rendered. Focused RobQA is green; Windows NVDA remains pending, and VM-620/VM-617 remain untouched.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
