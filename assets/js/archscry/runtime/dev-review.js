@@ -8,7 +8,7 @@ import {
 
 import {
   renderIdentityDossier,
-} from "./dossier-view.js";
+} from "./dossier-view.js?v=vm620";
 
 import {
   startQuickFlow,

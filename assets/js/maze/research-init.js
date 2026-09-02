@@ -11,7 +11,7 @@ import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js";
 import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js";
 import { resolveModeInputValue } from "./research-mode.js";
 import * as ResearchSearch from "./research-search.js";
-import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js";
+import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
 import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "./maze-handoff.js";
 import {
   DEFAULT_READING_FINDS_TITLE,

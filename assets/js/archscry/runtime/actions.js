@@ -36,7 +36,7 @@ import {
   showBoundedDirection,
   switchAdjacentView,
   togglePreconPreview,
-} from "./dossier-view.js?v=vm615b";
+} from "./dossier-view.js?v=vm620";
 
 import {
   openInterviewDossier,

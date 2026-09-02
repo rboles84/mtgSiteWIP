@@ -23,7 +23,7 @@ import {
   returnToPrimaryReading,
   saveCurrentResult,
   switchAdjacentView,
-} from "./runtime/dossier-view.js?v=vm615b";
+} from "./runtime/dossier-view.js?v=vm620";
 
 import {
   openInterviewDossier,
@@ -77,7 +77,7 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js?v=vm615b";
+} from "./runtime/dossier-view.js?v=vm620";
 
 export {
   renderPlayerCopy,

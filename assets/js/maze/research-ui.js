@@ -124,8 +124,6 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     return;
   }
 
-  const shouldSignalGuideBeacon = reserveGuideBeaconSignal();
-
   diagnostics.innerHTML = `
     ${renderConfidence(groups.confidence)}
     ${renderChipGroup("API", apiItems)}
@@ -137,37 +135,16 @@ function renderDiagnostics(inspector, diagnosticsList = [], api = {}) {
     ${renderChipGroup("Unresolved", groups.unresolved, "warn")}
     ${renderAlternatives(groups.alternatives)}
     ${renderRecoveryGuidance(groups)}
-    <a class="qi-guide-link${shouldSignalGuideBeacon ? " is-signaling" : ""}" href="../guide/maze/?guided=maze-search">
-      <span class="qi-guide-mark" aria-hidden="true">✦</span>
-      <span class="qi-guide-copy">
-        <span class="qi-guide-eyebrow">Field Guide</span>
-        <span class="qi-guide-action">Walk me through this search <span aria-hidden="true">→</span></span>
+    <a class="qi-guide-link vm-guide-beacon vm-guide-beacon--maze" href="../guide/maze/?guided=maze-search" data-guide-beacon-id="maze-search-help">
+      <span class="qi-guide-mark vm-guide-beacon__mark" aria-hidden="true">✦</span>
+      <span class="qi-guide-copy vm-guide-beacon__copy">
+        <span class="qi-guide-eyebrow vm-guide-beacon__eyebrow">Field Guide</span>
+        <span class="qi-guide-action vm-guide-beacon__action">Walk me through this search <span aria-hidden="true">→</span></span>
       </span>
     </a>
   `;
   bindAlternativeButtons();
-  bindGuideBeaconSignal(diagnostics.querySelector(".qi-guide-link"));
   diagnostics.classList.remove("hidden");
-}
-
-let hasPresentedGuideBeaconSignal = false;
-
-function reserveGuideBeaconSignal() {
-  if (hasPresentedGuideBeaconSignal) return false;
-  hasPresentedGuideBeaconSignal = true;
-  const reduceMotion = document.body?.dataset?.reduceMotion === "true"
-    || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
-  return !reduceMotion;
-}
-
-function bindGuideBeaconSignal(beacon) {
-  if (!beacon?.classList.contains("is-signaling")) return;
-  const settle = () => beacon.classList.remove("is-signaling");
-  beacon.addEventListener("pointerenter", settle, { once: true });
-  beacon.addEventListener("focusin", settle, { once: true });
-  beacon.addEventListener("animationend", (event) => {
-    if (event.animationName === "maze-guide-beacon-arrive") settle();
-  }, { once: true });
 }
 
 /**
