@@ -1266,8 +1266,7 @@ body.vm-archscry-route .dossier-orientation-actions button:hover {
   background: rgba(184, 149, 74, 0.08);
 }
 
-body.vm-archscry-route .dossier-orientation-actions button:focus-visible,
-body.vm-archscry-route .dossier-orientation-guide:focus-visible {
+body.vm-archscry-route .dossier-orientation-actions button:focus-visible {
   outline: 2px solid rgba(26, 170, 150, 0.92);
   outline-offset: 2px;
 }
@@ -1283,16 +1282,6 @@ body.vm-archscry-route .dossier-orientation-actions small {
   font-size: 0.56rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-body.vm-archscry-route .dossier-orientation-guide {
-  color: var(--gold-l);
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.35;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.22rem;
 }
 
 body.vm-archscry-route .dossier-console-grid {

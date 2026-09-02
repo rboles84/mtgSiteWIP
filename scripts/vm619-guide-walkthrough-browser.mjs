@@ -6,7 +6,9 @@ import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
 const reviewMode = process.argv.includes("--review");
-const witnessDirectory = path.join(root, "outputs", "vm619-owner-review");
+const witnessDirectory = process.env.VM_OWNER_REVIEW_OUTPUT
+  ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
+  : path.join(root, "outputs", "vm619-owner-review");
 const failures = [];
 const observations = {};
 const browserCandidates = [

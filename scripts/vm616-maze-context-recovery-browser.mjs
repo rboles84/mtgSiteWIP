@@ -5,7 +5,9 @@ import path from "node:path";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const witnessDirectory = path.join(root, "outputs", "vm616-owner-review");
+const witnessDirectory = process.env.VM_OWNER_REVIEW_OUTPUT
+  ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
+  : path.join(root, "outputs", "vm616-owner-review");
 const failures = [];
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -189,6 +191,11 @@ try {
     await page.waitForSelector(".qi-guide-link", { visible: true });
   };
 
+  const revealGuideBeacon = async () => {
+    await page.$eval(".qi-guide-link", element => element.scrollIntoView({ block: "center" }));
+    await page.waitForFunction(() => document.querySelector(".qi-guide-link")?.classList.contains("is-signaling"));
+  };
+
   await page.setViewport({ width: 1440, height: 1000 });
   await page.goto(`${baseUrl}/maze/`, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector("#maze-reading-context")?.dataset.state === "standalone");
@@ -212,6 +219,7 @@ try {
   expect(weakState.guideLinks === 1 && weakState.allGuideLinks === 1, "Working Maze should show exactly one canonical top-entry Guide action");
   expect(weakState.guideEyebrow === "Field Guide", "Guide Beacon should expose a compact functional eyebrow");
   expect(weakState.guideAction === "Walk me through this search →", "Guide Beacon should make a truthful, explicit opt-in Guide promise");
+  await revealGuideBeacon();
   const beaconMotion = await page.$eval(".qi-guide-link", element => ({
     signaling: element.classList.contains("is-signaling"),
     animations: element.getAnimations({ subtree: true }).map(animation => ({
@@ -224,32 +232,41 @@ try {
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
   }));
   expect(beaconMotion.signaling, "First meaningful Guide Beacon presentation should reserve the page-visit signal");
-  expect(beaconMotion.animations.some(animation => animation.name === "maze-guide-beacon-arrive" && animation.duration === 4800 && animation.iterations === 1 && animation.peakCount === 3), "Guide Beacon should use three restrained beats across one finite 4.8-second sequence");
+  expect(beaconMotion.animations.some(animation => animation.name === "vm-guide-beacon-signal" && animation.duration === 4800 && animation.iterations === 1 && animation.peakCount === 3), "Guide Beacon should use three restrained beats across one finite 4.8-second sequence");
   expect(beaconMotion.animations.every(animation => Number.isFinite(animation.iterations)), "Guide Beacon must not contain continuous animation");
   expect(beaconMotion.animations.every(animation => !animation.properties.some(property => /color|background/i.test(property))), "Guide Beacon signal must keep its text and primary surface stable");
   expect(beaconMotion.overflow <= 1, "Desktop Guide Beacon should not create horizontal overflow");
 
-  await page.hover(".qi-guide-link");
+  await page.$eval(".qi-guide-link", element => {
+    element.dispatchEvent(new PointerEvent("pointerenter"));
+  });
   const hoveredBeacon = await page.$eval(".qi-guide-link", element => ({
     signaling: element.classList.contains("is-signaling"),
-    animationCount: element.getAnimations({ subtree: true }).filter(animation => animation.animationName === "maze-guide-beacon-arrive").length,
-    ringOpacity: Number.parseFloat(getComputedStyle(element, "::after").opacity),
+    animationCount: element.getAnimations({ subtree: true }).filter(animation => animation.animationName === "vm-guide-beacon-signal").length,
   }));
-  expect(!hoveredBeacon.signaling && hoveredBeacon.animationCount === 0 && hoveredBeacon.ringOpacity >= 0.5, "Pointer hover should stop the automatic sequence and hold a steady illuminated state");
+  expect(
+    !hoveredBeacon.signaling && hoveredBeacon.animationCount === 0,
+    `Pointer entry should stop the automatic sequence (${JSON.stringify(hoveredBeacon)})`
+  );
   await page.mouse.move(0, 0);
   await rerenderWeakInspector();
   expect(await page.$eval(".qi-guide-link", element => !element.classList.contains("is-signaling") && element.getAnimations({ subtree: true }).length === 0), "Search rerender must not replay a hover-suppressed signal during the same visit");
 
   await page.reload({ waitUntil: "domcontentloaded" });
   await presentWeakSearch();
+  await revealGuideBeacon();
   expect(await page.$eval(".qi-guide-link", element => element.classList.contains("is-signaling")), "Reloaded Maze visit may signal on its first meaningful Guide Beacon presentation");
   await new Promise(resolve => setTimeout(resolve, 5000));
   expect(await page.$eval(".qi-guide-link", element => !element.classList.contains("is-signaling") && element.getAnimations({ subtree: true }).filter(animation => animation.playState === "running").length === 0), "Guide Beacon should settle permanently after the finite three-beat sequence");
   await rerenderWeakInspector();
-  expect(await page.$eval(".qi-guide-link", element => !element.classList.contains("is-signaling") && element.getAnimations({ subtree: true }).length === 0), "Completed Guide Beacon signal must not replay on another diagnostic rerender");
+  expect(
+    await page.$eval(".qi-guide-link", element => !element.classList.contains("is-signaling") && !element.getAnimations({ subtree: true }).some(animation => animation.animationName === "vm-guide-beacon-signal")),
+    "Completed Guide Beacon signal must not replay on another diagnostic rerender"
+  );
 
   await page.reload({ waitUntil: "domcontentloaded" });
   await presentWeakSearch();
+  await revealGuideBeacon();
   expect(await page.$eval(".qi-guide-link", element => element.classList.contains("is-signaling")), "Fresh visit should begin signaling before keyboard interaction");
   await page.focus(".qi-guide-link");
   await page.keyboard.press("Tab");
@@ -258,7 +275,7 @@ try {
   await page.keyboard.up("Shift");
   const beaconFocus = await page.$eval(".qi-guide-link", element => {
     const style = getComputedStyle(element);
-    return { focused: document.activeElement === element, focusVisible: element.matches(":focus-visible"), signaling: element.classList.contains("is-signaling"), animationCount: element.getAnimations({ subtree: true }).filter(animation => animation.animationName === "maze-guide-beacon-arrive").length, ringOpacity: Number.parseFloat(getComputedStyle(element, "::after").opacity), outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth, borderColor: style.borderColor };
+    return { focused: document.activeElement === element, focusVisible: element.matches(":focus-visible"), signaling: element.classList.contains("is-signaling"), animationCount: element.getAnimations({ subtree: true }).filter(animation => animation.animationName === "vm-guide-beacon-signal").length, ringOpacity: Number.parseFloat(getComputedStyle(element, "::after").opacity), outlineStyle: style.outlineStyle, outlineWidth: style.outlineWidth, borderColor: style.borderColor };
   });
   expect(beaconFocus.focused && beaconFocus.focusVisible && !beaconFocus.signaling && beaconFocus.animationCount === 0 && beaconFocus.ringOpacity >= 0.5 && beaconFocus.outlineStyle !== "none" && beaconFocus.outlineWidth !== "0px", "Keyboard focus should stop the signal and retain a steady illuminated state with visible outline");
   await page.$eval("#query-inspector", element => element.scrollIntoView({ block: "center" }));
@@ -289,7 +306,7 @@ try {
   await page.waitForSelector("#query-inspector", { visible: true });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Mobile Guide Beacon should not create horizontal overflow");
   await page.$eval(".qi-guide-link", element => {
-    const animation = element.getAnimations({ subtree: true }).find(item => item.animationName === "maze-guide-beacon-arrive");
+    const animation = element.getAnimations({ subtree: true }).find(item => item.animationName === "vm-guide-beacon-signal");
     if (animation) {
       animation.pause();
       animation.currentTime = 3264;

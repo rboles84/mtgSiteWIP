@@ -11,10 +11,10 @@ const [archscryHtml, archscryCss, dossierView, readingGuideHtml, readingGuideCss
 
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-assert.match(archscryHtml, /assets\/css\/archscry\.css\?v=vm615/);
-assert.equal(count(dossierView, /class="dossier-orientation-guide"/g), 1);
+assert.match(archscryHtml, /assets\/css\/archscry\.css\?v=vm620/);
+assert.equal(count(dossierView, /class="[^"]*\bdossier-orientation-guide\b[^"]*"/g), 1);
 assert.match(dossierView, /How to read your dossier/);
-assert.match(dossierView, /href="\.\.\/guide\/reading\/index\.html#dossier-map"/);
+assert.match(dossierView, /href="\.\.\/guide\/reading\/\?guided=dossier-reading"/);
 assert.match(dossierView, /What do you want from this result\?/);
 assert.match(dossierView, /You do not need to read every section\./);
 
@@ -41,7 +41,7 @@ assert.match(archscryCss, /@media \(max-width: 940px\)[\s\S]*?\.dossier-orientat
 assert.match(archscryCss, /@media \(max-width: 560px\)[\s\S]*?\.dossier-orientation-actions/);
 
 assert.equal(count(readingGuideHtml, /<h1\b/gi), 1);
-assert.match(readingGuideHtml, /<h1 id="reading-guide-title">Read the result\. Choose one next step\.<\/h1>/);
+assert.match(readingGuideHtml, /<h1 id="reading-guide-title" tabindex="-1">Read the result\. Choose one next step\.<\/h1>/);
 assert.match(readingGuideHtml, /Your result is a direction to inspect, not a verdict to obey\./);
 assert.doesNotMatch(readingGuideHtml, /Your reading is a direction to inspect, not a verdict to obey\./);
 assert.match(readingGuideHtml, /data-vm-current="guide"/);

@@ -271,34 +271,6 @@ section {
   padding-top: clamp(1rem, 2vw, 1.5rem);
 }
 
-.vm-guide-discovery {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.45rem;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 0 1.15rem;
-  padding: 0.55rem 0.8rem;
-  border-left: 2px solid var(--accent);
-  background: rgba(247, 215, 132, 0.045);
-  color: var(--muted);
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.vm-guide-discovery a {
-  color: var(--accent);
-  font-weight: 650;
-  text-underline-offset: 0.2em;
-}
-
-.vm-guide-discovery a:hover,
-.vm-guide-discovery a:focus-visible {
-  color: var(--accent-hi);
-}
-
 /* HERO EYEBROW: Small uppercase label above the main title. */
 .vm-eyebrow {
   color: var(--accent);

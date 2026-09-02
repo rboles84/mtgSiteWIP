@@ -5,7 +5,9 @@ import path from "node:path";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const witnessDirectory = path.join(root, "outputs", "owner-review", "vm615-reading-dossier");
+const witnessDirectory = process.env.VM_OWNER_REVIEW_OUTPUT
+  ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
+  : path.join(root, "outputs", "owner-review", "vm615-reading-dossier");
 const failures = [];
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -214,7 +216,7 @@ try {
   }));
   expect(closeDossier.heading === "Close result: Jund, with Gruul Clans also supported", "Certified close result should keep its truthful supported-alternative heading");
   expect(closeDossier.orientationHeading === "What do you want from this result?", "Result dossier should present the decision-oriented directory prompt");
-  expect(closeDossier.orientationLinkCount === 1 && closeDossier.orientationTarget === "../guide/reading/index.html#dossier-map", "Result dossier should expose one canonical reading-Guide link");
+  expect(closeDossier.orientationLinkCount === 1 && closeDossier.orientationTarget === "../guide/reading/?guided=dossier-reading", "Result dossier should expose one canonical opt-in reading-Guide link");
   expect(closeDossier.goalCount === 4, "Result dossier should expose four bounded goal-to-section choices");
   expect(closeDossier.activePanel === "placement", "Result dossier should remain outcome-first on Placement");
   expect(closeDossier.hasAlternativeTab, "Certified close result should retain its supported-alternative panel");

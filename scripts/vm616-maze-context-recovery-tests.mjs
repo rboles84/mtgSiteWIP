@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { resolveMazeQueryRequest } from "../assets/js/maze/maze-query-core.js";
 import { setPlainReadingSemanticRegistry, setScryfallGrounding } from "../assets/js/maze/scryfall-grounded-compiler.js";
 
-const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, guideCss, metadataSource, htmlValidator] = await Promise.all([
+const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, guideCss, guideBeaconCss, guideBeaconJs, metadataSource, htmlValidator] = await Promise.all([
   readFile(new URL("../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8").then(JSON.parse),
   readFile(new URL("../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8").then(JSON.parse),
   readFile(new URL("../maze/index.html", import.meta.url), "utf8"),
@@ -13,6 +13,8 @@ const [grounding, semantics, mazeHtml, mazeCss, mazeRuntime, mazeUi, guideHtml, 
   readFile(new URL("../assets/js/maze/research-ui.js", import.meta.url), "utf8"),
   readFile(new URL("../guide/maze/index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/css/guide-maze.css", import.meta.url), "utf8"),
+  readFile(new URL("../assets/css/guide-beacon.css", import.meta.url), "utf8"),
+  readFile(new URL("../assets/js/shared/guide-beacon.js", import.meta.url), "utf8"),
   readFile(new URL("./check-route-metadata.mjs", import.meta.url), "utf8"),
   readFile(new URL("./validate-frontend-html.mjs", import.meta.url), "utf8"),
 ]);
@@ -67,10 +69,11 @@ assert.match(mazeHtml, /Fits Commander colors includes cards whose color identit
 assert.doesNotMatch(mazeHtml, /id="loom-dossier-context"/);
 assert.equal((mazeUi.match(/href="\.\.\/guide\/maze\/\?guided=maze-search"/g) || []).length, 1, "working Maze should expose one opt-in guided-reading invitation");
 assert.doesNotMatch(mazeUi, /guide\/maze\/#recovery/, "canonical working-Maze Guide action must not skip to the recovery section");
-assert.match(mazeUi, /qi-guide-eyebrow">Field Guide[\s\S]*?Walk me through this search/);
-assert.match(mazeUi, /let hasPresentedGuideBeaconSignal = false[\s\S]*?function reserveGuideBeaconSignal[\s\S]*?hasPresentedGuideBeaconSignal = true/);
-assert.match(mazeUi, /function bindGuideBeaconSignal[\s\S]*?classList\.remove\("is-signaling"\)[\s\S]*?pointerenter[\s\S]*?focusin[\s\S]*?animationend/);
-const guideBeaconSignalSeam = mazeUi.slice(mazeUi.indexOf("let hasPresentedGuideBeaconSignal"), mazeUi.indexOf("function renderRecoveryGuidance"));
+assert.match(mazeUi, /qi-guide-eyebrow vm-guide-beacon__eyebrow">Field Guide[\s\S]*?Walk me through this search/);
+assert.match(mazeUi, /data-guide-beacon-id="maze-search-help"/);
+assert.match(guideBeaconJs, /var seenBeaconIds = new Set\(\)[\s\S]*?IntersectionObserver[\s\S]*?intersectionRatio >= 0\.55/);
+assert.match(guideBeaconJs, /function settle[\s\S]*?classList\.remove\("is-signaling"\)[\s\S]*?pointerenter[\s\S]*?focusin[\s\S]*?animationend/);
+const guideBeaconSignalSeam = guideBeaconJs;
 assert.doesNotMatch(guideBeaconSignalSeam, /localStorage|sessionStorage/, "Guide Beacon signal must remain page-visit state only");
 assert.match(mazeUi, /Maze could not map part of this request\.[\s\S]*?Rephrase or remove one unresolved term, then search again\./);
 assert.match(mazeRuntime, /The query ran, but no cards matched\.[\s\S]*?Broaden or remove one constraint, then search again\./);
@@ -84,11 +87,11 @@ assert.match(mazeRuntime, /action\.dataset\.action = "restore-reading-context"/)
 assert.match(mazeRuntime, /action\.textContent = "Restore reading context"/);
 const independentAction = mazeRuntime.slice(mazeRuntime.indexOf("function searchIndependently"), mazeRuntime.indexOf("function refreshReadingContextPresentation"));
 assert.doesNotMatch(independentAction, /localStorage\.(?:setItem|removeItem|clear)/, "independent search must not rewrite handoff or saved-reading storage");
-assert.match(mazeCss, /\.maze-reading-context[\s\S]*?\.qi-recovery[\s\S]*?\.qi-guide-link/);
-assert.match(mazeCss, /@keyframes maze-guide-beacon-arrive[\s\S]*?6%[\s\S]*?37%[\s\S]*?68%/);
-assert.match(mazeCss, /\.qi-guide-link\.is-signaling::after[\s\S]*?animation: maze-guide-beacon-arrive 4800ms ease-in-out 1 both/);
-assert.match(mazeCss, /\.qi-guide-link:hover::after,[\s\S]*?\.qi-guide-link:focus-visible::after[\s\S]*?animation: none/);
-assert.match(mazeCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.qi-guide-link::after/);
+assert.match(mazeCss, /\.maze-reading-context[\s\S]*?\.qi-recovery/);
+assert.match(guideBeaconCss, /@keyframes vm-guide-beacon-signal[\s\S]*?6%[\s\S]*?37%[\s\S]*?68%/);
+assert.match(guideBeaconCss, /\.vm-guide-beacon\.is-signaling::after[\s\S]*?animation: vm-guide-beacon-signal 4800ms ease-in-out 1 both/);
+assert.match(guideBeaconCss, /\.vm-guide-beacon:hover::after,[\s\S]*?\.vm-guide-beacon:focus-visible::after[\s\S]*?animation: none/);
+assert.match(guideBeaconCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.vm-guide-beacon::after/);
 
 assert.match(guideHtml, /<h1 id="maze-guide-title" tabindex="-1">Read the search\. Change one thing\.<\/h1>/);
 assert.match(guideHtml, /Red vampires that sacrifice creatures[\s\S]*?type:vampire type:creature c:r o:sacrifice/);

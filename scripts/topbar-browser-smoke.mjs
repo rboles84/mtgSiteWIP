@@ -5,7 +5,9 @@ import path from "node:path";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
-const witnessDir = path.join(root, "artifacts", "vm618-topbar");
+const witnessDir = process.env.VM_OWNER_REVIEW_OUTPUT
+  ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
+  : path.join(root, "artifacts", "vm618-topbar");
 const failures = [];
 const primaryOrder = ["home", "archscry", "maze", "strategium", "apocrypha"];
 const primaryRoutes = [

@@ -2053,7 +2053,13 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
           <span>Keep exploring with cards</span><small>Maze Discovery</small>
         </button>
       </div>
-      <a class="dossier-orientation-guide" href="../guide/reading/index.html#dossier-map">How to read your dossier <span aria-hidden="true">→</span></a>
+      <a class="dossier-orientation-guide vm-guide-beacon vm-guide-beacon--compact" href="../guide/reading/?guided=dossier-reading" data-guide-beacon-id="dossier-reading-help">
+        <span class="vm-guide-beacon__mark" aria-hidden="true">✦</span>
+        <span class="vm-guide-beacon__copy">
+          <span class="vm-guide-beacon__eyebrow">Field Guide</span>
+          <span class="vm-guide-beacon__action">How to read your dossier <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
     </section>`;
   const primaryName = reviewMode ? faction.name : result.faction_name || getFaction(result.faction)?.name || result.faction;
   const alternativeName = (tiedAlternative || closeAlternative?.match)?.faction_name ||

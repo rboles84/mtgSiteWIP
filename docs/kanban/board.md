@@ -13,8 +13,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
-- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](backlog/VM-620-shared-field-guide-beacon-visual-language.md) - separately governed inventory and visual-language work for legitimate contextual Guide invitations across Home, Archscry, and Maze; no propagation or guided-reading behavior is authorized by VM-616.
-
 - [VM-541 - Token And Reasoning Cost Control Governance](backlog/VM-541-token-reasoning-cost-control-governance.md) - centralized efficiency policy for agent reasoning, context retrieval, tool usage, and escalation while preserving stricter governance controls.
 
 - [VM-502 through VM-538 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Identity Semantic Recovery](../incidents/CRIT-001-identity-recovery-ledger.md) - standardized one-card-per-identity recovery queue; execution order and status live in the CRIT-001 ledger.
@@ -55,6 +53,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](done/VM-620-shared-field-guide-beacon-visual-language.md) - Done — Owner Accepted; scope `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`, accepted only within combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`. Exactly three visual Beacons; never integrate independently. Owner now authorizes a merge-commit PR containing the complete VM-620 + VM-621 state through lifecycle closeout `63cc57590ec5ddfba2c0c665049ddd2e7c58c71b`.
+
+- [VM-621 — Contextual Field Guide Guided-Reading Expansion](done/VM-621-contextual-field-guide-guided-reading-expansion.md) - Done — Owner Accepted; scope and combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`. Four Home/dossier steps reuse unchanged VM-619 lifecycle; direct Guides static. Screen-reader testing NOT PERFORMED, optional/nonblocking. Only combined VM-620/621 may integrate; VM-617 unstarted.
 
 - [VM-619 — Opt-In Field Guide Guided-Reading Mode](done/VM-619-opt-in-field-guide-guided-reading-mode.md) - Owner Accepted at exact candidate `05ebc9021fed8dadd7dbb6f87255bddd605b0748`; explicit Maze intent launches four local Driver.js steps, then returns to the ordinary static Guide with accepted focus, cleanup, failure, replay, motion, and first-release Windows NVDA behavior. VoiceOver/Safari remains untested; VM-620/VM-617 and `/guide/reading/` remain untouched.
 

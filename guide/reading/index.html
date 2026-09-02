@@ -78,17 +78,17 @@
   <section class="r-search-zone maze-command-deck guide-hero reading-guide-hero" aria-labelledby="reading-guide-title">
     <div class="maze-command-copy guide-hero-copy">
       <span class="maze-eyebrow">Field Guide // Reading &amp; Dossier</span>
-      <h1 id="reading-guide-title">Read the result. Choose one next step.</h1>
+      <h1 id="reading-guide-title" tabindex="-1">Read the result. Choose one next step.</h1>
       <p class="guide-brand-line">Your result is a direction to inspect, not a verdict to obey.</p>
       <p class="guide-hero-orientation">Use the dossier for the question you have now. You never need to study every section before acting.</p>
     </div>
   </section>
 
   <div class="guide-story reading-guide-story">
-    <section class="r-main reading-guide-section reading-guide-meaning" aria-labelledby="placement-meaning-title">
+    <section id="reading-placement-meaning" class="r-main reading-guide-section reading-guide-meaning" aria-labelledby="placement-meaning-title">
       <div class="reading-guide-copy">
         <span class="guide-kicker">I // What placement means</span>
-        <h2 id="placement-meaning-title">A supported Commander direction.</h2>
+        <h2 id="placement-meaning-title" tabindex="-1">A supported Commander direction.</h2>
         <p>Archscry compares the signals in your recorded answers and shows the direction they support most strongly. It is not a personality label, a power ranking, or a claim that only one identity can fit you.</p>
         <p>If another direction is shown, it is there because the same answers also support a useful comparison. The dossier helps you test both the fit and its limits.</p>
       </div>
@@ -105,10 +105,10 @@
       </figure>
     </section>
 
-    <section class="r-main reading-guide-section" aria-labelledby="where-to-start-title">
+    <section id="reading-where-to-start" class="r-main reading-guide-section" aria-labelledby="where-to-start-title">
       <header class="reading-guide-section-head">
         <span class="guide-kicker">II // Where to start</span>
-        <h2 id="where-to-start-title">Begin with your question, not the first tab.</h2>
+        <h2 id="where-to-start-title" tabindex="-1">Begin with your question, not the first tab.</h2>
         <p>Choose one lane. The other sections can wait.</p>
       </header>
 
@@ -134,7 +134,7 @@
     <section id="dossier-map" class="r-main reading-guide-section reading-guide-anatomy" aria-labelledby="dossier-map-title">
       <header class="reading-guide-section-head">
         <span class="guide-kicker">III // Dossier anatomy</span>
-        <h2 id="dossier-map-title">Each section answers a different question.</h2>
+        <h2 id="dossier-map-title" tabindex="-1">Each section answers a different question.</h2>
         <p>The directory is a set of doors, not a checklist.</p>
       </header>
 
@@ -161,10 +161,10 @@
       </div>
     </section>
 
-    <section class="r-sidebar reading-guide-next" aria-labelledby="reading-next-title">
+    <section id="reading-next" class="r-sidebar reading-guide-next" aria-labelledby="reading-next-title">
       <div>
         <span class="guide-kicker">IV // What next</span>
-        <h2 id="reading-next-title">Return with one useful question.</h2>
+        <h2 id="reading-next-title" tabindex="-1">Return with one useful question.</h2>
         <p>If you already have a reading, Archscry will reopen it. If not, you can begin one—or enter the Maze with an idea of your own.</p>
       </div>
       <div class="reading-next-actions">
@@ -184,5 +184,6 @@
 <script src="../../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../../assets/js/shared/vm-feedback.js" defer></script>
 <script src="../../assets/js/shared/vm-topbar.js?v=vm618" defer></script>
+<script type="module" src="../../assets/js/guide/reading-walkthrough.js"></script>
 </body>
 </html>
