@@ -2,7 +2,7 @@
 
 ID: VM-624
 
-Status: In Progress
+Status: Done — Owner Accepted
 
 Type: Maze / Loom query-builder refinement
 
@@ -54,7 +54,7 @@ No set picker, year ranges, art-tag autocomplete, arbitrary image search, `uniqu
 - Added the year/rule fieldset through the existing Loom markup, styling, builder projection, route-local validation, live action, summary, Current Weave, Reset, and mode-continuity owners. Advanced the Maze CSS/module dependency chain to `vm627` so production reloads cannot pair the new markup or Plain Reading presenter with stale Loom code.
 - Corrected the direct browser finding that initially described an invalid release year as a color conflict; Current Weave now names the affected field and recovery location truthfully.
 - Focused builder, Loom interaction, mode, query-contract, layout, JS lint, HTML lint, and whitespace checks pass. One direct local-route interaction pass verified valid `year=2015 is:firstprinting` projection and invalid-year blocking/recovery; no screenshot or visual-baseline suite was run.
-- Status: **Owner Review Ready**. Do not commit, merge, or mark Done without Owner disposition.
+- Status: **Owner Accepted** at exact implementation candidate `86c5c5f`.
 
 ## Owner finding remediation — 2026-09-03
 
@@ -62,3 +62,9 @@ No set picker, year ranges, art-tag autocomplete, arbitrary image search, `uniqu
 - The release-year helper is now **Enter a four-digit year.** Partial input remains a neutral finish-the-year state. The existing `Enter a four-digit release year from 1993 onward.` recovery error appears only after an attempted Search or Copy.
 - The associated recovery block now sits within the Release year control instead of spanning the entire Printing & artwork fieldset.
 - Focused mode, Loom, layout, JS/HTML lint, and whitespace checks pass. A live local desktop witness confirmed the exact Plain Reading transition, delayed recovery, and 438px-in-1127px containment. No screenshot or visual-baseline suite was run; Owner retains final visual judgment.
+
+## Owner acceptance — 2026-09-03
+
+- Owner confirmed the error treatment works as expected and authorized this candidate for `main`.
+- Accepted candidate: `86c5c5f` (`feat(vm-624): refine Loom printing filters`).
+- No product, test, or runtime files may change after this acceptance without a new Owner review.
