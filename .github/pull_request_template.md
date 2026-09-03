@@ -1,17 +1,39 @@
-## Summary
+### Card
 
-- 
+VM-### — Accepted card title
 
-## Linked issue
+### What changed
 
-Closes #
+-
 
-## Review checklist
+### Scope
 
-- [ ] I reviewed the current branch before opening this PR.
-- [ ] Pages still open locally.
-- [ ] Shared JavaScript has no obvious console/runtime errors.
-- [ ] Navigation and visible content still work.
-- [ ] The working tree was clean before final review.
+-
 
-## Notes for reviewer
+### Acceptance criteria
+
+- [ ] Card criteria are satisfied or explicitly dispositioned.
+
+### Verification
+
+-
+
+### RobQA
+
+- Status: `PENDING`
+- Reviewed candidate SHA: `PENDING`
+- Evidence: `PENDING`
+
+### Owner Review
+
+- Status: `PENDING`
+- Reviewed candidate SHA: `PENDING`
+
+### Delivery checks
+
+- [ ] Compared the actual PR diff against the correct `main` merge base.
+- [ ] Confirmed the PR contains no unrelated work or temporary/debug artifacts.
+- [ ] Updated required card, documentation, and handoff records.
+- [ ] Confirmed the worktree is clean after the candidate commit.
+
+### Notes
