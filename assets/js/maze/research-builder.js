@@ -10,6 +10,8 @@ const COLOR_ORDER = ["W", "U", "B", "R", "G", "C"];
  * @param {string[]} [filters.rarities] - Selected rarities.
  * @param {string} [filters.cmcMin] - Minimum mana value.
  * @param {string} [filters.cmcMax] - Maximum mana value.
+ * @param {string} [filters.releaseYear] - Printing release year.
+ * @param {"any"|"first-printing"|"new-art"} [filters.printingScope] - Optional printing rule for a valid release year.
  * @param {string[]} [filters.keywords] - Selected keyword abilities.
  * @param {boolean} [filters.excludeColorless] - Exclude exact colorless identity from Commander-fit colors.
  * @returns {string} Built Scryfall query.
@@ -27,6 +29,13 @@ export function buildVisualBuilderQuery(filters = {}) {
   if (types.length) parts.push(types.length === 1 ? `t:${types[0]}` : `(${types.map((type) => `t:${type}`).join(" OR ")})`);
 
   if (filters.format) parts.push(`f:${filters.format}`);
+
+  const releaseYear = String(filters.releaseYear ?? "").trim();
+  if (releaseYear) {
+    parts.push(`year=${releaseYear}`);
+    if (filters.printingScope === "first-printing") parts.push("is:firstprinting");
+    if (filters.printingScope === "new-art") parts.push("new:art");
+  }
 
   const rarities = normalizeList(filters.rarities);
   if (rarities.length) parts.push(rarities.length === 1 ? `r:${rarities[0]}` : `(${rarities.map((rarity) => `r:${rarity}`).join(" OR ")})`);
@@ -63,6 +72,16 @@ export function validateVisualBuilderFilters(filters = {}) {
     };
   }
 
+  const releaseYear = String(filters.releaseYear ?? "").trim();
+  if (releaseYear && !isValidReleaseYear(releaseYear)) {
+    return {
+      valid: false,
+      code: "builder_invalid_release_year",
+      field: "releaseYear",
+      message: "Enter a four-digit release year from 1993 onward."
+    };
+  }
+
   const min = String(filters.cmcMin ?? "").trim();
   const max = String(filters.cmcMax ?? "").trim();
   if (min && max && Number(min) > Number(max)) {
@@ -75,6 +94,16 @@ export function validateVisualBuilderFilters(filters = {}) {
   }
 
   return { valid: true, code: "", field: "", message: "" };
+}
+
+/**
+ * Checks whether a non-empty Loom release year can be sent to Scryfall.
+ * @param {unknown} value - Candidate release year.
+ * @returns {boolean} True only for a four-digit year from Magic's first printing onward.
+ */
+export function isValidReleaseYear(value) {
+  const year = String(value ?? "").trim();
+  return /^\d{4}$/.test(year) && Number(year) >= 1993;
 }
 
 /**

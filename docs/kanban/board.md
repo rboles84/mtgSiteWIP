@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-624 - Loom Printing and Artwork Refinement](in-progress/VM-624-loom-printing-artwork-refinement.md) - bounded release-year and printing-rule filters through the existing Loom builder/query contract; first-printing and introduced-new-art rules require a valid year, while Scryfall artwork grouping remains deferred.
+
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.

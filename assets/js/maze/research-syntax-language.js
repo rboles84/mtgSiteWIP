@@ -162,6 +162,7 @@ function createPhraseParts() {
     formats: [],
     rarities: [],
     mana: [],
+    printings: [],
     sets: [],
     functional: [],
     oracle: [],
@@ -250,6 +251,9 @@ function parseSimpleTerm(term) {
   const legalOrFormat = parseLegalOrFormatTerm(value, negated);
   if (legalOrFormat) return legalOrFormat;
 
+  const printing = parsePrintingTerm(value, negated);
+  if (printing) return printing;
+
   const displayControl = parseDisplayControlTerm(value);
   if (displayControl) return displayControl;
 
@@ -325,6 +329,12 @@ function describeIsTerm(rawValue, negated) {
       text: negated ? "excluding commander candidates" : "commander candidates"
     };
   }
+  if (value === "firstprinting") {
+    return {
+      kind: negated ? "exclusions" : "printings",
+      text: negated ? "excluding cards in their first printing" : "in their first printing"
+    };
+  }
   return {
     kind: negated ? "exclusions" : "other",
     text: negated ? `excluding ${value}` : value
@@ -395,6 +405,31 @@ function parseLegalOrFormatTerm(value, negated) {
     kind: negated ? "exclusions" : "formats",
     text: negated ? `not ${phrase}` : phrase
   };
+}
+
+/**
+ * Parses release-year and printing-artwork terms into Plain Reading language.
+ * @param {string} value - Non-negated query term.
+ * @param {boolean} negated - Whether the term is negated.
+ * @returns {{kind: string, text: string}|null} Printing phrase, or null.
+ */
+function parsePrintingTerm(value, negated) {
+  const year = value.match(/^year(?::|=)(\d{4})$/i);
+  if (year) {
+    return {
+      kind: negated ? "exclusions" : "printings",
+      text: negated ? `excluding cards printed in ${year[1]}` : `printed in ${year[1]}`
+    };
+  }
+
+  if (/^new:art$/i.test(value)) {
+    return {
+      kind: negated ? "exclusions" : "printings",
+      text: negated ? "excluding cards that introduced new art" : "that introduced new art"
+    };
+  }
+
+  return null;
 }
 
 /**
@@ -641,6 +676,7 @@ function assemblePhrase(parts, unhandled) {
   if (parts.formats.length) segments.push(joinHuman(parts.formats));
   if (parts.rarities.length) segments.push(joinHuman(parts.rarities));
   if (parts.mana.length) segments.push(joinHuman(parts.mana));
+  if (parts.printings.length) segments.push(`cards ${parts.printings.join(" ")}`);
   if (parts.keywords.length) segments.push(`with ${joinHuman(parts.keywords)}`);
   if (!segments.length && unhandled.length) return "";
   if (unhandled.length) {

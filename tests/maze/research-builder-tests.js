@@ -110,6 +110,33 @@ const cases = [
       cmcMax: "5"
     },
     expected: "c>=b mv>=2 mv<=5"
+  },
+  {
+    name: "release year only",
+    filters: {
+      format: "commander",
+      releaseYear: "2015"
+    },
+    expected: "f:commander year=2015"
+  },
+  {
+    name: "release year first printing",
+    filters: {
+      colors: ["W", "U"],
+      format: "commander",
+      releaseYear: "2015",
+      printingScope: "first-printing"
+    },
+    expected: "id<=wu f:commander year=2015 is:firstprinting"
+  },
+  {
+    name: "release year introduced new art",
+    filters: {
+      format: "commander",
+      releaseYear: "2015",
+      printingScope: "new-art"
+    },
+    expected: "f:commander year=2015 new:art"
   }
 ];
 
@@ -135,6 +162,22 @@ assert.equal(
   "builder_mixed_colorless_unresolved",
   "mixed colorless and colored state must fail closed for alternate relations too"
 );
+
+for (const value of ["201", "20x5", "2015.5", "1992", "20155"]) {
+  assert.deepEqual(
+    validateVisualBuilderFilters({ releaseYear: value }),
+    {
+      valid: false,
+      code: "builder_invalid_release_year",
+      field: "releaseYear",
+      message: "Enter a four-digit release year from 1993 onward."
+    },
+    `${value} must block Loom delivery as an invalid release year`
+  );
+}
+
+assert.equal(validateVisualBuilderFilters({ releaseYear: "" }).valid, true, "blank release year must remain optional");
+assert.equal(validateVisualBuilderFilters({ releaseYear: "1993" }).valid, true, "Magic's first release year must be accepted");
 
 assert.doesNotMatch(
   buildVisualBuilderQuery({ colors: ["W", "C"], colorOp: "id" }),

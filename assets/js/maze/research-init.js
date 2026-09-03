@@ -1,15 +1,15 @@
 ﻿import { loadDictionaryFromSeedUrl } from "./scryfall-dictionary.js";
 import { normalizeSortDirection, setScryfallDictionary } from "./scryfall-parser.js";
-import { buildVisualBuilderQuery, parseKeywordInput, validateVisualBuilderFilters } from "./research-builder.js";
+import { buildVisualBuilderQuery, isValidReleaseYear, parseKeywordInput, validateVisualBuilderFilters } from "./research-builder.js?v=vm627";
 import {
   loadPlainReadingSemanticRegistryFromUrl,
   loadScryfallGroundingFromUrl,
   setPlainReadingSemanticRegistry,
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
-import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js";
-import { resolveModeInputValue } from "./research-mode.js";
+import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=vm627";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm627";
+import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
 import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "./maze-handoff.js";
@@ -303,9 +303,12 @@ const bFilters = {
   keywords: [],
   cmcMin: "",
   cmcMax: "",
+  releaseYear: "",
+  printingScope: "any",
   rarities: [],
   excludeColorless: false
 };
+let releaseYearValidationRequested = false;
 
 const BUILDER_COLOR_RELATION_LABELS = {
   id: "Fits these Commander colors",
@@ -2037,8 +2040,11 @@ function rebuildFromFilters() {
   bFilters.format = document.getElementById("bld-format")?.value || "";
   bFilters.cmcMin = document.getElementById("cmc-min")?.value || "";
   bFilters.cmcMax = document.getElementById("cmc-max")?.value || "";
+  bFilters.releaseYear = document.getElementById("release-year")?.value || "";
+  bFilters.printingScope = document.getElementById("printing-scope")?.value || "any";
   bFilters.excludeColorless = bFilters.colorOp === "id" && Boolean(document.getElementById("exclude-colorless")?.checked);
   updateExcludeColorlessControl();
+  updatePrintingScopeControl();
   const query = buildFilterQuery();
   const validation = validateVisualBuilderFilters(bFilters);
   const input = document.getElementById("search-input");
@@ -2074,6 +2080,12 @@ function updateExcludeColorlessControl() {
   }
 }
 
+function updatePrintingScopeControl() {
+  const scope = document.getElementById("printing-scope");
+  if (!scope) return;
+  scope.disabled = !isValidReleaseYear(bFilters.releaseYear);
+}
+
 /**
  * Converts Visual Builder state into Scryfall syntax.
  * @returns {string} Built query.
@@ -2092,16 +2104,18 @@ function updateBuilderOutput(validation = validateVisualBuilderFilters(bFilters)
 function updateBuilderValidation(validation = validateVisualBuilderFilters(bFilters)) {
   const colorMessage = document.getElementById("color-validation");
   const manaValueMessage = document.getElementById("mv-validation");
+  const releaseYearMessage = document.getElementById("release-year-validation");
   const cmcMin = document.getElementById("cmc-min");
   const cmcMax = document.getElementById("cmc-max");
+  const releaseYear = document.getElementById("release-year");
   const colorRelationTrigger = document.getElementById("color-relation-trigger");
   const colorPips = document.getElementById("color-pips");
-  [colorMessage, manaValueMessage].forEach((message) => {
+  [colorMessage, manaValueMessage, releaseYearMessage].forEach((message) => {
     if (!message) return;
     message.textContent = "";
     message.classList.add("hidden");
   });
-  [cmcMin, cmcMax, colorRelationTrigger, colorPips].forEach((control) => control?.removeAttribute("aria-invalid"));
+  [cmcMin, cmcMax, releaseYear, colorRelationTrigger, colorPips].forEach((control) => control?.removeAttribute("aria-invalid"));
   if (validation.valid) return;
 
   if (validation.field === "cmcMin") {
@@ -2111,6 +2125,13 @@ function updateBuilderValidation(validation = validateVisualBuilderFilters(bFilt
     }
     cmcMin?.setAttribute("aria-invalid", "true");
     cmcMax?.setAttribute("aria-invalid", "true");
+  } else if (validation.field === "releaseYear") {
+    if (!releaseYearValidationRequested) return;
+    if (releaseYearMessage) {
+      releaseYearMessage.textContent = validation.message;
+      releaseYearMessage.classList.remove("hidden");
+    }
+    releaseYear?.setAttribute("aria-invalid", "true");
   } else if (validation.field === "colors") {
     if (colorMessage) {
       colorMessage.textContent = validation.message;
@@ -2122,10 +2143,14 @@ function updateBuilderValidation(validation = validateVisualBuilderFilters(bFilt
 }
 
 function focusInvalidBuilderControl(validation) {
+  if (validation.field === "releaseYear") releaseYearValidationRequested = true;
   updateBuilderValidation(validation);
+  renderCurrentWeave();
   let target = null;
   if (validation.field === "cmcMin") {
     target = document.getElementById("cmc-min");
+  } else if (validation.field === "releaseYear") {
+    target = document.getElementById("release-year");
   } else if (validation.field === "colors") {
     target = document.getElementById("colorless-only-btn") || document.getElementById("color-relation-trigger");
   }
@@ -2140,6 +2165,9 @@ function resetBuilderFilters() {
   bFilters.keywords = [];
   bFilters.cmcMin = "";
   bFilters.cmcMax = "";
+  bFilters.releaseYear = "";
+  bFilters.printingScope = "any";
+  releaseYearValidationRequested = false;
   bFilters.rarities = [];
   bFilters.excludeColorless = false;
 
@@ -2147,12 +2175,16 @@ function resetBuilderFilters() {
   const builderFormat = document.getElementById("bld-format");
   const cmcMin = document.getElementById("cmc-min");
   const cmcMax = document.getElementById("cmc-max");
+  const releaseYear = document.getElementById("release-year");
+  const printingScope = document.getElementById("printing-scope");
   const keywordInput = document.getElementById("kw-input");
   const excludeColorless = document.getElementById("exclude-colorless");
   if (colorOp) colorOp.value = "id";
   if (builderFormat) builderFormat.value = DEFAULT_FORMAT;
   if (cmcMin) cmcMin.value = "";
   if (cmcMax) cmcMax.value = "";
+  if (releaseYear) releaseYear.value = "";
+  if (printingScope) printingScope.value = "any";
   if (keywordInput) keywordInput.value = "";
   if (excludeColorless) excludeColorless.checked = false;
 
@@ -2192,6 +2224,13 @@ function formatBuilderSummary() {
   if (bFilters.cmcMin || bFilters.cmcMax) {
     parts.push(`Mana value: ${bFilters.cmcMin || "0"} to ${bFilters.cmcMax || "any"}`);
   }
+  if (bFilters.releaseYear) {
+    const printingRule = {
+      "first-printing": "first printing",
+      "new-art": "introduced new art"
+    }[bFilters.printingScope];
+    parts.push(`Printing: ${bFilters.releaseYear}${printingRule ? ` · ${printingRule}` : ""}`);
+  }
   if (bFilters.keywords.length) parts.push(`Keywords: ${bFilters.keywords.join(", ")}`);
   return parts.length ? parts.join(" | ") : "No optional filters selected.";
 }
@@ -2217,6 +2256,8 @@ function weaveChoiceCount() {
   count += bFilters.rarities.length;
   if (bFilters.cmcMin !== "") count += 1;
   if (bFilters.cmcMax !== "") count += 1;
+  if (bFilters.releaseYear !== "") count += 1;
+  if (bFilters.releaseYear && bFilters.printingScope !== "any") count += 1;
   if (bFilters.format && bFilters.format !== DEFAULT_FORMAT) count += 1;
   return count;
 }
@@ -2268,14 +2309,24 @@ function renderCurrentWeave(options = {}) {
   primary?.classList.remove("hidden");
 
   if (!validation.valid) {
+    if (validation.field === "releaseYear" && !releaseYearValidationRequested) {
+      panel.dataset.weaveState = "ready";
+      if (secondary) secondary.textContent = "Finish the four-digit release year to refine printings.";
+      if (state) state.textContent = "Finish the year to search";
+      return;
+    }
     panel.dataset.weaveState = "invalid";
     if (title) title.textContent = "Needs attention";
     if (primary) primary.textContent = validation.field === "cmcMin"
       ? "Mana value range conflicts."
-      : "Color selection conflicts.";
+      : validation.field === "releaseYear"
+        ? "Release year needs attention."
+        : "Color selection conflicts.";
     if (secondary) secondary.textContent = validation.field === "cmcMin"
       ? "Correct the range in Refine."
-      : "Correct the selection in Colors.";
+      : validation.field === "releaseYear"
+        ? "Correct the release year in Printing & artwork."
+        : "Correct the selection in Colors.";
     if (state) state.textContent = "Not ready to search";
     return;
   }
@@ -2289,6 +2340,13 @@ function renderCurrentWeave(options = {}) {
   if (bFilters.excludeColorless) refinementParts.push("Colorless excluded");
   if (bFilters.cmcMin !== "" || bFilters.cmcMax !== "") {
     refinementParts.push(`Mana value ${bFilters.cmcMin || "0"} to ${bFilters.cmcMax || "any"}`);
+  }
+  if (bFilters.releaseYear) {
+    const printingRule = {
+      "first-printing": " · first printing",
+      "new-art": " · introduced new art"
+    }[bFilters.printingScope] || "";
+    refinementParts.push(`Release year ${bFilters.releaseYear}${printingRule}`);
   }
   refinementParts.push(formatLabel);
 
@@ -4121,6 +4179,11 @@ function bindMazeControls() {
   document.getElementById("bld-format")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("cmc-min")?.addEventListener("input", rebuildFromFilters);
   document.getElementById("cmc-max")?.addEventListener("input", rebuildFromFilters);
+  document.getElementById("release-year")?.addEventListener("input", () => {
+    releaseYearValidationRequested = false;
+    rebuildFromFilters();
+  });
+  document.getElementById("printing-scope")?.addEventListener("change", rebuildFromFilters);
   document.getElementById("kw-input")?.addEventListener("input", (event) => {
     showKwSuggestions(event.target.value);
   });

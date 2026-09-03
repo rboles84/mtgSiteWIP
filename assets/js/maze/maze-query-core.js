@@ -1,5 +1,5 @@
 import { buildDossierMazePathEntries, resolveMazeLaunchState } from "./maze-handoff.js";
-import { buildVisualBuilderQuery } from "./research-builder.js";
+import { buildVisualBuilderQuery } from "./research-builder.js?v=vm627";
 import { normalizeSortDirection, parseScryfallNaturalLanguage } from "./scryfall-parser.js";
 
 export const MAZE_QUERY_MODES = ["ai", "raw", "builder"];

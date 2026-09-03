@@ -8,7 +8,7 @@ const source = await readFile(new URL("../../assets/js/maze/research-init.js", i
 assert.match(html, /data-stash-open="false"/, "Reading Finds must begin closed");
 assert.match(html, /search-input-row[\s\S]*?id="stash-drawer-toggle"[\s\S]*?<\/div>/, "Reading Finds toggle must live with search actions");
 assert.ok(html.indexOf('id="builder-panel"') < html.indexOf('class="search-input-row"'), "Loom controls must precede its action region in DOM order");
-assert.match(html, /id="builder-panel"[\s\S]*?<fieldset[\s\S]*?<legend>Colors<\/legend>[\s\S]*?<legend>Card Type<\/legend>[\s\S]*?<legend>Abilities<\/legend>[\s\S]*?<legend>Refine<\/legend>/, "Loom must expose full-width semantic groups in causal order");
+assert.match(html, /id="builder-panel"[\s\S]*?<fieldset[\s\S]*?<legend>Colors<\/legend>[\s\S]*?<legend>Card Type<\/legend>[\s\S]*?<legend>Abilities<\/legend>[\s\S]*?<legend>Refine<\/legend>[\s\S]*?<legend>Printing &amp; artwork<\/legend>/, "Loom must expose full-width semantic groups in causal order");
 assert.match(source, /if \(inputLabel\) inputLabel\.textContent = "Live Scryfall query";/, "Loom must label its one compact live query directly");
 assert.ok(html.indexOf('id="bld-format"') < html.indexOf('id="search-btn"'), "Loom format control must precede Search in DOM order");
 assert.match(html, /id="builder-summary"[^>]*class="visually-hidden"|class="visually-hidden"[^>]*id="builder-summary"/, "builder summary must remain nonvisual");
@@ -42,6 +42,13 @@ const currentWeaveMarkup = html.match(/<aside class="current-weave"[\s\S]*?<\/as
 assert.ok(currentWeaveMarkup, "Current Weave must render as a labeled passive aside");
 assert.doesNotMatch(currentWeaveMarkup, /<(?:button|input|select|textarea)\b/, "Current Weave must not become a second form or action surface");
 assert.match(css, /\.refine-row \{[\s\S]*?grid-template-columns: minmax\(150px, 0\.65fr\) minmax\(190px, 0\.8fr\) minmax\(300px, 1\.55fr\);/, "desktop Refine must keep its three compact controls on one row");
+assert.match(html, /id="release-year"[^>]*type="text"[^>]*inputmode="numeric"[^>]*maxlength="4"[^>]*aria-describedby="release-year-help release-year-validation"/, "release year must preserve malformed input for local validation");
+assert.match(html, /id="release-year-help">Enter a four-digit year\.<\/p>/, "release year must provide concise proactive guidance while typing");
+assert.match(html, /<div class="printing-control">[\s\S]*?id="release-year"[\s\S]*?class="builder-validation release-year-validation hidden" id="release-year-validation"/, "release-year recovery must remain scoped beneath its own control");
+assert.match(html, /id="printing-scope" disabled[^>]*aria-describedby="printing-scope-help"/, "printing rule must require a valid release year");
+assert.match(css, /\.printing-row \{[\s\S]*?grid-template-columns: minmax\(150px, 0\.65fr\) minmax\(220px, 1fr\);/, "desktop printing controls must remain a compact dependent pair");
+assert.match(css, /\.builder-validation\.release-year-validation \{[\s\S]*?width: min\(100%, 28rem\);[\s\S]*?grid-column: auto;[\s\S]*?justify-self: start;/, "release-year recovery must not span the whole printing fieldset");
+assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.printing-row \{[\s\S]*?grid-template-columns: 1fr;/, "printing controls must stack at the accepted Loom breakpoint");
 assert.match(html, /<details class="color-relation-picker"[\s\S]*?data-action="set-color-relation"/, "color relation must reuse a native disclosure with explicit options");
 assert.match(css, /@media \(max-width: 820px\)[\s\S]*?\.search-input-row \{[\s\S]*?grid-auto-rows: max-content;/, "accepted single-column mobile action treatment must remain intact");
 assert.match(css, /body\.vm-maze-route\[data-maze-mode="builder"\] \.s-input \{[\s\S]*?max-height: none;[\s\S]*?overflow: hidden;[\s\S]*?overflow-wrap: anywhere;[\s\S]*?resize: none;/, "normal Loom queries must grow and wrap without an inner scroll region");
@@ -56,7 +63,7 @@ assert.doesNotMatch(source, /function resetBuilderFilters\(\)[\s\S]*?showToast\(
 assert.match(source, /clearButton\.hidden = true;/, "Loom must suppress the duplicate generic Clear/Reset action");
 const currentWeaveSource = source.slice(
   source.indexOf("function renderCurrentWeave(options = {})"),
-  source.indexOf("/**\n * Handles Enter in the keyword suggestion field.")
+  source.indexOf("function handleKwKey")
 );
 assert.ok(currentWeaveSource, "Current Weave presenter source must be locatable");
 assert.doesNotMatch(currentWeaveSource, /bFilters\.[A-Za-z]+\s*=/, "Current Weave must never mutate builder filters");

@@ -1075,6 +1075,12 @@ body.vm-maze-route[data-maze-mode="builder"] .s-input {
   line-height: 1.45;
 }
 
+.builder-validation.release-year-validation {
+  width: min(100%, 28rem);
+  grid-column: auto;
+  justify-self: start;
+}
+
 .colorless-only-btn,
 .kw-add-btn {
   min-height: 44px;
@@ -1772,6 +1778,31 @@ body.vm-maze-route .bld-select:focus-visible {
   display: grid;
   gap: 0.5rem;
   align-content: end;
+}
+
+.printing-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.65fr) minmax(220px, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.printing-control {
+  min-width: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.printing-control > .bl {
+  color: var(--maze-faint);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.release-year-input {
+  max-width: 9rem;
 }
 
 .refine-control > .bl {
@@ -3324,6 +3355,10 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .refine-row {
     grid-template-columns: 1fr;
     align-items: stretch;
+  }
+
+  .printing-row {
+    grid-template-columns: 1fr;
   }
 
   .loom-result-delivery {

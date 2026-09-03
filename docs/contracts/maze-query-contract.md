@@ -214,6 +214,8 @@ Treat those four values as the v1 enum for dossier path entries. `resolveMazePat
   keywords: string[],
   cmcMin: string,
   cmcMax: string,
+  releaseYear: string,
+  printingScope: "any" | "first-printing" | "new-art",
   rarities: string[]
 }
 ```
@@ -229,6 +231,8 @@ Current field behavior:
 | `keywords` | `research-init.js` owns keyword chips; `research-builder.js` reads it | One keyword emits `kw:keyword`; multiple keywords emit an OR group, quoting multi-word keywords. |
 | `cmcMin` | `research-init.js` reads `#cmc-min`; `research-builder.js` reads it | Emits `mv>=value` when present. |
 | `cmcMax` | `research-init.js` reads `#cmc-max`; `research-builder.js` reads it | Emits `mv<=value` when present. |
+| `releaseYear` | `research-init.js` reads `#release-year`; `research-builder.js` reads it | A non-empty valid four-digit year from 1993 onward emits `year=<year>` Scryfall release filtering; invalid values block route delivery locally and reveal recovery on attempted delivery. |
+| `printingScope` | `research-init.js` reads `#printing-scope`; `research-builder.js` reads it | Disabled until `releaseYear` is valid. `any` adds no clause; `first-printing` adds `is:firstprinting`; `new-art` adds `new:art`. |
 | `rarities` | `research-init.js` toggles rarity chips; `research-builder.js` reads it | One rarity emits `r:value`; multiple rarities emit an OR group. |
 
 Do not limit the inventory to this table if future code reads additional fields. The table is the v1 field floor, not a license to ignore hidden state.

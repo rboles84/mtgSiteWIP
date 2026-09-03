@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/guide-beacon.css?v=vm620">
-<link rel="stylesheet" href="../assets/css/maze.css?v=vm620">
+<link rel="stylesheet" href="../assets/css/maze.css?v=vm627">
 </head>
 <body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
 
@@ -258,6 +258,28 @@
           <div class="builder-validation hidden" id="mv-validation" role="alert" aria-live="assertive"></div>
         </fieldset>
 
+        <fieldset class="builder-group builder-group-printing">
+          <legend>Printing &amp; artwork</legend>
+          <p class="builder-group-help">Filters by the printing's release year, not when the illustration was created.</p>
+          <div class="printing-row">
+            <div class="printing-control">
+              <label class="bl" for="release-year">Release year</label>
+              <input class="bld-select release-year-input" id="release-year" type="text" inputmode="numeric" maxlength="4" placeholder="2015" autocomplete="off" aria-describedby="release-year-help release-year-validation">
+              <p class="builder-field-help" id="release-year-help">Enter a four-digit year.</p>
+              <div class="builder-validation release-year-validation hidden" id="release-year-validation" role="alert" aria-live="assertive"></div>
+            </div>
+            <div class="printing-control">
+              <label class="bl" for="printing-scope">Printing rule</label>
+              <select class="bld-select" id="printing-scope" disabled aria-describedby="printing-scope-help">
+                <option value="any">Any matching printing</option>
+                <option value="first-printing">Card's first printing</option>
+                <option value="new-art">Introduced new art</option>
+              </select>
+              <p class="builder-field-help" id="printing-scope-help">Choose a valid release year to refine its printings.</p>
+            </div>
+          </div>
+        </fieldset>
+
         <p class="visually-hidden" id="builder-summary" aria-live="polite">Commander format is ready. Add filters or search as-is.</p>
       </div>
 
@@ -425,7 +447,7 @@
   </div>
 </div>
 <div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="../assets/js/maze/research-init.js?v=vm620"></script>
+<script type="module" src="../assets/js/maze/research-init.js?v=vm627"></script>
 <script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../assets/js/shared/guide-beacon.js?v=vm620" defer></script>
