@@ -4,7 +4,9 @@ import {
   TELEMETRY_SCHEMA_VERSION,
   VOX_TELEMETRY_EVENTS,
   beginVoxReading,
+  beginVoxGuideSession,
   buildPostHogConfig,
+  createVoxGuideEngagementTracker,
   derivePlacementVersion,
   filterPostHogEvent,
   initializeVoxTelemetry,
@@ -14,9 +16,12 @@ import {
   setVoxTelemetryTestSink,
   telemetryModeForLocation,
   trackVoxEvent,
+  trackVoxGuideAction,
+  trackVoxGuideWalkthrough,
   trackVoxQuestionAnswered,
   trackVoxReadingCompleted,
 } from "../../assets/js/shared/vox-telemetry.js";
+import { bootGuideTelemetry } from "../../assets/js/guide/guide-telemetry.js";
 
 const model = {
   _meta: {
@@ -29,6 +34,7 @@ const model = {
 
 const placementVersion = "m=vm551-gate-b1-placement-engine-v1|i=vm551-gate-b1-instrument-v2|map=vm551-gate-b1-mapping-v2-instrument-completion|r=2026-08-09-gate-b1-v1";
 const readingRunId = "33590627-5500-4b95-8971-3cfd4d91f658";
+const guideSessionId = "33590627-5500-4b95-8971-3cfd4d91f659";
 
 const schemas = {
   [VOX_TELEMETRY_EVENTS.READING_STARTED]: {
@@ -57,6 +63,33 @@ const schemas = {
     stopping_state: "primary",
     stopping_reason: "clear_separation",
   },
+  [VOX_TELEMETRY_EVENTS.GUIDE_OPENED]: {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: guideSessionId,
+    guide_surface: "overview",
+    guide_mode: "guided",
+  },
+  [VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED]: {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: guideSessionId,
+    guide_surface: "overview",
+    active_seconds_threshold: 30,
+  },
+  [VOX_TELEMETRY_EVENTS.GUIDE_ACTION]: {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: guideSessionId,
+    guide_surface: "overview",
+    action_kind: "product_exit",
+    destination: "archscry",
+  },
+  [VOX_TELEMETRY_EVENTS.GUIDE_WALKTHROUGH]: {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: guideSessionId,
+    guide_surface: "overview",
+    walkthrough_id: "vox-mana-intro",
+    state: "completed",
+    step_index: 4,
+  },
 };
 
 assert.equal(derivePlacementVersion(model), placementVersion);
@@ -77,6 +110,7 @@ for (const forbiddenKey of [
   "query",
   "question_text",
   "answer_text",
+  "guide_prose",
 ]) {
   assert.equal(normalizeVoxEvent(
     VOX_TELEMETRY_EVENTS.READING_STARTED,
@@ -86,6 +120,10 @@ for (const forbiddenKey of [
 assert.equal(normalizeVoxEvent(
   VOX_TELEMETRY_EVENTS.QUESTION_ANSWERED,
   { ...schemas.question_answered, question_id: "What kind of game do you enjoy?" }
+), null);
+assert.equal(normalizeVoxEvent(
+  VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED,
+  { ...schemas[VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED], active_seconds_threshold: 15 }
 ), null);
 assert.equal(normalizeVoxEvent(
   VOX_TELEMETRY_EVENTS.QUESTION_ANSWERED,
@@ -270,6 +308,160 @@ const secondReadingRunId = beginVoxReading({ placementModel: model });
 assert.notEqual(secondReadingRunId, firstReadingRunId);
 assert.equal(emitted.at(-1).event, VOX_TELEMETRY_EVENTS.READING_STARTED);
 assert.equal(emitted.at(-1).properties.reading_run_id, secondReadingRunId);
+
+function createFakeDocument() {
+  const listeners = new Map();
+  return {
+    visibilityState: "visible",
+    addEventListener(eventName, listener) {
+      listeners.set(eventName, listener);
+    },
+    removeEventListener(eventName) {
+      listeners.delete(eventName);
+    },
+    setVisibility(nextState) {
+      this.visibilityState = nextState;
+      listeners.get("visibilitychange")?.();
+    },
+    fire(eventName, event) {
+      listeners.get(eventName)?.(event);
+    },
+  };
+}
+
+resetVoxTelemetryForTests();
+const bootEvents = [];
+setVoxTelemetryTestSink((event) => bootEvents.push(event));
+const bootDocument = createFakeDocument();
+const bootedGuide = bootGuideTelemetry({
+  guideSurface: "reading",
+  walkthroughId: "dossier-reading",
+  documentRef: bootDocument,
+  windowRef: { location: { href: "https://voxmana.io/guide/reading/?guided=dossier-reading" } },
+  engagementOptions: { setIntervalFn: () => null },
+});
+assert.ok(bootedGuide);
+assert.equal(bootEvents.filter(({ event }) => event === VOX_TELEMETRY_EVENTS.GUIDE_OPENED).length, 1);
+assert.equal(bootEvents[0].properties.guide_mode, "guided");
+bootDocument.fire("click", {
+  target: { closest: () => ({ dataset: { guideCta: "archscry" } }) },
+});
+bootDocument.fire("click", { target: { closest: () => null } });
+assert.deepEqual(bootEvents.map(({ event }) => event), [
+  VOX_TELEMETRY_EVENTS.GUIDE_OPENED,
+  VOX_TELEMETRY_EVENTS.GUIDE_ACTION,
+]);
+bootedGuide.dispose();
+
+resetVoxTelemetryForTests();
+const guideEvents = [];
+setVoxTelemetryTestSink((event) => guideEvents.push(event));
+const guideDocument = createFakeDocument();
+let guideNow = 0;
+let guideTick;
+const activeGuideSessionId = beginVoxGuideSession({
+  guideSurface: "overview",
+  guideMode: "guided",
+  documentRef: guideDocument,
+  engagementOptions: {
+    now: () => guideNow,
+    setIntervalFn(callback) {
+      guideTick = callback;
+      return null;
+    },
+  },
+});
+assert.equal(guideEvents.filter(({ event }) => event === VOX_TELEMETRY_EVENTS.GUIDE_OPENED).length, 1);
+assert.equal(guideEvents[0].properties.guide_session_id, activeGuideSessionId);
+guideNow = 10_000;
+guideTick();
+guideDocument.setVisibility("hidden");
+guideNow = 100_000;
+guideTick();
+guideDocument.setVisibility("visible");
+guideNow = 120_000;
+guideTick();
+guideNow = 150_000;
+guideTick();
+guideNow = 210_000;
+guideTick();
+assert.deepEqual(
+  guideEvents
+    .filter(({ event }) => event === VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED)
+    .map(({ properties }) => properties.active_seconds_threshold),
+  [10, 30, 60, 120],
+);
+assert.equal(trackVoxGuideAction({ destination: "archscry" }), true);
+assert.equal(trackVoxGuideAction({ destination: "overview" }), true);
+assert.equal(trackVoxGuideAction({ destination: "maze", actionKind: "guide_internal" }), true);
+assert.equal(trackVoxGuideAction({ destination: "untracked-link" }), false);
+assert.deepEqual(
+  guideEvents.slice(-3).map(({ properties }) => [properties.action_kind, properties.destination]),
+  [["product_exit", "archscry"], ["guide_internal", "overview"], ["guide_internal", "maze"]],
+);
+assert.equal(trackVoxGuideWalkthrough({
+  walkthroughId: "vox-mana-intro",
+  state: "started",
+  stepIndex: 1,
+}), true);
+assert.equal(trackVoxGuideWalkthrough({
+  walkthroughId: "vox-mana-intro",
+  state: "completed",
+  stepIndex: 4,
+}), true);
+assert.equal(trackVoxGuideWalkthrough({
+  walkthroughId: "vox-mana-intro",
+  state: "closed",
+  stepIndex: 2,
+}), true);
+assert.deepEqual(
+  guideEvents
+    .filter(({ event }) => event === VOX_TELEMETRY_EVENTS.GUIDE_WALKTHROUGH)
+    .map(({ properties }) => [properties.state, properties.step_index]),
+  [["started", 1], ["completed", 4], ["closed", 2]],
+);
+
+let visibleSeconds = 0;
+const directTrackerDocument = createFakeDocument();
+const directTracker = createVoxGuideEngagementTracker({
+  documentRef: directTrackerDocument,
+  now: () => visibleSeconds,
+  setIntervalFn: () => null,
+});
+visibleSeconds = 10_000;
+assert.equal(directTracker.check(), 10);
+directTracker.stop();
+
+const originalMockWindow = globalThis.window;
+const originalMockDocument = globalThis.document;
+try {
+  globalThis.window = { location: { hostname: "localhost", search: "?vox_telemetry=mock" } };
+  globalThis.document = createFakeDocument();
+  resetVoxTelemetryForTests();
+  assert.equal(initializeVoxTelemetry(), true);
+  beginVoxGuideSession({
+    guideSurface: "maze",
+    documentRef: globalThis.document,
+    engagementOptions: { setIntervalFn: () => null },
+  });
+  assert.equal(globalThis.window.posthog, undefined, "mock mode must not load PostHog");
+  assert.equal(globalThis.window.__VOX_TELEMETRY_EVENTS__[0].event, VOX_TELEMETRY_EVENTS.GUIDE_OPENED);
+} finally {
+  resetVoxTelemetryForTests();
+  if (originalMockWindow === undefined) delete globalThis.window;
+  else globalThis.window = originalMockWindow;
+  if (originalMockDocument === undefined) delete globalThis.document;
+  else globalThis.document = originalMockDocument;
+}
+
+resetVoxTelemetryForTests();
+setVoxTelemetryProviderForTests({ capture() { throw new Error("provider unavailable"); } });
+assert.doesNotThrow(() => beginVoxGuideSession({
+  guideSurface: "reading",
+  documentRef: createFakeDocument(),
+  engagementOptions: { setIntervalFn: () => null },
+}));
+assert.equal(trackVoxGuideAction({ destination: "maze" }), false);
 
 resetVoxTelemetryForTests();
 console.log("Vox telemetry tests passed.");

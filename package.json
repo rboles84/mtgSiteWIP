@@ -42,6 +42,8 @@
     "test:scryfall-grounding": "node scripts/validate-scryfall-grounding.mjs",
     "test:plain-reading-semantics": "node scripts/validate-plain-reading-semantics.mjs",
     "test:telemetry": "node tests/telemetry/vox-telemetry-tests.js",
+    "test:vm623-guide-telemetry": "node scripts/vm623-guide-telemetry-tests.mjs",
+    "test:vm623-guide-telemetry-browser": "node scripts/vm623-guide-telemetry-browser.mjs",
     "test:transform-faces": "node tests/shared/scryfall-transform-faces-tests.js",
     "test": "node tests/run-tests.js",
     "test:builder": "node tests/maze/research-builder-tests.js",

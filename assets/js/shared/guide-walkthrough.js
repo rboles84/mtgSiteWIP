@@ -1,3 +1,5 @@
+import { trackVoxGuideWalkthrough } from "./vox-telemetry.js";
+
 const GUIDED_PARAMETER = "guided";
 const FOCUSABLE_SELECTOR = [
   "a[href]",
@@ -144,12 +146,21 @@ export async function startGuideWalkthrough(config) {
   let activeIndex = 0;
   let exitReason = "close";
   let finished = false;
+  let telemetryStarted = false;
   let driverInstance;
   const cleanupCallbacks = [];
 
   const finish = () => {
     if (finished) return;
     finished = true;
+    if (telemetryStarted) {
+      trackVoxGuideWalkthrough({
+        walkthroughId: config.id,
+        state: exitReason === "done" ? "completed" : "closed",
+        stepIndex: activeIndex + 1,
+      });
+      telemetryStarted = false;
+    }
     restoreFocusables();
     restoreFocusables = () => {};
     cleanupCallbacks.splice(0).forEach((cleanup) => cleanup());
@@ -278,6 +289,12 @@ export async function startGuideWalkthrough(config) {
   activeSession = { destroy: driverInstance.destroy };
   try {
     driverInstance.drive();
+    telemetryStarted = true;
+    trackVoxGuideWalkthrough({
+      walkthroughId: config.id,
+      state: "started",
+      stepIndex: 1,
+    });
   } catch (error) {
     exitReason = "driver-failure";
     driverInstance.destroy();

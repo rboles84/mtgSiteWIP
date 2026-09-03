@@ -1,6 +1,6 @@
 # Product Telemetry
 
-Vox Mana Product Telemetry V1 measures only the Archscry placement funnel. The browser integration is provider-isolated in `assets/js/shared/vox-telemetry.js`; application modules must call its Vox Mana API and must not call PostHog directly.
+Vox Mana Product Telemetry measures the Archscry placement funnel and the bounded Field Guide journey. The browser integration is provider-isolated in `assets/js/shared/vox-telemetry.js`; application modules must call its Vox Mana API and must not call PostHog directly.
 
 ## V1 Contract
 
@@ -20,6 +20,19 @@ m=<model_version>|i=<instrument_version>|map=<mapping_version>|r=<result_version
 
 Telemetry does not own or alter any placement version, score, weight, route, stopping rule, qualification rule, or result meaning.
 
+## Field Guide Contract
+
+Every Guide event includes `telemetry_schema_version: 1`, a random page-local `guide_session_id`, and `guide_surface` (`overview`, `reading`, or `maze`). The session ID is created once per Guide page load, never persisted, and never placed in a URL.
+
+| Event | Additional properties | Lifecycle point |
+|---|---|---|
+| `guide_opened` | `guide_mode` (`static` or `guided`) | Once when a Guide route boots. |
+| `guide_engaged` | `active_seconds_threshold` (only `10`, `30`, `60`, or `120`) | Once per threshold while the document is visible; hidden-tab time is excluded. |
+| `guide_action` | `action_kind` (`product_exit` or `guide_internal`), `destination` | Only when an intentional `data-guide-cta` is clicked. Product destinations are `archscry`, `maze`, `strategium`, and `apocrypha`; Guide destinations are `overview`, `reading`, and `maze`. |
+| `guide_walkthrough` | `walkthrough_id`, `state`, `step_index` | The existing shared guided-reading lifecycle starts, completes, or closes one of `vox-mana-intro`, `dossier-reading`, or `maze-search`. |
+
+Guide telemetry does not track generic links, URL/href/referrer values, Guide or walkthrough prose, search queries, exact dwell durations, scroll, mouse movement, persistence, or session replay. It does not alter the existing Archscry `reading_started`, `question_answered`, or `reading_completed` semantics, and it does not add `placement_version` to Guide events.
+
 ## Reading Semantics
 
 `reading_run_id` is generated in memory when `startQuickFlow()` begins a new reading. It is not a person identifier, is not persisted, and is not placed in a URL. Accepted answers and the first completed result share that ID. Starting another reading replaces it with a new ID.
@@ -30,7 +43,7 @@ Backtracking records another accepted `question_answered` event. When a step is 
 
 The event-specific schemas are allowlists. Unknown event names, unexpected properties, invalid enums, free prose, and representative sensitive keys fail closed. Do not send names, email addresses, account/profile/user IDs, URLs or query strings, referrers, search input, questionnaire prose, dossier prose, score vectors, or serialized objects.
 
-PostHog is configured for manual capture only. Autocapture, pageview/pageleave capture, dead-click and rage-click capture, replay, surveys, performance, heatmaps, exception capture, feature flags, persistence, and anonymous person-profile processing are disabled. `before_send` is a second event firewall: only the three V1 event names can leave the browser, and provider-added URL/referrer context is stripped. Provider loading and capture failures are non-blocking.
+PostHog is configured for manual capture only. Autocapture, pageview/pageleave capture, dead-click and rage-click capture, replay, surveys, performance, heatmaps, exception capture, feature flags, persistence, and anonymous person-profile processing are disabled. `before_send` is a second event firewall: only the three V1 Archscry names and the four Field Guide names documented above can leave the browser, and provider-added URL/referrer context is stripped. Provider loading and capture failures are non-blocking.
 
 `$geoip_disable: true` prevents GeoIP enrichment but does not by itself prevent PostHog from recording the client IP observed at ingestion. The PostHog project-level **Discard client IP data** control is therefore a required part of the V1 privacy boundary. After enabling it, the owner verified a newly ingested 2026-08-20 reading still reported GeoIP disabled while the prior client-IP property was absent. Any project, region, or provider migration must reproduce and reverify this control; the application event schema must not add an IP property.
 

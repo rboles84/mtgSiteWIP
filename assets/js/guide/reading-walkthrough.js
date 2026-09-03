@@ -1,3 +1,5 @@
+import { bootGuideTelemetry } from "./guide-telemetry.js";
+
 const assetUrl = path => new URL(path, import.meta.url).href;
 
 export const READING_WALKTHROUGH = Object.freeze({
@@ -38,6 +40,7 @@ export const READING_WALKTHROUGH = Object.freeze({
 });
 
 export async function bootReadingWalkthrough() {
+  bootGuideTelemetry({ guideSurface: "reading", walkthroughId: READING_WALKTHROUGH.id });
   if (new URL(window.location.href).searchParams.getAll("guided").length === 0) {
     return { state: "static" };
   }
