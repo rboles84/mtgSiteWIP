@@ -23,6 +23,13 @@ Name the exact changed behavior, protected behavior, realistic regressions, and 
 
 Use the smallest deterministic validation set that protects the changed risk.
 
+Before material rendered/browser work, ask:
+
+1. Is this evidence objectively machine-verifiable, or am I spending compute approximating a Product Owner judgment?
+2. If automation fails here, can the Owner answer the product question faster with a bounded manual check?
+
+Apply the canonical [Owner-First Visual Verification Policy](../../../docs/qa/RobQAPass.md#owner-first-visual-verification-policy). It controls rendered-visual scope, Owner escalation, and the honest distinction between a Product: Owner Manual PASS and an Automated test: FAIL / known harness debt.
+
 Before a CPU-heavy or exhaustive suite, state:
 
 - what changed that the suite protects;
@@ -34,16 +41,16 @@ If there is no concrete answer, do not run the suite. Scope drift returns to Rob
 
 ## 4. Rendered Product First
 
-For visible changes, open the real affected route or deterministic review case.
+For visible changes, open the real affected route or deterministic review case. Perform the policy's minimal rendered sanity check by default; do not substitute prolonged screenshot/AI visual analysis for Owner product judgment.
 
 - follow the intended journey;
 - read changed copy in rendered order;
 - click the controls the user clicks;
 - inspect the promised destination, active state, focus, and scroll;
-- inspect relevant desktop and narrow widths;
+- inspect a relevant narrow width only when responsive risk is directly in scope;
 - check repeat, close, return, Back/Forward, refresh, and recovery where applicable.
 
-Source-only green checks do not pass a visible change.
+Source-only green checks do not pass an objective visible contract. The Owner, not repeated automated visual interpretation, judges appearance, hierarchy, feel, and comfort.
 
 ## 5. Copy And Product Language
 
@@ -58,7 +65,7 @@ Separate:
 - deterministic geometry and DOM evidence at pinned normal conditions;
 - human optical judgment at normal viewing and useful magnification.
 
-Inspect the actual owning element, parent, computed styles, focus, overflow, clipping, and pseudo-element styles where relevant. Geometry can pass while the visible result still looks wrong.
+Inspect the actual owning element, parent, computed styles, focus, overflow, clipping, and pseudo-element styles where relevant. Geometry can pass while the visible result still looks wrong; that remaining optical judgment belongs to the Owner unless an explicit objective acceptance criterion requires more rendered evidence.
 
 ## 7. Interaction And State
 
@@ -95,7 +102,7 @@ Convert a real finding into the narrowest useful systemic invariant. Do not patc
 
 Before handoff:
 
-- inspect the whole changed product surface;
+- perform only the policy's representative rendered sanity check unless an objective risk justifies more;
 - read the changed text top to bottom;
 - click actual controls and edges;
 - inspect desktop and relevant narrow states;
@@ -107,7 +114,7 @@ Before handoff:
 
 Agents verify deterministic facts. The owner judges product feel, visual balance, natural wording, usefulness, intuitive flow, genuine ambiguity, and high-impact choices.
 
-Provide the shortest deterministic cases that exercise the changed risk. Do not ask the owner to click around, review every identity, or re-prove machine-verifiable facts.
+Provide the policy's compact Owner-check template when subjective judgment or an ambiguous user-visible automation failure remains. Do not ask the owner to click around, review every identity, or re-prove machine-verifiable facts.
 
 ## 13. Handoff
 

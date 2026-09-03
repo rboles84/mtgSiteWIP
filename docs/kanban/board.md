@@ -54,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-622 — Owner-First Visual Verification Governance](done/VM-622-owner-first-visual-verification-governance.md) - Done — Owner Accepted at exact candidate `552cc8d`; RobQA now canonically governs lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
+
 - [VM-617 — Reference, Cross-Links, and Final Onboarding Validation](done/VM-617-reference-cross-links-final-onboarding-validation.md) - Done — Owner Accepted at discovery candidate `154183b`; `/guide/reference/` is deferred and reserved, with zero terminology additions, local syntax reference, recipes, or cross-links. Owner manually verified the fresh private-browser Archscry journey; the unchanged automated smoke remains harness debt. VM-006 is independent/unstarted, and the dedicated Field Guide/onboarding program is complete.
 
 - [VM-620 — Shared Field Guide Beacon Discoverability and Visual Language](done/VM-620-shared-field-guide-beacon-visual-language.md) - Done — Owner Accepted; scope `db2c6ee3a77368ce25ec8994c66d791f83f8b1f9`, accepted only within combined deployable tip `99ad6895400c858a6bfdd9cc99438b577950e4df`. Exactly three visual Beacons; never integrate independently. Owner now authorizes a merge-commit PR containing the complete VM-620 + VM-621 state through lifecycle closeout `63cc57590ec5ddfba2c0c665049ddd2e7c58c71b`.

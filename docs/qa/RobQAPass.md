@@ -248,13 +248,146 @@ If a heavy suite is justified, the handoff must state:
 
 ---
 
+## Owner-First Visual Verification Policy
+
+This policy governs rendered/visual QA scope, user-visible automation failures, and Owner escalation. It
+refines the general rendered-product guidance below. Where broadly worded rendered self-QA language could
+imply extended agent optical review, this policy controls unless a card has explicit, stricter objective
+acceptance criteria.
+
+The Product Owner is actively driving Vox Mana and is available for short manual verification. Automation
+exists to support Owner judgment, not replace it.
+
+> **Codex proves what is cheap, deterministic, and machine-verifiable. The Product Owner judges what is
+> visual, experiential, aesthetic, or immediately observable.**
+
+### Pre-render questions and proportionality
+
+Before a material rendered/browser run, ask:
+
+1. **Is this evidence objectively machine-verifiable, or am I spending compute approximating a Product Owner judgment?**
+2. **If automation fails here, can the Owner answer the product question faster with a bounded manual check?**
+
+The expected value of additional QA evidence must justify its token, compute, and elapsed-time cost. Prefer
+the cheapest reliable evidence that answers the question:
+
+- Deterministic DOM, state, route, accessibility, data, or geometry fact: automate it.
+- Appearance, hierarchy, comfort, usefulness, or aesthetic judgment: ask the Owner.
+- No changed/protected risk and no acceptance criterion: do not run it by default.
+- Objective risk that targeted checks cannot answer: use deeper automation or diagnostics, and state why first.
+
+"UI changed" alone is not a reason for exhaustive rendered QA. State why additional rendered evidence is
+required before spending material time or compute. Valid reasons include a historical breakpoint regression,
+geometry/overflow as the acceptance criterion, viewport containment for a tooltip/popover, sticky/fixed
+positioning under test, proof of a missing/broken asset, rendering as the product artifact, or an Owner
+request for multiple visual witnesses.
+
+### Machine-verifiable work remains agent work
+
+Normally automate objective assertions such as DOM existence; exact copy; URLs and route state; query
+outputs; state transitions; persistence and storage isolation; data invariants; focus destinations;
+keyboard behavior; ARIA attributes; link destinations; reduced-motion state; viewport overflow;
+objectively measurable visibility; history/Back/Forward behavior; cleanup after interactions; no-JS
+fallback; and API/result contracts. Deterministic screenshots are appropriate only when explicitly
+justified as evidence for an objective contract.
+
+This policy does **not** discard legitimate accessibility automation. Continue to test semantic structure,
+keyboard and focus behavior, ARIA, reduced motion, measurable target sizes, viewport containment, and
+cleanup. Do not turn the Owner into the sole tester or use subjectivity as an excuse to skip hidden or
+deterministic risk verification.
+
+### Owner judgment remains Owner work
+
+The Owner normally judges visual appearance and hierarchy; whether a surface feels modern, coherent,
+crowded, intuitive, useful, comfortable, too bright/subtle, or advertisement-like; animation strength and
+irritation; spacing aesthetics; tone/feel; subjective responsive presentation; and overall product
+experience. An agent may perform the minimum sanity check below, but must not certify these judgments with
+long screenshot sequences, pixel-by-pixel aesthetic comparisons, repeated AI visual-interpretation loops,
+exhaustive guided-flow screenshots, lengthy screenshot packages, or a programmatic "looks good" claim.
+
+### Default rendered boundary
+
+Unless the card explicitly requires more because of objective risk, use:
+
+- one representative desktop render or screenshot;
+- one representative mobile render only when responsive risk is directly in scope; and
+- catastrophic checks: the page rendered, main content is present, there is no obvious horizontal overflow,
+  and no major component is missing.
+
+Then return the product to Owner Review. For multi-screen/state flows, automated functional assertions may
+cover the states while the Owner experiences the actual flow. This lightweight sanity check is not an
+agent-issued visual-acceptance certification.
+
+### User-visible automation-failure gate
+
+When an automated/browser/headless check fails at a boundary that is visible to a user, cheap for the Owner
+to reproduce, and ambiguous between a product defect and a harness/test defect, do **not** immediately
+launch expensive tracing, screenshot generation, logs, rebuilds, or broad diagnostics.
+
+1. Give the Owner the compact check below.
+2. Wait for the result and classify it.
+3. Investigate only the side that actually needs work, beginning with the cheapest discriminating evidence.
+
+If the Owner directly verifies the real product behavior works, record **Product: Owner Manual PASS** and
+**Automated test: FAIL / known harness debt** unless contrary evidence exists. Do not investigate further
+automatically or repair the harness unless separately authorized or required by the active card. Do not
+delete the check, weaken its assertion, mark it green, or say "all tests pass" unless it actually passes.
+
+If the Owner reproduces the visible failure, record **PRODUCT DEFECT CONFIRMED** and investigate the
+smallest product owner/seam necessary. Only when the Owner cannot determine whether the behavior is correct
+may a bounded diagnostic investigation proceed, starting with the cheapest discriminating evidence.
+
+### Compact Owner-check template
+
+Use this when subjective/manual verification is needed. Target approximately 30 seconds to 3 minutes for a
+single visible boundary, a few actions, and one clear judgment. Break a long flow into its smallest decisive
+checkpoint unless broader manual testing is explicitly justified.
+
+```text
+Purpose: <one sentence>
+Open: <exact page/URL>
+Starting state: <exact setup>
+Do:
+1. <action>
+2. <action>
+3. <action>  # normally 3–7 concrete actions total
+PASS if: <observable result>
+FAIL if: <observable defect>
+If PASS: <product/harness classification or deferred Owner judgment>
+If FAIL: <smallest owner/seam to investigate>
+```
+
+Do not require Owner screenshots unless they are useful. Do not hand the Owner a 40-step QA suite by
+default; the goal is to preserve Owner product judgment, not offload all QA labor.
+
+### Accessibility and specialist manual tooling
+
+Specialized manual accessibility tools, including screen readers, do not automatically become a permanent
+Owner dependency. If a card genuinely requires a specialist manual audit, state why, ask the Owner first,
+and record unperformed coverage honestly. Do not install or require additional Owner tooling merely because
+a library document mentions it.
+
+### Examples
+
+- **Is the Field Guide Beacon pulse noticeable but not annoying?** Owner judgment. The agent may automate
+  finite duration, iteration count, and reduced-motion behavior; it must not programmatically certify
+  "not annoying."
+- **A browser smoke test times out after the first answer.** If a fresh browser → first answer → next
+  question is cheap and visible, ask the Owner before diagnostic investigation. Owner PASS means product
+  PASS / harness debt; Owner FAIL confirms a product defect.
+- **Does the mobile guide overflow horizontally?** Machine-verifiable. Automate scroll-width/bounding
+  containment; a screenshot can be a lightweight witness, but Owner judgment is not needed to determine
+  overflow.
+
+---
+
 # 4. How Rob Performs Manual Product QA
 
 ## 4.1 Start with the real rendered product
 
 Source code passing is not the same as the product passing.
 
-Open the actual affected route or deterministic review case and inspect the rendered state.
+Open the actual affected route or deterministic review case and perform the Owner-First policy's minimal rendered sanity check. This does not authorize extended agent optical/experiential analysis; the Owner judges whether the result feels finished, coherent, balanced, useful, or comfortable.
 
 Before drilling into implementation details:
 
@@ -544,9 +677,9 @@ For pseudo-element artwork:
 
 ---
 
-## Pass B — Optical / human pass
+## Pass B — Optical / Owner pass
 
-After geometry passes, look at the actual rendered result.
+After geometry passes, the Product Owner looks at the actual rendered result. An agent may provide the default lightweight witness, but must not replace this judgment with repeated screenshots or AI visual interpretation. Broader agent-rendered evidence requires the objective justification in the Owner-First policy.
 
 Check:
 
@@ -1098,9 +1231,10 @@ It is a disciplined final review of the deterministic changed cases.
 
 ### Visual
 
-- Did I inspect desktop and the relevant narrow/mobile width?
-- Did I check spacing and centering?
-- If precision changed, did I inspect magnified output?
+- Did I perform the default desktop sanity render and objective catastrophic checks?
+- Is a narrow/mobile render directly required by responsive risk?
+- Did I automate measurable spacing, containment, or alignment facts where those are acceptance criteria?
+- Did I send visual balance, aesthetic spacing, and optical comfort to the Owner rather than self-certify them?
 - Did I confirm the actual DOM node/style responsible for any suspicious visual?
 
 ### State
@@ -1125,7 +1259,7 @@ For UI/content remediation, a final handoff should not report only:
 
 It should include enough actual rendered evidence to sanity-check the result.
 
-For the affected deterministic cases, provide as appropriate:
+For the affected deterministic cases, provide only the Owner-First policy's default rendered evidence unless an objective risk justifies more. As appropriate, provide:
 
 - exact rendered heading/summary sequence;
 - changed modal explanation;
@@ -1173,6 +1307,8 @@ Rob is responsible for final judgment.
 
 Do not make Rob manually re-verify hundreds of deterministic facts.
 
+For the exact default rendered boundary, compact Owner-check template, and visible automation-failure classification, apply the [Owner-First Visual Verification Policy](#owner-first-visual-verification-policy).
+
 ---
 
 # 21. Owner Deterministic Review Contract
@@ -1211,6 +1347,10 @@ If the owner finds a new defect:
 # 22. QA Selection Decision Tree
 
 Use this before implementation handoff.
+
+## Step 0 — What is the cheapest reliable evidence?
+
+Before selecting a rendered/browser run, answer the two Owner-First pre-render questions. Automate objective facts; route subjective/experiential judgment to the Owner; use broader rendered evidence only with stated objective risk or acceptance justification.
 
 ## Step 1 — What changed?
 
@@ -1311,7 +1451,7 @@ A change is **RobQAPass READY** when:
 
 - the QA tier was selected based on risk;
 - no unjustified heavy suite was run;
-- required targeted automation is green;
+- required targeted automation is green, or an honestly recorded visible failure has passed the Owner-first manual gate and remains explicit **Automated test: FAIL / known harness debt**;
 - the implementation agent exercised the real rendered changed path;
 - changed copy was actually read;
 - changed interactions were actually clicked;
@@ -1351,6 +1491,7 @@ Do not claim RobQAPass READY if any of these are true:
 - a known environment failure is being reported as a product-content failure;
 - a heavy suite was run without a risk-based reason;
 - the agent asks the owner to manually verify deterministic facts the machine can prove;
+- the agent spends material compute diagnosing an ambiguous, cheaply Owner-verifiable visible automation failure before offering the bounded Owner check;
 - the owner is asked to "test all 37" for a narrow presentation change;
 - the agent creates a new audit/research/certification phase instead of using existing machinery;
 - a prior owner finding was patched only as one string/identity/card without considering the defect class;
@@ -1380,6 +1521,7 @@ Do not claim RobQAPass READY if any of these are true:
 18. **QA effort must scale with change risk.**
 19. **CPU-heavy validation needs a concrete reason.**
 20. **The goal is confidence sufficient to ship, not infinite proof.**
+21. **Additional QA evidence must earn its token, compute, and elapsed-time cost.**
 
 ---
 
@@ -1387,7 +1529,7 @@ Do not claim RobQAPass READY if any of these are true:
 
 When repository instructions need a short pointer instead of this full document, use:
 
-> Apply `RobQAPass.md`. Classify the change by risk before selecting tests. Use the smallest deterministic QA set that protects the changed behavior. Do not run exhaustive engine/journey/synthetic/mutation/recovery suites for presentation-only changes. Exercise the real rendered changed path, read the copy, click affected interactions, inspect relevant responsive states, and use DOM/HTML evidence when needed. For precision visuals, separate deterministic 100% geometry checks from human optical inspection, including high magnification when useful. Treat raw owner `Error:`/`Fail:` notes as product evidence, distinguish product defects from harness/environment failures, and convert each real manual finding into the narrowest systemic regression invariant. Before owner handoff, perform a short "test it like Rob" pass and provide only the smallest deterministic owner-review cases.
+> Apply `RobQAPass.md`. Classify the change by risk before selecting tests. Use the smallest deterministic QA set that protects the changed behavior. Apply the **Owner-First Visual Verification Policy**: automate objective DOM/state/accessibility/geometry facts; use one representative desktop sanity render by default and add mobile only for direct responsive risk; send visual/experiential judgment to the Owner; and, for an ambiguous cheaply reproducible visible automation failure, give the Owner a bounded manual check before material diagnostics. Record Owner Manual PASS separately from any automated FAIL / known harness debt. Do not run exhaustive engine/journey/synthetic/mutation/recovery suites for presentation-only changes. Convert each real manual finding into the narrowest systemic regression invariant and provide only the smallest deterministic owner-review cases.
 
 ---
 

@@ -703,6 +703,8 @@ The implementation should hand RobQAPass this compact record:
 - unresolved correctness uncertainty, if any;
 - questions that genuinely require owner product judgment rather than machine-verifiable rechecking.
 
+For a visible implementation, also distinguish objective acceptance criteria from visual, experiential, or aesthetic Owner judgment. Hand the rendered-QA budget, any ambiguous user-visible automation failure, and the required Owner check to the [RobQA Owner-First Visual Verification Policy](../qa/RobQAPass.md#owner-first-visual-verification-policy); RobDev does not select a competing visual-QA rule.
+
 RobQAPass then classifies risk, selects proportionate validation, converts real manual findings into the
 narrowest appropriate regressions, and prepares the shortest deterministic owner review.
 
@@ -779,7 +781,7 @@ When an approved instruction surface needs a short pointer, use:
 > authority. Keep presentation separate from placement, scoring, identity, and evidence behavior. Fix
 > contextual defects at the narrowest systemic scope, implement the visible user journey, surface scope
 > drift instead of compensating with architecture, and hand changed behavior, protected behavior,
-> realistic risks, evidence, and unresolved judgment to `docs/qa/RobQAPass.md`.
+> realistic risks, evidence, and unresolved judgment to `docs/qa/RobQAPass.md`. For visible work, identify which acceptance criteria are machine-verifiable and which are Owner visual/experiential judgment; defer rendered-QA scope and Owner escalation to its Owner-First Visual Verification Policy.
 
 ---
 

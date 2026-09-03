@@ -124,6 +124,8 @@ Provide:
 - untouched areas and non-goals;
 - limitations and unresolved owner judgment.
 
+For visible work, state which acceptance criteria are machine-verifiable and which require Owner visual/experiential judgment. Defer rendered-QA scope and any user-visible automation failure to the canonical [RobQA Owner-First Visual Verification Policy](../../../docs/qa/RobQAPass.md#owner-first-visual-verification-policy).
+
 ## 13. Completion
 
 RobDev candidate -> repo-local RobQA skill -> owner judgment when required -> integration or accept/modify/reject.
