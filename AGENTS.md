@@ -25,6 +25,16 @@ For any non-trivial work, the main agent must follow:
 
 Do not work from blank context.
 
+## Standard Delivery Commands
+
+Use [Vox Mana Workflow](docs/reference/workflow.md#standard-branch-to-pr-to-qa-to-owner-to-merge-delivery) as the durable delivery authority.
+
+- `SHIP VM-###` means rehydrate the card's current branch, worktree, PR, Dev, QA, and Owner state; resume the existing work; apply RobDev; commit and push the intended candidate; create or update the card's single PR; run independent RobQA against the actual PR candidate; resolve ordinary Dev/QA findings on the same branch and PR; and stop only when the exact current candidate is QA-passed and ready for Owner Review. `SHIP` never merges and never pushes material feature work directly to `main`.
+- `ACCEPT VM-###` is the Owner's single merge authorization for the current QA-passed candidate. Verify the PR base/head, exact-SHA QA evidence, required checks, conflicts, candidate scope, and absence of unexpected commits; squash merge into `main`; verify and sync the resulting `main`; complete lifecycle documentation; and safely delete the merged feature branch. Do not ask for a second approval.
+- `REJECT VM-###: <reason>` keeps the same card, branch, and PR open. Return the Owner finding to RobDev, run the proportionate RobDev -> RobQA correction loop, invalidate stale QA evidence, and return the updated exact candidate to Owner Review. Do not create a replacement PR for an ordinary rejection.
+
+The single-active-worktree rule below still governs branch creation. Rehydrate and continue existing work instead of restarting it to make the delivery sequence look clean.
+
 ## Optional Work Intake Triage
 
 For non-CRIT, non-certification, non-destructive, non-migration work, an agent may run a lightweight intake check before planning when scope is ambiguous or likely to exceed one window.
