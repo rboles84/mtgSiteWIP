@@ -5,8 +5,7 @@ Use these product-specific cases after invoking the repo-local [RobQA skill](../
 ## Setup
 
 1. Deploy the updated static files.
-2. If you are testing the optional terminal path, deploy the updated `guild-recruiter` edge function.
-3. Run the SQL in `docs/supabase-profile-update.sql`.
+2. If you are testing the optional terminal path, deploy the updated `guild-recruiter` edge function. Run the relevant Supabase SQL only when testing a feature that still requires it, such as the optional terminal or deferred account deck links.
 4. Confirm `data/factions.json` is present at the site root under `/data/factions.json`.
 5. Confirm `data/placement-model.json` is present at the site root under `/data/placement-model.json`.
 6. Confirm `data/precons/vox-mana-precon-catalog.json` is present at the site root under `/data/precons/vox-mana-precon-catalog.json`.
@@ -187,7 +186,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 
 ## VM-147B Archscry route manual QA
 
-1. Open `/archscry/`; confirm `archscry/index.html` preserves the current CSS stack ending in `../assets/css/archscry.css` and the current JS stack through Supabase UMD, `site-flags.js`, `shared.js`, `graph.js`, module `index.js`, `reduce-motion.js`, `vm-rich-atmosphere.js`, and `vm-topbar.js`.
+1. Open `/archscry/`; confirm `archscry/index.html` preserves the current CSS stack ending in `../assets/css/archscry.css` and the current JS stack through the feature-flag script, `shared.js`, `graph.js`, module `index.js`, `reduce-motion.js`, `vm-rich-atmosphere.js`, and `vm-topbar.js`.
 2. Confirm the topbar marks Archscry as active, opens and closes the utility menu, preserves route links, and still toggles reduced motion.
 3. Complete the quick reading flow from landing through Gate, Hall, Crucible, result reveal, and full dossier without console errors or broken asset requests.
 4. Confirm the dossier directory, focus mode, View All mode, and keyboard tab navigation still switch panels without changing URL, panel id, or focus behavior unexpectedly.
@@ -203,7 +202,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 
 ## VM-147C Maze route manual QA
 
-1. Open `/maze/`; confirm `maze/index.html` preserves the current CSS stack ending in `../assets/css/maze.css` and the current JS stack through Supabase UMD, `shared.js`, module `research-init.js`, `vm-rich-atmosphere.js`, `reduce-motion.js`, and `vm-topbar.js`.
+1. Open `/maze/`; confirm `maze/index.html` preserves the current CSS stack ending in `../assets/css/maze.css` and the current JS stack through `shared.js`, module `research-init.js`, `vm-rich-atmosphere.js`, `reduce-motion.js`, and `vm-topbar.js`.
 2. Confirm the shared topbar marks The Implicit Maze as active, opens and closes the utility menu, preserves route links, and still toggles reduced motion.
 3. Confirm Maze boots with Discovery Paths, Helper Searches, By Color, type chips, rarity chips, default Commander format controls, and Plain Reading mode available on first load.
 4. In Plain Reading, search `red vampires that sacrifice creatures`; confirm Query Inspector shows the original phrase, translated syntax, confidence/diagnostic details when present, Copy, and Open in Scryfall.
@@ -515,15 +514,14 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 6. Confirm the terminal reaches a decision.
 7. Confirm `Open Full Dossier` shows the same style of result page used by the quick path.
 
-## Save with Google
+## Device-Local Reading Return
 
-1. From a quick reading or terminal result, click the save action.
-2. If not already signed in, confirm Google OAuth begins.
-3. Finish the Google login flow.
-4. Confirm the site returns to the exact same saved result.
-5. Confirm the topbar shows the signed-in name.
-6. Confirm the result no longer asks you to recover a lost reading.
-7. Confirm the restored dossier immediately shows the `Mana Alignment Matrix` radar without requiring another render action.
+1. Complete a quick reading and confirm no Google sign-in or manual save action appears.
+2. Refresh `/archscry/`; confirm the exact same dossier opens first and the `Mana Alignment Matrix` renders without another reading.
+3. Click `Begin Again`, leave the new reading incomplete, refresh, and confirm the prior complete reading still restores.
+4. Complete a new reading, refresh, and confirm it replaces the prior device-local reading.
+5. Click `Forget this reading`; confirm the landing state returns and a refresh does not restore a dossier.
+6. In a fresh private browser profile, confirm no reading is restored.
 
 ## Returning user
 
@@ -538,26 +536,12 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 
 ## Retake flow
 
-1. While signed in with a saved result, click `Begin Again`.
+1. While viewing a device-local saved result, click `Begin Again`.
 2. Confirm the app returns to the landing page.
-3. Confirm the old saved result is no longer shown automatically.
-4. Run a new quick reading and save it.
+3. Confirm the prior saved result remains available until a new reading completes.
+4. Run a new quick reading to completion.
 5. Confirm the new result replaces the old one on the next visit.
 6. Confirm the previous dossier radar instance is replaced cleanly by the new result.
-
-## Sign-out flow
-
-1. Sign out from the topbar while a saved result exists.
-2. Confirm the site returns to the landing page.
-3. Refresh the page.
-4. Confirm no signed-in state remains visible.
-
-## Legacy fallback
-
-1. Use a profile row that has `guild` and `scores` but no `placement_result`.
-2. Open the site while signed in as that user.
-3. Confirm the site still renders a result page.
-4. Confirm the result page clearly nudges the user to retake for the richer experience.
 
 ## Failure handling
 
@@ -577,10 +561,10 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 3. Confirm the left-side Identity Matrix card and axis bars still render.
 4. Confirm the right-side radar panel shows a non-breaking fallback message instead of crashing the dossier.
 
-### Failed save
-1. Break the Supabase profile schema by omitting the new columns.
-2. Attempt to save a result.
-3. Confirm the user receives a clear message pointing to the schema update.
+### Unavailable local storage
+1. Block browser local storage or fill it until the browser rejects writes.
+2. Complete a reading.
+3. Confirm the current dossier remains usable and no account or Google-save fallback appears.
 
 ### Archived terminal response
 1. With `SCRYING_TERMINAL_ENABLED` set to `false`, confirm the terminal remains hidden.
@@ -597,8 +581,7 @@ The source report left 72 of 111 rows untested. Those interactive rows remain ou
 1. Open the site on a narrow viewport.
 2. Complete the quick reading.
 3. Confirm answer cards, result sections, and adjacent-fit cards remain readable.
-4. Repeat the Google save flow.
-5. Confirm the return-to-saved-result path still works on mobile.
+4. Refresh the page and confirm the device-local return path still works on mobile.
 6. Confirm the `Mana Alignment Matrix` collapses to one column and the radar area remains readable.
 
 ## Shell continuity pass

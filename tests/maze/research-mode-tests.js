@@ -274,6 +274,18 @@ const translationCases = [
     rejects: ["id<=br", "id br", "f commander"]
   },
   {
+    name: "printing release terms are human",
+    query: "id<=wu f:commander year=2015 is:firstprinting",
+    includes: ["within Azorius color identity", "commander legal", "cards printed in 2015 in their first printing"],
+    rejects: ["id<=wu", "f:commander", "year=2015", "is:firstprinting"]
+  },
+  {
+    name: "new art term is human",
+    query: "year=2015 new:art",
+    includes: ["cards printed in 2015 that introduced new art"],
+    rejects: ["year=2015", "new:art"]
+  },
+  {
     name: "includes identity operator preserves meaning",
     query: "id>=br format:commander",
     includes: ["including Rakdos colors", "commander legal"],

@@ -72,7 +72,8 @@ assert.match(sharedLifecycle, /resolvedSteps\.length !== 4/);
 assert.match(sharedLifecycle, /removeGuidedParameter/);
 assert.match(sharedLifecycle, /disableActiveInteraction: true/);
 assert.match(sharedLifecycle, /prefersReducedMotion/);
-assert.doesNotMatch(`${introConfig}\n${readingConfig}\n${sharedLifecycle}`, /localStorage|sessionStorage|cookie|telemetry/i);
+assert.match(sharedLifecycle, /import \{ trackVoxGuideWalkthrough \} from "\.\/vox-telemetry\.js"/);
+assert.doesNotMatch(`${introConfig}\n${readingConfig}\n${sharedLifecycle}`, /localStorage|sessionStorage|cookie|posthog|fetch\(/i);
 assert.match(walkthroughCss, /#guide-title:focus/);
 assert.match(walkthroughCss, /#reading-guide-title:focus/);
 

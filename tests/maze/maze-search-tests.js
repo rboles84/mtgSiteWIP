@@ -288,6 +288,7 @@ async function runVm592LoomCases() {
   assert.equal(document.getElementById("clear-search-btn").hidden, true, "Loom must hide the duplicate generic Clear/Reset action");
   assert.equal(document.getElementById("search-copy-btn").disabled, false, "valid live query must enable Copy before Search");
   assert.equal(document.getElementById("search-scryfall-link").getAttribute("aria-disabled"), "false", "valid live query must enable Open before Search");
+  assert.equal(document.getElementById("printing-scope").disabled, true, "printing rule must wait for a valid release year");
   assert.equal(document.getElementById("current-weave-title").textContent, "Commander");
   assert.equal(document.getElementById("current-weave-primary").textContent, "No choices woven yet.");
   assert.equal(document.getElementById("current-weave-count").textContent, "0 choices woven");
@@ -381,13 +382,53 @@ async function runVm592LoomCases() {
   await Promise.resolve();
   assert.equal(dom.getCopiedText(), input.value, "Copy must use the live projection before Search");
 
+  const releaseYear = document.getElementById("release-year");
+  const printingScope = document.getElementById("printing-scope");
+  releaseYear.value = "2015";
+  releaseYear.oninput?.({ target: releaseYear });
+  assert.equal(printingScope.disabled, false, "a valid release year must enable the dependent printing rule");
+  assert.match(input.value, /year=2015/, "valid release year must update the live Loom query before Search");
+  printingScope.value = "first-printing";
+  printingScope.onchange?.({ target: printingScope });
+  assert.match(input.value, /year=2015 is:firstprinting/, "first-printing scope must extend only the valid year query");
+  assert.equal(new URL(document.getElementById("search-scryfall-link").href).searchParams.get("q"), input.value, "Open must retain the complete printing query before Search");
+  window.copyQuery();
+  await Promise.resolve();
+  assert.equal(dom.getCopiedText(), input.value, "Copy must retain the complete printing query before Search");
+  const invalidYearFetchStart = dom.fetchUrls.length;
+  releaseYear.value = "2";
+  releaseYear.oninput?.({ target: releaseYear });
+  assert.equal(document.getElementById("release-year-validation").textContent, "", "a partial release year must keep the recovery error quiet while typing");
+  assert.equal(document.getElementById("release-year-validation").classList.contains("hidden"), true, "a partial release year must not announce an error before recovery is requested");
+  assert.equal(document.getElementById("current-weave-secondary").textContent, "Finish the four-digit release year to refine printings.", "partial release year state must provide neutral next-step guidance");
+  releaseYear.value = "20x5";
+  releaseYear.oninput?.({ target: releaseYear });
+  assert.equal(document.getElementById("release-year-validation").classList.contains("hidden"), true, "an incomplete or malformed release year must wait for an attempted search before showing an error");
+  assert.equal(printingScope.disabled, true, "invalid release year must disable its dependent rule");
+  assert.equal(document.getElementById("search-copy-btn").disabled, true, "invalid release year must block Copy");
+  await window.doSearch();
+  assert.equal(dom.fetchUrls.length, invalidYearFetchStart, "invalid release year must not reach Scryfall");
+  assert.equal(document.activeElement, releaseYear, "invalid release year must receive recovery focus");
+  assert.match(document.getElementById("release-year-validation").textContent, /four-digit release year/, "attempted Search must reveal the actionable release-year error");
+  assert.equal(document.getElementById("current-weave-primary").textContent, "Release year needs attention.");
+  assert.equal(document.getElementById("current-weave-secondary").textContent, "Correct the release year in Printing & artwork.");
+  assert.equal(releaseYear.value, "20x5", "invalid release year must remain available for correction");
+  releaseYear.value = "2015";
+  releaseYear.oninput?.({ target: releaseYear });
+  printingScope.value = "new-art";
+  printingScope.onchange?.({ target: printingScope });
+  assert.match(input.value, /year=2015 new:art/, "new-art scope must replace rather than supplement first-printing scope");
+
   window.setMode("raw");
-  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "Loom to Operator must preserve the visible query");
+  assert.equal(input.value, "id<=wu t:creature f:commander year=2015 new:art (kw:haste OR kw:\"first strike\")", "Loom to Operator must preserve the visible query");
   assert.equal(document.getElementById("sidebar-color-section").hidden, false, "Operator must restore sidebar color controls");
   assert.equal(document.getElementById("sidebar-format-section").hidden, false, "Operator must restore sidebar format controls");
   window.setMode("builder");
-  assert.equal(input.value, "id<=wu t:creature f:commander (kw:haste OR kw:\"first strike\")", "Operator to Loom must restore the builder projection");
+  assert.equal(input.value, "id<=wu t:creature f:commander year=2015 new:art (kw:haste OR kw:\"first strike\")", "Operator to Loom must restore the builder projection");
   assert.equal(document.getElementById("clear-search-btn").hidden, true, "returning to Loom must restore the single-reset treatment");
+  releaseYear.value = "";
+  releaseYear.oninput?.({ target: releaseYear });
+  assert.equal(printingScope.disabled, true, "clearing release year must return the printing rule to its dependent state");
 
   const colorRelation = document.getElementById("color-op");
   const relationButtons = document.querySelectorAll('[data-action="set-color-relation"]');
@@ -2150,8 +2191,8 @@ function installMazeDomHarness() {
     "qi-input-wrap", "qi-input-label", "qi-input", "qi-label", "qi-query", "qi-reason",
     "qi-scryfall", "res-count", "btn-more", "more-count", "stash-count", "stash-body",
     "mode-ai", "mode-raw", "mode-builder", "search-icon", "builder-panel", "kw-wrap",
-    "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation",
-    "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "sb-format", "modal-inner", "modal-bg",
+    "kw-input", "kw-add-btn", "kw-suggestions", "kw-chips", "kw-validation", "builder-summary", "color-validation", "mv-validation", "release-year-help", "release-year-validation",
+    "color-pips", "colorless-only-btn", "builder-color-options", "exclude-colorless", "exclude-colorless-option", "color-op", "color-relation-picker", "color-relation-trigger", "color-relation-label", "bld-format", "cmc-min", "cmc-max", "release-year", "printing-scope", "sb-format", "modal-inner", "modal-bg",
     "maze-mode-context", "maze-mode-context-label", "maze-mode-context-copy", "maze-reading-context", "maze-reading-context-label", "maze-reading-context-detail", "maze-reading-context-action", "search-input-label", "clear-search-btn", "discovery-path-list",
     "quick-search-list", "color-grid", "type-checks", "ability-checks", "rarity-checks", "reading-path-section",
     "reading-path-list", "r-user-badge", "maze-return-banner", "maze-return-copy",
@@ -2164,9 +2205,9 @@ function installMazeDomHarness() {
       ? "a"
       : id === "search-input"
         ? "textarea"
-        : ["exclude-colorless", "cmc-min", "cmc-max", "kw-input"].includes(id)
+        : ["exclude-colorless", "cmc-min", "cmc-max", "release-year", "kw-input"].includes(id)
           ? "input"
-          : ["color-op", "bld-format", "sb-format"].includes(id)
+          : ["color-op", "bld-format", "printing-scope", "sb-format"].includes(id)
             ? "select"
             : ["kw-add-btn", "colorless-only-btn", "color-relation-trigger", "view-results-btn", "search-btn", "maze-reading-context-action"].includes(id)
               ? "button"

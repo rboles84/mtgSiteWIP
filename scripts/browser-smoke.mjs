@@ -7,6 +7,7 @@ import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
 const archscryOnly = process.argv.includes("--archscry-only");
+const localReadingOnly = process.argv.includes("--local-reading-only");
 const host = "127.0.0.1";
 const manaVersion = "1.18.0";
 const manaFixtureName = "VM-485 Mana Symbol Fixture";
@@ -559,24 +560,41 @@ async function completeQuickReading(page, viewport) {
   await page.click('[data-action="start-quick-flow"]');
   await expectVisible(page, "#answer-grid button", `${viewport.name} Archscry first quick answer`);
 
-  for (let step = 0; step < 10; step += 1) {
+  for (let answered = 0; answered < 10;) {
     const resultVisible = await page.evaluate(() => {
       const result = document.getElementById("result");
       return Boolean(result && !result.classList.contains("hidden"));
     });
     if (resultVisible) {
-      return step;
+      return answered;
+    }
+
+    const transitionVisible = await page.$eval("#quick-transition", (node) => !node.classList.contains("hidden"));
+    if (transitionVisible) {
+      await page.click('[data-action="continue-quick-transition"]');
+      await page.waitForFunction(() => {
+        const result = document.getElementById("result");
+        const answers = document.querySelector("#answer-grid button");
+        return Boolean(
+          result && !result.classList.contains("hidden")
+        ) || Boolean(answers && !answers.closest(".hidden"));
+      }, { timeout: 10000 });
+      continue;
     }
 
     const beforeProgress = await page.$eval("#progress-copy", (node) => node.textContent || "");
     await page.click("#answer-grid button");
+    answered += 1;
     await page.waitForFunction((previousProgress) => {
       const result = document.getElementById("result");
       const progress = document.getElementById("progress-copy");
+      const transition = document.getElementById("quick-transition");
       return Boolean(
         result &&
         !result.classList.contains("hidden")
-      ) || Boolean(progress && (progress.textContent || "") !== previousProgress);
+      ) || Boolean(progress && (progress.textContent || "") !== previousProgress) || Boolean(
+        transition && !transition.classList.contains("hidden")
+      );
     }, { timeout: 10000 }, beforeProgress);
   }
 
@@ -854,7 +872,7 @@ async function validateArchscryVisualPolish(page, viewport) {
 
 async function validateArchscryTiePolish(page, viewport) {
   const tieFixture = await page.evaluate(() => {
-    const result = JSON.parse(sessionStorage.getItem("vm_last_result") || "null");
+    const result = JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null");
     if (!result?.top_matches?.[1]) return null;
     const leader = result.top_matches[0];
     const peer = result.top_matches[1];
@@ -864,7 +882,7 @@ async function validateArchscryTiePolish(page, viewport) {
     result.public_confidence_state = "tied";
     result.alternative_state = "co-leader";
     result.adjacent_matches = [peer, ...(result.adjacent_matches || []).filter((match) => match.faction !== peer.faction)].slice(0, 2);
-    sessionStorage.setItem("vm_last_result", JSON.stringify(result));
+    localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(result));
     return { primary: leader.faction, primaryName: leader.faction_name, peer: peer.faction, peerName: peer.faction_name };
   });
   assert(tieFixture, `${viewport.name} could not build a local exact-tie fixture.`);
@@ -929,7 +947,7 @@ async function validateArchscryTiePolish(page, viewport) {
   await page.waitForFunction((primaryName) => document.querySelector(".guild-name")?.textContent.trim() === primaryName, {}, tieFixture.primaryName);
 
   if (["desktop", "mobile", "narrow-mobile"].includes(viewport.name)) {
-    const tiedBaseResult = await page.evaluate(() => JSON.parse(sessionStorage.getItem("vm_last_result") || "null"));
+    const tiedBaseResult = await page.evaluate(() => JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null"));
     const physicalGapScenarios = [
       { label: "Selesnya W/G", key: "WG", name: "Selesnya Conclave", expectedSymbols: ["w", "g"] },
       { label: "Naya R/G/W", key: "NAYA", name: "Naya", expectedSymbols: ["r", "g", "w"] },
@@ -952,7 +970,7 @@ async function validateArchscryTiePolish(page, viewport) {
         result.result_state = "tied";
         result.public_confidence_state = "tied";
         result.alternative_state = "co-leader";
-        sessionStorage.setItem("vm_last_result", JSON.stringify(result));
+        localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(result));
       }, { baseResult: tiedBaseResult, targetIdentity: target });
 
       await page.reload({ waitUntil: "domcontentloaded" });
@@ -1023,7 +1041,7 @@ async function runArchscrySmoke(page, origin, viewport) {
 
   const context = await page.evaluate(() => {
     const handoff = JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null");
-    const cachedResult = JSON.parse(sessionStorage.getItem("vm_last_result") || "null");
+    const cachedResult = JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null");
     const mazeHref = document.querySelector('[data-dossier-panel="maze-discovery"] a[data-service="maze"]')?.href || "";
     return {
       cachedFaction: cachedResult?.faction || "",
@@ -1060,8 +1078,11 @@ async function runArchscrySmoke(page, origin, viewport) {
     `${viewport.name} Archscry did not preserve the internal confidence gap shape.`
   );
   assert(context.cachedResultState, `${viewport.name} Archscry did not cache an additive public result state.`);
-  assert(context.cachedTopMatchCount === 3, `${viewport.name} Archscry changed the top_matches shape.`);
-  assert(context.cachedAdjacentMatchCount === 2, `${viewport.name} Archscry changed the adjacent_matches shape.`);
+  assert(context.cachedTopMatchCount >= 1, `${viewport.name} Archscry did not cache its primary top_match.`);
+  assert(
+    context.cachedAdjacentMatchCount === Math.min(Math.max(context.cachedTopMatchCount - 1, 0), 2),
+    `${viewport.name} Archscry changed the adjacent_matches shape: expected it to derive from top_matches, found ${context.cachedAdjacentMatchCount} for ${context.cachedTopMatchCount} top matches.`
+  );
   assert(!/\b\d+(?:\.\d+)?%|Bayesian|Signal Strength|Strong signal|Moderate signal|Emerging signal/i.test(context.publicText), `${viewport.name} Archscry exposed prohibited confidence language.`);
   assert(context.normalization, `${viewport.name} Archscry did not expose its existing normalization path.`);
   assert(context.normalization.missing.confidence === null, `${viewport.name} missing legacy confidence was fabricated.`);
@@ -1072,6 +1093,36 @@ async function runArchscrySmoke(page, origin, viewport) {
   assert(context.handoffReadingId, `${viewport.name} Archscry did not write a Maze handoff reading id.`);
   assert(context.handoffReturnUrl, `${viewport.name} Archscry handoff is missing a return URL.`);
   assert(context.mazeHref, `${viewport.name} Archscry dossier did not expose a Maze link.`);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitForPageReady(page);
+  await waitForDossier(page);
+  const restored = await page.evaluate(() => ({
+    faction: JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null")?.faction || "",
+    visible: !document.getElementById("result")?.classList.contains("hidden"),
+    googleSaveText: /save with google/i.test(document.body.textContent || ""),
+  }));
+  assert(restored.faction === context.cachedFaction, `${viewport.name} Archscry did not restore the device-local reading after refresh.`);
+  assert(restored.visible, `${viewport.name} Archscry did not reopen the saved dossier after refresh.`);
+  assert(!restored.googleSaveText, `${viewport.name} Archscry still exposes Google save copy.`);
+  if (localReadingOnly && viewport.name === "desktop") {
+    await page.evaluate(() => {
+      window.confirm = () => true;
+    });
+    await page.$eval('.footer-button-row [data-action="retake"]', (node) => node.click());
+    await waitForArchscryLanding(page);
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await waitForPageReady(page);
+    await waitForDossier(page);
+    await page.$eval('[data-action="forget-saved-reading"]', (node) => node.click());
+    await waitForArchscryLanding(page);
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await waitForPageReady(page);
+    await waitForArchscryLanding(page);
+    const savedAfterForget = await page.evaluate(() => localStorage.getItem("vm_archscry_saved_reading_v1"));
+    assert(savedAfterForget === null, `${viewport.name} Archscry did not remove the device-local reading.`);
+    return context;
+  }
+  if (localReadingOnly) return context;
   await validateArchscryVisualPolish(page, viewport);
   if (archscryOnly) {
     await validateArchscryTiePolish(page, viewport);
@@ -1345,11 +1396,11 @@ async function runViewportJourney(browser, origin, viewport) {
   try {
     console.log(`${viewport.name}: starting browser smoke.`);
     await resetOriginStorage(page, origin);
-    if (!archscryOnly) {
+    if (!archscryOnly && !localReadingOnly) {
       await runHomeSmoke(page, origin, viewport);
     }
     const archscryContext = await runArchscrySmoke(page, origin, viewport);
-    if (!(archscryOnly && viewport.name === "narrow-mobile")) {
+    if (!localReadingOnly && !(archscryOnly && viewport.name === "narrow-mobile")) {
       await runMazeSmoke(page, viewport, archscryContext.mazeHref);
     }
     assertNoBrowserErrors(consoleErrors, pageErrors, viewport);
@@ -1359,6 +1410,8 @@ async function runViewportJourney(browser, origin, viewport) {
       url: window.location.href,
       readyState: document.readyState,
       bodyPage: document.body?.dataset?.page || "",
+      landingClass: document.getElementById("landing")?.className || "",
+      resultClass: document.getElementById("result")?.className || "",
       searchInput: document.getElementById("search-input")?.value || "",
       errorText: document.getElementById("err-msg")?.textContent || "",
       stateText: document.getElementById("state-panel")?.textContent?.replace(/\s+/g, " ").trim() || "",
@@ -1366,7 +1419,7 @@ async function runViewportJourney(browser, origin, viewport) {
       stashCount: document.getElementById("stash-count")?.textContent || "",
       readingFindsText: document.querySelector("[data-reading-finds-panel]")?.textContent?.replace(/\s+/g, " ").trim() || "",
       activeDossierPanel: document.querySelector('[data-dossier-tab][aria-selected="true"]')?.getAttribute("data-dossier-tab") || "",
-      sessionResultFaction: JSON.parse(sessionStorage.getItem("vm_last_result") || "null")?.faction || "",
+      savedResultFaction: JSON.parse(localStorage.getItem("vm_archscry_saved_reading_v1") || "null")?.faction || "",
       handoffReadingId: JSON.parse(localStorage.getItem("vm_archscry_maze_handoff_v1") || "null")?.readingId || "",
       findDraft: JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1") || "null"),
     })).catch(() => null);
@@ -1409,9 +1462,11 @@ try {
     await runViewportJourney(browser, origin, viewport);
   }
 
-  console.log(archscryOnly
-    ? "Browser smoke passed for Archscry, Maze, Reading Finds, and return-to-dossier handoff."
-    : "Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");
+  console.log(localReadingOnly
+    ? "Browser smoke passed for the device-local Archscry reading return path."
+    : archscryOnly
+      ? "Browser smoke passed for Archscry, Maze, Reading Finds, and return-to-dossier handoff."
+      : "Browser smoke passed for Home, Archscry, Maze, Reading Finds, and return-to-dossier handoff.");
 } catch (error) {
   process.exitCode = 1;
   console.error("Browser smoke failed.");

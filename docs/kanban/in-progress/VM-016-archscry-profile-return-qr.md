@@ -2,7 +2,7 @@
 
 ID: VM-016
 Title: Archscry Profile Return QR
-Status: backlog
+Status: in progress
 Type: Enhancement
 Area: Archscry, Maze
 Priority: medium
@@ -11,6 +11,29 @@ Created: 2026-05-15
 ## Summary
 
 Add a profile-return loop for completed Archscry readings. The printed LGS QR stays a public, generic entry into Archscry, while a completed reading can later generate a personal return link or QR so the player can revisit their dossier, Maze handoff paths, saved commander ideas, and future profile refinements.
+
+## Active Slice — 2026-09-02
+
+Replace the active Google/Supabase profile-save journey with one local-first reading per browser/device. A completed reading is saved automatically, restores directly to its dossier after refresh or a later return on the same device, and can be explicitly forgotten. This slice removes Google save language and the Maze resume request; it does not create a QR, return URL, email sender, cross-device synchronization, anonymous account, or new placement semantics.
+
+### Locked Decisions
+
+- `localStorage` is the sole owner of the active saved-reading copy under a versioned key.
+- The latest completed result replaces the prior device-local result only when the new reading completes.
+- `Begin Again` leaves the saved copy intact until another reading completes; `Forget this reading` removes it immediately.
+- Existing cached session results migrate once into the local key when present.
+- The existing result normalization, direct dossier restoration, stable Maze handoff, Reading Finds association, and feature-flagged Terminal remain protected.
+
+### Stop Conditions
+
+- Stop before QR encoding, URL payloads, email/share transport, account migration, profile-schema deletion, or Supabase Terminal changes.
+- Do not alter Placement scoring, result shape, evidence, dossier composition, or Maze query behavior.
+
+### Validation And Owner Review
+
+- Deterministic checks passed: JavaScript/HTML lint, frontend smoke, Maze Reading Finds store, 37-faction placement invariants, and the browser device-local return path at 1440px, 820px, 390px, and 320px.
+- The device-local browser path proves complete reading, refresh-to-dossier, no Google-save copy, desktop retake preservation, and desktop forget/reset behavior.
+- Owner completed the visible Archscry check and authorized this local-return slice for release on 2026-09-03. QR and cross-device recovery remain follow-up scope.
 
 ## Problem
 

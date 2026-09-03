@@ -59,7 +59,8 @@ assert.match(text(shared), /suppressTargetFocusables/);
 assert.match(text(shared), /window\.addEventListener\("popstate"/);
 assert.match(text(shared), /window\.addEventListener\("pagehide"/);
 assert.match(text(shared), /vm:reduce-motion-change/);
-assert.doesNotMatch(`${text(shared)}\n${text(route)}`, /localStorage|sessionStorage|telemetry|fetch\(/i);
+assert.match(text(shared), /import \{ trackVoxGuideWalkthrough \} from "\.\/vox-telemetry\.js"/);
+assert.doesNotMatch(`${text(shared)}\n${text(route)}`, /localStorage|sessionStorage|posthog|fetch\(/i);
 assert.doesNotMatch(`${text(shared)}\n${text(route)}\n${text(theme)}`, /https?:\/\//i);
 
 const { readGuidedRequest, suppressTargetFocusables } = guideWalkthroughInternals;

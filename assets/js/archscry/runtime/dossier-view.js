@@ -438,40 +438,6 @@ export function buildReturnToPreviousReadingAction() {
   return `<button class="btn-secondary" type="button" ${buildActionAttrs("return-to-previous-reading")}>Return to previous reading</button>`;
 }
 
-export async function handleSavePlacement() {
-  const button = document.getElementById("save-placement-btn");
-  const result = APP_STATE.activeResult || SESSION.interviewResult;
-  if (!result) {
-    return;
-  }
-
-  button.disabled = true;
-  button.textContent = "Saving...";
-
-  try {
-    const sb = getSupabase();
-    const {
-      data: { session },
-    } = await sb.auth.getSession();
-
-    if (session?.user) {
-      const saved = await vm_savePlacementResult(result);
-      APP_STATE.activeResult = saved;
-      APP_STATE.activeViewKey = saved.faction;
-      button.textContent = "Saved to Google";
-      renderResult();
-      return;
-    }
-
-    await vm_saveWithGoogle(result);
-  } catch (error) {
-    button.disabled = false;
-    button.textContent = "Retry Save";
-    document.getElementById("terminal-error").textContent =
-      error.message || "Could not save placement.";
-  }
-}
-
 /**
  * Builds the external deck-link buttons for a deck card.
  *
@@ -1951,7 +1917,6 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     ? `<div class="footer-button-row"><button class="btn-secondary" type="button" ${buildActionAttrs("return-primary-reading")}>Back to original reading</button></div>`
     : "";
 
-  const saveButtonLabel = SESSION.username ? "Save this reading" : "Save with Google";
   const returnToTerminalButton =
     terminalEnabled && APP_STATE.resultSource === "interview"
       ? `<button class="btn-secondary" type="button" ${buildActionAttrs("return-interview-source")}>Return to the Terminal</button>`
@@ -2194,9 +2159,10 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     <div class="footer-actions">
       <div class="footer-note">Card and land images via Scryfall. Deck links open EDHREC, Archidekt, or MTGDecks; Maze searches stay connected to this reading.</div>
       <div class="footer-button-row">
-        <button class="btn-primary" type="button" ${buildActionAttrs("save-current-result")}>${saveButtonLabel}</button>
+        <span class="footer-note">This reading is saved on this device.</span>
         ${returnToTerminalButton}
         ${terminalEnabled ? `<button class="btn-secondary" type="button" data-vm-terminal-only ${buildActionAttrs("start-interview-flow")}>Try the deeper reading</button>` : ""}
+        <button class="btn-secondary" type="button" ${buildActionAttrs("forget-saved-reading")}>Forget this reading</button>
         <button class="btn-secondary" type="button" ${buildActionAttrs("retake")}>Begin Again</button>
       </div>
     </div>`;
@@ -2330,42 +2296,4 @@ export function returnToPrimaryReading() {
   APP_STATE.activeDossierPanel = "placement";
   APP_STATE.forceDossierPanel = "placement";
   renderResult(primaryViewKey);
-}
-
-// Card art loading, Scryfall named-card cache, and desktop preview overlays.
-
-/**
- * Loads Scryfall images for Commander previews, card signals, and lands after the result HTML has rendered.
- *
- * @param {object} faction Canonical faction record being displayed.
- * @param {object[]=} commanderCandidates Commander preview candidates to verify.
- * @param {object=} starterCards Dossier card signal groups.
- * @param {object=} landRecommendations Dossier mana note tiers.
- * @returns {Promise<void>} Resolves after all visible slots have been attempted.
- */
-
-export async function saveCurrentResult() {
-  const result = APP_STATE.activeResult;
-  if (!result) {
-    return;
-  }
-
-  try {
-    const sb = getSupabase();
-    const {
-      data: { session },
-    } = await sb.auth.getSession();
-
-    if (session?.user) {
-      const saved = await vm_savePlacementResult(result);
-      APP_STATE.activeResult = saved;
-      APP_STATE.activeViewKey = saved.faction;
-      renderResult(saved.faction);
-      return;
-    }
-
-    await vm_saveWithGoogle(result);
-  } catch (error) {
-    alert(error.message || "Could not save this reading yet.");
-  }
 }

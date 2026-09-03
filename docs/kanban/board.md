@@ -34,12 +34,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-025 - Combo Discovery Placement Section](backlog/VM-025-combo-discovery-placement-section.md)
 - [VM-014 - UI Shell Cleanup and Legacy Terminal Follow-Up](backlog/VM-014-ui-shell-cleanup-legacy-terminal-follow-up.md)
 - [VM-015 - Returning User Commander Fit Check](backlog/VM-015-returning-user-commander-fit-check.md)
-- [VM-016 - Archscry Profile Return QR](backlog/VM-016-archscry-profile-return-qr.md)
 - [VM-018 - Commander Table Fit and Rule Zero Card](backlog/VM-018-commander-table-fit-rule-zero-card.md)
 
 ## Ready
 
 ## In Progress
+
+- [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
@@ -53,6 +54,10 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-624 — Loom Printing and Artwork Refinement](done/VM-624-loom-printing-artwork-refinement.md) - Done — Owner Accepted at exact candidate `86c5c5f`; release-year and dependent printing rules stay within Loom, Plain Reading renders those printing clauses naturally, and `unique=art` remains deferred.
+
+- [VM-623 — Field Guide Telemetry](done/VM-623-field-guide-telemetry.md) - Done — Owner Accepted at candidate `0ed0b84`; exact four-event Guide contract includes canonical `guide_engaged`. The initial Owner Review FAIL and bounded HTTP/runtime remediation remain recorded; no provider, privacy, Placement, or visible Guide UX behavior changed.
 
 - [VM-622 — Owner-First Visual Verification Governance](done/VM-622-owner-first-visual-verification-governance.md) - Done — Owner Accepted at exact candidate `552cc8d`; RobQA now canonically governs lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
 

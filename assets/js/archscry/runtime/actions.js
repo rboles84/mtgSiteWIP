@@ -30,9 +30,7 @@ import {
 } from "./dossier-controls.js";
 
 import {
-  handleSavePlacement,
   returnToPrimaryReading,
-  saveCurrentResult,
   showBoundedDirection,
   switchAdjacentView,
   togglePreconPreview,
@@ -46,6 +44,7 @@ import {
 } from "./interview.js";
 
 import {
+  forgetSavedReading,
   handleRetake,
   handleSignOut,
   showSection,
@@ -137,9 +136,6 @@ export async function handleArchscryActionClick(event) {
     case "open-interview-dossier":
       openInterviewDossier();
       return;
-    case "save-placement":
-      await handleSavePlacement();
-      return;
     case "answer-quick-question":
       answerQuickQuestion(Number(actionNode.dataset.answerIndex));
       return;
@@ -155,8 +151,8 @@ export async function handleArchscryActionClick(event) {
     case "return-interview-source":
       returnToInterviewSource();
       return;
-    case "save-current-result":
-      await saveCurrentResult();
+    case "forget-saved-reading":
+      forgetSavedReading();
       return;
     case "save-deck-link":
       await handleSaveDeckLink();

@@ -4,6 +4,10 @@ export const VOX_TELEMETRY_EVENTS = Object.freeze({
   READING_STARTED: "reading_started",
   QUESTION_ANSWERED: "question_answered",
   READING_COMPLETED: "reading_completed",
+  GUIDE_OPENED: "guide_opened",
+  GUIDE_ENGAGED: "guide_engaged",
+  GUIDE_ACTION: "guide_action",
+  GUIDE_WALKTHROUGH: "guide_walkthrough",
 });
 
 const POSTHOG_PROJECT_TOKEN = "phc_CQ53z5RmS2DcqJYmAtx6kJBsvPK2WjxCoET8b4tMm7kk";
@@ -35,6 +39,22 @@ const STOPPING_REASONS = new Set([
   "highest_responsible_candidate_trails_unqualified_internal_candidate",
   "single_named_direction_with_unresolved_alternatives",
 ]);
+const GUIDE_SURFACES = new Set(["overview", "reading", "maze"]);
+const GUIDE_MODES = new Set(["static", "guided"]);
+const GUIDE_ENGAGEMENT_THRESHOLDS = Object.freeze([10, 30, 60, 120]);
+const GUIDE_ENGAGEMENT_THRESHOLD_SET = new Set(GUIDE_ENGAGEMENT_THRESHOLDS);
+const GUIDE_ACTION_KINDS = new Set(["product_exit", "guide_internal"]);
+const GUIDE_DESTINATIONS = new Set([
+  "archscry",
+  "maze",
+  "strategium",
+  "apocrypha",
+  "overview",
+  "reading",
+]);
+const GUIDE_PRODUCT_DESTINATIONS = new Set(["archscry", "maze", "strategium", "apocrypha"]);
+const GUIDE_WALKTHROUGH_IDS = new Set(["vox-mana-intro", "dossier-reading", "maze-search"]);
+const GUIDE_WALKTHROUGH_STATES = new Set(["started", "completed", "closed"]);
 const SENSITIVE_PROPERTY_KEYS = new Set([
   "account_id",
   "answer_copy",
@@ -44,6 +64,8 @@ const SENSITIVE_PROPERTY_KEYS = new Set([
   "dossier_prose",
   "email",
   "full_url",
+  "guide_prose",
+  "guide_text",
   "glossary_prose",
   "href",
   "location",
@@ -57,6 +79,8 @@ const SENSITIVE_PROPERTY_KEYS = new Set([
   "search_query",
   "url",
   "user_id",
+  "walkthrough_description",
+  "walkthrough_prose",
 ]);
 const POSTHOG_TRANSPORT_PROPERTIES = new Set([
   "token",
@@ -94,6 +118,10 @@ const placementVersion = (value) => {
 
 const oneOf = (values) => (value) => (
   typeof value === "string" && values.has(value.trim()) ? value.trim() : null
+);
+
+const oneOfInteger = (values) => (value) => (
+  Number.isInteger(value) && values.has(value) ? value : null
 );
 
 const integerBetween = (minimum, maximum) => (value) => (
@@ -136,12 +164,40 @@ const EVENT_SCHEMAS = Object.freeze({
     stopping_state: oneOf(RESULT_STATES),
     stopping_reason: oneOf(STOPPING_REASONS),
   }),
+  [VOX_TELEMETRY_EVENTS.GUIDE_OPENED]: Object.freeze({
+    telemetry_schema_version: exactSchemaVersion,
+    guide_session_id: identifier(80),
+    guide_surface: oneOf(GUIDE_SURFACES),
+    guide_mode: oneOf(GUIDE_MODES),
+  }),
+  [VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED]: Object.freeze({
+    telemetry_schema_version: exactSchemaVersion,
+    guide_session_id: identifier(80),
+    guide_surface: oneOf(GUIDE_SURFACES),
+    active_seconds_threshold: oneOfInteger(GUIDE_ENGAGEMENT_THRESHOLD_SET),
+  }),
+  [VOX_TELEMETRY_EVENTS.GUIDE_ACTION]: Object.freeze({
+    telemetry_schema_version: exactSchemaVersion,
+    guide_session_id: identifier(80),
+    guide_surface: oneOf(GUIDE_SURFACES),
+    action_kind: oneOf(GUIDE_ACTION_KINDS),
+    destination: oneOf(GUIDE_DESTINATIONS),
+  }),
+  [VOX_TELEMETRY_EVENTS.GUIDE_WALKTHROUGH]: Object.freeze({
+    telemetry_schema_version: exactSchemaVersion,
+    guide_session_id: identifier(80),
+    guide_surface: oneOf(GUIDE_SURFACES),
+    walkthrough_id: oneOf(GUIDE_WALKTHROUGH_IDS),
+    state: oneOf(GUIDE_WALKTHROUGH_STATES),
+    step_index: integerBetween(1, 4),
+  }),
 });
 
 let providerAdapter = null;
 let testSink = null;
 let initializationAttempted = false;
 let activeReading = null;
+let activeGuide = null;
 
 function isPlainRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -183,7 +239,7 @@ export function derivePlacementVersion(model) {
   return placementVersion(parts.map(([key, value]) => `${key}=${value}`).join("|"));
 }
 
-export function createReadingRunId(cryptoSource = globalThis.crypto) {
+function createEphemeralId(prefix, cryptoSource = globalThis.crypto) {
   try {
     if (typeof cryptoSource?.randomUUID === "function") return cryptoSource.randomUUID();
     if (typeof cryptoSource?.getRandomValues === "function") {
@@ -196,7 +252,15 @@ export function createReadingRunId(cryptoSource = globalThis.crypto) {
   } catch {
     // Fall through to a non-identifying, page-local compatibility value.
   }
-  return `reading-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
+  return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
+}
+
+export function createReadingRunId(cryptoSource = globalThis.crypto) {
+  return createEphemeralId("reading", cryptoSource);
+}
+
+export function createGuideSessionId(cryptoSource = globalThis.crypto) {
+  return createEphemeralId("guide", cryptoSource);
 }
 
 export function filterPostHogEvent(event) {
@@ -428,6 +492,131 @@ export function trackVoxReadingCompleted({ result, questionCount }) {
   });
 }
 
+function isVisible(documentRef) {
+  return documentRef?.visibilityState !== "hidden";
+}
+
+/**
+ * Counts only wall-clock time spent while the document is visible. The tracker exposes `check`
+ * for deterministic tests; production uses its short interval only to notice threshold crossings.
+ */
+export function createVoxGuideEngagementTracker({
+  documentRef = globalThis.document,
+  now = () => Date.now(),
+  setIntervalFn = globalThis.setInterval,
+  clearIntervalFn = globalThis.clearInterval,
+  onThreshold = () => {},
+} = {}) {
+  let activeSeconds = 0;
+  let lastTimestamp = now();
+  let wasVisible = isVisible(documentRef);
+  let stopped = false;
+  const emittedThresholds = new Set();
+
+  const advance = () => {
+    const currentTimestamp = now();
+    if (wasVisible) activeSeconds += Math.max(0, currentTimestamp - lastTimestamp) / 1000;
+    lastTimestamp = currentTimestamp;
+    wasVisible = isVisible(documentRef);
+  };
+
+  const check = () => {
+    if (stopped) return activeSeconds;
+    advance();
+    GUIDE_ENGAGEMENT_THRESHOLDS.forEach((threshold) => {
+      if (activeSeconds >= threshold && !emittedThresholds.has(threshold)) {
+        emittedThresholds.add(threshold);
+        onThreshold(threshold);
+      }
+    });
+    return activeSeconds;
+  };
+
+  const onVisibilityChange = () => check();
+  documentRef?.addEventListener?.("visibilitychange", onVisibilityChange);
+  const intervalId = typeof setIntervalFn === "function" ? setIntervalFn(check, 1000) : null;
+
+  return Object.freeze({
+    check,
+    stop() {
+      if (stopped) return;
+      stopped = true;
+      documentRef?.removeEventListener?.("visibilitychange", onVisibilityChange);
+      if (intervalId !== null && typeof clearIntervalFn === "function") clearIntervalFn(intervalId);
+    },
+  });
+}
+
+function stopActiveGuideSession() {
+  activeGuide?.engagementTracker?.stop?.();
+  activeGuide = null;
+}
+
+export function beginVoxGuideSession({
+  guideSurface,
+  guideMode = "static",
+  documentRef = globalThis.document,
+  engagementOptions,
+} = {}) {
+  if (!GUIDE_SURFACES.has(guideSurface) || !GUIDE_MODES.has(guideMode)) return null;
+
+  stopActiveGuideSession();
+  const guideSessionId = createGuideSessionId();
+  activeGuide = {
+    guideSessionId,
+    guideSurface,
+    guideMode,
+    engagementTracker: null,
+  };
+
+  trackVoxEvent(VOX_TELEMETRY_EVENTS.GUIDE_OPENED, {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: guideSessionId,
+    guide_surface: guideSurface,
+    guide_mode: guideMode,
+  });
+  activeGuide.engagementTracker = createVoxGuideEngagementTracker({
+    ...engagementOptions,
+    documentRef,
+    onThreshold: (threshold) => {
+      trackVoxEvent(VOX_TELEMETRY_EVENTS.GUIDE_ENGAGED, {
+        telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+        guide_session_id: guideSessionId,
+        guide_surface: guideSurface,
+        active_seconds_threshold: threshold,
+      });
+    },
+  });
+  return guideSessionId;
+}
+
+export function endVoxGuideSession() {
+  stopActiveGuideSession();
+}
+
+export function trackVoxGuideAction({ destination, actionKind } = {}) {
+  if (!activeGuide || !GUIDE_DESTINATIONS.has(destination)) return false;
+  return trackVoxEvent(VOX_TELEMETRY_EVENTS.GUIDE_ACTION, {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: activeGuide.guideSessionId,
+    guide_surface: activeGuide.guideSurface,
+    action_kind: actionKind || (GUIDE_PRODUCT_DESTINATIONS.has(destination) ? "product_exit" : "guide_internal"),
+    destination,
+  });
+}
+
+export function trackVoxGuideWalkthrough({ walkthroughId, state, stepIndex } = {}) {
+  if (!activeGuide) return false;
+  return trackVoxEvent(VOX_TELEMETRY_EVENTS.GUIDE_WALKTHROUGH, {
+    telemetry_schema_version: TELEMETRY_SCHEMA_VERSION,
+    guide_session_id: activeGuide.guideSessionId,
+    guide_surface: activeGuide.guideSurface,
+    walkthrough_id: walkthroughId,
+    state,
+    step_index: stepIndex,
+  });
+}
+
 export function setVoxTelemetryTestSink(nextSink) {
   testSink = typeof nextSink === "function" ? nextSink : null;
   providerAdapter = null;
@@ -445,4 +634,5 @@ export function resetVoxTelemetryForTests() {
   testSink = null;
   initializationAttempted = false;
   activeReading = null;
+  stopActiveGuideSession();
 }
