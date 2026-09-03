@@ -150,18 +150,23 @@ export function resetLocalFlow() {
 }
 
 /**
+ * Forgets the device-local reading and returns to a neutral Archscry landing state.
+ */
+export function forgetSavedReading() {
+  vm_forgetSavedReading();
+  resetLocalFlow();
+  updateTopbar();
+  showSection("landing");
+}
+
+/**
  * Clears the saved placement when needed and returns the app to the landing page.
  */
 
 export async function handleRetake() {
-  const confirmMessage = SESSION.username
-    ? "Begin again? This will clear your saved reading and return you to the gate."
-    : "Begin again? This will leave this reading and return you to the gate.";
+  const confirmMessage = "Begin again? Your next complete reading will replace the one saved on this device.";
   if (typeof window !== "undefined" && typeof window.confirm === "function" && !window.confirm(confirmMessage)) {
     return;
-  }
-  if (SESSION.username) {
-    await vm_clearPlacement();
   }
   resetLocalFlow();
   updateTopbar();

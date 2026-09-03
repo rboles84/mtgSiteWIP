@@ -897,7 +897,6 @@ function setKeywordAbilityVocabulary(grounding) {
  * Boots the Research Archives page after the shell markup is ready.
  */
 async function initializeResearchArchives() {
-  if (typeof vm_resumeSession !== "undefined") await vm_resumeSession();
   await initializeParserDictionary();
 
   const username = (typeof VM_SESSION !== "undefined") ? VM_SESSION.username : null;

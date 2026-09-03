@@ -18,10 +18,8 @@ import {
 } from "./runtime/data.js";
 
 import {
-  handleSavePlacement,
   renderResult,
   returnToPrimaryReading,
-  saveCurrentResult,
   switchAdjacentView,
 } from "./runtime/dossier-view.js?v=vm620";
 
@@ -40,7 +38,6 @@ import {
   openResearch,
   showSection,
   updateInterviewControls,
-  updateTopbar,
 } from "./runtime/navigation.js";
 
 import {
@@ -125,14 +122,12 @@ Object.assign(window, {
   answerQuickQuestion,
   goBackQuickQuestion,
   handleRetake,
-  handleSavePlacement,
   handleSignOut,
   openInterviewDossier,
   openLibrary,
   openResearch,
   returnToInterviewSource,
   returnToPrimaryReading,
-  saveCurrentResult,
   showSection,
   startInterviewFlow,
   startQuickFlow,
@@ -169,12 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  const resumed = await vm_resumeSession();
-  const savedFromOAuth = await vm_checkPendingSave();
-  if (resumed || savedFromOAuth) {
-    updateTopbar();
-  }
-  restoreInitialView(savedFromOAuth);
+  restoreInitialView(false);
 
   if (isArchscryDevReviewLocation(window.location)) {
     const { initializeArchscryDevReview } = await import("./runtime/dev-review.js");

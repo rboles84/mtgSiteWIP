@@ -10,6 +10,8 @@ const VM_CONFIG = {
 };
 
 const VM_RESULT_VERSION = "2026-05-10";
+const VM_SAVED_READING_STORAGE_KEY = "vm_archscry_saved_reading_v1";
+const VM_LEGACY_RESULT_STORAGE_KEY = "vm_last_result";
 
 let _supabaseClient = null;
 
@@ -83,6 +85,37 @@ function writeJsonStorage(key, value) {
       sessionStorage.removeItem(key);
     } else {
       sessionStorage.setItem(key, JSON.stringify(value));
+    }
+  } catch (_) {}
+}
+
+/**
+ * Reads a JSON value from persistent local storage without failing the reading flow.
+ *
+ * @param {string} key Storage key to read.
+ * @returns {any|null} Parsed value when present.
+ */
+function readJsonLocalStorage(key) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+/**
+ * Writes or removes a JSON value from persistent local storage.
+ *
+ * @param {string} key Storage key to write.
+ * @param {any|null} value Value to store or null to remove.
+ */
+function writeJsonLocalStorage(key, value) {
+  try {
+    if (value === null || value === undefined) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, JSON.stringify(value));
     }
   } catch (_) {}
 }
@@ -305,21 +338,41 @@ function makeLegacyPlacementResult(profileRow) {
 }
 
 /**
- * Caches the latest placement result for refreshes and OAuth round trips.
+ * Keeps the latest complete reading on this browser and device.
  *
  * @param {object|null} result Placement result to cache.
  */
 function vm_cachePlacementResult(result) {
-  writeJsonStorage("vm_last_result", clonePlacementResult(result));
+  writeJsonLocalStorage(VM_SAVED_READING_STORAGE_KEY, clonePlacementResult(result));
 }
 
 /**
- * Returns the cached placement result from the current browser session.
+ * Returns the saved placement result from this browser and device.
  *
  * @returns {object|null} Cached placement result when available.
  */
 function vm_getCachedPlacementResult() {
-  return normalizePlacementResult(readJsonStorage("vm_last_result"), null);
+  const saved = readJsonLocalStorage(VM_SAVED_READING_STORAGE_KEY);
+  if (saved) {
+    return normalizePlacementResult(saved, null);
+  }
+
+  const legacy = readJsonStorage(VM_LEGACY_RESULT_STORAGE_KEY);
+  const normalizedLegacy = normalizePlacementResult(legacy, null);
+  if (normalizedLegacy) {
+    vm_cachePlacementResult(normalizedLegacy);
+    writeJsonStorage(VM_LEGACY_RESULT_STORAGE_KEY, null);
+  }
+  return normalizedLegacy;
+}
+
+/**
+ * Removes the complete reading stored on this browser and device.
+ */
+function vm_forgetSavedReading() {
+  writeJsonLocalStorage(VM_SAVED_READING_STORAGE_KEY, null);
+  writeJsonStorage(VM_LEGACY_RESULT_STORAGE_KEY, null);
+  VM_SESSION.interviewResult = null;
 }
 
 /**
@@ -494,7 +547,6 @@ function vm_resetInterview() {
   VM_SESSION.interviewActive = false;
   VM_SESSION.interviewResult = null;
   VM_SESSION.interviewContext = null;
-  writeJsonStorage("vm_last_result", null);
 }
 
 /**

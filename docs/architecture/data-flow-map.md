@@ -31,10 +31,9 @@ The authoritative edit path is `data/precons/vox-mana-precons.source.json` plus 
 | Data | Owner | Storage | Purpose |
 |---|---|---|---|
 | `APP_STATE` | `assets/js/archscry/runtime/state.js` | In-memory only | One shared object with the established identity/defaults/mutation semantics for factions, model, catalogs, quick answers, adaptive state, active result/view, interview state, and starter profile. Terminal UI state stays dormant unless the feature flag is enabled. |
-| `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Auth/session profile, username, avatar, current interview history/result, saved profile result. Interview state stays dormant unless the feature flag is enabled. |
-| Cached placement result | `assets/js/shared/shared.js` | `sessionStorage` key `vm_cached_result` | Guest and post-OAuth result recovery. |
+| `VM_SESSION` | `assets/js/shared/shared.js` | In-memory plus session storage | Current interview history/result. The feature-flagged Terminal state stays dormant unless enabled. |
+| Saved placement result | `assets/js/shared/shared.js` | `localStorage` key `vm_archscry_saved_reading_v1` | Latest complete Archscry reading for direct same-browser/device dossier return. A legacy session cache is migrated once when found. |
 | Archscry telemetry reading run | `assets/js/shared/vox-telemetry.js` | In-memory only | Correlates one reading start, its accepted answer IDs, and its first completed result. It is not persisted or used as a person identifier. |
-| Pending OAuth save | `assets/js/shared/shared.js` | `sessionStorage` key `vm_pending_result` | Holds result while Google OAuth redirect completes. |
 | Interview session bucket | `assets/js/shared/shared.js` | `sessionStorage` key `vm_interview_session_id` | Stable client throttle/session id for edge function calls. |
 | Reduce motion | `assets/js/shared/reduce-motion.js`, `assets/js/shared/vm-topbar.js` | `localStorage` key `vm_reduce_motion` | Shared motion preference. |
 | Home identity signal | `assets/js/home/home.js` plus `data/identity-layers.json` | Route-local runtime state, canonical preview registry fetch, and `data/factions.json` lore fetch | Renders the canonical homepage Identity Signal, hero radar, destination links, and mana lore note from registry-owned preview metadata. |
@@ -50,10 +49,9 @@ flowchart LR
   Quick --> Result["Placement result"]
   Interview["Archived Scrying Terminal"] --> Edge["guild-recruiter edge function"]
   Edge --> Result
-  Result --> Cache["sessionStorage cache"]
+  Result --> Cache["device-local saved reading"]
   Result --> Dossier["Dossier render"]
-  Result --> Save["Supabase profile save"]
-  Save --> Resume["Saved-return behavior"]
+  Cache --> Resume["Same-device saved-return behavior"]
 ```
 
 All result-producing paths should converge on the versioned placement shape documented in [Data Contracts](../reference/data-contracts.md).
@@ -66,7 +64,6 @@ Future domain selection should be inferred from placement inputs and results rat
 
 | Service | Caller | Endpoint family | Data sent | Data received |
 |---|---|---|---|---|
-| Supabase Auth and Database | `assets/js/shared/shared.js` | Browser Supabase client | OAuth request, profile upsert/update/select | Session, user metadata, profile row, saved placement. |
 | Supabase Edge Function | `assets/js/shared/shared.js` | `/functions/v1/guild-recruiter` | Message, sanitized history, session id, starter profile, optional current result | Interview turn response or normalized decision result when the archived terminal path is enabled. |
 | Anthropic | `supabase/functions/guild-recruiter/index.ts` | `https://api.anthropic.com/v1/messages` | Generated system prompt and sanitized messages | JSON text to parse as interview turn response when the archived terminal path is enabled. |
 | Scryfall Search | `assets/js/maze/research-search.js` | `/cards/search` | Query, unique, order, page | Card result pages and pagination URLs. |
@@ -74,17 +71,9 @@ Future domain selection should be inferred from placement inputs and results rat
 | Scryfall Random | `assets/js/maze/research-search.js` | `/cards/random` | Optional query | Random fallback/no-results card. |
 | PostHog Cloud US | `assets/js/shared/vox-telemetry.js`, initialized by `assets/js/archscry/index.js` with event calls only in `runtime/questionnaire.js` | `/static/1/array.js`, US ingestion endpoint | Three allowlisted Archscry funnel events containing structured IDs, bounded states, placement version, and an ephemeral reading-run ID | Product analytics ingestion only; no runtime response changes placement or rendering. |
 
-## Supabase Profile Persistence
+## Device-Local Reading Persistence
 
-`assets/js/shared/shared.js` saves compatibility fields plus the rich result:
-
-| Field | Source |
-|---|---|
-| `guild`, `guild_name`, `runner_up`, `confidence`, `decree`, `scores`, `taken_at` | Normalized placement result and display profile. |
-| `display_name`, `avatar_url` | Supabase auth metadata and profile fallback. |
-| `placement_result` | Full normalized result; treated as saved-return source of truth. |
-
-Legacy rows with `guild` and `scores` but no `placement_result` are converted by `makeLegacyPlacementResult`.
+`assets/js/shared/shared.js` stores the complete normalized result under `vm_archscry_saved_reading_v1`. The browser renders that result directly on return, so no account, request, or profile row is required. Clearing browser storage or using another browser/device does not restore it; portable QR/link and account-backed recovery remain future scope.
 
 ## Research Workspace Data
 
