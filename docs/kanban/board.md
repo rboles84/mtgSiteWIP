@@ -41,8 +41,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-622 — Owner-First Visual Verification Governance](in-progress/VM-622-owner-first-visual-verification-governance.md) - Owner disposition pending on the canonical RobQA policy for lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-622 — Owner-First Visual Verification Governance](done/VM-622-owner-first-visual-verification-governance.md) - Done — Owner Accepted at exact candidate `552cc8d`; RobQA now canonically governs lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
 
 - [VM-617 — Reference, Cross-Links, and Final Onboarding Validation](done/VM-617-reference-cross-links-final-onboarding-validation.md) - Done — Owner Accepted at discovery candidate `154183b`; `/guide/reference/` is deferred and reserved, with zero terminology additions, local syntax reference, recipes, or cross-links. Owner manually verified the fresh private-browser Archscry journey; the unchanged automated smoke remains harness debt. VM-006 is independent/unstarted, and the dedicated Field Guide/onboarding program is complete.
 

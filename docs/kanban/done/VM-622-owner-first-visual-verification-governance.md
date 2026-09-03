@@ -2,7 +2,7 @@
 
 ID: VM-622
 
-Status: In Progress — Owner disposition required
+Status: Done — Owner Accepted
 
 Type: Documentation / QA governance
 
@@ -37,7 +37,7 @@ Codify RobQA's durable Owner-First Visual Verification policy: agents automate c
 - [x] A cheap visible ambiguous automation failure routes first to a bounded Owner manual check, with honest Product: Owner Manual PASS versus Automated test: FAIL / known harness debt disposition.
 - [x] Objective accessibility and UI automation remain required where appropriate.
 - [x] Relevant instruction surfaces point to the RobQA policy without duplicating it.
-- [ ] Owner reviews and accepts, modifies, or rejects this governance policy; no self-acceptance is claimed.
+- [x] Owner accepted the current governance candidate exactly as reviewed on 2026-09-02.
 
 ## Authority and decisions
 
@@ -49,6 +49,13 @@ Codify RobQA's durable Owner-First Visual Verification policy: agents automate c
 
 QA-0. Validate scoped Markdown links and anchors, required policy terms and pointers, lack of production file changes, git diff --check, and the fresh-agent discovery trace from AGENTS.md to RobQA.
 
-## Owner review requested
+## Owner acceptance
 
-Read the canonical policy's default rendered boundary and automation-failure gate. Confirm whether the machine-versus-Owner division, bounded Owner template, and explicit harness-debt disposition are the desired durable rule.
+Owner accepted the current governance candidate exactly as reviewed at `552cc8d` (`docs(vm-622): add owner-first visual verification policy`). The canonical policy remains `docs/qa/RobQAPass.md`; no policy broadening or rewrite occurred during closeout.
+
+## Lifecycle closeout
+
+- Closed: 2026-09-02
+- Disposition: Done — Owner Accepted
+- Candidate binding: `552cc8d`
+- Closeout record: `docs/handoffs/2026-09-02-1907-codex-vm622-owner-accepted-closeout.md`
