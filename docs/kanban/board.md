@@ -41,6 +41,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-622 — Owner-First Visual Verification Governance](in-progress/VM-622-owner-first-visual-verification-governance.md) - Owner disposition pending on the canonical RobQA policy for lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
+
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
