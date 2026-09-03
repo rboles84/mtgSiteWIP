@@ -1,4 +1,4 @@
-# VM-623 Field Guide Telemetry — Owner Review Handoff
+# VM-623 Field Guide Telemetry — Owner-Accepted Lifecycle Handoff
 
 ## Agent and task
 
@@ -77,7 +77,7 @@ PostHog settings/token/host, privacy configuration, Archscry runtime/Placement, 
 
 - Do not expand the telemetry contract without a separate schema/privacy review; preserve VM-575's provider-level client-IP discard setting during any migration.
 - **Next suggested agent:** Owner for the bounded mock-mode check; an authorized lifecycle agent only after explicit Owner disposition.
-- **Related:** `docs/kanban/in-progress/VM-623-field-guide-telemetry.md`, `docs/reference/product-telemetry.md`, VM-575, VM-619, and VM-622 records.
+- **Related:** `docs/kanban/done/VM-623-field-guide-telemetry.md`, `docs/reference/product-telemetry.md`, VM-575, VM-619, and VM-622 records.
 
 ## Owner-fail remediation — 2026-09-02
 
@@ -88,3 +88,11 @@ PostHog settings/token/host, privacy configuration, Archscry runtime/Placement, 
 - **Regression and exact proof:** PASS `$env:VM623_BROWSER_PORT='8000'; npm.cmd run test:vm623-guide-telemetry-browser`, which served and loaded `http://localhost:8000/guide/reading/?vox_telemetry=mock&guided=dossier-reading` in Chromium. It saw no console/module error, found the mock event array, `guide_opened`, and `guide_walkthrough { walkthrough_id: "dossier-reading", state: "started", step_index: 1 }`, with no PostHog global/request.
 - **Additional focused evidence:** PASS `npm.cmd run test:telemetry`; PASS `npm.cmd run test:vm623-guide-telemetry`; PASS `git diff --check`.
 - **Disposition:** **PASS — Owner Re-Review Ready**. Candidate remains uncommitted; do not push, merge, or self-accept.
+
+## Owner-accepted lifecycle closeout — 2026-09-02
+
+- **Owner disposition:** Initial Owner Review FAIL; bounded remediation PASS; Owner Re-Review PASS; final VM-623 status Done — Owner Accepted.
+- **Accepted candidate:** `0ed0b8430e5b9c4474a4b3ee74ca37f1b22be86d` (`feat(vm-623): add field guide telemetry`).
+- **Accepted stream:** `guide_opened`, `guide_engaged`, `guide_action`, and `guide_walkthrough`; Owner confirmed `guide_engaged` remains canonical.
+- **Owner evidence:** the exact reading-guide mock route emitted open, guided `dossier-reading` started/completed, and 10-second visible engagement events under one ephemeral session with no module error.
+- **Closeout scope:** Kanban/handoff lifecycle only. The provider, privacy/firewall contract, Archscry telemetry, Placement, and visible Guide UX remain unchanged. No PR or merge is authorized.

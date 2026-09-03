@@ -2,7 +2,7 @@
 
 ID: VM-623
 
-Status: Owner Review Ready
+Status: Done — Owner Accepted
 
 Type: Product analytics
 
@@ -74,3 +74,12 @@ Open `/guide/reading/?vox_telemetry=mock&guided=dossier-reading`, inspect `windo
 - **Regression:** added `scripts/vm623-guide-telemetry-browser.mjs` / `npm.cmd run test:vm623-guide-telemetry-browser`. It serves the candidate over HTTP, loads the exact reading-guide mock path in Chromium, captures module errors, and asserts the page-local mock stream, `guide_opened`, `dossier-reading` `started` at step 1, and no PostHog global/request.
 - **Exact recheck:** PASS at `http://localhost:8000/guide/reading/?vox_telemetry=mock&guided=dossier-reading`; no console/module error, mock array exists, required events exist, and PostHog is absent.
 - **Disposition:** PASS — Owner Re-Review Ready. The candidate remains uncommitted.
+
+## Lifecycle Closeout — 2026-09-02
+
+- **Initial Owner Review:** FAIL — the HTTP-served ES-module/import boundary was not covered by the prior automation.
+- **Bounded remediation:** PASS — added the focused Chromium/HTTP regression for the exact reading-guide mock route.
+- **Owner Re-Review:** PASS — Owner verified `guide_opened`, guided `dossier-reading` start/completion, and `guide_engaged` threshold 10 under one ephemeral Guide session with no module error.
+- **Owner acceptance:** VM-623 is accepted exactly at candidate `0ed0b8430e5b9c4474a4b3ee74ca37f1b22be86d`.
+- **Final contract:** `guide_opened`, `guide_engaged`, `guide_action`, and `guide_walkthrough`; `guide_engaged` remains canonical.
+- **Disposition:** Done — Owner Accepted. No Placement, provider/privacy, or visible Guide UX behavior changed during closeout.

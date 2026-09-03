@@ -41,8 +41,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-623 — Field Guide Telemetry](in-progress/VM-623-field-guide-telemetry.md) - Owner Review Ready; bounded VM-575 extension adds only allowlisted Guide open, visible-time threshold, intentional-CTA, and shared walkthrough lifecycle events with no persistence, provider, visual, or placement change.
-
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-623 — Field Guide Telemetry](done/VM-623-field-guide-telemetry.md) - Done — Owner Accepted at candidate `0ed0b84`; exact four-event Guide contract includes canonical `guide_engaged`. The initial Owner Review FAIL and bounded HTTP/runtime remediation remain recorded; no provider, privacy, Placement, or visible Guide UX behavior changed.
 
 - [VM-622 — Owner-First Visual Verification Governance](done/VM-622-owner-first-visual-verification-governance.md) - Done — Owner Accepted at exact candidate `552cc8d`; RobQA now canonically governs lightweight rendered sanity, objective automation, Owner visual judgment, and visible product-versus-harness failure classification.
 
