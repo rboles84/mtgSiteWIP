@@ -40,8 +40,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](in-progress/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - establishing one short-lived card branch and PR, exact-SHA RobQA, one Owner approval, squash merge, cleanup, and durable `SHIP` / `ACCEPT` / `REJECT` commands without changing product governance.
-
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
@@ -56,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](done/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Done — Owner Accepted; PR #21 final head `5706304` was squash-merged as `308ece6`. The accepted delivery workflow is active, automatic merged-branch deletion is enabled, and `main` protection remains deferred until an explicit safe VM-625 transition.
 
 - [VM-624 — Loom Printing and Artwork Refinement](done/VM-624-loom-printing-artwork-refinement.md) - Done — Owner Accepted at exact candidate `86c5c5f`; release-year and dependent printing rules stay within Loom, Plain Reading renders those printing clauses naturally, and `unique=art` remains deferred.
 

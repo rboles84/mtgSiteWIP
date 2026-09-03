@@ -4,7 +4,7 @@ ID: VM-626
 
 Title: Standard Branch, PR, QA, Owner, and Merge Workflow
 
-Status: In Progress
+Status: Done — Owner Accepted
 
 Type: Repository governance / delivery workflow
 
@@ -38,16 +38,16 @@ Make `SHIP VM-###`, `ACCEPT VM-###`, and `REJECT VM-###: <reason>` durable repos
 
 ## Acceptance Criteria
 
-- [ ] A fresh repository session can discover and correctly execute `SHIP`, `ACCEPT`, and `REJECT`.
-- [ ] Material cards use current `main`, one short-lived card branch, and normally one PR.
-- [ ] RobDev prepares and publishes the candidate without merging or pushing feature work directly to `main`.
-- [ ] RobQA independently reviews the actual PR candidate and binds PASS to its exact SHA.
-- [ ] Ordinary Dev/QA and Owner-rejection corrections stay on the same card, branch, and PR.
-- [ ] Owner receives one approval gate; `ACCEPT` authorizes verified squash merge and cleanup without a second approval.
-- [ ] The PR template records compact scope, verification, RobQA, Owner, and candidate-SHA evidence.
-- [ ] Existing PR CI is reused without adding card-specific or exhaustive suites.
-- [ ] The exact proposed `main` protection is documented but remains inactive until RobQA PASS, Owner acceptance, and a safe VM-625 transition; when activated it requires PRs and meaningful CI, prevents force pushes/deletion, and requires no duplicate GitHub approval.
-- [ ] Existing active VM-625 work can adopt the workflow in place without reset, replacement branch, or lost work.
+- [x] A fresh repository session can discover and correctly execute `SHIP`, `ACCEPT`, and `REJECT`.
+- [x] Material cards use current `main`, one short-lived card branch, and normally one PR.
+- [x] RobDev prepares and publishes the candidate without merging or pushing feature work directly to `main`.
+- [x] RobQA independently reviews the actual PR candidate and binds PASS to its exact SHA.
+- [x] Ordinary Dev/QA and Owner-rejection corrections stay on the same card, branch, and PR.
+- [x] Owner receives one approval gate; `ACCEPT` authorizes verified squash merge and cleanup without a second approval.
+- [x] The PR template records compact scope, verification, RobQA, Owner, and candidate-SHA evidence.
+- [x] Existing PR CI is reused without adding card-specific or exhaustive suites.
+- [x] The exact proposed `main` protection is documented but remains inactive until RobQA PASS, Owner acceptance, and a safe VM-625 transition; when activated it requires PRs and meaningful CI, prevents force pushes/deletion, and requires no duplicate GitHub approval.
+- [x] Existing active VM-625 work can adopt the workflow in place without reset, replacement branch, or lost work.
 
 ## Files Likely Impacted
 
@@ -78,3 +78,8 @@ Reuse the current instructions, workflow document, PR template, deterministic PR
 - QA tier: QA-0 documentation/non-runtime metadata plus authenticated GitHub settings verification.
 - CPU-heavy validation: NOT REQUIRED.
 - GitHub state: automatic merged-branch deletion is enabled. `main` protection was inspected and is not configured; its proposed strict `Deterministic Validation`/PR-required/zero-approval/no-force-push/no-deletion payload is deferred until RobQA PASS, Owner acceptance, and an explicit safe VM-625 transition.
+- RobQA independently passed the material implementation candidate `91eebb77b894543c213cbc562a40859799d38990`; the evidence-only follow-up produced final PR head `5706304682e30357bafc07901c7e91009c13233f` under the documented QA-0 rule.
+- Owner accepted VM-626 and the final PR head `5706304682e30357bafc07901c7e91009c13233f` on 2026-09-03.
+- PR #21 was squash-merged to `main` as `308ece6b565e68dfec0e486c57fe3c7c9e783005`.
+- GitHub automatically deleted the remote feature branch after merge. The local feature branch was removed only after merge verification.
+- The accepted process documentation is active. `main` protection remains deliberately unconfigured, with zero rulesets, because VM-625 still relies on the previous accepted process; activation requires an explicit safe VM-625 transition.
