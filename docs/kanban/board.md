@@ -41,6 +41,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-617 — Reference, Cross-Links, and Final Onboarding Validation](in-progress/VM-617-reference-cross-links-final-onboarding-validation.md) - In Progress — Discovery / Owner Review Required; documentation-only red team recommends deferring `/guide/reference/`, adding no cross-links, and routing the unproven fresh-session Archscry smoke gap to VM-006 if the Owner prioritizes it. No production work is authorized.
+
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
 
 - [VM-595 — Placement Language Trust Audit](in-progress/VM-595-placement-language-trust-audit.md) - auditing all 37 production-composed dossiers for measurable repetition, templating, cadence, redundancy, distinctiveness, truth/voice separation, and source ownership; research/remediation design only, with runtime, Placement semantics, VM-593/594, and VM-578 protected.
