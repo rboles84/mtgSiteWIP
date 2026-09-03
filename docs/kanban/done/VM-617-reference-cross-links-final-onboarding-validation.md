@@ -2,7 +2,7 @@
 
 ID: VM-617
 
-Status: In Progress — Discovery / Owner Review Required
+Status: Done — Owner Accepted
 
 Type: Red-team discovery / QA recon / product decision packet
 
@@ -59,6 +59,17 @@ See `docs/reports/2026-09-02-vm617-reference-final-onboarding-redteam.md`.
 - Recommendation: **defer `/guide/reference/`**; preserve the accepted reserved route and seek no contract supersession.
 - Reference content: no local terms, recipes, or copied syntax yet. The demonstrated retrieval bridge is existing Operator's Hand + visible query + `Open in Scryfall` + the existing official syntax link.
 - Cross-links: no justified additions.
-- Fresh Archscry browser smoke: **HARNESS / PRODUCT BOUNDARY UNPROVEN**; the unchanged reset-storage first-answer timeout reproduces. VM-006 owns a narrow deterministic repro/classification follow-up if the Owner prioritizes it.
+- Fresh Archscry browser smoke: the original discovery result was **HARNESS / PRODUCT BOUNDARY UNPROVEN**. Subsequent Owner manual verification resolves product behavior as **PRODUCT MANUALLY VERIFIED — AUTOMATED HARNESS STILL FAILING**; no VM-006 diagnostic is currently required.
 - Backlog: VM-006 is independent and is the only relevant open card requiring follow-up consideration. VM-007, VM-010, VM-406, VM-398 and recommendation cards are independent, not VM-617 cleanup.
-- Program recommendation: after Owner disposition of this packet, stop the dedicated Field Guide/onboarding program unless a separate, evidence-backed reference retrieval or VM-006 harness/product card is authorized.
+- Program disposition: Owner accepted the stop recommendation. The dedicated Field Guide/onboarding program is complete; future work requires a concrete product-specific problem.
+
+## Owner acceptance and lifecycle closeout — 2026-09-02
+
+- Owner Accepted the discovery/product decision at exact candidate `154183b`, with no VM-617 production implementation.
+- `/guide/reference/` remains **DEFERRED**; its reservation remains in the accepted V1 contract and is not superseded. Terminology additions, local Scryfall syntax reference, recipes, and cross-links remain **0**.
+- The Owner manually tested a private fresh Archscry browser with empty local storage: load, first question, first answer, progress, subsequent questions, completion, and real result/dossier all passed.
+- The automated `test:browser-smoke` first-answer/progress timeout remains documented as an honest known failure. In light of the Owner's corresponding manual pass, it is **automated harness debt unless contrary product evidence appears**. Its assertion remains unmodified and is not claimed as passing.
+- VM-006 remains an independent, unstarted backlog card. No immediate diagnostic is required to re-decide product versus harness behavior; future reliable fresh-session automation may be prioritized separately.
+- First value remains useful product outcome, not Beacon click, Guide visit, or walkthrough completion. No telemetry changes are authorized.
+- The dedicated Field Guide/onboarding program is complete. Major surfaces name the next useful decision, optional help is discoverable, recovery is understandable, and further work belongs to product-specific UX, reference maintenance, accessibility, analytics, or ordinary QA.
+- Closeout is documentation/governance only. VM-614 through VM-621, Home's four paths, exactly three contextual Beacons, optional guided orientations, direct static Guides, Driver.js state, and the no-persistence/no-telemetry/no-completion-tracking boundaries remain unchanged.

@@ -1,6 +1,6 @@
 # VM-617 — Reference Value, Cross-Link Restraint, and Final Onboarding Validation
 
-**Status:** Discovery complete — Owner decision required; no production implementation authority
+**Status:** Done — Owner Accepted; no production implementation was required
 
 **Baseline inspected:** `main` / `origin/main` `5b1b7b3bf629cecb412b1a272df72ac9f632d489` (accepted PR #20)
 
@@ -14,7 +14,7 @@ The route remains a valid reserved information-architecture seam, but current ev
 
 There are **no justified VM-617 cross-links**. Existing product actions, ordinary Guide navigation, the three contextual Beacons, static Guide exits, and the current official Scryfall link already answer the observed next-decision questions without turning the Guide into a sitemap.
 
-The remaining material limitation is the old fresh-session Archscry browser-smoke timeout. It reproduces at the current accepted baseline, but this discovery did not establish whether it is a product defect or a stale harness/setup defect. It stays with **VM-006**, not VM-617.
+The original discovery found the old fresh-session Archscry browser-smoke timeout but could not distinguish product from harness. Subsequent Owner manual verification resolved that uncertainty: product behavior passed in a private fresh browser, while the automated smoke remains a known harness/test failure. VM-006 stays independent and is not started by VM-617.
 
 ## Pre-flight and current-state recon
 
@@ -114,9 +114,15 @@ No new cross-links are proposed. Therefore there is no source/destination/wordin
 
 ### Fresh-session Archscry disposition
 
-**Classification: HARNESS / PRODUCT BOUNDARY UNPROVEN.** The current `test:browser-smoke` cleared local/session storage, reached `/archscry/index.html`, then timed out after 10 seconds waiting at the first-answer/progress phase. The page reported complete document readiness and no visible error but did not yield a deterministic fresh interaction. Existing stored/certified dossier paths pass and the in-app browser renders a current dossier, but neither result proves the clean first-time flow.
+### Original discovery evidence — preserved
 
-Do not call fresh-user onboarding passed. Do not weaken the assertion. The recommended next step, only if the Owner prioritizes it, is a **separate narrow VM-006 diagnostic card** that captures the first real control/focus/network/event condition after storage reset, then classifies product versus harness before proposing any repair.
+**Original classification: HARNESS / PRODUCT BOUNDARY UNPROVEN.** `test:browser-smoke` cleared local/session storage, reached `/archscry/index.html`, then timed out after 10 seconds waiting at the first-answer/progress phase. The page reported complete document readiness and no visible error but did not yield a deterministic fresh interaction. This was an honest pre-Owner-evidence limitation, not a product failure claim.
+
+### Subsequent Owner manual verification — accepted
+
+**Current classification: PRODUCT MANUALLY VERIFIED — AUTOMATED HARNESS STILL FAILING.** The Owner personally exercised a private browser with fresh/empty local storage and observed: Archscry load, first question, accepted first answer, advancing progress, subsequent question progression, completed reading, and a real result/dossier. This resolves the product-side uncertainty.
+
+The automated smoke remains a known failing assertion; do not weaken, delete, or mark it PASS. It is automation/harness debt unless contrary product evidence appears. VM-006 remains an independent backlog card, is not started here, and needs no immediate product-versus-harness diagnostic. A future Owner may separately prioritize reliable fresh-session automation maintenance.
 
 ## Backlog ownership reconciliation
 
@@ -146,24 +152,20 @@ Guide completion, Beacon click, and guided-reading completion are not first valu
 
 ### Smallest next slice
 
-**No VM-617 production slice now.** Preserve `/guide/reference/` as deferred V1 architecture. If the Owner later establishes an actual repeated retrieval need, open a separate reference card limited to that exact need, with official-source freshness ownership and no more content than necessary. If the Owner prioritizes the fresh-session gap, open a separate VM-006 diagnostic/harness card first.
+**No VM-617 production slice.** Owner accepted retaining `/guide/reference/` as deferred V1 architecture, with no terminology, local Scryfall syntax, recipes, or cross-links. A future Owner may authorize a separate reference card only for an actual repeated retrieval need. The manually verified product journey means no immediate VM-006 diagnostic is required for the automated timeout.
 
 ### Stop condition
 
-After the Owner decides this packet, stop the dedicated Field Guide/onboarding program. The product has sufficient onboarding when every major surface names the next useful decision, contextual help is optional/discoverable, recovery states are understandable, and deeper material belongs to product-specific UX, reference maintenance, accessibility, or analytics work—not another general onboarding phase.
+**Owner accepted:** the dedicated Field Guide/onboarding program is complete. The product has sufficient onboarding when every major surface names the next useful decision, contextual help is optional/discoverable, recovery states are understandable, and deeper material belongs to product-specific UX, reference maintenance, accessibility, analytics, or ordinary QA—not another general onboarding phase.
 
-### Owner review questions
+### Owner acceptance
 
-1. Does `/guide/reference/` still deserve implementation despite no demonstrated retrieval gap?
-2. If yes, what single smallest retrieval need must it solve without duplicating existing Guides or Scryfall?
-3. Are any new cross-links actually necessary after the current product actions, Beacons, guided reading, and navigation?
-4. Should VM-006 now receive a narrow fresh-session Archscry diagnostic card, or does the current LIMITATION remain accepted?
-5. After this disposition, should the dedicated Field Guide/onboarding program stop?
+The Owner accepted the deferred reference decision, zero cross-links/recipes, manual fresh-session product pass with retained automated harness debt, VM-006 independence, first-value recommendations without telemetry, and the dedicated onboarding-program stop condition. Discovery candidate: `154183b`.
 
 ## Evidence and QA record
 
 - **RobDev:** documentation-only discovery; current route contracts and existing owners were inspected; no runtime owner was changed.
 - **RobQA tier:** QA-0 for repository changes. Browser checks are evidence collection only.
 - **Focused checks passed:** `test:vm619-guided-reading`, `test:vm620-guide-beacon`, `test:vm621-guided-reading`, `test:reading-guide`, `test:maze-onboarding`, `test:vm621-guided-reading-browser`, `test:vm619-guided-reading-browser`, and the VM-616 rendered browser contract with its temporary witness directory outside the repository.
-- **Known result:** `test:browser-smoke` fails at the preserved fresh-session first-answer/progress timeout.
+- **Known result:** `test:browser-smoke` fails at the preserved fresh-session first-answer/progress timeout; the Owner's manual fresh/private-browser result establishes product pass, so the remaining failure is harness debt unless contrary evidence appears.
 - **Skipped:** CPU-heavy Placement, SIRF, parser mutation, synthetic calibration, recovery enumeration, account, and live-service suites; none protect QA-0 documentation changes.
