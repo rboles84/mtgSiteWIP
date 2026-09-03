@@ -34,6 +34,9 @@ artifacts/
 artifacts/dossier-snapshots/*.md
 outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/evidence/
 outputs/01a02cd6-bce7-7832-9558-3075c52f146a/archscry-current-state-2026-08-22/*.inspect.ndjson
+# Disposable local Owner Review witness directories; committed QA records remain under docs/.
+outputs/*owner-review*/
+outputs/*final-review*/
 scripts/audit/__pycache__/
 research/commander-compass/*.md
 data/scryfall/raw/*.json
