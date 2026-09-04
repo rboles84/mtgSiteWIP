@@ -4,7 +4,7 @@ Agent name: Codex
 
 Task requested: Implement and exhaustively validate the all-37 Archscry to Maze discovery handoff, start the exact local Owner Review environment, and stop before push, PR, merge, or `main` integration.
 
-Status: Material candidate prepared; exact candidate SHA and RobQA binding will be added after the stable candidate commit. Owner acceptance remains required.
+Status: Owner Review — RobQA PASS on exact material candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`. Owner acceptance remains required; no push or merge occurred.
 
 Related Kanban card, docs, or plans:
 
@@ -84,3 +84,14 @@ No placement model/scoring, certified dossier claims, Scryfall parser/compiler, 
 Owner should perform only the bounded representative interaction/visual pass in `docs/qa/2026-09-04-vm547-owner-review.md`, then choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`. Any material change invalidates the exact-candidate RobQA evidence.
 
 Next suggested agent: Owner Review; return any finding to RobDev on the same branch.
+
+## Exact-candidate RobQA readiness
+
+- Candidate: `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`
+- Risk class: High; source-governed semantic and cross-route interaction change.
+- Exact-candidate result: PASS.
+- Changed behavior verified: canonical profiles, shared path composition, truthful labels, semantic threads, support/story/stretch boundaries, WUBRG suppression, query inspection, return/history, responsive layout, accessibility mechanics.
+- Protected contracts verified: placement, certified dossier meaning, parser/compiler, results ranking, persistence, unrelated route/UI surfaces.
+- Deterministic evidence: 37/37 source/catalog/render/rehydrate, 148/148 governed states/threads/positive/negative/boundary fixtures, 367/367 projections, 514/514 generation and label-truth checks, 74/74 desktop renders, 8/8 narrow, 8/8 mobile, 48/48 accessibility, 3/3 return flows, 1/1 context/history browser regression, 16/16 existing suites.
+- Skipped tests: None.
+- Residual review: Owner-only visual quality, comprehension, and product-judgment spot checks in the representative click order.

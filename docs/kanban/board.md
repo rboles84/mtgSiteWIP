@@ -39,7 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - implementing one governed all-37 Archscry-to-Maze discovery profile catalog, identity-specific Maze threads, honest stretch boundaries, exhaustive semantic fixtures, and bounded Owner Review.
+- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - Owner Review; exact material candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93` has RobQA PASS across all 37 dossiers, browser/history/responsive/accessibility checks, and the 16-suite regression set; no push or merge.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

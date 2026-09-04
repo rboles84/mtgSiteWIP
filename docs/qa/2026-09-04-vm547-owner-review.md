@@ -1,6 +1,8 @@
 # VM-547 Owner Review
 
-Status: exact candidate preparation; RobQA PASS pending SHA binding; Owner Review gate only
+Status: Owner Review — RobQA PASS on exact material candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`; no push or merge
+
+Exact material candidate: `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`
 
 VM-547 keeps the Archscry handoff compact and moves the richer explanation into Maze. The user opens one of the dossier's top-level discovery choices, arrives in Maze with the dossier name and reading intact, sees whether the lane is broad or semantic, chooses an identity-specific thread by meaning, can inspect the exact Scryfall syntax if desired, sees the actual cards, and returns to the same dossier and Maze Discovery section.
 

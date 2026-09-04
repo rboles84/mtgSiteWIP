@@ -2,7 +2,7 @@
 
 ID: VM-547
 Title: Post-Reading Commander Shortlist Bridge
-Status: In Progress — implementation and exhaustive all-37 QA
+Status: Owner Review — RobQA PASS at exact material candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`; no push or merge
 Type: Enhancement / Product Bridge / Semantic Projection
 Area: Archscry, Maze, Commander discovery
 Priority: high
@@ -97,3 +97,11 @@ This card can be marked delivered when:
 ## Human Review
 
 Yes - this is a product positioning and player-trust surface.
+
+## Owner Review Candidate
+
+- Exact material candidate: `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`
+- RobQA: PASS on that exact candidate.
+- Exhaustive audit: all 37 rows PASS; no REVIEW or FAIL dossier.
+- Skipped tests: None.
+- Owner must choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE` before any push, PR, merge, or `main` integration.
