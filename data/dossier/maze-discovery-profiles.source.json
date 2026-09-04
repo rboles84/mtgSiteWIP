@@ -1,0 +1,380 @@
+{
+  "schema_version": "vm547-maze-discovery-profiles-v1",
+  "status": "OWNER_AUTHORIZED_DISCOVERY_PROJECTION",
+  "authority_rule": "These records translate approved dossier reading material into bounded Scryfall discovery threads. They do not replace, strengthen, or rewrite certified identity semantics, and they do not rank cards or commanders.",
+  "records": [
+    {
+      "identity_key": "WU",
+      "color_identity": "wu",
+      "mechanical_threads": [
+        { "thread_id": "visible-restrictions", "label": "Taxes and visible restrictions", "interpretation": "Find cards that add costs or explicitly limit attacking or casting.", "query_clause": "(o:\"cost {1} more\" OR o:\"can't attack\" OR o:\"can't cast\")", "source_item_id": "lookfor_wu_1_public_rule_setting" },
+        { "thread_id": "permission", "label": "Permission and counterspells", "interpretation": "Find cards whose function is countering a spell before it resolves.", "query_clause": "otag:counterspell", "source_item_id": "lookfor_wu_2_procedural_permission" },
+        { "thread_id": "timed-enforcement", "label": "Timed enforcement", "interpretation": "Find Addendum wording, board-wide resets, or effects tied to a declared phase.", "query_clause": "(o:addendum OR otag:board-wipe OR o:\"during your main phase\")", "source_item_id": "lookfor_wu_3_timed_enforcement" }
+      ],
+      "story_terms": ["senate", "law", "order", "verdict"]
+    },
+    {
+      "identity_key": "UB",
+      "color_identity": "ub",
+      "mechanical_threads": [
+        { "thread_id": "hidden-information", "label": "Hands and hidden information", "interpretation": "Find cards that inspect a hand or the top of a library before acting.", "query_clause": "(o:\"look at target player's hand\" OR o:\"look at the top\")", "source_item_id": "lookfor_ub_1_hidden_information_leverage" },
+        { "thread_id": "surveil-filtering", "label": "Surveil filtering", "interpretation": "Find cards with Surveil that filter the next draw and stock the graveyard.", "query_clause": "kw:surveil", "source_item_id": "lookfor_ub_2_surveil_filtering" },
+        { "thread_id": "covert-infiltration", "label": "Evasion and selective theft", "interpretation": "Find threats that cannot be blocked or effects that take control of another card.", "query_clause": "(o:\"can't be blocked\" OR o:\"gain control of target\")", "source_item_id": "lookfor_ub_3_covert_infiltration" }
+      ],
+      "story_terms": ["Dimir", "secret", "shadow", "memory"]
+    },
+    {
+      "identity_key": "BR",
+      "color_identity": "br",
+      "mechanical_threads": [
+        { "thread_id": "spectacle-pressure", "label": "Spectacle and life-loss pressure", "interpretation": "Find Spectacle cards or effects that care whether an opponent lost life.", "query_clause": "(kw:spectacle OR o:\"lost life\")", "source_item_id": "lookfor_br_1_spectacle_pressure" },
+        { "thread_id": "risk-for-release", "label": "Cards, life, or bodies as a cost", "interpretation": "Find effects that ask for life, a discarded card, or a sacrificed permanent as a cost.", "query_clause": "(o:\"pay life\" OR o:discard OR o:\"sacrifice a\")", "source_item_id": "lookfor_br_2_risk_for_release" },
+        { "thread_id": "sacrifice-consequence", "label": "Sacrifice with a consequence", "interpretation": "Find sacrifice outlets and effects that reward a creature dying.", "query_clause": "(otag:sacrifice-outlet OR otag:death-trigger OR o:sacrifice)", "source_item_id": "lookfor_br_3_sacrifice_with_consequence" }
+      ],
+      "story_terms": ["Rakdos", "spectacle", "performance", "blood"]
+    },
+    {
+      "identity_key": "RG",
+      "color_identity": "rg",
+      "mechanical_threads": [
+        { "thread_id": "wild-reclamation", "label": "Ramp into creature pressure", "interpretation": "Find ramp that helps a creature-heavy plan claim the board quickly.", "query_clause": "(otag:ramp OR (t:creature o:\"add mana\"))", "source_item_id": "lookfor_rg_1_wild_reclamation" },
+        { "thread_id": "clan-pressure", "label": "Attacks backed by trample", "interpretation": "Find creatures and effects that attack or push damage through with trample.", "query_clause": "(o:attack OR kw:trample)", "source_item_id": "lookfor_rg_2_clan_fed_pressure" },
+        { "thread_id": "riot-momentum", "label": "Riot momentum", "interpretation": "Find Riot cards that choose immediate haste or visible growth.", "query_clause": "kw:riot", "source_item_id": "lookfor_rg_3_riot_momentum" }
+      ],
+      "story_terms": ["Gruul", "clan", "wild", "rubble"]
+    },
+    {
+      "identity_key": "WG",
+      "color_identity": "wg",
+      "mechanical_threads": [
+        { "thread_id": "convoke-community", "label": "Convoke community", "interpretation": "Find Convoke cards that let creatures help cast the next spell.", "query_clause": "kw:convoke", "source_item_id": "lookfor_wg_1_convoke_community" },
+        { "thread_id": "wide-board-care", "label": "Tokens with shared protection", "interpretation": "Find token-making alongside effects that protect or strengthen the whole creature board.", "query_clause": "(o:token AND (o:indestructible OR o:hexproof OR o:\"creatures you control get\"))", "source_item_id": "lookfor_wg_2_go_wide_caretaking" },
+        { "thread_id": "harmony-preservation", "label": "Lifegain and anthem preservation", "interpretation": "Find life gain or team-wide bonuses that preserve a shared board.", "query_clause": "(o:\"gain life\" OR o:\"creatures you control get\")", "source_item_id": "lookfor_wg_3_harmony_and_preservation" }
+      ],
+      "story_terms": ["Selesnya", "conclave", "harmony", "community"]
+    },
+    {
+      "identity_key": "WB",
+      "color_identity": "wb",
+      "mechanical_threads": [
+        { "thread_id": "obligation-engines", "label": "Death triggers and obligation engines", "interpretation": "Find death-trigger shells where a creature leaving creates the next payment or benefit.", "query_clause": "(otag:death-trigger OR o:\"whenever another creature dies\")", "source_item_id": "lookfor_wb_1_obligation_engines" },
+        { "thread_id": "payment-pressure", "label": "Taxes and opponent drain", "interpretation": "Find cards that raise costs or make each opponent lose life.", "query_clause": "(o:\"cost {1} more\" OR (o:\"each opponent\" o:\"lose life\"))", "source_item_id": "lookfor_wb_2_payment_pressure" },
+        { "thread_id": "afterlife-accounts", "label": "Afterlife accounts", "interpretation": "Find Afterlife cards that turn death into Spirit tokens.", "query_clause": "kw:afterlife", "source_item_id": "lookfor_wb_3_afterlife_accounts" }
+      ],
+      "story_terms": ["Orzhov", "debt", "contract", "coin"]
+    },
+    {
+      "identity_key": "UR",
+      "color_identity": "ur",
+      "mechanical_threads": [
+        { "thread_id": "prototype-velocity", "label": "Copy and adjust a spell", "interpretation": "Find effects that copy an instant or sorcery as the experiment develops.", "query_clause": "(o:copy AND (o:instant OR o:sorcery))", "source_item_id": "lookfor_ur_1_prototype_velocity" },
+        { "thread_id": "jump-start", "label": "Jump-start iteration", "interpretation": "Find Jump-start cards that recast a known spell by discarding another card.", "query_clause": "kw:jump-start", "source_item_id": "lookfor_ur_2_jump_start_iteration" },
+        { "thread_id": "overload", "label": "Overload breakthrough", "interpretation": "Find Overload cards that scale a targeted effect across every valid target.", "query_clause": "kw:overload", "source_item_id": "lookfor_ur_3_overload_breakthrough" }
+      ],
+      "story_terms": ["Izzet", "experiment", "laboratory", "invention"]
+    },
+    {
+      "identity_key": "BG",
+      "color_identity": "bg",
+      "mechanical_threads": [
+        { "thread_id": "reclamation-midrange", "label": "Trade, then reclaim", "interpretation": "Find cards that return spent permanents or creatures from the graveyard.", "query_clause": "(o:return AND o:graveyard)", "source_item_id": "lookfor_bg_1_reclamation_midrange" },
+        { "thread_id": "graveyard-loops", "label": "Death and graveyard resource loops", "interpretation": "Find cards that connect dying or sacrifice to later graveyard value.", "query_clause": "((o:dies OR o:sacrifice) AND o:graveyard)", "source_item_id": "lookfor_bg_2_graveyard_resource_loops" },
+        { "thread_id": "undergrowth-renewal", "label": "Undergrowth and graveyard counts", "interpretation": "Find Undergrowth or cards that count creature cards in a graveyard.", "query_clause": "(kw:undergrowth OR o:\"creature cards in your graveyard\")", "source_item_id": "lookfor_bg_3_undergrowth_and_renewal" }
+      ],
+      "story_terms": ["Golgari", "swarm", "rot", "undercity"]
+    },
+    {
+      "identity_key": "UG",
+      "color_identity": "ug",
+      "mechanical_threads": [
+        { "thread_id": "living-system-value", "label": "Creature-led ramp and card flow", "interpretation": "Find creatures that produce mana or turn creature growth into cards.", "query_clause": "(t:creature AND (o:\"add mana\" OR o:draw))", "source_item_id": "lookfor_ug_1_living_system_value" },
+        { "thread_id": "biological-adaptation", "label": "Evolve, Graft, Adapt, and counters", "interpretation": "Find biological growth mechanics or +1/+1 counter text.", "query_clause": "(kw:evolve OR kw:graft OR kw:adapt OR o:\"+1/+1 counter\")", "source_item_id": "lookfor_ug_2_biological_adaptation" },
+        { "thread_id": "pressure-response", "label": "Proliferate and responsive upgrades", "interpretation": "Find Proliferate or effects that add counters as the board changes.", "query_clause": "(kw:proliferate OR o:\"put a +1/+1 counter\")", "source_item_id": "lookfor_ug_3_clade_research_and_pressure_response" }
+      ],
+      "story_terms": ["Simic", "biomancer", "clade", "experiment"]
+    },
+    {
+      "identity_key": "WR",
+      "color_identity": "wr",
+      "mechanical_threads": [
+        { "thread_id": "battalion-formation", "label": "Battalion formation", "interpretation": "Find Battalion or effects that reward attacking with a coordinated group.", "query_clause": "(kw:battalion OR o:\"three or more creatures attack\")", "source_item_id": "lookfor_wr_1_battalion_formation" },
+        { "thread_id": "mentor-front-line", "label": "Mentor the front line", "interpretation": "Find Mentor cards that let an established attacker grow another creature.", "query_clause": "kw:mentor", "source_item_id": "lookfor_wr_2_mentor_the_front_line" },
+        { "thread_id": "equipped-protection", "label": "Equipment with protection", "interpretation": "Find Equipment or attachment text paired with protection, indestructible, or ward.", "query_clause": "((t:equipment OR o:attach) AND (o:protection OR o:indestructible OR o:ward))", "source_item_id": "lookfor_wr_3_equipped_protection" }
+      ],
+      "story_terms": ["Boros", "legion", "justice", "duty"]
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "color_identity": "wr",
+      "mechanical_threads": [
+        { "thread_id": "graveyard-leaves", "label": "Cards leaving graveyards", "interpretation": "Find cards that explicitly trigger when a card leaves a graveyard.", "query_clause": "(o:\"leaves your graveyard\" OR o:\"leave your graveyard\")", "source_item_id": "lookfor_lorehold_1_spirit_witnesses" },
+        { "thread_id": "relic-reconstruction", "label": "Sacrifice and recover artifacts", "interpretation": "Find artifact cards that connect sacrifice with return or recovery from a graveyard.", "query_clause": "(t:artifact AND o:sacrifice AND (o:return OR o:graveyard))", "source_item_id": "lookfor_lorehold_2_relic_reconstruction" },
+        { "thread_id": "history-spells", "label": "Attack into a spell", "interpretation": "Find attack triggers that cast, copy, or reveal an instant or sorcery.", "query_clause": "(o:attack AND (o:instant OR o:sorcery) AND (o:cast OR o:copy OR o:reveal))", "source_item_id": "lookfor_lorehold_3_history_spells" }
+      ],
+      "story_terms": ["Lorehold", "history", "relic", "spirit"]
+    },
+    {
+      "identity_key": "PRISMARI",
+      "color_identity": "ur",
+      "mechanical_threads": [
+        { "thread_id": "elemental-performance", "label": "Elemental performance", "interpretation": "Find Elementals that keep the spell's elemental medium present on the board.", "query_clause": "t:elemental", "source_item_id": "lookfor_prismari_1_elemental_performance" },
+        { "thread_id": "opus-scale", "label": "Large spells and copied sequences", "interpretation": "Find high-mana-value instants or sorceries and effects that copy them.", "query_clause": "((t:instant OR t:sorcery) AND (mv>=6 OR o:copy))", "source_item_id": "lookfor_prismari_2_opus_scale_spellcraft" },
+        { "thread_id": "technique-expression", "label": "Set up and protect the chosen spell", "interpretation": "Find copying, counterspell, or cannot-be-countered text around a spell plan.", "query_clause": "(o:copy OR otag:counterspell OR o:\"can't be countered\")", "source_item_id": "lookfor_prismari_3_technique_and_expression" }
+      ],
+      "story_terms": ["Prismari", "art", "performance", "elemental"]
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "color_identity": "bg",
+      "mechanical_threads": [
+        { "thread_id": "pest-life-exchange", "label": "Pests moving life into value", "interpretation": "Find Pests connected to life gain, life loss, or sacrifice rather than a generic death mention.", "query_clause": "((t:pest OR o:pest) AND (o:\"gain life\" OR o:\"lose life\" OR o:sacrifice))", "source_item_id": "lookfor_witherbloom_1_essence_exchange" },
+        { "thread_id": "life-paid-to-sacrifice", "label": "Life paid into sacrifice", "interpretation": "Find cards that join paying or losing life with sacrificing a permanent.", "query_clause": "((o:\"pay life\" OR o:\"lose life\") AND o:sacrifice)", "source_item_id": "lookfor_witherbloom_1_essence_exchange" },
+        { "thread_id": "graveyard-circulation", "label": "Bodies circulating through the graveyard", "interpretation": "Find dying or graveyard text joined to return, tokens, or life gain.", "query_clause": "((o:dies OR o:graveyard) AND (o:return OR o:token OR o:\"gain life\"))", "source_item_id": "lookfor_witherbloom_3_field_biology_and_cost" }
+      ],
+      "story_terms": ["Witherbloom", "pest", "potion", "medicine", "poison"]
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "color_identity": "ug",
+      "mechanical_threads": [
+        { "thread_id": "fractal-counters", "label": "Fractals and measured counters", "interpretation": "Find Fractals or creatures whose size is built with +1/+1 counters.", "query_clause": "(t:fractal OR (t:creature AND o:\"+1/+1 counter\"))", "source_item_id": "lookfor_quandrix_1_fractal_counters" },
+        { "thread_id": "pattern-multiplication", "label": "Copying and doubling a pattern", "interpretation": "Find effects that copy or double an established object or amount.", "query_clause": "(o:copy OR o:double)", "source_item_id": "lookfor_quandrix_2_pattern_multiplication" },
+        { "thread_id": "scalable-equations", "label": "X values and proportional scaling", "interpretation": "Find cards whose output uses X, doubles, or scales for each counted object.", "query_clause": "(o:\"where X is\" OR o:twice OR o:\"for each\")", "source_item_id": "lookfor_quandrix_3_scalable_equations" }
+      ],
+      "story_terms": ["Quandrix", "equation", "fractal", "pattern"]
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "color_identity": "wb",
+      "mechanical_threads": [
+        { "thread_id": "counters-inklings", "label": "Counters and Inklings", "interpretation": "Find +1/+1 counter text or Inkling creature and token references.", "query_clause": "(o:\"+1/+1 counter\" OR t:inkling OR o:inkling)", "source_item_id": "lookfor_silverquill_1_word_magic_and_rhetorical_influence" },
+        { "thread_id": "attack-incentives", "label": "Attack incentives", "interpretation": "Find cards that reward attacking or point combat toward a chosen opponent.", "query_clause": "(o:\"whenever you attack\" OR o:\"attacks target opponent\")", "source_item_id": "lookfor_silverquill_2_leadership_and_social_pressure" },
+        { "thread_id": "targeted-interaction", "label": "Targeted creature or player interaction", "interpretation": "Find effects that explicitly target a creature, player, or opponent.", "query_clause": "(o:\"target creature\" OR o:\"target player\" OR o:\"target opponent\")", "source_item_id": "lookfor_silverquill_3_visible_reputation" }
+      ],
+      "story_terms": ["Silverquill", "ink", "word", "speech", "reputation"]
+    },
+    {
+      "identity_key": "W",
+      "color_identity": "w",
+      "mechanical_threads": [
+        { "thread_id": "protective-tokens", "label": "Tokens with protection", "interpretation": "Find token-making or team protection that helps a wide board survive.", "query_clause": "(o:token OR o:indestructible OR o:\"creatures you control get\")", "source_item_id": "lookfor_w_1_protective_tokens" },
+        { "thread_id": "taxes-rules", "label": "Taxes and rules", "interpretation": "Find cards that raise costs or explicitly prevent an action.", "query_clause": "(o:\"cost {1} more\" OR o:\"can't attack\" OR o:\"can't cast\")", "source_item_id": "lookfor_w_2_taxes_and_rules" },
+        { "thread_id": "equipment-guardians", "label": "Equipment and guardians", "interpretation": "Find Equipment or equip text that builds and protects a creature.", "query_clause": "(t:equipment OR o:equip OR o:attach)", "source_item_id": "lookfor_w_3_equipment_and_guardians" }
+      ],
+      "story_terms": ["order", "community", "duty", "protection"]
+    },
+    {
+      "identity_key": "U",
+      "color_identity": "u",
+      "mechanical_threads": [
+        { "thread_id": "draw-go", "label": "Card draw and counterspells", "interpretation": "Find draw effects or cards whose function is countering a spell.", "query_clause": "(otag:draw OR otag:counterspell)", "source_item_id": "lookfor_u_1_draw_go_control" },
+        { "thread_id": "spellslinger-tokens", "label": "Spells that create board pressure", "interpretation": "Find instants or sorceries connected to token creation or cast triggers.", "query_clause": "((t:instant OR t:sorcery OR o:\"whenever you cast\") AND o:token)", "source_item_id": "lookfor_u_2_spellslinger_tokens" },
+        { "thread_id": "artifacts-clones", "label": "Artifacts and copies", "interpretation": "Find artifacts or effects that copy a spell or permanent.", "query_clause": "(t:artifact OR o:copy)", "source_item_id": "lookfor_u_3_artifacts_and_clones" }
+      ],
+      "story_terms": ["knowledge", "perfection", "change", "secret"]
+    },
+    {
+      "identity_key": "B",
+      "color_identity": "b",
+      "mechanical_threads": [
+        { "thread_id": "life-payment", "label": "Life payment engines", "interpretation": "Find cards that pay or lose life to draw cards or gain another resource.", "query_clause": "((o:\"pay life\" OR o:\"lose life\") AND (o:draw OR o:add))", "source_item_id": "lookfor_b_1_life_payment_engines" },
+        { "thread_id": "aristocrats-sacrifice", "label": "Aristocrats and sacrifice", "interpretation": "Find sacrifice outlets or effects that reward a creature dying.", "query_clause": "(otag:sacrifice-outlet OR otag:death-trigger OR o:sacrifice)", "source_item_id": "lookfor_b_2_aristocrats_and_sacrifice" },
+        { "thread_id": "reanimator", "label": "Return creatures from the graveyard", "interpretation": "Find cards that return a creature card from a graveyard.", "query_clause": "(o:return AND o:\"creature card\" AND o:graveyard)", "source_item_id": "lookfor_b_3_reanimator_control" }
+      ],
+      "story_terms": ["ambition", "power", "death", "bargain"]
+    },
+    {
+      "identity_key": "R",
+      "color_identity": "r",
+      "mechanical_threads": [
+        { "thread_id": "burn-damage", "label": "Burn and direct damage", "interpretation": "Find cards whose Oracle text deals damage.", "query_clause": "o:damage", "source_item_id": "lookfor_r_1_burn_and_damage" },
+        { "thread_id": "haste-aggro", "label": "Haste and immediate attacks", "interpretation": "Find Haste cards or effects that reward attacking this turn.", "query_clause": "(kw:haste OR o:\"attacks this turn\")", "source_item_id": "lookfor_r_2_haste_aggro" },
+        { "thread_id": "impulse-treasure", "label": "Impulse draw and Treasures", "interpretation": "Find temporary top-card access or Treasure creation.", "query_clause": "(o:\"exile the top\" OR o:treasure)", "source_item_id": "lookfor_r_3_impulse_draw_and_treasures" }
+      ],
+      "story_terms": ["freedom", "passion", "fire", "impulse"]
+    },
+    {
+      "identity_key": "G",
+      "color_identity": "g",
+      "mechanical_threads": [
+        { "thread_id": "ramp-big-mana", "label": "Ramp and big mana", "interpretation": "Find cards with a ramp function or land-to-battlefield acceleration.", "query_clause": "(otag:ramp OR (o:land AND o:battlefield))", "source_item_id": "lookfor_g_1_ramp_and_big_mana" },
+        { "thread_id": "apex-creatures", "label": "Power-four creatures and trample", "interpretation": "Find large creatures or creatures with trample.", "query_clause": "(t:creature AND (pow>=4 OR kw:trample))", "source_item_id": "lookfor_g_2_apex_creatures" },
+        { "thread_id": "landfall-creature-value", "label": "Landfall and creature card flow", "interpretation": "Find Landfall or creature-and-land text connected to drawing cards.", "query_clause": "(kw:landfall OR (o:land AND o:creature AND o:draw))", "source_item_id": "lookfor_g_3_landfall_and_creature_value" }
+      ],
+      "story_terms": ["nature", "growth", "tradition", "wild"]
+    },
+    {
+      "identity_key": "BANT",
+      "color_identity": "wug",
+      "mechanical_threads": [
+        { "thread_id": "exalted-champion", "label": "Exalted and attacks alone", "interpretation": "Find Exalted or effects that reward one creature attacking alone.", "query_clause": "(kw:exalted OR o:\"attacks alone\")", "source_item_id": "lookfor_bant_1_exalted_champion" },
+        { "thread_id": "creature-forward-value", "label": "Creature entries, blink, and Clues", "interpretation": "Find creature-led entry value, blink text, or Clue creation.", "query_clause": "(t:creature AND (o:enters OR o:clue OR (o:exile AND o:return)))", "source_item_id": "lookfor_bant_2_creature_forward_value" },
+        { "thread_id": "enchantress-aura", "label": "Enchantments, Auras, and Equipment", "interpretation": "Find enchantment, Aura, or Equipment cards for a supported creature plan.", "query_clause": "(t:enchantment OR t:aura OR t:equipment)", "source_item_id": "lookfor_bant_3_enchantress_and_aura_order" }
+      ],
+      "story_terms": ["Bant", "honor", "sigil", "knight"]
+    },
+    {
+      "identity_key": "ESPER",
+      "color_identity": "wub",
+      "mechanical_threads": [
+        { "thread_id": "perfectibility-control", "label": "Counterspells and board resets", "interpretation": "Find counterspells or board-wide removal that narrows the table's options.", "query_clause": "(otag:counterspell OR otag:board-wipe)", "source_item_id": "lookfor_esper_1_perfectibility_control" },
+        { "thread_id": "information-engines", "label": "Draw, filtering, and library planning", "interpretation": "Find card draw or effects that inspect and arrange the top of a library.", "query_clause": "(otag:draw OR o:\"look at the top\" OR o:\"put them back\")", "source_item_id": "lookfor_esper_2_information_engines" },
+        { "thread_id": "artifact-value", "label": "Artifact value engines", "interpretation": "Find artifacts connected to drawing cards, counters, or repeatable activation.", "query_clause": "(t:artifact AND (o:draw OR o:counter OR o:\"activate only\"))", "source_item_id": "lookfor_esper_3_artifact_oriented_value" }
+      ],
+      "story_terms": ["Esper", "perfection", "etherium", "design"]
+    },
+    {
+      "identity_key": "GRIXIS",
+      "color_identity": "ubr",
+      "mechanical_threads": [
+        { "thread_id": "survival-control", "label": "Counterspells and creature removal", "interpretation": "Find counterspells or text that destroys a target creature.", "query_clause": "(otag:counterspell OR o:\"destroy target creature\")", "source_item_id": "lookfor_grixis_1_survival_control" },
+        { "thread_id": "leverage-engines", "label": "Life, cards, and bodies as leverage", "interpretation": "Find effects that pay life, discard cards, or sacrifice permanents for another resource.", "query_clause": "(o:\"pay life\" OR o:discard OR o:sacrifice)", "source_item_id": "lookfor_grixis_2_leverage_engines" },
+        { "thread_id": "volatile-pressure", "label": "Timed damage and life loss", "interpretation": "Find damage or opponent-life-loss effects for a decisive finishing window.", "query_clause": "(o:damage OR (o:\"each opponent\" AND o:\"lose life\"))", "source_item_id": "lookfor_grixis_3_volatile_spell_pressure" }
+      ],
+      "story_terms": ["Grixis", "survival", "power", "ruin"]
+    },
+    {
+      "identity_key": "JUND",
+      "color_identity": "brg",
+      "mechanical_threads": [
+        { "thread_id": "instinctive-pressure", "label": "Haste and attack pressure", "interpretation": "Find Haste or attack-trigger text that forces an immediate answer.", "query_clause": "(kw:haste OR o:\"whenever you attack\")", "source_item_id": "lookfor_jund_1_instinctive_pressure" },
+        { "thread_id": "appetite-engines", "label": "Sacrifice and graveyard appetite", "interpretation": "Find cards that sacrifice a resource or turn the graveyard into further value.", "query_clause": "(o:sacrifice OR (o:graveyard AND o:return))", "source_item_id": "lookfor_jund_2_appetite_engines" },
+        { "thread_id": "feral-value", "label": "Damage from spent resources", "interpretation": "Find damage effects connected to a creature dying or a permanent being sacrificed.", "query_clause": "(o:damage AND (o:dies OR o:sacrifice))", "source_item_id": "lookfor_jund_3_feral_value" }
+      ],
+      "story_terms": ["Jund", "hunt", "devour", "survival"]
+    },
+    {
+      "identity_key": "NAYA",
+      "color_identity": "rgw",
+      "mechanical_threads": [
+        { "thread_id": "living-abundance", "label": "Ramp into a creature habitat", "interpretation": "Find ramp or land development that supports a creature-heavy board.", "query_clause": "(otag:ramp OR (o:land AND o:battlefield))", "source_item_id": "lookfor_naya_1_living_abundance" },
+        { "thread_id": "instinctive-protection", "label": "Protection for the bonded board", "interpretation": "Find hexproof, indestructible, ward, or protection for creatures.", "query_clause": "(o:hexproof OR o:indestructible OR o:ward OR o:protection)", "source_item_id": "lookfor_naya_2_instinctive_protection" },
+        { "thread_id": "creature-scale", "label": "Large creatures and combat scaling", "interpretation": "Find power-four creatures or +1/+1 counter text that scales combat.", "query_clause": "(t:creature AND (pow>=4 OR o:\"+1/+1 counter\"))", "source_item_id": "lookfor_naya_3_creature_forward_scale" }
+      ],
+      "story_terms": ["Naya", "behemoth", "wild", "worldsoul"]
+    },
+    {
+      "identity_key": "ABZAN",
+      "color_identity": "wbg",
+      "mechanical_threads": [
+        { "thread_id": "family-endurance", "label": "A durable creature board", "interpretation": "Find creatures or effects that grant indestructible, regeneration, or shield counters.", "query_clause": "(t:creature AND (o:indestructible OR o:regenerate OR o:\"shield counter\"))", "source_item_id": "lookfor_abzan_1_family_endurance" },
+        { "thread_id": "ancestor-obligation", "label": "Return the dead to duty", "interpretation": "Find cards that return creatures or permanents from a graveyard.", "query_clause": "(o:return AND o:graveyard)", "source_item_id": "lookfor_abzan_2_ancestor_obligation" },
+        { "thread_id": "perennial-defense", "label": "Counters, life, and recursion", "interpretation": "Find +1/+1 counters, life gain, or graveyard return that helps a board endure.", "query_clause": "(o:\"+1/+1 counter\" OR o:\"gain life\" OR (o:return AND o:graveyard))", "source_item_id": "lookfor_abzan_3_perennial_defense" }
+      ],
+      "story_terms": ["Abzan", "ancestor", "family", "endure"]
+    },
+    {
+      "identity_key": "TEMUR",
+      "color_identity": "gur",
+      "mechanical_threads": [
+        { "thread_id": "ferocious-power-four", "label": "Power-four creatures and Ferocious", "interpretation": "Find substantial creatures or text that explicitly checks Ferocious or power four.", "query_clause": "(o:ferocious OR o:\"power 4 or greater\" OR (t:creature AND pow>=4))", "source_item_id": "lookfor_temur_1_survival_through_attunement" },
+        { "thread_id": "ramp-big-mana", "label": "Ramp into expensive threats", "interpretation": "Find ramp or mana production that supports higher-mana-value threats and abilities.", "query_clause": "(otag:ramp OR (o:\"add mana\" AND mv>=5))", "source_item_id": "lookfor_temur_2_instinct_with_mental_fortitude" },
+        { "thread_id": "spells-copying", "label": "Spells and copied effects", "interpretation": "Find effects that copy instants, sorceries, or another spell.", "query_clause": "(o:copy AND (o:instant OR o:sorcery OR o:spell))", "source_item_id": "lookfor_temur_3_elemental_memory" }
+      ],
+      "story_terms": ["Temur", "frontier", "clan", "wild"],
+      "intentional_exception": "The optional Survival Through Attunement Vox Mana lens remains in the dossier but is not converted into a Scryfall mechanical thread; a card query cannot prove that interpretive lens."
+    },
+    {
+      "identity_key": "SULTAI",
+      "color_identity": "bgu",
+      "mechanical_threads": [
+        { "thread_id": "resource-conversion", "label": "Mill, discard, or sacrifice as material", "interpretation": "Find cards that mill, discard, or sacrifice a resource before converting it into more value.", "query_clause": "(o:mill OR o:discard OR o:sacrifice)", "source_item_id": "lookfor_sultai_1_resource_conversion" },
+        { "thread_id": "necromantic-utility", "label": "Graveyard return and reuse", "interpretation": "Find cards that return a card or permanent from a graveyard.", "query_clause": "(o:return AND o:graveyard)", "source_item_id": "lookfor_sultai_2_necromantic_utility" },
+        { "thread_id": "calculated-ruthlessness", "label": "Tutors, theft, and counterspells", "interpretation": "Find tutor functions, control-changing effects, or counterspells.", "query_clause": "(otag:tutor OR o:\"gain control\" OR otag:counterspell)", "source_item_id": "lookfor_sultai_3_calculated_ruthlessness" }
+      ],
+      "story_terms": ["Sultai", "Sidisi", "naga", "palace"]
+    },
+    {
+      "identity_key": "MARDU",
+      "color_identity": "rwb",
+      "mechanical_threads": [
+        { "thread_id": "raid-momentum", "label": "Raid and attack momentum", "interpretation": "Find Raid wording or effects that reward attacking this turn.", "query_clause": "(o:raid OR o:\"attacked this turn\" OR o:\"whenever you attack\")", "source_item_id": "lookfor_mardu_1_raid_momentum" },
+        { "thread_id": "formation-oath", "label": "A coordinated attacking formation", "interpretation": "Find effects that reward multiple creatures or the whole team attacking.", "query_clause": "(o:\"creatures you control\" AND o:attack)", "source_item_id": "lookfor_mardu_2_war_name_oath" },
+        { "thread_id": "ruthless-opening", "label": "Sacrifice, Treasure, and impulse windows", "interpretation": "Find sacrificed resources, Treasures, or temporary top-card access that preserves momentum.", "query_clause": "(o:sacrifice OR o:treasure OR o:\"exile the top\")", "source_item_id": "lookfor_mardu_3_ruthless_opening" }
+      ],
+      "story_terms": ["Mardu", "horde", "war-name", "raid"]
+    },
+    {
+      "identity_key": "JESKAI",
+      "color_identity": "urw",
+      "mechanical_threads": [
+        { "thread_id": "disciplined-tempo", "label": "Counterspells and protection", "interpretation": "Find counterspells or protection text that preserves a chosen timing window.", "query_clause": "(otag:counterspell OR o:protection OR o:\"can't be countered\")", "source_item_id": "lookfor_jeskai_1_disciplined_tempo" },
+        { "thread_id": "cunning-in-motion", "label": "Copy instants and sorceries", "interpretation": "Find effects that copy an instant, sorcery, or spell.", "query_clause": "(o:copy AND (o:instant OR o:sorcery OR o:spell))", "source_item_id": "lookfor_jeskai_2_cunning_in_motion" },
+        { "thread_id": "monastery-practice", "label": "Prowess and trained attacks", "interpretation": "Find Prowess or attack triggers tied to noncreature spell play.", "query_clause": "(kw:prowess OR (o:attack AND o:\"noncreature spell\"))", "source_item_id": "lookfor_jeskai_3_monastery_practice" }
+      ],
+      "story_terms": ["Jeskai", "monastery", "discipline", "master"]
+    },
+    {
+      "identity_key": "YORE",
+      "color_identity": "wubr",
+      "mechanical_threads": [
+        { "thread_id": "engineered-agency", "label": "Artifact engines and repeated activation", "interpretation": "Find artifacts that untap, copy, or enable another activation.", "query_clause": "(t:artifact AND (o:untap OR o:copy OR o:\"activate only\"))", "source_item_id": "lookfor_yore_1_engineered_agency" },
+        { "thread_id": "artifice-archive", "label": "Artifacts recovered from the graveyard", "interpretation": "Find artifacts connected to returning or casting from a graveyard.", "query_clause": "(t:artifact AND o:graveyard AND (o:return OR o:cast))", "source_item_id": "lookfor_yore_2_artifice_and_archive" },
+        { "thread_id": "controlled-overreach", "label": "Artifacts spent to rebuild", "interpretation": "Find artifact sacrifice or artifact-token text that converts one component into the next.", "query_clause": "((t:artifact AND o:sacrifice) OR o:\"artifact token\")", "source_item_id": "lookfor_yore_3_controlled_overreach" }
+      ],
+      "story_terms": ["artifice", "archive", "machine", "memory"]
+    },
+    {
+      "identity_key": "GLINT",
+      "color_identity": "ubrg",
+      "mechanical_threads": [
+        { "thread_id": "adaptive-appetite", "label": "Cards changing roles in play", "interpretation": "Find flexible exile, Treasure, or draw effects that turn the next resource into a new option.", "query_clause": "(o:\"you may play\" OR o:treasure OR otag:draw)", "source_item_id": "lookfor_glint_1_adaptive_appetite" },
+        { "thread_id": "storm-opportunity", "label": "Storm and copied spells", "interpretation": "Find Storm or effects that copy a spell as the turn changes shape.", "query_clause": "(kw:storm OR o:\"copy target spell\")", "source_item_id": "lookfor_glint_2_storm_fed_opportunity" },
+        { "thread_id": "predatory-overreach", "label": "Sacrifice, damage, and attack openings", "interpretation": "Find cards that sacrifice a resource, deal damage, or reward attacking.", "query_clause": "(o:sacrifice OR o:damage OR o:\"whenever you attack\")", "source_item_id": "lookfor_glint_3_predatory_overreach" }
+      ],
+      "story_terms": ["chaos", "hunger", "storm", "opportunity"]
+    },
+    {
+      "identity_key": "DUNE",
+      "color_identity": "brgw",
+      "mechanical_threads": [
+        { "thread_id": "territorial-pressure", "label": "Attack and damage pressure", "interpretation": "Find attack triggers or damage effects that advance the declared front.", "query_clause": "(o:\"whenever you attack\" OR o:damage)", "source_item_id": "lookfor_dune_1_organized_territorial_pressure" },
+        { "thread_id": "common-front", "label": "The whole creature line attacks", "interpretation": "Find effects that refer to creatures you control and reward attacking.", "query_clause": "(o:\"creatures you control\" AND o:attack)", "source_item_id": "lookfor_dune_2_common_front_momentum" },
+        { "thread_id": "multiplying-force", "label": "Tokens and doubled pressure", "interpretation": "Find token creation or effects that double a force, amount, or trigger.", "query_clause": "(o:token OR o:double)", "source_item_id": "lookfor_dune_3_conquest_overreach" }
+      ],
+      "story_terms": ["battle", "front", "conquest", "solidarity"]
+    },
+    {
+      "identity_key": "INK",
+      "color_identity": "rgwu",
+      "mechanical_threads": [
+        { "thread_id": "public-abundance", "label": "Resources shared with each player", "interpretation": "Find effects that give each player cards, lands, mana, or another resource.", "query_clause": "(o:\"each player\" AND (o:draw OR o:land OR o:mana))", "source_item_id": "lookfor_ink_1_protected_public_abundance" },
+        { "thread_id": "open-knowledge", "label": "Shared card draw", "interpretation": "Find effects that explicitly let each player draw.", "query_clause": "(o:\"each player\" AND o:draw)", "source_item_id": "lookfor_ink_2_open_knowledge_pact" },
+        { "thread_id": "protected-commons", "label": "Protection around shared value", "interpretation": "Find shared-resource text paired with counterspells, protection, or indestructible.", "query_clause": "(o:\"each player\" AND (otag:counterspell OR o:protection OR o:indestructible))", "source_item_id": "lookfor_ink_3_self_erasure_risk" }
+      ],
+      "story_terms": ["community", "knowledge", "gift", "accord"]
+    },
+    {
+      "identity_key": "WITCH",
+      "color_identity": "gwub",
+      "mechanical_threads": [
+        { "thread_id": "patient-cultivation", "label": "Counters and proliferate over time", "interpretation": "Find +1/+1 counters or Proliferate that grows an investment across turns.", "query_clause": "(o:\"+1/+1 counter\" OR kw:proliferate)", "source_item_id": "lookfor_witch_1_patient_cultivation" },
+        { "thread_id": "calculated-expansion", "label": "Ramp and doubling", "interpretation": "Find ramp or effects that double counters, mana, tokens, or another amount.", "query_clause": "(otag:ramp OR o:double)", "source_item_id": "lookfor_witch_2_calculated_expansion" },
+        { "thread_id": "protected-investment", "label": "Protect the scaling engine", "interpretation": "Find hexproof, indestructible, ward, or protection that keeps a key engine in play.", "query_clause": "(o:hexproof OR o:indestructible OR o:ward OR o:protection)", "source_item_id": "lookfor_witch_3_sterile_control_risk" }
+      ],
+      "story_terms": ["growth", "patience", "cultivate", "design"]
+    },
+    {
+      "identity_key": "COLORLESS",
+      "color_identity": "c",
+      "mechanical_threads": [
+        { "thread_id": "true-colorless-mana", "label": "True colorless mana", "interpretation": "Find cards that produce or explicitly require true colorless mana.", "query_clause": "(produces:c OR o:\"{C}\")", "source_item_id": "lookfor_colorless_1_chosen_restriction" },
+        { "thread_id": "artifact-engines", "label": "Artifact engines", "interpretation": "Find artifact cards without claiming that every Colorless deck is an artifact deck.", "query_clause": "t:artifact", "source_item_id": "lookfor_colorless_2_machine_and_void" },
+        { "thread_id": "eldrazi-void", "label": "Eldrazi and Devoid", "interpretation": "Find Eldrazi cards or cards with Devoid as a separate Colorless direction.", "query_clause": "(t:eldrazi OR kw:devoid)", "source_item_id": "lookfor_colorless_3_boundary_discipline" }
+      ],
+      "story_terms": ["Eldrazi", "void", "Wastes", "machine"]
+    },
+    {
+      "identity_key": "WUBRG",
+      "color_identity": "wubrg",
+      "mechanical_threads": [
+        { "thread_id": "five-color-toolbox", "label": "Five-Color toolbox access", "interpretation": "Find tutor functions that help a commander-specific Five-Color plan assemble its chosen answers.", "query_clause": "otag:tutor", "source_item_id": "lookfor_wubrg_2_five_color_toolbox" },
+        { "thread_id": "five-color-typal", "label": "Five-Color typal reach", "interpretation": "Find creatures or payoffs that choose, name, or reward a creature type.", "query_clause": "(t:creature OR o:\"choose a creature type\" OR o:\"creatures of the chosen type\")", "source_item_id": "lookfor_wubrg_3_five_color_typal" },
+        { "thread_id": "rainbow-payoffs", "label": "Rainbow and color-count payoffs", "interpretation": "Find Domain, Converge, Sunburst, all-five-symbol, or color-count wording.", "query_clause": "(o:domain OR o:converge OR o:sunburst OR o:\"{W}{U}{B}{R}{G}\" OR o:\"among colors\")", "source_item_id": "lookfor_wubrg_4_rainbow_payoffs" }
+      ],
+      "story_terms": ["coalition", "spectrum", "unite", "world"],
+      "stretch_availability": "unavailable",
+      "intentional_exception": "There is no Commander color identity outside Five-Color. The Outside-color stretch lane is replaced by an explicit boundary explanation, and the optional Full-Spectrum Integrator remains dossier interpretation rather than a query claim."
+    }
+  ]
+}

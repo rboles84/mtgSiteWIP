@@ -18,7 +18,7 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm625";
+} from "../archscry-presentation.js?v=vm547";
 
 import {
   destroyDossierManaRadar,
@@ -1763,7 +1763,12 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
-  const baseMazePaths = buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy });
+  const baseMazePaths = buildPersonalizedMazePaths({
+    faction,
+    tagRefs: readingTagRefs,
+    taxonomy: APP_STATE.tagTaxonomy,
+    discoveryProfileCatalog: APP_STATE.mazeDiscoveryProfileCatalog,
+  });
   const placementMazeContext = buildArchscryMazeContext({ result: identityOnlyMode ? null : result, dossier, faction });
   const mazeContext = reviewMode
     ? {

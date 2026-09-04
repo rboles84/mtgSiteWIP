@@ -1,0 +1,2086 @@
+{
+  "schema_version": "vm547-maze-discovery-catalog-v1",
+  "generated_from": "data/dossier/maze-discovery-profiles.source.json",
+  "authority": {
+    "meaning_owner": "data/dossier/identity-dossier-content.source.json",
+    "query_projection_owner": "data/dossier/maze-discovery-profiles.source.json",
+    "runtime_ai": false,
+    "ranking": false
+  },
+  "profiles": [
+    {
+      "identity_key": "WU",
+      "identity_name": "Azorius Senate",
+      "color_identity": "wu",
+      "reading_summary": "Detain, taxation, permission, sweepers, tempo, and rule-setting permanents",
+      "source_record_id": "packet2_identity_wu",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wu",
+      "mechanical_threads": [
+        {
+          "thread_id": "visible-restrictions",
+          "semantic_kind": "mechanical",
+          "label": "Taxes and visible restrictions",
+          "interpretation": "Find cards that add costs or explicitly limit attacking or casting.",
+          "query_clause": "(o:\"cost {1} more\" OR o:\"can't attack\" OR o:\"can't cast\")",
+          "source_item_id": "lookfor_wu_1_public_rule_setting",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0021",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "permission",
+          "semantic_kind": "mechanical",
+          "label": "Permission and counterspells",
+          "interpretation": "Find cards whose function is countering a spell before it resolves.",
+          "query_clause": "otag:counterspell",
+          "source_item_id": "lookfor_wu_2_procedural_permission",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0020",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "timed-enforcement",
+          "semantic_kind": "mechanical",
+          "label": "Timed enforcement",
+          "interpretation": "Find Addendum wording, board-wide resets, or effects tied to a declared phase.",
+          "query_clause": "(o:addendum OR otag:board-wipe OR o:\"during your main phase\")",
+          "source_item_id": "lookfor_wu_3_timed_enforcement",
+          "source_locator": "data/raw-factions/azorius_senate/azorius_senate.claims.json#azorius_senate_claim_0024",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: senate, law, order, or verdict",
+          "interpretation": "Search flavor text for senate, law, order, or verdict. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:senate OR ft:law OR ft:order OR ft:verdict)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wu/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Azorius Senate color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "UB",
+      "identity_name": "House Dimir",
+      "color_identity": "ub",
+      "reading_summary": "Surveil, mill, discard, theft, evasive threats, and control",
+      "source_record_id": "packet2_identity_ub",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ub",
+      "mechanical_threads": [
+        {
+          "thread_id": "hidden-information",
+          "semantic_kind": "mechanical",
+          "label": "Hands and hidden information",
+          "interpretation": "Find cards that inspect a hand or the top of a library before acting.",
+          "query_clause": "(o:\"look at target player's hand\" OR o:\"look at the top\")",
+          "source_item_id": "lookfor_ub_1_hidden_information_leverage",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0018",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "surveil-filtering",
+          "semantic_kind": "mechanical",
+          "label": "Surveil filtering",
+          "interpretation": "Find cards with Surveil that filter the next draw and stock the graveyard.",
+          "query_clause": "kw:surveil",
+          "source_item_id": "lookfor_ub_2_surveil_filtering",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "covert-infiltration",
+          "semantic_kind": "mechanical",
+          "label": "Evasion and selective theft",
+          "interpretation": "Find threats that cannot be blocked or effects that take control of another card.",
+          "query_clause": "(o:\"can't be blocked\" OR o:\"gain control of target\")",
+          "source_item_id": "lookfor_ub_3_covert_infiltration",
+          "source_locator": "data/raw-factions/house_dimir/house_dimir.claims.json#house_dimir_claim_0017",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Dimir, secret, shadow, or memory",
+          "interpretation": "Search flavor text for Dimir, secret, shadow, or memory. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Dimir OR ft:secret OR ft:shadow OR ft:memory)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ub/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original House Dimir color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "BR",
+      "identity_name": "Cult of Rakdos",
+      "color_identity": "br",
+      "reading_summary": "Spectacle, sacrifice, impulse draw, menace, damage triggers, and reckless advantage",
+      "source_record_id": "packet2_identity_br",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_br",
+      "mechanical_threads": [
+        {
+          "thread_id": "spectacle-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Spectacle and life-loss pressure",
+          "interpretation": "Find Spectacle cards or effects that care whether an opponent lost life.",
+          "query_clause": "(kw:spectacle OR o:\"lost life\")",
+          "source_item_id": "lookfor_br_1_spectacle_pressure",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "risk-for-release",
+          "semantic_kind": "mechanical",
+          "label": "Cards, life, or bodies as a cost",
+          "interpretation": "Find effects that ask for life, a discarded card, or a sacrificed permanent as a cost.",
+          "query_clause": "(o:\"pay life\" OR o:discard OR o:\"sacrifice a\")",
+          "source_item_id": "lookfor_br_2_risk_for_release",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0017",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "sacrifice-consequence",
+          "semantic_kind": "mechanical",
+          "label": "Sacrifice with a consequence",
+          "interpretation": "Find sacrifice outlets and effects that reward a creature dying.",
+          "query_clause": "(otag:sacrifice-outlet OR otag:death-trigger OR o:sacrifice)",
+          "source_item_id": "lookfor_br_3_sacrifice_with_consequence",
+          "source_locator": "data/raw-factions/cult_of_rakdos/cult_of_rakdos.claims.json#cult_of_rakdos_claim_0021",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Rakdos, spectacle, performance, or blood",
+          "interpretation": "Search flavor text for Rakdos, spectacle, performance, or blood. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Rakdos OR ft:spectacle OR ft:performance OR ft:blood)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_br/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Cult of Rakdos color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "RG",
+      "identity_name": "Gruul Clans",
+      "color_identity": "rg",
+      "reading_summary": "Riot, bloodrush, ramp, trample, fight spells, and creature pressure",
+      "source_record_id": "packet2_identity_rg",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_rg",
+      "mechanical_threads": [
+        {
+          "thread_id": "wild-reclamation",
+          "semantic_kind": "mechanical",
+          "label": "Ramp into creature pressure",
+          "interpretation": "Find ramp that helps a creature-heavy plan claim the board quickly.",
+          "query_clause": "(otag:ramp OR (t:creature o:\"add mana\"))",
+          "source_item_id": "lookfor_rg_1_wild_reclamation",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0028",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "clan-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Attacks backed by trample",
+          "interpretation": "Find creatures and effects that attack or push damage through with trample.",
+          "query_clause": "(o:attack OR kw:trample)",
+          "source_item_id": "lookfor_rg_2_clan_fed_pressure",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_philosophy_0049",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "riot-momentum",
+          "semantic_kind": "mechanical",
+          "label": "Riot momentum",
+          "interpretation": "Find Riot cards that choose immediate haste or visible growth.",
+          "query_clause": "kw:riot",
+          "source_item_id": "lookfor_rg_3_riot_momentum",
+          "source_locator": "data/raw-factions/gruul_clans/gruul_clans.claims.json#claim_gruul_clans_mechanic_0040",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Gruul, clan, wild, or rubble",
+          "interpretation": "Search flavor text for Gruul, clan, wild, or rubble. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Gruul OR ft:clan OR ft:wild OR ft:rubble)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_rg/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Gruul Clans color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WG",
+      "identity_name": "Selesnya Conclave",
+      "color_identity": "wg",
+      "reading_summary": "Convoke, populate, tokens, anthem effects, lifegain, and board protection",
+      "source_record_id": "packet2_identity_wg",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wg",
+      "mechanical_threads": [
+        {
+          "thread_id": "convoke-community",
+          "semantic_kind": "mechanical",
+          "label": "Convoke community",
+          "interpretation": "Find Convoke cards that let creatures help cast the next spell.",
+          "query_clause": "kw:convoke",
+          "source_item_id": "lookfor_wg_1_convoke_community",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "wide-board-care",
+          "semantic_kind": "mechanical",
+          "label": "Tokens with shared protection",
+          "interpretation": "Find token-making alongside effects that protect or strengthen the whole creature board.",
+          "query_clause": "(o:token (o:indestructible OR o:hexproof OR o:\"creatures you control get\"))",
+          "source_item_id": "lookfor_wg_2_go_wide_caretaking",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_0018",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "harmony-preservation",
+          "semantic_kind": "mechanical",
+          "label": "Lifegain and anthem preservation",
+          "interpretation": "Find life gain or team-wide bonuses that preserve a shared board.",
+          "query_clause": "(o:\"gain life\" OR o:\"creatures you control get\")",
+          "source_item_id": "lookfor_wg_3_harmony_and_preservation",
+          "source_locator": "data/raw-factions/selesnya_conclave/selesnya_conclave.claims.json#selesnya_conclave_claim_0019",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Selesnya, conclave, harmony, or community",
+          "interpretation": "Search flavor text for Selesnya, conclave, harmony, or community. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Selesnya OR ft:conclave OR ft:harmony OR ft:community)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wg/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Selesnya Conclave color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WB",
+      "identity_name": "Orzhov Syndicate",
+      "color_identity": "wb",
+      "reading_summary": "Extort, afterlife, aristocrats, lifedrain, sacrifice, taxes, and recursion",
+      "source_record_id": "packet2_identity_wb",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wb",
+      "mechanical_threads": [
+        {
+          "thread_id": "obligation-engines",
+          "semantic_kind": "mechanical",
+          "label": "Death triggers and obligation engines",
+          "interpretation": "Find death-trigger shells where a creature leaving creates the next payment or benefit.",
+          "query_clause": "(otag:death-trigger OR o:\"whenever another creature dies\")",
+          "source_item_id": "lookfor_wb_1_obligation_engines",
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0018",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "payment-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Taxes and opponent drain",
+          "interpretation": "Find cards that raise costs or make each opponent lose life.",
+          "query_clause": "(o:\"cost {1} more\" OR (o:\"each opponent\" o:\"lose life\"))",
+          "source_item_id": "lookfor_wb_2_payment_pressure",
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_0020",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "afterlife-accounts",
+          "semantic_kind": "mechanical",
+          "label": "Afterlife accounts",
+          "interpretation": "Find Afterlife cards that turn death into Spirit tokens.",
+          "query_clause": "kw:afterlife",
+          "source_item_id": "lookfor_wb_3_afterlife_accounts",
+          "source_locator": "data/raw-factions/orzhov_syndicate/orzhov_syndicate.claims.json#orzhov_syndicate_claim_006",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Orzhov, debt, contract, or coin",
+          "interpretation": "Search flavor text for Orzhov, debt, contract, or coin. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Orzhov OR ft:debt OR ft:contract OR ft:coin)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wb/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Orzhov Syndicate color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "UR",
+      "identity_name": "Izzet League",
+      "color_identity": "ur",
+      "reading_summary": "Jump-start, overload, spellslinger, copying, cantrips, artifacts, and tempo",
+      "source_record_id": "packet2_identity_ur",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ur",
+      "mechanical_threads": [
+        {
+          "thread_id": "prototype-velocity",
+          "semantic_kind": "mechanical",
+          "label": "Copy and adjust a spell",
+          "interpretation": "Find effects that copy an instant or sorcery as the experiment develops.",
+          "query_clause": "(o:copy (o:instant OR o:sorcery))",
+          "source_item_id": "lookfor_ur_1_prototype_velocity",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0058",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "jump-start",
+          "semantic_kind": "mechanical",
+          "label": "Jump-start iteration",
+          "interpretation": "Find Jump-start cards that recast a known spell by discarding another card.",
+          "query_clause": "kw:jump-start",
+          "source_item_id": "lookfor_ur_2_jump_start_iteration",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0050",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "overload",
+          "semantic_kind": "mechanical",
+          "label": "Overload breakthrough",
+          "interpretation": "Find Overload cards that scale a targeted effect across every valid target.",
+          "query_clause": "kw:overload",
+          "source_item_id": "lookfor_ur_3_overload_breakthrough",
+          "source_locator": "data/raw-factions/izzet_league/izzet_league.claims.json#claim_izzet_league_0046",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Izzet, experiment, laboratory, or invention",
+          "interpretation": "Search flavor text for Izzet, experiment, laboratory, or invention. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Izzet OR ft:experiment OR ft:laboratory OR ft:invention)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ur/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Izzet League color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "BG",
+      "identity_name": "Golgari Swarm",
+      "color_identity": "bg",
+      "reading_summary": "Dredge, scavenge, undergrowth, recursion, sacrifice, and graveyard value",
+      "source_record_id": "packet2_identity_bg",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_bg",
+      "mechanical_threads": [
+        {
+          "thread_id": "reclamation-midrange",
+          "semantic_kind": "mechanical",
+          "label": "Trade, then reclaim",
+          "interpretation": "Find cards that return spent permanents or creatures from the graveyard.",
+          "query_clause": "(o:return o:graveyard)",
+          "source_item_id": "lookfor_bg_1_reclamation_midrange",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_0018",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "graveyard-loops",
+          "semantic_kind": "mechanical",
+          "label": "Death and graveyard resource loops",
+          "interpretation": "Find cards that connect dying or sacrifice to later graveyard value.",
+          "query_clause": "((o:dies OR o:sacrifice) o:graveyard)",
+          "source_item_id": "lookfor_bg_2_graveyard_resource_loops",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "undergrowth-renewal",
+          "semantic_kind": "mechanical",
+          "label": "Undergrowth and graveyard counts",
+          "interpretation": "Find Undergrowth or cards that count creature cards in a graveyard.",
+          "query_clause": "(kw:undergrowth OR o:\"creature cards in your graveyard\")",
+          "source_item_id": "lookfor_bg_3_undergrowth_and_renewal",
+          "source_locator": "data/raw-factions/golgari_swarm/golgari_swarm.claims.json#golgari_swarm_claim_006",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Golgari, swarm, rot, or undercity",
+          "interpretation": "Search flavor text for Golgari, swarm, rot, or undercity. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Golgari OR ft:swarm OR ft:rot OR ft:undercity)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_bg/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Golgari Swarm color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "UG",
+      "identity_name": "Simic Combine",
+      "color_identity": "ug",
+      "reading_summary": "Graft, evolve, adapt, counters, ramp, card draw, and creature upgrades",
+      "source_record_id": "packet2_identity_ug",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ug",
+      "mechanical_threads": [
+        {
+          "thread_id": "living-system-value",
+          "semantic_kind": "mechanical",
+          "label": "Creature-led ramp and card flow",
+          "interpretation": "Find creatures that produce mana or turn creature growth into cards.",
+          "query_clause": "(t:creature (o:\"add mana\" OR o:draw))",
+          "source_item_id": "lookfor_ug_1_living_system_value",
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "biological-adaptation",
+          "semantic_kind": "mechanical",
+          "label": "Evolve, Graft, Adapt, and counters",
+          "interpretation": "Find biological growth mechanics or +1/+1 counter text.",
+          "query_clause": "(kw:evolve OR kw:graft OR kw:adapt OR o:\"+1/+1 counter\")",
+          "source_item_id": "lookfor_ug_2_biological_adaptation",
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "pressure-response",
+          "semantic_kind": "mechanical",
+          "label": "Proliferate and responsive upgrades",
+          "interpretation": "Find Proliferate or effects that add counters as the board changes.",
+          "query_clause": "(kw:proliferate OR o:\"put a +1/+1 counter\")",
+          "source_item_id": "lookfor_ug_3_clade_research_and_pressure_response",
+          "source_locator": "data/raw-factions/simic_combine/simic_combine.claims.json#simic_combine_claim_0019",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Simic, biomancer, clade, or experiment",
+          "interpretation": "Search flavor text for Simic, biomancer, clade, or experiment. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Simic OR ft:biomancer OR ft:clade OR ft:experiment)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ug/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Simic Combine color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WR",
+      "identity_name": "Boros Legion",
+      "color_identity": "wr",
+      "reading_summary": "Battalion, mentor, tactical combat, equipment, burn, and protection",
+      "source_record_id": "packet2_identity_wr",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wr",
+      "mechanical_threads": [
+        {
+          "thread_id": "battalion-formation",
+          "semantic_kind": "mechanical",
+          "label": "Battalion formation",
+          "interpretation": "Find Battalion or effects that reward attacking with a coordinated group.",
+          "query_clause": "(kw:battalion OR o:\"three or more creatures attack\")",
+          "source_item_id": "lookfor_wr_1_battalion_formation",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_012",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "mentor-front-line",
+          "semantic_kind": "mechanical",
+          "label": "Mentor the front line",
+          "interpretation": "Find Mentor cards that let an established attacker grow another creature.",
+          "query_clause": "kw:mentor",
+          "source_item_id": "lookfor_wr_2_mentor_the_front_line",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "equipped-protection",
+          "semantic_kind": "mechanical",
+          "label": "Equipment with protection",
+          "interpretation": "Find Equipment or attachment text paired with protection, indestructible, or ward.",
+          "query_clause": "((t:equipment OR o:attach) (o:protection OR o:indestructible OR o:ward))",
+          "source_item_id": "lookfor_wr_3_equipped_protection",
+          "source_locator": "data/raw-factions/boros_legion/boros_legion.claims.json#boros_legion_claim_007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Boros, legion, justice, or duty",
+          "interpretation": "Search flavor text for Boros, legion, justice, or duty. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Boros OR ft:legion OR ft:justice OR ft:duty)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wr/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Boros Legion color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "LOREHOLD",
+      "identity_name": "Lorehold College",
+      "color_identity": "wr",
+      "reading_summary": "Cards leaving graveyards and Spirit witnesses in original Strixhaven; artifact reconstruction with Osgir; and commander-led spells or combat where that deck supports them",
+      "source_record_id": "packet2_identity_lorehold",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_lorehold",
+      "mechanical_threads": [
+        {
+          "thread_id": "graveyard-leaves",
+          "semantic_kind": "mechanical",
+          "label": "Cards leaving graveyards",
+          "interpretation": "Find cards that explicitly trigger when a card leaves a graveyard.",
+          "query_clause": "(o:\"leaves your graveyard\" OR o:\"leave your graveyard\")",
+          "source_item_id": "lookfor_lorehold_1_spirit_witnesses",
+          "source_locator": "data/precons/vox-mana-precons.source.json#Lorehold Spirit",
+          "source_role": "native_precon_commander_exploration"
+        },
+        {
+          "thread_id": "relic-reconstruction",
+          "semantic_kind": "mechanical",
+          "label": "Sacrifice and recover artifacts",
+          "interpretation": "Find artifact cards that connect sacrifice with return or recovery from a graveyard.",
+          "query_clause": "(t:artifact o:sacrifice (o:return OR o:graveyard))",
+          "source_item_id": "lookfor_lorehold_2_relic_reconstruction",
+          "source_locator": "data/precons/vox-mana-precons.source.json#Lorehold Legacies",
+          "source_role": "native_precon_commander_exploration"
+        },
+        {
+          "thread_id": "history-spells",
+          "semantic_kind": "mechanical",
+          "label": "Attack into a spell",
+          "interpretation": "Find attack triggers that cast, copy, or reveal an instant or sorcery.",
+          "query_clause": "(o:attack (o:instant OR o:sorcery) (o:cast OR o:copy OR o:reveal))",
+          "source_item_id": "lookfor_lorehold_3_history_spells",
+          "source_locator": "data/raw-factions/lorehold/lorehold.profile.json#/commander_compass/iconic_lore_forward_commanders/0",
+          "source_role": "commander_exploration_taxonomy"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Lorehold, history, relic, or spirit",
+          "interpretation": "Search flavor text for Lorehold, history, relic, or spirit. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Lorehold OR ft:history OR ft:relic OR ft:spirit)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_lorehold/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Lorehold College color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "PRISMARI",
+      "identity_name": "Prismari College",
+      "color_identity": "ur",
+      "reading_summary": "Setup, protection, and copy effects converge on a chosen spell, while Elemental payoffs keep the performance present after it resolves",
+      "source_record_id": "packet2_identity_prismari",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_prismari",
+      "mechanical_threads": [
+        {
+          "thread_id": "elemental-performance",
+          "semantic_kind": "mechanical",
+          "label": "Elemental performance",
+          "interpretation": "Find Elementals that keep the spell's elemental medium present on the board.",
+          "query_clause": "t:elemental",
+          "source_item_id": "lookfor_prismari_1_elemental_performance",
+          "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "opus-scale",
+          "semantic_kind": "mechanical",
+          "label": "Large spells and copied sequences",
+          "interpretation": "Find high-mana-value instants or sorceries and effects that copy them.",
+          "query_clause": "((t:instant OR t:sorcery) (mv>=6 OR o:copy))",
+          "source_item_id": "lookfor_prismari_2_opus_scale_spellcraft",
+          "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "technique-expression",
+          "semantic_kind": "mechanical",
+          "label": "Set up and protect the chosen spell",
+          "interpretation": "Find copying, counterspell, or cannot-be-countered text around a spell plan.",
+          "query_clause": "(o:copy OR otag:counterspell OR o:\"can't be countered\")",
+          "source_item_id": "lookfor_prismari_3_technique_and_expression",
+          "source_locator": "data/raw-factions/prismari/prismari.claims.json#prismari_claim_004",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Prismari, art, performance, or elemental",
+          "interpretation": "Search flavor text for Prismari, art, performance, or elemental. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Prismari OR ft:art OR ft:performance OR ft:elemental)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_prismari/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Prismari College color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WITHERBLOOM",
+      "identity_name": "Witherbloom College",
+      "color_identity": "bg",
+      "reading_summary": "Pests and life-total changes keep resources moving between bodies, graveyard, and board instead of leaving one protected centerpiece",
+      "source_record_id": "packet2_identity_witherbloom",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_witherbloom",
+      "mechanical_threads": [
+        {
+          "thread_id": "pest-life-exchange",
+          "semantic_kind": "mechanical",
+          "label": "Pests moving life into value",
+          "interpretation": "Find Pests connected to life gain, life loss, or sacrifice rather than a generic death mention.",
+          "query_clause": "((t:pest OR o:pest) (o:\"gain life\" OR o:\"lose life\" OR o:sacrifice))",
+          "source_item_id": "lookfor_witherbloom_1_essence_exchange",
+          "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "life-paid-to-sacrifice",
+          "semantic_kind": "mechanical",
+          "label": "Life paid into sacrifice",
+          "interpretation": "Find cards that join paying or losing life with sacrificing a permanent.",
+          "query_clause": "((o:\"pay life\" OR o:\"lose life\") o:sacrifice)",
+          "source_item_id": "lookfor_witherbloom_1_essence_exchange",
+          "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0019",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "graveyard-circulation",
+          "semantic_kind": "mechanical",
+          "label": "Bodies circulating through the graveyard",
+          "interpretation": "Find dying or graveyard text joined to return, tokens, or life gain.",
+          "query_clause": "((o:dies OR o:graveyard) (o:return OR o:token OR o:\"gain life\"))",
+          "source_item_id": "lookfor_witherbloom_3_field_biology_and_cost",
+          "source_locator": "data/raw-factions/witherbloom/witherbloom.claims.json#witherbloom_claim_0023",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Witherbloom, pest, potion, medicine, or poison",
+          "interpretation": "Search flavor text for Witherbloom, pest, potion, medicine, or poison. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Witherbloom OR ft:pest OR ft:potion OR ft:medicine OR ft:poison)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_witherbloom/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Witherbloom College color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "QUANDRIX",
+      "identity_name": "Quandrix College",
+      "color_identity": "ug",
+      "reading_summary": "Ramp supplies the variables; a doubler or scalable payoff turns them into growth by proportion rather than simple addition",
+      "source_record_id": "packet2_identity_quandrix",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_quandrix",
+      "mechanical_threads": [
+        {
+          "thread_id": "fractal-counters",
+          "semantic_kind": "mechanical",
+          "label": "Fractals and measured counters",
+          "interpretation": "Find Fractals or creatures whose size is built with +1/+1 counters.",
+          "query_clause": "(t:fractal OR (t:creature o:\"+1/+1 counter\"))",
+          "source_item_id": "lookfor_quandrix_1_fractal_counters",
+          "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0019",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "pattern-multiplication",
+          "semantic_kind": "mechanical",
+          "label": "Copying and doubling a pattern",
+          "interpretation": "Find effects that copy or double an established object or amount.",
+          "query_clause": "(o:copy OR o:double)",
+          "source_item_id": "lookfor_quandrix_2_pattern_multiplication",
+          "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0020",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "scalable-equations",
+          "semantic_kind": "mechanical",
+          "label": "X values and proportional scaling",
+          "interpretation": "Find cards whose output uses X, doubles, or scales for each counted object.",
+          "query_clause": "(o:\"where X is\" OR o:twice OR o:\"for each\")",
+          "source_item_id": "lookfor_quandrix_3_scalable_equations",
+          "source_locator": "data/raw-factions/quandrix/quandrix.claims.json#quandrix_claim_0028",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Quandrix, equation, fractal, or pattern",
+          "interpretation": "Search flavor text for Quandrix, equation, fractal, or pattern. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Quandrix OR ft:equation OR ft:fractal OR ft:pattern)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_quandrix/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Quandrix College color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "SILVERQUILL",
+      "identity_name": "Silverquill College",
+      "color_identity": "wb",
+      "reading_summary": "Counters and Inklings make successful influence visible, while attack incentives and targeted interaction keep changing the public combat line",
+      "source_record_id": "packet2_identity_silverquill",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_silverquill",
+      "mechanical_threads": [
+        {
+          "thread_id": "counters-inklings",
+          "semantic_kind": "mechanical",
+          "label": "Counters and Inklings",
+          "interpretation": "Find +1/+1 counter text or Inkling creature and token references.",
+          "query_clause": "(o:\"+1/+1 counter\" OR t:inkling OR o:inkling)",
+          "source_item_id": "lookfor_silverquill_1_word_magic_and_rhetorical_influence",
+          "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0019",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "attack-incentives",
+          "semantic_kind": "mechanical",
+          "label": "Attack incentives",
+          "interpretation": "Find cards that reward attacking or point combat toward a chosen opponent.",
+          "query_clause": "(o:\"whenever you attack\" OR o:\"attacks target opponent\")",
+          "source_item_id": "lookfor_silverquill_2_leadership_and_social_pressure",
+          "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0021",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "targeted-interaction",
+          "semantic_kind": "mechanical",
+          "label": "Targeted creature or player interaction",
+          "interpretation": "Find effects that explicitly target a creature, player, or opponent.",
+          "query_clause": "(o:\"target creature\" OR o:\"target player\" OR o:\"target opponent\")",
+          "source_item_id": "lookfor_silverquill_3_visible_reputation",
+          "source_locator": "data/raw-factions/silverquill/silverquill.claims.json#silverquill_claim_0024",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Silverquill, ink, word, speech, or reputation",
+          "interpretation": "Search flavor text for Silverquill, ink, word, speech, or reputation. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Silverquill OR ft:ink OR ft:word OR ft:speech OR ft:reputation)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_silverquill/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Silverquill College color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "W",
+      "identity_name": "White",
+      "color_identity": "w",
+      "reading_summary": "Board wipes, token makers, protection spells, taxes, and equipment that turns safety into enforceable tempo",
+      "source_record_id": "packet2_identity_w",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_w",
+      "mechanical_threads": [
+        {
+          "thread_id": "protective-tokens",
+          "semantic_kind": "mechanical",
+          "label": "Tokens with protection",
+          "interpretation": "Find token-making or team protection that helps a wide board survive.",
+          "query_clause": "(o:token OR o:indestructible OR o:\"creatures you control get\")",
+          "source_item_id": "lookfor_w_1_protective_tokens",
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "taxes-rules",
+          "semantic_kind": "mechanical",
+          "label": "Taxes and rules",
+          "interpretation": "Find cards that raise costs or explicitly prevent an action.",
+          "query_clause": "(o:\"cost {1} more\" OR o:\"can't attack\" OR o:\"can't cast\")",
+          "source_item_id": "lookfor_w_2_taxes_and_rules",
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "equipment-guardians",
+          "semantic_kind": "mechanical",
+          "label": "Equipment and guardians",
+          "interpretation": "Find Equipment or equip text that builds and protects a creature.",
+          "query_clause": "(t:equipment OR o:equip OR o:attach)",
+          "source_item_id": "lookfor_w_3_equipment_and_guardians",
+          "source_locator": "data/raw-factions/white/white.claims.json#white_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: order, community, duty, or protection",
+          "interpretation": "Search flavor text for order, community, duty, or protection. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:order OR ft:community OR ft:duty OR ft:protection)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_w/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original White color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "U",
+      "identity_name": "Blue",
+      "color_identity": "u",
+      "reading_summary": "Card draw and filtering, counterspells, copying, bounce, theft, flying, artifacts, and instant-and-sorcery play",
+      "source_record_id": "packet2_identity_u",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_u",
+      "mechanical_threads": [
+        {
+          "thread_id": "draw-go",
+          "semantic_kind": "mechanical",
+          "label": "Card draw and counterspells",
+          "interpretation": "Find draw effects or cards whose function is countering a spell.",
+          "query_clause": "(otag:draw OR otag:counterspell)",
+          "source_item_id": "lookfor_u_1_draw_go_control",
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "spellslinger-tokens",
+          "semantic_kind": "mechanical",
+          "label": "Spells that create board pressure",
+          "interpretation": "Find instants or sorceries connected to token creation or cast triggers.",
+          "query_clause": "((t:instant OR t:sorcery OR o:\"whenever you cast\") o:token)",
+          "source_item_id": "lookfor_u_2_spellslinger_tokens",
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "artifacts-clones",
+          "semantic_kind": "mechanical",
+          "label": "Artifacts and copies",
+          "interpretation": "Find artifacts or effects that copy a spell or permanent.",
+          "query_clause": "(t:artifact OR o:copy)",
+          "source_item_id": "lookfor_u_3_artifacts_and_clones",
+          "source_locator": "data/raw-factions/blue/blue.claims.json#blue_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: knowledge, perfection, change, or secret",
+          "interpretation": "Search flavor text for knowledge, perfection, change, or secret. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:knowledge OR ft:perfection OR ft:change OR ft:secret)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_u/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Blue color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "B",
+      "identity_name": "Black",
+      "color_identity": "b",
+      "reading_summary": "Creature destruction, discard, sacrifice, reanimation, graveyard use, life as a cost, drain, and paid card draw",
+      "source_record_id": "packet2_identity_b",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_b",
+      "mechanical_threads": [
+        {
+          "thread_id": "life-payment",
+          "semantic_kind": "mechanical",
+          "label": "Life payment engines",
+          "interpretation": "Find cards that pay or lose life to draw cards or gain another resource.",
+          "query_clause": "((o:\"pay life\" OR o:\"lose life\") (o:draw OR o:add))",
+          "source_item_id": "lookfor_b_1_life_payment_engines",
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "aristocrats-sacrifice",
+          "semantic_kind": "mechanical",
+          "label": "Aristocrats and sacrifice",
+          "interpretation": "Find sacrifice outlets or effects that reward a creature dying.",
+          "query_clause": "(otag:sacrifice-outlet OR otag:death-trigger OR o:sacrifice)",
+          "source_item_id": "lookfor_b_2_aristocrats_and_sacrifice",
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "reanimator",
+          "semantic_kind": "mechanical",
+          "label": "Return creatures from the graveyard",
+          "interpretation": "Find cards that return a creature card from a graveyard.",
+          "query_clause": "(o:return o:\"creature card\" o:graveyard)",
+          "source_item_id": "lookfor_b_3_reanimator_control",
+          "source_locator": "data/raw-factions/black/black.claims.json#black_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: ambition, power, death, or bargain",
+          "interpretation": "Search flavor text for ambition, power, death, or bargain. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:ambition OR ft:power OR ft:death OR ft:bargain)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_b/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Black color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "R",
+      "identity_name": "Red",
+      "color_identity": "r",
+      "reading_summary": "Direct damage, haste, temporary mana and power, impulse draw, attack pressure, and effects that matter immediately",
+      "source_record_id": "packet2_identity_r",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_r",
+      "mechanical_threads": [
+        {
+          "thread_id": "burn-damage",
+          "semantic_kind": "mechanical",
+          "label": "Burn and direct damage",
+          "interpretation": "Find cards whose Oracle text deals damage.",
+          "query_clause": "o:damage",
+          "source_item_id": "lookfor_r_1_burn_and_damage",
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "haste-aggro",
+          "semantic_kind": "mechanical",
+          "label": "Haste and immediate attacks",
+          "interpretation": "Find Haste cards or effects that reward attacking this turn.",
+          "query_clause": "(kw:haste OR o:\"attacks this turn\")",
+          "source_item_id": "lookfor_r_2_haste_aggro",
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "impulse-treasure",
+          "semantic_kind": "mechanical",
+          "label": "Impulse draw and Treasures",
+          "interpretation": "Find temporary top-card access or Treasure creation.",
+          "query_clause": "(o:\"exile the top\" OR o:treasure)",
+          "source_item_id": "lookfor_r_3_impulse_draw_and_treasures",
+          "source_locator": "data/raw-factions/red/red.claims.json#red_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: freedom, passion, fire, or impulse",
+          "interpretation": "Search flavor text for freedom, passion, fire, or impulse. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:freedom OR ft:passion OR ft:fire OR ft:impulse)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_r/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Red color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "G",
+      "identity_name": "Green",
+      "color_identity": "g",
+      "reading_summary": "Mana and lands, efficient creatures, +1/+1 counters, fight and bite effects, reach, trample, and creature-or-land-based card flow",
+      "source_record_id": "packet2_identity_g",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_g",
+      "mechanical_threads": [
+        {
+          "thread_id": "ramp-big-mana",
+          "semantic_kind": "mechanical",
+          "label": "Ramp and big mana",
+          "interpretation": "Find cards with a ramp function or land-to-battlefield acceleration.",
+          "query_clause": "(otag:ramp OR (o:land o:battlefield))",
+          "source_item_id": "lookfor_g_1_ramp_and_big_mana",
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "apex-creatures",
+          "semantic_kind": "mechanical",
+          "label": "Power-four creatures and trample",
+          "interpretation": "Find large creatures or creatures with trample.",
+          "query_clause": "(t:creature (pow>=4 OR kw:trample))",
+          "source_item_id": "lookfor_g_2_apex_creatures",
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "landfall-creature-value",
+          "semantic_kind": "mechanical",
+          "label": "Landfall and creature card flow",
+          "interpretation": "Find Landfall or creature-and-land text connected to drawing cards.",
+          "query_clause": "(kw:landfall OR (o:land o:creature o:draw))",
+          "source_item_id": "lookfor_g_3_landfall_and_creature_value",
+          "source_locator": "data/raw-factions/green/green.claims.json#green_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: nature, growth, tradition, or wild",
+          "interpretation": "Search flavor text for nature, growth, tradition, or wild. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:nature OR ft:growth OR ft:tradition OR ft:wild)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_g/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Green color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "BANT",
+      "identity_name": "Bant",
+      "color_identity": "wug",
+      "reading_summary": "A single attack, repeated creature value, or enchantment package can concentrate the board's resources without requiring a prison plan",
+      "source_record_id": "packet2_identity_bant",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_bant",
+      "mechanical_threads": [
+        {
+          "thread_id": "exalted-champion",
+          "semantic_kind": "mechanical",
+          "label": "Exalted and attacks alone",
+          "interpretation": "Find Exalted or effects that reward one creature attacking alone.",
+          "query_clause": "(kw:exalted OR o:\"attacks alone\")",
+          "source_item_id": "lookfor_bant_1_exalted_champion",
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "creature-forward-value",
+          "semantic_kind": "mechanical",
+          "label": "Creature entries, blink, and Clues",
+          "interpretation": "Find creature-led entry value, blink text, or Clue creation.",
+          "query_clause": "(t:creature (o:enters OR o:clue OR (o:exile o:return)))",
+          "source_item_id": "lookfor_bant_2_creature_forward_value",
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0017",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "enchantress-aura",
+          "semantic_kind": "mechanical",
+          "label": "Enchantments, Auras, and Equipment",
+          "interpretation": "Find enchantment, Aura, or Equipment cards for a supported creature plan.",
+          "query_clause": "(t:enchantment OR t:aura OR t:equipment)",
+          "source_item_id": "lookfor_bant_3_enchantress_and_aura_order",
+          "source_locator": "data/raw-factions/bant/bant.claims.json#bant_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Bant, honor, sigil, or knight",
+          "interpretation": "Search flavor text for Bant, honor, sigil, or knight. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Bant OR ft:honor OR ft:sigil OR ft:knight)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_bant/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Bant color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "ESPER",
+      "identity_name": "Esper",
+      "color_identity": "wub",
+      "reading_summary": "Card selection improves future draws, answers shrink opposing options, and a protected value engine converts preparation into lasting advantage",
+      "source_record_id": "packet2_identity_esper",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_esper",
+      "mechanical_threads": [
+        {
+          "thread_id": "perfectibility-control",
+          "semantic_kind": "mechanical",
+          "label": "Counterspells and board resets",
+          "interpretation": "Find counterspells or board-wide removal that narrows the table's options.",
+          "query_clause": "(otag:counterspell OR otag:board-wipe)",
+          "source_item_id": "lookfor_esper_1_perfectibility_control",
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "information-engines",
+          "semantic_kind": "mechanical",
+          "label": "Draw, filtering, and library planning",
+          "interpretation": "Find card draw or effects that inspect and arrange the top of a library.",
+          "query_clause": "(otag:draw OR o:\"look at the top\" OR o:\"put them back\")",
+          "source_item_id": "lookfor_esper_2_information_engines",
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "artifact-value",
+          "semantic_kind": "mechanical",
+          "label": "Artifact value engines",
+          "interpretation": "Find artifacts connected to drawing cards, counters, or repeatable activation.",
+          "query_clause": "(t:artifact (o:draw OR o:counter OR o:\"activate only\"))",
+          "source_item_id": "lookfor_esper_3_artifact_oriented_value",
+          "source_locator": "data/raw-factions/esper/esper.claims.json#esper_claim_0006",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Esper, perfection, etherium, or design",
+          "interpretation": "Search flavor text for Esper, perfection, etherium, or design. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Esper OR ft:perfection OR ft:etherium OR ft:design)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_esper/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Esper color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "GRIXIS",
+      "identity_name": "Grixis",
+      "color_identity": "ubr",
+      "reading_summary": "Selective interaction, resource conversion, and a timed finishing sequence make preparation visible only when it matters",
+      "source_record_id": "packet2_identity_grixis",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_grixis",
+      "mechanical_threads": [
+        {
+          "thread_id": "survival-control",
+          "semantic_kind": "mechanical",
+          "label": "Counterspells and creature removal",
+          "interpretation": "Find counterspells or text that destroys a target creature.",
+          "query_clause": "(otag:counterspell OR o:\"destroy target creature\")",
+          "source_item_id": "lookfor_grixis_1_survival_control",
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "leverage-engines",
+          "semantic_kind": "mechanical",
+          "label": "Life, cards, and bodies as leverage",
+          "interpretation": "Find effects that pay life, discard cards, or sacrifice permanents for another resource.",
+          "query_clause": "(o:\"pay life\" OR o:discard OR o:sacrifice)",
+          "source_item_id": "lookfor_grixis_2_leverage_engines",
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0004",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "volatile-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Timed damage and life loss",
+          "interpretation": "Find damage or opponent-life-loss effects for a decisive finishing window.",
+          "query_clause": "(o:damage OR (o:\"each opponent\" o:\"lose life\"))",
+          "source_item_id": "lookfor_grixis_3_volatile_spell_pressure",
+          "source_locator": "data/raw-factions/grixis/grixis.claims.json#grixis_claim_0005",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Grixis, survival, power, or ruin",
+          "interpretation": "Search flavor text for Grixis, survival, power, or ruin. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Grixis OR ft:survival OR ft:power OR ft:ruin)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_grixis/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Grixis color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "JUND",
+      "identity_name": "Jund",
+      "color_identity": "brg",
+      "reading_summary": "Attacks, sacrifice, graveyard reuse, and damage conversion make spent resources continue to matter",
+      "source_record_id": "packet2_identity_jund",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_jund",
+      "mechanical_threads": [
+        {
+          "thread_id": "instinctive-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Haste and attack pressure",
+          "interpretation": "Find Haste or attack-trigger text that forces an immediate answer.",
+          "query_clause": "(kw:haste OR o:\"whenever you attack\")",
+          "source_item_id": "lookfor_jund_1_instinctive_pressure",
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "appetite-engines",
+          "semantic_kind": "mechanical",
+          "label": "Sacrifice and graveyard appetite",
+          "interpretation": "Find cards that sacrifice a resource or turn the graveyard into further value.",
+          "query_clause": "(o:sacrifice OR (o:graveyard o:return))",
+          "source_item_id": "lookfor_jund_2_appetite_engines",
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "feral-value",
+          "semantic_kind": "mechanical",
+          "label": "Damage from spent resources",
+          "interpretation": "Find damage effects connected to a creature dying or a permanent being sacrificed.",
+          "query_clause": "(o:damage (o:dies OR o:sacrifice))",
+          "source_item_id": "lookfor_jund_3_feral_value",
+          "source_locator": "data/raw-factions/jund/jund.claims.json#jund_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Jund, hunt, devour, or survival",
+          "interpretation": "Search flavor text for Jund, hunt, devour, or survival. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Jund OR ft:hunt OR ft:devour OR ft:survival)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_jund/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Jund color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "NAYA",
+      "identity_name": "Naya",
+      "color_identity": "rgw",
+      "reading_summary": "Mana development, creature engines, protective effects, and combat scaling let the board behave like an interconnected habitat",
+      "source_record_id": "packet2_identity_naya",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_naya",
+      "mechanical_threads": [
+        {
+          "thread_id": "living-abundance",
+          "semantic_kind": "mechanical",
+          "label": "Ramp into a creature habitat",
+          "interpretation": "Find ramp or land development that supports a creature-heavy board.",
+          "query_clause": "(otag:ramp OR (o:land o:battlefield))",
+          "source_item_id": "lookfor_naya_1_living_abundance",
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "instinctive-protection",
+          "semantic_kind": "mechanical",
+          "label": "Protection for the bonded board",
+          "interpretation": "Find hexproof, indestructible, ward, or protection for creatures.",
+          "query_clause": "(o:hexproof OR o:indestructible OR o:ward OR o:protection)",
+          "source_item_id": "lookfor_naya_2_instinctive_protection",
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0006",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "creature-scale",
+          "semantic_kind": "mechanical",
+          "label": "Large creatures and combat scaling",
+          "interpretation": "Find power-four creatures or +1/+1 counter text that scales combat.",
+          "query_clause": "(t:creature (pow>=4 OR o:\"+1/+1 counter\"))",
+          "source_item_id": "lookfor_naya_3_creature_forward_scale",
+          "source_locator": "data/raw-factions/naya/naya.claims.json#naya_claim_0004",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Naya, behemoth, wild, or worldsoul",
+          "interpretation": "Search flavor text for Naya, behemoth, wild, or worldsoul. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Naya OR ft:behemoth OR ft:wild OR ft:worldsoul)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_naya/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Naya color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "ABZAN",
+      "identity_name": "Abzan Houses",
+      "color_identity": "wbg",
+      "reading_summary": "An Abzan pilot tends to establish a durable engine, protect the piece that carries continuity, and make each exchange leave the house better prepared for the next one",
+      "source_record_id": "packet2_identity_abzan",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_abzan",
+      "mechanical_threads": [
+        {
+          "thread_id": "family-endurance",
+          "semantic_kind": "mechanical",
+          "label": "A durable creature board",
+          "interpretation": "Find creatures or effects that grant indestructible, regeneration, or shield counters.",
+          "query_clause": "(t:creature (o:indestructible OR o:regenerate OR o:\"shield counter\"))",
+          "source_item_id": "lookfor_abzan_1_family_endurance",
+          "source_locator": "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "ancestor-obligation",
+          "semantic_kind": "mechanical",
+          "label": "Return the dead to duty",
+          "interpretation": "Find cards that return creatures or permanents from a graveyard.",
+          "query_clause": "(o:return o:graveyard)",
+          "source_item_id": "lookfor_abzan_2_ancestor_obligation",
+          "source_locator": "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0008",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "perennial-defense",
+          "semantic_kind": "mechanical",
+          "label": "Counters, life, and recursion",
+          "interpretation": "Find +1/+1 counters, life gain, or graveyard return that helps a board endure.",
+          "query_clause": "(o:\"+1/+1 counter\" OR o:\"gain life\" OR (o:return o:graveyard))",
+          "source_item_id": "lookfor_abzan_3_perennial_defense",
+          "source_locator": "data/raw-factions/abzan/abzan.claims.json#abzan_claim_0002",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Abzan, ancestor, family, or endure",
+          "interpretation": "Search flavor text for Abzan, ancestor, family, or endure. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Abzan OR ft:ancestor OR ft:family OR ft:endure)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_abzan/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Abzan Houses color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "TEMUR",
+      "identity_name": "Temur Frontier",
+      "color_identity": "gur",
+      "reading_summary": "Ferocious is Khans-era Temur; Formidable belongs to Atarka. Dragons and other Commander packages are optional expressions, not Temur's canonical mechanic.",
+      "source_record_id": "packet2_identity_temur",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_temur",
+      "mechanical_threads": [
+        {
+          "thread_id": "ferocious-power-four",
+          "semantic_kind": "mechanical",
+          "label": "Power-four creatures and Ferocious",
+          "interpretation": "Find substantial creatures or text that explicitly checks Ferocious or power four.",
+          "query_clause": "(o:ferocious OR o:\"power 4 or greater\" OR (t:creature pow>=4))",
+          "source_item_id": "lookfor_temur_1_survival_through_attunement",
+          "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/0",
+          "source_role": "official_mechanical_anchor"
+        },
+        {
+          "thread_id": "ramp-big-mana",
+          "semantic_kind": "mechanical",
+          "label": "Ramp into expensive threats",
+          "interpretation": "Find ramp or mana production that supports higher-mana-value threats and abilities.",
+          "query_clause": "(otag:ramp OR (o:\"add mana\" mv>=5))",
+          "source_item_id": "lookfor_temur_2_instinct_with_mental_fortitude",
+          "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/1",
+          "source_role": "commander_exploration"
+        },
+        {
+          "thread_id": "spells-copying",
+          "semantic_kind": "mechanical",
+          "label": "Spells and copied effects",
+          "interpretation": "Find effects that copy instants, sorceries, or another spell.",
+          "query_clause": "(o:copy (o:instant OR o:sorcery OR o:spell))",
+          "source_item_id": "lookfor_temur_3_elemental_memory",
+          "source_locator": "data/raw-factions/temur/temur.profile.json#/semantic_model/exploration_archetypes/2",
+          "source_role": "commander_exploration"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Temur, frontier, clan, or wild",
+          "interpretation": "Search flavor text for Temur, frontier, clan, or wild. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Temur OR ft:frontier OR ft:clan OR ft:wild)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_temur/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Temur Frontier color identity but preserve named mechanical parts of the reading."
+      },
+      "intentional_exception": "The optional Survival Through Attunement Vox Mana lens remains in the dossier but is not converted into a Scryfall mechanical thread; a card query cannot prove that interpretive lens."
+    },
+    {
+      "identity_key": "SULTAI",
+      "identity_name": "Sultai Brood",
+      "color_identity": "bgu",
+      "reading_summary": "A Sultai pilot tends to stock several kinds of expendable material, conceal which one matters, and convert the cheapest available cost into the next advantage",
+      "source_record_id": "packet2_identity_sultai",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_sultai",
+      "mechanical_threads": [
+        {
+          "thread_id": "resource-conversion",
+          "semantic_kind": "mechanical",
+          "label": "Mill, discard, or sacrifice as material",
+          "interpretation": "Find cards that mill, discard, or sacrifice a resource before converting it into more value.",
+          "query_clause": "(o:mill OR o:discard OR o:sacrifice)",
+          "source_item_id": "lookfor_sultai_1_resource_conversion",
+          "source_locator": "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "necromantic-utility",
+          "semantic_kind": "mechanical",
+          "label": "Graveyard return and reuse",
+          "interpretation": "Find cards that return a card or permanent from a graveyard.",
+          "query_clause": "(o:return o:graveyard)",
+          "source_item_id": "lookfor_sultai_2_necromantic_utility",
+          "source_locator": "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "calculated-ruthlessness",
+          "semantic_kind": "mechanical",
+          "label": "Tutors, theft, and counterspells",
+          "interpretation": "Find tutor functions, control-changing effects, or counterspells.",
+          "query_clause": "(otag:tutor OR o:\"gain control\" OR otag:counterspell)",
+          "source_item_id": "lookfor_sultai_3_calculated_ruthlessness",
+          "source_locator": "data/raw-factions/sultai/sultai.claims.json#sultai_claim_0002",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Sultai, Sidisi, naga, or palace",
+          "interpretation": "Search flavor text for Sultai, Sidisi, naga, or palace. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Sultai OR ft:Sidisi OR ft:naga OR ft:palace)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_sultai/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Sultai Brood color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "MARDU",
+      "identity_name": "Mardu Horde",
+      "color_identity": "rwb",
+      "reading_summary": "A Mardu pilot tends to name the attack line early, keep the formation coherent, and spend expendable resources only when they preserve momentum or exploit an opening",
+      "source_record_id": "packet2_identity_mardu",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_mardu",
+      "mechanical_threads": [
+        {
+          "thread_id": "raid-momentum",
+          "semantic_kind": "mechanical",
+          "label": "Raid and attack momentum",
+          "interpretation": "Find Raid wording or effects that reward attacking this turn.",
+          "query_clause": "(o:raid OR o:\"attacked this turn\" OR o:\"whenever you attack\")",
+          "source_item_id": "lookfor_mardu_1_raid_momentum",
+          "source_locator": "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0002",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "formation-oath",
+          "semantic_kind": "mechanical",
+          "label": "A coordinated attacking formation",
+          "interpretation": "Find effects that reward multiple creatures or the whole team attacking.",
+          "query_clause": "(o:\"creatures you control\" o:attack)",
+          "source_item_id": "lookfor_mardu_2_war_name_oath",
+          "source_locator": "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "ruthless-opening",
+          "semantic_kind": "mechanical",
+          "label": "Sacrifice, Treasure, and impulse windows",
+          "interpretation": "Find sacrificed resources, Treasures, or temporary top-card access that preserves momentum.",
+          "query_clause": "(o:sacrifice OR o:treasure OR o:\"exile the top\")",
+          "source_item_id": "lookfor_mardu_3_ruthless_opening",
+          "source_locator": "data/raw-factions/mardu/mardu.claims.json#mardu_claim_0007",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Mardu, horde, war-name, or raid",
+          "interpretation": "Search flavor text for Mardu, horde, war-name, or raid. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Mardu OR ft:horde OR ft:war-name OR ft:raid)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_mardu/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Mardu Horde color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "JESKAI",
+      "identity_name": "Jeskai Way",
+      "color_identity": "urw",
+      "reading_summary": "A Jeskai pilot tends to hold the enabling resource, test the table's timing, protect the chosen stance, and commit only when preparation can become action",
+      "source_record_id": "packet2_identity_jeskai",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_jeskai",
+      "mechanical_threads": [
+        {
+          "thread_id": "disciplined-tempo",
+          "semantic_kind": "mechanical",
+          "label": "Counterspells and protection",
+          "interpretation": "Find counterspells or protection text that preserves a chosen timing window.",
+          "query_clause": "(otag:counterspell OR o:protection OR o:\"can't be countered\")",
+          "source_item_id": "lookfor_jeskai_1_disciplined_tempo",
+          "source_locator": "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0003",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "cunning-in-motion",
+          "semantic_kind": "mechanical",
+          "label": "Copy instants and sorceries",
+          "interpretation": "Find effects that copy an instant, sorcery, or spell.",
+          "query_clause": "(o:copy (o:instant OR o:sorcery OR o:spell))",
+          "source_item_id": "lookfor_jeskai_2_cunning_in_motion",
+          "source_locator": "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0002",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "monastery-practice",
+          "semantic_kind": "mechanical",
+          "label": "Prowess and trained attacks",
+          "interpretation": "Find Prowess or attack triggers tied to noncreature spell play.",
+          "query_clause": "(kw:prowess OR (o:attack o:\"noncreature spell\"))",
+          "source_item_id": "lookfor_jeskai_3_monastery_practice",
+          "source_locator": "data/raw-factions/jeskai/jeskai.claims.json#jeskai_claim_0004",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Jeskai, monastery, discipline, or master",
+          "interpretation": "Search flavor text for Jeskai, monastery, discipline, or master. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Jeskai OR ft:monastery OR ft:discipline OR ft:master)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_jeskai/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Jeskai Way color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "YORE",
+      "identity_name": "Yore / Artifice",
+      "color_identity": "wubr",
+      "reading_summary": "A Yore pilot assigns each resource a job, protects the link that preserves continuity, and rebuilds only when the recovered piece advances the larger design",
+      "source_record_id": "packet2_identity_yore",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_yore",
+      "mechanical_threads": [
+        {
+          "thread_id": "engineered-agency",
+          "semantic_kind": "mechanical",
+          "label": "Artifact engines and repeated activation",
+          "interpretation": "Find artifacts that untap, copy, or enable another activation.",
+          "query_clause": "(t:artifact (o:untap OR o:copy OR o:\"activate only\"))",
+          "source_item_id": "lookfor_yore_1_engineered_agency",
+          "source_locator": "data/raw-factions/yore/yore.claims.json#yore_claim_0004",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "artifice-archive",
+          "semantic_kind": "mechanical",
+          "label": "Artifacts recovered from the graveyard",
+          "interpretation": "Find artifacts connected to returning or casting from a graveyard.",
+          "query_clause": "(t:artifact o:graveyard (o:return OR o:cast))",
+          "source_item_id": "lookfor_yore_2_artifice_and_archive",
+          "source_locator": "data/raw-factions/yore/yore.claims.json#yore_claim_0004",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "controlled-overreach",
+          "semantic_kind": "mechanical",
+          "label": "Artifacts spent to rebuild",
+          "interpretation": "Find artifact sacrifice or artifact-token text that converts one component into the next.",
+          "query_clause": "((t:artifact o:sacrifice) OR o:\"artifact token\")",
+          "source_item_id": "lookfor_yore_3_controlled_overreach",
+          "source_locator": "data/raw-factions/yore/yore.claims.json#yore_claim_0004",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: artifice, archive, machine, or memory",
+          "interpretation": "Search flavor text for artifice, archive, machine, or memory. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:artifice OR ft:archive OR ft:machine OR ft:memory)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_yore/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Yore / Artifice color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "GLINT",
+      "identity_name": "Glint / Chaos",
+      "color_identity": "ubrg",
+      "reading_summary": "A Glint pilot reads the live board, commits to the most useful opening, and lets the next resource change roles instead of protecting a fixed script",
+      "source_record_id": "packet2_identity_glint",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_glint",
+      "mechanical_threads": [
+        {
+          "thread_id": "adaptive-appetite",
+          "semantic_kind": "mechanical",
+          "label": "Cards changing roles in play",
+          "interpretation": "Find flexible exile, Treasure, or draw effects that turn the next resource into a new option.",
+          "query_clause": "(o:\"you may play\" OR o:treasure OR otag:draw)",
+          "source_item_id": "lookfor_glint_1_adaptive_appetite",
+          "source_locator": "data/raw-factions/glint/glint.claims.json#glint_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "storm-opportunity",
+          "semantic_kind": "mechanical",
+          "label": "Storm and copied spells",
+          "interpretation": "Find Storm or effects that copy a spell as the turn changes shape.",
+          "query_clause": "(kw:storm OR o:\"copy target spell\")",
+          "source_item_id": "lookfor_glint_2_storm_fed_opportunity",
+          "source_locator": "data/raw-factions/glint/glint.claims.json#glint_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "predatory-overreach",
+          "semantic_kind": "mechanical",
+          "label": "Sacrifice, damage, and attack openings",
+          "interpretation": "Find cards that sacrifice a resource, deal damage, or reward attacking.",
+          "query_clause": "(o:sacrifice OR o:damage OR o:\"whenever you attack\")",
+          "source_item_id": "lookfor_glint_3_predatory_overreach",
+          "source_locator": "data/raw-factions/glint/glint.claims.json#glint_claim_0005",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: chaos, hunger, storm, or opportunity",
+          "interpretation": "Search flavor text for chaos, hunger, storm, or opportunity. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:chaos OR ft:hunger OR ft:storm OR ft:opportunity)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_glint/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Glint / Chaos color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "DUNE",
+      "identity_name": "Dune / Aggression",
+      "color_identity": "brgw",
+      "reading_summary": "A Dune pilot declares the important front, sequences commitments so each one reinforces the next, and spends resources only when the line remains able to advance",
+      "source_record_id": "packet2_identity_dune",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_dune",
+      "mechanical_threads": [
+        {
+          "thread_id": "territorial-pressure",
+          "semantic_kind": "mechanical",
+          "label": "Attack and damage pressure",
+          "interpretation": "Find attack triggers or damage effects that advance the declared front.",
+          "query_clause": "(o:\"whenever you attack\" OR o:damage)",
+          "source_item_id": "lookfor_dune_1_organized_territorial_pressure",
+          "source_locator": "data/raw-factions/dune/dune.claims.json#dune_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "common-front",
+          "semantic_kind": "mechanical",
+          "label": "The whole creature line attacks",
+          "interpretation": "Find effects that refer to creatures you control and reward attacking.",
+          "query_clause": "(o:\"creatures you control\" o:attack)",
+          "source_item_id": "lookfor_dune_2_common_front_momentum",
+          "source_locator": "data/raw-factions/dune/dune.claims.json#dune_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "multiplying-force",
+          "semantic_kind": "mechanical",
+          "label": "Tokens and doubled pressure",
+          "interpretation": "Find token creation or effects that double a force, amount, or trigger.",
+          "query_clause": "(o:token OR o:double)",
+          "source_item_id": "lookfor_dune_3_conquest_overreach",
+          "source_locator": "data/raw-factions/dune/dune.claims.json#dune_claim_0005",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: battle, front, conquest, or solidarity",
+          "interpretation": "Search flavor text for battle, front, conquest, or solidarity. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:battle OR ft:front OR ft:conquest OR ft:solidarity)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_dune/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Dune / Aggression color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "INK",
+      "identity_name": "Ink / Altruism",
+      "color_identity": "rgwu",
+      "reading_summary": "An Ink pilot decides what can circulate safely, makes the terms legible, and keeps an answer ready for the player who tries to capture the shared benefit",
+      "source_record_id": "packet2_identity_ink",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ink",
+      "mechanical_threads": [
+        {
+          "thread_id": "public-abundance",
+          "semantic_kind": "mechanical",
+          "label": "Resources shared with each player",
+          "interpretation": "Find effects that give each player cards, lands, mana, or another resource.",
+          "query_clause": "(o:\"each player\" (o:draw OR o:land OR o:mana))",
+          "source_item_id": "lookfor_ink_1_protected_public_abundance",
+          "source_locator": "data/raw-factions/ink/ink.claims.json#ink_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "open-knowledge",
+          "semantic_kind": "mechanical",
+          "label": "Shared card draw",
+          "interpretation": "Find effects that explicitly let each player draw.",
+          "query_clause": "(o:\"each player\" o:draw)",
+          "source_item_id": "lookfor_ink_2_open_knowledge_pact",
+          "source_locator": "data/raw-factions/ink/ink.claims.json#ink_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "protected-commons",
+          "semantic_kind": "mechanical",
+          "label": "Protection around shared value",
+          "interpretation": "Find shared-resource text paired with counterspells, protection, or indestructible.",
+          "query_clause": "(o:\"each player\" (otag:counterspell OR o:protection OR o:indestructible))",
+          "source_item_id": "lookfor_ink_3_self_erasure_risk",
+          "source_locator": "data/raw-factions/ink/ink.claims.json#ink_claim_0005",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: community, knowledge, gift, or accord",
+          "interpretation": "Search flavor text for community, knowledge, gift, or accord. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:community OR ft:knowledge OR ft:gift OR ft:accord)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_ink/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Ink / Altruism color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WITCH",
+      "identity_name": "Witch / Growth",
+      "color_identity": "gwub",
+      "reading_summary": "A Witch pilot protects the investment with the best long horizon, sequences additions around that anchor, and exposes the scaling plan only when removing it is already inefficient",
+      "source_record_id": "packet2_identity_witch",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_witch",
+      "mechanical_threads": [
+        {
+          "thread_id": "patient-cultivation",
+          "semantic_kind": "mechanical",
+          "label": "Counters and proliferate over time",
+          "interpretation": "Find +1/+1 counters or Proliferate that grows an investment across turns.",
+          "query_clause": "(o:\"+1/+1 counter\" OR kw:proliferate)",
+          "source_item_id": "lookfor_witch_1_patient_cultivation",
+          "source_locator": "data/raw-factions/witch/witch.claims.json#witch_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "calculated-expansion",
+          "semantic_kind": "mechanical",
+          "label": "Ramp and doubling",
+          "interpretation": "Find ramp or effects that double counters, mana, tokens, or another amount.",
+          "query_clause": "(otag:ramp OR o:double)",
+          "source_item_id": "lookfor_witch_2_calculated_expansion",
+          "source_locator": "data/raw-factions/witch/witch.claims.json#witch_claim_0005",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "protected-investment",
+          "semantic_kind": "mechanical",
+          "label": "Protect the scaling engine",
+          "interpretation": "Find hexproof, indestructible, ward, or protection that keeps a key engine in play.",
+          "query_clause": "(o:hexproof OR o:indestructible OR o:ward OR o:protection)",
+          "source_item_id": "lookfor_witch_3_sterile_control_risk",
+          "source_locator": "data/raw-factions/witch/witch.claims.json#witch_claim_0005",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: growth, patience, cultivate, or design",
+          "interpretation": "Search flavor text for growth, patience, cultivate, or design. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:growth OR ft:patience OR ft:cultivate OR ft:design)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_witch/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Witch / Growth color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "COLORLESS",
+      "identity_name": "Colorless",
+      "color_identity": "c",
+      "reading_summary": "Wastes and other true {C} sources support a plan that may use artifact engines, colorless nonartifact cards, or Eldrazi. Those categories can share a deck without defining one another.",
+      "source_record_id": "packet2_identity_colorless",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_colorless",
+      "mechanical_threads": [
+        {
+          "thread_id": "true-colorless-mana",
+          "semantic_kind": "mechanical",
+          "label": "True colorless mana",
+          "interpretation": "Find cards that produce or explicitly require true colorless mana.",
+          "query_clause": "(produces:c OR o:\"{C}\")",
+          "source_item_id": "lookfor_colorless_1_chosen_restriction",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0007",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "artifact-engines",
+          "semantic_kind": "mechanical",
+          "label": "Artifact engines",
+          "interpretation": "Find artifact cards without claiming that every Colorless deck is an artifact deck.",
+          "query_clause": "t:artifact",
+          "source_item_id": "lookfor_colorless_2_machine_and_void",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0004",
+          "source_role": "certified_claim_translation"
+        },
+        {
+          "thread_id": "eldrazi-void",
+          "semantic_kind": "mechanical",
+          "label": "Eldrazi and Devoid",
+          "interpretation": "Find Eldrazi cards or cards with Devoid as a separate Colorless direction.",
+          "query_clause": "(t:eldrazi OR kw:devoid)",
+          "source_item_id": "lookfor_colorless_3_boundary_discipline",
+          "source_locator": "data/raw-factions/colorless/colorless.claims.json#colorless_claim_0003",
+          "source_role": "certified_claim_translation"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: Eldrazi, void, Wastes, or machine",
+          "interpretation": "Search flavor text for Eldrazi, void, Wastes, or machine. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:Eldrazi OR ft:void OR ft:Wastes OR ft:machine)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_colorless/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "available",
+        "interpretation": "These commanders fall outside the original Colorless color identity but preserve named mechanical parts of the reading."
+      }
+    },
+    {
+      "identity_key": "WUBRG",
+      "identity_name": "Five-Color / WUBRG",
+      "color_identity": "wubrg",
+      "reading_summary": "Direct Five-Color mechanics ask you to assemble or spend all five colors. Other builds use broad access for color-count payoffs, land-type engines, multicolor systems, typal reach, or toolbox breadth.",
+      "source_record_id": "packet2_identity_wubrg",
+      "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wubrg",
+      "mechanical_threads": [
+        {
+          "thread_id": "five-color-toolbox",
+          "semantic_kind": "mechanical",
+          "label": "Five-Color toolbox access",
+          "interpretation": "Find tutor functions that help a commander-specific Five-Color plan assemble its chosen answers.",
+          "query_clause": "otag:tutor",
+          "source_item_id": "lookfor_wubrg_2_five_color_toolbox",
+          "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/1",
+          "source_role": "deckbuilding_direction"
+        },
+        {
+          "thread_id": "five-color-typal",
+          "semantic_kind": "mechanical",
+          "label": "Five-Color typal reach",
+          "interpretation": "Find creatures or payoffs that choose, name, or reward a creature type.",
+          "query_clause": "(t:creature OR o:\"choose a creature type\" OR o:\"creatures of the chosen type\")",
+          "source_item_id": "lookfor_wubrg_3_five_color_typal",
+          "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/2",
+          "source_role": "deckbuilding_direction"
+        },
+        {
+          "thread_id": "rainbow-payoffs",
+          "semantic_kind": "mechanical",
+          "label": "Rainbow and color-count payoffs",
+          "interpretation": "Find Domain, Converge, Sunburst, all-five-symbol, or color-count wording.",
+          "query_clause": "(o:domain OR o:converge OR o:sunburst OR o:\"{W}{U}{B}{R}{G}\" OR o:\"among colors\")",
+          "source_item_id": "lookfor_wubrg_4_rainbow_payoffs",
+          "source_locator": "data/raw-factions/wubrg/wubrg.profile.json#/semantic_model/exploration_archetypes/3",
+          "source_role": "deckbuilding_direction"
+        }
+      ],
+      "story_threads": [
+        {
+          "thread_id": "story-vocabulary",
+          "semantic_kind": "flavor-story",
+          "label": "Flavor: coalition, spectrum, unite, or world",
+          "interpretation": "Search flavor text for coalition, spectrum, unite, or world. This is a story-vocabulary lane, not a mechanical-fit claim.",
+          "query_clause": "(ft:coalition OR ft:spectrum OR ft:unite OR ft:world)",
+          "source_item_id": "approved-dossier-lore-role",
+          "source_locator": "data/dossier/identity-dossier-content.source.json#packet2_identity_wubrg/proposed_public_copy/how_this_plays/lore_role",
+          "source_role": "approved_story_vocabulary_projection"
+        }
+      ],
+      "stretch": {
+        "availability": "unavailable",
+        "interpretation": "Five-Color already spans every Commander color identity, so there is no truthful outside-color commander space."
+      },
+      "intentional_exception": "There is no Commander color identity outside Five-Color. The Outside-color stretch lane is replaced by an explicit boundary explanation, and the optional Full-Spectrum Integrator remains dossier interpretation rather than a query claim."
+    }
+  ]
+}

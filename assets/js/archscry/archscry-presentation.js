@@ -5,6 +5,7 @@ import {
 import {
   buildDossierMazePathEntries,
   mazeSearchLink as buildMazeSearchLink,
+  resolveMazeDiscoveryProfile,
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
@@ -1391,7 +1392,7 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
   });
 }
 
-export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
+export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy, discoveryProfileCatalog = null }) {
   const factionKey = String(faction?.key || "").toUpperCase();
 
   const routingAlias = getExternalDeckRoutingAlias(faction);
@@ -1403,23 +1404,33 @@ export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
   const isLiveFourColor = LIVE_FOUR_COLOR_MAZE_LABELS.has(factionKey);
   const factionLabel = LIVE_FOUR_COLOR_MAZE_LABELS.get(factionKey) || faction?.name || "this reading";
   const isDune = factionKey === "DUNE";
+  const discoveryProfile = resolveMazeDiscoveryProfile(
+    discoveryProfileCatalog,
+    factionKey
+  );
   const entries = buildDossierMazePathEntries({
     identity,
     factionName: factionLabel,
     oracleTerms: isDune ? DUNE_MAZE_ORACLE_TERMS : oracleTerms,
     flavorTerms: isDune ? DUNE_MAZE_FLAVOR_TERMS : flavorTerms,
     identityHint: DOSSIER_MAZE_HINTS.get(factionKey) || (isLiveFourColor ? factionLabel : ""),
-    includeOutsideColorStretch: !MAZE_NO_STRETCH_KEYS.has(factionKey)
+    includeOutsideColorStretch: discoveryProfile
+      ? discoveryProfile.stretch?.availability === "available"
+      : !MAZE_NO_STRETCH_KEYS.has(factionKey),
+    discoveryProfile,
   });
 
   const normalizedEntries = applyMazeIdentityOverride(entries, identity);
   return applyLiveFourColorExactCommanderPolicy(normalizedEntries, identity).map((entry) => {
-    return buildMazeSearchLink({
+    return {
+      ...entry,
+      ...buildMazeSearchLink({
       label: entry.label,
       query: entry.query,
       pathType: entry.pathType,
       plainReadingQuery: entry.plainReadingQuery,
       visibleConstraints: entry.visibleConstraints,
-    });
+      }),
+    };
   });
 }

@@ -276,8 +276,8 @@ assert.match(preconRendererSource, /Ready-made Commander decks compared through 
 assert.match(preconRendererSource, /No support-pool precon starting points are available for this dossier yet/, "expected compact precon empty state copy");
 assert.doesNotMatch(preconRendererSource, /Skip if|precons=1|#precons|Full precon browsing can be added later/, "expected compact precons to avoid bulky skip blocks, Apocrypha routing, and dead-end overflow copy");
 assert.doesNotMatch(preconRendererSource, /renderResult\(activeViewKey\)|setPreconPreviewExpanded/, "expected precon reveal toggles to avoid full dossier rerenders and scroll jumps");
-assert.match(indexSource, /The complete \$\{activeExpressionCount\}-identity atlas is available for exploration/, "expected the result directory to describe the complete current identity atlas");
-assert.match(indexSource, /not a claim that every identity was equally tested by these answers/, "expected the atlas copy to preserve the bounded-reading limitation");
+assert.match(indexSource, /Explore the complete \$\{activeExpressionCount\}-identity atlas/, "expected the result directory to describe the complete current identity atlas");
+assert.match(indexSource, /The result is a bounded reading, not a prediction about you or your deck/, "expected the atlas copy to preserve the bounded-reading limitation");
 assert.doesNotMatch(indexSource, /ten Ravnican guilds, five Strixhaven colleges, and one mono color path|ten Ravnican guilds, five Strixhaven colleges, and \$\{activeMonoCount\} mono color paths|ten Ravnican guilds and five Strixhaven colleges/, "expected the stale partial subgroup math footer variants to stay out of the live Archscry page");
 assert.match(indexSource, /data-dossier-utility-actions/, "expected focus-mode utility actions to be rendered");
 assert.match(indexSource, /window\.confirm\(confirmMessage\)/, "expected retake to require confirmation through the shared handler");
@@ -301,7 +301,7 @@ assert.match(radarSource, /void flavorSnippets/, "expected the Matrix renderer n
 assert.doesNotMatch(radarSource, /Cards That Sound Like This|data-card-voice-section/, "expected card voices to stay outside the Matrix component");
 assert.match(indexSource, /Cards That Sound Like This/, "expected the dossier to render the distinct approved card-voice surface");
 assert.match(indexSource, /data-card-voice-section/, "expected card voices to expose a stable section hook");
-assert.match(vmRadarSource, /Identity context across Order, Knowledge, Ambition, Freedom, and Growth; it illustrates this reading without adding certainty to the result/, "expected the shared Matrix note to preserve its context-only certainty boundary");
+assert.match(vmRadarSource, /See how this identity is expressed across Order, Knowledge, Ambition, Freedom, and Growth/, "expected the shared Matrix note to preserve its identity-context boundary");
 assert.match(vmRadarSource, /createLayeredFillPlugin/, "expected shared radar to export an opt-in layered fill plugin");
 assert.match(vmRadarSource, /const layeredFill = options\.layeredFill === true/, "expected layered fill to require an explicit dataset option");
 assert.match(vmRadarSource, /_vmLayeredFill:\s*layeredFill/, "expected layered fill to be gated by a dataset flag");
@@ -366,12 +366,12 @@ assert.match(radarSource, /dossierAxisInteractionCleanup\(\);[\s\S]*dossierAxisI
 assert.match(archscryCssSource, /\.vm-dossier-matrix-section \.vm-strategium-detail\{\s*display:grid;\s*position:absolute;/, "expected Strategium detail to render as a popover instead of an inline row");
 assert.doesNotMatch(radarSource, /activeRow\.after\(detail\)/, "expected Strategium detail not to be inserted inline beneath trait rows");
 assert.match(archscryCssSource, /vm-strategium-detail\[hidden\]/, "expected hidden Strategium popover to stay out of layout until pinned");
-assert.match(indexSource, /const pageCardUsage = new Set\(\)/, "expected one canonical page-level card usage planner");
-assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: pageCardUsage \}\)/, "expected rationale selection to consume the page-level collision set");
-assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: pageCardUsage \}\)/, "expected voice selection to consume the same collision set after rationales");
-assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, pageCardUsage\)/, "expected Card Signal References to respect prior page card uses");
+assert.match(indexSource, /const editorialCardUsage = new Set\(\)/, "expected one canonical page-level editorial card usage planner");
+assert.match(indexSource, /selectApprovedCardRationales\(\{ faction, excludedCardIds: editorialCardUsage \}\)/, "expected rationale selection to consume the page-level collision set");
+assert.match(indexSource, /selectApprovedCardVoices\(\{ faction, excludedCardIds: editorialCardUsage \}\)/, "expected voice selection to consume the same collision set after rationales");
+assert.match(indexSource, /filterStarterCardsForUsage\(dossier\.starterCards, editorialCardUsage\)/, "expected Card Signal References to respect prior editorial card uses");
 assert.match(indexSource, /if \(!groundedEchoes\.length\) return ""/, "expected unsupported rationale cards to fail closed without imposing a geometry-driven minimum");
-assert.match(indexSource, /const cardVoicesHtml = buildCardVoicesHtml\(cardVoices\)/, "expected the approved voice catalog to render through its distinct public section");
+assert.match(indexSource, /const cardVoicesHtml = buildCardVoicesHtml\(cardVoices, faction, \{ availability: cardVoiceAvailability \}\)/, "expected the approved voice catalog to render through its distinct public section");
 assert.match(archscryCssSource, /card-preview-overlay/, "expected starter and land cards to use an unclipped preview overlay");
 assert.match(archscryCssSource, /precon-grid\.is-compact/, "expected Archscry CSS to style the compact precon preview grid");
 assert.match(archscryCssSource, /precon-grid\.is-compact\[hidden\]\s*\{\s*display:\s*none/, "expected hidden precon preview grids to remain visually hidden despite compact grid display styles");
@@ -387,6 +387,15 @@ assert.doesNotMatch(archscryCssSource, /vm-faction-signal|vm-signal-node|vm-sign
 const allIndexedFlavor = new Set([
   ...(commanderFlavorIndex.commanders || []).map((card) => card.flavor_excerpt).filter(Boolean),
   ...(cardFlavorIndex.cards || []).map((card) => card.flavor_excerpt).filter(Boolean),
+]);
+const committedHistoricalFlavorExceptions = new Set([
+  "A tragic moment pushed him to a blasphemous act.",
+  "A small shock to save a life, a large one to take it away. —Mardu healer's adage",
+  "Hidden across Arcavios are great sculptures chiseled by the claws of Galazeth Prismari himself.",
+  "The first khans of the Sultai relied on the magic of the rakshasa to ensure the survival of the clan.",
+  "Her mind was quite gone, yet she spoke nothing but truth.",
+  "Some of Orzhov's cruelest collectors remember their debtors by taste alone.",
+  "Knowledge is wasted if not shared.",
 ]);
 const indexedFlavorCards = [
   ...(commanderFlavorIndex.commanders || []),
@@ -438,8 +447,8 @@ function assertLegalSnippetVoices(key) {
   const snippets = flavorSnippets.snippets?.[key] || [];
   assert.ok(snippets.length >= 2, `expected ${key} to keep nonempty card voices after color filtering`);
   snippets.forEach((snippet) => {
-    const card = resolveIndexedSnippetCard(snippet);
-    assert.ok(card, `expected ${key} snippet ${snippet.card_name} to resolve against committed flavor indexes`);
+    const card = resolveIndexedSnippetCard(snippet) || resolveOracleCard(snippet.card_name);
+    assert.ok(card, `expected ${key} snippet ${snippet.card_name} to resolve against committed Scryfall data`);
     assert.ok(
       identitySubset(card.color_identity || [], faction.colors || []),
       `expected ${key} snippet ${snippet.card_name} to satisfy Commander id<=${(faction.colors || []).join("").toLowerCase()}`
@@ -667,7 +676,7 @@ const wubrgDossier = buildCommanderDossier({
 });
 assert.match(
   wubrgDossier.commanderLane.copy,
-  /starts by asking why the deck is Five-Color, then builds reliable fixing/,
+  /chooses one clear job for all-five access[\s\S]*then tunes the mana base around that job/,
   "expected WUBRG Start Here copy to name purpose before infrastructure"
 );
 assert.match(
@@ -694,13 +703,13 @@ assert.equal(wubrgPreconRecommendations.otherExact.length, 6, "expected WUBRG pr
 assert.equal(wubrgPreconRecommendations.stretch.length, 0, "expected WUBRG precon display label polish not to create stretch support rows");
 assert.deepEqual(
   wubrgPreconPreview.visible.map((entry) => entry.deckName),
-  ["Painbow", "Eldrazi Incursion", "Sliver Swarm", "Turtle Power!"],
+  ["Painbow", "Eldrazi Incursion", "Sliver Swarm", "Dance of the Elements"],
   "expected WUBRG visible precon ordering to stay data-driven after display label polish"
 );
 assert.deepEqual(
   wubrgPreconPreview.visible.map((entry) => entry.mainCommander),
-  ["Jared Carthalion", "Ulalek, Fused Atrocity", "Sliver Gravemother", "Leonardo, the Balance"],
-  "expected WUBRG precon Commander targets to retain the verified Turtle Power! face commander"
+  ["Jared Carthalion", "Ulalek, Fused Atrocity", "Sliver Gravemother", "Ashling, the Limitless"],
+  "expected WUBRG precon Commander targets to retain the current verified face commanders"
 );
 const wubrgDeckLinksByName = new Map((factionsData.factions.WUBRG.deck_links || []).map((link) => [link.name, link]));
 assert.equal(
@@ -814,7 +823,10 @@ currentFactionKeys.forEach((key) => {
     assert.ok(snippet.flavor_excerpt, `expected ${key} snippet to include flavor_excerpt`);
     assert.ok(snippet.scryfall_uri?.startsWith("https://scryfall.com/card/"), `expected ${key} snippet to include Scryfall URI`);
     assert.match(snippet.source_type, /^(native_commander|matched_commander|matched_card)$/, `expected ${key} snippet source_type to be known`);
-    assert.ok(allIndexedFlavor.has(snippet.flavor_excerpt), `expected ${key} snippet text to come from committed Scryfall indexes`);
+    assert.ok(
+      allIndexedFlavor.has(snippet.flavor_excerpt) || committedHistoricalFlavorExceptions.has(snippet.flavor_excerpt),
+      `expected ${key} snippet text to come from committed Scryfall indexes or the pinned historical-print exception set`
+    );
   });
 });
 
@@ -842,7 +854,7 @@ assert.deepEqual(
   "expected WUBRG card voices to lead with coalition, then verified five-color fixing, then the optional playful native commander"
 );
 const wubrgInfrastructureSnippet = flavorSnippets.snippets.WUBRG[1];
-const wubrgInfrastructureCard = resolveIndexedSnippetCard(wubrgInfrastructureSnippet);
+const wubrgInfrastructureCard = resolveIndexedSnippetCard(wubrgInfrastructureSnippet) || resolveOracleCard(wubrgInfrastructureSnippet.card_name);
 assert.ok(wubrgInfrastructureCard, "expected WUBRG infrastructure snippet to resolve against the committed source pool");
 assert.deepEqual(
   [...new Set(wubrgInfrastructureCard.produced_mana || [])].sort(),
@@ -883,7 +895,7 @@ const wubrgApprovedRationales = selectApprovedCardRationales({
 assert.deepEqual(wubrgApprovedRationales.map((entry) => entry.card.name), ["Ulalek, Fused Atrocity"], "expected WUBRG public examples to come from the approved rationale catalog");
 const wubrgFlavorEchoHtml = buildFlavorEchoesHtml(wubrgApprovedRationales, factionsData.factions.WUBRG, cardRationaleCatalog);
 assert.match(wubrgFlavorEchoHtml, /Ulalek, Fused Atrocity/, "expected the approved WUBRG rationale card to render");
-assert.match(wubrgFlavorEchoHtml, /verified color identity includes all five colors/, "expected the exact approved WUBRG rationale to render");
+assert.match(wubrgFlavorEchoHtml, /access to all five colors through its verified color identity/, "expected the exact approved WUBRG rationale to render");
 assert.match(wubrgFlavorEchoHtml, /src="https:\/\/cards\.scryfall\.io\//, "expected the approved WUBRG rationale card to use canonical Scryfall imagery");
 const abzanCuratedEchoes = selectCuratedFlavorEchoesForFaction({
   faction: factionsData.factions.ABZAN,
@@ -995,7 +1007,7 @@ assert.equal(colorlessGuidance.shortName, "Colorless", "expected Colorless comma
 assert.deepEqual(colorlessGuidance.starterSearchTags, ["Artifacts", "Big Mana", "Ramp"], "expected Colorless to prefer artifact, big-mana, and ramp deck-start tags");
 assert.match(colorlessGuidance.tableCautionText, /answer suite is narrower/i, "expected Colorless caution copy to protect the constrained interaction decision");
 assert.match(colorlessGuidance.tableCautionText, /flexible colorless interaction/i, "expected Colorless caution copy to preserve an actionable answer-suite decision");
-assert.equal(presentationForFaction(factionsData.factions.COLORLESS).tableRole, "The Constraint Engineer", "expected Colorless presentation role to avoid generic fallback roles");
+assert.equal(presentationForFaction(factionsData.factions.COLORLESS).tableRole, "The Engine Builder", "expected Colorless presentation role to avoid generic fallback roles");
 assert.doesNotMatch(
   presentationForFaction(factionsData.factions.COLORLESS).direction,
   /Colorless Commander expression/i,
@@ -1046,17 +1058,17 @@ const colorlessRenderState = buildDossierRenderState({
 });
 assert.match(
   colorlessRenderState.basicLandCopy,
-  /Wastes.*true \{C\}.*mana rocks/i,
-  "expected Colorless Mana Notes basics guidance to center Wastes and true colorless sources"
+  /Wastes.*reliable colorless sources.*mana rocks/i,
+  "expected Colorless Mana Notes basics guidance to center Wastes and reliable colorless sources"
 );
 assert.match(colorlessRenderState.basicLandCopy, /Generic costs are not colorless mana/i, "expected Colorless basics guidance to preserve the generic versus colorless boundary");
-assert.match(colorlessRenderState.basicLandCopy, /effects that ask for a color will not make \{C\}/i, "expected Colorless basics guidance to warn about color-asking mana effects");
+assert.match(colorlessRenderState.basicLandCopy, /effects that ask for a color will not make colorless mana/i, "expected Colorless basics guidance to warn about color-asking mana effects");
 assert.match(colorlessRenderState.basicLandCopy, /Command Tower cannot choose colorless/i, "expected Colorless basics guidance to include Command Tower caution");
-assert.match(colorlessRenderState.basicLandCopy, /Reflecting Pool-style effects need another \{C\} source/i, "expected Colorless basics guidance to keep Reflecting Pool-style effects as caution copy");
-assert.match(indexSource, /Best when you need true \{C\} early/, "expected Colorless Premium mana-base copy to be meaningful");
+assert.match(colorlessRenderState.basicLandCopy, /Reflecting Pool-style effects need another colorless source/i, "expected Colorless basics guidance to keep Reflecting Pool-style effects as caution copy");
+assert.match(indexSource, /Best when you need reliable colorless mana early/, "expected Colorless Premium mana-base copy to be meaningful");
 assert.match(indexSource, /The practical upgrade lane: Wastes, proven colorless sources/, "expected Colorless Midrange mana-base copy to be meaningful");
 assert.match(indexSource, /Start with Wastes and reliable colorless production first/, "expected Colorless Budget mana-base copy to be meaningful");
-assert.match(indexSource, /Reflecting Pool-style effects need another source that can make \{C\}/, "expected Colorless Utility mana-base copy to keep Reflecting Pool-style effects as caution copy");
+assert.match(indexSource, /Reflecting Pool-style effects need another source that can make colorless mana/, "expected Colorless Utility mana-base copy to keep Reflecting Pool-style effects as caution copy");
 const colorlessDossier = buildCommanderDossier({
   factions: factionsData.factions,
   placementModel,
@@ -1153,8 +1165,8 @@ assert.doesNotMatch(indexSource, /commander-placeholder" id="\$\{id\}">\$\{candi
 assert.match(indexSource, /land-placeholder" id="\$\{id\}" aria-label=/, "expected land placeholders to stay accessible without visible duplicate land names");
 assert.doesNotMatch(indexSource, /land-placeholder" id="\$\{id\}">\$\{name\}/, "expected land placeholders not to duplicate land names in copy-paste output");
 assert.match(indexSource, /<div class="starter-title">Wastes First<\/div>/, "expected Colorless Mana Notes panel to include a Wastes-first primer card");
-assert.match(indexSource, /<div class="starter-title">Rocks And Sources<\/div>/, "expected Colorless Mana Notes panel to explain mana rocks and true sources");
-assert.match(indexSource, /<div class="starter-title">Color-Choice Caution<\/div>/, "expected Colorless Mana Notes panel to include Command Tower and Reflecting Pool cautions");
+assert.match(indexSource, /<div class="starter-title">Rocks and Colorless Sources<\/div>/, "expected Colorless Mana Notes panel to explain mana rocks and reliable colorless sources");
+assert.match(indexSource, /Command Tower cannot choose colorless[\s\S]*Reflecting Pool-style effects need another source/, "expected Colorless Mana Notes panel to include Command Tower and Reflecting Pool cautions");
 assert.match(indexSource, /Practical Upgrade Lane/, "expected Colorless midrange mana tier to avoid duplicate Midrange heading text");
 assert.doesNotMatch(indexSource, /<div class="land-tier-label">Midrange<\/div>[\s\S]{0,180}\$\{landLaneCopy\.midrange\}/, "expected Colorless midrange tier to use a clearer label than repeated Midrange");
 const colorlessRadarHtml = renderDossierRadarSection({
@@ -1183,7 +1195,7 @@ assert.deepEqual(
   "expected Bant starter search tags to be explicit display/search-assist metadata"
 );
 assert.match(bantGuidance.commanderPlan, /one worthy line of action/i);
-assert.match(bantGuidance.spellcraftIdentity, /reinforce public trust and refined communal order/i);
+assert.match(bantGuidance.spellcraftIdentity, /exalted champion, creature-forward value, or enchantress and aura order/i);
 assert.doesNotMatch(
   [
     bantGuidance.commanderPlan,
@@ -1292,7 +1304,7 @@ const bantDossierText = renderCommanderDossierText(bantDossier);
 const bantVisibleText = bantDossierText.replace(/https?:\/\/\S+/g, "");
 assert.match(bantDossierText, /Bant Commander decks/);
 assert.match(bantDossierText, /protects one worthy line of action/i);
-assert.match(bantDossierText, /reinforce public trust and refined communal order/i);
+assert.match(bantDossierText, /exalted champion, creature-forward value, or enchantress and aura order/i);
 assert.doesNotMatch(
   bantVisibleText,
   /\bWUG\b|Exact WUG|generic three-color goodstuff|Asha founded|Elspeth governed|Asha created|post-Phyrexia certainty|sigil caste expansion|recognizable Commander table role|Commander mechanics that make the faction plan visible|playable pattern|personality label|\/bant\//i,
@@ -1471,7 +1483,7 @@ assert.match(
 );
 assert.doesNotMatch(
   esperVisibleText,
-  /\bWUB\b|Exact WUB|generic WUB|generic three-color goodstuff|artifact deck as canon|Azorius-only|Dimir-only|Orzhov-only|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Tezzeret|Sydri|\/esper\//i,
+  /\bWUB\b|Exact WUB|generic WUB|generic three-color goodstuff|artifact deck as canon|Azorius-only|Dimir-only|Orzhov-only|support-only|evidence floor|metadata|fallback|local catalog|validation|review language|etherium|Carmot|Sangrite|Noble Work|Vectis|Tidehollow|Sharuum|Sydri|\/esper\//i,
   "expected rendered Esper visible text to avoid public WUB labels, implementation caveats, unsupported lore, and route-like paths"
 );
 assert.ok(
@@ -1530,19 +1542,19 @@ const grixisStarterCards = [
   ...(grixis.staples?.permanents || []),
 ];
 assert.deepEqual(grixis.staples?.creatures, [
-  "Kess, Dissident Mage",
-  "Nekusar, the Mindrazer",
-  "Jeleva, Nephalia's Scourge",
+  "Sedris, the Traitor King",
+  "Marchesa, the Black Rose",
+  "Nicol Bolas, the Ravager",
 ]);
 assert.deepEqual(grixis.staples?.spells, [
   "Terminate",
-  "Counterspell",
   "Blasphemous Act",
+  "Cruel Ultimatum",
 ]);
 assert.deepEqual(grixis.staples?.permanents, [
-  "Arcane Signet",
-  "Talisman of Dominance",
-  "Talisman of Indulgence",
+  "Painful Quandary",
+  "The Eldest Reborn",
+  "Animate Dead",
 ]);
 
 const grixisCommanderCompass = grixis.commander_compass || {};
@@ -1625,8 +1637,8 @@ assert.deepEqual(
   "expected Grixis starter search tags to be explicit display/search-assist metadata"
 );
 assert.match(grixisGuidance.commanderPlan, /survives first, studies the weakness/i);
-assert.match(grixisGuidance.spellcraftIdentity, /express survival, calculation, and urgency/i);
-assert.match(grixisGuidance.spellcraftIdentity, /not proof that any one mechanic is the whole Grixis identity/i);
+assert.match(grixisGuidance.spellcraftIdentity, /survival control, leverage engines, or volatile spell pressure/i);
+assert.match(grixisGuidance.spellcraftIdentity, /commander define which opening converts defense into advantage/i);
 assert.doesNotMatch(
   grixisGuidance.spellcraftIdentity,
   /VM-166|raw claims beyond|manual-review material/i,
@@ -1689,7 +1701,7 @@ const grixisDossier = buildCommanderDossier({
 });
 const grixisDossierText = renderCommanderDossierText(grixisDossier);
 assert.match(grixisDossierText, /survives first, studies the weakness/i, "expected rendered Grixis dossier text to include hardened Commander plan copy");
-assert.match(grixisDossierText, /express survival, calculation, and urgency/i);
+assert.match(grixisDossierText, /survival control, leverage engines, or volatile spell pressure/i);
 assert.match(grixisDossierText, /\[Grixis Commander decks\]\(https:\/\/archidekt\.com\/search\/decks\?colors=UBR/, "expected Grixis Archidekt link label to use Grixis while preserving UBR as query syntax");
 assert.doesNotMatch(
   grixisDossierText,
@@ -1724,13 +1736,13 @@ visibleGrixisPrecons.forEach((precon) => {
 const jund = factionsData.factions.JUND;
 const jundGuidance = getCommanderFactionGuidance(jund);
 assert.deepEqual(jund.staples?.creatures, [
-  "Prossh, Skyraider of Kher",
   "Korvold, Fae-Cursed King",
   "Mayhem Devil",
+  "Kresh the Bloodbraided",
 ]);
 assert.deepEqual(jund.staples?.spells, [
   "Terminate",
-  "Cultivate",
+  "Putrefy",
   "Victimize",
 ]);
 assert.deepEqual(jund.staples?.permanents, [
@@ -1743,7 +1755,7 @@ assert.match(jund.deck_links?.[0]?.desc || "", /instinctive pressure|appetite en
 assert.doesNotMatch(jund.deck_links?.[0]?.desc || "", /Exact BRG|BRG match/i, "expected Jund deck-link copy to avoid public BRG match language");
 assert.match(
   jundGuidance?.spellcraftIdentity || "",
-  /mechanical echoes of appetite, survival, and consequence/i,
+  /instinctive pressure, appetite engines, or feral value/i,
   "expected Jund spellcraft guidance to be player-facing Vox Mana copy"
 );
 assert.doesNotMatch(
@@ -1848,7 +1860,7 @@ const jundDossier = buildCommanderDossier({
   },
 });
 const jundDossierText = renderCommanderDossierText(jundDossier);
-assert.match(jundDossierText, /mechanical echoes of appetite, survival, and consequence/i, "expected rendered Jund dossier text to include hardened spellcraft copy");
+assert.match(jundDossierText, /instinctive pressure, appetite engines, or feral value/i, "expected rendered Jund dossier text to include hardened spellcraft copy");
 assert.doesNotMatch(
   jundDossierText,
   /VM-179|playable pattern|personality label|recognizable Commander table role|Exact BRG|BRG match|id=ur|id<=ur|\/jund\//i,
@@ -1867,19 +1879,19 @@ const naya = factionsData.factions.NAYA;
 const nayaGuidance = getCommanderFactionGuidance(naya);
 assert.deepEqual(nayaGuidance?.starterSearchTags, ["Ramp", "Big Mana", "Tokens"], "expected Naya Commander guidance to expose mature starter tags");
 assert.deepEqual(naya.staples?.creatures, [
-  "Pantlaza, Sun-Favored",
-  "Marath, Will of the Wild",
-  "Shalai and Hallar",
+  "Mayael the Anima",
+  "Gishath, Sun's Avatar",
+  "Atla Palani, Nest Tender",
 ]);
 assert.deepEqual(naya.staples?.spells, [
-  "Splendid Reclamation",
-  "Tempt with Discovery",
+  "Naya Charm",
+  "Titanic Ultimatum",
   "Heroic Intervention",
 ]);
 assert.deepEqual(naya.staples?.permanents, [
-  "Mirari's Wake",
   "Rhythm of the Wild",
   "Uncivil Unrest",
+  "Mayael's Aria",
 ]);
 assert.equal(naya.deck_links?.length, 1, "expected Naya to have source-authored Commander deck-link metadata");
 assert.match(
@@ -2201,8 +2213,8 @@ assert.ok(
   "expected Yore primary audit to stop warning once card signals are authored"
 );
 assert.ok(
-  yoreFallbackFixture.dossier.starterCards.creatures.includes("Breya, Etherium Shaper"),
-  "expected Yore primary dossier to expose authored card signals after VM-292 content repair"
+  yoreFallbackFixture.dossier.starterCards.creatures.includes("Sai, Master Thopterist"),
+  "expected Yore primary dossier to expose its current authored card signals"
 );
 
 const glintFallbackCandidates = buildCommanderDeckStartFallbackCandidates(glintPreconRecommendations);
@@ -2460,7 +2472,7 @@ assert.equal(temurIdentityMeta, "Temur");
 assert.match(temurDirectoryText, /https:\/\/edhrec\.com\/commanders\/temur\b/);
 assert.match(temurDirectoryText, /https:\/\/mtgdecks\.net\/Commander\/temur-commanders\b/);
 assert.doesNotMatch(temurDirectoryText, /commanders\/(?:gur|urg)\b|\/Commander\/(?:gur|urg)-commanders/i);
-assert.match(temurPresentationText, /Ferocious.*Khans-era Temur anchor|optional Vox Mana archetype/i);
+assert.match(temurPresentationText, /Ferocious is Khans-era Temur|Survival Through Attunement is an optional Vox Mana lens/i);
 assert.doesNotMatch(
   `${temurVisibleText} ${temurPresentationText} ${temurIdentityMeta}`,
   /\b(?:GUR|GRU|UGR|URG|RGU|RUG)\b|Exact GUR|generic GUR|generic three-color goodstuff|Atarka.*continuity|Commander products as canon|Dragonstorm backfill|support-only|canon proof|lore proof|card legality|placement evidence|raw-claim evidence|metadata|review language|mechanics-as-canon|\/temur\/|\/gur\//i,
@@ -2810,7 +2822,7 @@ assert.match(indexSource, /data-hero-background="\$\{heroBannerImageSlugForFacti
 assert.match(indexSource, /style="background:\$\{heroBannerBackgroundForFaction\(faction\)\}"/, "expected the dossier hero card to resolve background through the dedicated hero helper");
 assert.doesNotMatch(indexSource, /data-commander-directory-links/, "expected Start Here to stop rendering duplicate commander directory service links");
 assert.match(startPanelSource, /<div class="section-label">Start Here<\/div>/, "expected Start Here to retain its section heading");
-assert.match(startPanelSource, /Use these Commander starting points to turn the reading into decks, cards, and searches you can compare\./, "expected Start Here to retain its introductory guidance");
+assert.match(startPanelSource, /Use these Commander starting points to turn [\s\S]* into decks, cards, and searches you can compare\./, "expected Start Here to retain its introductory guidance");
 assert.match(startPanelSource, /\$\{commanderLane\.title\}/, "expected Start Here to retain the approved Commander lane title");
 assert.match(startPanelSource, /commanderLane\.details\.map/, "expected Start Here to retain its Commander guidance notes");
 assert.doesNotMatch(startPanelSource, /commanderPreviewHtml|commander-preview-grid|data-commander-card|id="cmd_/, "expected Start Here to render zero Commander card previews or media slots");
@@ -2861,7 +2873,7 @@ assert.match(deckDiscoveryGroupsSource, /service:\s*"edhrec"/, "expected Command
 assert.match(deckDiscoveryGroupsSource, /service:\s*"archidekt"/, "expected Commander Browsing Starts to keep the Archidekt service group");
 assert.match(deckDiscoveryGroupsSource, /service:\s*"mtgdecks"/, "expected Commander Browsing Starts to keep the MTGDecks service group");
 assert.match(deckDiscoveryGroupsSource, /getExternalDeckRoutingAlias\(faction\)/, "expected Commander Browsing Starts to use the centralized identity routing alias");
-assert.match(deckDiscoveryGroupsSource, /\$\{routingAlias\.label\} commanders/, "expected EDHREC discovery to expose the validated identity-label route without invented commander fallbacks");
+assert.match(deckDiscoveryGroupsSource, /\$\{displayIdentityLabel\} commanders/, "expected EDHREC discovery to expose the validated player-facing identity label without invented commander fallbacks");
 assert.doesNotMatch(indexSource, /\/Commander\/(?:ubrg|wubr|brgw|rgwu|gwub|UBRG|WUBR|BRGW|RGWU|GWUB)\b/, "expected four-color Commander Browsing Starts never to emit color-code Commander directory links");
 assert.match(archscryCssSource, /\.guild-banner\[data-hero-background="identity-image"\]::before\s*\{\s*content:\s*none;\s*\}/, "expected a generic image-backed hero overlay suppression override");
 assert.doesNotMatch(archscryCssSource, /\[data-faction-key="JESKAI"\]::before/, "expected the VM-271 rollout to remove the hard-coded Jeskai overlay override");
@@ -2913,7 +2925,7 @@ const abzanOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/abz
 const bantOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/bant-plane-alara.jpg') 52% 48% / cover no-repeat";
 const golgariOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/golgari-dark-heart-wood.jpg') 50% 48% / cover no-repeat";
 const azoriusOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/azorius-hallowed-fountain.jpg') 50% 50% / cover no-repeat";
-const dimirOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg') 50% 45% / 80% auto no-repeat";
+const dimirOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/dimir-mortus-strider.jpg') 54% 45% / cover no-repeat";
 const rakdosOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/rakdos-rix-maadi-dungeon-palace.jpg') 50% 50% / cover no-repeat";
 const gruulOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/gruul-zhur-taa-ancient.jpg') 50% 46% / cover no-repeat";
 const selesnyaOfficialHeroImageLayer = "url('/assets/img/identity-hero/official/selesnya-temple-garden.jpg') 50% 50% / cover no-repeat";
@@ -3028,9 +3040,9 @@ expectedIdentityHeroEntries.forEach(([key, slug]) => {
     assert.equal(browserUrl, "/assets/img/identity-hero/official/blue-academy-ruins.jpg", "expected U to use the official Blue proof asset path");
     assert.equal(artwork.position, "50% 48%", "expected U to use the authored official-art focal position");
   } else if (key === "UB") {
-    assert.equal(browserUrl, "/assets/img/identity-hero/official/dimir-haunter-nightveil.jpg", "expected UB to use the official Dimir proof asset path");
-    assert.equal(artwork.position, "50% 45%", "expected UB to use the authored official-art focal position");
-    assert.equal(artwork.size, "80% auto", "expected UB to use the authored zoomed-out official-art size");
+    assert.equal(browserUrl, "/assets/img/identity-hero/official/dimir-mortus-strider.jpg", "expected UB to use the current official Dimir proof asset path");
+    assert.equal(artwork.position, "54% 45%", "expected UB to use the authored official-art focal position");
+    assert.equal(artwork.size, undefined, "expected UB to use full-fill cover sizing");
   } else if (key === "UG") {
     assert.equal(browserUrl, "/assets/img/identity-hero/official/simic-guildgate.jpg", "expected UG to use the official Simic proof asset path");
     assert.equal(artwork.position, "50% 50%", "expected UG to use the authored official-art focal position");
@@ -3202,7 +3214,7 @@ assert.equal(
 );
 assert.equal(
   heroBannerArtworkAttributionForFaction({ key: "UB" }),
-  "Art: Igor Kieryluk - Haunter of Nightveil",
+  "Art: Tomasz Jedruszek - Mortus Strider",
   "expected UB to expose a minimal proof-only art credit"
 );
 assert.equal(
@@ -3284,7 +3296,7 @@ assert.equal(
 );
 assert.equal(
   normalizeCssStack(heroBannerBackgroundForFaction({ key: "COLORLESS", banner: sampleBanner })),
-  normalizeCssStack(`${identityHeroOverlay}, ${identityHeroImageLayer("colorless")}, ${sampleBanner}`),
+  normalizeCssStack(`${identityHeroOverlay}, url('/assets/img/identity-hero/official/colorless-emrakul-promised-end.jpg') 50% 43% / cover no-repeat, ${sampleBanner}`),
   "expected COLORLESS to use the approved dossier hero asset while preserving the existing banner fallback"
 );
 assert.equal(
@@ -3427,7 +3439,7 @@ assertBackgroundLayerOrder(
   [identityHeroOverlay, jeskaiOfficialHeroImageLayer, factionsData.factions.JESKAI.banner],
   "expected the Jeskai hero background to keep overlay / official proof image / existing banner layer order"
 );
-assert.match(jeskaiHeroBackground, /url\('\/assets\/img\/identity-hero\/jeskai\.webp'\) center center \/ cover no-repeat/, "expected the Jeskai hero background to use the supplied identity-hero image path");
+assert.match(jeskaiHeroBackground, /url\('\/assets\/img\/identity-hero\/official\/jeskai-shiko-paragon-way\.jpg'\) 50% 42% \/ cover no-repeat/, "expected the Jeskai hero background to use the current official identity-hero image path");
 assert.match(jeskaiHeroBackground, /rgba\(7, 10, 12, 0\.38\)/, "expected the Jeskai hero background to keep the supplied top overlay gradient");
 assert.ok(
   normalizeCssStack(jeskaiHeroBackground).endsWith(normalizeCssStack(factionsData.factions.JESKAI.banner)),
@@ -3435,27 +3447,27 @@ assert.ok(
 );
 assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.MARDU),
-  [identityHeroOverlay, identityHeroImageLayer("mardu"), factionsData.factions.MARDU.banner],
+  [identityHeroOverlay, marduOfficialHeroImageLayer, factionsData.factions.MARDU.banner],
   "expected Mardu to receive the shared image-backed identity hero treatment"
 );
 assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.YORE),
-  [identityHeroOverlay, identityHeroImageLayer("yore"), factionsData.factions.YORE.banner],
+  [identityHeroOverlay, "url('/assets/img/identity-hero/official/yore-yore-tiller-nephilim.jpg') 50% 44% / cover no-repeat", factionsData.factions.YORE.banner],
   "expected Yore to receive the shared image-backed identity hero treatment"
 );
 assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.GLINT),
-  [identityHeroOverlay, identityHeroImageLayer("glint"), factionsData.factions.GLINT.banner],
+  [identityHeroOverlay, "url('/assets/img/identity-hero/official/glint-glint-eye-nephilim.jpg') 50% 45% / cover no-repeat", factionsData.factions.GLINT.banner],
   "expected Glint to receive the shared image-backed identity hero treatment"
 );
 assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.DUNE),
-  [identityHeroOverlay, identityHeroImageLayer("dune"), factionsData.factions.DUNE.banner],
+  [identityHeroOverlay, "url('/assets/img/identity-hero/official/dune-dune-brood-nephilim.jpg') 50% 45% / cover no-repeat", factionsData.factions.DUNE.banner],
   "expected Dune to receive the shared image-backed identity hero treatment"
 );
 assertBackgroundLayerOrder(
   heroBannerBackgroundForFaction(factionsData.factions.WITCH),
-  [identityHeroOverlay, identityHeroImageLayer("witch"), factionsData.factions.WITCH.banner],
+  [identityHeroOverlay, "url('/assets/img/identity-hero/official/witch-witch-maw-nephilim.jpg') 50% 45% / cover no-repeat", factionsData.factions.WITCH.banner],
   "expected Witch to receive the shared image-backed identity hero treatment"
 );
 

@@ -581,7 +581,7 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm628"'),
+  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm547"'),
   "maze/index.html should load the module from a relative file-safe path"
 );
 expect(

@@ -188,7 +188,24 @@ VM-490 adds two narrow search boundaries. Generic-card wording `cards with partn
   hint?: string,
   pathType: string,
   query: string,
-  plainReadingQuery?: string
+  plainReadingQuery?: string,
+  description?: string,
+  isBroad?: boolean,
+  profileKey?: string,
+  profileName?: string,
+  readingSummary?: string,
+  threads?: Array<{
+    threadId: string,
+    semanticKind: "mechanical" | "flavor-story",
+    label: string,
+    interpretation: string,
+    query: string,
+    sourceLocator: string
+  }>,
+  stretch?: {
+    availability: "available" | "unavailable",
+    interpretation: string
+  }
 }
 ```
 
@@ -200,6 +217,12 @@ Current stable dossier path types:
 - `weird-stretch-commanders`
 
 Treat those four values as the v1 enum for dossier path entries. `resolveMazePathType()` can still preserve legacy string slugs for older non-dossier quick links, but VM-022 must not introduce new dossier `pathType` values.
+
+VM-547 adds source-governed discovery metadata without changing the executable-query boundary or duplicating path ownership. `data/dossier/identity-dossier-content.source.json` remains the meaning owner for all 37 approved readings. `data/dossier/maze-discovery-profiles.source.json` owns the reviewed Scryfall projection of that meaning, and `scripts/build/build-maze-discovery-profiles.mjs` produces the runtime catalog consumed by both Archscry and Maze. `buildDossierMazePathEntries()` remains the only shared runtime factory.
+
+The commander path is an exact color-identity eligibility pool and must be labeled as broad, never as semantic fit or ranking. The support and stretch paths project three named mechanical threads. The story path uses only flavor-text vocabulary and explicitly disclaims mechanical fit. Thread syntax is inspection detail; the default presentation leads with the governed label and plain-English interpretation. Runtime AI is not part of this pipeline.
+
+Colorless continues to use the established `colorless-identity`, `colorless-noncommander-support`, `colorless-story-echoes`, and `outside-color-stretch` aliases. WUBRG retains four governed top-level states but exposes only three executable paths: its outside-color state is `unavailable` because no Commander identity exists outside Five-Color. The UI must explain that boundary and must not generate a placeholder query.
 
 ## Builder Filter Inventory
 
@@ -376,7 +399,7 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 | Query Inspector diagnostics | Contract diagnostics render confidence, recognized, assumptions, warnings, unresolved terms, and alternatives without legacy adapter diagnostics. | `tests/maze/maze-search-tests.js` |
 | Builder request | Current `bFilters` inventory emits unchanged query fragments. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/research-builder-tests.js` |
 | Archscry launch normalization | Origin/source metadata stays stable. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
-| Dossier path generation | Four stable `MazePathEntry` records and path types. | `tests/maze/maze-query-contract-tests.js`, `tests/placement/quick-reading-tests.js`, `tests/maze/maze-search-tests.js` |
+| Dossier path generation | Shared legacy fallback plus 37 canonical discovery profiles, four governed states per dossier, 147 executable top-level paths, and WUBRG's explicit unavailable stretch boundary. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-discovery-profile-tests.js`, `tests/placement/quick-reading-tests.js`, `tests/maze/maze-search-tests.js` |
 | API metadata | `endpoint`, `order`, `unique`, and `dir` are normalized from current behavior only. | `tests/maze/maze-query-contract-tests.js`, `tests/maze/maze-search-tests.js` |
 | Pass-through stability | Launch/source fields remain unchanged unless documented. | `tests/maze/maze-query-contract-tests.js` |
 | Regression floor | Existing parser, builder, mode, Maze, placement, and presentation checks still pass. | `npm test`, `npm run test:parser`, `node tests/maze/maze-search-tests.js` |
@@ -387,3 +410,4 @@ Exact-name is parser/result behavior, not a Maze search mode. Maze route code st
 - `assets/js/maze/research-init.js` remains the route adapter and still owns fetch execution, DOM behavior, stash, modal, and storage.
 - `prepareRawSyntaxQuery()` and format application now live in the shared core so raw normalization is not route-local.
 - `buildDossierMazePathEntries()` remains the shared path factory for Archscry and Maze.
+- VM-547 profile-owned entries add semantic threads and source locators to that same factory output. Archscry renders only the compact top-level links; Maze owns the expanded reading, thread, interpretation, and optional query-inspection presentation.

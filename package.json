@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:maze-discovery-profiles": "node scripts/build/build-maze-discovery-profiles.mjs",
     "build:precons": "node scripts/build/build-precon-artifacts.mjs",
     "build:factions": "node scripts/build/build-faction-artifacts.mjs",
     "build:identity-dossier-content": "node scripts/build/build-identity-dossier-content-catalog.mjs",
@@ -48,6 +49,8 @@
     "test": "node tests/run-tests.js",
     "test:builder": "node tests/maze/research-builder-tests.js",
     "test:maze-semantic-state": "node tests/maze/maze-semantic-state-contract-tests.js",
+    "test:maze-discovery-profiles": "node scripts/build/build-maze-discovery-profiles.mjs --check && node tests/maze/maze-discovery-profile-tests.js",
+    "test:vm547-browser": "node scripts/vm547-discovery-browser.mjs",
     "test:faction-context-isolation": "node tests/semantic/faction-context-isolation-tests.js",
     "test:source-generated": "node scripts/validate/validate-source-generated-guardrails.mjs",
     "test:identity-dossier-content": "node scripts/build/build-identity-dossier-content-catalog.mjs --check",

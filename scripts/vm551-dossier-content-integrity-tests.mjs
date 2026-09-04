@@ -175,9 +175,10 @@ const {
   renderPlayerCopy,
   validateDossierContentCatalogs,
 } = await import("../assets/js/archscry/index.js");
-const [placementModel, identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
+const [placementModel, identityDossierCatalog, mazeDiscoveryProfileCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
   readJson("../data/gate-b1-placement-model.json"),
   readJson("../data/dossier/identity-dossier-content.catalog.json"),
+  readJson("../data/dossier/maze-discovery-profiles.catalog.json"),
   readJson("../data/dossier/public-comparisons.catalog.json"),
   readJson("../data/dossier/discovery-education-catalog.json"),
 ]);
@@ -191,6 +192,7 @@ for (const [identityKey, cardName] of [["WITHERBLOOM", "Dina, Essence Brewer"], 
 const dossierCatalogFixture = {
   placementModel,
   identityDossierCatalog,
+  mazeDiscoveryProfileCatalog,
   publicComparisonCatalog,
   discoveryEducationCatalog,
 };

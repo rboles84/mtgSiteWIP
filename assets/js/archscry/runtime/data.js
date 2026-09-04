@@ -92,6 +92,7 @@ export async function loadIdentityLayerData() {
 export function validateDossierContentCatalogs({
   placementModel,
   identityDossierCatalog,
+  mazeDiscoveryProfileCatalog,
   publicComparisonCatalog,
   discoveryEducationCatalog,
 } = {}) {
@@ -101,6 +102,8 @@ export function validateDossierContentCatalogs({
     : Object.keys(modelIdentities));
   const identityRecords = identityDossierCatalog?.records || [];
   const dossierKeys = new Set(identityRecords.map((record) => record.identity_key));
+  const mazeProfiles = mazeDiscoveryProfileCatalog?.profiles || [];
+  const mazeProfileKeys = new Set(mazeProfiles.map((record) => record.identity_key));
   const comparisons = publicComparisonCatalog?.records || [];
   const comparisonKeys = new Set();
   const normalizePair = (identities = []) => [...identities].sort().join("::");
@@ -132,32 +135,39 @@ export function validateDossierContentCatalogs({
     && glossary.every((record) => typeof record.definition === "string" && record.definition.trim());
 
   return identityDossierCatalog?.schema_version === "vm551-identity-dossier-catalog-v1"
+    && mazeDiscoveryProfileCatalog?.schema_version === "vm547-maze-discovery-catalog-v1"
     && publicComparisonCatalog?.schema_version === "vm551-public-comparison-catalog-v1"
     && discoveryEducationCatalog?.schema_version === "vm551-discovery-education-catalog-v1"
     && identityKeys.size === 37
     && identityRecords.length === identityKeys.size
     && dossierKeys.size === identityKeys.size
     && [...identityKeys].every((identityKey) => dossierKeys.has(identityKey))
+    && mazeProfiles.length === identityKeys.size
+    && mazeProfileKeys.size === identityKeys.size
+    && [...identityKeys].every((identityKey) => mazeProfileKeys.has(identityKey))
     && comparisonsValid
     && requiredPairsPresent
     && glossaryValid;
 }
 
 export async function loadDossierContentAuthority() {
-  const [identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
+  const [identityDossierCatalog, mazeDiscoveryProfileCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
     loadCoreJson("dossier/identity-dossier-content.catalog.json", "identity dossier content"),
+    loadCoreJson("dossier/maze-discovery-profiles.catalog.json", "Maze discovery profiles"),
     loadCoreJson("dossier/public-comparisons.catalog.json", "public identity comparisons"),
     loadCoreJson("dossier/discovery-education-catalog.json", "Archscry education content"),
   ]);
   if (!validateDossierContentCatalogs({
     placementModel: APP_STATE.placementModel,
     identityDossierCatalog,
+    mazeDiscoveryProfileCatalog,
     publicComparisonCatalog,
     discoveryEducationCatalog,
   })) {
     throw new Error("Archscry dossier content is stale or incomplete.");
   }
   APP_STATE.identityDossierCatalog = identityDossierCatalog;
+  APP_STATE.mazeDiscoveryProfileCatalog = mazeDiscoveryProfileCatalog;
   APP_STATE.publicComparisonCatalog = publicComparisonCatalog;
   APP_STATE.discoveryEducationCatalog = discoveryEducationCatalog;
 }
