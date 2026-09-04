@@ -90,10 +90,10 @@ VM-625 must let any visitor read the accepted dossier for Jund, Boros, Lorehold,
 ## RobQA readiness
 
 - **Tier:** QA-3.
-- **Review target:** uncommitted working tree on `codex/vm-625-public-identity-atlas`, based on current branch HEAD `2c8568c832d81f77f9d4202774757a4abccd3ddf`.
+- **Review target:** exact candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8` on `codex/vm-625-public-identity-atlas`.
 - **Objective result:** READY. Exact counts/order/slugs, native links, browse-language boundary, saved-reading byte preservation, URL/history behavior, invalid recovery, Maze context/queries/return, Guild/College distinction, keyboard focus, reduced motion, and desktop/mobile containment are covered.
 - **Owner-only judgment:** CTA hierarchy, card polish/density, medallion readability, small-screen scanning, whether Jund clearly feels browsed rather than assigned, saved-reading distinction, and Maze copy naturalness.
-- **Disposition:** Owner Review Ready; not Owner Accepted and not committed.
+- **Disposition:** Owner Review Ready; exact candidate committed locally, not Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 
@@ -145,7 +145,7 @@ Known inherited discrepancy:
 
 - Owner performs the six-step visual/product review above.
 - Convert only concrete owner findings into the narrowest applicable regression invariant.
-- After Owner acceptance, bind the exact candidate SHA, complete the normal card/index lifecycle update, commit, and publish/integrate only with explicit authorization.
+- After Owner acceptance, record the disposition against the already-bound exact candidate, complete the normal card/index lifecycle update, and publish/integrate only with explicit authorization.
 
 ## Next suggested agent
 
@@ -163,3 +163,11 @@ Owner for visual/product judgment, then Codex for bounded remediation or accepte
 - VM-624 integrated Loom baseline
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`
+
+## Exact candidate binding - 2026-09-03 18:10
+
+- Product/test candidate: `6fa574baca09ab68460ec02a270932a0d89cd4b8` (`feat(vm-625): add public identity atlas explorer`).
+- Bound evidence: the QA-3 results and inherited raw-mode test disposition recorded in this handoff and the VM-625 card.
+- Binding scope: lifecycle documentation only. No runtime, styling, test, data, registry, saved-reading, Maze, or Placement bytes changed after the candidate was created.
+- Publication state: local feature branch only. No push, pull request, merge, integration, or deployment was performed.
+- Owner Review must evaluate exact candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`.

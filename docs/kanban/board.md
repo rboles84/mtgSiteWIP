@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Owner Review Ready; adds the public registry-driven all-37 Atlas, accepted identity-only dossiers, and transient browsed-identity Maze context while preserving saved-reading and Placement state boundaries.
+- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Owner Review Ready at exact candidate `6fa574b`; adds the public registry-driven all-37 Atlas, accepted identity-only dossiers, and transient browsed-identity Maze context while preserving saved-reading and Placement state boundaries.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

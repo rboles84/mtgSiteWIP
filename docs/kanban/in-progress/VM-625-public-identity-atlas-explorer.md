@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Owner Review Ready
+Status: Owner Review Ready - Exact Candidate Bound
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -115,7 +115,9 @@ Extend the accepted VM-579 identity-only dossier and transient Maze context seam
 ## Notes
 
 - Branch: `codex/vm-625-public-identity-atlas` from integrated local `main` at `cf83883`.
-- One registered worktree; no VM-625 predecessor branch or card existed at intake.
+- Exact Owner Review candidate: `6fa574baca09ab68460ec02a270932a0d89cd4b8` (`feat(vm-625): add public identity atlas explorer`).
+- The current RobQA evidence below is bound to that exact candidate. The later binding commit changes lifecycle documentation only; it does not alter candidate runtime, tests, or product behavior.
+- At intake there was one registered worktree and no VM-625 predecessor branch or card. A separate VM-626 worktree appeared before candidate binding, was clean at the collision check, and did not overlap this candidate.
 - The current local `main` is ahead of `origin/main`; VM-625 development does not change or conceal that publication state.
 
 ## Implemented Result
@@ -155,4 +157,4 @@ Known inherited broad-suite discrepancy: direct `node tests/maze/maze-search-tes
 
 ## RobQA Owner Review Gate
 
-Disposition: **READY for Owner Review**, not self-accepted. Automated objective requirements pass. Owner visual judgment remains for CTA hierarchy, Atlas density and medallion polish, mobile scanning, browse-versus-placement feel, saved-reading distinction, and the naturalness of the Jund Maze handoff/return language.
+Disposition: **READY for Owner Review** at exact candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`, not self-accepted. Automated objective requirements pass. Owner visual judgment remains for CTA hierarchy, Atlas density and medallion polish, mobile scanning, browse-versus-placement feel, saved-reading distinction, and the naturalness of the Jund Maze handoff/return language.
