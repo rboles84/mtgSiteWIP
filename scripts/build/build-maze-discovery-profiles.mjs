@@ -71,6 +71,26 @@ function validateAndProject(source, dossierSource, factionsPayload) {
       invariant(thread.label && thread.interpretation && queryClause, `${key}/${thread.thread_id}: label, interpretation, and query are required.`);
       invariant(!/\bft:/i.test(queryClause), `${key}/${thread.thread_id}: mechanical threads cannot masquerade as flavor searches.`);
       invariant(/\b(?:o|otag|kw|t|pow|mv|produces):|\b(?:pow|mv)[<>=]/i.test(queryClause), `${key}/${thread.thread_id}: no governed Scryfall concept is present.`);
+      const laneOverrides = {};
+      for (const lane of ["commander", "support", "stretch"]) {
+        const override = thread.lane_overrides?.[lane];
+        if (!override) continue;
+        invariant(["available", "unavailable"].includes(override.availability), `${key}/${thread.thread_id}/${lane}: invalid lane availability.`);
+        const overrideClause = String(override.query_clause || "").replace(/\s+AND\s+/gi, " ").replace(/\s+/g, " ").trim();
+        if (override.availability === "unavailable") {
+          invariant(override.rationale && !overrideClause, `${key}/${thread.thread_id}/${lane}: unavailable lanes require a rationale and cannot carry a query.`);
+        } else {
+          invariant(overrideClause, `${key}/${thread.thread_id}/${lane}: available lane overrides require a query.`);
+          invariant(!/\bft:/i.test(overrideClause), `${key}/${thread.thread_id}/${lane}: mechanical overrides cannot use flavor text.`);
+        }
+        laneOverrides[lane] = {
+          availability: override.availability,
+          ...(overrideClause ? { query_clause: overrideClause } : {}),
+          ...(override.label ? { label: override.label } : {}),
+          ...(override.interpretation ? { interpretation: override.interpretation } : {}),
+          ...(override.rationale ? { rationale: override.rationale } : {}),
+        };
+      }
       return {
         thread_id: thread.thread_id,
         semantic_kind: "mechanical",
@@ -80,6 +100,7 @@ function validateAndProject(source, dossierSource, factionsPayload) {
         source_item_id: approvedItem.item_id,
         source_locator: approvedItem.source_locator,
         source_role: approvedItem.source_role,
+        ...(Object.keys(laneOverrides).length ? { lane_overrides: laneOverrides } : {}),
       };
     });
 

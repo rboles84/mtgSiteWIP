@@ -178,6 +178,12 @@ async function inspectMaze(page) {
       })),
       threadLabels: [...panel.querySelectorAll(".dossier-thread-card h4")].map((node) => node.textContent.trim()),
       threadInterpretations: [...panel.querySelectorAll(".dossier-thread-card p")].map((node) => node.textContent.trim()),
+      threadCards: [...panel.querySelectorAll(".dossier-thread-card")].map((card) => ({
+        unavailable: card.classList.contains("is-unavailable"),
+        text: card.textContent.trim(),
+        buttons: card.querySelectorAll(".dossier-thread-search").length,
+        details: card.querySelectorAll(".dossier-thread-query").length,
+      })),
       threadButtons: threadButtons.map((button) => ({
         tag: button.tagName,
         height: button.getBoundingClientRect().height,
@@ -187,6 +193,7 @@ async function inspectMaze(page) {
       detailSummaryHeights: [...panel.querySelectorAll(".dossier-query-details summary")].map((summary) => summary.getBoundingClientRect().height),
       boundary: document.getElementById("dossier-stretch-boundary")?.textContent?.trim() || "",
       boundaryHidden: document.getElementById("dossier-stretch-boundary")?.classList.contains("hidden"),
+      returnBanner: document.querySelector(".maze-return-copy")?.textContent?.trim() || "",
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       panelOverflow: panel.scrollWidth - panel.clientWidth,
     };
@@ -210,6 +217,7 @@ let narrowBrowserCases = 0;
 let mobileBrowserCases = 0;
 let accessibilityChecks = 0;
 let returnNavigationTests = 0;
+let unavailableProjectionUiChecks = 0;
 const representativeThreads = new Map();
 
 try {
@@ -242,8 +250,14 @@ try {
     const maze = await inspectMaze(page);
     assert.equal(maze.sidebarPaths.length, expectedPathCount, `${profile.identity_key}: Maze path count mismatch`);
     assert.equal(maze.threadLabels.length, 3, `${profile.identity_key}: commander lane must expose three semantic threads`);
+    const expectedUnavailableCommanderThreads = profile.mechanical_threads.filter((thread) => thread.lane_overrides?.commander?.availability === "unavailable").length;
+    assert.equal(maze.threadCards.filter((card) => card.unavailable).length, expectedUnavailableCommanderThreads, `${profile.identity_key}: commander unavailable-state count mismatch`);
+    assert(maze.threadCards.filter((card) => card.unavailable).every((card) => card.buttons === 0 && card.details === 0 && /unavailable/i.test(card.text)), `${profile.identity_key}: unavailable commander projection exposed an action or hid its explanation`);
+    unavailableProjectionUiChecks += expectedUnavailableCommanderThreads;
     assert.match(maze.laneCopy, /broad set/i, `${profile.identity_key}: Maze broad lane is not transparent`);
     assert.match(maze.laneCopy, /not a Vox Mana fit ranking/i, `${profile.identity_key}: Maze broad lane claims fit`);
+    assert.doesNotMatch(maze.returnBanner, /Commanders That Fit/i, `${profile.identity_key}: return banner mislabeled a broad identity pool as fit`);
+    assert.match(maze.returnBanner, profile.identity_key === "COLORLESS" ? /Colorless Identity/i : /Commanders in this identity/i, `${profile.identity_key}: return banner lost the truthful broad-pool label`);
     assert(maze.detailOpenStates.every((open) => open === false), `${profile.identity_key}: operator syntax should be secondary by default`);
     assert(maze.overflow <= 1 && maze.panelOverflow <= 1, `${profile.identity_key}: Maze overflowed at desktop width`);
     if (profile.identity_key === "WUBRG") {
@@ -271,6 +285,8 @@ try {
       assert.equal(maze.threadLabels.length, 3, `${identityKey}: support lane lost semantic threads at ${viewportName} width`);
       assert(maze.threadInterpretations.every(Boolean), `${identityKey}: support lane omitted a plain-English interpretation`);
       assert(maze.overflow <= 1 && maze.panelOverflow <= 1, `${identityKey}: Maze overflowed at ${viewportName} width`);
+      const expectedUnavailableSupportThreads = profile.mechanical_threads.filter((thread) => thread.lane_overrides?.support?.availability === "unavailable").length;
+      assert.equal(maze.threadCards.filter((card) => card.unavailable).length, expectedUnavailableSupportThreads, `${identityKey}: support unavailable-state count mismatch at ${viewportName} width`);
       representativeThreads.set(`${viewportName}:${identityKey}`, maze.threadLabels.join(" | "));
 
       if (identityKey !== "WUBRG") {
@@ -279,6 +295,10 @@ try {
         maze = await inspectMaze(page);
         assert.match(maze.laneCopy, /preserve named mechanical parts/i, `${identityKey}: stretch lost dossier substance at ${viewportName} width`);
         assert.equal(maze.threadLabels.length, 3, `${identityKey}: stretch must expose the three governed threads`);
+        const expectedUnavailableStretchThreads = profile.mechanical_threads.filter((thread) => thread.lane_overrides?.stretch?.availability === "unavailable").length;
+        assert.equal(maze.threadCards.filter((card) => card.unavailable).length, expectedUnavailableStretchThreads, `${identityKey}: stretch unavailable-state count mismatch at ${viewportName} width`);
+        assert(maze.threadCards.filter((card) => card.unavailable).every((card) => card.buttons === 0 && card.details === 0 && /unavailable/i.test(card.text)), `${identityKey}: unavailable stretch projection exposed an action or hid its explanation at ${viewportName} width`);
+        unavailableProjectionUiChecks += expectedUnavailableStretchThreads;
       } else {
         assert.equal(maze.sidebarPaths.some((entry) => /stretch/.test(entry.pathType)), false, "WUBRG must not manufacture a stretch path");
         assert.match(maze.boundary, /no truthful outside-color commander space/i);
@@ -361,6 +381,7 @@ try {
   assert.equal(mobileBrowserCases, 8);
   assert.equal(accessibilityChecks, 48);
   assert.equal(returnNavigationTests, 3);
+  assert.equal(unavailableProjectionUiChecks, 14);
 
   console.log(JSON.stringify({
     desktopBrowserTests: {
@@ -372,6 +393,7 @@ try {
     mobileBrowserTests: mobileBrowserCases,
     accessibilityChecks,
     returnNavigationTests,
+    unavailableProjectionUiChecks,
     representativeDossiers: representativeKeys,
     pageErrors: pageErrors.length,
     status: "PASS",

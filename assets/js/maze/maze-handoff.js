@@ -274,7 +274,8 @@ function buildProfileOwnedDossierPaths(profile, {
   const hint = String(identityHint || "").trim() || (identity === "c" ? "C" : identity.toUpperCase());
   const mechanicalThreads = profile.mechanical_threads.map((thread) => normalizeProfileThread(thread));
   const storyThreads = profile.story_threads.map((thread) => normalizeProfileThread(thread));
-  const mechanicalGroup = groupProfileThreadClauses(mechanicalThreads);
+  const supportGroup = groupProfileThreadClauses(mechanicalThreads, "support");
+  const stretchGroup = groupProfileThreadClauses(mechanicalThreads, "stretch");
   const storyGroup = groupProfileThreadClauses(storyThreads);
 
   const commanderBase = `id=${identity} is:commander f:commander`;
@@ -301,7 +302,7 @@ function buildProfileOwnedDossierPaths(profile, {
       sidebarLabel: "Cards that support this shape",
       hint: "three mechanical threads",
       pathType: identity === "c" ? "colorless-noncommander-support" : "support-cards",
-      query: joinMazeQuery(supportBase, mechanicalGroup),
+      query: joinMazeQuery(supportBase, supportGroup),
       plainReadingQuery: `${readingName} Commander-legal noncommander, nonland support cards in ${identityText} identity across three named mechanical threads`,
       description: `Translate the ${readingName} mechanical reading into three narrower card searches. Choose a thread to see what it means before inspecting syntax.`,
       isBroad: false,
@@ -328,7 +329,7 @@ function buildProfileOwnedDossierPaths(profile, {
       sidebarLabel: "Outside-color stretch",
       hint: "same threads · different colors",
       pathType: identity === "c" ? "outside-color-stretch" : "weird-stretch-commanders",
-      query: joinMazeQuery(stretchBase, mechanicalGroup),
+      query: joinMazeQuery(stretchBase, stretchGroup),
       plainReadingQuery: `${readingName} Commander-legal commanders outside ${identityText} identity that preserve one of three named mechanical threads`,
       description: profile.stretch.interpretation,
       isBroad: false,
@@ -349,24 +350,49 @@ function normalizeProfileThread(thread = {}) {
     sourceItemId: String(thread.source_item_id || "").trim(),
     sourceLocator: String(thread.source_locator || "").trim(),
     sourceRole: String(thread.source_role || "").trim(),
+    laneOverrides: thread.lane_overrides || {},
   };
 }
 
-function groupProfileThreadClauses(threads = []) {
-  const clauses = threads.map((thread) => thread.queryClause).filter(Boolean);
+function groupProfileThreadClauses(threads = [], lane = "support") {
+  const clauses = threads
+    .map((thread) => resolveProfileThreadLane(thread, lane))
+    .filter((thread) => thread.availability === "available")
+    .map((thread) => thread.queryClause)
+    .filter(Boolean);
   if (!clauses.length) return "";
   if (clauses.length === 1) return clauses[0];
   return `(${clauses.map((clause) => `(${clause})`).join(" OR ")})`;
 }
 
 function createPathThread(thread, baseQuery, lane) {
-  const query = joinMazeQuery(baseQuery, thread.queryClause);
+  const laneThread = resolveProfileThreadLane(thread, lane);
+  const query = laneThread.availability === "available" ? joinMazeQuery(baseQuery, laneThread.queryClause) : "";
   return {
     ...thread,
+    ...laneThread,
     lane,
     query,
     operatorQuery: query,
-    plainReadingQuery: thread.interpretation,
+    plainReadingQuery: laneThread.interpretation,
+  };
+}
+
+function resolveProfileThreadLane(thread, lane) {
+  const override = thread.laneOverrides?.[lane] || {};
+  const availability = override.availability || "available";
+  return {
+    availability,
+    label: String(override.label || thread.label || "").trim(),
+    interpretation: String(
+      availability === "unavailable"
+        ? override.rationale
+        : override.interpretation || thread.interpretation || "",
+    ).trim(),
+    queryClause: availability === "available"
+      ? String(override.query_clause || thread.queryClause || "").trim()
+      : "",
+    unavailableReason: availability === "unavailable" ? String(override.rationale || "").trim() : "",
   };
 }
 

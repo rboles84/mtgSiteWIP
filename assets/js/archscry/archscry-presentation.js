@@ -9,10 +9,10 @@ import {
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
-} from "../maze/maze-handoff.js?v=vm625";
+} from "../maze/maze-handoff.js?v=vm547r2";
 
 export const MAZE_PATH_LABELS = {
-  "commanders-that-fit": "Commanders That Fit",
+  "commanders-that-fit": "Commanders in this identity",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
   "weird-stretch-commanders": "Outside-Color Commander Stretch",

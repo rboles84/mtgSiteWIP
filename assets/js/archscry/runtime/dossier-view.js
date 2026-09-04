@@ -18,7 +18,7 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm547";
+} from "../archscry-presentation.js?v=vm547r2";
 
 import {
   destroyDossierManaRadar,

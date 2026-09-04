@@ -17,7 +17,7 @@ import {
   isMazeOperatorQuery,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
-} from "./maze-handoff.js?v=vm547";
+} from "./maze-handoff.js?v=vm547r2";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
@@ -85,7 +85,7 @@ const MODAL_FOCUS_SELECTOR = [
 ].join(",");
 const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]";
 const ARCHSCRY_PATH_LABELS = {
-  "commanders-that-fit": "Commanders That Fit",
+  "commanders-that-fit": "Commanders in this identity",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
   "weird-stretch-commanders": "Outside-Color Commander Stretch",
@@ -2976,10 +2976,14 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
   (activePath.threads || []).forEach((thread) => {
     const article = document.createElement("article");
     article.className = "dossier-thread-card";
+    const unavailable = thread.availability === "unavailable";
+    article.classList.toggle("is-unavailable", unavailable);
 
     const kind = document.createElement("span");
     kind.className = "dossier-thread-kind";
-    kind.textContent = thread.semanticKind === "flavor-story" ? "Story vocabulary" : "Mechanical thread";
+    kind.textContent = thread.semanticKind === "flavor-story"
+      ? "Story vocabulary"
+      : unavailable ? "Mechanical thread · unavailable in this lane" : "Mechanical thread";
 
     const title = document.createElement("h4");
     title.textContent = thread.label;
@@ -2987,27 +2991,30 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
     const interpretation = document.createElement("p");
     interpretation.textContent = thread.interpretation;
 
-    const search = createActionButton({
-      className: "dossier-thread-search",
-      text: "Search this thread",
-      action: "quick-search",
-      dataset: {
-        query: thread.query,
-        plainReadingQuery: thread.plainReadingQuery,
-        pathType: activePath.pathType,
-        origin: "dossier-thread",
-        dossierThread: "true",
-      },
-    });
+    article.append(kind, title, interpretation);
+    if (!unavailable) {
+      const search = createActionButton({
+        className: "dossier-thread-search",
+        text: "Search this thread",
+        action: "quick-search",
+        dataset: {
+          query: thread.query,
+          plainReadingQuery: thread.plainReadingQuery,
+          pathType: activePath.pathType,
+          origin: "dossier-thread",
+          dossierThread: "true",
+        },
+      });
 
-    const details = document.createElement("details");
-    details.className = "dossier-query-details dossier-thread-query";
-    const summary = document.createElement("summary");
-    summary.textContent = "Inspect the Scryfall query";
-    const code = document.createElement("code");
-    code.textContent = thread.query;
-    details.append(summary, code);
-    article.append(kind, title, interpretation, search, details);
+      const details = document.createElement("details");
+      details.className = "dossier-query-details dossier-thread-query";
+      const summary = document.createElement("summary");
+      summary.textContent = "Inspect the Scryfall query";
+      const code = document.createElement("code");
+      code.textContent = thread.query;
+      details.append(summary, code);
+      article.append(search, details);
+    }
     grid.appendChild(article);
   });
 
