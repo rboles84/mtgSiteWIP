@@ -47,12 +47,14 @@ The Owner explicitly accepted VM-625 after reviewing the seventh exact candidate
 
 - No product uncertainty remains within VM-625.
 - Integration order and destination remain an Owner decision.
+- A post-closeout status check found separate unstaged changes in `archscry/index.html`, `assets/css/archscry.css`, and `scripts/validate-frontend-html.mjs` (`vm625h` -> `vm625i` plus a route-background blue-radial opacity change). They appeared after the clean pre-flight, were not part of this lifecycle task, and were deliberately left unstaged and unmodified.
 
 ## Tests run
 
 - Verified the accepted candidate is an ancestor of the current branch.
 - Verified every path changed after the accepted candidate and before closeout was documentation-only.
 - `git diff --check` for the lifecycle patch.
+- Final status/diff inspection confirming the closeout commit contains documentation only and the separate unstaged runtime changes were not absorbed.
 
 CPU-heavy validation was not required because this closeout changes documentation and lifecycle metadata only; the accepted candidate's QA evidence remains valid.
 
