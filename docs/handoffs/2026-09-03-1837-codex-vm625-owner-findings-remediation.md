@@ -63,11 +63,11 @@ The initial card renderer encoded connector segments only between adjacent activ
 - Use clamped previous/next controls rather than an infinite loop. Disabled endpoint buttons make the sequence and normal-scroll boundary explicit.
 - Disable wheel capture below the accepted 760px mobile breakpoint so touch/narrow users retain ordinary page scrolling and use the visible controls.
 - Preserve the first exact candidate and its evidence as history. The replacement is frozen at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` for Owner review.
-- Preserve the fifth-review candidate as history while the sixth-review micro-adjustment is validated and bound to a replacement exact SHA.
+- Preserve the fifth-review candidate as history. The sixth-review micro-adjustment is frozen at exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` for Owner review.
 
 ## Risks / uncertainties
 
-- Owner judgment remains for whether the new warm filament and simplified stones feel materially more authored than both the original and rejected revision at the real card size. The accepted Atlas behavior and layout are not reopened.
+- Owner judgment remains only for whether the exact 30% reduction makes the accepted warm filament and simplified stones sufficiently restrained at real card size. The accepted material direction, Atlas behavior, and layout are not reopened.
 - Owner judgment remains for overall density and the stable desktop stage height used to keep the pointer inside the wheel target as blocks change size.
 - No physical screen-reader pass was performed; semantic buttons, link names, live status, focus, disabled endpoints, and DOM visibility are covered deterministically.
 
@@ -82,14 +82,14 @@ The initial card renderer encoded connector segments only between adjacent activ
 ## RobQA readiness
 
 - **Tier:** QA-3 remains appropriate for the complete VM-625 candidate because the remediation includes in-page state transitions and wheel/button navigation; the sixth-review glow correction alone is QA-1 presentation work. Placement remains untouched.
-- **Review target:** replacement exact candidate pending the focused sixth-review validation and commit on `codex/vm-625-public-identity-atlas`.
-- **Objective result:** pending focused sixth-round checks. The narrow invariant freezes the accepted construction and requires exactly 30% less light contribution from active stones and connectors.
-- **Rendered evidence:** actual in-place card captures compare original, rejected, and new states for White, Azorius, Jund, Ink, Five-Color, and Colorless. The images are captured from the real registry-driven Atlas cards at their normal rendered size.
-- **Disposition:** focused correction in progress; not yet exact-SHA bound, Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Review target:** exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` on `codex/vm-625-public-identity-atlas`.
+- **Objective result:** READY after focused sixth-round checks. The narrow invariant freezes the accepted construction and proves exactly 30% less light contribution from active stones and connectors with widths and channel unchanged.
+- **Rendered evidence:** the actual in-place `new-*` card captures for White, Azorius, Jund, Ink, Five-Color, and Colorless were refreshed from the exact candidate at their normal rendered size; the original and rejected columns remain historical comparators.
+- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 
-Passed from exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` after remediation:
+Passed from exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` after the sixth-review correction:
 
 - `npm.cmd run lint:js`
 - `npm.cmd run lint:html`
@@ -99,7 +99,7 @@ Passed from exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` after rem
 - `npm.cmd run test:frontend-smoke`
 - `git diff --check`
 
-The focused Atlas test now covers one quiet neutral scaffold, warm channel/body/core layers for each logical connector, absence of concentric node-ring markup, bloom/body/specular layers for every stone, node-over-path order, five equal color positions, zero SVG text glyphs, direct enemy-pair edges, closed wedge/WUBRG polygons, the centered Colorless stone with dormant frame, reduced-motion treatment, six chevrons across two native buttons, material control separation, no visible pager label/count/instruction elements, assistive live context, five mono cards without code rows, Boros letter/pip center parity, seven panels/one visible, mouse-wheel down and up, button progression, 44px controls, keyboard link focus, combined endpoints, saved-reading isolation, Maze context, history, invalid recovery, and mobile containment.
+The focused Atlas test now additionally freezes exactly 70% of the prior active orb and connector light contributions, including hover/focus, while retaining the warm recessed channel and the `2.9`/`0.9` connector widths. It continues to cover one quiet neutral scaffold, three warm connector layers, absence of concentric node-ring markup, bloom/body/specular layers for every stone, node-over-path order, five equal color positions, zero SVG text glyphs, direct enemy-pair edges, closed wedge/WUBRG polygons, the centered Colorless stone with dormant frame, reduced-motion treatment, six chevrons across two native buttons, material control separation, no visible pager label/count/instruction elements, assistive live context, five mono cards without code rows, Boros letter/pip center parity, seven panels/one visible, mouse-wheel down and up, button progression, 44px controls, keyboard link focus, combined endpoints, saved-reading isolation, Maze context, history, invalid recovery, and mobile containment.
 
 CPU-heavy placement/bias/mutation/all-journey suites were not run because no placement, scoring, qualification, source identity, dossier content, or Maze query behavior changed.
 
@@ -135,7 +135,7 @@ FAIL if any active color still appears disconnected, code/pip columns drift, whe
 
 ## Follow-up recommendations
 
-- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f`.
+- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
@@ -148,5 +148,6 @@ Owner for the bounded visual/product review, then Codex for exact-candidate free
 - `docs/handoffs/2026-09-03-1747-codex-vm625-public-identity-atlas-owner-review.md`
 - Exact initial candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`
 - Binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe`
+- Exact sixth-review candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`
