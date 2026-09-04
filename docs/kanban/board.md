@@ -40,8 +40,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Owner Accepted — Integration Pending at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; RobQA PASS and Owner ACCEPT remain valid while the single PR, required CI, squash merge, `main` verification, and safe branch cleanup complete without material product-byte changes.
-
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
@@ -56,6 +54,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-625 — Public Identity Atlas Explorer](done/VM-625-public-identity-atlas-explorer.md) - Done — Owner Accepted / Integrated at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; PR #23 passed required CI and squash-merged as `3ec656482669edf61ab462a6499db5745c43520b` with no post-acceptance product-byte change. Remote branch cleanup completed; the local pointer is retained only to protect unrelated dirty cursor-glow work in the original worktree.
 
 - [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](done/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Done — Owner Accepted amendment at exact material candidate `29e3e4c`; post-ACCEPT PR #22 passed integration checks and squash-merged as `3cd143c`. Repeated exact-candidate Owner iteration now precedes mandatory PR integration; VM-625 and deferred `main` protection remain untouched.
 

@@ -150,12 +150,12 @@ FAIL if names or pips still feel underscaled, notation competes with them, the s
 
 ## Follow-up recommendations
 
-- VM-625 is Owner Accepted — Integration Pending for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Owner authorization now covers the accepted single-PR, CI, squash-merge, `main` verification, lifecycle closeout, and safe branch-cleanup sequence; product implementation remains frozen.
+- VM-625 completed integration without product drift: PR #23 passed required CI and squash-merged as `3ec656482669edf61ab462a6499db5745c43520b`. No further VM-625 product work is authorized without a new Owner request.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
 
-Codex for the authorized VM-625 integration lifecycle.
+None.
 
 ## Related Kanban card, docs, or plans
 

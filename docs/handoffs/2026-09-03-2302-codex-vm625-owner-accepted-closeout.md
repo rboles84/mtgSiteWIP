@@ -80,3 +80,7 @@ Codex for the authorized VM-625 integration lifecycle.
 - Documentation-only evidence binding commit `c97d154aef1ada63b97a680015d7e69fd4464bf4a0`
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`
+
+## Subsequent integration
+
+The accepted workflow was completed without re-review or material product change. PR [#23](https://github.com/rboles84/voxmana.io/pull/23) passed required `Deterministic Validation` and squash-merged as `3ec656482669edf61ab462a6499db5745c43520b`. The final lifecycle record is `docs/handoffs/2026-09-03-2311-codex-vm625-integration.md`.

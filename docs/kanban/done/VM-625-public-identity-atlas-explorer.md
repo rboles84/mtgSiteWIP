@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Owner Accepted — Integration Pending
+Status: Done — Owner Accepted / Integrated
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -310,9 +310,10 @@ Exact Owner Review target: `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Focused l
 
 ## Owner Acceptance And Integration State - 2026-09-03
 
-- **Owner acceptance:** `ACCEPT VM-625` received for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
+- **Owner acceptance:** `ACCEPT VM-625` received and preserved without re-review for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
 - **Accepted result:** the public 37-destination Identity Atlas, non-placement identity dossiers, transient browsed-identity Maze context, accepted card/pager/sigil presentation, 30% restrained orb/path light, and final card-content legibility refinement.
 - **QA disposition:** RobQA PASS. Objective evidence remains bound to the exact accepted candidate; Owner supplied the required visual/product judgment.
-- **Owner acceptance:** preserved without re-review at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
-- **Lifecycle state:** Owner Accepted — Integration Pending. The earlier Done classification was premature under the accepted VM-626 delivery workflow.
-- **Integration state:** authorized to proceed through the single VM-625 PR, required CI, squash merge, synchronized `main`, exact integration-SHA recording, and safe branch cleanup. No material product bytes may change after the accepted candidate without returning through RobDev, RobQA, and Owner Review.
+- **Lifecycle state:** Done — Owner Accepted / Integrated. The premature Done classification was corrected before integration and restored only after the accepted workflow completed.
+- **Integration state:** PR [#23](https://github.com/rboles84/voxmana.io/pull/23) passed required `Deterministic Validation` and squash-merged to `main` as `3ec656482669edf61ab462a6499db5745c43520b`.
+- **Material integrity:** product paths remained byte-identical after the accepted candidate. Later changes were lifecycle/evidence documentation or current-`main` governance only.
+- **Cleanup:** GitHub removed the remote feature branch automatically. The local feature-branch pointer remains only because the original worktree contains a separate task's uncommitted cursor-glow edits and is not safe to disturb.

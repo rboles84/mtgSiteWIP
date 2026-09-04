@@ -20,7 +20,7 @@ Correct the premature VM-625 Done state and complete the accepted repository del
 
 ## Files changed
 
-- `docs/kanban/in-progress/VM-625-public-identity-atlas-explorer.md` (moved back from `done` until integration completes)
+- `docs/kanban/done/VM-625-public-identity-atlas-explorer.md` (returned to `done` only after integration completed)
 - `docs/kanban/board.md`
 - `docs/handoffs/2026-09-03-1837-codex-vm625-owner-findings-remediation.md`
 - `docs/handoffs/2026-09-03-2302-codex-vm625-owner-accepted-closeout.md`
@@ -32,7 +32,12 @@ Correct the premature VM-625 Done state and complete the accepted repository del
 - Preserved RobQA PASS and Owner ACCEPT at the exact product candidate.
 - Corrected lifecycle status to Owner Accepted — Integration Pending until the accepted PR/CI/squash-merge workflow completes.
 - Isolated integration in `C:/dev/voxmana.io-vm625-integration` at committed VM-625 lineage so unrelated original-worktree edits remain untouched.
-- PR number, CI result, squash-merge SHA, final `main` HEAD, and cleanup outcome will be recorded in this handoff after integration.
+- Published feature head `544fde0e4a87d29bbb2372c9005060dd89bfa457`, opened the single VM-625 PR [#23](https://github.com/rboles84/voxmana.io/pull/23), and bound RobQA PASS plus Owner ACCEPT to `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` in the PR.
+- Verified GitHub's 33-file PR diff contained the VM-625 product, tests, and evidence only. Historical VM-624 documentation ancestor `2c8568c` was neutralized and contributed no PR file delta.
+- Merged current accepted `main` into the integration head to resolve one handoff-index conflict without changing product bytes; no runtime file conflicted.
+- Required `Deterministic Validation` passed at PR head `544fde0e4a87d29bbb2372c9005060dd89bfa457`.
+- Squash-merged PR #23 as `3ec656482669edf61ab462a6499db5745c43520b` and synchronized the isolated worktree to that exact `origin/main` commit.
+- GitHub's automatic merged-branch deletion removed the remote feature branch.
 
 ## Why it changed
 
@@ -47,16 +52,19 @@ VM-625 was marked Done before the accepted VM-626 delivery workflow's required p
 
 ## Risks / uncertainties
 
-- Required GitHub CI must pass against the PR head.
-- A merge conflict or unexpected PR diff would stop integration rather than trigger an unreviewed product change.
-- Local feature-branch deletion is permitted only when it cannot disturb the separate dirty cursor-glow task.
+- No product or integration blocker remains.
+- The original worktree's local `codex/vm-625-public-identity-atlas` pointer cannot be deleted safely while it owns the separate cursor-glow task's uncommitted files. Repository policy requires preserving that work; remote cleanup is complete and local pointer cleanup is deferred until that owner relocates or commits its work.
 
 ## Tests run
 
 - Verified `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` is an ancestor of the committed VM-625 branch.
-- Verified every committed path after the accepted product SHA is under `docs/`.
+- Verified pre-integration VM-625 commits after the accepted product SHA were documentation-only.
 - Confirmed the original dirty runtime/cache/validation edits are owned by the separate cursor-glow task.
-- Integration and CI results pending.
+- Verified product paths were byte-identical between accepted candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` and PR head `544fde0e4a87d29bbb2372c9005060dd89bfa457`.
+- Verified PR #23 was mergeable with exactly 33 expected VM-625 files and no VM-624 or cursor-glow file delta.
+- GitHub `Deterministic Validation`: PASS.
+- PR #23 squash merge: PASS at `3ec656482669edf61ab462a6499db5745c43520b`.
+- Remote feature branch absence after automatic cleanup: PASS.
 
 ## Not touched
 
@@ -66,16 +74,18 @@ VM-625 was marked Done before the accepted VM-626 delivery workflow's required p
 
 ## Follow-up recommendations
 
-- Complete the current authorized integration sequence; reopen product review only if material bytes must change.
+- No further VM-625 action is required. Delete the retained local feature pointer only after the separate cursor-glow task has safely moved or committed its work.
 
 ## Next suggested agent
 
-Codex for integration completion and final verification.
+None.
 
 ## Related Kanban card, docs, or plans
 
-- `docs/kanban/in-progress/VM-625-public-identity-atlas-explorer.md`
+- `docs/kanban/done/VM-625-public-identity-atlas-explorer.md`
 - `docs/reference/workflow.md`
 - `docs/handoffs/2026-09-03-1837-codex-vm625-owner-findings-remediation.md`
 - `docs/handoffs/2026-09-03-2302-codex-vm625-owner-accepted-closeout.md`
 - Exact accepted product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`
+- PR [#23](https://github.com/rboles84/voxmana.io/pull/23)
+- Squash-merge SHA `3ec656482669edf61ab462a6499db5745c43520b`
