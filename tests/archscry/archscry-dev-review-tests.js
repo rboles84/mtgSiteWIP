@@ -130,6 +130,7 @@ try {
       globalThis.__vmVisualRegressionDisableCardArt = true;
       if (placement && new URLSearchParams(location.search).get("vm-dev-review") === "1") {
         sessionStorage.setItem("vm_last_result", JSON.stringify(placement));
+        localStorage.setItem("vm_archscry_saved_reading_v1", JSON.stringify(placement));
         sessionStorage.setItem("vm_profile", JSON.stringify({ sentinel: "vm579-profile" }));
         localStorage.setItem("vm_archscry_maze_handoff_v1", JSON.stringify({ sentinel: "vm579-maze" }));
         localStorage.setItem("vm579-owner-state", "preserve-me");
@@ -283,7 +284,7 @@ try {
       handoffFaction: handoff?.placementResult?.faction,
     };
   }), {
-    savedPlacement: storageBaseline.session.vm_last_result,
+    savedPlacement: storageBaseline.session.vm_last_result ?? null,
     profile: storageBaseline.session.vm_profile,
     ownerState: storageBaseline.local["vm579-owner-state"],
     handoffFaction: "W",

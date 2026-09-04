@@ -84,7 +84,7 @@ assert.match(mazeRuntime, /function readActiveArchscryMazeHandoff\(\)[\s\S]*?isI
 assert.match(mazeRuntime, /Searching independently[\s\S]*?not using the retained reading[\s\S]*?New Finds will not be attached[\s\S]*?existing Finds remain unchanged/);
 assert.match(mazeRuntime, /function restoreReadingContext\(\)[\s\S]*?searchParams\.delete\("independent"\)[\s\S]*?history\.pushState/);
 assert.match(mazeRuntime, /action\.dataset\.action = "restore-reading-context"/);
-assert.match(mazeRuntime, /action\.textContent = "Restore reading context"/);
+assert.match(mazeRuntime, /action\.textContent = retainedExplorationContext \? "Restore dossier context" : "Restore reading context"/);
 const independentAction = mazeRuntime.slice(mazeRuntime.indexOf("function searchIndependently"), mazeRuntime.indexOf("function refreshReadingContextPresentation"));
 assert.doesNotMatch(independentAction, /localStorage\.(?:setItem|removeItem|clear)/, "independent search must not rewrite handoff or saved-reading storage");
 assert.match(mazeCss, /\.maze-reading-context[\s\S]*?\.qi-recovery/);

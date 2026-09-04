@@ -8,7 +8,7 @@ import {
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
-} from "../maze/maze-handoff.js";
+} from "../maze/maze-handoff.js?v=vm625";
 
 export const MAZE_PATH_LABELS = {
   "commanders-that-fit": "Commanders That Fit",
@@ -1381,6 +1381,7 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
         readingTitle: context.readingTitle,
         contextMode: context.contextMode,
         reviewIdentity: context.reviewIdentity,
+        exploreIdentity: context.exploreIdentity,
         pathType,
         plainReadingQuery,
         operatorQuery,

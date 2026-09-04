@@ -44,7 +44,7 @@ export function showSection(id) {
     id = "landing";
   }
 
-  ["landing", "quick", "interview", "result"].forEach((sectionId) => {
+  ["landing", "atlas", "quick", "interview", "result"].forEach((sectionId) => {
     const node = document.getElementById(sectionId);
     if (node) {
       node.classList.toggle("hidden", sectionId !== id);

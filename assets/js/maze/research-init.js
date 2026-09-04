@@ -12,7 +12,7 @@ import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-co
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
-import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "./maze-handoff.js";
+import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "./maze-handoff.js?v=vm625";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
@@ -65,6 +65,7 @@ const PAGE_SIZE = 24;
 const DEFAULT_FORMAT = "commander";
 const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
+const IDENTITY_EXPLORE_CONTEXT_MODE = "identity-explore";
 let transientArchscryMazeHandoff = null;
 const MODAL_FOCUS_SELECTOR = [
   "a[href]",
@@ -1103,22 +1104,30 @@ function updateReadingContextDisclosure() {
     handoff?.factionName || DOSSIER_DISPLAY_NAMES.get(dossierKey) || handoff?.fit || handoff?.guild || ""
   ).trim();
   const launchedFromDossier = new URLSearchParams(location.search).get("from") === "archscry";
+  const explorationContext = handoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
+  const retainedExplorationContext = retainedHandoff?.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
   action.dataset.action = "search-independently";
   action.textContent = "Search independently";
   if (independent && retainedFactionName) {
     context.dataset.state = "independent";
     label.textContent = "Searching independently";
-    detail.textContent = "This search is not using the retained reading. New Finds will not be attached to that reading; the reading and its existing Finds remain unchanged.";
+    detail.textContent = retainedExplorationContext
+      ? `This search is not using the retained ${retainedFactionName} dossier context.`
+      : "This search is not using the retained reading. New Finds will not be attached to that reading; the reading and its existing Finds remain unchanged.";
     action.dataset.action = "restore-reading-context";
-    action.textContent = "Restore reading context";
+    action.textContent = retainedExplorationContext ? "Restore dossier context" : "Restore reading context";
   } else if (factionName && launchedFromDossier) {
     context.dataset.state = "dossier-thread";
     label.textContent = `${factionName} dossier thread`;
-    detail.textContent = "This query came from your dossier. No extra reading filters are being added.";
+    detail.textContent = explorationContext
+      ? `This query came from the ${factionName} dossier. No reading was created or changed.`
+      : "This query came from your dossier. No extra reading filters are being added.";
   } else if (factionName) {
-    context.dataset.state = "reading-available";
-    label.textContent = `${factionName} reading available`;
-    detail.textContent = "It keeps the return path and new Reading Finds association, but it is not changing this query.";
+    context.dataset.state = explorationContext ? "dossier-available" : "reading-available";
+    label.textContent = explorationContext ? `${factionName} dossier available` : `${factionName} reading available`;
+    detail.textContent = explorationContext
+      ? "It keeps the return path to the browsed dossier without creating a reading."
+      : "It keeps the return path and new Reading Finds association, but it is not changing this query.";
   } else {
     context.dataset.state = "standalone";
     label.textContent = "Standalone search";
@@ -1139,7 +1148,7 @@ function searchIndependently() {
   const url = new URL(location.href);
   [
     "from", "fit", "guild", "factionName", "sourceFaction", "readingTitle", "readingId",
-    "pathType", "plainReadingQuery", "operatorQuery", "returnUrl", "contextMode", "reviewIdentity"
+    "pathType", "plainReadingQuery", "operatorQuery", "returnUrl", "contextMode", "reviewIdentity", "exploreIdentity"
   ].forEach((key) => url.searchParams.delete(key));
   const activeQuery = String(currentQuery || document.getElementById("search-input")?.value || "").trim();
   if (activeQuery) url.searchParams.set("q", activeQuery);
@@ -2620,7 +2629,7 @@ function readArchscryMazeHandoff() {
 }
 
 function writeArchscryMazeHandoff(handoff) {
-  if (handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE) {
+  if ([DOSSIER_REVIEW_CONTEXT_MODE, IDENTITY_EXPLORE_CONTEXT_MODE].includes(handoff?.contextMode)) {
     transientArchscryMazeHandoff = {
       ...handoff,
       updatedAt: new Date().toISOString()
@@ -2680,10 +2689,15 @@ function initializeArchscryMazeHandoff(urlParams) {
   }
 
   const requestedReviewIdentity = resolveDossierActiveKey(urlParams.get("reviewIdentity"));
+  const requestedExploreIdentity = resolveDossierActiveKey(urlParams.get("exploreIdentity"));
   const dossierReviewContext = urlParams.get("contextMode") === DOSSIER_REVIEW_CONTEXT_MODE && requestedReviewIdentity
     ? requestedReviewIdentity
     : "";
-  const existing = dossierReviewContext ? {} : readArchscryMazeHandoff() || {};
+  const identityExploreContext = urlParams.get("contextMode") === IDENTITY_EXPLORE_CONTEXT_MODE && requestedExploreIdentity
+    ? requestedExploreIdentity
+    : "";
+  const transientIdentityContext = dossierReviewContext || identityExploreContext;
+  const existing = transientIdentityContext ? {} : readArchscryMazeHandoff() || {};
   const launchReadingId = urlParams.get("readingId") || existing.readingId || "";
   const urlQ = urlParams.get("q") || "";
   const explicitOperatorQuery = urlParams.get("operatorQuery") || "";
@@ -2699,7 +2713,7 @@ function initializeArchscryMazeHandoff(urlParams) {
   const operatorKey = inferDossierKeyFromMazeQuery(initialOperatorQuery);
   const existingFitKey = resolveDossierActiveKey(existing.fit || "");
   const colorlessUrlKey = [urlFitKey, urlFactionNameKey, urlGuildKey].find((key) => key === "COLORLESS") || "";
-  const fit = dossierReviewContext ||
+  const fit = transientIdentityContext ||
     urlFitKey ||
     colorlessUrlKey ||
     operatorKey ||
@@ -2743,6 +2757,9 @@ function initializeArchscryMazeHandoff(urlParams) {
     ...(dossierReviewContext ? {
       contextMode: DOSSIER_REVIEW_CONTEXT_MODE,
       reviewIdentity: dossierReviewContext,
+    } : identityExploreContext ? {
+      contextMode: IDENTITY_EXPLORE_CONTEXT_MODE,
+      exploreIdentity: identityExploreContext,
     } : {}),
     readingId,
     guild: LIVE_FOUR_COLOR_DOSSIER_KEYS.has(fit) ? fit : fit || urlGuildKey || existing.guild || "",
@@ -2753,7 +2770,7 @@ function initializeArchscryMazeHandoff(urlParams) {
     pathType: handoffPathType,
     plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
-    placementResult: dossierReviewContext
+    placementResult: transientIdentityContext
       ? undefined
       : keepExistingPlacementResult ? existing.placementResult : undefined,
     returnBannerDismissed: previousIdentity && previousIdentity === nextIdentity
@@ -2800,15 +2817,24 @@ function renderArchscryReturnBanner(handoff) {
   });
 
   clearNode(copy);
-  appendContent(copy, "Following ");
   const strong = document.createElement("strong");
   strong.textContent = factionName;
-  copy.appendChild(strong);
-  appendContent(copy, ` from ${title}`);
-  if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
-  appendContent(copy, ".");
+  if (handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE) {
+    appendContent(copy, "Exploring ");
+    copy.appendChild(strong);
+    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
+    appendContent(copy, ".");
+  } else {
+    appendContent(copy, "Following ");
+    copy.appendChild(strong);
+    appendContent(copy, ` from ${title}`);
+    if (pathLabel) appendContent(copy, ` through ${pathLabel}`);
+    appendContent(copy, ".");
+  }
   link.href = returnUrl;
-  link.textContent = "Return to Dossier with Finds";
+  link.textContent = handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE
+    ? `Return to ${factionName} dossier`
+    : "Return to Dossier with Finds";
   banner.classList.add("is-visible");
 }
 
@@ -2851,9 +2877,10 @@ function buildReadingPaths() {
   }
 
   const handoff = readArchscryMazeHandoff();
-  const result = handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE ? null : getStoredPlacementResult();
-  const paths = handoff?.contextMode === DOSSIER_REVIEW_CONTEXT_MODE
-    ? createDossierReviewPaths(handoff)
+  const identityContext = [DOSSIER_REVIEW_CONTEXT_MODE, IDENTITY_EXPLORE_CONTEXT_MODE].includes(handoff?.contextMode);
+  const result = identityContext ? null : getStoredPlacementResult();
+  const paths = identityContext
+    ? createIdentityContextPaths(handoff)
     : result ? createReadingPaths(result) : [];
   if (!paths.length) {
     section.style.display = "none";
@@ -2966,8 +2993,8 @@ function createReadingPaths(result) {
   return createDossierPaths({ identity, factionKey, readingName, signals });
 }
 
-function createDossierReviewPaths(handoff = {}) {
-  const factionKey = resolveDossierActiveKey(handoff.reviewIdentity || handoff.fit || "");
+function createIdentityContextPaths(handoff = {}) {
+  const factionKey = resolveDossierActiveKey(handoff.reviewIdentity || handoff.exploreIdentity || handoff.fit || "");
   const identity = colorIdentityFromDossierKey(factionKey);
   if (!identity) return [];
   return createDossierPaths({
@@ -3692,11 +3719,12 @@ function isCardInScratchpad(card) {
 
 function scratchpadContext() {
   const handoff = readActiveArchscryMazeHandoff() || {};
+  const explorationContext = handoff.contextMode === IDENTITY_EXPLORE_CONTEXT_MODE;
   return {
     sourceContext: {
       context: "maze",
       query: currentQuery || "",
-      readingId: handoff.readingId || "",
+      readingId: explorationContext ? "" : handoff.readingId || "",
       fit: handoff.pathType || "",
       factionName: handoff.factionName || "",
       pathType: handoff.pathType || "",

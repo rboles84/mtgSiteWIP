@@ -18,7 +18,7 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm625";
 
 import {
   destroyDossierManaRadar,
@@ -83,6 +83,7 @@ import {
   buildSegmentControlsHtml,
   buildSegmentPanelHtml,
   initializeDossierRadarIfVisible,
+  normalizeDossierPanelId,
   normalizeDossierSegment,
   refreshAccountDeckLinks,
   resolveDossierConsoleState,
@@ -1629,22 +1630,37 @@ export function renderIdentityDossier(identityKey) {
   return renderResult(normalizedKey, { mode: "identity-review" });
 }
 
-export function renderResult(viewKey, { mode = "placement" } = {}) {
+export function renderIdentityExplorationDossier(identityKey, { exploreSlug = "", hasSavedReading = false } = {}) {
+  const normalizedKey = String(identityKey || "").trim().toUpperCase();
+  const registryEntry = APP_STATE.identityLayers?.expressions?.[normalizedKey];
+  if (!normalizedKey || registryEntry?.active === false || !registryEntry || !getFaction(normalizedKey)) {
+    throw new Error(`Unknown active Archscry identity: ${normalizedKey || "(empty)"}.`);
+  }
+  return renderResult(normalizedKey, {
+    mode: "identity-explore",
+    exploreSlug,
+    hasSavedReading,
+  });
+}
+
+export function renderResult(viewKey, { mode = "placement", exploreSlug = "", hasSavedReading = false } = {}) {
   const reviewMode = mode === "identity-review";
-  const context = reviewMode ? { result: null, viewKey: null } : getActiveResultContext();
-  const result = reviewMode ? null : withGateAPublicState({
+  const explorationMode = mode === "identity-explore";
+  const identityOnlyMode = reviewMode || explorationMode;
+  const context = identityOnlyMode ? { result: null, viewKey: null } : getActiveResultContext();
+  const result = identityOnlyMode ? null : withGateAPublicState({
     result: context.result,
     placementModel: APP_STATE.placementModel,
     factions: APP_STATE.factions,
   });
-  const resultState = reviewMode ? "review" : deriveGateAResultState({
+  const resultState = identityOnlyMode ? "review" : deriveGateAResultState({
     result,
     placementModel: APP_STATE.placementModel,
     factions: APP_STATE.factions,
   });
-  const closeAlternative = reviewMode ? null : closeAlternativeForResult(result, APP_STATE.placementModel, APP_STATE.factions);
-  const tiedAlternative = !reviewMode && resultState === "tied" ? result?.top_matches?.[1] : null;
-  const explorationAlternatives = !reviewMode && resultState === "primary" && result?.alternative_state === "exploration"
+  const closeAlternative = identityOnlyMode ? null : closeAlternativeForResult(result, APP_STATE.placementModel, APP_STATE.factions);
+  const tiedAlternative = !identityOnlyMode && resultState === "tied" ? result?.top_matches?.[1] : null;
+  const explorationAlternatives = !identityOnlyMode && resultState === "primary" && result?.alternative_state === "exploration"
     ? (result?.adjacent_matches || []).slice(0, 2)
     : [];
   const requestedKey = String(viewKey || context.viewKey || "").trim().toUpperCase();
@@ -1654,7 +1670,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     tiedAlternative?.faction,
     ...explorationAlternatives.map((match) => match?.faction),
   ].filter(Boolean));
-  const activeKey = reviewMode
+  const activeKey = identityOnlyMode
     ? requestedKey
     : allowedAlternativeKeys.has(requestedKey) ? requestedKey : result?.faction;
   const terminalEnabled = isScryingTerminalEnabled();
@@ -1662,7 +1678,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   educationalTermAllocation = new Map();
   renderedEducationalTerms = new Set();
 
-  if (!result && !reviewMode) {
+  if (!result && !identityOnlyMode) {
     document.getElementById("result-inner").innerHTML = `
       <div class="empty-state">
         <h2>No reading yet.</h2>
@@ -1676,7 +1692,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     return;
   }
 
-  if (!reviewMode && ["mixed", "contradictory", "insufficient", "unknown", "invalid", "incomplete"].includes(resultState) && !(resultState === "unknown" && isLegacyGateAResult(result))) {
+  if (!identityOnlyMode && ["mixed", "contradictory", "insufficient", "unknown", "invalid", "incomplete"].includes(resultState) && !(resultState === "unknown" && isLegacyGateAResult(result))) {
     renderBoundedResultShell(result, resultState);
     return;
   }
@@ -1686,24 +1702,24 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     return;
   }
 
-  if (!reviewMode) {
+  if (!identityOnlyMode) {
     APP_STATE.activeResult = result;
     vm_cachePlacementResult(result);
   }
 
-  const starterProfile = reviewMode ? {} : result.starter_profile || getStarterProfile();
+  const starterProfile = identityOnlyMode ? {} : result.starter_profile || getStarterProfile();
   const dossier = buildCommanderDossier({
     factions: APP_STATE.factions,
     placementModel: APP_STATE.placementModel,
     deckTagCatalog: APP_STATE.deckTagCatalog,
     placementResult: result,
-    identityKey: reviewMode ? activeKey : "",
+    identityKey: identityOnlyMode ? activeKey : "",
     targetFactionKey: activeKey,
     starterProfile,
     summaryPresentationForFaction: presentationForFaction,
     summaryContrastCopyBuilder: approvedComparisonCopy,
   });
-  const tiedPeerDossier = !reviewMode && resultState === "tied" && activeKey === result.faction && tiedAlternative?.faction
+  const tiedPeerDossier = !identityOnlyMode && resultState === "tied" && activeKey === result.faction && tiedAlternative?.faction
     ? buildCommanderDossier({
         factions: APP_STATE.factions,
         placementModel: APP_STATE.placementModel,
@@ -1748,7 +1764,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
   const baseMazePaths = buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy });
-  const placementMazeContext = buildArchscryMazeContext({ result: reviewMode ? null : result, dossier, faction });
+  const placementMazeContext = buildArchscryMazeContext({ result: identityOnlyMode ? null : result, dossier, faction });
   const mazeContext = reviewMode
     ? {
         ...placementMazeContext,
@@ -1758,8 +1774,17 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         readingTitle: `${placementMazeContext.factionName || faction.name || activeKey} dossier review`,
         returnUrl: `../archscry/index.html?vm-dev-review=1&reviewIdentity=${encodeURIComponent(activeKey)}#maze-discovery-paths`,
       }
-    : placementMazeContext;
-  if (!reviewMode) writeArchscryDossierHandoff(result, mazeContext);
+    : explorationMode
+      ? {
+          ...placementMazeContext,
+          contextMode: "identity-explore",
+          exploreIdentity: activeKey,
+          readingId: `identity-explore-${String(exploreSlug || activeKey).toLowerCase()}`,
+          readingTitle: `${placementMazeContext.factionName || faction.name || activeKey} dossier`,
+          returnUrl: `../archscry/index.html?explore=${encodeURIComponent(exploreSlug || activeKey.toLowerCase())}&panel=maze-discovery#maze-discovery-paths`,
+        }
+      : placementMazeContext;
+  if (!identityOnlyMode) writeArchscryDossierHandoff(result, mazeContext);
   const personalizedMazePaths = withArchscryMazeContext(baseMazePaths, mazeContext, window.location.href);
   const dossierContent = dossierContentForFaction(faction);
   const archetypeItems = dossierContent?.what_to_look_for.map((item) => ({
@@ -1804,18 +1829,20 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   const dossierInterpretationHtml = buildDossierInterpretationHtml({ dossier, faction, result, tagRefs: readingTagRefs });
   const flavorEchoesHtml = buildFlavorEchoesHtml(flavorEchoes, faction);
   const cardVoicesHtml = buildCardVoicesHtml(cardVoices, faction, { availability: cardVoiceAvailability });
-  const readingFindsHtml = reviewMode ? "" : buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
+  const readingFindsHtml = identityOnlyMode ? "" : buildReadingFindsHtml({ readingId: mazeContext.readingId, tagRefs: readingTagRefs });
   const mazeDiscoveryHtml = buildMazeDiscoveryHtml(personalizedMazePaths, readingFindsHtml);
   const apocryphaHtml = buildApocryphaHtml(faction);
-  const heroNarrative = reviewMode
+  const heroNarrative = identityOnlyMode
     ? faction.philosophy
     : buildHeroNarrative({ dossier, faction, result, factions: APP_STATE.factions });
   const heroLoreSummary = activeKey === "WUBRG" || isNearDuplicateNarrative(heroNarrative, faction.philosophy) ? "" : faction.philosophy;
-  const adjacentContextHtml = reviewMode ? "" : buildAdjacentContextHtml({ dossier, result });
+  const adjacentContextHtml = identityOnlyMode ? "" : buildAdjacentContextHtml({ dossier, result });
   const activeExpressionEntries = Object.values(APP_STATE.identityLayers?.expressions || {})
     .filter((entry) => entry?.active !== false);
   const activeExpressionCount = activeExpressionEntries.length || Object.keys(APP_STATE.factions || {}).length || 15;
-  const atlasFrontierCopy = `Explore the complete ${activeExpressionCount}-identity atlas whenever you want to compare ${reviewMode ? "this identity" : "this reading"} with other Commander paths.`;
+  const atlasFrontierCopy = explorationMode
+    ? "Return to the Identity Atlas whenever you want to open another Commander path."
+    : `Explore the complete ${activeExpressionCount}-identity atlas whenever you want to compare ${reviewMode ? "this identity" : "this reading"} with other Commander paths.`;
   const archetypeHtml = archetypeItems
     .map((item, index) => `<div class="arch-card" data-guidance-provenance="${escapeAttributeValue(JSON.stringify(item.provenance))}"><div class="arch-name">${renderEducationalText(item.name, "what-to-look-for-title", `item-${index + 1}-title`)}</div><div class="arch-desc">${renderEducationalText(item.desc, "what-to-look-for", `item-${index + 1}-copy`)}</div></div>`)
     .join("");
@@ -1877,7 +1904,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
       <div class="commander-preview-grid" id="commander-preview-grid">${commanderPreviewSlots(commanderPreviewCandidates)}</div>
     </div>` : "";
 
-  const adjacentMatches = reviewMode || resultState === "tied" ? [] : dossier.adjacentFits || [];
+  const adjacentMatches = identityOnlyMode || resultState === "tied" ? [] : dossier.adjacentFits || [];
   const adjacentHtml = adjacentMatches.length
     ? adjacentMatches
         .map((fit, index) => {
@@ -1957,7 +1984,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         </div>`
     : "";
   const hiddenDossierPanelIds = [];
-  if (reviewMode) {
+  if (identityOnlyMode) {
     hiddenDossierPanelIds.push("placement", "adjacent", "decks-saved");
   }
   if (!hasStarterCardReferences) {
@@ -1977,6 +2004,10 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   if (reviewMode) {
     APP_STATE.activeDossierPanel = "start";
     APP_STATE.forceDossierPanel = "start";
+  } else if (explorationMode) {
+    const requestedPanel = normalizeDossierPanelId(new URLSearchParams(window.location.search).get("panel"));
+    APP_STATE.activeDossierPanel = requestedPanel || "start";
+    APP_STATE.forceDossierPanel = requestedPanel || "start";
   }
   const { activePanel, layoutMode } = resolveDossierConsoleState();
   const starterSegment = normalizeDossierSegment(
@@ -1991,13 +2022,13 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   );
   APP_STATE.dossierSegments["starter-cards"] = starterSegment;
   APP_STATE.dossierSegments["mana-base"] = manaBaseSegment;
-  const placementSnapshotHtml = reviewMode ? "" : buildPlacementSnapshotHtml({
+  const placementSnapshotHtml = identityOnlyMode ? "" : buildPlacementSnapshotHtml({
     dossier,
     includeAlternative: resultState !== "tied",
     tiedPeerDossier: resultState === "tied" && isPrimary ? tiedPeerDossier : null,
   });
-  const utilityActionsHtml = reviewMode ? "" : buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
-  const dossierOrientationHtml = reviewMode ? "" : `
+  const utilityActionsHtml = identityOnlyMode ? "" : buildDossierUtilityActionsHtml({ isPrimary, layoutMode });
+  const dossierOrientationHtml = identityOnlyMode ? "" : `
     <section class="dossier-orientation" aria-labelledby="dossier-orientation-title">
       <div class="dossier-orientation-copy">
         <div class="dossier-orientation-kicker">Choose one next decision</div>
@@ -2026,11 +2057,11 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         </span>
       </a>
     </section>`;
-  const primaryName = reviewMode ? faction.name : result.faction_name || getFaction(result.faction)?.name || result.faction;
+  const primaryName = identityOnlyMode ? faction.name : result.faction_name || getFaction(result.faction)?.name || result.faction;
   const alternativeName = (tiedAlternative || closeAlternative?.match)?.faction_name ||
     getFaction((tiedAlternative || closeAlternative?.match)?.faction)?.name ||
     (tiedAlternative || closeAlternative?.match)?.faction;
-  const stateHeading = reviewMode
+  const stateHeading = identityOnlyMode
     ? ""
     : resultState === "tied"
     ? isPrimary
@@ -2041,14 +2072,14 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
       : resultState === "unknown"
         ? "Legacy reading — evidence detail unavailable"
         : `Current best fit: ${primaryName}`;
-  const stateExplanation = reviewMode
+  const stateExplanation = identityOnlyMode
     ? ""
     : resultState === "unknown" && isLegacyGateAResult(result)
     ? "This historical result preserves its saved identity, but it does not contain answer detail for a current fit or strength claim."
     : gateAStatePresentation(resultState)[1];
-  const namedResultRefinementHtml = reviewMode ? "" : buildNamedResultRefinementHtml(result, resultState);
-  const returnToPreviousReadingHtml = reviewMode ? "" : buildReturnToPreviousReadingAction();
-  const placementPanelHtml = reviewMode ? "" : `
+  const namedResultRefinementHtml = identityOnlyMode ? "" : buildNamedResultRefinementHtml(result, resultState);
+  const returnToPreviousReadingHtml = identityOnlyMode ? "" : buildReturnToPreviousReadingAction();
+  const placementPanelHtml = identityOnlyMode ? "" : `
     ${adjacentContextHtml}
     ${resultState === "tied" ? "" : `<div class="result-state-banner" data-result-state="${escapeAttributeValue(resultState)}">
       <strong>${escapeHtml(stateHeading)}</strong>
@@ -2067,7 +2098,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   const startPanelHtml = `
     <div class="starter-section" data-education-surface="start-here">
       <div class="section-label">Start Here</div>
-      <p class="signals-intro">Use these Commander starting points to turn ${reviewMode ? "this identity" : "the reading"} into decks, cards, and searches you can compare.</p>
+      <p class="signals-intro">Use these Commander starting points to turn ${identityOnlyMode ? "this identity" : "the reading"} into decks, cards, and searches you can compare.</p>
       <div class="starter-grid starter-grid-start">
         <div class="starter-card starter-card-wide">
           <div class="starter-title">${commanderLane.title}</div>
@@ -2094,7 +2125,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         <div class="section-label">What to Look For</div>
         <div class="archetypes-grid public-three-item-grid" data-item-count="${archetypeItems.length}">${archetypeHtml}</div>
       </div>` : ""}`;
-  const accountDeckLinksPanelHtml = !reviewMode && ACCOUNT_DECK_LINKS_ENABLED
+  const accountDeckLinksPanelHtml = !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED
     ? buildAccountDeckLinkPanelHtml({ result })
     : "";
   const starterCardPanelContent = {
@@ -2155,7 +2186,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         ${hasRenderableLandTier(landRecommendations, "utility") ? buildSegmentPanelHtml("mana-base", "utility", manaBaseSegment, utilityTierHtml) : ""}
       </div>
     </div>`;
-  const footerActionsHtml = reviewMode ? "" : `
+  const footerActionsHtml = identityOnlyMode ? "" : `
     <div class="footer-actions">
       <div class="footer-note">Card and land images via Scryfall. Deck links open EDHREC, Archidekt, or MTGDecks; Maze searches stay connected to this reading.</div>
       <div class="footer-button-row">
@@ -2174,12 +2205,12 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     </p>
     ${footerActionsHtml}`;
   const dossierPanelsHtml = [
-    reviewMode ? null : { id: "placement", content: placementPanelHtml },
+    identityOnlyMode ? null : { id: "placement", content: placementPanelHtml },
     { id: "start", content: startPanelHtml },
     { id: "why", content: whyPanelHtml },
     adjacentSectionHtml ? { id: "adjacent", content: adjacentSectionHtml } : null,
     { id: "commander-deck-starts", content: deckStartsPanelHtml },
-    !reviewMode && ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
+    !identityOnlyMode && ACCOUNT_DECK_LINKS_ENABLED ? { id: "decks-saved", content: accountDeckLinksPanelHtml } : null,
     hasStarterCardReferences ? { id: "starter-cards", content: starterCardsPanelHtml } : null,
     { id: "mana-base", content: manaBasePanelHtml },
     { id: "maze-discovery", content: mazePanelHtml },
@@ -2192,15 +2223,24 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
 
   const publicEyebrow = reviewMode
     ? "REVIEW MODE — direct identity render"
+    : explorationMode
+    ? "Identity dossier - browsing"
     : isLegacyGateAResult(result)
     ? `Historical saved identity - ${institutionLabel}`
     : isPrimary
       ? activeKey === "WUBRG" ? "Placement dossier" : resultState === "tied" ? "Original reading" : `Placement dossier - ${institutionLabel}`
       : resultState === "tied" ? `Other co-leader - ${institutionLabel}` : `Comparing close alternative - ${institutionLabel}`;
   const heroArtworkAttribution = heroBannerArtworkAttributionForFaction(faction);
+  const identityModeAttributes = `${reviewMode ? " data-direct-review=\"true\"" : ""}${explorationMode ? " data-identity-explore=\"true\"" : ""}`;
+  const identityExploreNavHtml = explorationMode ? `
+    <nav class="identity-explore-nav" aria-label="Identity exploration">
+      <span>${hasSavedReading ? "Browsing does not change your saved reading." : "You are browsing this dossier without a reading."}</span>
+      <a class="btn-secondary" href="?explore=atlas">All identities</a>
+      <a class="btn-secondary" href="./index.html">${hasSavedReading ? "Return to your saved reading" : "Take the reading"}</a>
+    </nav>` : "";
 
   const identityIntroHtml = `
-    <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}"${reviewMode ? " data-direct-review=\"true\"" : ""} style="background:${heroBannerBackgroundForFaction(faction)}">
+    <div class="guild-banner" data-faction-key="${escapeHtml(faction.key || "")}" data-hero-background="${heroBannerImageSlugForFaction(faction) ? "identity-image" : "banner"}"${identityModeAttributes} style="background:${heroBannerBackgroundForFaction(faction)}">
       <div class="guild-eyebrow">${escapeHtml(publicEyebrow)}</div>
       <div class="guild-name" style="color:${faction.accent}">${faction.name}</div>
       <div class="guild-tagline">${faction.tagline}</div>
@@ -2210,15 +2250,16 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
       ${heroArtworkAttribution ? `<div class="guild-art-credit">${escapeHtml(heroArtworkAttribution)}</div>` : ""}
     </div>
 
+    ${identityExploreNavHtml}
     ${placementSnapshotHtml}`;
   const dossierConsoleHtml = `
-    <div class="dossier-console" data-dossier-console data-dossier-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}" data-dossier-layout="${layoutMode}"${reviewMode ? " data-direct-review=\"true\"" : ""}>
+    <div class="dossier-console" data-dossier-console data-dossier-identity-key="${escapeAttributeValue(dossier.targetFactionKey)}" data-dossier-layout="${layoutMode}"${identityModeAttributes}>
       ${dossierOrientationHtml}
       <div class="dossier-mobile-nav">
         <div class="dossier-mobile-tabs-shell" data-dossier-tabs-shell>
           <button class="dossier-tabs-scroll dossier-tabs-scroll--left" type="button" data-dossier-scroll-direction="left" ${buildActionAttrs("scroll-dossier-tabs", { direction: "left" })} aria-label="Show earlier dossier sections" hidden><span aria-hidden="true">&#8249;</span></button>
           <div class="vm-tabs dossier-mobile-tabs" role="tablist" aria-label="Archscry dossier sections" data-dossier-mobile-tabs>
-            ${buildDossierTabsHtml("mobile", activePanel, layoutMode, reviewMode ? { why: { label: "Identity & Play", mobileLabel: "Identity" } } : {})}
+            ${buildDossierTabsHtml("mobile", activePanel, layoutMode, identityOnlyMode ? { why: { label: "Identity & Play", mobileLabel: "Identity" } } : {})}
           </div>
           <button class="dossier-tabs-scroll dossier-tabs-scroll--right" type="button" data-dossier-scroll-direction="right" ${buildActionAttrs("scroll-dossier-tabs", { direction: "right" })} aria-label="Show later dossier sections" hidden><span aria-hidden="true">&#8250;</span></button>
         </div>
@@ -2229,7 +2270,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
         <aside class="vm-side-rail dossier-rail" aria-label="Archscry dossier directory">
           <div class="dossier-rail-label">Dossier Directory</div>
           <div class="vm-tabs dossier-rail-tabs" role="tablist" aria-label="Archscry dossier sections" aria-orientation="vertical">
-            ${buildDossierTabsHtml("rail", activePanel, layoutMode, reviewMode ? { why: { label: "Identity & Play", mobileLabel: "Identity" } } : {})}
+            ${buildDossierTabsHtml("rail", activePanel, layoutMode, identityOnlyMode ? { why: { label: "Identity & Play", mobileLabel: "Identity" } } : {})}
           </div>
           ${buildDossierLayoutToggleHtml(layoutMode)}
           ${utilityActionsHtml}
@@ -2242,7 +2283,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   const identityContentHtml = `${identityIntroHtml}${dossierConsoleHtml}`;
   const resultInner = document.getElementById("result-inner");
   resultInner.innerHTML = identityContentHtml;
-  if (!reviewMode) {
+  if (!identityOnlyMode) {
     APP_STATE.activeResult = result;
     APP_STATE.activeViewKey = activeKey;
   }
@@ -2251,7 +2292,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
   applyDossierConsoleState();
   applyTerminalVisibility();
   updateTopbar();
-  if (!reviewMode) {
+  if (!identityOnlyMode) {
     void refreshAccountDeckLinks();
     initializeDossierRadarIfVisible(result, faction);
   }
@@ -2265,7 +2306,7 @@ export function renderResult(viewKey, { mode = "placement" } = {}) {
     matrixFlavorSnippets,
   };
   if (!shouldDisableResultCardArt()) void hydrateVisibleResultCardArt();
-  return { identityKey: activeKey, reviewMode };
+  return { identityKey: activeKey, reviewMode, explorationMode };
 }
 
 /**

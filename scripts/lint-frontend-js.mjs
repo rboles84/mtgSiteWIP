@@ -20,6 +20,8 @@ const files = [
   "assets/js/archscry/runtime/dossier-controls.js",
   "assets/js/archscry/runtime/dossier-view.js",
   "assets/js/archscry/runtime/interview.js",
+  "assets/js/archscry/runtime/identity-atlas.js",
+  "assets/js/archscry/runtime/identity-directory.js",
   "assets/js/archscry/runtime/navigation.js",
   "assets/js/archscry/runtime/questionnaire.js",
   "assets/js/archscry/runtime/render-utils.js",

@@ -84,6 +84,7 @@ assert.deepEqual(
     urlQ: "ignored",
     contextMode: "",
     reviewIdentity: "",
+    exploreIdentity: "",
     fit: "",
     factionName: "",
     readingId: "",
@@ -104,6 +105,7 @@ assert.deepEqual(
     urlQ: "Mardu Horde commanders with exactly red-white-black identity",
     contextMode: "",
     reviewIdentity: "",
+    exploreIdentity: "",
     fit: "",
     factionName: "",
     readingId: "",
@@ -130,6 +132,7 @@ assert.deepEqual(
     urlQ: "",
     contextMode: "dossier-review",
     reviewIdentity: "UB",
+    exploreIdentity: "",
     fit: "UB",
     factionName: "Dimir",
     readingId: "dossier-review-ub",
@@ -140,6 +143,35 @@ assert.deepEqual(
     returnUrl: "",
   },
   "dossier-review launch metadata must remain explicit and transient-capable"
+);
+assert.deepEqual(
+  resolveMazeLaunchState(new URLSearchParams([
+    ["from", "archscry"],
+    ["contextMode", "identity-explore"],
+    ["exploreIdentity", "JUND"],
+    ["fit", "JUND"],
+    ["factionName", "Jund"],
+    ["readingId", "identity-explore-jund"],
+    ["readingTitle", "Jund dossier"],
+    ["operatorQuery", "id=brg is:commander f:commander"],
+    ["returnUrl", "../archscry/index.html?explore=jund&panel=maze-discovery#maze-discovery-paths"],
+  ])),
+  {
+    from: "archscry",
+    urlQ: "",
+    contextMode: "identity-explore",
+    reviewIdentity: "",
+    exploreIdentity: "JUND",
+    fit: "JUND",
+    factionName: "Jund",
+    readingId: "identity-explore-jund",
+    readingTitle: "Jund dossier",
+    operatorQuery: "id=brg is:commander f:commander",
+    plainReadingQuery: "",
+    pathType: "",
+    returnUrl: "../archscry/index.html?explore=jund&panel=maze-discovery#maze-discovery-paths",
+  },
+  "identity-explore launch metadata must preserve the browsed dossier independently"
 );
 assert.equal(
   resolveMazeLaunchState(new URLSearchParams("from=archscry&q=id%3Drwb%20is%3Acommander"), {}).operatorQuery,
