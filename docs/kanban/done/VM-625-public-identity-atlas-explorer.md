@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Owner Review Ready - Seventh Finding Remediated
+Status: Done — Owner Accepted
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -160,7 +160,7 @@ Known inherited broad-suite discrepancy: direct `node tests/maze/maze-search-tes
 
 ## RobQA Owner Review Gate
 
-Disposition: **READY for Owner Review** at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; not self-accepted. The focused QA-1 commands were rerun from that exact clean commit and passed. Owner visual judgment remains only for whether the enlarged name/pip hierarchy feels correct at normal desktop viewing distance; card dimensions, Atlas behavior/layout, sigil geometry, and material direction are unchanged.
+Disposition: **PASS — Owner Accepted** at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. The focused QA-1 commands were rerun from that exact clean commit and passed. Card dimensions, Atlas behavior/layout, sigil geometry, material direction, routing, identity data, and reading state remain unchanged.
 
 ## Owner Findings And Remediation - 2026-09-03
 
@@ -307,3 +307,11 @@ This is QA-1 presentation work within the still-QA-3 VM-625 candidate. Objective
 Pre-freeze evidence: all ten Guild cards, all five Wedges, all five Four-Color cards, all five mono-color cards, and all five Strixhaven College cards remained one-line, contained, equal-height within each viewport, and free of horizontal page overflow at 1440x900, 1152x720, 720x450, 1024x768, and 390x844. The real-card comparison artifact is stored outside the repository under `vm625-card-legibility/`.
 
 Exact Owner Review target: `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Focused lint, Atlas browser, cache-contract, and frontend smoke checks were rerun from its clean tree before the documentation-only evidence binding commit.
+
+## Lifecycle Closeout - 2026-09-03
+
+- **Owner acceptance:** `ACCEPT VM-625` received for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
+- **Accepted result:** the public 37-destination Identity Atlas, non-placement identity dossiers, transient browsed-identity Maze context, accepted card/pager/sigil presentation, 30% restrained orb/path light, and final card-content legibility refinement.
+- **QA disposition:** RobQA PASS. Objective evidence remains bound to the exact accepted candidate; Owner supplied the required visual/product judgment.
+- **Lifecycle state:** Done — Owner Accepted.
+- **Integration state:** not pushed, opened as a PR, merged, integrated, deployed, or cleaned up. Those actions require separate owner authorization.

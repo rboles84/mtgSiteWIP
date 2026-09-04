@@ -92,7 +92,7 @@ The initial card renderer encoded connector segments only between adjacent activ
 - **Review target:** exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` on `codex/vm-625-public-identity-atlas`.
 - **Objective result:** READY after focused seventh-round checks. The narrow invariant freezes card/sigil geometry and proves the centralized `19.2px` / `11.36px` / `16.32px` content scale without wrapping, clipping, unequal heights, or overflow.
 - **Rendered evidence:** actual registry-driven before/after captures cover all ten Guild cards, all Wedges, all Four-Color cards, Red, and Witherbloom at 100%; objective geometry also covers 125%, 200%-equivalent reflow, 1024px, and 390px.
-- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Disposition:** PASS — Owner Accepted at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; committed but not pushed, opened as a PR, merged, integrated, deployed, or cleaned up.
 
 ## Tests run
 
@@ -150,12 +150,12 @@ FAIL if names or pips still feel underscaled, notation competes with them, the s
 
 ## Follow-up recommendations
 
-- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
+- VM-625 lifecycle closeout is complete for exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Await separate Owner authorization for any push, PR, merge, integration, deployment, or branch/worktree cleanup.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
 
-Owner for the bounded visual/product review, then Codex for exact-candidate freeze or focused remediation.
+Owner/Codex for a separately authorized integration action, if desired.
 
 ## Related Kanban card, docs, or plans
 
