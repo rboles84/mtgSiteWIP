@@ -4,7 +4,7 @@ ID: VM-626
 
 Title: Standard Branch, PR, QA, Owner, and Merge Workflow
 
-Status: In Progress — Owner Iteration Amendment
+Status: Done — Owner Accepted
 
 Type: Repository governance / delivery workflow
 
@@ -88,3 +88,7 @@ Reuse the current instructions, workflow document, PR template, deterministic PR
 - Amendment branch: `codex/vm-626-owner-iteration-amendment` from accepted `main` at `d59a1110d1a5f5914e28dfc8296b9c915c7accff`, reusing the existing isolated VM-626 worktree.
 - Amendment scope is limited to making local exact-candidate Owner iteration normal before PR integration. All other accepted VM-626 decisions remain protected.
 - Amendment candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1` received QA-0 RobQA PASS against base `d59a1110d1a5f5914e28dfc8296b9c915c7accff`; Owner Review is pending and no PR has been opened.
+- Owner accepted exact material candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1`; evidence-only branch head `c73f9a94cb09b4d06ec5d43c0c9bad162cd2155e` preserved the accepted implementation bytes.
+- Post-ACCEPT PR #22 passed `Deterministic Validation` and was squash-merged to `main` as `3cd143c8171ecfee7f732e7cf686b50608659b41`.
+- GitHub automatically deleted the remote amendment branch; the local amendment branch was deleted after exact tree and merge verification.
+- The amended workflow is integrated. `main` protection remains deliberately unconfigured with zero rulesets while VM-625 remains in flight; automatic merged-branch deletion remains enabled.
