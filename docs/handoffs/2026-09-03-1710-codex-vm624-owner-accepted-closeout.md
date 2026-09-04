@@ -41,6 +41,5 @@
 
 ## Follow-up recommendations
 
-- Integrated the accepted candidate through merge commit `cf83883` (`merge(vm-624): integrate Loom printing refinement`) because local `main` and the VM-624 branch had diverged after the shared `origin/main` base. `origin/main` was pushed from `e7435d2` to `cf83883` without force.
-- No further VM-624 product work is authorized without a new Owner request.
+- Fast-forward `main` to the accepted candidate and push it. No further VM-624 product work is authorized without a new Owner request.
 - **Next suggested agent:** none.
