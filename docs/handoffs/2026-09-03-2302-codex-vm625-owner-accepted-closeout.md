@@ -1,4 +1,4 @@
-# VM-625 Owner-Accepted Closeout
+# VM-625 Owner Acceptance Record — Integration Pending
 
 ## Agent name
 
@@ -6,7 +6,7 @@ Codex
 
 ## Task requested
 
-Record the Owner's explicit `ACCEPT VM-625` disposition against the exact reviewed product candidate and complete the documentation-only lifecycle closeout without pushing, opening a PR, merging, integrating, deploying, or cleaning up branch state.
+Record the Owner's explicit `ACCEPT VM-625` disposition against the exact reviewed product candidate. A later workflow reconciliation corrected the premature Done classification: acceptance remains valid, while lifecycle completion waits for the authorized single-PR integration sequence.
 
 ## Files reviewed
 
@@ -20,7 +20,7 @@ Record the Owner's explicit `ACCEPT VM-625` disposition against the exact review
 
 ## Files changed
 
-- `docs/kanban/done/VM-625-public-identity-atlas-explorer.md` (moved from `in-progress`)
+- `docs/kanban/in-progress/VM-625-public-identity-atlas-explorer.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/HANDOFF_INDEX.md`
 - `docs/handoffs/2026-09-03-1837-codex-vm625-owner-findings-remediation.md`
@@ -29,24 +29,24 @@ Record the Owner's explicit `ACCEPT VM-625` disposition against the exact review
 ## What changed
 
 - Bound Owner acceptance to exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
-- Advanced VM-625 from Owner Review Ready to Done — Owner Accepted.
-- Moved the Kanban card from `in-progress` to `done` and updated the board and handoff index.
+- Preserved Owner acceptance at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
+- Corrected the lifecycle state from premature Done to Owner Accepted — Integration Pending under the accepted VM-626 delivery workflow.
 - Recorded RobQA PASS after the required Owner visual/product judgment.
 
 ## Why it changed
 
-The Owner explicitly accepted VM-625 after reviewing the seventh exact candidate. Repository lifecycle records must reflect the accepted exact product state without implying integration or publication authorization.
+The Owner explicitly accepted VM-625 after reviewing the seventh exact candidate. The accepted repository workflow defines Done only after PR, CI, squash merge, `main` synchronization, integration-SHA recording, and safe cleanup; those steps had not occurred when this record first moved the card to Done.
 
 ## Decisions made
 
 - Accept only `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` as the VM-625 product candidate.
 - Treat later commit `c97d154aef1ada63b97a680015d7e69fd4464bf4a0` as documentation-only evidence binding, not a different product candidate.
-- Do not infer authorization to push, open a PR, merge, integrate, deploy, or clean up the branch/worktree.
+- Preserve the accepted product SHA while completing the now-authorized PR, CI, squash-merge, `main` verification, closeout, and safe cleanup sequence.
 
 ## Risks / uncertainties
 
 - No product uncertainty remains within VM-625.
-- Integration order and destination remain an Owner decision.
+- Any material product-byte change after `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` invalidates RobQA PASS and Owner ACCEPT and must stop integration.
 - A post-closeout status check found separate unstaged changes in `archscry/index.html`, `assets/css/archscry.css`, and `scripts/validate-frontend-html.mjs` (`vm625h` -> `vm625i` plus a route-background blue-radial opacity change). They appeared after the clean pre-flight, were not part of this lifecycle task, and were deliberately left unstaged and unmodified.
 
 ## Tests run
@@ -60,21 +60,21 @@ CPU-heavy validation was not required because this closeout changes documentatio
 
 ## Not touched
 
-- Runtime code, CSS, HTML, JavaScript, tests, identity data, or generated data
+- Runtime code, CSS, HTML, JavaScript, tests, identity data, or generated data after the accepted candidate
 - Identity Atlas routes, navigation, sigils, card presentation, dossiers, Maze handoff, saved readings, Placement, telemetry, or identity authority
-- Push, PR, merge, integration, deployment, branch deletion, or worktree cleanup
+- The separate cursor-glow task's dirty runtime, cache, validation, handoff, or index edits in the original worktree
 
 ## Follow-up recommendations
 
-- If integration is desired, the Owner should separately authorize the target branch and integration method for the accepted VM-625 lineage.
+- Complete the accepted workflow through one PR to `main`, required CI, verified squash merge, exact integration-SHA recording, and safe cleanup without changing material product bytes.
 
 ## Next suggested agent
 
-Codex for separately authorized integration or release work.
+Codex for the authorized VM-625 integration lifecycle.
 
 ## Related Kanban card, docs, or plans
 
-- `docs/kanban/done/VM-625-public-identity-atlas-explorer.md`
+- `docs/kanban/in-progress/VM-625-public-identity-atlas-explorer.md`
 - `docs/handoffs/2026-09-03-1837-codex-vm625-owner-findings-remediation.md`
 - Exact accepted product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`
 - Documentation-only evidence binding commit `c97d154aef1ada63b97a680015d7e69fd4464bf4a0`

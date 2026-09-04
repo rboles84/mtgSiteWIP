@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Done — Owner Accepted
+Status: Owner Accepted — Integration Pending
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -308,10 +308,11 @@ Pre-freeze evidence: all ten Guild cards, all five Wedges, all five Four-Color c
 
 Exact Owner Review target: `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Focused lint, Atlas browser, cache-contract, and frontend smoke checks were rerun from its clean tree before the documentation-only evidence binding commit.
 
-## Lifecycle Closeout - 2026-09-03
+## Owner Acceptance And Integration State - 2026-09-03
 
 - **Owner acceptance:** `ACCEPT VM-625` received for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
 - **Accepted result:** the public 37-destination Identity Atlas, non-placement identity dossiers, transient browsed-identity Maze context, accepted card/pager/sigil presentation, 30% restrained orb/path light, and final card-content legibility refinement.
 - **QA disposition:** RobQA PASS. Objective evidence remains bound to the exact accepted candidate; Owner supplied the required visual/product judgment.
-- **Lifecycle state:** Done — Owner Accepted.
-- **Integration state:** not pushed, opened as a PR, merged, integrated, deployed, or cleaned up. Those actions require separate owner authorization.
+- **Owner acceptance:** preserved without re-review at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
+- **Lifecycle state:** Owner Accepted — Integration Pending. The earlier Done classification was premature under the accepted VM-626 delivery workflow.
+- **Integration state:** authorized to proceed through the single VM-625 PR, required CI, squash merge, synchronized `main`, exact integration-SHA recording, and safe branch cleanup. No material product bytes may change after the accepted candidate without returning through RobDev, RobQA, and Owner Review.

@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Owner Accepted — Integration Pending at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; RobQA PASS and Owner ACCEPT remain valid while the single PR, required CI, squash merge, `main` verification, and safe branch cleanup complete without material product-byte changes.
+
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
@@ -54,8 +56,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
-
-- [VM-625 — Public Identity Atlas Explorer](done/VM-625-public-identity-atlas-explorer.md) - Done — Owner Accepted at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; the registry-derived 37-destination Atlas, public non-placement dossiers, transient browsed-identity Maze context, accepted compact sigil/pager system, and final card-legibility hierarchy are complete without changing reading state, Placement, or identity authority. Integration remains separately unauthorized.
 
 - [VM-624 — Loom Printing and Artwork Refinement](done/VM-624-loom-printing-artwork-refinement.md) - Done — Owner Accepted at exact candidate `86c5c5f`; release-year and dependent printing rules stay within Loom, Plain Reading renders those printing clauses naturally, and `unique=art` remains deferred.
 

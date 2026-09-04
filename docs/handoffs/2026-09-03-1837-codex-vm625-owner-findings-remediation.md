@@ -150,12 +150,12 @@ FAIL if names or pips still feel underscaled, notation competes with them, the s
 
 ## Follow-up recommendations
 
-- VM-625 lifecycle closeout is complete for exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Await separate Owner authorization for any push, PR, merge, integration, deployment, or branch/worktree cleanup.
+- VM-625 is Owner Accepted — Integration Pending for exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Owner authorization now covers the accepted single-PR, CI, squash-merge, `main` verification, lifecycle closeout, and safe branch-cleanup sequence; product implementation remains frozen.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
 
-Owner/Codex for a separately authorized integration action, if desired.
+Codex for the authorized VM-625 integration lifecycle.
 
 ## Related Kanban card, docs, or plans
 
