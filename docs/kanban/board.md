@@ -57,6 +57,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](done/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Done — Owner Accepted amendment at exact material candidate `29e3e4c`; post-ACCEPT PR #22 passed integration checks and squash-merged as `3cd143c`. Repeated exact-candidate Owner iteration now precedes mandatory PR integration; VM-625 and deferred `main` protection remain untouched.
+
 - [VM-624 — Loom Printing and Artwork Refinement](done/VM-624-loom-printing-artwork-refinement.md) - Done — Owner Accepted at exact candidate `86c5c5f`; release-year and dependent printing rules stay within Loom, Plain Reading renders those printing clauses naturally, and `unique=art` remains deferred.
 
 - [VM-623 — Field Guide Telemetry](done/VM-623-field-guide-telemetry.md) - Done — Owner Accepted at candidate `0ed0b84`; exact four-event Guide contract includes canonical `guide_engaged`. The initial Owner Review FAIL and bounded HTTP/runtime remediation remain recorded; no provider, privacy, Placement, or visible Guide UX behavior changed.

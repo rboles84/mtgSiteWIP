@@ -25,6 +25,18 @@ For any non-trivial work, the main agent must follow:
 
 Do not work from blank context.
 
+## Standard Delivery Commands
+
+Use [Vox Mana Workflow](docs/reference/workflow.md#standard-branch-to-owner-to-pr-to-merge-delivery) as the durable delivery authority.
+
+- `SHIP VM-###` means rehydrate the card's current feature branch, worktree, optional PR, Dev, QA, and Owner state; apply RobDev; commit a stable Owner Review candidate; run independent RobQA against that exact commit; resolve routine Dev/QA findings automatically; and stop when RobQA PASS applies to the exact current candidate. Report the card, branch, candidate SHA, RobQA status, shortest manual review path, and known non-blocking issues. A PR is not required before Owner Review, and `SHIP` never merges or pushes material feature work directly to `main`.
+- `ACCEPT VM-###` is the Owner's single approval of the exact current RobQA-passed candidate and authorization to integrate it. Verify that SHA, push the feature branch if needed, create or update the card's single PR against `main`, record exact-SHA RobQA and Owner evidence, run required PR CI and diff/integration checks, squash merge, verify and sync `main`, complete lifecycle documentation, and safely delete the feature branch. Do not ask for a second approval while the merged code remains the exact accepted candidate.
+- `REJECT VM-###: <reason>` keeps the same card and feature branch. Return the Owner finding to RobDev, create a corrected candidate commit, rerun proportionate RobQA against that exact commit, and return it to Owner Review. Repeat as often as needed. If a PR already exists, keep using it where practical; do not replace it merely to conform to PR timing.
+
+RobQA PASS and Owner ACCEPT are exact-candidate evidence. Any material implementation change after either decision makes the affected evidence stale and returns the new candidate through RobDev -> RobQA -> Owner Review. Non-material lifecycle/documentation follow-up may use the existing narrow exception rules.
+
+The single-active-worktree rule below still governs branch creation. Rehydrate and continue existing work instead of restarting it to make the delivery sequence look clean.
+
 ## Optional Work Intake Triage
 
 For non-CRIT, non-certification, non-destructive, non-migration work, an agent may run a lightweight intake check before planning when scope is ambiguous or likely to exceed one window.
