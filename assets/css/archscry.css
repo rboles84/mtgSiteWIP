@@ -4819,13 +4819,13 @@ body.vm-archscry-route .identity-atlas-connector-line--channel {
 }
 
 body.vm-archscry-route .identity-atlas-connector-line--body {
-  stroke: rgba(184, 137, 36, 0.9);
+  stroke: rgba(184, 137, 36, 0.63);
   stroke-width: 2.9;
-  filter: drop-shadow(0 0 1.6px rgba(212, 175, 55, 0.2));
+  filter: drop-shadow(0 0 1.6px rgba(212, 175, 55, 0.14));
 }
 
 body.vm-archscry-route .identity-atlas-connector-line--core {
-  stroke: rgba(255, 229, 148, 0.76);
+  stroke: rgba(255, 229, 148, 0.532);
   stroke-width: 0.9;
 }
 
@@ -4838,7 +4838,7 @@ body.vm-archscry-route .identity-atlas-node-highlight {
 body.vm-archscry-route .identity-atlas-node-halo {
   fill: var(--atlas-node-color);
   filter: blur(3px);
-  opacity: 0.16;
+  opacity: 0.112;
 }
 
 body.vm-archscry-route .identity-atlas-node-body {
@@ -4853,7 +4853,7 @@ body.vm-archscry-route .identity-atlas-node-highlight {
 }
 
 body.vm-archscry-route .identity-atlas-color-node--active {
-  filter: drop-shadow(0 0 0.3rem color-mix(in srgb, var(--atlas-node-color) 36%, transparent));
+  filter: drop-shadow(0 0 0.3rem color-mix(in srgb, var(--atlas-node-color) 25.2%, transparent));
 }
 
 body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-halo {
@@ -4875,17 +4875,17 @@ body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node
 
 body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-connector-line--body,
 body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-connector-line--body {
-  stroke: rgba(198, 151, 48, 0.94);
+  stroke: rgba(198, 151, 48, 0.658);
 }
 
 body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-connector-line--core,
 body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-connector-line--core {
-  stroke: rgba(255, 235, 166, 0.88);
+  stroke: rgba(255, 235, 166, 0.616);
 }
 
 body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-color-node--active .identity-atlas-node-halo,
 body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-color-node--active .identity-atlas-node-halo {
-  opacity: 0.21;
+  opacity: 0.147;
 }
 
 body.vm-archscry-route .identity-atlas-color-node[data-identity-color="W"] { --atlas-node-color: var(--atlas-W); }

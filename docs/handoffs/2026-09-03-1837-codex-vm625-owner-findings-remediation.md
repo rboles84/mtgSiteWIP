@@ -6,7 +6,7 @@ Codex
 
 ## Task requested
 
-Apply five rounds of Owner visual findings against exact VM-625 candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`: repair card alignment and long-board navigation, replace circular perimeter connectors with an equal-point pentagram, remove redundant vertex glyphs and refine the pager into diffuse triple-chevron controls, then replace the rejected cool/concentric sigil pass with a materially distinct engraved-gold treatment.
+Apply six rounds of Owner visual findings against exact VM-625 candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`: repair card alignment and long-board navigation, replace circular perimeter connectors with an equal-point pentagram, remove redundant vertex glyphs and refine the pager into diffuse triple-chevron controls, replace the rejected cool/concentric sigil pass with a materially distinct engraved-gold treatment, then reduce only the accepted orb and active-line light contributions by 30%.
 
 ## Files reviewed
 
@@ -63,6 +63,7 @@ The initial card renderer encoded connector segments only between adjacent activ
 - Use clamped previous/next controls rather than an infinite loop. Disabled endpoint buttons make the sequence and normal-scroll boundary explicit.
 - Disable wheel capture below the accepted 760px mobile breakpoint so touch/narrow users retain ordinary page scrolling and use the visible controls.
 - Preserve the first exact candidate and its evidence as history. The replacement is frozen at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` for Owner review.
+- Preserve the fifth-review candidate as history while the sixth-review micro-adjustment is validated and bound to a replacement exact SHA.
 
 ## Risks / uncertainties
 
@@ -80,11 +81,11 @@ The initial card renderer encoded connector segments only between adjacent activ
 
 ## RobQA readiness
 
-- **Tier:** QA-3 remains appropriate because the remediation adds in-page state transitions and wheel/button navigation; Placement remains untouched.
-- **Review target:** exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` on `codex/vm-625-public-identity-atlas`.
-- **Objective result:** READY after fifth-round checks. The rejected visual construction has been removed and its systemic defects now have focused invariants.
+- **Tier:** QA-3 remains appropriate for the complete VM-625 candidate because the remediation includes in-page state transitions and wheel/button navigation; the sixth-review glow correction alone is QA-1 presentation work. Placement remains untouched.
+- **Review target:** replacement exact candidate pending the focused sixth-review validation and commit on `codex/vm-625-public-identity-atlas`.
+- **Objective result:** pending focused sixth-round checks. The narrow invariant freezes the accepted construction and requires exactly 30% less light contribution from active stones and connectors.
 - **Rendered evidence:** actual in-place card captures compare original, rejected, and new states for White, Azorius, Jund, Ink, Five-Color, and Colorless. The images are captured from the real registry-driven Atlas cards at their normal rendered size.
-- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Disposition:** focused correction in progress; not yet exact-SHA bound, Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 

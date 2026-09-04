@@ -61,7 +61,7 @@ import {
 
 import {
   initializeIdentityExploration,
-} from "./runtime/identity-atlas.js?v=vm625f";
+} from "./runtime/identity-atlas.js?v=vm625g";
 
 export {
   validateDossierContentCatalogs,

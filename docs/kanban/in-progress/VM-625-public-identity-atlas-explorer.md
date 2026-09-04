@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Owner Review Ready - Findings Remediated, Uncommitted
+Status: In Progress - Sixth Owner Review Micro-Adjustment
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -271,3 +271,17 @@ Current remediation:
 - advanced the Archscry CSS/root/Atlas module cache chain to `vm625f`.
 
 Finding-to-invariant coverage proves one quiet dormant scaffold, three warm material layers for every logical connection, no node-ring element, simplified bloom/body/specular stones, node-over-path paint order, unchanged logical connectors across all cardinalities, and explicit reduced-motion handling. The review artifact now presents actual Atlas-card captures in three columns—original, rejected revision, and new revision—for all six required identities.
+
+## Owner Findings And Remediation - Sixth Review - 2026-09-03
+
+Owner accepted the direction and requested one surgical adjustment: reduce the glow on both the active mana stones and their connecting line by 30%.
+
+Current remediation:
+
+- reduced the base and hover/focus opacity contributions for the active node halo and node drop shadow to exactly 70% of their fifth-review values;
+- reduced the base and hover/focus opacity contributions for the muted-gold connector body, its soft shadow, and the pale-gold filament core to exactly 70% of their fifth-review values;
+- deliberately retained the warm recessed connector channel, all connector stroke widths, node body/rim/highlight, fixed five-point geometry, endpoint order, and registry-driven active-path logic unchanged;
+- changed no card layout, identity data, ordering, routes, dossier behavior, saved-reading state, Maze handoff, or other Atlas presentation;
+- advanced the Archscry CSS/root/Atlas module cache chain to `vm625g`.
+
+This presentation-only correction is QA-1 within the still-QA-3 VM-625 candidate. The focused invariant proves the exact 30% light reduction while freezing path widths and the underlying warm channel.

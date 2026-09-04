@@ -116,9 +116,13 @@ assert.equal((buildIdentityAtlasSigilHtml(["W", "U", "B", "R", "G"]).match(/data
 assert.match(buildIdentityAtlasSigilHtml([]), /identity-atlas-color-node--colorless" data-identity-color="C"/, "Colorless should receive a centered neutral orb");
 assert.match(buildIdentityAtlasSigilHtml([]), /identity-atlas-color-node--inactive/, "Colorless should retain the complete dormant five-position scaffold");
 assert.match(archscryCss, /\.identity-atlas-connector-line--channel\s*\{[\s\S]*?stroke:\s*rgba\(45, 29, 10, 0\.88\)/, "active channel must remain warm rather than blue-gray");
-assert.match(archscryCss, /\.identity-atlas-connector-line--body\s*\{[\s\S]*?stroke:\s*rgba\(184, 137, 36, 0\.9\)/, "active path body must remain muted Vox Mana gold");
-assert.match(archscryCss, /\.identity-atlas-connector-line--core\s*\{[\s\S]*?stroke:\s*rgba\(255, 229, 148, 0\.76\)/, "active path should carry a narrow pale-gold material highlight");
-assert.match(archscryCss, /\.identity-atlas-node-halo\s*\{/);
+assert.match(archscryCss, /\.identity-atlas-connector-line--body\s*\{[\s\S]*?stroke:\s*rgba\(184, 137, 36, 0\.63\)[\s\S]*?stroke-width:\s*2\.9;[\s\S]*?rgba\(212, 175, 55, 0\.14\)/, "active path light should be reduced by 30% without changing its width");
+assert.match(archscryCss, /\.identity-atlas-connector-line--core\s*\{[\s\S]*?stroke:\s*rgba\(255, 229, 148, 0\.532\)[\s\S]*?stroke-width:\s*0\.9;/, "active path filament should be reduced by 30% without changing its width");
+assert.match(archscryCss, /\.identity-atlas-node-halo\s*\{[\s\S]*?opacity:\s*0\.112;/, "active orb halo should be reduced by exactly 30%");
+assert.match(archscryCss, /\.identity-atlas-color-node--active\s*\{[\s\S]*?var\(--atlas-node-color\) 25\.2%/, "active orb drop shadow should be reduced by exactly 30%");
+assert.match(archscryCss, /\.identity-atlas-card:hover \.identity-atlas-connector-line--body,[\s\S]*?stroke:\s*rgba\(198, 151, 48, 0\.658\)/, "hovered path light should preserve the same 30% reduction");
+assert.match(archscryCss, /\.identity-atlas-card:hover \.identity-atlas-connector-line--core,[\s\S]*?stroke:\s*rgba\(255, 235, 166, 0\.616\)/, "hovered filament should preserve the same 30% reduction");
+assert.match(archscryCss, /\.identity-atlas-card:hover \.identity-atlas-color-node--active \.identity-atlas-node-halo,[\s\S]*?opacity:\s*0\.147;/, "hovered orb halo should preserve the same 30% reduction");
 assert.match(archscryCss, /\.identity-atlas-color-node--inactive \.identity-atlas-node-body\s*\{/);
 assert.match(archscryCss, /\.identity-atlas-pentagon-frame\s*\{[\s\S]*?stroke:\s*rgba\(101, 91, 78, 0\.17\)/, "dormant geometry must use a neutral warm-charcoal etch");
 assert.match(archscryCss, /prefers-reduced-motion:[\s\S]*\.identity-atlas-sigil\s*\{[\s\S]*transition:\s*none;/, "sigil hover polish must honor reduced-motion preference");
