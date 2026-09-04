@@ -37,6 +37,8 @@ Apply seven rounds of Owner visual findings against exact VM-625 candidate `6fa5
 
 Review artifacts were generated outside the repository at `C:/Users/obake/.codex/visualizations/2026/09/03/01a06971-f14c-7f10-8b78-6be05f9d53ef/vm625-sigil-comparison/`, including actual before/after Atlas-card captures for six required states and an indexed comparison page.
 
+The seventh-round card-legibility evidence is stored beside it under `vm625-card-legibility/`, including an indexed before/after comparison, 100% Guild/Wedge/Four-Color witnesses, Red/Witherbloom checks, responsive witnesses, and machine-readable metrics.
+
 ## What changed
 
 - Identity medallions now show five fixed, equal-size color-circle vertices on a subtle pentagon frame. Active colors illuminate, inactive colors recede, and direct edges/chords connect only the active relationship. No MTG glyph is duplicated inside the pentagram.
@@ -68,6 +70,7 @@ The initial card renderer encoded connector segments only between adjacent activ
 - Preserve the first exact candidate and its evidence as history. The replacement is frozen at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` for Owner review.
 - Preserve the fifth-review candidate as history. The sixth-review micro-adjustment is frozen at exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` for Owner review.
 - Use only the existing route-scoped name, notation, and pip selectors for the seventh finding. Keep the sigil and card footprint frozen, and leave the glass surface unchanged because rendered evidence shows sufficient foreground separation after the content-scale correction.
+- Preserve the sixth-review candidate as history. The seventh-review card-legibility correction is frozen at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` for Owner review.
 
 ## Risks / uncertainties
 
@@ -86,10 +89,10 @@ The initial card renderer encoded connector segments only between adjacent activ
 ## RobQA readiness
 
 - **Tier:** QA-3 remains appropriate for the complete VM-625 candidate because earlier remediation includes in-page state transitions and wheel/button navigation; the seventh-review card-legibility correction alone is QA-1 presentation work. Placement remains untouched.
-- **Review target:** replacement exact candidate pending focused seventh-review validation and commit on `codex/vm-625-public-identity-atlas`.
-- **Objective result:** pending focused seventh-round checks. The narrow invariant freezes card/sigil geometry and requires the centralized `19.2px` / `11.36px` / `16.32px` content scale without wrapping, clipping, unequal heights, or overflow.
+- **Review target:** exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` on `codex/vm-625-public-identity-atlas`.
+- **Objective result:** READY after focused seventh-round checks. The narrow invariant freezes card/sigil geometry and proves the centralized `19.2px` / `11.36px` / `16.32px` content scale without wrapping, clipping, unequal heights, or overflow.
 - **Rendered evidence:** actual registry-driven before/after captures cover all ten Guild cards, all Wedges, all Four-Color cards, Red, and Witherbloom at 100%; objective geometry also covers 125%, 200%-equivalent reflow, 1024px, and 390px.
-- **Disposition:** focused correction in progress; not yet exact-SHA bound, Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 
@@ -107,7 +110,7 @@ The focused Atlas test now additionally freezes exactly 70% of the prior active 
 
 CPU-heavy placement/bias/mutation/all-journey suites were not run because no placement, scoring, qualification, source identity, dossier content, or Maze query behavior changed.
 
-Seventh-round pre-freeze QA passed:
+Seventh-round QA passed from exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`:
 
 - `npm.cmd run lint:js`
 - `npm.cmd run lint:html`
@@ -131,26 +134,23 @@ The rendered matrix exercised the real Atlas at 1440x900 (100%), 1152x720 (125%-
 
 ## Owner review path
 
-Purpose: judge the repaired card language and shorter Atlas navigation.
+Purpose: judge whether the accepted cards now have the intended name -> mana pips -> sigil -> notation hierarchy at normal desktop viewing distance.
 
-Open: `/archscry/?explore=atlas`
+Open: `/archscry/?explore=atlas` at 100% browser zoom, then optionally open the `vm625-card-legibility/index.html` before/after artifact.
 
 Do:
 
-1. Refresh the three-state comparison artifact and compare White, Azorius, Jund, Ink, Five-Color, and Colorless at the displayed card size.
-2. Confirm the pager reads as two separated triple-chevron controls with light diffusing from beneath, and no duplicate family name, position count, rail, or instruction copy.
-3. Click down to Guilds. Inspect Boros, Izzet, Golgari, Orzhov, and Simic for a warm inlaid filament, clean endpoints beneath simple mana stones, no internal MTG glyphs, and aligned letter/pip rows.
-4. Wheel down and up over the card board; confirm it moves one family per gesture without feeling sticky.
-5. Continue through Jund and one Four-Color card, then the final block; confirm multi-edge filaments remain legible without becoming chunky, Colorless reads as an intentional neutral center, and Five-Color closes without an over-bright ring.
-6. At a narrow/mobile width, confirm the arrow pair moves above the cards and ordinary page scrolling remains available.
+1. Move to Guilds and scan Azorius through Simic without leaning toward the screen; confirm names anchor first and mana pips read clearly second.
+2. Compare Witherbloom, one Wedge, and one Four-Color card; confirm long names and four pips remain spacious and the compact sigil does not dominate.
+3. Briefly check 125% and 200% zoom; confirm the content remains contained and legible.
 
-PASS if the new column is obviously more crafted than the original and rejected columns without losing original clarity: mana stones lead, warm filament reads second, and the neutral dormant pentagon resolves last.
+PASS if the cards are immediately easier to scan while still feeling like the same compact dark-glass Atlas system.
 
-FAIL if any active color still appears disconnected, code/pip columns drift, wheel gestures skip or trap, a family is unreachable, or the pager feels visually wrong.
+FAIL if names or pips still feel underscaled, notation competes with them, the sigil feels enlarged, or any card feels cramped.
 
 ## Follow-up recommendations
 
-- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`.
+- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
@@ -164,5 +164,6 @@ Owner for the bounded visual/product review, then Codex for exact-candidate free
 - Exact initial candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`
 - Binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe`
 - Exact sixth-review candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`
+- Exact seventh-review candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`
 - `docs/dev/RobDevPass.md`
 - `docs/qa/RobQAPass.md`

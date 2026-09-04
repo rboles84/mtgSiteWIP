@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: In Progress - Seventh Owner Review Card-Legibility Refinement
+Status: Owner Review Ready - Seventh Finding Remediated
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -118,6 +118,7 @@ Extend the accepted VM-579 identity-only dossier and transient Maze context seam
 - Initial exact Owner Review candidate: `6fa574baca09ab68460ec02a270932a0d89cd4b8` (`feat(vm-625): add public identity atlas explorer`). It remains preserved but is superseded for acceptance by the Owner findings recorded below.
 - Binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe` changed lifecycle documentation only. It is superseded for Owner review by exact findings-remediation candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f`; the original `6fa574b` candidate remains preserved as history.
 - Fifth-review candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` is superseded for Owner review by the exact sixth-review light-reduction candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`; both earlier candidates remain preserved as history.
+- Sixth-review candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` is superseded for Owner review by exact seventh-review card-legibility candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; prior candidates remain preserved as history.
 - At intake there was one registered worktree and no VM-625 predecessor branch or card. A separate VM-626 worktree appeared before candidate binding, was clean at the collision check, and did not overlap this candidate.
 - The current local `main` is ahead of `origin/main`; VM-625 development does not change or conceal that publication state.
 
@@ -159,7 +160,7 @@ Known inherited broad-suite discrepancy: direct `node tests/maze/maze-search-tes
 
 ## RobQA Owner Review Gate
 
-Disposition: **READY for Owner Review** at exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`; not self-accepted. The focused RobQA commands were rerun from that exact clean commit and passed. Owner visual judgment remains only for the 30% orb/connector light reduction; the feature behavior, Atlas layout, sigil geometry, and material direction are unchanged.
+Disposition: **READY for Owner Review** at exact candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; not self-accepted. The focused QA-1 commands were rerun from that exact clean commit and passed. Owner visual judgment remains only for whether the enlarged name/pip hierarchy feels correct at normal desktop viewing distance; card dimensions, Atlas behavior/layout, sigil geometry, and material direction are unchanged.
 
 ## Owner Findings And Remediation - 2026-09-03
 
@@ -304,3 +305,5 @@ Implemented centralized refinement:
 This is QA-1 presentation work within the still-QA-3 VM-625 candidate. Objective validation must prove consistent sizing, no wrapping or clipping, stable card heights and grid alignment, unchanged sigil geometry, and no horizontal overflow across the requested Guild, Wedge, and Four-Color examples at 100%, 125%, and 200%-equivalent reflow plus the established responsive breakpoints. Final optical hierarchy and comfort remain Owner judgment.
 
 Pre-freeze evidence: all ten Guild cards, all five Wedges, all five Four-Color cards, all five mono-color cards, and all five Strixhaven College cards remained one-line, contained, equal-height within each viewport, and free of horizontal page overflow at 1440x900, 1152x720, 720x450, 1024x768, and 390x844. The real-card comparison artifact is stored outside the repository under `vm625-card-legibility/`.
+
+Exact Owner Review target: `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`. Focused lint, Atlas browser, cache-contract, and frontend smoke checks were rerun from its clean tree before the documentation-only evidence binding commit.

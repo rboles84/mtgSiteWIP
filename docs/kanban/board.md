@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Exact Owner Review candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` addresses six Owner Review rounds; active stone and engraved-filament light contributions are reduced by exactly 30% while geometry, widths, the recessed channel, accepted Atlas layout, and behavior remain locked.
+- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Exact Owner Review candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785` addresses seven Owner Review rounds; card names, notation, and mana pips now use the accepted card space more legibly while card/sigil geometry, glass treatment, responsive architecture, Atlas layout, and behavior remain locked.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
