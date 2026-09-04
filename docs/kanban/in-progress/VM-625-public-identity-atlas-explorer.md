@@ -4,7 +4,7 @@ ID: VM-625
 
 Title: Public Identity Atlas Explorer
 
-Status: Owner Review Ready - Sixth Finding Remediated
+Status: In Progress - Seventh Owner Review Card-Legibility Refinement
 
 Type: Archscry public navigation / identity-only dossier / Maze context
 
@@ -288,3 +288,19 @@ Current remediation:
 This presentation-only correction is QA-1 within the still-QA-3 VM-625 candidate. The focused invariant proves the exact 30% light reduction while freezing path widths and the underlying warm channel.
 
 Exact Owner Review target: `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95`. The six real-card `new-*` witnesses were refreshed from this candidate; automated checks were rerun from its clean tree before the documentation-only evidence binding commit.
+
+## Owner Findings And Remediation - Seventh Review - 2026-09-03
+
+Owner accepted the page structure and requested a surgical card-content hierarchy correction for desktop at 100% zoom. The cards remain at their established dimensions; the sigil, hero, background, grid, pager, responsive architecture, registry, routing, and interaction behavior are frozen.
+
+Implemented centralized refinement:
+
+- identity name: `1.08rem` -> `1.2rem` (+11.1%);
+- identity notation: `0.66rem` -> `0.71rem` (+7.6%), with neutral text alpha `0.46` -> `0.50`;
+- mana glyph: `0.86rem` -> `1.02rem` (+18.6%);
+- sigil: unchanged at `4.9rem` desktop and `4.35rem` below the existing 760px breakpoint;
+- card height, grid, padding, gaps, glass surface, and backdrop treatment: unchanged after rendered inspection confirmed sufficient separation.
+
+This is QA-1 presentation work within the still-QA-3 VM-625 candidate. Objective validation must prove consistent sizing, no wrapping or clipping, stable card heights and grid alignment, unchanged sigil geometry, and no horizontal overflow across the requested Guild, Wedge, and Four-Color examples at 100%, 125%, and 200%-equivalent reflow plus the established responsive breakpoints. Final optical hierarchy and comfort remain Owner judgment.
+
+Pre-freeze evidence: all ten Guild cards, all five Wedges, all five Four-Color cards, all five mono-color cards, and all five Strixhaven College cards remained one-line, contained, equal-height within each viewport, and free of horizontal page overflow at 1440x900, 1152x720, 720x450, 1024x768, and 390x844. The real-card comparison artifact is stored outside the repository under `vm625-card-legibility/`.

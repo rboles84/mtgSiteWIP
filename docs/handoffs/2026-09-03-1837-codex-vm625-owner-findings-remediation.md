@@ -6,13 +6,14 @@ Codex
 
 ## Task requested
 
-Apply six rounds of Owner visual findings against exact VM-625 candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`: repair card alignment and long-board navigation, replace circular perimeter connectors with an equal-point pentagram, remove redundant vertex glyphs and refine the pager into diffuse triple-chevron controls, replace the rejected cool/concentric sigil pass with a materially distinct engraved-gold treatment, then reduce only the accepted orb and active-line light contributions by 30%.
+Apply seven rounds of Owner visual findings against exact VM-625 candidate `6fa574baca09ab68460ec02a270932a0d89cd4b8`: repair card alignment and long-board navigation, replace circular perimeter connectors with an equal-point pentagram, remove redundant vertex glyphs and refine the pager into diffuse triple-chevron controls, replace the rejected cool/concentric sigil pass with a materially distinct engraved-gold treatment, reduce only the accepted orb and active-line light contributions by 30%, then improve card-content legibility without resizing cards or changing the accepted page.
 
 ## Files reviewed
 
 - VM-625 card, prior Owner Review handoff, exact candidate `6fa574b`, and binding commit `0ade00a`
 - Owner-supplied screenshots for Guilds, Strixhaven Colleges, Wedges, Four-Color, and code/pip alignment
 - Owner's compact sigil refinement brief and subsequent rejection covering one through five colors and Colorless
+- Owner's card-legibility screenshot and locked 100% zoom hierarchy requirements
 - `assets/js/archscry/runtime/identity-atlas.js`
 - `assets/css/archscry.css`
 - `tests/archscry/identity-atlas-tests.js`
@@ -48,10 +49,12 @@ Review artifacts were generated outside the repository at `C:/Users/obake/.codex
 - Desktop wheel input over the stable Atlas stage changes one block per debounced gesture. At the first/last boundary the event is released for normal page scrolling. Mobile keeps explicit buttons and ordinary page scrolling.
 - The Atlas still contains all 37 native dossier links in the DOM and still uses registry-derived records and accepted canonical ordering.
 - The Archscry root, CSS, and Atlas module cache versions advance to `vm625f`.
+- Atlas identity names now render at `1.2rem` (+11.1%), notation at `0.71rem` (+7.6%) with a small neutral-alpha increase, and mana glyphs at `1.02rem` (+18.6%).
+- Card dimensions, grid, padding, gaps, sigil sizes, glass opacity, backdrop treatment, and every responsive breakpoint remain unchanged; the current cache chain advances to `vm625h`.
 
 ## Why it changed
 
-The initial card renderer encoded connector segments only between adjacent active positions, so enemy-color pairs had no connector and some three-color identities looked incomplete. The all-family layout also made the Atlas unnecessarily long, and the separate proportional code/pip rows produced visible column drift. The fourth visual pass added detail but was rejected because cool outlines, concentric rings, and more glow did not create a convincingly authored emblem. The fifth pass keeps the original clarity and gives only the active relationship a warm inlaid material construction.
+The initial card renderer encoded connector segments only between adjacent active positions, so enemy-color pairs had no connector and some three-color identities looked incomplete. The all-family layout also made the Atlas unnecessarily long, and the separate proportional code/pip rows produced visible column drift. The fourth visual pass added detail but was rejected because cool outlines, concentric rings, and more glow did not create a convincingly authored emblem. The fifth pass keeps the original clarity and gives only the active relationship a warm inlaid material construction. The seventh finding showed that this accepted card system still rendered its name and mana cues slightly too small for the available 100% desktop card space.
 
 ## Decisions made
 
@@ -64,28 +67,29 @@ The initial card renderer encoded connector segments only between adjacent activ
 - Disable wheel capture below the accepted 760px mobile breakpoint so touch/narrow users retain ordinary page scrolling and use the visible controls.
 - Preserve the first exact candidate and its evidence as history. The replacement is frozen at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` for Owner review.
 - Preserve the fifth-review candidate as history. The sixth-review micro-adjustment is frozen at exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` for Owner review.
+- Use only the existing route-scoped name, notation, and pip selectors for the seventh finding. Keep the sigil and card footprint frozen, and leave the glass surface unchanged because rendered evidence shows sufficient foreground separation after the content-scale correction.
 
 ## Risks / uncertainties
 
-- Owner judgment remains only for whether the exact 30% reduction makes the accepted warm filament and simplified stones sufficiently restrained at real card size. The accepted material direction, Atlas behavior, and layout are not reopened.
+- Owner judgment remains for whether the enlarged name and mana cues create the requested hierarchy at normal desktop viewing distance while retaining the accepted spacious card feel. The accepted material direction, Atlas behavior, layout, and sigil are not reopened.
 - Owner judgment remains for overall density and the stable desktop stage height used to keep the pointer inside the wheel target as blocks change size.
 - No physical screen-reader pass was performed; semantic buttons, link names, live status, focus, disabled endpoints, and DOM visibility are covered deterministically.
 
 ## RobDev transfer
 
-- **Changed behavior:** compact sigil presentation, card connector projection, card metadata layout, and Atlas in-page family navigation only.
+- **Changed behavior:** compact sigil presentation, card connector projection, card metadata layout and scale, and Atlas in-page family navigation only.
 - **Protected behavior:** registry membership/order, 37 URLs, identity dossiers, exploration versus Placement semantics, saved-reading bytes, Maze handoff, Reading Finds, scoring, qualification, CRIT-001 meanings, and telemetry.
 - **Reused machinery:** existing registry-derived entries, card renderer, five canonical WUBRG positions, native links, pager controller, and accepted responsive breakpoint.
-- **Smallest complete fix:** one unchanged connector resolver rendered through reusable SVG layers, one seven-panel presenter/controller, scoped CSS, cache bumps, and finding-specific regression assertions.
+- **Smallest complete fix:** one unchanged connector resolver rendered through reusable SVG layers, one seven-panel presenter/controller, three centralized card-content size declarations, scoped CSS, cache bumps, and finding-specific regression assertions.
 - **Non-goals held:** no data/content rewrite, search/filter/dropdown, selection state, new persistence, new route parameters, touch carousel, placement change, or Maze change.
 
 ## RobQA readiness
 
-- **Tier:** QA-3 remains appropriate for the complete VM-625 candidate because the remediation includes in-page state transitions and wheel/button navigation; the sixth-review glow correction alone is QA-1 presentation work. Placement remains untouched.
-- **Review target:** exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` on `codex/vm-625-public-identity-atlas`.
-- **Objective result:** READY after focused sixth-round checks. The narrow invariant freezes the accepted construction and proves exactly 30% less light contribution from active stones and connectors with widths and channel unchanged.
-- **Rendered evidence:** the actual in-place `new-*` card captures for White, Azorius, Jund, Ink, Five-Color, and Colorless were refreshed from the exact candidate at their normal rendered size; the original and rejected columns remain historical comparators.
-- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Tier:** QA-3 remains appropriate for the complete VM-625 candidate because earlier remediation includes in-page state transitions and wheel/button navigation; the seventh-review card-legibility correction alone is QA-1 presentation work. Placement remains untouched.
+- **Review target:** replacement exact candidate pending focused seventh-review validation and commit on `codex/vm-625-public-identity-atlas`.
+- **Objective result:** pending focused seventh-round checks. The narrow invariant freezes card/sigil geometry and requires the centralized `19.2px` / `11.36px` / `16.32px` content scale without wrapping, clipping, unequal heights, or overflow.
+- **Rendered evidence:** actual registry-driven before/after captures cover all ten Guild cards, all Wedges, all Four-Color cards, Red, and Witherbloom at 100%; objective geometry also covers 125%, 200%-equivalent reflow, 1024px, and 390px.
+- **Disposition:** focused correction in progress; not yet exact-SHA bound, Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 
@@ -102,6 +106,17 @@ Passed from exact candidate `d0384c91cf47bfb2c9d39af21cad7ae8f98d8f95` after the
 The focused Atlas test now additionally freezes exactly 70% of the prior active orb and connector light contributions, including hover/focus, while retaining the warm recessed channel and the `2.9`/`0.9` connector widths. It continues to cover one quiet neutral scaffold, three warm connector layers, absence of concentric node-ring markup, bloom/body/specular layers for every stone, node-over-path order, five equal color positions, zero SVG text glyphs, direct enemy-pair edges, closed wedge/WUBRG polygons, the centered Colorless stone with dormant frame, reduced-motion treatment, six chevrons across two native buttons, material control separation, no visible pager label/count/instruction elements, assistive live context, five mono cards without code rows, Boros letter/pip center parity, seven panels/one visible, mouse-wheel down and up, button progression, 44px controls, keyboard link focus, combined endpoints, saved-reading isolation, Maze context, history, invalid recovery, and mobile containment.
 
 CPU-heavy placement/bias/mutation/all-journey suites were not run because no placement, scoring, qualification, source identity, dossier content, or Maze query behavior changed.
+
+Seventh-round pre-freeze QA passed:
+
+- `npm.cmd run lint:js`
+- `npm.cmd run lint:html`
+- `npm.cmd run test:identity-atlas`
+- `npm.cmd run test:reading-guide`
+- `npm.cmd run test:frontend-smoke`
+- `git diff --check`
+
+The rendered matrix exercised the real Atlas at 1440x900 (100%), 1152x720 (125%-equivalent), 720x450 (200%-equivalent reflow), 1024x768, and 390x844. All ten Guilds plus every Mono, College, Wedge, and Four-Color card remained single-line and contained with equal card heights and no horizontal overflow. The seventh-round change did not require CPU-heavy validation.
 
 ## Not touched
 

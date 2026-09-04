@@ -125,6 +125,11 @@ assert.match(archscryCss, /\.identity-atlas-card:hover \.identity-atlas-connecto
 assert.match(archscryCss, /\.identity-atlas-card:hover \.identity-atlas-color-node--active \.identity-atlas-node-halo,[\s\S]*?opacity:\s*0\.147;/, "hovered orb halo should preserve the same 30% reduction");
 assert.match(archscryCss, /\.identity-atlas-color-node--inactive \.identity-atlas-node-body\s*\{/);
 assert.match(archscryCss, /\.identity-atlas-pentagon-frame\s*\{[\s\S]*?stroke:\s*rgba\(101, 91, 78, 0\.17\)/, "dormant geometry must use a neutral warm-charcoal etch");
+assert.match(archscryCss, /\.identity-atlas-name\s*\{[\s\S]*?font-size:\s*1\.2rem;/, "identity names should provide the primary card-content anchor");
+assert.match(archscryCss, /\.identity-atlas-code\s*\{[\s\S]*?color:\s*rgba\(237, 230, 211, 0\.5\);[\s\S]*?font-size:\s*0\.71rem;/, "identity notation should remain subordinate but legible");
+assert.match(archscryCss, /\.identity-atlas-card-pips \.ms\s*\{[\s\S]*?font-size:\s*1\.02rem;/, "mana pips should provide the strongest compact recognition cue after the name");
+assert.match(archscryCss, /\.identity-atlas-sigil\s*\{[\s\S]*?width:\s*4\.9rem;[\s\S]*?height:\s*4\.9rem;/, "desktop sigil size must remain unchanged");
+assert.match(archscryCss, /\.identity-atlas-card\s*\{[\s\S]*?min-height:\s*7rem;/, "desktop card height must remain unchanged");
 assert.match(archscryCss, /prefers-reduced-motion:[\s\S]*\.identity-atlas-sigil\s*\{[\s\S]*transition:\s*none;/, "sigil hover polish must honor reduced-motion preference");
 for (const entry of entries.filter((candidate) => candidate.colors.filter((color) => color !== "C").length > 1)) {
   const connectedColors = new Set(identitySigilConnectorEdges(entry.colors).flat());
@@ -325,6 +330,34 @@ try {
   borosAlignment.letters.forEach((center, index) => {
     assert.ok(Math.abs(center - borosAlignment.pips[index]) < 0.75, `Boros code/pip column ${index + 1} must align`);
   });
+
+  const guildLegibility = await atlasPage.$$eval("[data-atlas-panel][data-active] .identity-atlas-card", (cards) => cards.map((card) => {
+    const cardRect = card.getBoundingClientRect();
+    const name = card.querySelector(".identity-atlas-name");
+    const code = card.querySelector(".identity-atlas-code");
+    const pip = card.querySelector(".identity-atlas-card-pips .ms");
+    const sigil = card.querySelector(".identity-atlas-sigil");
+    const nameStyle = getComputedStyle(name);
+    const nameRect = name.getBoundingClientRect();
+    const pipRect = pip.getBoundingClientRect();
+    const withinCard = (rect) => rect.left >= cardRect.left - 0.5 && rect.right <= cardRect.right + 0.5 && rect.top >= cardRect.top - 0.5 && rect.bottom <= cardRect.bottom + 0.5;
+    return {
+      name: name.textContent.trim(),
+      cardHeight: cardRect.height,
+      nameFont: Number.parseFloat(nameStyle.fontSize),
+      nameLines: Math.round(nameRect.height / Number.parseFloat(nameStyle.lineHeight)),
+      codeFont: Number.parseFloat(getComputedStyle(code).fontSize),
+      pipFont: Number.parseFloat(getComputedStyle(pip).fontSize),
+      sigilWidth: sigil.getBoundingClientRect().width,
+      contained: withinCard(nameRect) && withinCard(pipRect),
+    };
+  }));
+  assert.equal(guildLegibility.length, 10, "desktop legibility invariant should cover every Guild card");
+  assert.deepEqual(guildLegibility.map(({ name }) => name), ["Azorius", "Boros", "Dimir", "Golgari", "Gruul", "Izzet", "Orzhov", "Rakdos", "Selesnya", "Simic"]);
+  assert.ok(guildLegibility.every(({ nameFont, codeFont, pipFont }) => nameFont === 19.2 && codeFont === 11.36 && pipFont === 16.32), "all Guild cards should share the enlarged name, notation, and pip scale");
+  assert.ok(guildLegibility.every(({ nameLines, contained }) => nameLines === 1 && contained), "Guild names and mana pips should remain single-line and contained");
+  assert.ok(Math.max(...guildLegibility.map(({ cardHeight }) => cardHeight)) - Math.min(...guildLegibility.map(({ cardHeight }) => cardHeight)) < 0.1, "Guild cards should retain equal heights");
+  assert.ok(guildLegibility.every(({ sigilWidth }) => Math.abs(sigilWidth - 78.4) < 0.1), "desktop sigils should retain their accepted compact footprint");
 
   const stageBox = await atlasPage.$eval(".identity-atlas-stage", (stage) => {
     stage.scrollIntoView({ block: "center" });
