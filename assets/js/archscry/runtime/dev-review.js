@@ -8,7 +8,7 @@ import {
 
 import {
   renderIdentityDossier,
-} from "./dossier-view.js?v=vm620";
+} from "./dossier-view.js?v=vm625";
 
 import {
   startQuickFlow,
@@ -18,40 +18,17 @@ import {
   APP_STATE,
 } from "./state.js";
 
+import {
+  buildIdentityDirectoryEntries,
+} from "./identity-directory.js";
+
 const REVIEW_MODE = "dossier";
 const ENGINE_MODE = "engine";
-const IDENTITY_TAXONOMY_GROUPS = new Map([
-  ["color", 0],
-  ["guild", 1],
-  ["college", 2],
-  ["shard", 3],
-  ["wedge", 4],
-  ["four_color", 5],
-  ["colorless", 6],
-  ["five_color", 7],
-]);
-const MANA_COLOR_ORDER = "WUBRG";
-
-function compareIdentityTaxonomy(left, right) {
-  const groupDelta = (IDENTITY_TAXONOMY_GROUPS.get(left.kind) ?? Number.MAX_SAFE_INTEGER) -
-    (IDENTITY_TAXONOMY_GROUPS.get(right.kind) ?? Number.MAX_SAFE_INTEGER);
-  if (groupDelta) return groupDelta;
-  if (left.kind === "color" && right.kind === "color") {
-    return MANA_COLOR_ORDER.indexOf(left.key) - MANA_COLOR_ORDER.indexOf(right.key);
-  }
-  return left.name.localeCompare(right.name, undefined, { sensitivity: "base" }) || left.key.localeCompare(right.key);
-}
-
 function activeIdentityEntries() {
-  const expressions = APP_STATE.identityLayers?.expressions || {};
-  return Object.entries(expressions)
-    .filter(([key, expression]) => expression?.active !== false && APP_STATE.factions[key])
-    .map(([key, expression]) => ({
-      key,
-      kind: String(expression?.kind || ""),
-      name: APP_STATE.factions[key]?.name || key,
-    }))
-    .sort(compareIdentityTaxonomy);
+  return buildIdentityDirectoryEntries({
+    identityLayers: APP_STATE.identityLayers,
+    factions: APP_STATE.factions,
+  });
 }
 
 function compactCandidate(candidate, model) {

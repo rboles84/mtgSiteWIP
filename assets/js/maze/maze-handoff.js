@@ -250,6 +250,7 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
     urlQ,
     contextMode: urlParams.get("contextMode") || existing.contextMode || "",
     reviewIdentity: urlParams.get("reviewIdentity") || existing.reviewIdentity || "",
+    exploreIdentity: urlParams.get("exploreIdentity") || existing.exploreIdentity || "",
     fit: urlParams.get("fit") || existing.fit || "",
     factionName: urlParams.get("factionName") || existing.factionName || "",
     readingId: urlParams.get("readingId") || existing.readingId || "",

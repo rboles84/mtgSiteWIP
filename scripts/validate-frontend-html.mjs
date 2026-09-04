@@ -355,7 +355,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm620">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm625h">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -559,7 +559,7 @@ expect(
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm620');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm625h');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&
@@ -581,7 +581,7 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm627"'),
+  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm628"'),
   "maze/index.html should load the module from a relative file-safe path"
 );
 expect(

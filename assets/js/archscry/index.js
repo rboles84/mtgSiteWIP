@@ -1,11 +1,11 @@
 import {
   bindArchscryControls,
-} from "./runtime/actions.js?v=vm615b";
+} from "./runtime/actions.js?v=vm625";
 
 import {
   renderInitializationError,
   restoreInitialView,
-} from "./runtime/boot.js?v=vm615b";
+} from "./runtime/boot.js?v=vm625";
 
 import {
   loadDeckTagCatalog,
@@ -21,14 +21,14 @@ import {
   renderResult,
   returnToPrimaryReading,
   switchAdjacentView,
-} from "./runtime/dossier-view.js?v=vm620";
+} from "./runtime/dossier-view.js?v=vm625";
 
 import {
   openInterviewDossier,
   returnToInterviewSource,
   startInterviewFlow,
   submitInterview,
-} from "./runtime/interview.js?v=vm615b";
+} from "./runtime/interview.js?v=vm625";
 
 import {
   applyTerminalVisibility,
@@ -44,7 +44,7 @@ import {
   answerQuickQuestion,
   goBackQuickQuestion,
   startQuickFlow,
-} from "./runtime/questionnaire.js?v=vm615b";
+} from "./runtime/questionnaire.js?v=vm625";
 
 import {
   APP_STATE,
@@ -58,6 +58,10 @@ import {
 import {
   isArchscryDevReviewLocation,
 } from "./runtime/dev-review-gate.js";
+
+import {
+  initializeIdentityExploration,
+} from "./runtime/identity-atlas.js?v=vm625h";
 
 export {
   validateDossierContentCatalogs,
@@ -74,7 +78,7 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js?v=vm620";
+} from "./runtime/dossier-view.js?v=vm625";
 
 export {
   renderPlayerCopy,
@@ -96,6 +100,9 @@ export {
 } from "./runtime/card-media.js";
 
 document.addEventListener("vm_placementSaved", (event) => {
+  if (new URLSearchParams(window.location.search).has("explore")) {
+    return;
+  }
   const result = event.detail || SESSION.profile?.placementResult || vm_getCachedPlacementResult();
   if (!result) {
     return;
@@ -164,10 +171,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  restoreInitialView(false);
+  if (!initializeIdentityExploration()) {
+    restoreInitialView(false);
+  }
 
   if (isArchscryDevReviewLocation(window.location)) {
-    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js");
+    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm625");
     initializeArchscryDevReview();
   }
 });

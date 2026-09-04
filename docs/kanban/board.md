@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-625 — Public Identity Atlas Explorer](in-progress/VM-625-public-identity-atlas-explorer.md) - Owner Accepted — Integration Pending at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; RobQA PASS and Owner ACCEPT remain valid while the single PR, required CI, squash merge, `main` verification, and safe branch cleanup complete without material product-byte changes.
+
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
