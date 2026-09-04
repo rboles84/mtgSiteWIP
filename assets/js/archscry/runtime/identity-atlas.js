@@ -50,11 +50,16 @@ export function hasSavedArchscryReading() {
 
 function buildIdentityCardHtml(entry) {
   const accessibleCode = entry.colorCode || "Colorless";
+  const showColorCode = entry.kind !== "color";
+  const colorCodeHtml = showColorCode ? `
+      <span class="identity-atlas-code sb" aria-hidden="true">
+        ${entry.colors.map((color) => `<span class="identity-atlas-code-token">${escapeHtml(color)}</span>`).join("")}
+      </span>` : "";
   return `
-    <a class="identity-atlas-card idcard" href="?explore=${encodeURIComponent(entry.slug)}" aria-label="Explore the ${escapeAttributeValue(entry.name)} dossier, ${escapeAttributeValue(accessibleCode)}">
+    <a class="identity-atlas-card idcard${showColorCode ? "" : " identity-atlas-card--mono"}" href="?explore=${encodeURIComponent(entry.slug)}" aria-label="Explore the ${escapeAttributeValue(entry.name)} dossier, ${escapeAttributeValue(accessibleCode)}" style="--atlas-color-count:${entry.colors.length}">
       ${buildIdentityAtlasSigilHtml(entry.colors)}
       <span class="identity-atlas-name nm">${escapeHtml(entry.name)}</span>
-      <span class="identity-atlas-code sb">${escapeHtml(entry.colorCode)}</span>
+      ${colorCodeHtml}
       <span class="identity-atlas-card-pips pips" aria-hidden="true">
         ${buildManaPipsHtml(entry.colors, "identity-atlas-inline-pips")}
       </span>
@@ -69,8 +74,38 @@ const IDENTITY_SIGIL_POINTS = [
   { color: "G", x: 35.3, y: 79 },
 ];
 
-function buildIdentitySigilArc(point, nextPoint) {
-  return `<path d="M${point.x} ${point.y} A68 68 0 0 1 ${nextPoint.x} ${nextPoint.y}" fill="none" stroke="var(--gold)" stroke-opacity=".72" stroke-width="3" stroke-linecap="round"></path>`;
+function buildIdentitySigilEdge(point, nextPoint) {
+  const coordinates = `x1="${point.x}" y1="${point.y}" x2="${nextPoint.x}" y2="${nextPoint.y}"`;
+  return `<g class="identity-atlas-connector" data-identity-connector="${point.color}-${nextPoint.color}">
+              <line class="identity-atlas-connector-line identity-atlas-connector-line--channel" ${coordinates}></line>
+              <line class="identity-atlas-connector-line identity-atlas-connector-line--body" ${coordinates}></line>
+              <line class="identity-atlas-connector-line identity-atlas-connector-line--core" ${coordinates}></line>
+            </g>`;
+}
+
+function buildIdentitySigilNode(point, state) {
+  const highlightX = point.x - 3.7;
+  const highlightY = point.y - 4.1;
+  return `<g class="identity-atlas-color-node identity-atlas-color-node--${state}" data-identity-color="${point.color}">
+              <circle class="identity-atlas-node-halo" cx="${point.x}" cy="${point.y}" r="17.5"></circle>
+              <circle class="identity-atlas-node-body" cx="${point.x}" cy="${point.y}" r="13"></circle>
+              <circle class="identity-atlas-node-highlight" cx="${highlightX}" cy="${highlightY}" r="2.5"></circle>
+            </g>`;
+}
+
+export function identitySigilConnectorEdges(colors = []) {
+  const activeColors = new Set(
+    (Array.isArray(colors) ? colors : String(colors || "").split(""))
+      .map((color) => String(color || "").toUpperCase())
+      .filter((color) => "WUBRG".includes(color))
+  );
+  const activeIndexes = IDENTITY_SIGIL_POINTS
+    .map((point, index) => activeColors.has(point.color) ? index : -1)
+    .filter((index) => index >= 0);
+  if (activeIndexes.length < 2) return [];
+  const activePoints = activeIndexes.map((index) => IDENTITY_SIGIL_POINTS[index]);
+  if (activePoints.length === 2) return [[activePoints[0].color, activePoints[1].color]];
+  return activePoints.map((point, index) => [point.color, activePoints[(index + 1) % activePoints.length].color]);
 }
 
 export function buildIdentityAtlasSigilHtml(colors = []) {
@@ -79,34 +114,46 @@ export function buildIdentityAtlasSigilHtml(colors = []) {
       .map((color) => String(color || "").toUpperCase())
       .filter((color) => "WUBRG".includes(color))
   );
-  const arcs = IDENTITY_SIGIL_POINTS.map((point, index) => {
-    const nextPoint = IDENTITY_SIGIL_POINTS[(index + 1) % IDENTITY_SIGIL_POINTS.length];
-    return activeColors.has(point.color) && activeColors.has(nextPoint.color)
-      ? buildIdentitySigilArc(point, nextPoint)
-      : "";
+  const pointsByColor = new Map(IDENTITY_SIGIL_POINTS.map((point) => [point.color, point]));
+  const connectors = identitySigilConnectorEdges(colors)
+    .map(([from, to]) => buildIdentitySigilEdge(pointsByColor.get(from), pointsByColor.get(to)))
+    .join("");
+  const nodes = IDENTITY_SIGIL_POINTS.map((point) => {
+    const state = activeColors.has(point.color) ? "active" : "inactive";
+    return buildIdentitySigilNode(point, state);
   }).join("");
-  const nodes = IDENTITY_SIGIL_POINTS.map((point) => activeColors.has(point.color)
-    ? `<circle cx="${point.x}" cy="${point.y}" r="12" fill="var(--atlas-${point.color})" fill-opacity=".9" stroke="rgba(0,0,0,.4)" stroke-width="1"></circle><circle cx="${point.x}" cy="${point.y}" r="16.5" fill="none" stroke="var(--atlas-${point.color})" stroke-opacity=".28" stroke-width="1"></circle>`
-    : `<circle cx="${point.x}" cy="${point.y}" r="8" fill="var(--atlas-ink-3)" stroke="var(--atlas-line-2)" stroke-width="1"></circle>`
-  ).join("");
+  const colorlessNode = activeColors.size ? "" : `
+          <g class="identity-atlas-color-node identity-atlas-color-node--active identity-atlas-color-node--colorless" data-identity-color="C">
+            <circle class="identity-atlas-node-halo" cx="100" cy="101" r="20"></circle>
+            <circle class="identity-atlas-node-body" cx="100" cy="101" r="15"></circle>
+            <circle class="identity-atlas-node-highlight" cx="96" cy="96.5" r="2.8"></circle>
+          </g>`;
 
   return `
       <span class="identity-atlas-sigil atlas-sigil" aria-hidden="true">
         <svg viewBox="0 0 200 200" focusable="false">
-          <circle cx="100" cy="100" r="68" fill="none" stroke="rgba(58,66,86,.55)" stroke-width="1.2"></circle>
-          ${arcs}
-          <circle cx="100" cy="100" r="27" fill="rgba(201,162,75,.05)" stroke="var(--gold-dim)" stroke-opacity=".7" stroke-width="1"></circle>
-          <text class="identity-atlas-sigil-core sigil-core" x="100" y="102">&#xe623;</text>
+          <polygon class="identity-atlas-pentagon-frame" points="100,32 164.7,79 140,155 60,155 35.3,79"></polygon>
+          <g class="identity-atlas-connectors">${connectors}</g>
           ${nodes}
+          ${colorlessNode}
         </svg>
       </span>`;
 }
 
 export function buildIdentityAtlasHtml(entries = [], { invalidSlug = "", hasSavedReading = false } = {}) {
-  const groups = IDENTITY_DIRECTORY_GROUPS.map((group) => ({
+  const registryGroups = IDENTITY_DIRECTORY_GROUPS.map((group) => ({
     ...group,
     entries: entries.filter((entry) => entry.kind === group.kind),
   })).filter((group) => group.entries.length);
+  const groups = [
+    ...registryGroups.filter((group) => !["colorless", "five_color"].includes(group.kind)),
+    {
+      id: "endpoints",
+      kind: "endpoints",
+      label: "Colorless & Five-Color",
+      entries: entries.filter((entry) => ["colorless", "five_color"].includes(entry.kind)),
+    },
+  ];
   const commanderIdentityCount = entries.filter((entry) => !entry.isStrixhavenExpression).length;
   const strixhavenExpressionCount = entries.filter((entry) => entry.isStrixhavenExpression).length;
   const recoveryHtml = invalidSlug ? `
@@ -115,8 +162,8 @@ export function buildIdentityAtlasHtml(entries = [], { invalidSlug = "", hasSave
     </p>` : "";
   const savedReadingLink = hasSavedReading ? `
     <a class="btn-secondary identity-atlas-saved-link" href="./index.html">Return to your saved reading</a>` : "";
-  const groupHtml = groups.map((group) => `
-    <section class="identity-atlas-group" aria-labelledby="identity-atlas-group-${escapeAttributeValue(group.id)}">
+  const groupHtml = groups.map((group, index) => `
+    <section class="identity-atlas-group" data-atlas-panel data-atlas-panel-index="${index}" aria-labelledby="identity-atlas-group-${escapeAttributeValue(group.id)}"${index ? " hidden" : ""}>
       <div class="identity-atlas-group-heading">
         <h2 id="identity-atlas-group-${escapeAttributeValue(group.id)}">${escapeHtml(group.label)}</h2>
         <span>${group.entries.length}</span>
@@ -135,16 +182,85 @@ export function buildIdentityAtlasHtml(entries = [], { invalidSlug = "", hasSave
         ${savedReadingLink}
         ${recoveryHtml}
       </header>
-      <nav class="identity-atlas-board" aria-label="Vox Mana identity dossiers">
-        ${groupHtml}
-      </nav>
+      <div class="identity-atlas-board">
+        <nav class="identity-atlas-stage" aria-label="Vox Mana identity dossiers">
+          ${groupHtml}
+        </nav>
+        <div class="identity-atlas-pager" role="group" aria-label="Identity Atlas groups">
+          <button type="button" class="identity-atlas-pager-button" data-atlas-move="-1" aria-label="Show previous identity group" disabled>
+            <span class="identity-atlas-chevron-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <button type="button" class="identity-atlas-pager-button" data-atlas-move="1" aria-label="Show next identity group">
+            <span class="identity-atlas-chevron-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <span class="visually-hidden" data-atlas-announcement aria-live="polite" aria-atomic="true">${escapeHtml(groups[0]?.label || "")}, group 1 of ${groups.length}</span>
+        </div>
+      </div>
     </div>`;
+}
+
+export function initializeIdentityAtlasPager(root) {
+  const stage = root?.querySelector?.(".identity-atlas-stage");
+  const panels = [...(root?.querySelectorAll?.("[data-atlas-panel]") || [])];
+  const previous = root?.querySelector?.('[data-atlas-move="-1"]');
+  const next = root?.querySelector?.('[data-atlas-move="1"]');
+  const announcement = root?.querySelector?.("[data-atlas-announcement]");
+  if (!stage || !panels.length || !previous || !next || !announcement) return null;
+
+  let activeIndex = 0;
+  let wheelAccumulator = 0;
+  let wheelLockedUntil = 0;
+  let wheelResetTimer = 0;
+
+  const showPanel = (requestedIndex) => {
+    const nextIndex = Math.max(0, Math.min(panels.length - 1, requestedIndex));
+    if (nextIndex === activeIndex) return false;
+    activeIndex = nextIndex;
+    panels.forEach((panel, index) => {
+      panel.hidden = index !== activeIndex;
+      panel.toggleAttribute("data-active", index === activeIndex);
+    });
+    const heading = panels[activeIndex].querySelector("h2");
+    announcement.textContent = `${heading?.textContent?.trim() || "Identity group"}, group ${activeIndex + 1} of ${panels.length}`;
+    previous.disabled = activeIndex === 0;
+    next.disabled = activeIndex === panels.length - 1;
+    previous.setAttribute("aria-label", activeIndex > 0
+      ? `Show previous identity group: ${panels[activeIndex - 1].querySelector("h2")?.textContent?.trim() || "previous"}`
+      : "No previous identity group");
+    next.setAttribute("aria-label", activeIndex < panels.length - 1
+      ? `Show next identity group: ${panels[activeIndex + 1].querySelector("h2")?.textContent?.trim() || "next"}`
+      : "No next identity group");
+    return true;
+  };
+
+  root.querySelectorAll("[data-atlas-move]").forEach((button) => {
+    button.addEventListener("click", () => showPanel(activeIndex + Number(button.dataset.atlasMove || 0)));
+  });
+  stage.addEventListener("wheel", (event) => {
+    if (window.matchMedia?.("(max-width: 760px)").matches || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    const direction = event.deltaY > 0 ? 1 : -1;
+    if ((direction < 0 && activeIndex === 0) || (direction > 0 && activeIndex === panels.length - 1)) return;
+    event.preventDefault();
+    wheelAccumulator += event.deltaY;
+    clearTimeout(wheelResetTimer);
+    wheelResetTimer = setTimeout(() => { wheelAccumulator = 0; }, 180);
+    const now = Date.now();
+    if (Math.abs(wheelAccumulator) < 36 || now < wheelLockedUntil) return;
+    showPanel(activeIndex + (wheelAccumulator > 0 ? 1 : -1));
+    wheelAccumulator = 0;
+    wheelLockedUntil = now + 360;
+  }, { passive: false });
+
+  panels[0].toggleAttribute("data-active", true);
+  next.setAttribute("aria-label", `Show next identity group: ${panels[1]?.querySelector("h2")?.textContent?.trim() || "next"}`);
+  return { get activeIndex() { return activeIndex; }, showPanel };
 }
 
 export function renderIdentityAtlas(entries, options = {}) {
   const root = document.getElementById("identity-atlas-inner");
   if (!root) throw new Error("Identity Atlas container is unavailable.");
   root.innerHTML = buildIdentityAtlasHtml(entries, options);
+  initializeIdentityAtlasPager(root);
   document.title = "Identity Atlas - Vox Mana";
   showSection("atlas");
   updateTopbar();

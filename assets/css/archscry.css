@@ -4581,14 +4581,114 @@ body.vm-archscry-route .identity-atlas-recovery {
   font-size: 0.95rem;
 }
 
-body.vm-archscry-route .identity-atlas-board,
 body.vm-archscry-route .identity-atlas-group {
   display: grid;
   gap: 1rem;
 }
 
 body.vm-archscry-route .identity-atlas-board {
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 3.25rem;
+  align-items: stretch;
+  gap: 0.7rem;
+}
+
+body.vm-archscry-route .identity-atlas-stage {
+  min-width: 0;
+  min-height: 25rem;
+}
+
+body.vm-archscry-route .identity-atlas-group[hidden] {
+  display: none;
+}
+
+body.vm-archscry-route .identity-atlas-pager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  min-height: 100%;
+  padding: 0.4rem 0;
+}
+
+body.vm-archscry-route .identity-atlas-pager-button {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: 2.75rem;
+  height: 3.35rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(236, 204, 116, 0.68);
+  cursor: pointer;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+body.vm-archscry-route .identity-atlas-pager-button::before {
+  position: absolute;
+  z-index: 0;
+  width: 1.35rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.38);
+  content: "";
+  filter: blur(0.72rem);
+  opacity: 0.46;
+  transition: opacity 180ms ease, background 180ms ease;
+}
+
+body.vm-archscry-route .identity-atlas-chevron-stack {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.05rem;
+  place-items: center;
+}
+
+body.vm-archscry-route .identity-atlas-chevron-stack i {
+  display: block;
+  width: 0.66rem;
+  height: 0.66rem;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+body.vm-archscry-route [data-atlas-move="1"] .identity-atlas-chevron-stack i {
+  transform: rotate(135deg);
+}
+
+body.vm-archscry-route .identity-atlas-pager-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  color: var(--gold-l);
+}
+
+body.vm-archscry-route [data-atlas-move="1"]:hover:not(:disabled) {
+  transform: translateY(1px);
+}
+
+body.vm-archscry-route .identity-atlas-pager-button:hover:not(:disabled)::before,
+body.vm-archscry-route .identity-atlas-pager-button:focus-visible::before {
+  background: rgba(236, 204, 116, 0.52);
+  opacity: 0.68;
+}
+
+body.vm-archscry-route .identity-atlas-pager-button:focus-visible {
+  outline: 2px solid var(--gold-l);
+  outline-offset: 3px;
+}
+
+body.vm-archscry-route .identity-atlas-pager-button:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+body.vm-archscry-route .identity-atlas-pager-button:disabled::before {
+  opacity: 0.12;
 }
 
 body.vm-archscry-route .identity-atlas-group-heading {
@@ -4654,6 +4754,13 @@ body.vm-archscry-route .identity-atlas-card {
   transition: transform 220ms cubic-bezier(.2,.8,.2,1), border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
 
+body.vm-archscry-route .identity-atlas-card--mono {
+  grid-template-areas:
+    "sigil name"
+    "sigil pips";
+  grid-template-rows: auto auto;
+}
+
 body.vm-archscry-route .identity-atlas-card:hover {
   transform: translateY(-3px) scale(1.015);
   border-color: rgba(237, 230, 211, 0.24);
@@ -4689,14 +4796,104 @@ body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-sigil 
   transform: scale(1.035);
 }
 
-body.vm-archscry-route .identity-atlas-sigil-core {
-  fill: var(--gold);
-  font-family: "Mana";
-  font-size: 25px;
-  text-anchor: middle;
-  dominant-baseline: middle;
-  opacity: 0.72;
+body.vm-archscry-route .identity-atlas-pentagon-frame {
+  fill: none;
+  stroke: rgba(101, 91, 78, 0.17);
+  stroke-width: 1.05;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.72));
 }
+
+body.vm-archscry-route .identity-atlas-connector-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+body.vm-archscry-route .identity-atlas-connector-line--channel {
+  stroke: rgba(45, 29, 10, 0.88);
+  stroke-width: 5.2;
+}
+
+body.vm-archscry-route .identity-atlas-connector-line--body {
+  stroke: rgba(184, 137, 36, 0.9);
+  stroke-width: 2.9;
+  filter: drop-shadow(0 0 1.6px rgba(212, 175, 55, 0.2));
+}
+
+body.vm-archscry-route .identity-atlas-connector-line--core {
+  stroke: rgba(255, 229, 148, 0.76);
+  stroke-width: 0.9;
+}
+
+body.vm-archscry-route .identity-atlas-node-halo,
+body.vm-archscry-route .identity-atlas-node-body,
+body.vm-archscry-route .identity-atlas-node-highlight {
+  vector-effect: non-scaling-stroke;
+}
+
+body.vm-archscry-route .identity-atlas-node-halo {
+  fill: var(--atlas-node-color);
+  filter: blur(3px);
+  opacity: 0.16;
+}
+
+body.vm-archscry-route .identity-atlas-node-body {
+  fill: color-mix(in srgb, var(--atlas-node-color) 91%, #100d09 9%);
+  stroke: color-mix(in srgb, var(--atlas-node-color) 34%, #120d07 66%);
+  stroke-width: 2.1;
+}
+
+body.vm-archscry-route .identity-atlas-node-highlight {
+  fill: rgba(255, 248, 220, 0.82);
+  opacity: 0.58;
+}
+
+body.vm-archscry-route .identity-atlas-color-node--active {
+  filter: drop-shadow(0 0 0.3rem color-mix(in srgb, var(--atlas-node-color) 36%, transparent));
+}
+
+body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-halo {
+  fill: transparent;
+  filter: none;
+  opacity: 0;
+}
+
+body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-body {
+  fill: rgba(9, 9, 9, 0.98);
+  stroke: rgba(104, 94, 80, 0.24);
+  stroke-width: 1.4;
+}
+
+body.vm-archscry-route .identity-atlas-color-node--inactive .identity-atlas-node-highlight {
+  fill: rgba(171, 156, 132, 0.16);
+  opacity: 0.1;
+}
+
+body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-connector-line--body,
+body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-connector-line--body {
+  stroke: rgba(198, 151, 48, 0.94);
+}
+
+body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-connector-line--core,
+body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-connector-line--core {
+  stroke: rgba(255, 235, 166, 0.88);
+}
+
+body.vm-archscry-route .identity-atlas-card:hover .identity-atlas-color-node--active .identity-atlas-node-halo,
+body.vm-archscry-route .identity-atlas-card:focus-visible .identity-atlas-color-node--active .identity-atlas-node-halo {
+  opacity: 0.21;
+}
+
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="W"] { --atlas-node-color: var(--atlas-W); }
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="U"] { --atlas-node-color: var(--atlas-U); }
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="B"] { --atlas-node-color: var(--atlas-B); }
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="R"] { --atlas-node-color: var(--atlas-R); }
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="G"] { --atlas-node-color: var(--atlas-G); }
+body.vm-archscry-route .identity-atlas-color-node[data-identity-color="C"] { --atlas-node-color: #b9b6a9; }
 
 body.vm-archscry-route .identity-atlas-name {
   grid-area: name;
@@ -4713,6 +4910,10 @@ body.vm-archscry-route .identity-atlas-name {
 body.vm-archscry-route .identity-atlas-code {
   grid-area: code;
   align-self: center;
+  display: grid;
+  grid-template-columns: repeat(var(--atlas-color-count), 1.05rem);
+  column-gap: 0.35rem;
+  width: max-content;
   min-height: 1em;
   color: rgba(237, 230, 211, 0.46);
   font-family: var(--font-ui);
@@ -4721,6 +4922,19 @@ body.vm-archscry-route .identity-atlas-code {
   letter-spacing: 0.2em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+body.vm-archscry-route .identity-atlas-code-token {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+body.vm-archscry-route .identity-atlas-code-token:not(:last-child)::after {
+  position: absolute;
+  left: calc(100% + 0.175rem);
+  content: "·";
+  transform: translateX(-50%);
 }
 
 body.vm-archscry-route .identity-atlas-card-pips {
@@ -4732,14 +4946,17 @@ body.vm-archscry-route .identity-atlas-card-pips {
 }
 
 body.vm-archscry-route .identity-atlas-card-pips .mana-pips {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(var(--atlas-color-count), 1.05rem);
   align-items: center;
   justify-content: flex-start;
-  gap: 0.16rem;
+  column-gap: 0.35rem;
+  width: max-content;
   margin-bottom: 0;
 }
 
 body.vm-archscry-route .identity-atlas-card-pips .ms {
+  justify-self: center;
   font-size: 0.86rem;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
 }
@@ -4792,6 +5009,23 @@ body.vm-archscry-route .identity-explore-nav .btn-secondary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  body.vm-archscry-route .identity-atlas-board {
+    grid-template-columns: 1fr;
+  }
+
+  body.vm-archscry-route .identity-atlas-stage {
+    min-height: 0;
+  }
+
+  body.vm-archscry-route .identity-atlas-pager {
+    grid-row: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    min-height: 0;
+    gap: 1.2rem;
+    padding-right: 0.2rem;
+  }
+
   body.vm-archscry-route .identity-atlas-card {
     grid-template-columns: 4.35rem minmax(0, 1fr);
     min-height: 6.35rem;
@@ -4823,7 +5057,9 @@ body.vm-archscry-route .identity-explore-nav .btn-secondary {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.vm-archscry-route .identity-atlas-card {
+  body.vm-archscry-route .identity-atlas-card,
+  body.vm-archscry-route .identity-atlas-pager-button,
+  body.vm-archscry-route .identity-atlas-sigil {
     transition: none;
   }
 

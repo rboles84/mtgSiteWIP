@@ -11,7 +11,7 @@ const [archscryHtml, archscryCss, dossierView, readingGuideHtml, readingGuideCss
 
 const count = (source, pattern) => [...source.matchAll(pattern)].length;
 
-assert.match(archscryHtml, /assets\/css\/archscry\.css\?v=vm625/);
+assert.match(archscryHtml, /assets\/css\/archscry\.css\?v=vm625f/);
 assert.equal(count(dossierView, /class="[^"]*\bdossier-orientation-guide\b[^"]*"/g), 1);
 assert.match(dossierView, /How to read your dossier/);
 assert.match(dossierView, /href="\.\.\/guide\/reading\/\?guided=dossier-reading"/);

@@ -355,7 +355,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm625">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm625f">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -559,7 +559,7 @@ expect(
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm625');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm625f');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&

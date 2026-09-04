@@ -25,11 +25,13 @@ const {
 const {
   buildIdentityAtlasHtml,
   buildIdentityAtlasSigilHtml,
+  identitySigilConnectorEdges,
   resolveIdentityExploreRequest,
 } = await import("../../assets/js/archscry/runtime/identity-atlas.js");
 
 const root = process.cwd();
 const host = "127.0.0.1";
+const archscryCss = fs.readFileSync(path.join(root, "assets", "css", "archscry.css"), "utf8");
 const factions = JSON.parse(fs.readFileSync(path.join(root, "data", "factions.json"), "utf8")).factions;
 const identityLayers = JSON.parse(fs.readFileSync(path.join(root, "data", "identity-layers.json"), "utf8"));
 const livePlacementWitnesses = JSON.parse(fs.readFileSync(
@@ -81,14 +83,49 @@ assert.notEqual(boros.slug, lorehold.slug, "Boros and Lorehold must remain separ
 assert.notEqual(boros.key, lorehold.key, "Boros and Lorehold must retain separate semantic registries");
 
 const atlasHtml = buildIdentityAtlasHtml(entries, { hasSavedReading: true });
-assert.equal((atlasHtml.match(/<a class="identity-atlas-card idcard"/g) || []).length, 37);
+assert.equal((atlasHtml.match(/<a class="identity-atlas-card idcard/g) || []).length, 37);
 assert.doesNotMatch(atlasHtml, /aria-pressed=/, "Atlas cards are navigation, not selection controls");
 assert.match(atlasHtml, /Browse all 32 Commander color identities plus five Strixhaven expressions/);
 assert.match(atlasHtml, /Return to your saved reading/);
-assert.equal((buildIdentityAtlasSigilHtml(["W", "U"]).match(/r="12"/g) || []).length, 2);
-assert.equal((buildIdentityAtlasSigilHtml(["W", "U"]).match(/<path /g) || []).length, 1);
-assert.equal((buildIdentityAtlasSigilHtml(["B", "R", "G"]).match(/r="12"/g) || []).length, 3);
-assert.equal((buildIdentityAtlasSigilHtml(["W", "U", "B", "R", "G"]).match(/<path /g) || []).length, 5);
+assert.equal((atlasHtml.match(/data-atlas-panel(?:\s|>)/g) || []).length, 7, "Atlas must present seven owner-requested browse blocks");
+assert.equal((atlasHtml.match(/data-atlas-panel[^>]* hidden/g) || []).length, 6, "only the first Atlas block should be visible initially");
+assert.match(atlasHtml, /Colorless &amp; Five-Color/);
+assert.equal((atlasHtml.match(/identity-atlas-card--mono/g) || []).length, 5);
+assert.equal((atlasHtml.match(/identity-atlas-code-token/g) || []).length, 86, "mono cards should omit redundant color-code letters");
+assert.doesNotMatch(atlasHtml, /identity-atlas-pager-status|identity-atlas-pager-hint/, "pager should expose only the two subtle arrow controls visually");
+assert.match(atlasHtml, /data-atlas-announcement/, "pager changes should remain available to assistive technology");
+assert.equal((atlasHtml.match(/identity-atlas-chevron-stack/g) || []).length, 2, "pager should render one decorative chevron stack per native button");
+assert.equal((atlasHtml.match(/<span class="identity-atlas-chevron-stack" aria-hidden="true"><i><\/i><i><\/i><i><\/i><\/span>/g) || []).length, 2, "each pager direction should contain three stacked chevrons");
+const azoriusSigil = buildIdentityAtlasSigilHtml(["W", "U"]);
+assert.equal((azoriusSigil.match(/data-identity-color=/g) || []).length, 5, "each medallion should render all five equal color positions");
+assert.equal((azoriusSigil.match(/identity-atlas-color-node--active/g) || []).length, 2);
+assert.doesNotMatch(azoriusSigil, /<text\b/, "pentagon nodes should not duplicate the mana symbols already shown in the card pip row");
+assert.equal((azoriusSigil.match(/data-identity-connector=/g) || []).length, 1);
+assert.equal((azoriusSigil.match(/identity-atlas-connector-line--channel/g) || []).length, 1, "each active path should retain one warm recessed channel");
+assert.equal((azoriusSigil.match(/identity-atlas-connector-line--body/g) || []).length, 1, "each active path should receive one muted-gold body");
+assert.equal((azoriusSigil.match(/identity-atlas-connector-line--core/g) || []).length, 1, "each active path should receive one pale-gold filament core");
+assert.equal((azoriusSigil.match(/identity-atlas-node-body/g) || []).length, 5, "each mana position should render one crisp orb body");
+assert.equal((azoriusSigil.match(/identity-atlas-node-highlight/g) || []).length, 5, "each mana position should render a subtle dimensional highlight");
+assert.doesNotMatch(azoriusSigil, /identity-atlas-node-ring/, "orb treatment should not read as concentric target rings");
+assert.equal((azoriusSigil.match(/class="identity-atlas-pentagon-frame"/g) || []).length, 1, "the dormant scaffold should remain one quiet etched line");
+assert.ok(azoriusSigil.indexOf("identity-atlas-connectors") < azoriusSigil.indexOf("identity-atlas-color-node"), "node orbs must paint above and cleanly cap active paths");
+assert.equal((buildIdentityAtlasSigilHtml(["R", "W"]).match(/data-identity-connector=/g) || []).length, 1, "enemy colors should connect directly instead of walking around inactive positions");
+assert.equal((buildIdentityAtlasSigilHtml(["B", "R", "G"]).match(/identity-atlas-color-node--active/g) || []).length, 3);
+assert.equal((buildIdentityAtlasSigilHtml(["W", "B", "G"]).match(/data-identity-connector=/g) || []).length, 3, "wedge medallions should close a direct three-point relationship");
+assert.equal((buildIdentityAtlasSigilHtml(["W", "U", "B", "R", "G"]).match(/data-identity-connector=/g) || []).length, 5);
+assert.match(buildIdentityAtlasSigilHtml([]), /identity-atlas-color-node--colorless" data-identity-color="C"/, "Colorless should receive a centered neutral orb");
+assert.match(buildIdentityAtlasSigilHtml([]), /identity-atlas-color-node--inactive/, "Colorless should retain the complete dormant five-position scaffold");
+assert.match(archscryCss, /\.identity-atlas-connector-line--channel\s*\{[\s\S]*?stroke:\s*rgba\(45, 29, 10, 0\.88\)/, "active channel must remain warm rather than blue-gray");
+assert.match(archscryCss, /\.identity-atlas-connector-line--body\s*\{[\s\S]*?stroke:\s*rgba\(184, 137, 36, 0\.9\)/, "active path body must remain muted Vox Mana gold");
+assert.match(archscryCss, /\.identity-atlas-connector-line--core\s*\{[\s\S]*?stroke:\s*rgba\(255, 229, 148, 0\.76\)/, "active path should carry a narrow pale-gold material highlight");
+assert.match(archscryCss, /\.identity-atlas-node-halo\s*\{/);
+assert.match(archscryCss, /\.identity-atlas-color-node--inactive \.identity-atlas-node-body\s*\{/);
+assert.match(archscryCss, /\.identity-atlas-pentagon-frame\s*\{[\s\S]*?stroke:\s*rgba\(101, 91, 78, 0\.17\)/, "dormant geometry must use a neutral warm-charcoal etch");
+assert.match(archscryCss, /prefers-reduced-motion:[\s\S]*\.identity-atlas-sigil\s*\{[\s\S]*transition:\s*none;/, "sigil hover polish must honor reduced-motion preference");
+for (const entry of entries.filter((candidate) => candidate.colors.filter((color) => color !== "C").length > 1)) {
+  const connectedColors = new Set(identitySigilConnectorEdges(entry.colors).flat());
+  entry.colors.forEach((color) => assert.ok(connectedColors.has(color), `${entry.name} connector must reach ${color}`));
+}
 assert.equal(resolveIdentityExploreRequest("?explore=jund", entries).entry?.key, "JUND");
 assert.equal(resolveIdentityExploreRequest("?explore=atlas", entries).type, "atlas");
 assert.deepEqual(resolveIdentityExploreRequest("?explore=not-real", entries), {
@@ -223,6 +260,27 @@ try {
     commanderCount: document.querySelector("[data-identity-atlas]")?.dataset.commanderIdentityCount,
     expressionCount: document.querySelector("[data-identity-atlas]")?.dataset.strixhavenExpressionCount,
     savedLink: document.querySelector(".identity-atlas-saved-link")?.textContent?.trim(),
+    panels: document.querySelectorAll("[data-atlas-panel]").length,
+    visiblePanels: [...document.querySelectorAll("[data-atlas-panel]")].filter((panel) => !panel.hidden).length,
+    visibleCards: document.querySelectorAll("[data-atlas-panel]:not([hidden]) .identity-atlas-card").length,
+    currentHeading: document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim(),
+    visiblePagerLabels: document.querySelectorAll(".identity-atlas-pager-status,.identity-atlas-pager-hint").length,
+    announcement: document.querySelector("[data-atlas-announcement]")?.textContent?.trim(),
+    monoCodeRows: document.querySelectorAll("[data-atlas-panel]:not([hidden]) .identity-atlas-code").length,
+    previousDisabled: document.querySelector('[data-atlas-move="-1"]')?.disabled,
+    chevrons: document.querySelectorAll(".identity-atlas-chevron-stack i").length,
+    sigilGlyphs: document.querySelectorAll(".identity-atlas-sigil text").length,
+    pagerTargetsOk: [...document.querySelectorAll(".identity-atlas-pager-button")].every((button) => {
+      const rect = button.getBoundingClientRect();
+      return rect.width >= 44 && rect.height >= 44;
+    }),
+    pagerGapOk: (() => {
+      const buttons = [...document.querySelectorAll(".identity-atlas-pager-button")];
+      if (buttons.length !== 2) return false;
+      const first = buttons[0].getBoundingClientRect();
+      const second = buttons[1].getBoundingClientRect();
+      return second.top - first.bottom >= 24;
+    })(),
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
   }));
   assert.deepEqual(atlasState, {
@@ -231,13 +289,74 @@ try {
     commanderCount: "32",
     expressionCount: "5",
     savedLink: "Return to your saved reading",
+    panels: 7,
+    visiblePanels: 1,
+    visibleCards: 5,
+    currentHeading: "Mono Colors",
+    visiblePagerLabels: 0,
+    announcement: "Mono Colors, group 1 of 7",
+    monoCodeRows: 0,
+    previousDisabled: true,
+    chevrons: 6,
+    sigilGlyphs: 0,
+    pagerTargetsOk: true,
+    pagerGapOk: true,
     overflow: false,
   });
-  const cardFocus = await atlasPage.$eval("a.identity-atlas-card[href='?explore=jund']", (card) => {
-    card.focus();
-    const styles = getComputedStyle(card);
-    return { label: card.getAttribute("aria-label"), outlineStyle: styles.outlineStyle, outlineWidth: styles.outlineWidth };
+
+  await atlasPage.click('[data-atlas-move="1"]');
+  await atlasPage.waitForFunction(() => document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim() === "Guilds");
+  const borosAlignment = await atlasPage.$eval("a.identity-atlas-card[href='?explore=boros']", (card) => {
+    const letters = [...card.querySelectorAll(".identity-atlas-code-token")].map((node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.left + rect.width / 2;
+    });
+    const pips = [...card.querySelectorAll(".identity-atlas-card-pips .ms")].map((node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.left + rect.width / 2;
+    });
+    return { letters, pips };
   });
+  assert.equal(borosAlignment.letters.length, borosAlignment.pips.length);
+  borosAlignment.letters.forEach((center, index) => {
+    assert.ok(Math.abs(center - borosAlignment.pips[index]) < 0.75, `Boros code/pip column ${index + 1} must align`);
+  });
+
+  const stageBox = await atlasPage.$eval(".identity-atlas-stage", (stage) => {
+    stage.scrollIntoView({ block: "center" });
+    const rect = stage.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + Math.min(rect.height / 2, innerHeight / 3) };
+  });
+  await atlasPage.mouse.move(stageBox.x, stageBox.y);
+  await atlasPage.mouse.wheel({ deltaY: 120 });
+  await atlasPage.waitForFunction(() => document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim() === "Strixhaven Colleges");
+  await new Promise((resolve) => setTimeout(resolve, 420));
+  const updatedStageBox = await atlasPage.$eval(".identity-atlas-stage", (stage) => {
+    const rect = stage.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + Math.min(rect.height / 2, innerHeight / 3) };
+  });
+  await atlasPage.mouse.move(updatedStageBox.x, updatedStageBox.y);
+  await atlasPage.mouse.wheel({ deltaY: -120 });
+  await atlasPage.waitForFunction(() => document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim() === "Guilds");
+  await atlasPage.click('[data-atlas-move="1"]');
+  await atlasPage.click('[data-atlas-move="1"]');
+  await atlasPage.waitForFunction(() => document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim() === "Shards");
+
+  await atlasPage.$eval("a.identity-atlas-card[href='?explore=jund']", (card) => card.focus());
+  await atlasPage.keyboard.press("Tab");
+  await atlasPage.keyboard.down("Shift");
+  await atlasPage.keyboard.press("Tab");
+  await atlasPage.keyboard.up("Shift");
+  const cardFocus = await atlasPage.$eval("a.identity-atlas-card[href='?explore=jund']", (card) => {
+    const styles = getComputedStyle(card);
+    return {
+      focused: document.activeElement === card,
+      label: card.getAttribute("aria-label"),
+      outlineStyle: styles.outlineStyle,
+      outlineWidth: styles.outlineWidth,
+    };
+  });
+  assert.equal(cardFocus.focused, true, "keyboard navigation must return focus to the Jund link");
   assert.match(cardFocus.label, /Explore the Jund dossier, B · R · G/);
   assert.notEqual(cardFocus.outlineStyle, "none", "Atlas card focus must remain visible");
   assert.notEqual(cardFocus.outlineWidth, "0px", "Atlas card focus must remain visible");
@@ -348,6 +467,20 @@ try {
   await freshPage.waitForSelector("[data-identity-atlas]");
   assert.equal(await freshPage.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), false, "mobile Atlas must not overflow horizontally");
   assert.equal(await freshPage.$(".identity-atlas-saved-link"), null);
+  for (let index = 0; index < 6; index += 1) await freshPage.click('[data-atlas-move="1"]');
+  assert.deepEqual(await freshPage.evaluate(() => ({
+    heading: document.querySelector("[data-atlas-panel][data-active] h2")?.textContent?.trim(),
+    announcement: document.querySelector("[data-atlas-announcement]")?.textContent?.trim(),
+    visiblePanels: [...document.querySelectorAll("[data-atlas-panel]")].filter((panel) => !panel.hidden).length,
+    visibleCards: document.querySelectorAll("[data-atlas-panel]:not([hidden]) .identity-atlas-card").length,
+    nextDisabled: document.querySelector('[data-atlas-move="1"]')?.disabled,
+  })), {
+    heading: "Colorless & Five-Color",
+    announcement: "Colorless & Five-Color, group 7 of 7",
+    visiblePanels: 1,
+    visibleCards: 2,
+    nextDisabled: true,
+  }, "mobile pager must end at the combined Colorless and Five-Color block");
   assert.deepEqual(freshSession.errors, [], `fresh Identity Atlas browser errors: ${freshSession.errors.join(" | ")}`);
   await freshPage.close();
 } finally {
