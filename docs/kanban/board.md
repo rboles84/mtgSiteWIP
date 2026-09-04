@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](in-progress/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Owner-requested amendment in progress: make committed local candidate → exact-SHA RobQA → repeatable Owner Review the normal loop, with PR creation required after Owner ACCEPT unless an earlier Draft has a concrete engineering purpose.
+- [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](in-progress/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Owner Review Ready at exact amendment candidate `29e3e4c`: committed local candidate → exact-SHA RobQA → repeatable Owner Review is now the normal loop; ACCEPT starts PR/CI integration. No PR opened, and VM-625 remains untouched.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

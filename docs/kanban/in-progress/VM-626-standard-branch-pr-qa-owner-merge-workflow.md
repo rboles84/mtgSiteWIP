@@ -87,3 +87,4 @@ Reuse the current instructions, workflow document, PR template, deterministic PR
 - The accepted process documentation is active. `main` protection remains deliberately unconfigured, with zero rulesets, because VM-625 still relies on the previous accepted process; activation requires an explicit safe VM-625 transition.
 - Amendment branch: `codex/vm-626-owner-iteration-amendment` from accepted `main` at `d59a1110d1a5f5914e28dfc8296b9c915c7accff`, reusing the existing isolated VM-626 worktree.
 - Amendment scope is limited to making local exact-candidate Owner iteration normal before PR integration. All other accepted VM-626 decisions remain protected.
+- Amendment candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1` received QA-0 RobQA PASS against base `d59a1110d1a5f5914e28dfc8296b9c915c7accff`; Owner Review is pending and no PR has been opened.

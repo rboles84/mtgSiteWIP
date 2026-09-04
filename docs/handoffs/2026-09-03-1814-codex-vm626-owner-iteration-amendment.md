@@ -2,7 +2,7 @@
 
 Date: 2026-09-03 18:14 MDT
 
-Status: **RobDev candidate ready; exact-candidate RobQA pending**
+Status: **RobQA PASS for exact candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1`; Owner Review pending**
 
 ## Agent Name
 
@@ -75,7 +75,7 @@ Actual Owner usage involves several technically valid candidates being rejected 
 - **Non-goals:** no orchestration framework, new CI, settings mutation, protection activation, runtime/product changes, VM-625 implementation work, new card, or PR creation for this pre-accept candidate.
 - **Stop conditions:** stop on conflict with frozen gates, preserved VM-626 decisions, current VM-625 state, or any need to change GitHub settings/runtime behavior.
 
-## RobQA Readiness
+## RobQA Disposition
 
 - **QA tier:** QA-0 — documentation, template, and non-runtime workflow metadata.
 - **Changed behavior:** delivery-command semantics and PR timing only.
@@ -87,6 +87,7 @@ Actual Owner usage involves several technically valid candidates being rejected 
 - **Manual findings converted to invariants:** the Owner finding is that PR creation before repeated visual/product decisions is unnecessary friction. The durable invariant is that a PR is not mandatory for Owner Review, while any material post-accept change invalidates both QA and acceptance.
 - **Remaining Owner judgment:** accept, reject, or refine the amended command semantics after exact-candidate RobQA.
 - **Owner review path:** read the three command blocks in `AGENTS.md`, then the detailed `SHIP`, `REJECT`, `ACCEPT`, PR timing, stale-evidence, and VM-625 clauses in `docs/reference/workflow.md`.
+- **Disposition:** PASS for exact material candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1` against base `d59a1110d1a5f5914e28dfc8296b9c915c7accff`.
 
 ## Decisions Made
 
@@ -104,7 +105,16 @@ Actual Owner usage involves several technically valid candidates being rejected 
 
 - Pre-edit worktree/branch inspection: PASS. No active VM-626 branch existed; the clean isolated worktree was on current `main` at `d59a1110d1a5f5914e28dfc8296b9c915c7accff`.
 - VM-625 isolation check: PASS. The primary worktree remained on `codex/vm-625-public-identity-atlas` at `0ade00a7a1fc692bc33919efc7e8f44780562fbe` and was not edited.
-- Final exact-candidate QA: pending until the stable amendment candidate is committed.
+- Exact candidate/base binding: PASS at candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1` over accepted `main` base `d59a1110d1a5f5914e28dfc8296b9c915c7accff`.
+- Changed-file boundary: PASS. Exactly seven intended governance, template, card, board, and handoff paths changed; no runtime, product, data, generated, CI workflow, or frozen-gate path changed.
+- Command semantics: PASS. `SHIP` stops at exact-candidate RobQA for Owner Review without a mandatory PR; `REJECT` repeats correction/commit/RobQA/Owner Review on the same card/branch; `ACCEPT` opens or updates the PR and performs CI/integration/merge/closeout.
+- Stale evidence: PASS. Any material change after RobQA PASS or Owner ACCEPT invalidates the affected exact-SHA evidence and returns through RobDev -> RobQA -> Owner Review.
+- PR timing and compatibility: PASS. Post-ACCEPT is the default; four concrete early-Draft reasons remain available; an existing in-flight PR is reused where practical.
+- Preserved VM-626 controls: PASS for `main`, one branch/card/PR, independent RobQA, exact-SHA binding, squash default, cleanup, no `develop`/GitFlow, no direct feature push to `main`, one Owner approval, existing CI, and deferred protection.
+- Relative Markdown links: PASS.
+- `git diff --check` for the exact base/candidate range: PASS.
+- Worktree cleanliness at candidate: PASS.
+- Live read-only GitHub verification: PASS. Automatic merged-branch deletion remains enabled; `main` protection remains not configured; repository ruleset count remains zero; no amendment branch is published.
 
 ## Not Touched
 
@@ -117,14 +127,12 @@ Actual Owner usage involves several technically valid candidates being rejected 
 
 ## Follow-Up Recommendations
 
-1. Commit this stable governance candidate locally without opening a PR.
-2. Run independent QA-0 RobQA against that exact commit and record its SHA-bound disposition as non-material evidence.
-3. Stop for Owner Review with the exact candidate SHA and no PR requirement.
-4. On Owner rejection, use this same branch and correction loop; on Owner acceptance, push/open the single PR and run integration checks.
+1. Stop for Owner Review with exact review candidate `29e3e4c3e4d0fa16a818b1ecd12cffb92fe815e1` and no PR requirement.
+2. On Owner rejection, use this same branch and correction loop; on Owner acceptance, push/open the single PR and run integration checks.
 
 ## Next Suggested Agent
 
-Independent RobQA reviewer for the exact committed amendment candidate, followed by the Product Owner.
+Product Owner for the bounded VM-626 amendment review.
 
 ## Related Kanban Card, Docs, or Plans
 
