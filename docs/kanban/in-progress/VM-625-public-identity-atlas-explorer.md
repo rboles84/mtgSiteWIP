@@ -116,7 +116,7 @@ Extend the accepted VM-579 identity-only dossier and transient Maze context seam
 
 - Branch: `codex/vm-625-public-identity-atlas` from integrated local `main` at `cf83883`.
 - Initial exact Owner Review candidate: `6fa574baca09ab68460ec02a270932a0d89cd4b8` (`feat(vm-625): add public identity atlas explorer`). It remains preserved but is superseded for acceptance by the Owner findings recorded below.
-- Binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe` changed lifecycle documentation only. The current findings remediation is an uncommitted working-tree candidate on top of that commit and requires a new exact-SHA binding only after the Owner asks to freeze it.
+- Binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe` changed lifecycle documentation only. It is superseded for Owner review by exact findings-remediation candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f`; the original `6fa574b` candidate remains preserved as history.
 - At intake there was one registered worktree and no VM-625 predecessor branch or card. A separate VM-626 worktree appeared before candidate binding, was clean at the collision check, and did not overlap this candidate.
 - The current local `main` is ahead of `origin/main`; VM-625 development does not change or conceal that publication state.
 
@@ -158,7 +158,7 @@ Known inherited broad-suite discrepancy: direct `node tests/maze/maze-search-tes
 
 ## RobQA Owner Review Gate
 
-Disposition: **READY for Owner Review** as an uncommitted findings-remediation candidate on top of `0ade00a`; not self-accepted. Automated objective requirements pass. Owner visual judgment remains for the revised connector treatment, seven-block paging feel, control placement, mobile scanning, and the previously listed product judgments.
+Disposition: **READY for Owner Review** at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f`; not self-accepted. The focused RobQA commands were rerun from that exact clean commit and passed. Owner visual judgment remains for the new engraved-filament sigil treatment; the feature behavior and Atlas layout are accepted for this iteration.
 
 ## Owner Findings And Remediation - 2026-09-03
 

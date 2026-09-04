@@ -62,7 +62,7 @@ The initial card renderer encoded connector segments only between adjacent activ
 - Keep all authoritative records and 37 native links present; paging is presentation state only and is not a filter, identity selection, placement, or URL contract.
 - Use clamped previous/next controls rather than an infinite loop. Disabled endpoint buttons make the sequence and normal-scroll boundary explicit.
 - Disable wheel capture below the accepted 760px mobile breakpoint so touch/narrow users retain ordinary page scrolling and use the visible controls.
-- Preserve the first exact candidate and its evidence as history. The current remediation remains uncommitted pending Owner review/freeze direction.
+- Preserve the first exact candidate and its evidence as history. The replacement is frozen at exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` for Owner review.
 
 ## Risks / uncertainties
 
@@ -81,14 +81,14 @@ The initial card renderer encoded connector segments only between adjacent activ
 ## RobQA readiness
 
 - **Tier:** QA-3 remains appropriate because the remediation adds in-page state transitions and wheel/button navigation; Placement remains untouched.
-- **Review target:** current uncommitted working tree on `codex/vm-625-public-identity-atlas`, on top of binding commit `0ade00a7a1fc692bc33919efc7e8f44780562fbe`.
+- **Review target:** exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` on `codex/vm-625-public-identity-atlas`.
 - **Objective result:** READY after fifth-round checks. The rejected visual construction has been removed and its systemic defects now have focused invariants.
 - **Rendered evidence:** actual in-place card captures compare original, rejected, and new states for White, Azorius, Jund, Ink, Five-Color, and Colorless. The images are captured from the real registry-driven Atlas cards at their normal rendered size.
-- **Disposition:** Owner Review Ready; not exact-SHA bound, committed, Owner Accepted, pushed, opened as a PR, merged, or integrated.
+- **Disposition:** Owner Review Ready and exact-SHA bound; committed but not Owner Accepted, pushed, opened as a PR, merged, or integrated.
 
 ## Tests run
 
-Passed after remediation:
+Passed from exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f` after remediation:
 
 - `npm.cmd run lint:js`
 - `npm.cmd run lint:html`
@@ -134,7 +134,7 @@ FAIL if any active color still appears disconnected, code/pip columns drift, whe
 
 ## Follow-up recommendations
 
-- If Owner accepts, explicitly authorize freezing this remediation as a new exact candidate and bind the updated QA evidence to that SHA.
+- If Owner accepts, explicitly authorize VM-625 lifecycle closeout and the desired integration action for exact candidate `3b46329e8a3c1c13455bf8dafc3d986e7d01272f`.
 - Convert any further concrete visual finding into the narrowest card/pager invariant; do not reopen registry, dossier, Placement, or Maze scope.
 
 ## Next suggested agent
