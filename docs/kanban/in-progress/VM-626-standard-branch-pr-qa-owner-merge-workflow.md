@@ -4,7 +4,7 @@ ID: VM-626
 
 Title: Standard Branch, PR, QA, Owner, and Merge Workflow
 
-Status: Done — Owner Accepted
+Status: In Progress — Owner Iteration Amendment
 
 Type: Repository governance / delivery workflow
 
@@ -18,13 +18,14 @@ Created: 2026-09-03
 
 Establish a conventional small-team delivery path:
 
-`main -> short-lived card branch -> one PR -> RobDev -> RobQA -> one Owner approval -> squash merge -> branch cleanup`
+`main -> short-lived card branch -> RobDev -> exact candidate commit -> RobQA -> repeatable Owner Review -> Owner ACCEPT -> one PR -> CI -> squash merge -> branch cleanup`
 
 Make `SHIP VM-###`, `ACCEPT VM-###`, and `REJECT VM-###: <reason>` durable repository vocabulary without replacing the existing card, RobDev, RobQA, Owner Review, semantic-authority, or handoff systems.
 
 ## Source
 
 - Owner start prompt supplied 2026-09-03.
+- Owner amendment prompt supplied 2026-09-03 after real Owner-review usage showed that PR creation occurred too early for repeated product iteration.
 - Existing branch/worktree authority in `AGENTS.md`.
 - Existing lifecycle authority in `docs/reference/workflow.md`.
 - Existing RobDev and RobQA gates and VM-622 Owner-first policy.
@@ -40,14 +41,15 @@ Make `SHIP VM-###`, `ACCEPT VM-###`, and `REJECT VM-###: <reason>` durable repos
 
 - [x] A fresh repository session can discover and correctly execute `SHIP`, `ACCEPT`, and `REJECT`.
 - [x] Material cards use current `main`, one short-lived card branch, and normally one PR.
-- [x] RobDev prepares and publishes the candidate without merging or pushing feature work directly to `main`.
-- [x] RobQA independently reviews the actual PR candidate and binds PASS to its exact SHA.
-- [x] Ordinary Dev/QA and Owner-rejection corrections stay on the same card, branch, and PR.
-- [x] Owner receives one approval gate; `ACCEPT` authorizes verified squash merge and cleanup without a second approval.
+- [x] RobDev prepares and commits a stable Owner Review candidate without merging or pushing feature work directly to `main`; a PR is not required before Owner Review.
+- [x] RobQA independently reviews the exact committed candidate and binds PASS to its SHA, whether or not a PR exists yet.
+- [x] Ordinary Dev/QA and repeated Owner-rejection corrections stay on the same card and feature branch; an existing PR is reused where practical.
+- [x] Owner receives one approval gate for an exact RobQA-passed SHA; `ACCEPT` starts PR integration and authorizes verified squash merge and cleanup without a second approval while implementation remains unchanged.
 - [x] The PR template records compact scope, verification, RobQA, Owner, and candidate-SHA evidence.
 - [x] Existing PR CI is reused without adding card-specific or exhaustive suites.
 - [x] The exact proposed `main` protection is documented but remains inactive until RobQA PASS, Owner acceptance, and a safe VM-625 transition; when activated it requires PRs and meaningful CI, prevents force pushes/deletion, and requires no duplicate GitHub approval.
 - [x] Existing active VM-625 work can adopt the workflow in place without reset, replacement branch, or lost work.
+- [x] Any material implementation change after RobQA PASS or Owner ACCEPT makes that exact-SHA evidence stale and returns the new candidate through RobDev, RobQA, and Owner Review.
 
 ## Files Likely Impacted
 
@@ -83,3 +85,5 @@ Reuse the current instructions, workflow document, PR template, deterministic PR
 - PR #21 was squash-merged to `main` as `308ece6b565e68dfec0e486c57fe3c7c9e783005`.
 - GitHub automatically deleted the remote feature branch after merge. The local feature branch was removed only after merge verification.
 - The accepted process documentation is active. `main` protection remains deliberately unconfigured, with zero rulesets, because VM-625 still relies on the previous accepted process; activation requires an explicit safe VM-625 transition.
+- Amendment branch: `codex/vm-626-owner-iteration-amendment` from accepted `main` at `d59a1110d1a5f5914e28dfc8296b9c915c7accff`, reusing the existing isolated VM-626 worktree.
+- Amendment scope is limited to making local exact-candidate Owner iteration normal before PR integration. All other accepted VM-626 decisions remain protected.
