@@ -2,7 +2,7 @@
 
 ID: VM-547
 Title: Post-Reading Commander Shortlist Bridge
-Status: Owner Review — RobQA PASS at exact material candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`; no push or merge
+Status: Owner Review — revised exact candidate frozen locally; VM-547 RobQA PASS; unrelated VM-616 visual-harness timing disclosed; no push or merge
 Type: Enhancement / Product Bridge / Semantic Projection
 Area: Archscry, Maze, Commander discovery
 Priority: high
@@ -98,10 +98,19 @@ This card can be marked delivered when:
 
 Yes - this is a product positioning and player-trust surface.
 
+## Owner Revision — 2026-09-04
+
+The Owner rejected candidate `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93` because its structural fixtures did not prove card-level false-positive, false-negative, boundary, and useful-nonempty behavior for every one of the 367 executable lane projections. The accepted source ownership, shared path factory, compact Archscry handoff, rich Maze continuation, WUBRG boundary, history behavior, and protected surfaces remain frozen.
+
+The replacement candidate must add reviewable projection-level evidence with pinned local-corpus card witnesses, audit broad primitives and composite claims, remediate or honestly mark unavailable every weak projection, cover all stretch projections explicitly, link the compact 37-row matrix to the exhaustive evidence, and rerun exact-candidate RobQA. No executable projection may remain `FAIL` or unexplained `REVIEW` at handoff.
+
 ## Owner Review Candidate
 
-- Exact material candidate: `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`
-- RobQA: PASS on that exact candidate.
-- Exhaustive audit: all 37 rows PASS; no REVIEW or FAIL dossier.
+- Superseded material candidate: `9bdd4cd2cdbc9371f7f1256c0d8e9dbdcc1ddb93`
+- Owner decision: `REVISE`; the prior candidate and RobQA evidence remain superseded.
+- Replacement exact material candidate: `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`.
+- RobDev packet: preserve the approved source ownership/shared path factory/compact Archscry/rich Maze architecture; remediate result quality only; protect Placement, parser, ranking, unrelated UI, history, and WUBRG; stop at Owner Review.
+- RobQA result: PASS for all VM-547-specific semantic, fixture, query-truth, responsive, accessibility-mechanics, and return-navigation gates. All 367 projections are evidenced: 354 executable/nonempty and 13 explicitly unavailable, with 354 positive, 354 semantic-negative, and 354 boundary fixtures.
+- Protected VM-616 visual regression: passed before candidate freeze, then timed out twice at different visual wait points on exact-candidate reruns. No VM-547 assertion failed. The Owner directed further visual-timeout retries to stop and may check this protected interaction manually.
 - Skipped tests: None.
 - Owner must choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE` before any push, PR, merge, or `main` integration.
