@@ -50,7 +50,7 @@ No further change is required unless the Owner wants an optical adjustment beyon
 
 ## Owner disposition
 
-Owner approved the all-route cursor-ambient reduction on 2026-09-03. This approval applies to the current uncommitted working-tree change; no commit, push, PR, merge, deployment, or VM-625 lifecycle action was requested or performed.
+Owner approved the all-route cursor-ambient reduction on 2026-09-03. It was committed separately on `main` as `c95be5b`, pushed to `origin/main`, and verified live when `https://voxmana.io/` served `home.css?v=vm628`. VM-625's accepted candidate, PR #23, and integrated product bytes were not changed.
 
 ## Next suggested agent
 
