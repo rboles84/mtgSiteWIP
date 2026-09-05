@@ -13,7 +13,7 @@ Apply the Owner-accepted recon dispositions for VM-016, VM-595, VM-469, VM-596, 
 - Base: `main == origin/main == d730be91fd037a7b8192148d3fa318cb8c3d3fc0`, divergence `0/0` before work.
 - Branch: `codex/lifecycle-governance-cleanup`.
 - Worktrees: one registered worktree; no related cleanup branch or worktree existed.
-- Candidate: to be bound after the QA-0 documentation candidate is committed.
+- Exact material candidate: `96d09fc5234df7e694a01df1ec0cc474a9b5b9bd`.
 
 ## Files Reviewed
 
@@ -85,7 +85,7 @@ The repository's live lifecycle surfaces contradicted already accepted outcomes:
 
 ### Tests Selected
 
-- `git diff --check` — PASS after removing three changed-line trailing spaces; line-ending conversion warnings only.
+- `git diff --check main...96d09fc5234df7e694a01df1ec0cc474a9b5b9bd` — PASS. The first committed candidate `de3d2f1b` failed on one VM-598 status-line trailing-space defect; the final candidate corrected it and was reviewed afresh.
 - Lightweight local Markdown-link resolver — PASS across all 15 changed/current lifecycle files.
 - VM identifier allocation — PASS; prior maximum numeric ID is 627 and VM-628, VM-629, and VM-630 each have exactly one card declaration.
 - Card/board/incident consistency assertions — PASS; moved cards are absent from `in-progress/`, board links match folders/status, VM-469 is Deferred and incomplete, and CRIT-001 is Closed in both record and index.
@@ -105,7 +105,7 @@ The repository's live lifecycle surfaces contradicted already accepted outcomes:
 
 ### RobQA Status
 
-- **READY** for exact-candidate binding and Owner Review; no correctness blocker found.
+- **READY** at exact material candidate `96d09fc5234df7e694a01df1ec0cc474a9b5b9bd` for Owner Review; no correctness blocker found.
 
 ## Not Touched
 
