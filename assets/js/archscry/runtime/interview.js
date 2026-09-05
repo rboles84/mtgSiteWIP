@@ -2,11 +2,11 @@ import {
   closeAlternativeForResult,
   gateAStatePresentation,
   withGateAPublicState,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm547r4";
 
 import {
   renderResult,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r4";
 
 import {
   isScryingTerminalEnabled,

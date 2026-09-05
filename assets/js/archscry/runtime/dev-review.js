@@ -8,11 +8,11 @@ import {
 
 import {
   renderIdentityDossier,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r4";
 
 import {
   startQuickFlow,
-} from "./questionnaire.js";
+} from "./questionnaire.js?v=vm547r4";
 
 import {
   APP_STATE,

@@ -7,7 +7,7 @@ import {
 import {
   renderIdentityExplorationDossier,
   scrollToAnchorOnce,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r4";
 
 import {
   buildManaPipsHtml,

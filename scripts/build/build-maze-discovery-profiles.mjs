@@ -9,7 +9,7 @@ const DOSSIER_SOURCE_PATH = path.join(ROOT, "data", "dossier", "identity-dossier
 const FACTIONS_PATH = path.join(ROOT, "data", "factions.json");
 const CATALOG_PATH = path.join(ROOT, "data", "dossier", "maze-discovery-profiles.catalog.json");
 const CHECK = process.argv.includes("--check");
-const RUNTIME_REVISION = "vm547-runtime-v3";
+const RUNTIME_REVISION = "vm547-runtime-v4";
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);

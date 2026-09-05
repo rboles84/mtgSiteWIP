@@ -4,7 +4,7 @@ import {
 
 import {
   resolveMazeDiscoveryCatalogProvenance,
-} from "../../maze/maze-handoff.js?v=vm547r3";
+} from "../../maze/maze-handoff.js?v=vm547r4";
 
 import {
   validateGateB1RuntimeModel,

@@ -1,6 +1,6 @@
 import {
   withGateAPublicState,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm547r4";
 
 import {
   buildAdaptiveProgress,
@@ -21,7 +21,7 @@ import {
 import {
   renderBoundedResultShell,
   renderResult,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r4";
 
 import {
   showSection,

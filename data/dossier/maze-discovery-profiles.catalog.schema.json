@@ -6,7 +6,7 @@
   "required": ["schema_version", "runtime_revision", "generated_from", "authority", "profiles", "catalog_fingerprint"],
   "properties": {
     "schema_version": { "const": "vm547-maze-discovery-catalog-v1" },
-    "runtime_revision": { "const": "vm547-runtime-v3" },
+    "runtime_revision": { "const": "vm547-runtime-v4" },
     "generated_from": { "const": "data/dossier/maze-discovery-profiles.source.json" },
     "authority": {
       "type": "object",

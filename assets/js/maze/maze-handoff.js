@@ -1,5 +1,5 @@
 const DEFAULT_MAZE_PATH_LABEL = "Maze path";
-export const VM547_DISCOVERY_RUNTIME_REVISION = "vm547-runtime-v3";
+export const VM547_DISCOVERY_RUNTIME_REVISION = "vm547-runtime-v4";
 const MANA_SYMBOL_ORDER = ["w", "u", "b", "r", "g", "c"];
 const MANA_SYMBOL_NAMES = {
   w: "white",

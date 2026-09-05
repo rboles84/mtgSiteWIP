@@ -34,14 +34,14 @@ import {
   showBoundedDirection,
   switchAdjacentView,
   togglePreconPreview,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r4";
 
 import {
   openInterviewDossier,
   returnToInterviewSource,
   startInterviewFlow,
   submitInterview,
-} from "./interview.js";
+} from "./interview.js?v=vm547r4";
 
 import {
   forgetSavedReading,
@@ -59,7 +59,7 @@ import {
   revisitRefinementAnswer,
   startQuickFlow,
   startTargetedRefinement,
-} from "./questionnaire.js";
+} from "./questionnaire.js?v=vm547r4";
 
 export function bindArchscryControls() {
   const app = document.querySelector(".app");

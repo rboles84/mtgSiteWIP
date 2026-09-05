@@ -1,11 +1,11 @@
 import {
   bindArchscryControls,
-} from "./runtime/actions.js?v=vm625";
+} from "./runtime/actions.js?v=vm547r4";
 
 import {
   renderInitializationError,
   restoreInitialView,
-} from "./runtime/boot.js?v=vm625";
+} from "./runtime/boot.js?v=vm547r4";
 
 import {
   loadDeckTagCatalog,
@@ -15,20 +15,20 @@ import {
   loadIdentityLayerData,
   loadPlacementModel,
   validateQuickReadingReachability,
-} from "./runtime/data.js?v=vm547r3";
+} from "./runtime/data.js?v=vm547r4";
 
 import {
   renderResult,
   returnToPrimaryReading,
   switchAdjacentView,
-} from "./runtime/dossier-view.js?v=vm547r3";
+} from "./runtime/dossier-view.js?v=vm547r4";
 
 import {
   openInterviewDossier,
   returnToInterviewSource,
   startInterviewFlow,
   submitInterview,
-} from "./runtime/interview.js?v=vm625";
+} from "./runtime/interview.js?v=vm547r4";
 
 import {
   applyTerminalVisibility,
@@ -44,7 +44,7 @@ import {
   answerQuickQuestion,
   goBackQuickQuestion,
   startQuickFlow,
-} from "./runtime/questionnaire.js?v=vm625";
+} from "./runtime/questionnaire.js?v=vm547r4";
 
 import {
   APP_STATE,
@@ -61,11 +61,11 @@ import {
 
 import {
   initializeIdentityExploration,
-} from "./runtime/identity-atlas.js?v=vm625h";
+} from "./runtime/identity-atlas.js?v=vm547r4";
 
 export {
   validateDossierContentCatalogs,
-} from "./runtime/data.js?v=vm547r3";
+} from "./runtime/data.js?v=vm547r4";
 
 export {
   basicLandGuidanceCopy,
@@ -78,7 +78,7 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js?v=vm547r3";
+} from "./runtime/dossier-view.js?v=vm547r4";
 
 export {
   renderPlayerCopy,
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   if (isArchscryDevReviewLocation(window.location)) {
-    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm625");
+    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm547r4");
     initializeArchscryDevReview();
   }
 });
