@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vm547-maze-discovery-profiles.source.schema.json",
+  "title": "VM-547 Maze Discovery Profile Source",
+  "type": "object",
+  "required": ["schema_version", "status", "authority_rule", "records"],
+  "properties": {
+    "schema_version": { "const": "vm547-maze-discovery-profiles-v1" },
+    "status": { "const": "OWNER_AUTHORIZED_DISCOVERY_PROJECTION" },
+    "authority_rule": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 37,
+      "items": {
+        "type": "object",
+        "required": ["identity_key", "color_identity", "mechanical_threads", "story_terms"],
+        "properties": {
+          "identity_key": { "type": "string", "minLength": 1 },
+          "color_identity": { "type": "string", "pattern": "^(?:[wubrg]{1,5}|c)$" },
+          "mechanical_threads": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "required": ["thread_id", "label", "interpretation", "query_clause", "source_item_id"],
+              "properties": {
+                "thread_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                "label": { "type": "string", "minLength": 1 },
+                "interpretation": { "type": "string", "minLength": 1 },
+                "query_clause": { "type": "string", "minLength": 1 },
+                "source_item_id": { "type": "string", "minLength": 1 },
+                "lane_overrides": {
+                  "type": "object",
+                  "properties": {
+                    "commander": { "$ref": "#/$defs/laneOverride" },
+                    "support": { "$ref": "#/$defs/laneOverride" },
+                    "stretch": { "$ref": "#/$defs/laneOverride" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "story_terms": {
+            "type": "array",
+            "minItems": 3,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "stretch_availability": { "enum": ["available", "unavailable"] },
+          "intentional_exception": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "laneOverride": {
+      "type": "object",
+      "required": ["availability"],
+      "properties": {
+        "availability": { "enum": ["available", "unavailable"] },
+        "query_clause": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "interpretation": { "type": "string", "minLength": 1 },
+        "rationale": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

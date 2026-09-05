@@ -1,11 +1,11 @@
 import {
   withGateAPublicState,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm547r5";
 
 import {
   buildAdaptiveProgress,
   helperTextForQuestion,
-} from "../archscry-question-presentation.js";
+} from "../archscry-question-presentation.js?v=vm547r5";
 
 import {
   RESULT_VERSION,
@@ -16,20 +16,20 @@ import {
   replayAdaptiveSelections,
   selectNextAdaptiveQuestion,
   shouldFinishAdaptiveReading,
-} from "../gate-b1-placement-engine.js";
+} from "../gate-b1-placement-engine.js?v=vm547r5";
 
 import {
   renderBoundedResultShell,
   renderResult,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r5";
 
 import {
   showSection,
-} from "./navigation.js";
+} from "./navigation.js?v=vm547r5";
 
 import {
   buildActionAttrs,
-} from "./render-utils.js";
+} from "./render-utils.js?v=vm547r5";
 
 import {
   APP_STATE,
@@ -37,13 +37,13 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 import {
   beginVoxReading,
   trackVoxQuestionAnswered,
   trackVoxReadingCompleted,
-} from "../../shared/vox-telemetry.js";
+} from "../../shared/vox-telemetry.js?v=vm547r5";
 
 export function startQuickFlow() {
   if (!APP_STATE.placementModel) {

@@ -2,17 +2,17 @@ import {
   archiveUserDeckLink,
   listUserDeckLinks,
   saveUserDeckLink,
-} from "../deck-link-service.js";
+} from "../deck-link-service.js?v=vm547r5";
 
 import {
   getDossierRadarProfile,
   initDossierManaRadar,
-} from "../dossier-radar.js";
+} from "../dossier-radar.js?v=vm547r5";
 
 import {
   hideCardPreviewOverlay,
   hydrateVisibleResultCardArt,
-} from "./card-media.js";
+} from "./card-media.js?v=vm547r5";
 
 import {
   buildActionAttrs,
@@ -22,13 +22,13 @@ import {
   escapeAttributeValue,
   escapeHtml,
   renderPlayerCopy,
-} from "./render-utils.js";
+} from "./render-utils.js?v=vm547r5";
 
 import {
   APP_STATE,
   SESSION,
   getFaction,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 export const DOSSIER_DEFAULT_PANEL_ID = "placement";
 

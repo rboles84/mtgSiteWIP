@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="../assets/css/components.css?v=vm612">
 <link rel="stylesheet" href="../assets/vendor/mana/css/mana.min.css">
 <link rel="stylesheet" href="../assets/css/guide-beacon.css?v=vm620">
-<link rel="stylesheet" href="../assets/css/maze.css?v=vm628">
+<link rel="stylesheet" href="../assets/css/maze.css?v=vm547">
 </head>
 <body class="vm-maze-route" data-page="maze" data-vm-current="maze" data-bg="medium" data-vm-atmosphere="rich" data-maze-mode="ai" data-stash-open="false">
 
@@ -367,6 +367,34 @@
   <!-- Results -->
   <section class="r-main" id="r-main" aria-labelledby="maze-results-title">
     <h2 class="visually-hidden" id="maze-results-title">Maze search results</h2>
+    <section class="dossier-discovery-panel hidden" id="dossier-discovery-panel" aria-labelledby="dossier-discovery-title" tabindex="-1">
+      <div class="dossier-discovery-heading">
+        <div>
+          <span class="dossier-discovery-kicker">From your dossier</span>
+          <h2 id="dossier-discovery-title">Dossier discovery</h2>
+        </div>
+        <span class="dossier-discovery-identity" id="dossier-discovery-identity"></span>
+      </div>
+      <div class="dossier-discovery-reading">
+        <span>The reading</span>
+        <p id="dossier-discovery-reading"></p>
+      </div>
+      <div class="dossier-discovery-lane">
+        <span>Active search lane</span>
+        <h3 id="dossier-discovery-lane-title"></h3>
+        <p id="dossier-discovery-lane-copy"></p>
+        <details class="dossier-query-details" id="dossier-discovery-lane-query">
+          <summary>Inspect the Scryfall query</summary>
+          <code id="dossier-discovery-lane-code"></code>
+        </details>
+      </div>
+      <div class="dossier-thread-heading">
+        <span>Identity-specific threads</span>
+        <p>Choose a meaning first. Operator syntax stays available for inspection.</p>
+      </div>
+      <div class="dossier-thread-grid" id="dossier-thread-grid"></div>
+      <p class="dossier-stretch-boundary hidden" id="dossier-stretch-boundary"></p>
+    </section>
     <div class="maze-return-banner" id="maze-return-banner">
       <div class="maze-return-copy" id="maze-return-copy"></div>
       <div class="maze-return-actions">
@@ -447,7 +475,7 @@
   </div>
 </div>
 <div class="maze-toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="../assets/js/maze/research-init.js?v=vm628"></script>
+<script type="module" src="../assets/js/maze/research-init.js?v=vm547r5"></script>
 <script src="../assets/js/shared/vm-rich-atmosphere.js" defer></script>
 <script src="../assets/js/shared/reduce-motion.js" defer></script>
 <script src="../assets/js/shared/guide-beacon.js?v=vm620" defer></script>

@@ -1,11 +1,11 @@
 import {
   isResumableGateAQuestion,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm547r5";
 
 import {
   DEFAULT_STARTER_PROFILE,
   selectNextAdaptiveQuestion,
-} from "../gate-b1-placement-engine.js";
+} from "../gate-b1-placement-engine.js?v=vm547r5";
 
 export const SESSION = VM_SESSION;
 
@@ -35,6 +35,8 @@ export const APP_STATE = {
   cardRationaleCatalog: null,
   cardVoiceCatalog: null,
   identityDossierCatalog: null,
+  mazeDiscoveryProfileCatalog: null,
+  mazeDiscoveryProfileProvenance: null,
   publicComparisonCatalog: null,
   discoveryEducationCatalog: null,
   preconCatalog: null,

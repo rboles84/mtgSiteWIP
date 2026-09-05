@@ -2,24 +2,24 @@ import {
   closeAlternativeForResult,
   gateAStatePresentation,
   withGateAPublicState,
-} from "../archscry-presentation.js";
+} from "../archscry-presentation.js?v=vm547r5";
 
 import {
   renderResult,
-} from "./dossier-view.js?v=vm625";
+} from "./dossier-view.js?v=vm547r5";
 
 import {
   isScryingTerminalEnabled,
   showSection,
   updateInterviewControls,
   updateTopbar,
-} from "./navigation.js";
+} from "./navigation.js?v=vm547r5";
 
 import {
   APP_STATE,
   getFaction,
   getStarterProfile,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 export async function startInterviewFlow() {
   if (!isScryingTerminalEnabled()) {

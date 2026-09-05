@@ -1,27 +1,31 @@
 import {
   createArchidektTagCatalog,
-} from "../dossier/foundation.js";
+} from "../dossier/foundation.js?v=vm547r5";
+
+import {
+  resolveMazeDiscoveryCatalogProvenance,
+} from "../../maze/maze-handoff.js?v=vm547r5";
 
 import {
   validateGateB1RuntimeModel,
-} from "../gate-b1-runtime-contract.js";
+} from "../gate-b1-runtime-contract.js?v=vm547r5";
 
 import {
   mergeScryfallCardRecords,
-} from "../scryfall-card-cache.js";
+} from "../scryfall-card-cache.js?v=vm547r5";
 
 import {
   isUsableCardVoiceCatalog,
-} from "./content.js";
+} from "./content.js?v=vm547r5";
 
 import {
   cardImageUrl,
   normalizeCardName,
-} from "./render-utils.js";
+} from "./render-utils.js?v=vm547r5";
 
 import {
   APP_STATE,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 export const DATA_BASE_URL = new URL("../../../../data/", import.meta.url);
 
@@ -92,6 +96,7 @@ export async function loadIdentityLayerData() {
 export function validateDossierContentCatalogs({
   placementModel,
   identityDossierCatalog,
+  mazeDiscoveryProfileCatalog,
   publicComparisonCatalog,
   discoveryEducationCatalog,
 } = {}) {
@@ -101,6 +106,8 @@ export function validateDossierContentCatalogs({
     : Object.keys(modelIdentities));
   const identityRecords = identityDossierCatalog?.records || [];
   const dossierKeys = new Set(identityRecords.map((record) => record.identity_key));
+  const mazeProfiles = mazeDiscoveryProfileCatalog?.profiles || [];
+  const mazeProfileKeys = new Set(mazeProfiles.map((record) => record.identity_key));
   const comparisons = publicComparisonCatalog?.records || [];
   const comparisonKeys = new Set();
   const normalizePair = (identities = []) => [...identities].sort().join("::");
@@ -132,32 +139,42 @@ export function validateDossierContentCatalogs({
     && glossary.every((record) => typeof record.definition === "string" && record.definition.trim());
 
   return identityDossierCatalog?.schema_version === "vm551-identity-dossier-catalog-v1"
+    && Boolean(resolveMazeDiscoveryCatalogProvenance(mazeDiscoveryProfileCatalog))
     && publicComparisonCatalog?.schema_version === "vm551-public-comparison-catalog-v1"
     && discoveryEducationCatalog?.schema_version === "vm551-discovery-education-catalog-v1"
     && identityKeys.size === 37
     && identityRecords.length === identityKeys.size
     && dossierKeys.size === identityKeys.size
     && [...identityKeys].every((identityKey) => dossierKeys.has(identityKey))
+    && mazeProfiles.length === identityKeys.size
+    && mazeProfileKeys.size === identityKeys.size
+    && [...identityKeys].every((identityKey) => mazeProfileKeys.has(identityKey))
     && comparisonsValid
     && requiredPairsPresent
     && glossaryValid;
 }
 
 export async function loadDossierContentAuthority() {
-  const [identityDossierCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
+  const [identityDossierCatalog, mazeDiscoveryProfileCatalog, publicComparisonCatalog, discoveryEducationCatalog] = await Promise.all([
     loadCoreJson("dossier/identity-dossier-content.catalog.json", "identity dossier content"),
+    loadCoreJson("dossier/maze-discovery-profiles.catalog.json", "Maze discovery profiles"),
     loadCoreJson("dossier/public-comparisons.catalog.json", "public identity comparisons"),
     loadCoreJson("dossier/discovery-education-catalog.json", "Archscry education content"),
   ]);
   if (!validateDossierContentCatalogs({
     placementModel: APP_STATE.placementModel,
     identityDossierCatalog,
+    mazeDiscoveryProfileCatalog,
     publicComparisonCatalog,
     discoveryEducationCatalog,
   })) {
     throw new Error("Archscry dossier content is stale or incomplete.");
   }
   APP_STATE.identityDossierCatalog = identityDossierCatalog;
+  APP_STATE.mazeDiscoveryProfileCatalog = mazeDiscoveryProfileCatalog;
+  APP_STATE.mazeDiscoveryProfileProvenance = resolveMazeDiscoveryCatalogProvenance(mazeDiscoveryProfileCatalog);
+  document.documentElement.dataset.vm547RuntimeRevision = APP_STATE.mazeDiscoveryProfileProvenance.runtimeRevision;
+  document.documentElement.dataset.vm547CatalogFingerprint = APP_STATE.mazeDiscoveryProfileProvenance.catalogFingerprint;
   APP_STATE.publicComparisonCatalog = publicComparisonCatalog;
   APP_STATE.discoveryEducationCatalog = discoveryEducationCatalog;
 }

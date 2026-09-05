@@ -1,17 +1,19 @@
 import {
   getCommanderFactionGuidance,
   getExternalDeckRoutingAlias,
-} from "./dossier/foundation.js";
+} from "./dossier/foundation.js?v=vm547r5";
 import {
   buildDossierMazePathEntries,
   mazeSearchLink as buildMazeSearchLink,
+  resolveMazeDiscoveryProfile,
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
-} from "../maze/maze-handoff.js?v=vm625";
+  resolveMazeDiscoveryCatalogProvenance,
+} from "../maze/maze-handoff.js?v=vm547r5";
 
 export const MAZE_PATH_LABELS = {
-  "commanders-that-fit": "Commanders That Fit",
+  "commanders-that-fit": "Commanders in this identity",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
   "weird-stretch-commanders": "Outside-Color Commander Stretch",
@@ -1385,13 +1387,16 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
         pathType,
         plainReadingQuery,
         operatorQuery,
+        vm547Runtime: link.vm547RuntimeRevision,
+        vm547Catalog: link.vm547CatalogFingerprint,
+        vm547Profile: link.profileKey,
         returnUrl: context.returnUrl,
       }, origin),
     };
   });
 }
 
-export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
+export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy, discoveryProfileCatalog = null }) {
   const factionKey = String(faction?.key || "").toUpperCase();
 
   const routingAlias = getExternalDeckRoutingAlias(faction);
@@ -1403,23 +1408,36 @@ export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy }) {
   const isLiveFourColor = LIVE_FOUR_COLOR_MAZE_LABELS.has(factionKey);
   const factionLabel = LIVE_FOUR_COLOR_MAZE_LABELS.get(factionKey) || faction?.name || "this reading";
   const isDune = factionKey === "DUNE";
+  const discoveryProfile = resolveMazeDiscoveryProfile(
+    discoveryProfileCatalog,
+    factionKey
+  );
+  const discoveryProvenance = resolveMazeDiscoveryCatalogProvenance(discoveryProfileCatalog);
   const entries = buildDossierMazePathEntries({
     identity,
     factionName: factionLabel,
     oracleTerms: isDune ? DUNE_MAZE_ORACLE_TERMS : oracleTerms,
     flavorTerms: isDune ? DUNE_MAZE_FLAVOR_TERMS : flavorTerms,
     identityHint: DOSSIER_MAZE_HINTS.get(factionKey) || (isLiveFourColor ? factionLabel : ""),
-    includeOutsideColorStretch: !MAZE_NO_STRETCH_KEYS.has(factionKey)
+    includeOutsideColorStretch: discoveryProfile
+      ? discoveryProfile.stretch?.availability === "available"
+      : !MAZE_NO_STRETCH_KEYS.has(factionKey),
+    discoveryProfile,
   });
 
   const normalizedEntries = applyMazeIdentityOverride(entries, identity);
   return applyLiveFourColorExactCommanderPolicy(normalizedEntries, identity).map((entry) => {
-    return buildMazeSearchLink({
+    return {
+      ...entry,
+      ...buildMazeSearchLink({
       label: entry.label,
       query: entry.query,
       pathType: entry.pathType,
       plainReadingQuery: entry.plainReadingQuery,
       visibleConstraints: entry.visibleConstraints,
-    });
+      }),
+      vm547RuntimeRevision: discoveryProfile ? discoveryProvenance?.runtimeRevision || "" : "",
+      vm547CatalogFingerprint: discoveryProfile ? discoveryProvenance?.catalogFingerprint || "" : "",
+    };
   });
 }

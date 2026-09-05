@@ -1,4 +1,5 @@
 const DEFAULT_MAZE_PATH_LABEL = "Maze path";
+export const VM547_DISCOVERY_RUNTIME_REVISION = "vm547-runtime-v5";
 const MANA_SYMBOL_ORDER = ["w", "u", "b", "r", "g", "c"];
 const MANA_SYMBOL_NAMES = {
   w: "white",
@@ -92,6 +93,7 @@ export function mazeSearchLink({ label, query, service = "maze", pathType = "", 
  * @param {string[]} [input.oracleTerms] - Oracle terms or prebuilt `o:` query terms.
  * @param {string[]} [input.flavorTerms] - Flavor terms or prebuilt `ft:` query terms.
  * @param {boolean} [input.includeOutsideColorStretch] - Whether to include the stretch commander lane.
+ * @param {object|null} [input.discoveryProfile] - Canonical VM-547 dossier discovery projection.
  * @returns {object[]} Stable Maze path entries.
  */
 export function buildDossierMazePathEntries({
@@ -100,10 +102,19 @@ export function buildDossierMazePathEntries({
   identityHint = "",
   oracleTerms = [],
   flavorTerms = [],
-  includeOutsideColorStretch = true
+  includeOutsideColorStretch = true,
+  discoveryProfile = null
 } = {}) {
   const normalizedIdentity = normalizeMazeIdentity(identity);
   if (!normalizedIdentity) return [];
+
+  if (isUsableDiscoveryProfile(discoveryProfile, normalizedIdentity)) {
+    return buildProfileOwnedDossierPaths(discoveryProfile, {
+      factionName,
+      identityHint,
+      includeOutsideColorStretch,
+    });
+  }
 
   const normalizedOracleTerms = normalizeQueryTerms(oracleTerms, "o");
   const normalizedFlavorTerms = normalizeQueryTerms(flavorTerms, "ft");
@@ -234,6 +245,186 @@ export function buildDossierMazePathEntries({
 }
 
 /**
+ * Returns one profile from the generated VM-547 catalog.
+ * @param {object|null} catalog Generated discovery-profile catalog.
+ * @param {string} identityKey Stable dossier key.
+ * @returns {object|null} Matching profile or null.
+ */
+export function resolveMazeDiscoveryProfile(catalog, identityKey = "") {
+  if (!resolveMazeDiscoveryCatalogProvenance(catalog)) return null;
+  const key = String(identityKey || "").trim().toUpperCase();
+  return (catalog.profiles || []).find((profile) => profile.identity_key === key) || null;
+}
+
+export function resolveMazeDiscoveryCatalogProvenance(catalog) {
+  if (catalog?.schema_version !== "vm547-maze-discovery-catalog-v1") return null;
+  if (catalog?.runtime_revision !== VM547_DISCOVERY_RUNTIME_REVISION) return null;
+  if (!/^[a-f0-9]{64}$/.test(String(catalog?.catalog_fingerprint || ""))) return null;
+  if (!Array.isArray(catalog?.profiles) || catalog.profiles.length !== 37) return null;
+  return {
+    runtimeRevision: catalog.runtime_revision,
+    catalogFingerprint: catalog.catalog_fingerprint,
+  };
+}
+
+function isUsableDiscoveryProfile(profile, identity) {
+  if (!profile || typeof profile !== "object") return false;
+  if (!profile.identity_key || !profile.identity_name) return false;
+  if (!Array.isArray(profile.mechanical_threads) || profile.mechanical_threads.length !== 3) return false;
+  if (!Array.isArray(profile.story_threads) || profile.story_threads.length < 1) return false;
+  return normalizeMazeIdentity(profile.color_identity) === normalizeMazeIdentity(identity);
+}
+
+function buildProfileOwnedDossierPaths(profile, {
+  factionName = "this reading",
+  identityHint = "",
+  includeOutsideColorStretch = true,
+} = {}) {
+  const identity = String(profile.color_identity || "").toLowerCase();
+  const identityText = identityToWords(identity);
+  const readingName = String(factionName || profile.identity_name || "this reading").trim();
+  const hint = String(identityHint || "").trim() || (identity === "c" ? "C" : identity.toUpperCase());
+  const mechanicalThreads = profile.mechanical_threads.map((thread) => normalizeProfileThread(thread));
+  const storyThreads = profile.story_threads.map((thread) => normalizeProfileThread(thread));
+  const supportGroup = groupProfileThreadClauses(mechanicalThreads, "support");
+  const stretchGroup = groupProfileThreadClauses(mechanicalThreads, "stretch");
+  const storyGroup = groupProfileThreadClauses(storyThreads);
+
+  const commanderBase = `id=${identity} is:commander f:commander`;
+  const supportBase = `id<=${identity} f:commander -is:commander -t:land`;
+  const flavorBase = `id<=${identity} f:commander`;
+  const stretchBase = `-id<=${identity} is:commander f:commander`;
+
+  const paths = [
+    createProfilePath({
+      profile,
+      label: "Commanders in this identity",
+      sidebarLabel: "Commanders in this identity",
+      hint: `${hint} · broad pool`,
+      pathType: identity === "c" ? "colorless-identity" : "commanders-that-fit",
+      query: commanderBase,
+      plainReadingQuery: `${readingName} Commander-legal commanders with exactly ${identityText} identity`,
+      description: `Start with the broad set of Commander-legal commanders in exactly ${identityText}. This is color-identity eligibility, not a Vox Mana fit ranking.`,
+      isBroad: true,
+      threads: mechanicalThreads.map((thread) => createPathThread(thread, commanderBase, "commander")),
+    }),
+    createProfilePath({
+      profile,
+      label: "Cards that support this shape",
+      sidebarLabel: "Cards that support this shape",
+      hint: "three mechanical threads",
+      pathType: identity === "c" ? "colorless-noncommander-support" : "support-cards",
+      query: joinMazeQuery(supportBase, supportGroup),
+      plainReadingQuery: `${readingName} Commander-legal noncommander, nonland support cards in ${identityText} identity across three named mechanical threads`,
+      description: `Translate the ${readingName} mechanical reading into three narrower card searches. Choose a thread to see what it means before inspecting syntax.`,
+      isBroad: false,
+      threads: mechanicalThreads.map((thread) => createPathThread(thread, supportBase, "support")),
+    }),
+    createProfilePath({
+      profile,
+      label: "Flavor and story echoes",
+      sidebarLabel: "Flavor and story echoes",
+      hint: "flavor text, not mechanics",
+      pathType: identity === "c" ? "colorless-story-echoes" : "flavor-echoes",
+      query: joinMazeQuery(flavorBase, storyGroup),
+      plainReadingQuery: `${readingName} Commander-legal cards in ${identityText} identity using explicit flavor and story vocabulary`,
+      description: `Search card flavor text for this dossier's story vocabulary. This lane does not claim that flavor words prove a mechanical fit.`,
+      isBroad: false,
+      threads: storyThreads.map((thread) => createPathThread(thread, flavorBase, "flavor")),
+    }),
+  ];
+
+  if (includeOutsideColorStretch && profile.stretch?.availability === "available") {
+    paths.push(createProfilePath({
+      profile,
+      label: "Outside-color stretch",
+      sidebarLabel: "Outside-color stretch",
+      hint: "same threads · different colors",
+      pathType: identity === "c" ? "outside-color-stretch" : "weird-stretch-commanders",
+      query: joinMazeQuery(stretchBase, stretchGroup),
+      plainReadingQuery: `${readingName} Commander-legal commanders outside ${identityText} identity that preserve one of three named mechanical threads`,
+      description: profile.stretch.interpretation,
+      isBroad: false,
+      threads: mechanicalThreads.map((thread) => createPathThread(thread, stretchBase, "stretch")),
+    }));
+  }
+
+  return paths;
+}
+
+function normalizeProfileThread(thread = {}) {
+  return {
+    threadId: String(thread.thread_id || "").trim(),
+    semanticKind: String(thread.semantic_kind || "mechanical").trim(),
+    label: String(thread.label || "").trim(),
+    interpretation: String(thread.interpretation || "").trim(),
+    queryClause: String(thread.query_clause || "").trim(),
+    sourceItemId: String(thread.source_item_id || "").trim(),
+    sourceLocator: String(thread.source_locator || "").trim(),
+    sourceRole: String(thread.source_role || "").trim(),
+    laneOverrides: thread.lane_overrides || {},
+  };
+}
+
+function groupProfileThreadClauses(threads = [], lane = "support") {
+  const clauses = threads
+    .map((thread) => resolveProfileThreadLane(thread, lane))
+    .filter((thread) => thread.availability === "available")
+    .map((thread) => thread.queryClause)
+    .filter(Boolean);
+  if (!clauses.length) return "";
+  if (clauses.length === 1) return clauses[0];
+  return `(${clauses.map((clause) => `(${clause})`).join(" OR ")})`;
+}
+
+function createPathThread(thread, baseQuery, lane) {
+  const laneThread = resolveProfileThreadLane(thread, lane);
+  const query = laneThread.availability === "available" ? joinMazeQuery(baseQuery, laneThread.queryClause) : "";
+  return {
+    ...thread,
+    ...laneThread,
+    lane,
+    query,
+    operatorQuery: query,
+    plainReadingQuery: laneThread.interpretation,
+  };
+}
+
+function resolveProfileThreadLane(thread, lane) {
+  const override = thread.laneOverrides?.[lane] || {};
+  const availability = override.availability || "available";
+  return {
+    availability,
+    label: String(override.label || thread.label || "").trim(),
+    interpretation: String(
+      availability === "unavailable"
+        ? override.rationale
+        : override.interpretation || thread.interpretation || "",
+    ).trim(),
+    queryClause: availability === "available"
+      ? String(override.query_clause || thread.queryClause || "").trim()
+      : "",
+    unavailableReason: availability === "unavailable" ? String(override.rationale || "").trim() : "",
+  };
+}
+
+function createProfilePath({ profile, ...path }) {
+  return {
+    ...path,
+    profileKey: profile.identity_key,
+    profileName: profile.identity_name,
+    readingSummary: profile.reading_summary,
+    sourceRecordId: profile.source_record_id,
+    sourceLocator: profile.source_locator,
+    profileColorIdentity: profile.color_identity,
+    stretch: profile.stretch,
+    intentionalException: profile.intentional_exception || "",
+    operatorQuery: path.query,
+    visibleConstraints: extractMazeOperatorConstraints(path.query),
+  };
+}
+
+/**
  * Resolves launch state for Maze when Archscry-originated URLs land on the page.
  * @param {URLSearchParams} urlParams - Current page query parameters.
  * @param {object} [existing] - Previously saved handoff state.
@@ -245,6 +436,7 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
   const operatorStyleQ = isMazeOperatorQuery(urlQ) ? urlQ : "";
   const existingOperatorQuery = !urlQ ? existing.operatorQuery || "" : "";
   const from = urlParams.get("from") || "";
+  const canonicalDossierHandoff = from === "archscry" && existing.vm547Canonical === true;
   return {
     from,
     urlQ,
@@ -255,10 +447,23 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
     factionName: urlParams.get("factionName") || existing.factionName || "",
     readingId: urlParams.get("readingId") || existing.readingId || "",
     readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "",
-    operatorQuery: explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
-    plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
-    pathType: urlParams.get("pathType") || existing.pathType || "",
-    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || ""
+    operatorQuery: canonicalDossierHandoff
+      ? existing.operatorQuery || ""
+      : explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
+    plainReadingQuery: canonicalDossierHandoff
+      ? existing.plainReadingQuery || ""
+      : urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
+    pathType: canonicalDossierHandoff
+      ? existing.pathType || ""
+      : urlParams.get("pathType") || existing.pathType || "",
+    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "",
+    ...(canonicalDossierHandoff ? {
+      vm547Canonical: true,
+      vm547Runtime: existing.vm547Runtime || "",
+      vm547Catalog: existing.vm547Catalog || "",
+      vm547Profile: existing.vm547Profile || "",
+      vm547IncomingDisposition: existing.vm547IncomingDisposition || ""
+    } : {})
   };
 }
 

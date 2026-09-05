@@ -8,6 +8,7 @@ import {
   mazeSearchLink,
   isMazeOperatorQuery,
   resolveMazeLaunchState,
+  resolveMazeDiscoveryProfile,
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
@@ -21,6 +22,7 @@ const manaAbilityIconSlugs = new Set([...manaCss.matchAll(/\.ms-ability-([a-z0-9
 const parserSeedFixture = JSON.parse(readFileSync(new URL("../../data/maze/scryfall-parser-seed-2026.json", import.meta.url), "utf8"));
 const groundingFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/scryfall-grounding.json", import.meta.url), "utf8"));
 const semanticRegistryFixture = JSON.parse(readFileSync(new URL("../../data/scryfall/grounding/plain-reading-semantics.json", import.meta.url), "utf8"));
+const mazeDiscoveryProfileCatalogFixture = JSON.parse(readFileSync(new URL("../../data/dossier/maze-discovery-profiles.catalog.json", import.meta.url), "utf8"));
 assert.doesNotMatch(mazeHtml, /id="mode-help-btn"/);
 assert.doesNotMatch(mazeHtml, /id="mode-help-popover"/);
 assert.match(mazeHtml, /<textarea\b[^>]*id="search-input"[^>]*rows="2"[\s\S]*?<\/textarea>/);
@@ -176,6 +178,42 @@ assert.deepEqual(
 assert.equal(
   resolveMazeLaunchState(new URLSearchParams("from=archscry&q=id%3Drwb%20is%3Acommander"), {}).operatorQuery,
   "id=rwb is:commander"
+);
+assert.deepEqual(
+  resolveMazeLaunchState(
+    new URLSearchParams("from=archscry&fit=WITHERBLOOM&pathType=support-cards&operatorQuery=id%3C%3Dbg%20f%3Acommander%20-is%3Acommander%20-t%3Aland%20%28o%3Adeath%20OR%20o%3Amortality%29&plainReadingQuery=legacy"),
+    {
+      vm547Canonical: true,
+      vm547Runtime: "vm547-runtime-v5",
+      vm547Catalog: "catalog-fingerprint",
+      vm547Profile: "WITHERBLOOM",
+      vm547IncomingDisposition: "rehydrated-current",
+      operatorQuery: "id<=bg f:commander -is:commander -t:land (o:create o:pest)",
+      plainReadingQuery: "Witherbloom support through Pest life-value",
+      pathType: "support-cards",
+    }
+  ),
+  {
+    from: "archscry",
+    urlQ: "",
+    contextMode: "",
+    reviewIdentity: "",
+    exploreIdentity: "",
+    fit: "WITHERBLOOM",
+    factionName: "",
+    readingId: "",
+    readingTitle: "",
+    operatorQuery: "id<=bg f:commander -is:commander -t:land (o:create o:pest)",
+    plainReadingQuery: "Witherbloom support through Pest life-value",
+    pathType: "support-cards",
+    returnUrl: "",
+    vm547Canonical: true,
+    vm547Runtime: "vm547-runtime-v5",
+    vm547Catalog: "catalog-fingerprint",
+    vm547Profile: "WITHERBLOOM",
+    vm547IncomingDisposition: "rehydrated-current",
+  },
+  "canonical dossier handoffs must override stale URL query payloads"
 );
 
 const mazeLink = mazeSearchLink({ label: "Board Wipes", query: "otag:board-wipe" });
@@ -622,10 +660,10 @@ async function runMazeDomMetadataCases() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search" &&
-      /^id=bg is:commander f:commander /.test(url.searchParams.get("q") || ""));
+      (url.searchParams.get("q") || "") === "id=bg is:commander f:commander");
   assert.ok(launchUrl, "expected Archscry launch to execute the operator query through Maze search");
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.match(launchUrl.searchParams.get("q"), /^id=bg is:commander f:commander /);
+  assert.equal(launchUrl.searchParams.get("q"), "id=bg is:commander f:commander");
   assert.notEqual(launchUrl.searchParams.get("q"), "ignored");
 
   assert.equal(document.getElementById("discovery-path-list").children.length, 5);
@@ -650,12 +688,20 @@ async function runMazeDomMetadataCases() {
     "expected Loom autocomplete to include dictionary-derived keyword suggestions"
   );
   const commanderPath = document.getElementById("reading-path-list").children[0];
+  const witherbloomProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalogFixture, "WITHERBLOOM");
+  const expectedWitherbloomPaths = buildDossierMazePathEntries({
+    identity: "bg",
+    factionName: "Witherbloom College",
+    identityHint: "Witherbloom",
+    includeOutsideColorStretch: true,
+    discoveryProfile: witherbloomProfile,
+  });
   assert.match(commanderPath.dataset.query, /^id=bg is:commander f:commander$/);
   assert.match(commanderPath.dataset.plainReadingQuery, /Witherbloom College Commander-legal commanders with exactly black-green identity/i);
   assert.doesNotMatch(commanderPath.dataset.plainReadingQuery, /\bRed\b/);
   assert.equal(commanderPath.dataset.origin, "path");
   const supportPath = document.getElementById("reading-path-list").children[1];
-  assert.equal(supportPath.dataset.query, "id<=bg f:commander -is:commander -t:land");
+  assert.equal(supportPath.dataset.query, expectedWitherbloomPaths[1].query);
   assert.match(supportPath.dataset.plainReadingQuery, /Commander-legal noncommander, nonland support cards/i);
   assert.match(supportPath.dataset.plainReadingQuery, /Witherbloom College/i);
   assert.equal(document.getElementById("quick-search-list").children[0].dataset.origin, "maze");
@@ -798,7 +844,7 @@ async function runMazeDomMetadataCases() {
   await window.doSearch();
   await waitForFetchCount(dom.fetchUrls, bootFetchCount + 6);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "c:r f:commander");
+  assert.equal(lastUrl.searchParams.get("q"), "c:r", "Operator mode must not silently add the sidebar format default");
 
   input.value = "c:u f:modern";
   await window.doSearch();
@@ -907,7 +953,7 @@ async function runMazeDomMetadataCases() {
   await window.doSearch();
   await waitForFetchCount(dom.fetchUrls, tokenMakerRawStart + 1);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "o:\"create a token\" c:g f:commander");
+  assert.equal(lastUrl.searchParams.get("q"), "o:\"create a token\" c:g", "Operator mode must preserve an explicit token-maker query without a silent format default");
 
   const tokenMakerPlainStart = dom.fetchUrls.length;
   window.setMode("ai");
@@ -1124,8 +1170,8 @@ async function runMazeDomMetadataCases() {
   await window.doSearch();
   await waitForFetchCount(dom.fetchUrls, rawAndStart + 1);
   lastUrl = latestFetchUrl(dom.fetchUrls);
-  assert.equal(lastUrl.searchParams.get("q"), "c:r t:creature f:commander");
-  assert.equal(input.value, "c:r t:creature f:commander");
+  assert.equal(lastUrl.searchParams.get("q"), "c:r t:creature", "Operator normalization must remove boolean noise without adding a format default");
+  assert.equal(input.value, "c:r t:creature");
   assert.match(document.getElementById("qi-diagnostics").innerHTML, /Alternatives/);
 
   const blockedStart = dom.fetchUrls.length;
@@ -1295,14 +1341,14 @@ async function runLiveShardDossierSidebarCases() {
   const cases = [
     { key: "BANT", name: "Bant", identity: "wug", words: "white-blue-green", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "WUG" },
     { key: "ESPER", name: "Esper", identity: "wub", words: "white-blue-black", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "WUB" },
-    { key: "GRIXIS", name: "Grixis", identity: "ubr", words: "blue-black-red", expectedPaths: 3, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "UBR" },
-    { key: "JUND", name: "Jund", identity: "brg", words: "black-red-green", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Jund" },
-    { key: "NAYA", name: "Naya", identity: "rgw", words: "red-green-white", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Naya" },
-    { key: "ABZAN", name: "Abzan Houses", identity: "wbg", words: "white-black-green", expectedPaths: 3, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Abzan" },
-    { key: "TEMUR", name: "Temur Frontier", identity: "gur", words: "green-blue-red", expectedPaths: 3, storedKey: "WB", storedName: "Orzhov Syndicate", storedScores: { W: 7, U: 0, B: 8, R: 0, G: 0 }, visibleHint: "Temur" },
-    { key: "SULTAI", name: "Sultai Brood", identity: "bgu", words: "black-green-blue", expectedPaths: 3, storedKey: "WR", storedName: "Boros Legion", storedScores: { W: 8, U: 0, B: 0, R: 7, G: 0 }, visibleHint: "Sultai" },
-    { key: "MARDU", name: "Mardu Horde", identity: "rwb", words: "red-white-black", expectedPaths: 3, storedKey: "UG", storedName: "Simic Combine", storedScores: { W: 0, U: 7, B: 0, R: 0, G: 8 }, visibleHint: "Mardu" },
-    { key: "JESKAI", name: "Jeskai Way", identity: "urw", words: "blue-red-white", expectedPaths: 3, storedKey: "BG", storedName: "Golgari Swarm", storedScores: { W: 0, U: 7, B: 8, R: 0, G: 8 }, visibleHint: "Jeskai" },
+    { key: "GRIXIS", name: "Grixis", identity: "ubr", words: "blue-black-red", expectedPaths: 4, storedKey: "WU", storedName: "Azorius Senate", storedScores: { W: 8, U: 7, B: 0, R: 0, G: 0 }, visibleHint: "UBR" },
+    { key: "JUND", name: "Jund", identity: "brg", words: "black-red-green", expectedPaths: 4, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Jund" },
+    { key: "NAYA", name: "Naya", identity: "rgw", words: "red-green-white", expectedPaths: 4, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Naya" },
+    { key: "ABZAN", name: "Abzan Houses", identity: "wbg", words: "white-black-green", expectedPaths: 4, storedKey: "UR", storedName: "Izzet League", storedScores: { W: 0, U: 7, B: 0, R: 8, G: 0 }, visibleHint: "Abzan" },
+    { key: "TEMUR", name: "Temur Frontier", identity: "gur", words: "green-blue-red", expectedPaths: 4, storedKey: "WB", storedName: "Orzhov Syndicate", storedScores: { W: 7, U: 0, B: 8, R: 0, G: 0 }, visibleHint: "Temur" },
+    { key: "SULTAI", name: "Sultai Brood", identity: "bgu", words: "black-green-blue", expectedPaths: 4, storedKey: "WR", storedName: "Boros Legion", storedScores: { W: 8, U: 0, B: 0, R: 7, G: 0 }, visibleHint: "Sultai" },
+    { key: "MARDU", name: "Mardu Horde", identity: "rwb", words: "red-white-black", expectedPaths: 4, storedKey: "UG", storedName: "Simic Combine", storedScores: { W: 0, U: 7, B: 0, R: 0, G: 8 }, visibleHint: "Mardu" },
+    { key: "JESKAI", name: "Jeskai Way", identity: "urw", words: "blue-red-white", expectedPaths: 4, storedKey: "BG", storedName: "Golgari Swarm", storedScores: { W: 0, U: 7, B: 8, R: 0, G: 8 }, visibleHint: "Jeskai" },
   ];
 
   for (const testCase of cases) {
@@ -1332,29 +1378,26 @@ async function runLiveShardDossierSidebarCases() {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     const readingPaths = document.getElementById("reading-path-list").children;
+    const profile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalogFixture, testCase.key);
+    const expectedProfilePaths = buildDossierMazePathEntries({
+      identity: testCase.identity,
+      factionName: testCase.name,
+      identityHint: ["JUND", "NAYA", "ABZAN", "TEMUR", "SULTAI", "MARDU", "JESKAI"].includes(testCase.key) ? testCase.visibleHint : "",
+      includeOutsideColorStretch: true,
+      discoveryProfile: profile,
+    });
     assert.equal(readingPaths.length, testCase.expectedPaths, `expected ${testCase.key} sidebar path count to match shard policy`);
-    assert.equal(readingPaths[0].children.at(-1).textContent, testCase.visibleHint);
+    assert.equal(readingPaths[0].children.at(-1).textContent, expectedProfilePaths[0].hint);
     assert.match(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.identity} is:commander f:commander$`));
     assert.match(
       readingPaths[0].dataset.plainReadingQuery,
       new RegExp(`${testCase.name} Commander-legal commanders with exactly ${testCase.words} identity`, "i")
     );
-    const supportBaseQuery = `id<=${testCase.identity} f:commander -is:commander -t:land`;
-    assert.match(readingPaths[1].dataset.query, new RegExp(`^${supportBaseQuery.replace(/[<]/g, "\\$&")}(?: |$)`));
-    if (readingPaths[1].dataset.query === supportBaseQuery) {
-      assert.doesNotMatch(readingPaths[1].dataset.plainReadingQuery, /whose Oracle text mentions/i);
-    } else {
-      assert.match(readingPaths[1].dataset.query, /\(o:/);
-      assert.match(readingPaths[1].dataset.plainReadingQuery, /whose Oracle text mentions/i);
-    }
-    const flavorBaseQuery = `id<=${testCase.identity} f:commander`;
-    assert.match(readingPaths[2].dataset.query, new RegExp(`^${flavorBaseQuery.replace(/[<]/g, "\\$&")}(?: |$)`));
-    if (readingPaths[2].dataset.query === flavorBaseQuery) {
-      assert.doesNotMatch(readingPaths[2].dataset.plainReadingQuery, /whose flavor text mentions/i);
-    } else {
-      assert.match(readingPaths[2].dataset.query, /\(ft:/);
-      assert.match(readingPaths[2].dataset.plainReadingQuery, /whose flavor text mentions/i);
-    }
+    [...readingPaths].forEach((pathEntry, index) => {
+      assert.equal(pathEntry.dataset.query, expectedProfilePaths[index].query, `${testCase.key}: canonical query projection drifted`);
+      assert.equal(pathEntry.dataset.plainReadingQuery, expectedProfilePaths[index].plainReadingQuery, `${testCase.key}: plain-English interpretation drifted`);
+      assert.equal(pathEntry.dataset.pathType, expectedProfilePaths[index].pathType, `${testCase.key}: path type drifted`);
+    });
     assert.doesNotMatch(readingPaths[0].dataset.query, new RegExp(`^id=${testCase.storedKey.toLowerCase()}\\b`));
     assert.ok(
       [...readingPaths].every((path) => path.dataset.query && !new RegExp(`^id<=${testCase.storedKey.toLowerCase()}\\b`).test(path.dataset.query)),
@@ -1366,8 +1409,8 @@ async function runLiveShardDossierSidebarCases() {
       assert.doesNotMatch(sidebarText, new RegExp(`\\b${testCase.storedKey}\\b`));
       assert.doesNotMatch(sidebarText, /\bBRG\b|\bRGW\b|\bWBG\b|\bGUR\b|\bBGU\b|\bBUG\b|\bUBG\b|\bGUB\b|\bRWB\b|\bWBR\b|\bRBW\b|\bWRB\b|\bBRW\b|\bBWR\b|\bURW\b|\bWUR\b|\bRWU\b|\bUWR\b|\bRUW\b|\bWRU\b/);
       assert.ok(
-        [...readingPaths].every((path) => path.dataset.pathType !== "weird-stretch-commanders"),
-        `expected active ${testCase.key} sidebar to hide the outside-color commander stretch path`
+        [...readingPaths].some((path) => path.dataset.pathType === "weird-stretch-commanders"),
+        `expected active ${testCase.key} sidebar to expose the governed outside-color stretch path`
       );
     }
     if (testCase.key === "ABZAN") {
@@ -1435,24 +1478,27 @@ async function runColorlessStaleWuRestoreCase() {
   assert.equal(document.body.dataset.mazeMode, "ai");
   assert.equal(
     document.getElementById("search-input").value,
-    "Colorless Commander-legal commanders with exactly Colorless identity",
+    "Colorless Commander-legal commanders with exactly colorless identity",
     "expected active Colorless launch to replace stale white-blue plain text"
   );
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
+  const colorlessProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalogFixture, "COLORLESS");
+  const expectedColorlessPaths = buildDossierMazePathEntries({
+    identity: "c",
+    factionName: "Colorless",
+    identityHint: "C",
+    includeOutsideColorStretch: true,
+    discoveryProfile: colorlessProfile,
+  });
   assert.equal(readingPaths.length, 4, "expected Colorless sidebar to expose four Colorless lanes");
   assert.deepEqual(
     readingPaths.map((path) => path.dataset.query),
-    [
-      "id=c is:commander f:commander",
-      "id<=c f:commander -is:commander (t:artifact OR o:{C} OR o:\"colorless mana\" OR o:Eldrazi)",
-      "id<=c f:commander (ft:cosmic OR ft:void OR ft:waste OR ft:wastes OR ft:eldrazi)",
-      "-id<=c is:commander f:commander (t:artifact OR o:\"colorless mana\" OR o:Eldrazi OR o:artifact)",
-    ],
+    expectedColorlessPaths.map((pathEntry) => pathEntry.query),
     "expected active Colorless sidebar to use C/id<=c lanes"
   );
-  assert.equal(readingPaths[0].children.at(-1).textContent, "C");
-  assert.equal(readingPaths[1].textContent.replace(readingPaths[1].children.at(-1).textContent, ""), "Colorless support cards");
+  assert.equal(readingPaths[0].children.at(-1).textContent, "C · broad pool");
+  assert.equal(readingPaths[1].textContent.replace(readingPaths[1].children.at(-1).textContent, ""), "Cards that support this shape");
 
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
   assert.doesNotMatch(sidebarText, /\bid=wu\b|\bid<=wu\b|white-blue identity|\bWU\b|\+1\/\+1 counter|lifegain|return target/i);
@@ -1464,7 +1510,7 @@ async function runColorlessStaleWuRestoreCase() {
   assert.equal(storedActiveHandoff.sourceFaction, "WU");
   assert.equal(storedActiveHandoff.operatorQuery, "id=c is:commander f:commander");
   assert.equal(storedActiveHandoff.pathType, "colorless-identity");
-  assert.equal(storedActiveHandoff.plainReadingQuery, "Colorless Commander-legal commanders with exactly Colorless identity");
+  assert.equal(storedActiveHandoff.plainReadingQuery, "Colorless Commander-legal commanders with exactly colorless identity");
   assert.equal(
     storedActiveHandoff.placementResult.faction,
     "WU",
@@ -1596,15 +1642,19 @@ async function runLiveFourColorArchscryCases() {
     const sidebarStateText = readingPaths
       .map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`)
       .join(" ");
-    assert.equal(readingPaths.length, 3);
-    assert.equal(readingPaths[0].children.at(-1).textContent, testCase.visibleHint);
+    assert.equal(readingPaths.length, testCase.key === "WUBRG" ? 3 : 4);
+    assert.equal(readingPaths[0].children.at(-1).textContent, `${testCase.visibleHint} · broad pool`);
     assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
     assert.doesNotMatch(readingPaths[0].dataset.query, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
     assert.match(
       readingPaths[0].dataset.plainReadingQuery,
       new RegExp(`${testCase.name} Commander-legal commanders with exactly ${testCase.words} identity`, "i")
     );
-    assert.ok(readingPaths.every((path) => path.dataset.pathType !== "weird-stretch-commanders"));
+    assert.equal(
+      readingPaths.some((path) => path.dataset.pathType === "weird-stretch-commanders"),
+      testCase.key !== "WUBRG",
+      `${testCase.key}: outside-color stretch availability drifted`,
+    );
     assert.ok(
       readingPaths.every((path) => !/\/(?:wubr|ubrg|brgw|rgwu|gwub|WUBR|UBRG|BRGW|RGWU|GWUB)\//.test(`${path.textContent} ${path.dataset.plainReadingQuery}`)),
       `expected ${testCase.key} visible path labels to avoid public raw color-code route language`
@@ -1685,8 +1735,8 @@ async function runConflictingFourColorActiveFitCase() {
   const readingPaths = [...document.getElementById("reading-path-list").children];
   const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
-  assert.equal(readingPaths.length, 3);
-  assert.equal(readingPaths[0].children.at(-1).textContent, "Glint");
+  assert.equal(readingPaths.length, 4);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Glint · broad pool");
   assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
   assert.doesNotMatch(readingPaths[0].dataset.query, LIVE_FOUR_COLOR_EXACT_COMMANDER_FORBIDDEN_FILTERS);
   assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov|white-black|Dune|DUNE/i);
@@ -1728,8 +1778,8 @@ async function runStaleFourColorLabelRestoreCase() {
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
   const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
-  assert.equal(readingPaths.length, 3);
-  assert.equal(readingPaths[0].children.at(-1).textContent, "Yore");
+  assert.equal(readingPaths.length, 4);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Yore · broad pool");
   assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
   assert.doesNotMatch(visibleSidebarText, /\b(?:WBRG|UBRG|BRGW|WG|WB|WU)\b|Dune|Glint/i);
 
@@ -1765,10 +1815,11 @@ async function runTemurQueryInferredSidebarCase() {
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
-  assert.equal(readingPaths.length, 3);
-  assert.equal(readingPaths[0].children.at(-1).textContent, "Temur");
+  assert.equal(readingPaths.length, 4);
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Temur · broad pool");
   assert.match(readingPaths[0].dataset.query, /^id=gur is:commander f:commander$/);
-  assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov|outside-color commander stretch|stretch lane/i);
+  assert.doesNotMatch(sidebarText, /\bWB\b|Orzhov/i);
+  assert.ok(readingPaths.some((path) => path.dataset.pathType === "weird-stretch-commanders"));
 }
 
 async function runMarduArchscryOperatorPrecedenceCase() {
@@ -1801,18 +1852,18 @@ async function runMarduArchscryOperatorPrecedenceCase() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
-  assert.ok(launchUrl, "expected Mardu Archscry launch to execute preserved operator query");
-  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.ok(launchUrl, "expected Mardu Archscry launch to execute its canonical rehydrated query");
+  assert.equal(launchUrl.searchParams.get("q"), "id=rwb is:commander f:commander");
   assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wb\b.*\bc=br\b.*\bc=wbr\b/i);
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+  assert.equal(document.getElementById("search-input").value, "Mardu Horde Commander-legal commanders with exactly red-white-black identity");
 
   const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
   assert.doesNotMatch(diagnosticsText, /Orzhov identity|Rakdos identity|Mardu identity/i);
   assert.doesNotMatch(diagnosticsText, /Unresolved term: (?:horde|commanders|identity)/i);
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
-  assert.equal(readingPaths.length, 3);
+  assert.equal(readingPaths.length, 4);
   assert.match(readingPaths[0].dataset.query, /^id=rwb is:commander f:commander$/);
   assert.match(readingPaths[0].dataset.plainReadingQuery, /red-white-black identity/i);
   assert.ok(readingPaths.every((path) => !/\bid(?:<)?=wbr\b/i.test(path.dataset.query)));
@@ -1848,11 +1899,11 @@ async function runJeskaiArchscryOperatorPrecedenceCase() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
-  assert.ok(launchUrl, "expected Jeskai Archscry launch to execute preserved operator query");
-  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.ok(launchUrl, "expected Jeskai Archscry launch to execute its canonical rehydrated query");
+  assert.equal(launchUrl.searchParams.get("q"), "id=urw is:commander f:commander");
   assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+  assert.equal(document.getElementById("search-input").value, "Jeskai Way Commander-legal commanders with exactly blue-red-white identity");
 
   const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
   assert.doesNotMatch(diagnosticsText, /Azorius identity|Izzet identity|Jeskai identity/i);
@@ -1860,7 +1911,7 @@ async function runJeskaiArchscryOperatorPrecedenceCase() {
   assert.doesNotMatch(diagnosticsText, /Unresolved term: (?:way|commanders|identity)/i);
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
-  assert.equal(readingPaths.length, 3);
+  assert.equal(readingPaths.length, 4);
   assert.match(readingPaths[0].dataset.plainReadingQuery, /(white-blue-red|blue-red-white) identity/i);
 
   const sidebarText = readingPaths.map((path) => `${path.textContent} ${path.dataset.query} ${path.dataset.plainReadingQuery}`).join(" ");
@@ -1883,8 +1934,8 @@ async function runTechnicalRgwuPublicGuardCase() {
 
   const readingPaths = [...document.getElementById("reading-path-list").children];
   const visibleSidebarText = readingPaths.map((path) => path.textContent).join(" ");
-  assert.equal(readingPaths.length, 3, "expected technical RGWU handoff to resolve to live Ink sidebar rendering");
-  assert.equal(readingPaths[0].children.at(-1).textContent, "Ink");
+  assert.equal(readingPaths.length, 4, "expected technical RGWU handoff to resolve to live Ink sidebar rendering");
+  assert.equal(readingPaths[0].children.at(-1).textContent, "Ink · broad pool");
   assert.equal(readingPaths[0].dataset.query, expectedExactQuery);
   assert.doesNotMatch(visibleSidebarText, /\bRGWU\b/i, "expected raw RGWU not to become a public Maze label");
   assert.ok(
@@ -2336,6 +2387,8 @@ function installMazeDomHarness() {
           ? groundingFixture
           : requestUrl.includes("/data/scryfall/grounding/plain-reading-semantics.json")
             ? semanticRegistryFixture
+          : requestUrl.includes("/data/dossier/maze-discovery-profiles.catalog.json")
+            ? mazeDiscoveryProfileCatalogFixture
           : fetchResponses.length
         ? fetchResponses.shift()
         : { object: "list", total_cards: 0, data: [], has_more: false };

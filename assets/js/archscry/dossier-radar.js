@@ -1,4 +1,4 @@
-import "../shared/vm-radar.js";
+import "../shared/vm-radar.js?v=vm547r5";
 
 const RADAR = globalThis.VMRadar;
 const DOSSIER_RADAR_AXES = RADAR.AXIS_LABELS;

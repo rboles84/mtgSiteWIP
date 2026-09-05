@@ -2,12 +2,14 @@ import { mkdir, readFile, stat } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 
+import * as ChromeLauncher from "chrome-launcher";
 import puppeteer from "puppeteer-core";
 
 const root = process.cwd();
 const witnessDirectory = process.env.VM_OWNER_REVIEW_OUTPUT
   ? path.resolve(process.env.VM_OWNER_REVIEW_OUTPUT)
   : path.join(root, "outputs", "vm616-owner-review");
+const chromeProfileDirectory = path.join(witnessDirectory, `chrome-profile-${process.pid}`);
 const failures = [];
 const browserCandidates = [
   process.env.LIGHTHOUSE_CHROME_PATH,
@@ -107,14 +109,18 @@ function rowsByOracleId(draft) {
 
 const { server, baseUrl } = await startServer();
 let browser;
+let launchedChrome;
 
 try {
   await mkdir(witnessDirectory, { recursive: true });
-  browser = await puppeteer.launch({
-    executablePath: await findBrowser(),
-    headless: true,
-    args: ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+  await mkdir(chromeProfileDirectory, { recursive: true });
+  launchedChrome = await ChromeLauncher.launch({
+    chromePath: await findBrowser(),
+    chromeFlags: ["--headless=new", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+    logLevel: "silent",
+    userDataDir: chromeProfileDirectory,
   });
+  browser = await puppeteer.connect({ browserURL: `http://127.0.0.1:${launchedChrome.port}` });
   const page = await browser.newPage();
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -412,6 +418,7 @@ try {
   expect(JSON.stringify(independentRows[associatedCard.oracle_id]) === baseline.rowJson, "Adding an independent Find must not rewrite the associated Find");
 
   await page.click("#maze-reading-context-action");
+  await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "reading-available");
   expect(await page.$eval("#maze-reading-context", element => element.dataset.state) === "reading-available", "Restore action should reactivate the retained reading");
   const reflectedHtml = await page.evaluate(async (activeReadingId) => {
     const dossier = await import("/assets/js/archscry/runtime/dossier-view.js?vm616-browser");
@@ -421,10 +428,13 @@ try {
   expect(!reflectedHtml.includes(independentCard.name), "Independent Find must not become part of the retained reading");
 
   await page.goBack({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "independent");
   expect(await page.$eval("#maze-reading-context", element => element.dataset.state) === "independent", "Back should return to independent state after explicit restore");
   await page.goForward({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "reading-available");
   expect(await page.$eval("#maze-reading-context", element => element.dataset.state) === "reading-available", "Forward should return to restored reading context");
   await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.getElementById("maze-reading-context")?.dataset.state === "reading-available");
   expect(await page.$eval("#maze-reading-context", element => element.dataset.state) === "reading-available", "Refresh should retain restored reading context");
   const restoredDraft = await page.evaluate(() => JSON.parse(localStorage.getItem("vm_maze_reading_finds_v1")));
   const restoredRows = rowsByOracleId(restoredDraft);
@@ -462,7 +472,8 @@ try {
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth) <= 1, "Maze Guide should reflow at a 200%-zoom-equivalent CSS viewport");
   expect(pageErrors.length === 0, `Rendered routes should not raise page errors: ${pageErrors.join(" | ")}`);
 } finally {
-  if (browser) await browser.close();
+  if (browser) await browser.disconnect();
+  if (launchedChrome) await launchedChrome.kill();
   await new Promise(resolve => server.close(resolve));
 }
 

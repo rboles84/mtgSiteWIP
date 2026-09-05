@@ -2140,6 +2140,177 @@ body.vm-maze-route .bld-select:focus-visible {
   min-height: clamp(540px, calc(100vh - var(--vm-topbar-h, 92px) - 15rem), 700px);
 }
 
+.dossier-discovery-panel {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2.3vw, 1.45rem);
+  border-bottom: 1px solid var(--maze-teal-line);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(247, 215, 132, 0.08), transparent 36%),
+    rgba(8, 19, 26, 0.5);
+  color: var(--maze-text);
+}
+
+.dossier-discovery-panel.hidden {
+  display: none;
+}
+
+.dossier-discovery-heading,
+.dossier-thread-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dossier-discovery-kicker,
+.dossier-discovery-reading > span,
+.dossier-discovery-lane > span,
+.dossier-thread-heading > span,
+.dossier-thread-kind {
+  display: block;
+  color: var(--maze-gold-2);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.dossier-discovery-heading h2,
+.dossier-discovery-lane h3,
+.dossier-thread-card h4 {
+  margin: 0.2rem 0 0;
+  color: var(--maze-text);
+  font-family: var(--font-display, Georgia, serif);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.dossier-discovery-heading h2 {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.dossier-discovery-identity {
+  flex: 0 1 auto;
+  max-width: 18rem;
+  padding: 0.35rem 0.62rem;
+  border: 1px solid var(--maze-teal-line);
+  border-radius: 999px;
+  color: var(--maze-teal);
+  font-size: 0.68rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.dossier-discovery-reading,
+.dossier-discovery-lane {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(247, 215, 132, 0.16);
+  border-radius: var(--maze-radius-sm);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.dossier-discovery-reading p,
+.dossier-discovery-lane p,
+.dossier-thread-heading p,
+.dossier-thread-card p,
+.dossier-stretch-boundary {
+  margin: 0.35rem 0 0;
+  color: var(--maze-muted);
+  line-height: 1.55;
+}
+
+.dossier-thread-heading p {
+  max-width: 40rem;
+  text-align: right;
+}
+
+.dossier-thread-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.dossier-thread-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.9rem;
+  border: 1px solid var(--maze-teal-line);
+  border-radius: var(--maze-radius-sm);
+  background: rgba(7, 31, 34, 0.34);
+}
+
+.dossier-thread-card h4,
+.dossier-thread-card p {
+  margin: 0;
+}
+
+.dossier-thread-card h4 {
+  font-size: 1rem;
+}
+
+.dossier-thread-card p {
+  flex: 1 1 auto;
+  font-size: 0.8rem;
+}
+
+.dossier-thread-search {
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(247, 215, 132, 0.38);
+  border-radius: 999px;
+  background: rgba(247, 215, 132, 0.1);
+  color: var(--maze-gold-2);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+}
+
+.dossier-thread-search:hover,
+.dossier-thread-search:focus-visible {
+  border-color: var(--maze-gold-2);
+  background: rgba(247, 215, 132, 0.18);
+}
+
+.dossier-query-details {
+  width: 100%;
+  color: var(--maze-muted);
+  font-size: 0.7rem;
+}
+
+.dossier-query-details summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--maze-teal);
+  cursor: pointer;
+}
+
+.dossier-query-details code {
+  display: block;
+  max-width: 100%;
+  padding: 0.65rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--maze-text);
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.dossier-stretch-boundary {
+  padding: 0.8rem 0.9rem;
+  border-left: 2px solid var(--maze-gold-2);
+  background: rgba(247, 215, 132, 0.07);
+}
+
 .maze-return-banner {
   display: none;
   align-items: center;
@@ -3268,6 +3439,10 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
   .current-weave {
     min-height: 0;
   }
+
+  .dossier-thread-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width: 641px) and (max-width: 1050px) {
@@ -3395,6 +3570,15 @@ body.vm-maze-route[data-stash-open="false"] .stash-panel {
 @media (max-width: 640px) {
   .current-weave {
     display: none;
+  }
+
+  .dossier-discovery-heading,
+  .dossier-thread-heading {
+    flex-direction: column;
+  }
+
+  .dossier-thread-heading p {
+    text-align: left;
   }
 }
 

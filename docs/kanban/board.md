@@ -27,7 +27,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-006 - Archscry / Maze Verification and Repeat-Visit Polish](backlog/VM-006-archscry-maze-verification-repeat-visit-polish.md)
 - [VM-007 - Commander Dossier Quality and Link Follow-Up](backlog/VM-007-commander-dossier-quality-link-follow-up.md)
 - [VM-008 - Commander Compass V1.5 Archetype-Guided Recommendations](backlog/VM-008-commander-compass-v1-5-archetype-guided-recommendations.md)
-- [VM-547 - Post-Reading Commander Shortlist Bridge](backlog/VM-547-post-reading-commander-shortlist-bridge.md) - clarify the practical commander-next-step handoff after Archscry without turning Vox Mana into a generic ranked commander database.
 - [VM-009 - 32-Deck Challenge, Saved Taste Profile, and Deck Import Later](backlog/VM-009-32-deck-challenge-saved-taste-profile-deck-import-later.md)
 - [VM-010 - The Loom Commander Finder Mode and Graph/Query Layer](backlog/VM-010-the-loom-commander-finder-mode-graph-query-layer.md)
 - [VM-548 - Commander Seed Discovery Mode](backlog/VM-548-commander-seed-discovery-mode.md) - explore a future discovery path where favorite commander names seed Vox Mana identity, strategy, and adjacent-fit interpretation.
@@ -39,6 +38,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 ## Ready
 
 ## In Progress
+
+- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - Owner Review at exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`; the cache-atomic v5 render graph now proves matching catalog/profile provenance and canonical query execution for all 37, with the eight Owner witnesses green. No push or merge before Owner acceptance.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

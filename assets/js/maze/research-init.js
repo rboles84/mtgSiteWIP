@@ -8,11 +8,17 @@ import {
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
 import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=vm627";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm627";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm547r5";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
-import { buildDossierMazePathEntries, isMazeOperatorQuery, resolveMazeLaunchState } from "./maze-handoff.js?v=vm625";
+import {
+  buildDossierMazePathEntries,
+  isMazeOperatorQuery,
+  resolveMazeDiscoveryCatalogProvenance,
+  resolveMazeDiscoveryProfile,
+  resolveMazeLaunchState,
+} from "./maze-handoff.js?v=vm547r5";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
@@ -67,6 +73,10 @@ const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
 const IDENTITY_EXPLORE_CONTEXT_MODE = "identity-explore";
 let transientArchscryMazeHandoff = null;
+let mazeDiscoveryProfileCatalog = null;
+let mazeDiscoveryProfileProvenance = null;
+let activeDossierPaths = [];
+let activeDossierPathType = "";
 const MODAL_FOCUS_SELECTOR = [
   "a[href]",
   "button:not([disabled])",
@@ -77,7 +87,7 @@ const MODAL_FOCUS_SELECTOR = [
 ].join(",");
 const MODAL_BACKGROUND_SELECTOR = "[data-maze-modal-background]";
 const ARCHSCRY_PATH_LABELS = {
-  "commanders-that-fit": "Commanders That Fit",
+  "commanders-that-fit": "Commanders in this identity",
   "support-cards": "Support Cards",
   "flavor-echoes": "Flavor Echoes",
   "weird-stretch-commanders": "Outside-Color Commander Stretch",
@@ -885,6 +895,28 @@ async function initializeParserDictionary() {
   }
 }
 
+async function initializeMazeDiscoveryProfiles() {
+  try {
+    const response = await fetch("/data/dossier/maze-discovery-profiles.catalog.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const catalog = await response.json();
+    const provenance = resolveMazeDiscoveryCatalogProvenance(catalog);
+    if (!provenance) {
+      throw new Error("catalog contract mismatch");
+    }
+    mazeDiscoveryProfileCatalog = catalog;
+    mazeDiscoveryProfileProvenance = provenance;
+    document.documentElement.dataset.vm547RuntimeRevision = provenance.runtimeRevision;
+    document.documentElement.dataset.vm547CatalogFingerprint = provenance.catalogFingerprint;
+  } catch (error) {
+    mazeDiscoveryProfileCatalog = null;
+    mazeDiscoveryProfileProvenance = null;
+    delete document.documentElement.dataset.vm547RuntimeRevision;
+    delete document.documentElement.dataset.vm547CatalogFingerprint;
+    console.warn("Maze discovery profiles unavailable; using legacy dossier paths.", error);
+  }
+}
+
 /**
  * Refreshes Loom ability suggestions from the governed Scryfall keyword-ability catalog.
  * @param {object} [grounding] - Checked-in Scryfall grounding inventory.
@@ -902,6 +934,7 @@ function setKeywordAbilityVocabulary(grounding) {
  */
 async function initializeResearchArchives() {
   await initializeParserDictionary();
+  await initializeMazeDiscoveryProfiles();
 
   const username = (typeof VM_SESSION !== "undefined") ? VM_SESSION.username : null;
   const badge = document.getElementById("r-user-badge");
@@ -2657,12 +2690,14 @@ function isColorlessDossierKey(value) {
 
 function colorlessDossierPathEntry(pathType = "", factionName = "Colorless") {
   const normalizedPathType = COLORLESS_DOSSIER_PATH_TYPE_ALIASES.get(pathType) || pathType || "colorless-identity";
+  const discoveryProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, "COLORLESS");
   return buildDossierMazePathEntries({
     identity: "C",
     factionName: factionName || "Colorless",
     identityHint: "C",
+    discoveryProfile,
   }).find((entry) => entry.pathType === normalizedPathType) ||
-    buildDossierMazePathEntries({ identity: "C", factionName: factionName || "Colorless", identityHint: "C" })[0] ||
+    buildDossierMazePathEntries({ identity: "C", factionName: factionName || "Colorless", identityHint: "C", discoveryProfile })[0] ||
     null;
 }
 
@@ -2738,15 +2773,59 @@ function initializeArchscryMazeHandoff(urlParams) {
   const factionName = liveFourColorDisplayName ||
     (fit === "COLORLESS" ? "Colorless" : urlParams.get("factionName")) ||
     (keepExistingLabel ? existing.factionName || "" : "");
-  const colorlessLaunch = canonicalizeColorlessMazeLaunch(
-    { operatorQuery: initialOperatorQuery, plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "", pathType },
-    fit,
-    pathType,
-    factionName || "Colorless"
-  );
-  const operatorQuery = colorlessLaunch.operatorQuery || initialOperatorQuery;
-  const handoffPathType = colorlessLaunch.pathType || pathType;
-  const handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "";
+  const canonicalRouteClaim = urlParams.has("fit");
+  const canonicalProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, fit);
+  if (canonicalRouteClaim && !canonicalProfile) {
+    throw new Error(`VM-547 canonical dossier route could not resolve profile: ${fit || "(missing fit)"}`);
+  }
+
+  let operatorQuery = initialOperatorQuery;
+  let handoffPathType = pathType;
+  let handoffPlainReadingQuery = urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "";
+  let vm547IncomingDisposition = "legacy-noncanonical";
+  if (canonicalProfile) {
+    const profileIdentity = colorIdentityFromDossierKey(fit);
+    const canonicalPaths = createDossierPaths({
+      identity: profileIdentity,
+      factionKey: fit,
+      readingName: factionName || canonicalProfile.identity_name,
+      signals: { oracle: [], flavor: [] },
+    });
+    const requestedCanonicalPathType = fit === "COLORLESS"
+      ? COLORLESS_DOSSIER_PATH_TYPE_ALIASES.get(pathType) || pathType
+      : pathType;
+    const canonicalPath = requestedCanonicalPathType
+      ? canonicalPaths.find((entry) => entry.pathType === requestedCanonicalPathType)
+      : canonicalPaths[0];
+    if (!canonicalPath) {
+      throw new Error(`VM-547 canonical dossier route could not resolve path: ${fit}/${pathType || "(default)"}`);
+    }
+    operatorQuery = canonicalPath.query;
+    handoffPathType = canonicalPath.pathType;
+    handoffPlainReadingQuery = canonicalPath.plainReadingQuery;
+    const incomingProfile = urlParams.get("vm547Profile") || "";
+    const incomingRuntime = urlParams.get("vm547Runtime") || "";
+    const incomingCatalog = urlParams.get("vm547Catalog") || "";
+    const incomingPayloadMatches = initialOperatorQuery === operatorQuery &&
+      (urlParams.get("plainReadingQuery") || "") === handoffPlainReadingQuery &&
+      (!pathType || pathType === handoffPathType);
+    const incomingProvenanceMatches = incomingProfile === fit &&
+      incomingRuntime === mazeDiscoveryProfileProvenance?.runtimeRevision &&
+      incomingCatalog === mazeDiscoveryProfileProvenance?.catalogFingerprint;
+    vm547IncomingDisposition = incomingPayloadMatches && incomingProvenanceMatches
+      ? "matched-current"
+      : "rehydrated-current";
+  } else {
+    const colorlessLaunch = canonicalizeColorlessMazeLaunch(
+      { operatorQuery, plainReadingQuery: handoffPlainReadingQuery, pathType: handoffPathType },
+      fit,
+      handoffPathType,
+      factionName || "Colorless"
+    );
+    operatorQuery = colorlessLaunch.operatorQuery || operatorQuery;
+    handoffPathType = colorlessLaunch.pathType || handoffPathType;
+    handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || handoffPlainReadingQuery;
+  }
   const readingId = launchReadingId || stableLocalReadingId({ fit, factionName, pathType: handoffPathType, operatorQuery });
   const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
   const nextIdentity = [readingId, fit, handoffPathType].filter(Boolean).join(":");
@@ -2770,6 +2849,11 @@ function initializeArchscryMazeHandoff(urlParams) {
     pathType: handoffPathType,
     plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
+    vm547Canonical: Boolean(canonicalProfile),
+    vm547Profile: canonicalProfile?.identity_key || "",
+    vm547Runtime: canonicalProfile ? mazeDiscoveryProfileProvenance?.runtimeRevision || "" : "",
+    vm547Catalog: canonicalProfile ? mazeDiscoveryProfileProvenance?.catalogFingerprint || "" : "",
+    vm547IncomingDisposition,
     placementResult: transientIdentityContext
       ? undefined
       : keepExistingPlacementResult ? existing.placementResult : undefined,
@@ -2778,6 +2862,13 @@ function initializeArchscryMazeHandoff(urlParams) {
       : false,
     returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "../archscry/"
   };
+  if (canonicalProfile) {
+    document.documentElement.dataset.vm547Profile = canonicalProfile.identity_key;
+    document.documentElement.dataset.vm547IncomingDisposition = vm547IncomingDisposition;
+  } else {
+    delete document.documentElement.dataset.vm547Profile;
+    delete document.documentElement.dataset.vm547IncomingDisposition;
+  }
   writeArchscryMazeHandoff(handoff);
   if (!handoff.returnBannerDismissed) {
     renderArchscryReturnBanner(handoff);
@@ -2873,6 +2964,8 @@ function buildReadingPaths() {
   if (isIndependentSearch()) {
     section.style.display = "none";
     clearNode(list);
+    activeDossierPaths = [];
+    renderDossierDiscoveryPanel([], "");
     return;
   }
 
@@ -2885,11 +2978,15 @@ function buildReadingPaths() {
   if (!paths.length) {
     section.style.display = "none";
     clearNode(list);
+    activeDossierPaths = [];
+    renderDossierDiscoveryPanel([], "");
     return;
   }
 
   section.style.display = "";
   clearNode(list);
+  activeDossierPaths = paths;
+  const requestedPathType = handoff?.pathType || paths[0].pathType;
   paths.forEach((path) => {
     const button = createActionButton({
       className: "sb-btn is-reading",
@@ -2899,7 +2996,8 @@ function buildReadingPaths() {
         query: path.q,
         plainReadingQuery: path.plainReadingQuery,
         pathType: path.pathType,
-        origin: "path"
+        origin: "path",
+        dossierPath: "true",
       }
     });
     const hint = document.createElement("span");
@@ -2907,6 +3005,96 @@ function buildReadingPaths() {
     button.appendChild(hint);
     list.appendChild(button);
   });
+  renderDossierDiscoveryPanel(paths, requestedPathType);
+}
+
+function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
+  const panel = document.getElementById("dossier-discovery-panel");
+  const grid = document.getElementById("dossier-thread-grid");
+  if (!panel || !grid) return;
+  const profilePaths = paths.filter((path) => path.profileKey);
+  if (!profilePaths.length) {
+    panel.classList.add("hidden");
+    clearNode(grid);
+    activeDossierPathType = "";
+    return;
+  }
+
+  const activePath = profilePaths.find((path) => path.pathType === requestedPathType) || profilePaths[0];
+  activeDossierPathType = activePath.pathType;
+  panel.classList.remove("hidden");
+  panel.dataset.vm547Profile = activePath.profileKey;
+  panel.dataset.vm547Runtime = mazeDiscoveryProfileProvenance?.runtimeRevision || "";
+  panel.dataset.vm547Catalog = mazeDiscoveryProfileProvenance?.catalogFingerprint || "";
+  document.getElementById("dossier-discovery-title").textContent = `${activePath.profileName} discovery`;
+  document.getElementById("dossier-discovery-identity").textContent = `${String(activePath.profileColorIdentity || "").toUpperCase()} reading`;
+  document.getElementById("dossier-discovery-reading").textContent = activePath.readingSummary || "";
+  document.getElementById("dossier-discovery-lane-title").textContent = activePath.label;
+  document.getElementById("dossier-discovery-lane-copy").textContent = activePath.description || activePath.plainReadingQuery || "";
+  document.getElementById("dossier-discovery-lane-code").textContent = activePath.query || "";
+
+  document.querySelectorAll("#reading-path-list [data-dossier-path='true']").forEach((button) => {
+    const selected = button.dataset.pathType === activePath.pathType;
+    button.classList.toggle("is-active", selected);
+    if (selected) button.setAttribute("aria-current", "true");
+    else button.removeAttribute("aria-current");
+  });
+
+  clearNode(grid);
+  (activePath.threads || []).forEach((thread) => {
+    const article = document.createElement("article");
+    article.className = "dossier-thread-card";
+    const unavailable = thread.availability === "unavailable";
+    article.classList.toggle("is-unavailable", unavailable);
+
+    const kind = document.createElement("span");
+    kind.className = "dossier-thread-kind";
+    kind.textContent = thread.semanticKind === "flavor-story"
+      ? "Story vocabulary"
+      : unavailable ? "Mechanical thread · unavailable in this lane" : "Mechanical thread";
+
+    const title = document.createElement("h4");
+    title.textContent = thread.label;
+
+    const interpretation = document.createElement("p");
+    interpretation.textContent = thread.interpretation;
+
+    article.append(kind, title, interpretation);
+    if (!unavailable) {
+      const search = createActionButton({
+        className: "dossier-thread-search",
+        text: "Search this thread",
+        action: "quick-search",
+        dataset: {
+          query: thread.query,
+          plainReadingQuery: thread.plainReadingQuery,
+          pathType: activePath.pathType,
+          origin: "dossier-thread",
+          dossierThread: "true",
+        },
+      });
+
+      const details = document.createElement("details");
+      details.className = "dossier-query-details dossier-thread-query";
+      const summary = document.createElement("summary");
+      summary.textContent = "Inspect the Scryfall query";
+      const code = document.createElement("code");
+      code.textContent = thread.query;
+      details.append(summary, code);
+      article.append(search, details);
+    }
+    grid.appendChild(article);
+  });
+
+  const boundary = document.getElementById("dossier-stretch-boundary");
+  const unavailableStretch = activePath.stretch?.availability === "unavailable";
+  boundary.textContent = unavailableStretch ? activePath.stretch.interpretation : "";
+  boundary.classList.toggle("hidden", !unavailableStretch);
+}
+
+function selectDossierDiscoveryPath(pathType = "") {
+  if (!pathType || pathType === activeDossierPathType) return;
+  renderDossierDiscoveryPanel(activeDossierPaths, pathType);
 }
 
 function getStoredPlacementResult() {
@@ -3006,21 +3194,23 @@ function createIdentityContextPaths(handoff = {}) {
 }
 
 function createDossierPaths({ identity, factionKey = "", readingName = "this reading", signals = {} } = {}) {
+  const discoveryProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, factionKey);
   const paths = buildDossierMazePathEntries({
     identity,
     factionName: readingName,
     oracleTerms: signals.oracle || [],
     flavorTerms: signals.flavor || [],
     identityHint: DOSSIER_VISIBLE_IDENTITY_HINTS.get(factionKey) || "",
-    includeOutsideColorStretch: !DOSSIER_NO_STRETCH_KEYS.has(factionKey)
+    includeOutsideColorStretch: discoveryProfile
+      ? discoveryProfile.stretch?.availability === "available"
+      : !DOSSIER_NO_STRETCH_KEYS.has(factionKey),
+    discoveryProfile,
   });
   const normalizedPaths = applyDossierQueryIdentityOverride(paths, identity);
   return applyLiveFourColorExactCommanderPolicy(normalizedPaths, identity).map((path) => ({
+    ...path,
     label: path.sidebarLabel || path.label,
-    hint: path.hint,
-    pathType: path.pathType,
     q: path.query,
-    plainReadingQuery: path.plainReadingQuery
   }));
 }
 
@@ -4323,6 +4513,9 @@ function handleMazeActionClick(event) {
       return;
     case "quick-search":
       if (actionNode.closest("#modal-wrap")) closeModal();
+      if (actionNode.dataset.dossierPath === "true") {
+        selectDossierDiscoveryPath(actionNode.dataset.pathType || "");
+      }
       runQuickSearch(actionNode.dataset.query || "", {
         order: actionNode.dataset.order || undefined,
         unique: actionNode.dataset.unique || undefined,

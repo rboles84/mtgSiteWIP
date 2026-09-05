@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vm547-maze-discovery-profiles.catalog.schema.json",
+  "title": "VM-547 Maze Discovery Profile Runtime Catalog",
+  "type": "object",
+  "required": ["schema_version", "runtime_revision", "generated_from", "authority", "profiles", "catalog_fingerprint"],
+  "properties": {
+    "schema_version": { "const": "vm547-maze-discovery-catalog-v1" },
+    "runtime_revision": { "const": "vm547-runtime-v4" },
+    "generated_from": { "const": "data/dossier/maze-discovery-profiles.source.json" },
+    "authority": {
+      "type": "object",
+      "required": ["meaning_owner", "query_projection_owner", "runtime_ai", "ranking"],
+      "properties": {
+        "meaning_owner": { "const": "data/dossier/identity-dossier-content.source.json" },
+        "query_projection_owner": { "const": "data/dossier/maze-discovery-profiles.source.json" },
+        "runtime_ai": { "const": false },
+        "ranking": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 37,
+      "maxItems": 37,
+      "items": {
+        "type": "object",
+        "required": ["identity_key", "identity_name", "color_identity", "reading_summary", "source_record_id", "source_locator", "mechanical_threads", "story_threads", "stretch"],
+        "properties": {
+          "identity_key": { "type": "string", "minLength": 1 },
+          "identity_name": { "type": "string", "minLength": 1 },
+          "color_identity": { "type": "string", "pattern": "^(?:[wubrg]{1,5}|c)$" },
+          "reading_summary": { "type": "string", "minLength": 1 },
+          "source_record_id": { "type": "string", "minLength": 1 },
+          "source_locator": { "type": "string", "minLength": 1 },
+          "mechanical_threads": { "type": "array", "minItems": 3, "maxItems": 3 },
+          "story_threads": { "type": "array", "minItems": 1, "maxItems": 1 },
+          "stretch": {
+            "type": "object",
+            "required": ["availability", "interpretation"],
+            "properties": {
+              "availability": { "enum": ["available", "unavailable"] },
+              "interpretation": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          },
+          "intentional_exception": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "catalog_fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

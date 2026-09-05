@@ -3,7 +3,7 @@ import {
   READING_FIND_SECTION_CONFIG,
   getRowsForReading,
   hasRowsForOtherReadings,
-} from "../../maze/maze-scratchpad-store.js";
+} from "../../maze/maze-scratchpad-store.js?v=vm547r5";
 
 import {
   MAZE_PATH_LABELS,
@@ -18,12 +18,12 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm625";
+} from "../archscry-presentation.js?v=vm547r5";
 
 import {
   destroyDossierManaRadar,
   renderDossierRadarSection,
-} from "../dossier-radar.js";
+} from "../dossier-radar.js?v=vm547r5";
 
 import {
   buildBasicLandCards,
@@ -31,26 +31,26 @@ import {
   getExternalDeckRoutingAlias,
   getServiceChipMeta,
   hasRenderableLandTier,
-} from "../dossier/foundation.js";
+} from "../dossier/foundation.js?v=vm547r5";
 
 import {
   buildPreconRecommendations,
   selectPreconPreviewRecommendations,
-} from "../dossier/precons.js";
+} from "../dossier/precons.js?v=vm547r5";
 
 import {
   buildCommanderDossier,
-} from "../dossier/reading.js";
+} from "../dossier/reading.js?v=vm547r5";
 
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js";
+} from "../identity-layers.js?v=vm547r5";
 
 import {
   hydrateVisibleResultCardArt,
   shouldDisableResultCardArt,
-} from "./card-media.js";
+} from "./card-media.js?v=vm547r5";
 
 import {
   addUsageCards,
@@ -62,12 +62,12 @@ import {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} from "./content.js";
+} from "./content.js?v=vm547r5";
 
 import {
   matrixFlavorSnippetsForFaction,
   playerFacingIdentityDisplayLabel,
-} from "./data.js";
+} from "./data.js?v=vm547r5";
 
 import {
   ACCOUNT_DECK_LINKS_ENABLED,
@@ -87,14 +87,14 @@ import {
   normalizeDossierSegment,
   refreshAccountDeckLinks,
   resolveDossierConsoleState,
-} from "./dossier-controls.js";
+} from "./dossier-controls.js?v=vm547r5";
 
 import {
   applyTerminalVisibility,
   isScryingTerminalEnabled,
   showSection,
   updateTopbar,
-} from "./navigation.js";
+} from "./navigation.js?v=vm547r5";
 
 import {
   MANA_SYMBOL_NAMES,
@@ -105,7 +105,7 @@ import {
   normalizeCardName,
   renderPlayerCopy,
   renderStaticTagChips,
-} from "./render-utils.js";
+} from "./render-utils.js?v=vm547r5";
 
 import {
   APP_STATE,
@@ -114,7 +114,7 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 export const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 
@@ -456,8 +456,11 @@ export function buildLinkButtons(links, className = "") {
       const serviceLabel = String(service.label || "").trim();
       const actionLabel = String(link.label || "").trim();
       const repeatsServiceName = serviceLabel.localeCompare(actionLabel, undefined, { sensitivity: "base" }) === 0;
+      const vm547Attrs = link.profileKey
+        ? ` data-vm547-profile="${escapeHtml(link.profileKey)}" data-vm547-runtime="${escapeHtml(link.vm547RuntimeRevision || "")}" data-vm547-catalog="${escapeHtml(link.vm547CatalogFingerprint || "")}"`
+        : "";
       return `
-        <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
+        <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}"${vm547Attrs} style="--service-color:${service.color};--service-glow:${service.glow}">
           <span class="service-mark" aria-hidden="true">${service.mark}</span>
           <span class="service-copy">
             <span class="service-name">${escapeHtml(serviceLabel)}</span>
@@ -1461,8 +1464,12 @@ export function buildReadingFindsHtml({ readingId = "", tagRefs = [] } = {}) {
 export function buildMazeDiscoveryHtml(paths = [], readingFindsHtml = "") {
   if (!paths.length && !readingFindsHtml) return "";
   const title = stablePhrase("mazeTitle", paths.map((path) => path.pathType || path.label).join("|"));
+  const canonicalPath = paths.find((path) => path.profileKey) || null;
+  const vm547Attrs = canonicalPath
+    ? ` data-vm547-profile="${escapeHtml(canonicalPath.profileKey)}" data-vm547-runtime="${escapeHtml(canonicalPath.vm547RuntimeRevision || "")}" data-vm547-catalog="${escapeHtml(canonicalPath.vm547CatalogFingerprint || "")}"`
+    : "";
   return `
-    <div class="starter-section" id="maze-discovery-paths">
+    <div class="starter-section" id="maze-discovery-paths"${vm547Attrs}>
       <div class="section-label">Maze Discovery Paths</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">
@@ -1763,7 +1770,17 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
-  const baseMazePaths = buildPersonalizedMazePaths({ faction, tagRefs: readingTagRefs, taxonomy: APP_STATE.tagTaxonomy });
+  const canonicalDiscoveryProfile = APP_STATE.mazeDiscoveryProfileCatalog?.profiles
+    ?.find((profile) => profile.identity_key === activeKey);
+  if (!APP_STATE.mazeDiscoveryProfileProvenance || !canonicalDiscoveryProfile) {
+    throw new Error(`VM-547 canonical Archscry dossier could not resolve profile: ${activeKey}`);
+  }
+  const baseMazePaths = buildPersonalizedMazePaths({
+    faction,
+    tagRefs: readingTagRefs,
+    taxonomy: APP_STATE.tagTaxonomy,
+    discoveryProfileCatalog: APP_STATE.mazeDiscoveryProfileCatalog,
+  });
   const placementMazeContext = buildArchscryMazeContext({ result: identityOnlyMode ? null : result, dossier, faction });
   const mazeContext = reviewMode
     ? {
