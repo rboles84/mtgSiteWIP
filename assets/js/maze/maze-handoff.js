@@ -436,6 +436,7 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
   const operatorStyleQ = isMazeOperatorQuery(urlQ) ? urlQ : "";
   const existingOperatorQuery = !urlQ ? existing.operatorQuery || "" : "";
   const from = urlParams.get("from") || "";
+  const canonicalDossierHandoff = from === "archscry" && existing.vm547Canonical === true;
   return {
     from,
     urlQ,
@@ -446,10 +447,23 @@ export function resolveMazeLaunchState(urlParams, existing = {}) {
     factionName: urlParams.get("factionName") || existing.factionName || "",
     readingId: urlParams.get("readingId") || existing.readingId || "",
     readingTitle: urlParams.get("readingTitle") || existing.readingTitle || "",
-    operatorQuery: explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
-    plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
-    pathType: urlParams.get("pathType") || existing.pathType || "",
-    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || ""
+    operatorQuery: canonicalDossierHandoff
+      ? existing.operatorQuery || ""
+      : explicitOperatorQuery || operatorStyleQ || existingOperatorQuery,
+    plainReadingQuery: canonicalDossierHandoff
+      ? existing.plainReadingQuery || ""
+      : urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "",
+    pathType: canonicalDossierHandoff
+      ? existing.pathType || ""
+      : urlParams.get("pathType") || existing.pathType || "",
+    returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "",
+    ...(canonicalDossierHandoff ? {
+      vm547Canonical: true,
+      vm547Runtime: existing.vm547Runtime || "",
+      vm547Catalog: existing.vm547Catalog || "",
+      vm547Profile: existing.vm547Profile || "",
+      vm547IncomingDisposition: existing.vm547IncomingDisposition || ""
+    } : {})
   };
 }
 

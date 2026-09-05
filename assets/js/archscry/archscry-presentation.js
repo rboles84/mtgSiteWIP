@@ -10,7 +10,7 @@ import {
   resolveMazePathType,
   resolveMazePlainReadingQuery,
   resolveMazeDiscoveryCatalogProvenance,
-} from "../maze/maze-handoff.js?v=vm547r2";
+} from "../maze/maze-handoff.js?v=vm547r3";
 
 export const MAZE_PATH_LABELS = {
   "commanders-that-fit": "Commanders in this identity",

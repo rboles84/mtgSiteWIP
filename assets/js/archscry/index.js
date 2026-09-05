@@ -15,13 +15,13 @@ import {
   loadIdentityLayerData,
   loadPlacementModel,
   validateQuickReadingReachability,
-} from "./runtime/data.js";
+} from "./runtime/data.js?v=vm547r3";
 
 import {
   renderResult,
   returnToPrimaryReading,
   switchAdjacentView,
-} from "./runtime/dossier-view.js?v=vm547r2";
+} from "./runtime/dossier-view.js?v=vm547r3";
 
 import {
   openInterviewDossier,
@@ -65,7 +65,7 @@ import {
 
 export {
   validateDossierContentCatalogs,
-} from "./runtime/data.js";
+} from "./runtime/data.js?v=vm547r3";
 
 export {
   basicLandGuidanceCopy,
@@ -78,7 +78,7 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js?v=vm547r2";
+} from "./runtime/dossier-view.js?v=vm547r3";
 
 export {
   renderPlayerCopy,

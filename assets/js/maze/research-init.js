@@ -8,7 +8,7 @@ import {
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
 import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=vm627";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm627";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm547r3";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
@@ -18,7 +18,7 @@ import {
   resolveMazeDiscoveryCatalogProvenance,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
-} from "./maze-handoff.js?v=vm547r2";
+} from "./maze-handoff.js?v=vm547r3";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,
@@ -2773,15 +2773,59 @@ function initializeArchscryMazeHandoff(urlParams) {
   const factionName = liveFourColorDisplayName ||
     (fit === "COLORLESS" ? "Colorless" : urlParams.get("factionName")) ||
     (keepExistingLabel ? existing.factionName || "" : "");
-  const colorlessLaunch = canonicalizeColorlessMazeLaunch(
-    { operatorQuery: initialOperatorQuery, plainReadingQuery: urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "", pathType },
-    fit,
-    pathType,
-    factionName || "Colorless"
-  );
-  const operatorQuery = colorlessLaunch.operatorQuery || initialOperatorQuery;
-  const handoffPathType = colorlessLaunch.pathType || pathType;
-  const handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "";
+  const canonicalRouteClaim = urlParams.has("fit");
+  const canonicalProfile = resolveMazeDiscoveryProfile(mazeDiscoveryProfileCatalog, fit);
+  if (canonicalRouteClaim && !canonicalProfile) {
+    throw new Error(`VM-547 canonical dossier route could not resolve profile: ${fit || "(missing fit)"}`);
+  }
+
+  let operatorQuery = initialOperatorQuery;
+  let handoffPathType = pathType;
+  let handoffPlainReadingQuery = urlParams.get("plainReadingQuery") || existing.plainReadingQuery || "";
+  let vm547IncomingDisposition = "legacy-noncanonical";
+  if (canonicalProfile) {
+    const profileIdentity = colorIdentityFromDossierKey(fit);
+    const canonicalPaths = createDossierPaths({
+      identity: profileIdentity,
+      factionKey: fit,
+      readingName: factionName || canonicalProfile.identity_name,
+      signals: { oracle: [], flavor: [] },
+    });
+    const requestedCanonicalPathType = fit === "COLORLESS"
+      ? COLORLESS_DOSSIER_PATH_TYPE_ALIASES.get(pathType) || pathType
+      : pathType;
+    const canonicalPath = requestedCanonicalPathType
+      ? canonicalPaths.find((entry) => entry.pathType === requestedCanonicalPathType)
+      : canonicalPaths[0];
+    if (!canonicalPath) {
+      throw new Error(`VM-547 canonical dossier route could not resolve path: ${fit}/${pathType || "(default)"}`);
+    }
+    operatorQuery = canonicalPath.query;
+    handoffPathType = canonicalPath.pathType;
+    handoffPlainReadingQuery = canonicalPath.plainReadingQuery;
+    const incomingProfile = urlParams.get("vm547Profile") || "";
+    const incomingRuntime = urlParams.get("vm547Runtime") || "";
+    const incomingCatalog = urlParams.get("vm547Catalog") || "";
+    const incomingPayloadMatches = initialOperatorQuery === operatorQuery &&
+      (urlParams.get("plainReadingQuery") || "") === handoffPlainReadingQuery &&
+      (!pathType || pathType === handoffPathType);
+    const incomingProvenanceMatches = incomingProfile === fit &&
+      incomingRuntime === mazeDiscoveryProfileProvenance?.runtimeRevision &&
+      incomingCatalog === mazeDiscoveryProfileProvenance?.catalogFingerprint;
+    vm547IncomingDisposition = incomingPayloadMatches && incomingProvenanceMatches
+      ? "matched-current"
+      : "rehydrated-current";
+  } else {
+    const colorlessLaunch = canonicalizeColorlessMazeLaunch(
+      { operatorQuery, plainReadingQuery: handoffPlainReadingQuery, pathType: handoffPathType },
+      fit,
+      handoffPathType,
+      factionName || "Colorless"
+    );
+    operatorQuery = colorlessLaunch.operatorQuery || operatorQuery;
+    handoffPathType = colorlessLaunch.pathType || handoffPathType;
+    handoffPlainReadingQuery = colorlessLaunch.plainReadingQuery || handoffPlainReadingQuery;
+  }
   const readingId = launchReadingId || stableLocalReadingId({ fit, factionName, pathType: handoffPathType, operatorQuery });
   const previousIdentity = [existing.readingId, existing.fit, existing.pathType].filter(Boolean).join(":");
   const nextIdentity = [readingId, fit, handoffPathType].filter(Boolean).join(":");
@@ -2805,6 +2849,11 @@ function initializeArchscryMazeHandoff(urlParams) {
     pathType: handoffPathType,
     plainReadingQuery: handoffPlainReadingQuery,
     operatorQuery,
+    vm547Canonical: Boolean(canonicalProfile),
+    vm547Profile: canonicalProfile?.identity_key || "",
+    vm547Runtime: canonicalProfile ? mazeDiscoveryProfileProvenance?.runtimeRevision || "" : "",
+    vm547Catalog: canonicalProfile ? mazeDiscoveryProfileProvenance?.catalogFingerprint || "" : "",
+    vm547IncomingDisposition,
     placementResult: transientIdentityContext
       ? undefined
       : keepExistingPlacementResult ? existing.placementResult : undefined,
@@ -2813,6 +2862,13 @@ function initializeArchscryMazeHandoff(urlParams) {
       : false,
     returnUrl: urlParams.get("returnUrl") || existing.returnUrl || "../archscry/"
   };
+  if (canonicalProfile) {
+    document.documentElement.dataset.vm547Profile = canonicalProfile.identity_key;
+    document.documentElement.dataset.vm547IncomingDisposition = vm547IncomingDisposition;
+  } else {
+    delete document.documentElement.dataset.vm547Profile;
+    delete document.documentElement.dataset.vm547IncomingDisposition;
+  }
   writeArchscryMazeHandoff(handoff);
   if (!handoff.returnBannerDismissed) {
     renderArchscryReturnBanner(handoff);

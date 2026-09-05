@@ -179,6 +179,42 @@ assert.equal(
   resolveMazeLaunchState(new URLSearchParams("from=archscry&q=id%3Drwb%20is%3Acommander"), {}).operatorQuery,
   "id=rwb is:commander"
 );
+assert.deepEqual(
+  resolveMazeLaunchState(
+    new URLSearchParams("from=archscry&fit=WITHERBLOOM&pathType=support-cards&operatorQuery=id%3C%3Dbg%20f%3Acommander%20-is%3Acommander%20-t%3Aland%20%28o%3Adeath%20OR%20o%3Amortality%29&plainReadingQuery=legacy"),
+    {
+      vm547Canonical: true,
+      vm547Runtime: "vm547-runtime-v3",
+      vm547Catalog: "catalog-fingerprint",
+      vm547Profile: "WITHERBLOOM",
+      vm547IncomingDisposition: "rehydrated-current",
+      operatorQuery: "id<=bg f:commander -is:commander -t:land (o:create o:pest)",
+      plainReadingQuery: "Witherbloom support through Pest life-value",
+      pathType: "support-cards",
+    }
+  ),
+  {
+    from: "archscry",
+    urlQ: "",
+    contextMode: "",
+    reviewIdentity: "",
+    exploreIdentity: "",
+    fit: "WITHERBLOOM",
+    factionName: "",
+    readingId: "",
+    readingTitle: "",
+    operatorQuery: "id<=bg f:commander -is:commander -t:land (o:create o:pest)",
+    plainReadingQuery: "Witherbloom support through Pest life-value",
+    pathType: "support-cards",
+    returnUrl: "",
+    vm547Canonical: true,
+    vm547Runtime: "vm547-runtime-v3",
+    vm547Catalog: "catalog-fingerprint",
+    vm547Profile: "WITHERBLOOM",
+    vm547IncomingDisposition: "rehydrated-current",
+  },
+  "canonical dossier handoffs must override stale URL query payloads"
+);
 
 const mazeLink = mazeSearchLink({ label: "Board Wipes", query: "otag:board-wipe" });
 assert.equal(mazeLink.pathType, "board-wipes");
@@ -624,10 +660,10 @@ async function runMazeDomMetadataCases() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search" &&
-      /^id=bg is:commander f:commander /.test(url.searchParams.get("q") || ""));
+      (url.searchParams.get("q") || "") === "id=bg is:commander f:commander");
   assert.ok(launchUrl, "expected Archscry launch to execute the operator query through Maze search");
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.match(launchUrl.searchParams.get("q"), /^id=bg is:commander f:commander /);
+  assert.equal(launchUrl.searchParams.get("q"), "id=bg is:commander f:commander");
   assert.notEqual(launchUrl.searchParams.get("q"), "ignored");
 
   assert.equal(document.getElementById("discovery-path-list").children.length, 5);
@@ -1816,11 +1852,11 @@ async function runMarduArchscryOperatorPrecedenceCase() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
-  assert.ok(launchUrl, "expected Mardu Archscry launch to execute preserved operator query");
-  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.ok(launchUrl, "expected Mardu Archscry launch to execute its canonical rehydrated query");
+  assert.equal(launchUrl.searchParams.get("q"), "id=rwb is:commander f:commander");
   assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wb\b.*\bc=br\b.*\bc=wbr\b/i);
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+  assert.equal(document.getElementById("search-input").value, "Mardu Horde Commander-legal commanders with exactly red-white-black identity");
 
   const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
   assert.doesNotMatch(diagnosticsText, /Orzhov identity|Rakdos identity|Mardu identity/i);
@@ -1863,11 +1899,11 @@ async function runJeskaiArchscryOperatorPrecedenceCase() {
   const launchUrl = dom.fetchUrls
     .map((url) => new URL(url, "http://localhost"))
     .find((url) => url.origin + url.pathname === "https://api.scryfall.com/cards/search");
-  assert.ok(launchUrl, "expected Jeskai Archscry launch to execute preserved operator query");
-  assert.equal(launchUrl.searchParams.get("q"), operatorQuery);
+  assert.ok(launchUrl, "expected Jeskai Archscry launch to execute its canonical rehydrated query");
+  assert.equal(launchUrl.searchParams.get("q"), "id=urw is:commander f:commander");
   assert.doesNotMatch(launchUrl.searchParams.get("q") || "", /\bc=wu\b.*\bc=ur\b.*\bc=wur\b.*\bf:commander\b/i);
   assert.equal(document.body.dataset.mazeMode, "ai");
-  assert.equal(document.getElementById("search-input").value, plainReadingQuery);
+  assert.equal(document.getElementById("search-input").value, "Jeskai Way Commander-legal commanders with exactly blue-red-white identity");
 
   const diagnosticsText = document.getElementById("qi-diagnostics").innerHTML;
   assert.doesNotMatch(diagnosticsText, /Azorius identity|Izzet identity|Jeskai identity/i);

@@ -18,7 +18,7 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm547r2";
+} from "../archscry-presentation.js?v=vm547r3";
 
 import {
   destroyDossierManaRadar,
@@ -1770,6 +1770,11 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   const cardVoiceAvailability = cardVoiceAvailabilityForFaction({ faction });
   addUsageCards(editorialCardUsage, cardVoices.map((entry) => entry.card));
   const starterCardsForUsage = filterStarterCardsForUsage(dossier.starterCards, editorialCardUsage);
+  const canonicalDiscoveryProfile = APP_STATE.mazeDiscoveryProfileCatalog?.profiles
+    ?.find((profile) => profile.identity_key === activeKey);
+  if (!APP_STATE.mazeDiscoveryProfileProvenance || !canonicalDiscoveryProfile) {
+    throw new Error(`VM-547 canonical Archscry dossier could not resolve profile: ${activeKey}`);
+  }
   const baseMazePaths = buildPersonalizedMazePaths({
     faction,
     tagRefs: readingTagRefs,
