@@ -39,7 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - Owner Review at revised exact candidate `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`; all 367 projections have card-level evidence, all 354 executable projections are nonempty, 13 are honestly unavailable, and VM-547 RobQA passes. Two unrelated VM-616 visual-harness waits timed out after a pre-freeze pass and are disclosed for Owner judgment; no push or merge.
+- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - In Progress after Owner REVISE of `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`; preserve the accepted semantic/profile work while repairing the real-route canonical-profile provenance, stale nested-module exposure, and incoming legacy-query precedence. Add fingerprinted public-click proof for all 37 and the eight Owner witnesses; no push or merge.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

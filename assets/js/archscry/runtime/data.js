@@ -3,6 +3,10 @@ import {
 } from "../dossier/foundation.js";
 
 import {
+  resolveMazeDiscoveryCatalogProvenance,
+} from "../../maze/maze-handoff.js?v=vm547r3";
+
+import {
   validateGateB1RuntimeModel,
 } from "../gate-b1-runtime-contract.js";
 
@@ -135,7 +139,7 @@ export function validateDossierContentCatalogs({
     && glossary.every((record) => typeof record.definition === "string" && record.definition.trim());
 
   return identityDossierCatalog?.schema_version === "vm551-identity-dossier-catalog-v1"
-    && mazeDiscoveryProfileCatalog?.schema_version === "vm547-maze-discovery-catalog-v1"
+    && Boolean(resolveMazeDiscoveryCatalogProvenance(mazeDiscoveryProfileCatalog))
     && publicComparisonCatalog?.schema_version === "vm551-public-comparison-catalog-v1"
     && discoveryEducationCatalog?.schema_version === "vm551-discovery-education-catalog-v1"
     && identityKeys.size === 37
@@ -168,6 +172,9 @@ export async function loadDossierContentAuthority() {
   }
   APP_STATE.identityDossierCatalog = identityDossierCatalog;
   APP_STATE.mazeDiscoveryProfileCatalog = mazeDiscoveryProfileCatalog;
+  APP_STATE.mazeDiscoveryProfileProvenance = resolveMazeDiscoveryCatalogProvenance(mazeDiscoveryProfileCatalog);
+  document.documentElement.dataset.vm547RuntimeRevision = APP_STATE.mazeDiscoveryProfileProvenance.runtimeRevision;
+  document.documentElement.dataset.vm547CatalogFingerprint = APP_STATE.mazeDiscoveryProfileProvenance.catalogFingerprint;
   APP_STATE.publicComparisonCatalog = publicComparisonCatalog;
   APP_STATE.discoveryEducationCatalog = discoveryEducationCatalog;
 }

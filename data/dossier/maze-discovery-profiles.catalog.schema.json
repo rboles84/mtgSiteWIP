@@ -3,9 +3,10 @@
   "$id": "vm547-maze-discovery-profiles.catalog.schema.json",
   "title": "VM-547 Maze Discovery Profile Runtime Catalog",
   "type": "object",
-  "required": ["schema_version", "generated_from", "authority", "profiles"],
+  "required": ["schema_version", "runtime_revision", "generated_from", "authority", "profiles", "catalog_fingerprint"],
   "properties": {
     "schema_version": { "const": "vm547-maze-discovery-catalog-v1" },
+    "runtime_revision": { "const": "vm547-runtime-v3" },
     "generated_from": { "const": "data/dossier/maze-discovery-profiles.source.json" },
     "authority": {
       "type": "object",
@@ -47,7 +48,8 @@
         },
         "additionalProperties": false
       }
-    }
+    },
+    "catalog_fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
   },
   "additionalProperties": false
 }

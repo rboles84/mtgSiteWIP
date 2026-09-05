@@ -456,8 +456,11 @@ export function buildLinkButtons(links, className = "") {
       const serviceLabel = String(service.label || "").trim();
       const actionLabel = String(link.label || "").trim();
       const repeatsServiceName = serviceLabel.localeCompare(actionLabel, undefined, { sensitivity: "base" }) === 0;
+      const vm547Attrs = link.profileKey
+        ? ` data-vm547-profile="${escapeHtml(link.profileKey)}" data-vm547-runtime="${escapeHtml(link.vm547RuntimeRevision || "")}" data-vm547-catalog="${escapeHtml(link.vm547CatalogFingerprint || "")}"`
+        : "";
       return `
-        <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}" style="--service-color:${service.color};--service-glow:${service.glow}">
+        <a class="${classes}" href="${escapeHtml(link.url)}"${targetAttrs} data-service="${service.key}"${vm547Attrs} style="--service-color:${service.color};--service-glow:${service.glow}">
           <span class="service-mark" aria-hidden="true">${service.mark}</span>
           <span class="service-copy">
             <span class="service-name">${escapeHtml(serviceLabel)}</span>
@@ -1461,8 +1464,12 @@ export function buildReadingFindsHtml({ readingId = "", tagRefs = [] } = {}) {
 export function buildMazeDiscoveryHtml(paths = [], readingFindsHtml = "") {
   if (!paths.length && !readingFindsHtml) return "";
   const title = stablePhrase("mazeTitle", paths.map((path) => path.pathType || path.label).join("|"));
+  const canonicalPath = paths.find((path) => path.profileKey) || null;
+  const vm547Attrs = canonicalPath
+    ? ` data-vm547-profile="${escapeHtml(canonicalPath.profileKey)}" data-vm547-runtime="${escapeHtml(canonicalPath.vm547RuntimeRevision || "")}" data-vm547-catalog="${escapeHtml(canonicalPath.vm547CatalogFingerprint || "")}"`
+    : "";
   return `
-    <div class="starter-section" id="maze-discovery-paths">
+    <div class="starter-section" id="maze-discovery-paths"${vm547Attrs}>
       <div class="section-label">Maze Discovery Paths</div>
       <div class="starter-grid">
         <div class="starter-card starter-card-wide">

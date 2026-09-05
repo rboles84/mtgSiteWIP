@@ -15,6 +15,7 @@ import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.j
 import {
   buildDossierMazePathEntries,
   isMazeOperatorQuery,
+  resolveMazeDiscoveryCatalogProvenance,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
 } from "./maze-handoff.js?v=vm547r2";
@@ -73,6 +74,7 @@ const DOSSIER_REVIEW_CONTEXT_MODE = "dossier-review";
 const IDENTITY_EXPLORE_CONTEXT_MODE = "identity-explore";
 let transientArchscryMazeHandoff = null;
 let mazeDiscoveryProfileCatalog = null;
+let mazeDiscoveryProfileProvenance = null;
 let activeDossierPaths = [];
 let activeDossierPathType = "";
 const MODAL_FOCUS_SELECTOR = [
@@ -898,12 +900,19 @@ async function initializeMazeDiscoveryProfiles() {
     const response = await fetch("/data/dossier/maze-discovery-profiles.catalog.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const catalog = await response.json();
-    if (catalog?.schema_version !== "vm547-maze-discovery-catalog-v1" || catalog?.profiles?.length !== 37) {
+    const provenance = resolveMazeDiscoveryCatalogProvenance(catalog);
+    if (!provenance) {
       throw new Error("catalog contract mismatch");
     }
     mazeDiscoveryProfileCatalog = catalog;
+    mazeDiscoveryProfileProvenance = provenance;
+    document.documentElement.dataset.vm547RuntimeRevision = provenance.runtimeRevision;
+    document.documentElement.dataset.vm547CatalogFingerprint = provenance.catalogFingerprint;
   } catch (error) {
     mazeDiscoveryProfileCatalog = null;
+    mazeDiscoveryProfileProvenance = null;
+    delete document.documentElement.dataset.vm547RuntimeRevision;
+    delete document.documentElement.dataset.vm547CatalogFingerprint;
     console.warn("Maze discovery profiles unavailable; using legacy dossier paths.", error);
   }
 }
@@ -2958,6 +2967,9 @@ function renderDossierDiscoveryPanel(paths = [], requestedPathType = "") {
   const activePath = profilePaths.find((path) => path.pathType === requestedPathType) || profilePaths[0];
   activeDossierPathType = activePath.pathType;
   panel.classList.remove("hidden");
+  panel.dataset.vm547Profile = activePath.profileKey;
+  panel.dataset.vm547Runtime = mazeDiscoveryProfileProvenance?.runtimeRevision || "";
+  panel.dataset.vm547Catalog = mazeDiscoveryProfileProvenance?.catalogFingerprint || "";
   document.getElementById("dossier-discovery-title").textContent = `${activePath.profileName} discovery`;
   document.getElementById("dossier-discovery-identity").textContent = `${String(activePath.profileColorIdentity || "").toUpperCase()} reading`;
   document.getElementById("dossier-discovery-reading").textContent = activePath.readingSummary || "";

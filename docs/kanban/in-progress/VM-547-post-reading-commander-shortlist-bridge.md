@@ -2,7 +2,7 @@
 
 ID: VM-547
 Title: Post-Reading Commander Shortlist Bridge
-Status: Owner Review — revised exact candidate frozen locally; VM-547 RobQA PASS; unrelated VM-616 visual-harness timing disclosed; no push or merge
+Status: In Progress — Owner REVISE; repair real-route runtime provenance/fallback escape on the existing branch; no push or merge
 Type: Enhancement / Product Bridge / Semantic Projection
 Area: Archscry, Maze, Commander discovery
 Priority: high
@@ -114,3 +114,11 @@ The replacement candidate must add reviewable projection-level evidence with pin
 - Protected VM-616 visual regression: passed before candidate freeze, then timed out twice at different visual wait points on exact-candidate reruns. No VM-547 assertion failed. The Owner directed further visual-timeout retries to stop and may check this protected interaction manually.
 - Skipped tests: None.
 - Owner must choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE` before any push, PR, merge, or `main` integration.
+
+## Owner Revision 2 — 2026-09-04
+
+The Owner rejected exact material candidate `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab` after the real Archscry-to-Maze journey displayed legacy labels and shallow identity/tag queries even though the generated catalog and internal projection audit were revised. The semantic architecture and projection-quality work remain accepted in principle and must not be redesigned.
+
+Investigation must prove the complete public runtime chain, add a deterministic catalog/runtime fingerprint before fixing behavior, identify and close any canonical-route fallback or stale-payload precedence, and add real-click regressions for Witherbloom, Azorius, Temur, Green, Colorless, Yore, WUBRG, and Golgari. All 37 canonical Owner routes must fail if they enter the legacy fallback. Legacy compatibility may remain only for documented noncanonical callers.
+
+Current evidence identifies two candidate-delivery gaps to validate and repair: the cache-busted Archscry entry imports the catalog-loading `runtime/data.js` through an unversioned nested URL, and Maze initially executes incoming Archscry query payloads before canonical profile/path rehydration. This can create the observed mixed state while preserving newer WUBRG behavior. The replacement candidate must bind Git evidence, generated-catalog fingerprint, Archscry-loaded fingerprint, and Maze-loaded fingerprint; restart the exact local environment; and stop at Owner Review without push or merge.

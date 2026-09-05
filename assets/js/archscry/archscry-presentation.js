@@ -9,6 +9,7 @@ import {
   resolveMazeOperatorQuery,
   resolveMazePathType,
   resolveMazePlainReadingQuery,
+  resolveMazeDiscoveryCatalogProvenance,
 } from "../maze/maze-handoff.js?v=vm547r2";
 
 export const MAZE_PATH_LABELS = {
@@ -1386,6 +1387,9 @@ export function withArchscryMazeContext(links = [], context, origin = "http://lo
         pathType,
         plainReadingQuery,
         operatorQuery,
+        vm547Runtime: link.vm547RuntimeRevision,
+        vm547Catalog: link.vm547CatalogFingerprint,
+        vm547Profile: link.profileKey,
         returnUrl: context.returnUrl,
       }, origin),
     };
@@ -1408,6 +1412,7 @@ export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy, discove
     discoveryProfileCatalog,
     factionKey
   );
+  const discoveryProvenance = resolveMazeDiscoveryCatalogProvenance(discoveryProfileCatalog);
   const entries = buildDossierMazePathEntries({
     identity,
     factionName: factionLabel,
@@ -1431,6 +1436,8 @@ export function buildPersonalizedMazePaths({ faction, tagRefs, taxonomy, discove
       plainReadingQuery: entry.plainReadingQuery,
       visibleConstraints: entry.visibleConstraints,
       }),
+      vm547RuntimeRevision: discoveryProfile ? discoveryProvenance?.runtimeRevision || "" : "",
+      vm547CatalogFingerprint: discoveryProfile ? discoveryProvenance?.catalogFingerprint || "" : "",
     };
   });
 }

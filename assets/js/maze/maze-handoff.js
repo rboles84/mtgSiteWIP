@@ -1,4 +1,5 @@
 const DEFAULT_MAZE_PATH_LABEL = "Maze path";
+export const VM547_DISCOVERY_RUNTIME_REVISION = "vm547-runtime-v3";
 const MANA_SYMBOL_ORDER = ["w", "u", "b", "r", "g", "c"];
 const MANA_SYMBOL_NAMES = {
   w: "white",
@@ -250,9 +251,20 @@ export function buildDossierMazePathEntries({
  * @returns {object|null} Matching profile or null.
  */
 export function resolveMazeDiscoveryProfile(catalog, identityKey = "") {
-  if (catalog?.schema_version !== "vm547-maze-discovery-catalog-v1") return null;
+  if (!resolveMazeDiscoveryCatalogProvenance(catalog)) return null;
   const key = String(identityKey || "").trim().toUpperCase();
   return (catalog.profiles || []).find((profile) => profile.identity_key === key) || null;
+}
+
+export function resolveMazeDiscoveryCatalogProvenance(catalog) {
+  if (catalog?.schema_version !== "vm547-maze-discovery-catalog-v1") return null;
+  if (catalog?.runtime_revision !== VM547_DISCOVERY_RUNTIME_REVISION) return null;
+  if (!/^[a-f0-9]{64}$/.test(String(catalog?.catalog_fingerprint || ""))) return null;
+  if (!Array.isArray(catalog?.profiles) || catalog.profiles.length !== 37) return null;
+  return {
+    runtimeRevision: catalog.runtime_revision,
+    catalogFingerprint: catalog.catalog_fingerprint,
+  };
 }
 
 function isUsableDiscoveryProfile(profile, identity) {

@@ -36,6 +36,7 @@ export const APP_STATE = {
   cardVoiceCatalog: null,
   identityDossierCatalog: null,
   mazeDiscoveryProfileCatalog: null,
+  mazeDiscoveryProfileProvenance: null,
   publicComparisonCatalog: null,
   discoveryEducationCatalog: null,
   preconCatalog: null,

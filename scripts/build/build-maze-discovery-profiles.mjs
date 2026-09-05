@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
@@ -8,6 +9,7 @@ const DOSSIER_SOURCE_PATH = path.join(ROOT, "data", "dossier", "identity-dossier
 const FACTIONS_PATH = path.join(ROOT, "data", "factions.json");
 const CATALOG_PATH = path.join(ROOT, "data", "dossier", "maze-discovery-profiles.catalog.json");
 const CHECK = process.argv.includes("--check");
+const RUNTIME_REVISION = "vm547-runtime-v3";
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -145,8 +147,9 @@ function validateAndProject(source, dossierSource, factionsPayload) {
 
   invariant(seenProfiles.size === 37, "Discovery profiles must be unique.");
   invariant([...dossierByKey.keys()].every((key) => seenProfiles.has(key)), "Every approved dossier must own a discovery profile.");
-  return {
+  const catalog = {
     schema_version: "vm547-maze-discovery-catalog-v1",
+    runtime_revision: RUNTIME_REVISION,
     generated_from: "data/dossier/maze-discovery-profiles.source.json",
     authority: {
       meaning_owner: "data/dossier/identity-dossier-content.source.json",
@@ -155,6 +158,10 @@ function validateAndProject(source, dossierSource, factionsPayload) {
       ranking: false,
     },
     profiles,
+  };
+  return {
+    ...catalog,
+    catalog_fingerprint: createHash("sha256").update(JSON.stringify(catalog)).digest("hex"),
   };
 }
 
