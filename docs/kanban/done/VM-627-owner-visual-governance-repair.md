@@ -1,17 +1,21 @@
 # VM-627 — Owner-Visual Governance Repair
 
 - ID: VM-627
-- Status: In Progress — Owner Review (QA-0 candidate checks PASS)
+- Status: Done — Owner Approved / Merged
 - Type: Documentation / QA governance
 - Area: RobQA, RobDev, agent prompts, delivery workflow
 - Priority: High
 - Created: 2026-09-04
 
-## Owner Review Candidate
+## Acceptance And Integration
 
 - Material candidate: `f4cad2b1`
-- RobQA: QA-0 PASS against that exact candidate
-- Remaining gate: Owner approval of the governance boundary and wording
+- Evidence head: `11679cd9`
+- RobQA: QA-0 PASS against exact material candidate `f4cad2b1`
+- Owner: Approved exact material candidate `f4cad2b1` and acknowledged evidence head `11679cd9`
+- Pull request: [#24](https://github.com/rboles84/voxmana.io/pull/24)
+- Squash merge: `a9dcff9393b6f2fc0c0e37a824cbddbd8b542a3c`
+- Final disposition: closed; OWNER-VISUAL MODE is active governance
 
 ## Summary
 
@@ -61,3 +65,10 @@ Make OWNER-VISUAL MODE the default Vox Mana operating assumption: Codex owns obj
 ## Human Review
 
 Glance at the canonical OWNER-VISUAL MODE section in `docs/qa/RobQAPass.md`, then the concise references in `AGENTS.md`, `docs/dev/RobDevPass.md`, `.agents/skills/robqa/robqa.md`, `.codex/prompts/test.md`, `.codex/prompts/plan.md`, and `docs/reference/workflow.md`.
+
+## Closeout
+
+Owner approval was integrated without reopening implementation. PR #24 passed `Vox Mana Validation` and
+squash-merged with a tree identical to evidence head `11679cd9`. The remote feature branch was removed
+automatically; the local feature branch was deleted after merge-tree verification. No harness-refactor card
+was created.

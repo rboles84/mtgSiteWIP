@@ -2,7 +2,7 @@
 
 - Agent: Codex
 - Task requested: Make OWNER-VISUAL MODE the default Vox Mana QA boundary without weakening objective engineering verification or repairing browser harnesses.
-- Related work: [VM-627](../kanban/in-progress/VM-627-owner-visual-governance-repair.md), [workflow](../reference/workflow.md), [RobDevPass](../dev/RobDevPass.md), [RobQAPass](../qa/RobQAPass.md)
+- Related work: [VM-627](../kanban/done/VM-627-owner-visual-governance-repair.md), [workflow](../reference/workflow.md), [RobDevPass](../dev/RobDevPass.md), [RobQAPass](../qa/RobQAPass.md)
 
 ## Files Reviewed
 
@@ -88,7 +88,16 @@ CSS work into mandatory browser walkthroughs, screenshots, viewport passes, or r
 - Browser justification: none; no runtime behavior changed.
 - Remaining Owner judgment: approve the responsibility boundary and wording.
 - Material candidate: `f4cad2b1`
-- Status: QA-0 PASS against exact material candidate `f4cad2b1`; READY for Owner review.
+- Status: QA-0 PASS against exact material candidate `f4cad2b1`; Owner Approved and squash-merged through PR #24 as `a9dcff9393b6f2fc0c0e37a824cbddbd8b542a3c`.
+
+## Owner Acceptance And Integration
+
+- Owner approved material candidate `f4cad2b1` and acknowledged evidence head `11679cd9`.
+- `origin/main` remained at the candidate base `e098e301` before integration.
+- PR #24 contained the expected 12 governance/documentation paths, passed `Vox Mana Validation`, and was mergeable.
+- GitHub squash-merged the accepted tree as `a9dcff9393b6f2fc0c0e37a824cbddbd8b542a3c`.
+- The remote feature branch was removed automatically and the local feature branch was deleted after verifying merge-tree equivalence.
+- No product implementation, browser harness, or future harness-refactor card was added.
 
 ## Not Touched
 
@@ -100,4 +109,4 @@ CSS work into mandatory browser walkthroughs, screenshots, viewport passes, or r
 
 ## Next Suggested Agent
 
-- Owner: review the canonical section and concise downstream references. No specialist implementation agent is needed unless the policy wording is rejected.
+- None. VM-627 is closed.
