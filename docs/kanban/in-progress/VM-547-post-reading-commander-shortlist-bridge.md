@@ -121,15 +121,15 @@ The Owner rejected exact material candidate `b0a3ba8462e3f5fcd1a20a21131cd765e37
 
 Investigation must prove the complete public runtime chain, add a deterministic catalog/runtime fingerprint before fixing behavior, identify and close any canonical-route fallback or stale-payload precedence, and add real-click regressions for Witherbloom, Azorius, Temur, Green, Colorless, Yore, WUBRG, and Golgari. All 37 canonical Owner routes must fail if they enter the legacy fallback. Legacy compatibility may remain only for documented noncanonical callers.
 
-Investigation confirmed three candidate-delivery gaps: the cache-busted Archscry entry imported the catalog-loading `runtime/data.js` through an unversioned nested URL; Maze initially executed incoming Archscry query payloads before canonical profile/path rehydration; and alternate Archscry render paths, including the public Identity Atlas, imported `dossier-view.js` under the older `vm625` cache key. The persistent Owner browser reproduced the third gap after the first repair. The replacement candidate binds Git evidence, generated-catalog fingerprint, Archscry-loaded fingerprint, and Maze-loaded fingerprint; restarts the exact local environment; and stops at Owner Review without push or merge.
+Investigation confirmed that the browser graph was only partially versioned: the Archscry entry imported the catalog-loading `runtime/data.js` through an unversioned URL; alternate render paths including Identity Atlas could import the older `vm625` dossier renderer; state/card-media dependencies could still request an unversioned presentation module beside a versioned one; and Maze initially executed incoming query payloads before canonical profile/path rehydration. The persistent Owner browser and final server-log check reproduced these gaps. The replacement candidate binds Git evidence, generated-catalog fingerprint, Archscry-loaded fingerprint, and Maze-loaded fingerprint; restarts the exact local environment; and stops at Owner Review without push or merge.
 
 ## Owner Revision 2 Replacement Candidate
 
-- Exact material candidate: `ded6c04b32c842fcd2e42ea3695ac4fad124a975`.
-- Runtime revision: `vm547-runtime-v4`.
-- Catalog fingerprint: `39c0d07ef129cadcdb27616baec7462ba8a4d240e6b9035b46ff087177dacdd7`.
-- Root cause confirmed: the Archscry HTML entry was versioned while its catalog-loading nested import was not; Maze gave incoming URL query payloads precedence over its canonical rehydrated profile; and public alternate render paths could invoke an older cached dossier renderer.
-- Repair: cache-bust the complete VM-547 render/import graph, require canonical profile ownership for all claimed `fit` routes, rehydrate the selected path from the Maze-loaded catalog, and prefer that canonical state over incoming query/plain-language payloads.
+- Exact material candidate: `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`.
+- Runtime revision: `vm547-runtime-v5`.
+- Catalog fingerprint: `e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db`.
+- Root cause confirmed: the Archscry graph used a mixture of versioned, unversioned, and older-cache-key imports across its entry, data, alternate dossier renderers, state, and card-media paths; Maze also gave incoming URL query payloads precedence over its canonical rehydrated profile.
+- Repair: put every relative Archscry JavaScript import and the Maze handoff/query chain on `vm547r5`, fail static validation on any future Archscry import-version mismatch, require canonical profile ownership for all claimed `fit` routes, and prefer Maze's rehydrated canonical state over incoming query/plain-language payloads.
 - RobQA: PASS on the exact candidate for 37/37 public Archscry clicks, 37/37 Maze rehydrations, exact all-path labels/plain payloads/operator queries, eight required executed-thread witnesses, two stale/fallback ownership checks, 74 desktop renders, eight narrow flows, eight mobile flows, 48 accessibility checks, three return-navigation flows, 367/367 semantic projections, and 16/16 existing regression suites.
 - Skipped: `npm run test:maze-onboarding-browser` was not rerun at the Owner's direction after the previously disclosed moving visual timeouts; it is not counted as a pass.
 - The 37 authored semantic profiles and all projection evidence are unchanged from the accepted-in-principle semantic candidate.
