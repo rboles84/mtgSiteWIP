@@ -8,7 +8,7 @@ import {
   setScryfallGrounding
 } from "./scryfall-grounded-compiler.js";
 import { setScryfallSyntaxDisplayLookup } from "./research-syntax-language.js?v=vm627";
-import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm547r4";
+import { applyMazeFormatToQuery, resolveMazeQueryRequest } from "./maze-query-core.js?v=vm547r5";
 import { resolveModeInputValue } from "./research-mode.js?v=vm627";
 import * as ResearchSearch from "./research-search.js";
 import { buildScryfallWebSearchUrl, renderQueryInspector } from "./research-ui.js?v=vm620";
@@ -18,7 +18,7 @@ import {
   resolveMazeDiscoveryCatalogProvenance,
   resolveMazeDiscoveryProfile,
   resolveMazeLaunchState,
-} from "./maze-handoff.js?v=vm547r4";
+} from "./maze-handoff.js?v=vm547r5";
 import {
   DEFAULT_READING_FINDS_TITLE,
   READING_FIND_SECTION_CONFIG,

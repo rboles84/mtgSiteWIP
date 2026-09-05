@@ -22,7 +22,7 @@ const [source, catalog, dossierSource, factionsPayload, projectionFixtures] = aw
 ]);
 
 const factions = factionsPayload.factions || {};
-assert.equal(catalog.runtime_revision, "vm547-runtime-v4", "VM-547 runtime revision is not the reviewed browser contract");
+assert.equal(catalog.runtime_revision, "vm547-runtime-v5", "VM-547 runtime revision is not the reviewed browser contract");
 assert.match(catalog.catalog_fingerprint || "", /^[a-f0-9]{64}$/, "VM-547 catalog fingerprint is missing or malformed");
 const discoveredKeys = Object.keys(factions).sort();
 const profileKeys = catalog.profiles.map((profile) => profile.identity_key).sort();

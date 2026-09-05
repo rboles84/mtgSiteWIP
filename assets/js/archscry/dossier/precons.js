@@ -6,7 +6,7 @@ import {
   normalizeDisplayName,
   normalizeTagText,
   unique,
-} from "./foundation.js";
+} from "./foundation.js?v=vm547r5";
 
 export function preconIdentityKey(value) {
   if (Array.isArray(value)) {

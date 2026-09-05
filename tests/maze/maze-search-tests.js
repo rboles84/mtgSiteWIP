@@ -184,7 +184,7 @@ assert.deepEqual(
     new URLSearchParams("from=archscry&fit=WITHERBLOOM&pathType=support-cards&operatorQuery=id%3C%3Dbg%20f%3Acommander%20-is%3Acommander%20-t%3Aland%20%28o%3Adeath%20OR%20o%3Amortality%29&plainReadingQuery=legacy"),
     {
       vm547Canonical: true,
-      vm547Runtime: "vm547-runtime-v4",
+      vm547Runtime: "vm547-runtime-v5",
       vm547Catalog: "catalog-fingerprint",
       vm547Profile: "WITHERBLOOM",
       vm547IncomingDisposition: "rehydrated-current",
@@ -208,7 +208,7 @@ assert.deepEqual(
     pathType: "support-cards",
     returnUrl: "",
     vm547Canonical: true,
-    vm547Runtime: "vm547-runtime-v4",
+    vm547Runtime: "vm547-runtime-v5",
     vm547Catalog: "catalog-fingerprint",
     vm547Profile: "WITHERBLOOM",
     vm547IncomingDisposition: "rehydrated-current",

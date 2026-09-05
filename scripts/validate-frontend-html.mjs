@@ -592,39 +592,54 @@ expect(
 );
 
 expect(
-  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm547r4"'),
+  sources.maze.includes('src="../assets/js/maze/research-init.js?v=vm547r5"'),
   "maze/index.html should load the module from a relative file-safe path"
 );
+const archscryModuleFiles = await collectFiles("assets/js/archscry", [".js"]);
+const archscryImportRevisionFailures = [];
+const relativeModuleImportPattern = /(?:\bfrom\s+|\bimport\s+|\bimport\(\s*)["'](\.{1,2}\/[^"']+\.js)(?:\?v=([^"']+))?["']/g;
+for (const file of archscryModuleFiles) {
+  const source = await readFile(file, "utf8");
+  for (const match of source.matchAll(relativeModuleImportPattern)) {
+    if (match[2] !== "vm547r5") {
+      archscryImportRevisionFailures.push(`${file}: ${match[0]}`);
+    }
+  }
+}
 expect(
-  sources.archscry.includes('src="../assets/js/archscry/index.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/actions.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/boot.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/data.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/interview.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm547r4"') &&
-    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm547r4")') &&
-    scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryActions.includes('from "./interview.js?v=vm547r4"') &&
-    scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm547r4"') &&
-    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm547r4"') &&
-    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryInterview.includes('from "../archscry-presentation.js?v=vm547r4"') &&
-    scriptSources.archscryInterview.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm547r4"') &&
-    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm547r4"') &&
-    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm547r4"') &&
-    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=vm547r4"') &&
-    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=vm547r4"'),
+  archscryImportRevisionFailures.length === 0,
+  `Every relative Archscry JavaScript import must use vm547r5; found ${archscryImportRevisionFailures.join("; ")}`
+);
+expect(
+  sources.archscry.includes('src="../assets/js/archscry/index.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/actions.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/boot.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/data.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/interview.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/questionnaire.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('from "./runtime/identity-atlas.js?v=vm547r5"') &&
+    scriptSources.archscry.includes('import("./runtime/dev-review.js?v=vm547r5")') &&
+    scriptSources.archscryActions.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryActions.includes('from "./interview.js?v=vm547r5"') &&
+    scriptSources.archscryActions.includes('from "./questionnaire.js?v=vm547r5"') &&
+    scriptSources.archscryBoot.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryDevReview.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryDevReview.includes('from "./questionnaire.js?v=vm547r5"') &&
+    scriptSources.archscryIdentityAtlas.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryInterview.includes('from "../archscry-presentation.js?v=vm547r5"') &&
+    scriptSources.archscryInterview.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryQuestionnaire.includes('from "../archscry-presentation.js?v=vm547r5"') &&
+    scriptSources.archscryQuestionnaire.includes('from "./dossier-view.js?v=vm547r5"') &&
+    scriptSources.archscryDossierView.includes('from "../archscry-presentation.js?v=vm547r5"') &&
+    scriptSources.archscryPresentation.includes('from "../maze/maze-handoff.js?v=vm547r5"') &&
+    scriptSources.archscryData.includes('from "../../maze/maze-handoff.js?v=vm547r5"'),
   "Archscry should cache-bust the complete VM-547 catalog-to-handoff module chain"
 );
 expect(
-  scriptSources.maze.includes('from "./maze-query-core.js?v=vm547r4"') &&
-    scriptSources.maze.includes('from "./maze-handoff.js?v=vm547r4"') &&
-    scriptSources.mazeQueryCore.includes('from "./maze-handoff.js?v=vm547r4"'),
+  scriptSources.maze.includes('from "./maze-query-core.js?v=vm547r5"') &&
+    scriptSources.maze.includes('from "./maze-handoff.js?v=vm547r5"') &&
+    scriptSources.mazeQueryCore.includes('from "./maze-handoff.js?v=vm547r5"'),
   "Maze should cache-bust the complete VM-547 rehydration-to-query module chain"
 );
 expect(

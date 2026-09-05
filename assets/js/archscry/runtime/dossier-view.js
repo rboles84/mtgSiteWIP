@@ -3,7 +3,7 @@ import {
   READING_FIND_SECTION_CONFIG,
   getRowsForReading,
   hasRowsForOtherReadings,
-} from "../../maze/maze-scratchpad-store.js";
+} from "../../maze/maze-scratchpad-store.js?v=vm547r5";
 
 import {
   MAZE_PATH_LABELS,
@@ -18,12 +18,12 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm547r4";
+} from "../archscry-presentation.js?v=vm547r5";
 
 import {
   destroyDossierManaRadar,
   renderDossierRadarSection,
-} from "../dossier-radar.js";
+} from "../dossier-radar.js?v=vm547r5";
 
 import {
   buildBasicLandCards,
@@ -31,26 +31,26 @@ import {
   getExternalDeckRoutingAlias,
   getServiceChipMeta,
   hasRenderableLandTier,
-} from "../dossier/foundation.js";
+} from "../dossier/foundation.js?v=vm547r5";
 
 import {
   buildPreconRecommendations,
   selectPreconPreviewRecommendations,
-} from "../dossier/precons.js";
+} from "../dossier/precons.js?v=vm547r5";
 
 import {
   buildCommanderDossier,
-} from "../dossier/reading.js";
+} from "../dossier/reading.js?v=vm547r5";
 
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js";
+} from "../identity-layers.js?v=vm547r5";
 
 import {
   hydrateVisibleResultCardArt,
   shouldDisableResultCardArt,
-} from "./card-media.js";
+} from "./card-media.js?v=vm547r5";
 
 import {
   addUsageCards,
@@ -62,12 +62,12 @@ import {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} from "./content.js";
+} from "./content.js?v=vm547r5";
 
 import {
   matrixFlavorSnippetsForFaction,
   playerFacingIdentityDisplayLabel,
-} from "./data.js";
+} from "./data.js?v=vm547r5";
 
 import {
   ACCOUNT_DECK_LINKS_ENABLED,
@@ -87,14 +87,14 @@ import {
   normalizeDossierSegment,
   refreshAccountDeckLinks,
   resolveDossierConsoleState,
-} from "./dossier-controls.js";
+} from "./dossier-controls.js?v=vm547r5";
 
 import {
   applyTerminalVisibility,
   isScryingTerminalEnabled,
   showSection,
   updateTopbar,
-} from "./navigation.js";
+} from "./navigation.js?v=vm547r5";
 
 import {
   MANA_SYMBOL_NAMES,
@@ -105,7 +105,7 @@ import {
   normalizeCardName,
   renderPlayerCopy,
   renderStaticTagChips,
-} from "./render-utils.js";
+} from "./render-utils.js?v=vm547r5";
 
 import {
   APP_STATE,
@@ -114,7 +114,7 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js";
+} from "./state.js?v=vm547r5";
 
 export const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 

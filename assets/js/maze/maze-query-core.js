@@ -1,4 +1,4 @@
-import { buildDossierMazePathEntries, resolveMazeLaunchState } from "./maze-handoff.js?v=vm547r4";
+import { buildDossierMazePathEntries, resolveMazeLaunchState } from "./maze-handoff.js?v=vm547r5";
 import { buildVisualBuilderQuery } from "./research-builder.js?v=vm627";
 import { normalizeSortDirection, parseScryfallNaturalLanguage } from "./scryfall-parser.js";
 
