@@ -2,7 +2,7 @@
 
 ID: VM-547
 Title: Post-Reading Commander Shortlist Bridge
-Status: In Progress — Owner REVISE; repair real-route runtime provenance/fallback escape on the existing branch; no push or merge
+Status: Owner Review — replacement exact candidate has RobQA PASS; no push or merge
 Type: Enhancement / Product Bridge / Semantic Projection
 Area: Archscry, Maze, Commander discovery
 Priority: high
@@ -122,3 +122,15 @@ The Owner rejected exact material candidate `b0a3ba8462e3f5fcd1a20a21131cd765e37
 Investigation must prove the complete public runtime chain, add a deterministic catalog/runtime fingerprint before fixing behavior, identify and close any canonical-route fallback or stale-payload precedence, and add real-click regressions for Witherbloom, Azorius, Temur, Green, Colorless, Yore, WUBRG, and Golgari. All 37 canonical Owner routes must fail if they enter the legacy fallback. Legacy compatibility may remain only for documented noncanonical callers.
 
 Current evidence identifies two candidate-delivery gaps to validate and repair: the cache-busted Archscry entry imports the catalog-loading `runtime/data.js` through an unversioned nested URL, and Maze initially executes incoming Archscry query payloads before canonical profile/path rehydration. This can create the observed mixed state while preserving newer WUBRG behavior. The replacement candidate must bind Git evidence, generated-catalog fingerprint, Archscry-loaded fingerprint, and Maze-loaded fingerprint; restart the exact local environment; and stop at Owner Review without push or merge.
+
+## Owner Revision 2 Replacement Candidate
+
+- Exact material candidate: `200d80afaf02a987dc09e82a224daee058f61456`.
+- Runtime revision: `vm547-runtime-v3`.
+- Catalog fingerprint: `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f`.
+- Root cause confirmed: the Archscry HTML entry was versioned while its catalog-loading nested import was not, allowing mixed new presentation/old data-loader behavior; Maze also gave incoming URL query payloads precedence over its canonical rehydrated profile.
+- Repair: cache-bust the complete VM-547 nested module chain, require canonical profile ownership for all claimed `fit` routes, rehydrate the selected path from the Maze-loaded catalog, and prefer that canonical state over incoming query/plain-language payloads.
+- RobQA: PASS on the exact candidate for 37/37 public Archscry clicks, 37/37 Maze rehydrations, exact all-path labels/plain payloads/operator queries, eight required executed-thread witnesses, two stale/fallback ownership checks, 74 desktop renders, eight narrow flows, eight mobile flows, 48 accessibility checks, three return-navigation flows, 367/367 semantic projections, and 16/16 existing regression suites.
+- Skipped: `npm run test:maze-onboarding-browser` was not rerun at the Owner's direction after the previously disclosed moving visual timeouts; it is not counted as a pass.
+- The 37 authored semantic profiles and all projection evidence are unchanged from the accepted-in-principle semantic candidate.
+- Owner must choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE` before any push, PR, merge, or `main` integration.

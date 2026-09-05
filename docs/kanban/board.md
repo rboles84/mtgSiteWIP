@@ -39,7 +39,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - In Progress after Owner REVISE of `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`; preserve the accepted semantic/profile work while repairing the real-route canonical-profile provenance, stale nested-module exposure, and incoming legacy-query precedence. Add fingerprinted public-click proof for all 37 and the eight Owner witnesses; no push or merge.
+- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - Owner Review at exact material candidate `200d80afaf02a987dc09e82a224daee058f61456`; canonical public routes now prove matching catalog/profile provenance and canonical query execution for all 37, with the eight Owner witnesses green. No push or merge before Owner acceptance.
 
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 

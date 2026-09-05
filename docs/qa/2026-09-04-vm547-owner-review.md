@@ -1,8 +1,12 @@
-# VM-547 Owner Review — semantic-result-quality revision
+# VM-547 Owner Review — canonical browser-runtime revision
 
-Status: Owner Review — VM-547-specific RobQA PASS; unrelated VM-616 visual-harness timing is disclosed below; no push or merge
+Status: Owner Review — exact-candidate VM-547 RobQA PASS; no push or merge
 
-Exact material candidate: `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`
+Exact material candidate: `200d80afaf02a987dc09e82a224daee058f61456`
+
+Generated catalog runtime revision: `vm547-runtime-v3`
+
+Generated catalog fingerprint: `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f`
 
 The accepted architecture and flow remain intact. Archscry still presents one compact `Maze Discovery Paths` handoff. The user chooses a broad commander pool, mechanical support, story vocabulary, or outside-color stretch; Maze then restores the dossier name and approved reading, explains the active lane, exposes identity-specific semantic threads, leads with a plain-English interpretation, keeps operator syntax collapsed, shows the actual cards, and returns to the same dossier and section.
 
@@ -17,6 +21,19 @@ The accepted architecture and flow remain intact. Archscry still presents one co
 - Mechanical threads use governed Oracle/mechanical concepts. Flavor/story threads use `ft:` vocabulary and explicitly avoid mechanical-fit claims.
 - Stretch combines an outside-identity commander boundary with a named dossier characteristic. Where that intersection is not useful and nonempty, Maze explains the unavailable thread and exposes no Search or query-syntax action.
 - No popularity ranking, runtime AI generation, placement/scoring change, or result-rank change is present.
+
+## Owner-reported runtime defect and repair
+
+Candidate `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab` remains accepted only for its semantic architecture and projection quality; its Owner acceptance is invalid. The actual browser could mix new VM-547 presentation modules with an unversioned, cached Archscry data-loader module. That loader omitted the canonical catalog, so the shared factory used its legacy fallback. Maze then preferred the incoming stale URL query over the canonical profile it had loaded. This explains the otherwise contradictory state in which the new WUBRG unavailable boundary appeared beside legacy labels and shallow queries.
+
+The replacement candidate fixes ownership without rewriting any profile:
+
+- The complete Archscry and Maze VM-547 nested-module chains share cache revision `vm547r3`, and frontend validation fails if any link in either chain drifts.
+- Every catalog carries deterministic runtime revision `vm547-runtime-v3` and SHA-256 fingerprint `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f`.
+- Archscry exposes the loaded profile/revision/fingerprint as nonvisual DOM/link metadata and embeds the same evidence in the handoff URL.
+- Maze resolves the claimed canonical profile and selected path from its loaded catalog, replaces stale incoming query/plain-language payloads, and makes canonical state authoritative at execution.
+- A canonical Archscry route fails closed if its catalog/profile/path is unavailable. Legacy fallback remains only for callers that do not claim a canonical `fit` route.
+- Real-route automation now starts at each public `?explore=<slug>` dossier, clicks the rendered Archscry action, checks all four payload layers, rehydrates Maze, selects a thread, and checks the query at the execution boundary.
 
 ## Card-level semantic-quality remediation
 
@@ -71,14 +88,13 @@ The compact dossier index is [VM-547 all-37 discovery review matrix](2026-09-04-
 | Mobile/browser tests | 8 / 8 representative flows |
 | Accessibility checks | 48 / 48 |
 | Unavailable-projection UI checks | 14 / 14 representative/commander renders |
-| Established Maze context/history browser regression | Pre-freeze 1 / 1; exact-candidate automation timed out twice at different visual waits |
+| Canonical fallback/stale-payload checks | 2 / 2 |
+| Catalog/profile provenance checks | 37 / 37 Archscry plus 37 / 37 Maze |
 | Existing regression suite | 16 / 16 suites |
 
-Skipped tests: None.
+Skipped test: `npm run test:maze-onboarding-browser`. This protected VM-616 visual harness passed before the earlier candidate freeze, then timed out twice at different subjective visual waits. Per the Owner's explicit direction, it was not rerun for this candidate and is not counted as a pass. The VM-547 route, provenance, responsive mechanics, accessibility mechanics, and history assertions all ran in the dedicated browser gate.
 
-Timed-out tests: `npm run test:maze-onboarding-browser` timed out twice on the exact candidate, first waiting for raw-mode `aria-pressed` and then waiting for the finite Guide Beacon animation. The same command passed before candidate freeze. The failures moved between unrelated visual wait conditions, and no VM-547 product/browser assertion failed. Per the Owner's direction to stop spending time on visual timeouts, no further retry was run; the Owner may visually confirm the protected Maze onboarding behavior.
-
-Commands passed on exact material candidate `b0a3ba8462e3f5fcd1a20a21131cd765e3714fab`:
+Commands passed on exact material candidate `200d80afaf02a987dc09e82a224daee058f61456`:
 
 - `npm run test:maze-discovery-profiles`
 - `npm run test:vm547-browser`
@@ -87,6 +103,23 @@ Commands passed on exact material candidate `b0a3ba8462e3f5fcd1a20a21131cd765e37
 - `npm run lint:html`
 - `npm run test:source-generated`
 - `git diff --check`
+
+## Actual Owner-route browser witnesses
+
+Every row was collected by opening the public Archscry dossier, clicking `Cards that support this shape`, selecting the first available governed thread, and reading the final query from Maze's execution boundary. All rows loaded runtime `vm547-runtime-v3` and catalog fingerprint `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f`.
+
+| Dossier | Identity | Archscry label | Loaded profile | Selected thread | Plain-English interpretation | Final operator query |
+|---|---|---|---|---|---|---|
+| Witherbloom | BG | Cards that support this shape | WITHERBLOOM / vm547-runtime-v3 | Pests moving life into value | Find Pests connected to life gain, life loss, or sacrifice rather than a generic death mention. | `id<=bg f:commander -is:commander -t:land ((t:pest OR o:pest) (o:"gain life" OR o:"lose life" OR o:sacrifice))` |
+| Azorius | WU | Cards that support this shape | WU / vm547-runtime-v3 | Taxes or visible restrictions | Find cards that increase an opponent's spell costs or explicitly limit an opponent's attacking or casting. | `id<=wu f:commander -is:commander -t:land (o:"spells your opponents cast cost" OR o:"creatures your opponents control can't attack" OR o:"your opponents can't cast" OR o:"can't attack you")` |
+| Temur | GUR | Cards that support this shape | TEMUR / vm547-runtime-v3 | Power-four payoffs or Ferocious | Find Ferocious or effects that explicitly care about power 4 or greater. | `id<=gur f:commander -is:commander -t:land (o:ferocious OR o:"power 4 or greater" OR o:"power 4 or more")` |
+| Green | G | Cards that support this shape | G / vm547-runtime-v3 | Ramp or land acceleration | Find cards with a ramp function or land-to-battlefield acceleration. | `id<=g f:commander -is:commander -t:land (otag:ramp OR (o:land o:battlefield))` |
+| Colorless | C | Cards that support this shape | COLORLESS / vm547-runtime-v3 | True colorless mana | Find cards that produce or explicitly require true colorless mana. | `id<=c f:commander -is:commander -t:land (produces:c OR o:"{C}")` |
+| Yore | WUBR | Cards that support this shape | YORE / vm547-runtime-v3 | Artifact engines and repeated activation | Find artifact cards that sacrifice, untap, copy, or explicitly govern repeated activation. | `id<=wubr f:commander -is:commander -t:land (t:artifact (o:sacrifice OR o:untap OR o:copy OR o:"activate only"))` |
+| Five-Color / WUBRG | WUBRG | Cards that support this shape | WUBRG / vm547-runtime-v3 | Five-Color toolbox access | Find tutor functions that help a commander-specific Five-Color plan assemble its chosen answers. | `id<=wubrg f:commander -is:commander -t:land otag:tutor` |
+| Golgari | BG | Cards that support this shape | BG / vm547-runtime-v3 | Trade, then reclaim | Find cards that return spent permanents or creatures from the graveyard. | `id<=bg f:commander -is:commander -t:land (o:return o:graveyard)` |
+
+Witherbloom and Golgari both use BG identity, but they resolve different profile IDs, labels, interpretations, and final queries. This is asserted directly by the browser gate.
 
 ## Intentional exceptions and unavailable intersections
 
@@ -129,4 +162,4 @@ Shortest representative click order:
 7. Five-Color / WUBRG — explicit unavailable outside-color boundary and no fabricated fourth action.
 8. Golgari — compare directly with Witherbloom to verify equal colors do not imply equal discovery semantics.
 
-Owner decision requested after reviewing the VM-616 visual-harness disclosure: `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`.
+Owner decision requested: `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`.
