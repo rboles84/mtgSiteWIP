@@ -13,4 +13,8 @@ Every incident must name its scope, freeze boundary, owner, evidence, containmen
 
 ## Open Incidents
 
-- [CRIT-001 — Faction Semantic Readiness Integrity](CRIT-001-faction-semantic-readiness-integrity.md)
+None.
+
+## Closed Incidents
+
+- [CRIT-001 — Faction Semantic Readiness Integrity](CRIT-001-faction-semantic-readiness-integrity.md) — Closed at 37/37 semantic readiness; VM-630 tracks documentation-only live provenance-pointer normalization without reopening recovery.

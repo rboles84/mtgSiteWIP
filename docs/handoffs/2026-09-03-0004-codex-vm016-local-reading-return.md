@@ -2,7 +2,7 @@
 
 - Agent: Codex
 - Task requested: Replace the active Google-required Archscry save path with the smallest local-first MVP, after repository recon.
-- Related Kanban card: [VM-016](../kanban/in-progress/VM-016-archscry-profile-return-qr.md)
+- Related Kanban card: [VM-016](../kanban/done/VM-016-archscry-profile-return-qr.md)
 - Related authorities: `.agents/skills/robdev/`, `docs/dev/RobDevPass.md`, `.agents/skills/robqa/`, and `docs/qa/RobQAPass.md`.
 
 ## Pre-flight And Grounding
@@ -104,4 +104,4 @@ Owner for visual acceptance; then a Planning Architect for any portable recovery
 
 ## Owner Disposition — 2026-09-03
 
-The Owner completed the UI check, reported the local-return flow working, and authorized release to `main`. This accepts the implemented device-local slice only; the card remains in progress for separate QR or cross-device recovery work.
+The Owner completed the UI check, reported the local-return flow working, and authorized release to `main`. This accepted the implemented device-local slice only. The 2026-09-05 lifecycle reconciliation closes VM-016 and preserves QR/cross-device recovery separately in [VM-628](../kanban/backlog/VM-628-archscry-portable-reading-recovery.md).
