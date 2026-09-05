@@ -486,14 +486,21 @@ evidence needed to preserve it.
 The implemented contract is the path the user actually experiences, not merely the easiest internal
 function to call.
 
-For affected user-facing work, identify and exercise during development:
+Under the default OWNER-VISUAL MODE in
+[RobQAPass](../qa/RobQAPass.md#owner-first-visual-verification-policy), implementing the visible journey does
+not require Codex to perform subjective visual inspection or open a browser merely because UI changed.
+Verify the changed behavior at the lowest reliable objective layer. Use focused browser automation only
+when an objective route, DOM state, keyboard/focus, dialog, persistence, accessibility, interaction, or
+containment risk cannot reasonably be protected below the browser layer. The Owner retains visual review.
+
+For affected user-facing work, identify and verify as relevant:
 
 - the visible control and its real hit area;
 - the actual route or state transition it triggers;
 - the destination content, active panel, focus, and scroll state promised by the action;
 - the real modal, result, error, or recovery content;
 - the relevant return, Back/Forward, restart, close/reopen, or repeat-use behavior;
-- the affected desktop and narrow/mobile presentation.
+- objective desktop or narrow/mobile behavior only when directly changed or protected.
 
 A direct internal route, encoded state, hidden sentinel, or unit-level call can pass while the public hub
 link, stale selector, route default, or visible content remains wrong.
@@ -694,7 +701,8 @@ The implementation should hand RobQAPass this compact record:
 
 - plausible regressions created by the actual change;
 - relevant failure, empty, recovery, accessibility, responsive, and repeat-use states built;
-- actual visible journey exercised during development;
+- objective changed journey or contract verified at the lowest reliable layer, with browser justification
+  recorded when browser automation was necessary;
 - product, harness, environment, or network limitations distinguished.
 
 ## Evidence and remaining judgment
@@ -703,7 +711,9 @@ The implementation should hand RobQAPass this compact record:
 - unresolved correctness uncertainty, if any;
 - questions that genuinely require owner product judgment rather than machine-verifiable rechecking.
 
-For a visible implementation, also distinguish objective acceptance criteria from visual, experiential, or aesthetic Owner judgment. Hand the rendered-QA budget, any ambiguous user-visible automation failure, and the required Owner check to the [RobQA Owner-First Visual Verification Policy](../qa/RobQAPass.md#owner-first-visual-verification-policy); RobDev does not select a competing visual-QA rule.
+For a visible implementation, distinguish objective acceptance criteria from visual, experiential, or
+aesthetic Owner judgment. Apply OWNER-VISUAL MODE plus RobQA's browser-justification and unrelated/ambiguous
+harness-failure stop rules. RobDev does not select a competing visual-QA rule.
 
 RobQAPass then classifies risk, selects proportionate validation, converts real manual findings into the
 narrowest appropriate regressions, and prepares the shortest deterministic owner review.
@@ -722,7 +732,8 @@ An implementation is **RobDevPass READY** when:
 - the change is the smallest complete solution to the requested outcome;
 - material consumers and shared blast radius were inspected;
 - protected placement, identity, evidence, and route behavior remained intact unless explicitly in scope;
-- the visible user journey was implemented, not only an internal seam;
+- the changed user journey or contract was implemented and objectively verified at the lowest reliable
+  layer, with focused browser verification only when materially necessary;
 - relevant failure, recovery, accessibility, and responsive states were built;
 - contextual defects received contextual systemic fixes;
 - no unexplained scope, abandoned implementation path, or temporary scaffold remains;
@@ -751,7 +762,9 @@ Do not claim RobDevPass READY if any of these are true:
 - a presentation task altered placement, scoring, qualification, identity meaning, or evidence
   relationships without explicit scope;
 - a contextual owner finding became an unsafe global ban or normalization rule;
-- a visible change was implemented or judged only through an internal seam;
+- the selected objective verification layer cannot reliably protect the changed user contract;
+- browser, screenshot, animation-fidelity, or viewport-matrix work was performed without the justification
+  required by OWNER-VISUAL MODE;
 - a product change was made to compensate for an unproven harness, environment, cache, or network
   failure;
 - missing authority was filled with generated prose, generic fallback, model memory, or unsupported
@@ -779,9 +792,13 @@ When an approved instruction surface needs a short pointer, use:
 > Reuse existing adapters, components, presenters, resolvers, generators, data shapes, and state owners
 > before creating machinery. Never treat generated output or structural traceability as semantic
 > authority. Keep presentation separate from placement, scoring, identity, and evidence behavior. Fix
-> contextual defects at the narrowest systemic scope, implement the visible user journey, surface scope
+> contextual defects at the narrowest systemic scope, implement the visible user journey, verify it at the
+> lowest reliable objective layer under OWNER-VISUAL MODE, surface scope
 > drift instead of compensating with architecture, and hand changed behavior, protected behavior,
-> realistic risks, evidence, and unresolved judgment to `docs/qa/RobQAPass.md`. For visible work, identify which acceptance criteria are machine-verifiable and which are Owner visual/experiential judgment; defer rendered-QA scope and Owner escalation to its Owner-First Visual Verification Policy.
+> realistic risks, evidence, and unresolved judgment to `docs/qa/RobQAPass.md`. For visible work, identify
+> which acceptance criteria are machine-verifiable and which are Owner visual/experiential judgment; use
+> browser automation only for objective changed risk that cannot be protected more cheaply below it, and
+> apply the Owner-First policy's strict stop rule for unrelated or ambiguous harness failures.
 
 ---
 

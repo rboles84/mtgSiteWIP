@@ -23,6 +23,11 @@ Name the exact changed behavior, protected behavior, realistic regressions, and 
 
 Use the smallest deterministic validation set that protects the changed risk.
 
+OWNER-VISUAL MODE is the Vox Mana default. The Owner owns subjective visual QA; Codex selects the lowest
+reliable objective layer and uses browser automation only when the changed behavior materially requires it.
+Screenshots, visual regression, animation-fidelity waits, and broad viewport passes are opt-in. Historical
+test lists do not create a run obligation.
+
 Before material rendered/browser work, ask:
 
 1. Is this evidence objectively machine-verifiable, or am I spending compute approximating a Product Owner judgment?
@@ -39,18 +44,21 @@ Before a CPU-heavy or exhaustive suite, state:
 
 If there is no concrete answer, do not run the suite. Scope drift returns to RobDev; it does not silently justify more testing.
 
-## 4. Rendered Product First
+## 4. Objective Product Contract First
 
-For visible changes, open the real affected route or deterministic review case. Perform the policy's minimal rendered sanity check by default; do not substitute prolonged screenshot/AI visual analysis for Owner product judgment.
+For visible changes, verify the real changed contract at the lowest reliable objective layer. Do not open a
+browser merely because the product is visible. Use a focused browser case only when route, DOM state,
+keyboard/focus, dialog, persistence, accessibility state, interaction, or required containment behavior
+cannot reasonably be protected more cheaply below the browser layer.
 
-- follow the intended journey;
-- read changed copy in rendered order;
-- click the controls the user clicks;
-- inspect the promised destination, active state, focus, and scroll;
-- inspect a relevant narrow width only when responsive risk is directly in scope;
-- check repeat, close, return, Back/Forward, refresh, and recovery where applicable.
+- verify the intended state or journey contract;
+- read changed authored or emitted copy in order;
+- verify promised destination, active state, focus, and scroll when changed;
+- inspect a relevant narrow width only when objective responsive behavior is directly in scope;
+- check repeat, close, return, Back/Forward, refresh, and recovery only where applicable.
 
-Source-only green checks do not pass an objective visible contract. The Owner, not repeated automated visual interpretation, judges appearance, hierarchy, feel, and comfort.
+The selected layer must actually protect the objective changed contract. The Owner judges appearance,
+hierarchy, feel, comfort, spacing, animation, and responsive visual quality.
 
 ## 5. Copy And Product Language
 
@@ -65,11 +73,16 @@ Separate:
 - deterministic geometry and DOM evidence at pinned normal conditions;
 - human optical judgment at normal viewing and useful magnification.
 
-Inspect the actual owning element, parent, computed styles, focus, overflow, clipping, and pseudo-element styles where relevant. Geometry can pass while the visible result still looks wrong; that remaining optical judgment belongs to the Owner unless an explicit objective acceptance criterion requires more rendered evidence.
+Inspect the actual owning element, parent, computed styles, focus, overflow, clipping, and pseudo-element
+styles only when an objective acceptance criterion requires that evidence. Geometry can pass while the
+visible result still looks wrong; that remaining optical judgment belongs to the Owner.
 
 ## 7. Interaction And State
 
-For affected controls, verify real hit areas, pointer and keyboard behavior, one action per trigger, stale async protection, close/reopen, focus restoration, responsive containment, and state persistence.
+For affected interaction contracts, verify relevant hit areas, pointer and keyboard behavior, one action per
+trigger, stale async protection, close/reopen, focus restoration, responsive containment, and state
+persistence. Use a real browser only when browser semantics or human-representative interaction are material
+to the changed objective behavior.
 
 For navigation, URL correctness is only one assertion. The promised content must be active, visible, focused, and scrolled into the intended state.
 
@@ -102,13 +115,13 @@ Convert a real finding into the narrowest useful systemic invariant. Do not patc
 
 Before handoff:
 
-- perform only the policy's representative rendered sanity check unless an objective risk justifies more;
-- read the changed text top to bottom;
-- click actual controls and edges;
-- inspect desktop and relevant narrow states;
+- verify the changed contract at the lowest reliable objective layer;
+- read the changed authored or emitted text top to bottom;
+- use a focused browser interaction only when objective changed risk justifies it;
+- inspect desktop or narrow state only when that state owns an objective changed risk;
 - test the changed transition and repeat use;
 - confirm public claims match their data and logic;
-- record concrete rendered evidence rather than only `PASS`.
+- record concrete objective evidence rather than only `PASS`.
 
 ## 12. Owner Review
 
@@ -124,7 +137,7 @@ Record:
 - each selected test, reason, and result;
 - expensive suites intentionally skipped and why;
 - CPU-heavy status;
-- rendered evidence when applicable;
+- objective evidence and browser justification when applicable;
 - owner findings converted to invariants;
 - remaining owner judgment;
 - bounded owner commands, routes, states, and viewports;

@@ -18,13 +18,13 @@ A presentation fix does not justify an exhaustive engine certification. A placem
 
 # 1. The Rob QA Model
 
-Rob's QA behavior consistently combines five modes:
+Rob's QA behavior combines five modes across Codex verification and Owner review:
 
-1. **Use the product like a real user.**
-2. **Read the product like an editor and product owner.**
-3. **Inspect the rendered UI like a frontend tester.**
-4. **Inspect the DOM/HTML when the visual result needs proof.**
-5. **Convert every meaningful manual finding into a reusable regression invariant.**
+1. **Verify the changed product contract at the lowest reliable objective layer.**
+2. **Use focused browser interaction when objective changed risk requires a real browser.**
+3. **Let the Owner use and judge the rendered product like a real user and product owner.**
+4. **Inspect DOM/HTML or geometry only when an objective acceptance criterion needs proof.**
+5. **Convert every meaningful Owner finding into the narrowest reusable regression invariant.**
 
 A feature can be technically functional and still fail Rob QA.
 
@@ -39,7 +39,7 @@ Examples of failure classes that automation commonly misses:
 - a page uses correct words so often that it feels mechanically generated;
 - a label exposes implementation language that a player should never see;
 - an interaction works with a mouse but loses focus, scroll position, or state;
-- an automated review passes while the actual rendered product obviously looks wrong.
+- an automated review passes while the Owner finds that the actual rendered product obviously looks wrong.
 
 **Rob QA evaluates product truth, not merely test truth.**
 
@@ -88,12 +88,14 @@ Examples:
 
 Required QA:
 
-- focused rendered browser case(s);
-- affected viewport(s);
-- affected DOM/content assertions;
-- relevant accessibility interaction;
+- focused source, content, or DOM assertions at the lowest reliable layer;
+- relevant accessibility semantics or interaction when changed;
 - lint/source guards;
-- targeted visual checks.
+- Owner visual review.
+
+Browser verification is optional at this tier. Use it only when an objective changed behavior cannot be
+protected reliably below the browser layer. Do not generate screenshots or run viewport matrices merely
+because the change is visible.
 
 Normally prohibited:
 
@@ -160,7 +162,7 @@ Required QA:
 - Back/Forward;
 - refresh;
 - safe invalid-state behavior;
-- targeted mobile path.
+- targeted mobile path only when mobile behavior is directly at risk.
 
 Do not confuse "URL loaded" with "navigation passed." The destination must actually be activated and visible as promised.
 
@@ -261,7 +263,35 @@ exists to support Owner judgment, not replace it.
 > **Codex proves what is cheap, deterministic, and machine-verifiable. The Product Owner judges what is
 > visual, experiential, aesthetic, or immediately observable.**
 
-### Pre-render questions and proportionality
+### OWNER-VISUAL MODE — default operating assumption
+
+OWNER-VISUAL MODE is active for Vox Mana unless the current Owner request explicitly asks Codex for visual,
+screenshot, or broader browser evidence. Historical cards, handoffs, test catalogs, or phrases such as
+"all existing tests," "no skipped tests," "full validation," or "browser verification required" do not
+override this default by themselves.
+
+Under this mode:
+
+- the Owner owns aesthetics, layout, spacing, visual hierarchy, animation feel, subjective responsive
+  quality, screenshot comparison, pixel differences, artistic fidelity, and final visual acceptance;
+- Codex owns implementation correctness and the smallest deterministic static, unit, domain, schema, data,
+  contract, integration, DOM, interaction, state, and accessibility checks that protect changed behavior;
+- test selection follows the lowest reliable layer first, then focused regression, then browser automation
+  only when it materially verifies objective changed behavior that cannot reasonably be protected more
+  cheaply below the browser layer;
+- screenshot suites, visual-regression or image-diff runs, baseline generation, subjective optical review,
+  animation waits for visual fidelity, and broad viewport screenshot matrices are opt-in;
+- the existence of a browser or historical harness creates no obligation to run it.
+
+Legitimate browser evidence includes objective route, DOM-state, keyboard, focus, dialog, persistence,
+accessibility-state, interaction, or required containment behavior. Browser automation is an engineering
+tool, not a ritual. "Does this look good?" and equivalent aesthetic questions remain Owner work.
+
+The only override is a current explicit Owner request or a current task's concrete objective acceptance
+criterion whose risk cannot be verified reliably at a lower layer. When using that override, name the
+objective risk and the specific browser or visual evidence before running it.
+
+### Pre-browser questions and proportionality
 
 Before a material rendered/browser run, ask:
 
@@ -301,32 +331,40 @@ deterministic risk verification.
 The Owner normally judges visual appearance and hierarchy; whether a surface feels modern, coherent,
 crowded, intuitive, useful, comfortable, too bright/subtle, or advertisement-like; animation strength and
 irritation; spacing aesthetics; tone/feel; subjective responsive presentation; and overall product
-experience. An agent may perform the minimum sanity check below, but must not certify these judgments with
-long screenshot sequences, pixel-by-pixel aesthetic comparisons, repeated AI visual-interpretation loops,
-exhaustive guided-flow screenshots, lengthy screenshot packages, or a programmatic "looks good" claim.
+experience. Codex must not certify these judgments with screenshots, pixel-by-pixel aesthetic comparisons,
+AI visual-interpretation loops, guided-flow screenshot packages, or a programmatic "looks good" claim unless
+the Owner explicitly requests the corresponding evidence.
 
-### Default rendered boundary
+### Default browser and rendered boundary
 
-Unless the card explicitly requires more because of objective risk, use:
+OWNER-VISUAL MODE does not require Codex to open or render a visible product merely because UI or CSS
+changed. RobQA readiness may rest on proportionate objective verification plus pending Owner visual review.
 
-- one representative desktop render or screenshot;
-- one representative mobile render only when responsive risk is directly in scope; and
-- catastrophic checks: the page rendered, main content is present, there is no obvious horizontal overflow,
-  and no major component is missing.
+When browser automation is objectively necessary, use the smallest focused case and only the viewport or
+state that can expose the changed risk. Prefer DOM/state assertions without screenshots. Add screenshots,
+additional viewports, animation waits, or broader walkthroughs only when the Owner explicitly requests them
+or when they prove a named objective acceptance criterion that cheaper checks cannot.
 
-Then return the product to Owner Review. For multi-screen/state flows, automated functional assertions may
-cover the states while the Owner experiences the actual flow. This lightweight sanity check is not an
-agent-issued visual-acceptance certification.
+Then return the product to Owner Review for subjective visual judgment. An intentionally omitted Codex
+render is not a skipped correctness check when the changed risk is covered objectively.
 
 ### User-visible automation-failure gate
 
-When an automated/browser/headless check fails at a boundary that is visible to a user, cheap for the Owner
-to reproduce, and ambiguous between a product defect and a harness/test defect, do **not** immediately
-launch expensive tracing, screenshot generation, logs, rebuilds, or broad diagnostics.
+When a browser or integration harness failure is unrelated to changed behavior, pre-existing, flaky,
+animation/timing-sensitive, infrastructure- or timeout-related, or ambiguous, Codex gets one reasonable
+attempt to determine whether the current change caused it. Do not immediately launch expensive tracing,
+screenshot generation, logs, rebuilds, repeated runs, or broad diagnostics.
 
-1. Give the Owner the compact check below.
-2. Wait for the result and classify it.
-3. Investigate only the side that actually needs work, beginning with the cheapest discriminating evidence.
+If that attempt finds no direct causal evidence:
+
+1. stop investigating and do not rerun it repeatedly;
+2. disclose the failed attempt and classify it as known or suspected harness debt;
+3. preserve the honest automated result without weakening or deleting the check; and
+4. continue toward Owner Review when directly relevant verification is green.
+
+Known or suspected harness debt does not block Owner Review unless the current change plausibly caused it.
+Repair belongs to a dedicated task, not unrelated implementation work. If the visible behavior is cheap for
+the Owner to classify, provide the compact check below; otherwise record the bounded uncertainty.
 
 If the Owner directly verifies the real product behavior works, record **Product: Owner Manual PASS** and
 **Automated test: FAIL / known harness debt** unless contrary evidence exists. Do not investigate further
@@ -383,11 +421,13 @@ a library document mentions it.
 
 # 4. How Rob Performs Manual Product QA
 
-## 4.1 Start with the real rendered product
+## 4.1 Start with the real product contract
 
 Source code passing is not the same as the product passing.
 
-Open the actual affected route or deterministic review case and perform the Owner-First policy's minimal rendered sanity check. This does not authorize extended agent optical/experiential analysis; the Owner judges whether the result feels finished, coherent, balanced, useful, or comfortable.
+Verify the changed contract at the lowest reliable objective layer. Open the actual route only when browser
+automation is justified by objective changed behavior under OWNER-VISUAL MODE. The Owner judges whether the
+rendered result feels finished, coherent, balanced, useful, or comfortable.
 
 Before drilling into implementation details:
 
@@ -411,7 +451,8 @@ It is:
 
 Rob reads substantial user-facing text rather than assuming copy is correct because a snapshot contains it.
 
-For changed content, read the actual rendered copy in order.
+For changed content, review the authored or deterministically emitted copy in order. Use rendered text only
+when browser verification is otherwise justified.
 
 Ask:
 
@@ -640,7 +681,8 @@ A technically accurate implementation can still fail if the user-facing claim ov
 
 Rob does not accept "the bounding box is centered" as proof that an icon looks centered.
 
-Use two passes when alignment/spacing is materially changed.
+Use these two roles when objective alignment or containment evidence is explicitly required; ordinary
+spacing and optical judgment remain with the Owner.
 
 ## Pass A — Geometric / DOM pass
 
@@ -679,7 +721,9 @@ For pseudo-element artwork:
 
 ## Pass B — Optical / Owner pass
 
-After geometry passes, the Product Owner looks at the actual rendered result. An agent may provide the default lightweight witness, but must not replace this judgment with repeated screenshots or AI visual interpretation. Broader agent-rendered evidence requires the objective justification in the Owner-First policy.
+After any required objective geometry check, the Product Owner looks at the actual rendered result. Codex
+does not replace this judgment with screenshots or AI visual interpretation unless the Owner explicitly
+requests that evidence.
 
 Check:
 
@@ -713,7 +757,9 @@ Use it as an optical inspection technique. Keep automated geometry measurements 
 
 # 8. Responsive and Zoom Review
 
-Do not test responsiveness only by resizing until nothing overflows.
+The Owner judges responsive appearance. When responsive behavior is an objective changed risk, verify only
+the relevant deterministic containment, reachability, focus, or state contract; do not add viewports for
+general visual inspection.
 
 At each relevant width, verify:
 
@@ -743,7 +789,8 @@ For optical inspection, Rob may magnify substantially further, including 500%, t
 
 # 9. HTML, DOM, CSS Selector, and XPath Inspection
 
-When a visual or interaction defect is unclear, inspect the actual rendered DOM.
+When an objective interaction defect is unclear and browser verification is justified, inspect the actual
+rendered DOM. Subjective visual uncertainty belongs to Owner review.
 
 The purpose is to answer:
 
@@ -839,10 +886,11 @@ For a pointer transition:
 Test keyboard-accessible ownership separately. Focus left behind by a pointer click is not proof of
 genuine keyboard or focus-visible behavior.
 
-Passing automated browser tests does not replace a small rendered/manual pass when real pointer travel,
-focus modality, timing, or geometry is material. Bound that pass to the affected owner route, real
-source, destination interaction, required repeat use, leave/cleanup behavior, and one ordinary protected
-case rather than broadening into an exhaustive journey suite.
+When real pointer travel, focus modality, timing, or geometry is material to changed objective behavior,
+the focused browser case must exercise that real interaction rather than relying only on synthetic events.
+Bound it to the affected owner route, real source, destination interaction, required repeat use,
+leave/cleanup behavior, and one ordinary protected case rather than broadening into an exhaustive journey
+suite. This is functional interaction evidence, not agent visual judgment.
 
 If owner acceptance fails on behavior or risk that RobQA claimed to have verified, classify the finding
 as a QA escape. Capture the owner's reproduction as the next focused invariant, require red-before-green
@@ -1196,7 +1244,8 @@ Prefer the **narrowest systemic rule that prevents the defect class**.
 
 # 18. Agent Self-QA: "Test It Like Rob"
 
-Before handing a UI/content change to Rob, the implementation agent must perform a short product-reading pass.
+Before handing a UI/content change to Rob, the implementation agent must perform a short objective
+product-contract review at the lowest reliable layer.
 
 This is not a new automation framework.
 
@@ -1206,15 +1255,13 @@ It is a disciplined final review of the deterministic changed cases.
 
 ### Whole product
 
-- What is the page trying to tell me?
-- Is the next action obvious?
-- Does anything look unfinished?
-- Is hierarchy coherent?
+- What product promise changed?
+- Is the next action and its effect represented truthfully?
 - Is any internal machinery exposed?
 
 ### Copy
 
-- Did I read the changed rendered text top to bottom?
+- Did I read the changed authored or emitted text top to bottom?
 - Did I read important choices/explanations aloud?
 - Is anything repeated?
 - Does each section add new information?
@@ -1223,19 +1270,19 @@ It is a disciplined final review of the deterministic changed cases.
 
 ### Interaction
 
-- Did I click the actual controls?
-- Did I click around the edges of the control?
+- Did I verify the changed control behavior at the lowest reliable layer?
+- Is a focused browser interaction objectively necessary?
 - Did I test close/back/return/restart where applicable?
 - Did I verify focus and scroll?
 - Did I inspect modal/popup content rather than only open/close?
 
-### Visual
+### Owner visual boundary
 
-- Did I perform the default desktop sanity render and objective catastrophic checks?
-- Is a narrow/mobile render directly required by responsive risk?
+- Did I leave aesthetics, layout, spacing, animation feel, responsive appearance, and screenshot comparison
+  to the Owner?
+- If browser automation ran, did I state the objective changed risk that required it?
 - Did I automate measurable spacing, containment, or alignment facts where those are acceptance criteria?
-- Did I send visual balance, aesthetic spacing, and optical comfort to the Owner rather than self-certify them?
-- Did I confirm the actual DOM node/style responsible for any suspicious visual?
+- Did I avoid screenshots and extra viewports unless explicitly requested or objectively necessary?
 
 ### State
 
@@ -1257,16 +1304,17 @@ For UI/content remediation, a final handoff should not report only:
 
 > PASS
 
-It should include enough actual rendered evidence to sanity-check the result.
+It should include enough objective evidence to verify the changed contract without replacing Owner visual
+judgment.
 
-For the affected deterministic cases, provide only the Owner-First policy's default rendered evidence unless an objective risk justifies more. As appropriate, provide:
+As appropriate, provide:
 
-- exact rendered heading/summary sequence;
+- exact authored or emitted heading/summary sequence;
 - changed modal explanation;
 - changed error/empty-state text;
 - active focus/view;
 - key DOM assertion;
-- representative screenshot/crop path;
+- browser evidence only when justified by objective changed risk;
 - exact expected vs actual for any remaining limitation.
 
 This requirement exists because a test can enforce the wrong contract and still pass.
@@ -1350,7 +1398,7 @@ Use this before implementation handoff.
 
 ## Step 0 — What is the cheapest reliable evidence?
 
-Before selecting a rendered/browser run, answer the two Owner-First pre-render questions. Automate objective facts; route subjective/experiential judgment to the Owner; use broader rendered evidence only with stated objective risk or acceptance justification.
+Before selecting a rendered/browser run, answer the two Owner-First pre-browser questions. Automate objective facts; route subjective/experiential judgment to the Owner; use broader rendered evidence only with stated objective risk or acceptance justification.
 
 ## Step 1 — What changed?
 
@@ -1421,13 +1469,13 @@ If required:
 - suite executed;
 - result.
 
-## Self-QA rendered evidence
+## Self-QA objective evidence
 
 - deterministic case:
-- viewport:
-- actual rendered result:
+- verification layer:
+- browser justification, if any:
 - interaction checked:
-- visual/copy verdict:
+- objective result:
 
 ## Manual findings converted to invariants
 
@@ -1452,10 +1500,11 @@ A change is **RobQAPass READY** when:
 - the QA tier was selected based on risk;
 - no unjustified heavy suite was run;
 - required targeted automation is green, or an honestly recorded visible failure has passed the Owner-first manual gate and remains explicit **Automated test: FAIL / known harness debt**;
-- the implementation agent exercised the real rendered changed path;
+- the implementation agent verified the changed contract at the lowest reliable objective layer;
+- any browser automation was justified by objective changed risk that cheaper checks could not reliably protect;
 - changed copy was actually read;
-- changed interactions were actually clicked;
-- relevant responsive state was reviewed;
+- changed interactions were verified at an appropriate deterministic layer;
+- relevant responsive behavior was verified only when it was an objective changed risk;
 - DOM/HTML was inspected where needed;
 - modal/popup value was reviewed where relevant;
 - known manual defect classes have regressions;
@@ -1476,22 +1525,24 @@ A change is **RobQAPass PASS** when:
 
 Do not claim RobQAPass READY if any of these are true:
 
-- the agent ran only source/unit tests for a visible UI change;
-- the agent did not open the changed rendered product;
-- a changed modal was never opened;
-- a changed navigation target was not actually reached;
-- a changed responsive surface was never viewed at a relevant narrow width;
+- the selected verification layer cannot reliably protect the objective changed behavior;
+- browser automation ran without a named objective changed risk that cheaper checks could not protect;
+- screenshots, visual baselines, animation-fidelity waits, or viewport matrices ran without an explicit
+  Owner request or objective acceptance justification;
+- a changed modal, navigation, responsive, or interaction contract required browser verification but the
+  focused browser case was not exercised;
 - an interaction materially depends on pointer travel, rendered geometry, timing, hover ownership, or
   focus modality, but QA evidence relies only on synthetic events, direct DOM interaction, target
   teleportation, or equivalent non-human traversal;
-- an automated visual rule passes but obvious visible misalignment remains;
+- the Owner reports obvious visible misalignment and the finding remains unresolved or undisclosed;
 - the same copy appears in parent/child hierarchy without intentional value;
 - a popup/detail view repeats the launcher content without adding value;
 - a recovery/refinement action can broaden, loop, or strand the user;
 - a known environment failure is being reported as a product-content failure;
 - a heavy suite was run without a risk-based reason;
 - the agent asks the owner to manually verify deterministic facts the machine can prove;
-- the agent spends material compute diagnosing an ambiguous, cheaply Owner-verifiable visible automation failure before offering the bounded Owner check;
+- the agent retries or spends material compute diagnosing an unrelated or ambiguous harness failure after
+  the one-attempt causal check found no direct link to the current change;
 - the owner is asked to "test all 37" for a narrow presentation change;
 - the agent creates a new audit/research/certification phase instead of using existing machinery;
 - a prior owner finding was patched only as one string/identity/card without considering the defect class;
@@ -1501,15 +1552,15 @@ Do not claim RobQAPass READY if any of these are true:
 
 # 26. House Rules Derived From Rob's QA Style
 
-1. **Rendered behavior outranks green test theater.**
+1. **Evidence from the lowest reliable product layer outranks green test theater.**
 2. **A technically valid result can still be a bad product result.**
 3. **Read the text. Do not merely assert that text exists.**
-4. **Click what the user clicks.**
+4. **Verify what the user triggers at the lowest reliable layer; click in a browser when real interaction is material.**
 5. **A destination is not correct until the intended content is visible.**
 6. **A modal must justify the click.**
 7. **Geometry and optical appearance are separate tests.**
 8. **Zoom exposes polish defects that normal viewing can hide.**
-9. **Use DOM/XPath/HTML inspection to prove what the browser actually rendered.**
+9. **When browser verification is justified, use DOM/XPath/HTML inspection to prove objective behavior.**
 10. **Expected vs actual must describe user-visible behavior, not implementation intent.**
 11. **Raw owner notes are valid evidence even when they are informal.**
 12. **Owner example wording communicates intent unless explicitly locked.**
@@ -1529,7 +1580,14 @@ Do not claim RobQAPass READY if any of these are true:
 
 When repository instructions need a short pointer instead of this full document, use:
 
-> Apply `RobQAPass.md`. Classify the change by risk before selecting tests. Use the smallest deterministic QA set that protects the changed behavior. Apply the **Owner-First Visual Verification Policy**: automate objective DOM/state/accessibility/geometry facts; use one representative desktop sanity render by default and add mobile only for direct responsive risk; send visual/experiential judgment to the Owner; and, for an ambiguous cheaply reproducible visible automation failure, give the Owner a bounded manual check before material diagnostics. Record Owner Manual PASS separately from any automated FAIL / known harness debt. Do not run exhaustive engine/journey/synthetic/mutation/recovery suites for presentation-only changes. Convert each real manual finding into the narrowest systemic regression invariant and provide only the smallest deterministic owner-review cases.
+> Apply `RobQAPass.md`. OWNER-VISUAL MODE is the default: the Owner owns subjective visual QA and Codex
+> owns objective engineering verification. Select the lowest reliable deterministic layer first; use
+> focused browser automation only for an objective changed risk that cannot reasonably be protected more
+> cheaply below the browser. Screenshot, visual-regression, animation-fidelity, and broad viewport evidence
+> are opt-in. After one reasonable causal check, disclose unrelated or ambiguous harness failures as known
+> or suspected debt, do not retry them, and continue to Owner Review when directly relevant verification is
+> green. Historical test lists do not create a run obligation. Broad or exhaustive suites require a current
+> concrete changed-risk justification.
 
 ---
 

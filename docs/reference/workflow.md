@@ -24,11 +24,19 @@ For non-trivial work:
 3. Use the repo-local [RobDev skill](../../.agents/skills/robdev/SKILL.md) and its [usage guide](../../.agents/skills/robdev/robdev.md), then apply the frozen [RobDevPass authority](../dev/RobDevPass.md).
 4. Implement the scoped change.
 5. Use the repo-local [RobQA skill](../../.agents/skills/robqa/SKILL.md) and its [usage guide](../../.agents/skills/robqa/robqa.md), then apply the frozen [RobQAPass authority](../qa/RobQAPass.md) before selecting tests.
-6. Run the narrowest risk-proportional checks, including rendered-product self-QA for visible UI changes.
+6. Run the narrowest risk-proportional objective checks. Under OWNER-VISUAL MODE, add focused browser automation only when objective changed behavior cannot reasonably be protected below the browser; defer subjective visual review to the Owner.
 7. Update affected docs when behavior, data contracts, workflows, or public surfaces change.
 8. Create or update a handoff in `docs/handoffs/` and update `docs/handoffs/HANDOFF_INDEX.md`.
 
-Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default, but run the full validation required by any task-specific workflow, prompt, card, gate, or governance record.
+Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default. Broaden validation only when the current Owner request explicitly asks for it or a current stricter protected workflow requires it for the changed risk.
+
+The normal verification sequence is:
+
+`IMPLEMENT -> FOCUSED OBJECTIVE VERIFICATION -> OPTIONAL RISK-JUSTIFIED BROWSER VERIFICATION -> OWNER VISUAL REVIEW -> SHIP`
+
+The current Owner request and canonical governance determine scope. Historical cards, handoffs, test catalogs,
+or phrases such as "all existing tests," "no skipped tests," and "full validation" do not authorize
+indiscriminate historical-harness execution. A browser is an engineering tool, not a ritual.
 
 The operating sequence is: **Request -> repo-local RobDev skill / RobDevPass -> implementation -> repo-local RobQA skill / RobQAPass -> owner judgment -> integration.** The skills explain and invoke the workflow; the frozen pass documents remain authoritative. Both defer to stricter project-specific authorities.
 
@@ -107,8 +115,8 @@ Resume valid work at the correct point. Do not discard, duplicate, reset, clean,
 1. Rehydrate the card and repository state above.
 2. Apply RobDev to the accepted card scope. Inspect the final diff, remove accidental artifacts, run card-required developer verification, update required documentation and handoff records, and leave only intended candidate changes.
 3. Commit a stable Owner Review candidate on the feature branch. Pushing the branch or opening a PR is optional at this stage unless remote infrastructure or collaboration is concretely needed.
-4. Apply RobQA independently to that exact candidate commit. The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, regression surfaces, and unrelated changes rather than trusting the RobDev summary.
-5. If RobQA is `BLOCKED`, record concrete findings and return the same card and branch to RobDev. Resolve ordinary bugs, missed acceptance criteria, lint/test failures, and bounded implementation mistakes automatically; commit the correction and rerun proportionate QA until `PASS` or a genuine Owner decision is required.
+4. Apply RobQA independently to that exact candidate commit. The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, and plausible regression surfaces rather than trusting the RobDev summary. Rerun only the risk-proportional set selected for the actual candidate; do not rerun every historical suite automatically.
+5. If RobQA is `BLOCKED`, record concrete findings and return the same card and branch to RobDev. Resolve ordinary bugs, missed acceptance criteria, directly relevant lint/test failures, and bounded implementation mistakes automatically; commit the correction and rerun proportionate QA until `PASS` or a genuine Owner decision is required. After one reasonable causal check, unrelated or ambiguous browser failures are disclosed as known or suspected harness debt and are not repeatedly retried or repaired inside the feature task.
 6. Bind final RobQA `PASS` to the exact reviewed candidate SHA in a durable evidence artifact and, when a PR exists, in the PR body. Any later material change makes QA `PENDING`/stale. Documentation-only follow-up uses the existing RobQA risk rules; never imply that materially changed code remains approved.
 7. Stop with a concise Owner handoff: card, feature branch, exact candidate SHA, RobQA status and evidence, the shortest manual inspection, and non-blocking limitations. A PR is not required for this Owner Review gate.
 

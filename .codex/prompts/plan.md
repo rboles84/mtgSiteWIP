@@ -34,7 +34,8 @@ Create a full implementation plan for the requested Vox Mana enhancement.
 - Identify risks and guardrails.
 - Use the repo-local `robqa` skill and `robqa.md`, with `docs/qa/RobQAPass.md` remaining authoritative: classify the QA tier, name changed behavior and protected contracts, then identify the smallest risk-proportional tests needed.
 - Record expensive suites intentionally skipped and require concrete changed-risk justification for any CPU-heavy or exhaustive suite.
-- For visible UI changes, plan rendered-product self-QA and the shortest deterministic owner review.
+- Apply OWNER-VISUAL MODE by default: identify what changed, the realistic risk, the cheapest reliable verification layer, whether focused browser automation is objectively necessary, and which visual judgment is deferred to the Owner.
+- Do not automatically plan screenshots, browser walkthroughs, visual self-QA, animation-fidelity waits, or exhaustive responsive testing merely because UI or CSS changes.
 - Preserve existing architecture and naming.
 - Preserve Vox Mana tone and Commander-first direction.
 - Do not invent lore or commander facts.
