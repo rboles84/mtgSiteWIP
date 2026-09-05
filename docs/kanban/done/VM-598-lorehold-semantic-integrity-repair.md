@@ -1,7 +1,7 @@
 # VM-598 — Lorehold Semantic Integrity Repair
 
 ID: VM-598  
-Status: Done — Owner Accepted; later SIRF successor validation covers current state  
+Status: Done — Owner Accepted; later SIRF successor validation covers current state
 Type: Source-owned semantic and Commander-presentation repair  
 Area: Lorehold dossier / precon source / generated catalogs  
 Priority: Launch-critical correctness
