@@ -39,8 +39,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-547 - Post-Reading Commander Shortlist Bridge](in-progress/VM-547-post-reading-commander-shortlist-bridge.md) - Owner Review at exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`; the cache-atomic v5 render graph now proves matching catalog/profile provenance and canonical query execution for all 37, with the eight Owner witnesses green. No push or merge before Owner acceptance.
-
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.
@@ -55,6 +53,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - reviewer protocol is ready, but acceptance requires at least five outside reviewer answers and a decision summary.
 
 ## Done
+
+- [VM-547 - Post-Reading Commander Shortlist Bridge](done/VM-547-post-reading-commander-shortlist-bridge.md) - Done — Owner Accepted exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`; PR #25 passed required deterministic validation and squash-merged as `2b4f1f322adcc25055330038b0f6c252cbe450f4`. Runtime/catalog provenance remains `vm547-runtime-v5` / `e19b05f2…`; the subjective visual suite was intentionally not rerun.
 
 - [VM-627 — Owner-Visual Governance Repair](done/VM-627-owner-visual-governance-repair.md) — Done — Owner Approved at exact material candidate `f4cad2b1`; evidence head `11679cd9` passed QA-0 and PR #24 passed CI before squash merge as `a9dcff93`. OWNER-VISUAL MODE is now the active default; no harness-refactor card was created.
 

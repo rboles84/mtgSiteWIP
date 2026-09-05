@@ -2,7 +2,7 @@
 
 ID: VM-547
 Title: Post-Reading Commander Shortlist Bridge
-Status: Owner Review — replacement exact candidate has RobQA PASS; no push or merge
+Status: Done — Owner Accepted and integrated through PR #25
 Type: Enhancement / Product Bridge / Semantic Projection
 Area: Archscry, Maze, Commander discovery
 Priority: high
@@ -134,3 +134,16 @@ Investigation confirmed that the browser graph was only partially versioned: the
 - Skipped: `npm run test:maze-onboarding-browser` was not rerun at the Owner's direction after the previously disclosed moving visual timeouts; it is not counted as a pass.
 - The 37 authored semantic profiles and all projection evidence are unchanged from the accepted-in-principle semantic candidate.
 - Owner must choose `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE` before any push, PR, merge, or `main` integration.
+
+## Owner Acceptance and Integration — 2026-09-04
+
+- Owner decision: `ACCEPT` for exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`.
+- Exact-candidate QA evidence commit: `0a67200c307c33f9680d7843c965b341b29ba6e8`.
+- Final route/provenance documentation commit: `cdb97f9b22ca62607e151caca0f7c1bb7e8e387e`.
+- Final PR head: `11547dbabe02292ae7534478dc3904a55bb5f5de`; its only changes after the accepted material candidate were evidence documentation and reconciliation with already-merged VM-627 governance documentation.
+- Pull request: [#25](https://github.com/rboles84/voxmana.io/pull/25).
+- Required GitHub check: `Deterministic Validation` — PASS on the exact PR head.
+- Squash merge on `main`: `2b4f1f322adcc25055330038b0f6c252cbe450f4`.
+- Runtime/catalog provenance remains `vm547-runtime-v5` / `e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db`.
+- Skipped test: `npm run test:maze-onboarding-browser` was intentionally not rerun under OWNER-VISUAL MODE and is not counted as a pass.
+- No post-acceptance product implementation changed. The remote feature branch was automatically removed after merge, and the equal-tree local feature branch was deleted during closeout.

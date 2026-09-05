@@ -1,12 +1,14 @@
 # VM-547 Owner Review — canonical browser-runtime revision
 
-Status: Owner Review — exact-candidate VM-547 RobQA PASS; no push or merge
+Status: Owner Accepted / Integrated — exact-candidate RobQA PASS preserved
 
 Exact material candidate: `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`
 
 Generated catalog runtime revision: `vm547-runtime-v5`
 
 Generated catalog fingerprint: `e19b05f2beee32ce898898181ac5a69bd53b36698e40745a83ea05d69a0b45db`
+
+Integration provenance: PR [#25](https://github.com/rboles84/voxmana.io/pull/25), validated head `11547dbabe02292ae7534478dc3904a55bb5f5de`, squash merge `2b4f1f322adcc25055330038b0f6c252cbe450f4`
 
 The accepted architecture and flow remain intact. Archscry still presents one compact `Maze Discovery Paths` handoff. The user chooses a broad commander pool, mechanical support, story vocabulary, or outside-color stretch; Maze then restores the dossier name and approved reading, explains the active lane, exposes identity-specific semantic threads, leads with a plain-English interpretation, keeps operator syntax collapsed, shows the actual cards, and returns to the same dossier and section.
 
@@ -164,4 +166,8 @@ Shortest representative click order:
 7. Five-Color / WUBRG — explicit unavailable outside-color boundary and no fabricated fourth action.
 8. Golgari — compare directly with Witherbloom to verify equal colors do not imply equal discovery semantics.
 
-Owner decision requested: `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`.
+## Owner disposition and integration
+
+The Owner chose `ACCEPT` for exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`. Evidence commit `0a67200c307c33f9680d7843c965b341b29ba6e8` and route-clarification commit `cdb97f9b22ca62607e151caca0f7c1bb7e8e387e` changed documentation only. Reconciliation head `11547dbabe02292ae7534478dc3904a55bb5f5de` preserved the accepted product bytes, passed GitHub's required `Deterministic Validation`, and squash-merged through PR #25 as `2b4f1f322adcc25055330038b0f6c252cbe450f4`.
+
+Skipped test remains explicit: `npm run test:maze-onboarding-browser` was not rerun under OWNER-VISUAL MODE and is not counted as a pass. No subjective visual suite was rerun during acceptance or integration.
