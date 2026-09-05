@@ -39,6 +39,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-631 — Git-Authoritative Final Change Reporting](in-progress/VM-631-git-authoritative-final-change-reporting.md) - Owner Review candidate: Git-derived material counts/path sets, explicit evidence-delta labeling, and a deterministic 14-vs-15 regression guard.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.

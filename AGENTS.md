@@ -143,6 +143,30 @@ Also update:
 
 `docs/handoffs/HANDOFF_INDEX.md`
 
+## Final Git Reporting Contract
+
+For every implementation task with Git changes, Git is the authority for final changed-file accounting.
+Before the final response, identify the task baseline and derive the material path list and count from
+`git diff --name-status --find-renames <task-baseline>..<material-candidate>` (or baseline to final `HEAD`
+when there is no separate material candidate). Compute the count from that output. Do not substitute
+remembered edits, opened files, patch history, tool/UI edit totals, or a hand-authored list.
+
+When commits follow the material candidate, report three scopes distinctly:
+
+- **Material change set:** task baseline to material candidate; this is the primary Files changed list.
+- **Evidence delta:** material candidate to evidence head; label it explicitly as evidence-only and never
+  present it as the whole task diff.
+- **Final branch delta:** task baseline to current `HEAD`; use it as the total-branch sanity check.
+
+The final report must name the baseline, material candidate when applicable, current evidence head/`HEAD`,
+Git-derived material count and paths, and Git-confirmed worktree state. Report push and merge state from Git
+or the repository host rather than assumption. If another edit counter disagrees with Git, Git wins and the
+material discrepancy must be disclosed. Keep trivial read-only or no-change work proportional.
+
+Use `node scripts/validate/validate-change-report.mjs --baseline=<sha> --candidate=<sha> --report=<path>
+[--evidence-head=<sha>]` for a Markdown handoff/report that states an explicit count or enumerates changed
+paths. The validator must pass before such a report is treated as authoritative.
+
 ## Agent Roles
 
 ### Planning Architect

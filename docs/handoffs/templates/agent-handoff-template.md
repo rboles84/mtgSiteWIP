@@ -15,7 +15,27 @@ Status:
 
 ## Files Changed
 
-- 
+- List exact Git-derived material paths as one backticked path per bullet.
+
+## Material Candidate
+
+- Baseline: `<task-baseline-sha>`
+- Candidate: `<material-candidate-sha>`
+- Changed paths: `<Git-derived-count>`
+
+When an evidence head exists, add these two sections and validate them with the shared change-report
+validator. Omit them when the candidate is the final `HEAD`.
+
+## Evidence Delta
+
+- Material candidate: `<material-candidate-sha>`
+- Evidence head: `<evidence-head-sha>`
+- Additional evidence-only paths: `<Git-derived-count>`
+- This is not the full task diff.
+
+## Evidence-Only Paths
+
+- List exact Git-derived evidence-only paths as one backticked path per bullet.
 
 ## What Changed
 
