@@ -145,11 +145,13 @@ This revision does not redesign the Archscry hero, dossier typography, unrelated
 
 Start command already executed: `python -m http.server 4177 --bind 127.0.0.1`
 
-Archscry: `http://127.0.0.1:4177/archscry/?explore=witherbloom&panel=maze-discovery&vm547=vm547r5#maze-discovery-paths`
+Canonical Archscry Owner Review: `http://127.0.0.1:4177/archscry/?explore=witherbloom&panel=maze-discovery#maze-discovery-paths`
+
+Optional cache/provenance diagnostic: `http://127.0.0.1:4177/archscry/?explore=witherbloom&panel=maze-discovery&vm547=vm547r5#maze-discovery-paths`
 
 Maze direct access: `http://127.0.0.1:4177/maze/` (start in Archscry for dossier context)
 
-Browser/cache instructions: None. The changed entry modules have a new VM-547 revision key, and the generated catalog is fetched with `no-store`.
+Browser/cache instructions: None. The canonical URL is the production-shaped review route. The versioned URL is optional evidence that the v5 graph is loaded, not a production requirement; the entry modules already carry the VM-547 revision key and the generated catalog is fetched with `no-store`.
 
 Shortest representative click order:
 

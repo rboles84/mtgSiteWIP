@@ -121,6 +121,8 @@ Witherbloom and Golgari share `bg` identity but resolve different profile IDs, t
 ## Follow-up recommendations
 
 - Owner reviews only the short representative click order in the QA report and chooses `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`.
+- Use the normal canonical Archscry route for Owner Review: `http://127.0.0.1:4177/archscry/?explore=witherbloom&panel=maze-discovery#maze-discovery-paths`.
+- Use `http://127.0.0.1:4177/archscry/?explore=witherbloom&panel=maze-discovery&vm547=vm547r5#maze-discovery-paths` only as optional cache/provenance evidence, not as a production requirement.
 - If accepted, use `ACCEPT VM-547` so integration remains bound to exact material candidate `dd82bc3549b07c074fe0ee55f8c6b192bf55d1fa`.
 
 Next suggested agent: Owner review; Codex integration only after explicit acceptance.
