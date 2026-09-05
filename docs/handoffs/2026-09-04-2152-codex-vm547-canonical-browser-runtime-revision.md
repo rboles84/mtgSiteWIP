@@ -6,7 +6,7 @@ Task requested: Apply the Owner's second `REVISE` decision without redesigning t
 
 Related card: `docs/kanban/in-progress/VM-547-post-reading-commander-shortlist-bridge.md`
 
-Exact material candidate: `200d80afaf02a987dc09e82a224daee058f61456`
+Exact material candidate: `ded6c04b32c842fcd2e42ea3695ac4fad124a975`
 
 Branch: `codex/vm-547-archscry-maze-discovery`
 
@@ -25,7 +25,7 @@ Owner state: Owner Review; no push, PR, merge, or `main` change
 
 ## Files changed
 
-- Cache/version ownership: `archscry/index.html`, `maze/index.html`, `assets/js/archscry/index.js`, `assets/js/archscry/runtime/dossier-view.js`, `assets/js/archscry/archscry-presentation.js`, `assets/js/maze/research-init.js`, `assets/js/maze/maze-query-core.js`
+- Cache/version ownership: `archscry/index.html`, `maze/index.html`, the Archscry entry/boot/actions/data/dossier/Identity Atlas/interview/questionnaire/presentation graph, and the Maze handoff/init/query graph
 - Canonical handoff precedence: `assets/js/maze/maze-handoff.js`, `assets/js/maze/research-init.js`
 - Regression coverage: `scripts/validate-frontend-html.mjs`, `scripts/vm547-discovery-browser.mjs`, `tests/maze/maze-search-tests.js`
 - Earlier diagnostic commit in the same revision cycle: catalog producer/schema/runtime metadata, Archscry/Maze nonvisual provenance metadata, VM-547 profile tests, card/board state
@@ -33,8 +33,8 @@ Owner state: Owner Review; no push, PR, merge, or `main` change
 
 ## What changed
 
-- Added deterministic catalog runtime revision `vm547-runtime-v3` and SHA-256 fingerprint `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f` before changing ownership behavior.
-- Bound the complete Archscry and Maze nested-module chains to cache revision `vm547r3`; static validation now fails if a nested VM-547 import drifts.
+- Added deterministic catalog runtime revision `vm547-runtime-v4` and SHA-256 fingerprint `39c0d07ef129cadcdb27616baec7462ba8a4d240e6b9035b46ff087177dacdd7` before changing ownership behavior.
+- Bound the complete Archscry render graph—including alternate Identity Atlas, boot, actions, interview, and questionnaire dossier invocations—and the Maze nested-module chain to cache revision `vm547r4`; static validation now fails if any entry or nested VM-547 import drifts.
 - Exposed catalog/profile provenance as nonvisual DOM and URL metadata in Archscry and Maze.
 - Made every Archscry route that claims a canonical `fit` fail closed unless Maze resolves that exact profile and path from the loaded catalog.
 - Rebuilt canonical Maze handoff state from the loaded profile/path and gave it precedence over stale incoming `q`, `operatorQuery`, and `plainReadingQuery` values.
@@ -44,7 +44,7 @@ Owner state: Owner Review; no push, PR, merge, or `main` change
 
 ## Why it changed
 
-The accepted semantic catalog was correct, but the candidate delivery chain was not atomic. Archscry's versioned entry imported the catalog-loading `runtime/data.js` without a version. A browser could therefore run the new dossier renderer and WUBRG boundary with an old data loader that supplied no canonical catalog, invoking the legacy fallback. Maze also used the incoming URL query before canonical rehydration. Together those defects exactly reproduce the Owner's mixed new/legacy observation.
+The accepted semantic catalog was correct, but the candidate delivery chain was not atomic. Archscry's versioned entry imported the catalog-loading `runtime/data.js` without a version, Maze used the incoming URL query before canonical rehydration, and alternate Archscry paths such as the public Identity Atlas could invoke `dossier-view.js` through the older `vm625` cache key. The persistent Owner browser reproduced the third gap after the first repair: v3 document provenance coexisted with a rendered discovery section lacking canonical provenance. Together those defects exactly reproduce the Owner's mixed new/legacy observation.
 
 ## RobDev compact packet
 
@@ -52,8 +52,8 @@ The accepted semantic catalog was correct, but the candidate delivery chain was 
 - Producer/consumers: deterministic profile builder produces one catalog; Archscry loads it for compact links; Maze loads it for rehydration, semantic threads, inspection, and execution.
 - Changed behavior: catalog/module provenance, canonical-route fail-closed behavior, canonical handoff precedence, and public-route regression coverage.
 - Protected behavior: all 37 meanings/projections/fixtures, compact Archscry layout, rich Maze continuation, WUBRG boundary, result ranking, parser/compiler, Placement, persistence/history, unrelated routes, and visual atmosphere.
-- Risks: cached nested-module drift and URL payload precedence were the concrete risks; both now have deterministic guards. Legacy callers without `fit` retain compatibility.
-- Smallest complete implementation: version the full affected import graph, rehydrate one authoritative path in Maze, fail canonical claims closed, and test the actual click route.
+- Risks: cached entry, nested-module, and alternate-render-path drift plus URL payload precedence were the concrete risks; all now have deterministic guards. Legacy callers without `fit` retain compatibility.
+- Smallest complete implementation: version the full affected render/import graph, rehydrate one authoritative path in Maze, fail canonical claims closed, and test the actual click route.
 - Non-goals: no semantic re-authoring, UI redesign, popularity ranking, runtime AI, result-card work, or unrelated cache campaign.
 - Stop condition: exact candidate passes focused semantic, public-route, existing regression, static, responsive, accessibility, provenance, stale-payload, and return-history gates, then waits for Owner.
 
@@ -84,7 +84,7 @@ Commands run on exact candidate:
 
 ## Actual required browser witnesses
 
-All eight loaded runtime `vm547-runtime-v3` and fingerprint `93f67fc5147fd558af7eadd143d6af89f3df4614cbb0831351c3baebec20ce0f` from both routes. Exact labels, interpretations, and queries are recorded in `docs/qa/2026-09-04-vm547-owner-review.md`.
+All eight loaded runtime `vm547-runtime-v4` and fingerprint `39c0d07ef129cadcdb27616baec7462ba8a4d240e6b9035b46ff087177dacdd7` from both routes. Exact labels, interpretations, and queries are recorded in `docs/qa/2026-09-04-vm547-owner-review.md`.
 
 - Witherbloom / BG → `WITHERBLOOM` → `Pests moving life into value`; no legacy death/mortality query.
 - Azorius / WU → `WU` → `Taxes or visible restrictions`; no identity-only support query.
@@ -121,7 +121,6 @@ Witherbloom and Golgari share `bg` identity but resolve different profile IDs, t
 ## Follow-up recommendations
 
 - Owner reviews only the short representative click order in the QA report and chooses `ACCEPT`, `ACCEPT WITH SMALL FOLLOW-UP`, or `REVISE`.
-- If accepted, use `ACCEPT VM-547` so integration remains bound to exact material candidate `200d80afaf02a987dc09e82a224daee058f61456`.
+- If accepted, use `ACCEPT VM-547` so integration remains bound to exact material candidate `ded6c04b32c842fcd2e42ea3695ac4fad124a975`.
 
 Next suggested agent: Owner review; Codex integration only after explicit acceptance.
-
