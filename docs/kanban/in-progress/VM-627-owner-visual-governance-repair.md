@@ -7,6 +7,12 @@
 - Priority: High
 - Created: 2026-09-04
 
+## Owner Review Candidate
+
+- Material candidate: `f4cad2b1`
+- RobQA: QA-0 PASS against that exact candidate
+- Remaining gate: Owner approval of the governance boundary and wording
+
 ## Summary
 
 Make OWNER-VISUAL MODE the default Vox Mana operating assumption: Codex owns objective engineering verification, while the Owner owns final subjective visual judgment. Browser automation remains available only when it materially verifies changed objective behavior that cannot be protected more cheaply below the browser layer.

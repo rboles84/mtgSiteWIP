@@ -87,7 +87,8 @@ CSS work into mandatory browser walkthroughs, screenshots, viewport passes, or r
 - Objective evidence: targeted policy assertions, contradiction scan, link validation, scoped diff review, and whitespace check.
 - Browser justification: none; no runtime behavior changed.
 - Remaining Owner judgment: approve the responsibility boundary and wording.
-- Status: READY for Owner review; exact-candidate QA-0 verification is recorded after the material commit.
+- Material candidate: `f4cad2b1`
+- Status: QA-0 PASS against exact material candidate `f4cad2b1`; READY for Owner review.
 
 ## Not Touched
 
