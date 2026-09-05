@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-627 — Owner-Visual Governance Repair](in-progress/VM-627-owner-visual-governance-repair.md) — Owner Review; QA-0 candidate checks pass. Establishes focused objective verification, risk-justified browser use, Owner-owned visual judgment, and a strict stop rule for unrelated or ambiguous harness failures.
+
 - [VM-016 - Archscry Local Reading Return](in-progress/VM-016-archscry-profile-return-qr.md) - replacing Google-required profile saving with durable device-local return; QR and cross-device links remain follow-up scope.
 
 - [VM-598 — Lorehold Semantic Integrity Repair](in-progress/VM-598-lorehold-semantic-integrity-repair.md) - Owner Review Ready; approved Lorehold boundaries now govern dossier composition, Native precon provenance, and focused regression coverage. Placement and the prior CRIT-001 certification record remain protected.

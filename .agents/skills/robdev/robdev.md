@@ -105,7 +105,10 @@ Surface the exact blocker and required authority. Do not compensate with larger 
 
 ## 11. Development Validation
 
-Inspect the actual diff and exercise the real changed path. Run focused static, schema, parser, unit, integration, or rendered checks that protect the implemented behavior.
+Inspect the actual diff and verify the real changed contract at the lowest reliable objective layer. Run
+focused static, schema, parser, unit, integration, DOM, or browser checks that protect the implemented
+behavior. Under OWNER-VISUAL MODE, browser checks are optional and must be justified by objective changed
+risk; visual judgment, screenshots, animation feel, and responsive appearance belong to the Owner.
 
 Do not run expensive suites ceremonially. RobQA owns final tier and suite selection.
 
@@ -124,7 +127,10 @@ Provide:
 - untouched areas and non-goals;
 - limitations and unresolved owner judgment.
 
-For visible work, state which acceptance criteria are machine-verifiable and which require Owner visual/experiential judgment. Defer rendered-QA scope and any user-visible automation failure to the canonical [RobQA Owner-First Visual Verification Policy](../../../docs/qa/RobQAPass.md#owner-first-visual-verification-policy).
+For visible work, state which acceptance criteria are machine-verifiable and which require Owner
+visual/experiential judgment. Apply the default OWNER-VISUAL MODE, browser-justification rule, and strict
+unrelated/ambiguous harness-failure stop rule in the canonical [RobQA Owner-First Visual Verification
+Policy](../../../docs/qa/RobQAPass.md#owner-first-visual-verification-policy).
 
 ## 13. Completion
 
