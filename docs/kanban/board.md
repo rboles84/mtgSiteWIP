@@ -56,6 +56,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-627 — Owner-Visual Governance Repair](done/VM-627-owner-visual-governance-repair.md) — Done — Owner Approved at exact material candidate `f4cad2b1`; evidence head `11679cd9` passed QA-0 and PR #24 passed CI before squash merge as `a9dcff93`. OWNER-VISUAL MODE is now the active default; no harness-refactor card was created.
+
 - [VM-625 — Public Identity Atlas Explorer](done/VM-625-public-identity-atlas-explorer.md) - Done — Owner Accepted / Integrated at exact product candidate `ab1667b18a92b7e3efff4bbc2fa3aeee28bdd785`; PR #23 passed required CI and squash-merged as `3ec656482669edf61ab462a6499db5745c43520b` with no post-acceptance product-byte change. Remote branch cleanup completed; the local pointer is retained only to protect unrelated dirty cursor-glow work in the original worktree.
 
 - [VM-626 — Standard Branch, PR, QA, Owner, and Merge Workflow](done/VM-626-standard-branch-pr-qa-owner-merge-workflow.md) - Done — Owner Accepted amendment at exact material candidate `29e3e4c`; post-ACCEPT PR #22 passed integration checks and squash-merged as `3cd143c`. Repeated exact-candidate Owner iteration now precedes mandatory PR integration; VM-625 and deferred `main` protection remain untouched.
