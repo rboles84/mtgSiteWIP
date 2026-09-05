@@ -1,16 +1,17 @@
-# VM-016 - Archscry Profile Return QR
+# VM-016 - Archscry Local Reading Return
 
 ID: VM-016
-Title: Archscry Profile Return QR
-Status: in progress
+Title: Archscry Local Reading Return
+Status: Done - Owner Accepted / shipped local-device slice
 Type: Enhancement
 Area: Archscry, Maze
 Priority: medium
 Created: 2026-05-15
+Completed: 2026-09-05
 
 ## Summary
 
-Add a profile-return loop for completed Archscry readings. The printed LGS QR stays a public, generic entry into Archscry, while a completed reading can later generate a personal return link or QR so the player can revisit their dossier, Maze handoff paths, saved commander ideas, and future profile refinements.
+The accepted VM-016 slice gives a completed Archscry reading a durable same-browser/device return path. The normalized reading restores directly to its dossier, survives refresh and retake, preserves the Maze handoff, and can be explicitly forgotten. Portable QR and cross-device recovery were not required for this slice and now belong to [VM-628](../backlog/VM-628-archscry-portable-reading-recovery.md).
 
 ## Active Slice — 2026-09-02
 
@@ -35,7 +36,19 @@ Replace the active Google/Supabase profile-save journey with one local-first rea
 - The device-local browser path proves complete reading, refresh-to-dossier, no Google-save copy, desktop retake preservation, and desktop forget/reset behavior.
 - Owner completed the visible Archscry check and authorized this local-return slice for release on 2026-09-03. QR and cross-device recovery remain follow-up scope.
 
-## Problem
+## Closeout
+
+- Owner decision: **CLOSE + NEW FOLLOW-UP**.
+- The accepted device-local persistence and profile-return behavior is complete and shipped on current `main`.
+- QR and cross-device portability were explicitly deferred from the accepted VM-016 slice; they do not block completion.
+- Portable recovery is preserved without an architecture decision in [VM-628 — Archscry Portable Reading Recovery](../backlog/VM-628-archscry-portable-reading-recovery.md).
+- No QR, account, cloud-profile, authentication, semantic, Placement, or runtime work was performed during this lifecycle closeout.
+
+## Historical Proposal Context
+
+The sections below preserve VM-016's original broader proposal. They are historical design context, not unfinished VM-016 acceptance scope. Portable QR/cross-device work has moved to VM-628.
+
+### Problem
 
 The current LGS QR concept is strong as an acquisition tool, but it is mostly one-time use. A player can scan the card, take the reading, and leave without an easy way to return to their result. Vox Mana needs a lightweight persistence loop so players can come back to their Commander identity and continue exploring.
 
@@ -131,7 +144,7 @@ Phase 2: Anonymous persistent profile
 - `profile_cleared`
 - `maze_opened_from_profile`
 
-## Acceptance Criteria
+## Historical Acceptance Criteria (Superseded For VM-016 Closeout)
 
 Public QR flow:
 
@@ -185,7 +198,7 @@ Test:
 - private or incognito browser behavior
 - multiple readings saved or replaced
 
-## Open Questions
+## Historical Open Questions
 
 - Should the MVP support only one saved profile or multiple saved readings?
 - Should the return QR be printable as a Vox Mana profile card?

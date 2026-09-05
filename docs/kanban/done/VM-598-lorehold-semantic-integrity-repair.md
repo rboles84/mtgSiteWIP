@@ -1,10 +1,11 @@
 # VM-598 — Lorehold Semantic Integrity Repair
 
 ID: VM-598  
-Status: Closed — Owner accepted for local SIRF baseline reconciliation; no CRIT-001 recertification or push  
+Status: Done — Owner Accepted; later SIRF successor validation covers current state  
 Type: Source-owned semantic and Commander-presentation repair  
 Area: Lorehold dossier / precon source / generated catalogs  
 Priority: Launch-critical correctness
+Completed: 2026-09-05
 
 ## Summary
 
@@ -28,7 +29,16 @@ Apply the owner-approved Lorehold Semantic Audit: retain Archaeomancy and the Re
 - [x] Test the Fit and How This Plays distinguish philosophical tension, broad role, emotional pressure, and table experience while retaining `History fights back`.
 - [x] Focused deterministic test proves source altitude, terminology, Native ordering, and generated catalog integrity.
 - [x] Actual Start Here `Possible directions` composition and What to Look For expose the same three accepted primary lanes; rejected generic lanes do not render.
-- [ ] Owner reviews the real Lorehold dossier; no commit or push is authorized.
+- [x] Later Owner-accepted SIRF validation supersedes the stale card-local review checkbox: Lorehold is an accepted golden in VM-610 and its final source/build/render state passed.
+
+## Closeout
+
+- Owner decision: **CLOSE**.
+- The substantive Lorehold semantic-integrity repair is complete.
+- Later SIRF validation absorbed the repaired state, retained Lorehold as an accepted golden, and confirmed the accepted taxonomy, source/build/render chain, and purposeful section-role overlap.
+- The stale unchecked Owner-review item above is reconciled by that later Owner-accepted successor evidence rather than left as contradictory lifecycle metadata.
+- No additional CRIT-001 semantic recertification is required, and the recovery program is not reopened.
+- This lifecycle reconciliation changes documentation only; certified claims, Placement, and semantic profile content remain unchanged.
 
 ## Files Likely Impacted
 
@@ -44,7 +54,7 @@ Apply the owner-approved Lorehold Semantic Audit: retain Archaeomancy and the Re
 - The frozen VM-595 rescan refuses a dirty dossier-owner population; it must be rerun from a reconciled owner-path baseline.
 - Shared precon fallback process language remains deferred to its shared owner (`assets/js/archscry/dossier/precons.js`), already under concurrent VM-595/SIRF work; VM-598 did not add a Lorehold-only exception.
 
-## Owner-Review Delta Register (pending SIRF; no framework edits)
+## Historical Owner-Review Delta Register (Resolved Through Later SIRF)
 
 - A. `historic` versus `historical` terminology collision.
 - B. Provenance rebinding requires more than an official URL; it does not validate pre-existing prose.
@@ -53,6 +63,6 @@ Apply the owner-approved Lorehold Semantic Audit: retain Archaeomancy and the Re
 - E. Concurrent baseline drift can block global validation and leave only focused controls available.
 - F. Accepted-decision-to-render contract drift: source/catalog assertions can pass while a downstream composer renders an unapproved lane. Future RobQA should compare accepted taxonomy and recommendation contracts directly with rendered sets.
 
-## Stop Condition
+## Historical Stop Condition
 
-Stop at Owner Review. Do not commit, push, recertify CRIT-001, or reopen the accepted Lorehold semantic model without contradictory official evidence.
+The original implementation stopped at Owner Review as required. Later SIRF successor validation completed the evidence chain. Do not recertify CRIT-001 or reopen the accepted Lorehold semantic model without a separately governed defect and contradictory official evidence.

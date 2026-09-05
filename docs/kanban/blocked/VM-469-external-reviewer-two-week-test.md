@@ -2,12 +2,13 @@
 
 ID: VM-469
 Title: External Reviewer Two-Week Test
-Status: Blocked - awaiting external reviewer responses
+Status: Deferred - awaiting real external reviewer evidence
 Type: Product Research / External Review
 Area: Strategy, QA, Demo Readiness
 Priority: Medium
 Created: 2026-07-03
 Blocked: 2026-07-03
+Deferred: 2026-09-05
 
 ## Summary
 
@@ -32,6 +33,14 @@ Created the external reviewer test protocol and findings template, but the accep
 ## Validation
 
 Blocked on external participation. No runtime validation.
+
+## Deferred Disposition
+
+- Owner decision: **DEFER**; this card remains incomplete and stays in `blocked/` because the repository has no separate deferred folder.
+- Missing evidence: at least five genuine external reviewer responses, at least four successful boundary/proof-point explanations, and a recorded decision summary.
+- This is external product validation, not an engineering dependency or release blocker.
+- No reviewers were recruited, no responses were simulated, and no evidence was fabricated during lifecycle cleanup.
+- Before future execution, refresh the protocol against the then-current Vox Mana product so reviewers evaluate the current experience rather than the 2026-07-03 baseline.
 
 ## Related Work
 

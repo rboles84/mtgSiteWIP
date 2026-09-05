@@ -2,11 +2,12 @@
 
 ID: VM-596
 Title: WUBRG Semantic Repair
-Status: Closed — included in local SIRF baseline `ae11c3820c466475f6b181fcf3471ecff21e78cd`; no CRIT-001 recertification or push
+Status: Done — Owner Accepted; later SIRF successor validation covers current state
 Type: Protected semantic provenance and presentation repair
 Area: WUBRG raw profile / Archscry dossier / generated presentation
 Priority: Launch-critical correctness
 Created: 2026-08-29
+Completed: 2026-09-05
 
 ## Summary
 
@@ -50,14 +51,23 @@ Reconcile the completed internal WUBRG Semantic Audit with the owner-supplied ex
 - [x] AC4 — Precon metadata is correct in rendered Precon Starting Points; owner review confirms Turtle Power! renders Leonardo, the Balance and WUBRG products remain exact-color fits.
 - [x] AC5 — Focused source/catalog safeguards and owner-rendered review confirm the accepted source → generation → runtime → UI boundary. The unrelated shared-file lock remains recorded but does not authorize generated-file hand edits.
 
-## Owner Review Readiness
+## Historical Owner Review Readiness
 
 - Risk class: QA-3. The change repairs a certified identity's public semantic model and generated presentation path while deliberately preserving certified claim and Placement behavior.
 - Source/provenance: the external audit is retained in-repo as shaping-only research because its evidence ledger supplied no primary-source locators; certified WUBRG claims and the raw profile remain authoritative.
 - Deterministic result: the new dossier producer validates 37 approved records, copy hashes, raw-source WUBRG exploration locators, explicit Integrator optionality, seven mechanic relationship classes, and catalog freshness.
 - Protected result: eight claim statements, raw Placement, color arrays, routing, aliases, placement eligibility, preview eligibility/order/scores, questions, scoring, Card Signals, and precon support remain unchanged.
 - Rendered result: WUBRG passed direct-review and production replay at desktop and mobile; White, Azorius, Jund, and Colorless rendered without console errors or visible regressions.
-- Owner decision: PASS — owner accepted the final WUBRG review on 2026-08-30. No commit, push, deployment, certification, or integration has been authorized. The prior exact certified candidate remains the last certified state until a separately authorized exact-SHA workflow.
+- Owner decision at that stage: PASS — owner accepted the final WUBRG review on 2026-08-30. The then-current candidate state remained uncommitted pending later baseline reconciliation.
+
+## Closeout
+
+- Owner decision: **CLOSE**.
+- The substantive WUBRG/Five-Color repair is complete.
+- SIRF VM-603 proved the corrected Turtle Power!/Leonardo source-to-render chain, and VM-610 accepted WUBRG as a golden while validating the final all-37 source/build/render state.
+- The Owner accepts that later SIRF evidence as successor validation for the current repaired state.
+- No additional CRIT-001 semantic recertification is required, and the recovery program is not reopened.
+- This lifecycle reconciliation changes documentation only; certified claims, Placement, and semantic profile content remain unchanged.
 
 ## Validation
 
@@ -83,12 +93,12 @@ Reconcile the completed internal WUBRG Semantic Audit with the owner-supplied ex
 - focused WUBRG, dossier, provenance, and renderer tests
 - required Kanban/handoff records
 
-## Risks
+## Historical Risks
 
 - The certified raw Placement model still uses integration/coalition as a placement lens; presentation must distinguish that interpretive result from the broader Five-Color identity without changing scoring.
 - The external research packet has no populated source URLs, so it cannot authorize new primary-source claim chains.
 - `docs/kanban/board.md` and `docs/handoffs/HANDOFF_INDEX.md` already contain uncommitted VM-595 hunks; edits must be additive and preserve them exactly.
-- Raw-profile edits invalidate the prior exact certified tree and therefore remain an uncommitted Owner Review candidate until a later explicitly authorized exact-SHA workflow.
+- At implementation time, raw-profile edits invalidated the prior exact certified tree and remained an uncommitted Owner Review candidate. Later SIRF successor validation superseded that pending state for lifecycle purposes without creating a new CRIT-001 certification.
 
 ## Implementation Prompt
 

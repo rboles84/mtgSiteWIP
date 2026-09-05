@@ -2,11 +2,12 @@
 
 ID: VM-595
 Title: Placement Language Trust Audit
-Status: In Progress
+Status: Done — Owner Accepted / successor remediation recorded
 Type: Product language / trust / QA research
 Area: Archscry Placement / rendered dossier language
 Priority: Launch-critical quality
 Created: 2026-08-29
+Completed: 2026-09-05
 
 ## Summary
 
@@ -46,7 +47,7 @@ Audit the actual player-facing Placement/dossier prose across all 37 active iden
 - `scripts/audit/placement-language-trust-audit.mjs`
 - `docs/research/placement-language-trust-audit.md`
 - `docs/research/placement-language-trust-audit.json`
-- `docs/kanban/in-progress/VM-595-placement-language-trust-audit.md`
+- `docs/kanban/done/VM-595-placement-language-trust-audit.md`
 - `docs/kanban/board.md`
 - `docs/handoffs/`
 
@@ -77,6 +78,15 @@ Reuse the current VM-579/VM-586 production-render path to collect and analyze th
 - No unsupported or over-strengthened Placement claim was proven. The result is launch-critical language remediation, not a Placement correctness blocker.
 - Recommended remediation shape: mixed field-role consolidation, not an all-37 bespoke rewrite.
 - Owner Review is bounded to 10 named dossiers/sections in `docs/research/placement-language-trust-audit.md`.
+
+## Closeout
+
+- Owner decision: **CLOSE + NEW FOLLOW-UP**.
+- VM-595 completed its all-37 audit, malformed visible-copy investigation, section-role collision investigation, ownership trace, and bounded remediation design.
+- SIRF VM-599 through VM-610 absorbed the material structural and placement-language remediation: visible `when if` defects are gone, section-role collisions were resolved, and VM-610 recorded zero unresolved or deferred section-overlap candidates while accepting the remaining purposeful overlaps.
+- VM-595 is therefore complete, with its major remediation superseded by SIRF evidence rather than left unfinished.
+- Remaining cross-identity instructional framing and boilerplate is a smaller copy-quality concern tracked by [VM-629 — Placement Language Repetition Reduction](../backlog/VM-629-placement-language-repetition-reduction.md).
+- No prose remediation, semantic change, Placement change, or renewed all-37 audit was performed during this closeout.
 
 ## RobQA Outcome
 

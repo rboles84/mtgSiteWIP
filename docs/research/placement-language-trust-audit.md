@@ -1,7 +1,8 @@
 # Placement Language Trust Audit
 
-Card: [VM-595](../kanban/in-progress/VM-595-placement-language-trust-audit.md)  
-Status: **STOP AT OWNER REVIEW — audit and remediation design complete; no prose remediation performed**  
+Card: [VM-595](../kanban/done/VM-595-placement-language-trust-audit.md)
+Audit disposition (2026-08-29): **STOP AT OWNER REVIEW — audit and remediation design complete; no prose remediation performed**
+Lifecycle: **Closed 2026-09-05** — SIRF VM-599 through VM-610 absorbed the material structural/language remediation; [VM-629](../kanban/backlog/VM-629-placement-language-repetition-reduction.md) owns only the bounded remaining boilerplate concern.
 Current production baseline: `fbea856b2a480d722db58401598c9d8a9b704baf`
 
 ## Executive verdict
@@ -245,4 +246,3 @@ Acceptance criteria:
 4. Deterministic all-37 rendered checks pass, and Owner review is limited to the 10 VM-595 cases plus any changed positive control required to protect natural identity voice.
 
 Stop after Owner Review. Do not implement this story inside VM-595.
-

@@ -2,8 +2,9 @@
 
 ID: CRIT-001
 Severity: P0 / SHOWSTOPPER
-Status: Open — Contained to semantic-foundation work
+Status: Closed — 37/37 semantic recovery complete
 Opened: 2026-07-11
+Closed: 2026-09-05
 Owner: Robert
 Program: VM-501 through VM-538
 
@@ -62,15 +63,26 @@ CRIT-001 does not certify or modify Hall scheduling, Crucible reachability, pair
 - [Recovery ledger — JSON](CRIT-001-identity-recovery-ledger.json)
 - [Recovery ledger — Markdown](CRIT-001-identity-recovery-ledger.md)
 - [Permanent learning](../strategy/2026-07-11-semantic-readiness-integrity-learning.md)
-- [VM-501 umbrella](../kanban/in-progress/VM-501-faction-semantic-readiness-recovery.md)
+- [VM-501 umbrella](../kanban/done/VM-501-faction-semantic-readiness-recovery.md)
 
-## Closure Gates
+## Closure Decision
 
-- All 37 packets have reviewed semantic roles and bounded evidence.
-- Authoritative statements trace to claims that genuinely support them.
-- Required conceptual dimensions and bounded neighbor distinctions are sufficient.
-- Canonical questions and guidance retain evidence provenance.
-- Generated artifacts are rebuilt and provenance-validated.
-- Semantic fixtures and existing regressions pass.
-- An independent reviewer approves the exact candidate recovery SHA.
-- A separate certification commit records that SHA and contract version.
+- Owner decision: **CLOSE + NEW FOLLOW-UP**.
+- CRIT-001 achieved its objective: VM-501 established the shared recovery controls and VM-502 through VM-538 completed all 37 identity recoveries with exact-candidate review and certification evidence.
+- All original identity-recovery gate categories have completion evidence, and the recovery ledger records 37 of 37 identities as `semantically_ready`.
+- Later SIRF validation covered the subsequently rendered semantic state, including accepted WUBRG, Temur, and Lorehold goldens, without reopening CRIT-001.
+- Remaining `PENDING_*` occurrences are not collectively unresolved semantic certifications. They include stale live summary pointers, truthful historical event-time values, and documentation/lifecycle debt.
+- Historical event records are not rewritten to falsely imply that future SHAs were known when those records were authored.
+- Bounded normalization of authoritative live provenance pointers is transferred to [VM-630 — CRIT-001 Live Provenance Pointer Normalization](../kanban/backlog/VM-630-crit001-live-provenance-pointer-normalization.md).
+- Closing the recovery incident does not itself unfreeze semantic-foundation, Hall/Crucible, Placement-calibration, or other authority-sensitive work; any such change requires separate post-CRIT governance.
+
+## Closure Gates — Complete
+
+- [x] All 37 packets have reviewed semantic roles and bounded evidence.
+- [x] Authoritative statements trace to claims that genuinely support them.
+- [x] Required conceptual dimensions and bounded neighbor distinctions are sufficient.
+- [x] Canonical questions and guidance retain evidence provenance.
+- [x] Generated artifacts are rebuilt and provenance-validated.
+- [x] Semantic fixtures and existing regressions pass.
+- [x] An independent reviewer approved each exact candidate recovery SHA.
+- [x] Separate certification evidence records each approved candidate and contract version.
