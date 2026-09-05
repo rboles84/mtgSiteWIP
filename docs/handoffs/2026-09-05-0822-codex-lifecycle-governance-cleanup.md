@@ -116,12 +116,11 @@ The repository's live lifecycle surfaces contradicted already accepted outcomes:
 
 ## Follow-Up Recommendations
 
-- Owner reviews this documentation-only candidate.
 - VM-628, VM-629, and VM-630 remain separate backlog work and must not be implemented from this cleanup handoff.
 
 ## Next Suggested Agent
 
-Owner Review.
+Kanban owners for VM-628, VM-629, and VM-630 when prioritized.
 
 ## Related Kanban Cards, Docs, Or Plans
 
@@ -129,3 +128,10 @@ Owner Review.
 - VM-628, VM-629, and VM-630.
 - `docs/reference/workflow.md`.
 - `docs/sirf/reports/2026-08-30-sirf-final-all-37-atlas-checkpoint.md`.
+
+## Integration Outcome — 2026-09-05
+
+- The Owner accepted exact material candidate `96d09fc5234df7e694a01df1ec0cc474a9b5b9bd` and evidence head `255f8ceec71ed4b8c771cc9574423e2d76d238f0`.
+- The Owner explicitly authorized integration with the accepted VM-631 scope; Git proved the combined branch delta contained exactly 22 approved paths and no unrelated third scope.
+- PR #26 passed `Deterministic Validation` at combined evidence head `5f270f6c6c0d4bf13d194cda855ecd988787001e` and squash-merged as `2390ba0c051c1a455366ccd54fda385cc7187de7`.
+- Final lifecycle state remains: VM-016, VM-595, VM-596, and VM-598 Done; VM-469 Deferred in `blocked/`; CRIT-001 Closed; VM-628, VM-629, and VM-630 Backlog.

@@ -2,8 +2,8 @@
 
 Date: 2026-09-05
 Agent: Codex
-Related Card: [VM-631](../kanban/in-progress/VM-631-git-authoritative-final-change-reporting.md)
-Status: Owner Review Ready
+Related Card: [VM-631](../kanban/done/VM-631-git-authoritative-final-change-reporting.md)
+Status: Complete — Owner Accepted / Integrated
 
 ## Task Requested
 
@@ -97,8 +97,15 @@ The prior workflow required a hand-authored Files changed section but did not sa
 
 ## Follow-Up Recommendations
 
-- Owner Review only. Do not merge or push until authorized under current governance.
+- VM-632 separately owns the connector-discovery-before-browser-fallback execution defect observed during integration. It does not reopen VM-631.
 
 ## Next Suggested Agent
 
-Owner Review.
+Kanban owner for VM-632 when prioritized.
+
+## Integration Outcome — 2026-09-05
+
+- The Owner accepted material candidate `a28514d1a3998d7e25f11bf17dbe9027163eff27` and evidence head `5f270f6c6c0d4bf13d194cda855ecd988787001e`.
+- Git proved the combined lifecycle-cleanup and VM-631 branch delta contained exactly 22 approved paths and no unrelated third scope.
+- PR #26 passed `Deterministic Validation` at the exact evidence head and squash-merged as `2390ba0c051c1a455366ccd54fda385cc7187de7`.
+- VM-631 is Done — Owner Accepted / Integrated. The remote feature branch was automatically removed by GitHub.

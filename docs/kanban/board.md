@@ -13,6 +13,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Backlog
 
+- [VM-632 — GitHub Connector Discovery Before Browser Fallback](backlog/VM-632-github-connector-discovery-before-browser-fallback.md) - require authenticated GitHub connector discovery before browser sign-in fallback when `gh` is unavailable, while retaining Git/GCM API access as the bounded secondary path.
 - [VM-630 — CRIT-001 Live Provenance Pointer Normalization](backlog/VM-630-crit001-live-provenance-pointer-normalization.md) - documentation-only classification and normalization of authoritative live CRIT-001 commit/certification pointers; historical event-time `PENDING_*` values remain preserved.
 - [VM-629 — Placement Language Repetition Reduction](backlog/VM-629-placement-language-repetition-reduction.md) - bounded inventory and rewrite of unnecessary cross-identity boilerplate while preserving useful shared terminology, semantics, evidence, Placement, and accepted SIRF section roles.
 - [VM-628 — Archscry Portable Reading Recovery](backlog/VM-628-archscry-portable-reading-recovery.md) - personal QR/cross-device recovery for one completed reading, with VM-016's shipped local-device return as the baseline and no account/profile architecture expansion.
@@ -39,14 +40,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-631 — Git-Authoritative Final Change Reporting](in-progress/VM-631-git-authoritative-final-change-reporting.md) - Owner Review candidate: Git-derived material counts/path sets, explicit evidence-delta labeling, and a deterministic 14-vs-15 regression guard.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
 
+- [VM-631 — Git-Authoritative Final Change Reporting](done/VM-631-git-authoritative-final-change-reporting.md) - Done — Owner Accepted / Integrated; PR #26 passed deterministic validation at exact evidence head `5f270f6c` and squash-merged as `2390ba0c`. The separately observed connector-discovery defect is bounded to VM-632.
 - [VM-598 — Lorehold Semantic Integrity Repair](done/VM-598-lorehold-semantic-integrity-repair.md) - Done — substantive repair complete; later Owner-accepted SIRF evidence retained Lorehold as a golden and supersedes the stale card-local review checkbox. No additional CRIT-001 recertification is required.
 - [VM-596 — WUBRG Semantic Repair](done/VM-596-wubrg-semantic-repair.md) - Done — substantive Five-Color repair complete; VM-603/VM-610 successor validation proved the corrected current source/build/render state and accepted WUBRG as a golden. No additional CRIT-001 recertification is required.
 - [VM-595 — Placement Language Trust Audit](done/VM-595-placement-language-trust-audit.md) - Done — the all-37 audit and its malformed-copy/section-role investigations are complete; SIRF absorbed the major remediation, and bounded remaining boilerplate is tracked by VM-629.
