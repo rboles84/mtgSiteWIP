@@ -3,7 +3,7 @@
    /assets/css/atmosphere.css
 
    Loaded by every page. Provides:
-     - the painted hero backdrop (responsive <picture>)
+     - the black page backdrop (painted assets retained only for rollback)
      - layered ambient motion: heat-haze warp + nebula drift + star pulse
      - per-page mask treatments (light / medium / heavy)
      - the bracketed octagonal frame component (.vm-bracket)
@@ -15,14 +15,13 @@
 
 /* ── BACKDROP CONTAINER ──
    Fixed, behind everything. Pages add data-bg="<weight>" on <body>
-   to control the mask treatment. No bg defined here — the <picture>
-   element inside .vm-bg__picture handles the image. */
+   to control the mask treatment. Procedural overlays remain above the black base. */
 .vm-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: var(--bg);
+  background: var(--vm-page-base, #000);
   overflow: hidden;
 }
 

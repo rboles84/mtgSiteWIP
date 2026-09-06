@@ -4,7 +4,17 @@ Source mockups: `C:\dev\projectFiles\mtgSite\UI Files\redesign Images\site pages
 
 The mockups are reference art only. Do not load them directly in production pages. Real UI must be rebuilt in HTML, CSS, SVG, or canvas.
 
-## Current Workspace Assets
+## Current public background policy (VM-635)
+
+Public routes use a black base with existing procedural stars, glows, textures, and overlays. Images in `assets/img/backgrounds/` and the existing top-level `vox-mana-hero-*` / `blind-eternities-hero-*` JPG, WEBP, and AVIF families are dormant rollback assets; their page, responsive, CSS, preload, and social references are retired. This selection is not recursive. The entire `identity-hero/` folder, official artwork, Scryfall/card rendering, mappings, credits, and fallbacks remain unchanged.
+
+Social previews use `/assets/img/social/vox-mana-share-v1.png` (1200x630), rendered from the neighboring authored SVG using committed fonts and the existing vector sigil, without image generation. Rebuild with `node scripts/build/build-social-preview.mjs` and `@napi-rs/canvas` available (or set `VM_CANVAS_MODULE` to its installed module directory). No runtime dependency is added.
+
+For rollback, restore only the background sources, background CSS values, and share metadata from the VM-635 admission baseline recorded on its card; advance cache keys. Do not restore whole route files over later changes. VM-634's philosophy strip must remain hidden.
+
+The following inventory and background generation queue are historical design records, not instructions to reactivate or generate backgrounds.
+
+## Preserved Workspace Assets
 
 | Asset | Status | Notes |
 |---|---|---|

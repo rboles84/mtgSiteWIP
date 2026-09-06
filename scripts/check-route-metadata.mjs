@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const ROOT = process.cwd();
-const SHARE_IMAGE = "https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg";
+const SHARE_IMAGE = "https://voxmana.io/assets/img/social/vox-mana-share-v1.png";
 
 const ROUTES = [
   {
@@ -50,6 +50,21 @@ const ROUTES = [
     file: "strategium/review/index.html",
     title: "Help Me Understand - Strategium",
     canonical: "https://voxmana.io/strategium/review/",
+  },
+  {
+    file: "strategium/find-a-table/index.html",
+    title: "Finding a Table - Strategium",
+    canonical: "https://voxmana.io/strategium/find-a-table/",
+  },
+  {
+    file: "strategium/before-game/index.html",
+    title: "Before the Game - Strategium",
+    canonical: "https://voxmana.io/strategium/before-game/",
+  },
+  {
+    file: "strategium/during-game/index.html",
+    title: "During the Game - Strategium",
+    canonical: "https://voxmana.io/strategium/during-game/",
   },
   {
     file: "apocrypha/index.html",

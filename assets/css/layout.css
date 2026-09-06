@@ -18,6 +18,7 @@
     background:
       linear-gradient(180deg, rgba(12, 11, 10, 0.82), rgba(12, 11, 10, 0.48)),
       var(--vm-page-bg, var(--asset-bg-home));
+    background-color: var(--vm-page-base, #000);
     background-size: cover;
     background-position: var(--vm-page-bg-position, center);
   }

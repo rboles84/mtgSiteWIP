@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Vox Mana — Commander Identity Compass</title>
+  <desc id="description">A gold compass sigil and Vox Mana lettering on a black background.</desc>
+  <style>
+    @font-face { font-family: "VM Share Title"; src: url("../../fonts/cormorant-sc-700-latin.woff2") format("woff2"); font-weight: 700; }
+    @font-face { font-family: "VM Share Text"; src: url("../../fonts/outfit-variable-latin.woff2") format("woff2"); font-weight: 100 900; }
+  </style>
+  <rect width="1200" height="630" fill="#000"/>
+  <rect x="32" y="32" width="1136" height="566" rx="2" fill="none" stroke="#d7a23c" stroke-opacity="0.38"/>
+  <image href="../vox-mana-header-logo.svg" x="544" y="112" width="112" height="112"/>
+  <text x="600" y="353" text-anchor="middle" font-family="VM Share Title" font-weight="700" font-size="112" letter-spacing="4" fill="#f0cf82">Vox Mana</text>
+  <path d="M 484 389 H 716" fill="none" stroke="#d7a23c" stroke-opacity="0.7"/>
+  <text x="600" y="443" text-anchor="middle" font-family="VM Share Text" font-weight="400" font-size="28" letter-spacing="1.8" fill="#f5ead2">Commander Identity Compass</text>
+  <text x="600" y="545" text-anchor="middle" font-family="VM Share Text" font-weight="400" font-size="18" letter-spacing="2" fill="#d8c27a">voxmana.io</text>
+</svg>

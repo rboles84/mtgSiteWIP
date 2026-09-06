@@ -9,7 +9,7 @@
 
 body[data-page="privacy"] .vm-bg,
 body[data-page="terms"] .vm-bg {
-  background: #04070d;
+  background: var(--vm-page-base, #000);
 }
 
 body[data-page="privacy"] .vm-bg::before,

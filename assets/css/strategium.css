@@ -10,7 +10,7 @@
   --gold: #d7a23c;
   --gold-2: #f7d784;
   --theme-glow: rgba(88, 186, 255, 0.28);
-  --bg-image: url("../img/backgrounds/background-loom-thread-chamber-clean-01.webp");
+  --bg-image: none;
   --mana-white: #f7f0d0;
   --mana-blue: #58b8ff;
   --mana-black: #a46bea;
@@ -68,6 +68,7 @@ body::after {
 }
 
 .vm-bg {
+  background: var(--vm-page-base, #000);
   position: fixed;
   inset: 0;
   z-index: -10;

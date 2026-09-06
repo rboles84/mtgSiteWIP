@@ -366,7 +366,7 @@ expectAbsent(
   "archscry/index.html should not ship inline event attributes"
 );
 expect(
-  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm628">'),
+  sources.archscry.includes('<link rel="stylesheet" href="../assets/css/archscry.css?v=vm635">'),
   'archscry/index.html should load "../assets/css/archscry.css"'
 );
 expectAbsent(
@@ -379,7 +379,7 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm634" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm635" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -407,14 +407,14 @@ expect(
 );
 
 expect(
-  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm628">') &&
+  sources.guide.includes('<link rel="stylesheet" href="../assets/css/maze.css?v=vm635">') &&
     sources.guide.includes('<link rel="stylesheet" href="../assets/css/guide.css?v=vm614r8">'),
   "guide/index.html should inherit the actual Maze route stylesheet before its Guide adapters"
 );
 expect(
-  sources.guide.includes("background-vox-gateway-clean-13.webp") &&
-    !sources.guide.includes("background-apocrypha-library-clean-01.webp"),
-  "guide/index.html should use the Archscry/Maze gateway atmosphere instead of the Apocrypha background"
+  !sources.guide.includes("img/backgrounds/") &&
+    sources.guide.includes('class="vm-bg"'),
+  "guide/index.html should retain the shared atmosphere container without a painted background"
 );
 expect(
   sources.guide.includes('class="vm-maze-route vm-guide-route"') &&
@@ -524,7 +524,7 @@ expect(
 );
 
 expect(
-  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css?v=vm612" />'),
+  sources.strategium.includes('<link rel="stylesheet" href="../assets/css/strategium.css?v=vm635" />'),
   'strategium/index.html should load "../assets/css/strategium.css"'
 );
 expect(
@@ -555,7 +555,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
 const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm634');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm635');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -565,12 +565,12 @@ expect(
   "index.html should load topbar.css, then Keyrune, then home.css"
 );
 expect(
-  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm634',
+  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm635',
   "index.html should keep home.css as the last stylesheet in the head"
 );
 
 const archscryLastStylesheetTagIndex = sources.archscry.lastIndexOf('<link rel="stylesheet"');
-const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm628');
+const archscryRouteCssIndex = sources.archscry.lastIndexOf('../assets/css/archscry.css?v=vm635');
 expect(
   archscryLastStylesheetTagIndex !== -1 &&
     archscryRouteCssIndex !== -1 &&
@@ -580,13 +580,13 @@ expect(
 
 const strategiumStylesheetHrefs = getStylesheetHrefs(sources.strategium);
 expect(
-  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm612",
+  strategiumStylesheetHrefs[strategiumStylesheetHrefs.length - 1] === "../assets/css/strategium.css?v=vm635",
   "strategium/index.html should keep strategium.css as the last stylesheet in the head"
 );
 
 const guideStylesheetHrefs = getStylesheetHrefs(sources.guide);
 expect(
-  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm628" &&
+  guideStylesheetHrefs.at(-2) === "../assets/css/maze.css?v=vm635" &&
     guideStylesheetHrefs.at(-1) === "../assets/css/guide.css?v=vm614r8",
   "guide/index.html should keep guide.css as the last stylesheet in the head"
 );
@@ -676,11 +676,11 @@ for (const key of ["privacy", "terms"]) {
   const stylesheetHrefs = getStylesheetHrefs(sources[key]);
 
   expect(
-    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm612">'),
+    sources[key].includes('<link rel="stylesheet" href="../assets/css/legal.css?v=vm635">'),
     `${file} should load "../assets/css/legal.css"`
   );
   expect(
-    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css?v=vm612",
+    stylesheetHrefs[stylesheetHrefs.length - 1] === "../assets/css/legal.css?v=vm635",
     `${file} should keep legal.css as the last stylesheet in the head`
   );
   expectAbsent(

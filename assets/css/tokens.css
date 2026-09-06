@@ -130,14 +130,14 @@
   --r-2: 8px;
   --r-3: 16px;
 
-  /* Asset paths
-     Production image references. Page CSS can consume these directly,
-     while the current <picture> pattern can keep responsive sources. */
-  --asset-bg-home: url("/assets/img/backgrounds/background-vox-gateway-clean-13.webp");
-  --asset-bg-archscry: url("/assets/img/backgrounds/background-archscry-chamber-clean-01.webp");
-  --asset-bg-maze: url("/assets/img/backgrounds/background-maze-chamber-clean-01.webp");
-  --asset-bg-apocrypha: url("/assets/img/backgrounds/background-apocrypha-library-clean-01.webp");
-  --asset-bg-loom: url("/assets/img/backgrounds/background-loom-thread-chamber-clean-01.webp");
+  /* Asset paths consumed by page CSS and shared atmosphere layers. */
+  /* VM-635: retain the painted files for rollback; public backgrounds use black. */
+  --vm-page-base: #000;
+  --asset-bg-home: none;
+  --asset-bg-archscry: none;
+  --asset-bg-maze: none;
+  --asset-bg-apocrypha: none;
+  --asset-bg-loom: none;
 
   --asset-overlay-fog: url("/assets/img/overlays/overlay-fog-soft-01.svg");
   --asset-overlay-mist: url("/assets/img/overlays/overlay-low-mist-01.svg");
