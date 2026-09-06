@@ -4,7 +4,7 @@ Date: 2026-09-05
 Agent: Codex (main implementation agent)
 Related Card: [VM-633](../kanban/in-progress/VM-633-lifecycle-state-contract.md)
 Related Plan: [Approved course correction](../plans/workflow-course-correction.md)
-Status: Implementation prepared; exact-candidate independent QA pending.
+Status: Owner Review — independent engineering PASS; Owner acceptance and integration pending.
 
 ## Task Requested
 
@@ -22,10 +22,30 @@ independent engineering PASS at Owner Review; do not integrate or begin Phase 2 
 - Main baseline: `901c72d17d29128686d29e00f7db20fb126cb9ca`; clean worktree, one registered checkout,
   no related active branch. Existing VM-623, VM-625, and font-upgrade pointers are unrelated and preserved.
 
+## Material Candidate
+
+- Baseline: `901c72d17d29128686d29e00f7db20fb126cb9ca`
+- Candidate: `73b37aa1c230c8eb5404d1652230421f89149bb2`
+- Changed paths: `13`
+
+This is the immutable material-scope report. Later QA/lifecycle record updates are a separate evidence
+delta, not the full task diff. The final three-scope delivery report is generated from Git at handoff.
+
 ## Files Changed
 
-The candidate is not yet committed in this preparation record. The authoritative material path list
-will be generated from the baseline-to-candidate Git diff, not inferred from this narrative.
+- `.agents/skills/robqa/robqa.md`
+- `.codex/prompts/board.md`
+- `.github/pull_request_template.md`
+- `AGENTS.md`
+- `CLAUDE.md`
+- `docs/dev/RobDevPass.md`
+- `docs/handoffs/2026-09-05-2051-codex-vm633-lifecycle-state-contract.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-633-lifecycle-state-contract.md`
+- `docs/plans/workflow-course-correction.md`
+- `docs/qa/RobQAPass.md`
+- `docs/reference/workflow.md`
 
 ## What Changed
 
@@ -105,7 +125,8 @@ suite or a claim of technical enforcement. Independent QA must review the exact 
 ## RobQAPass Readiness
 
 - QA tier: QA-0 document validation; substantive governance risk requires SEPARATE execution.
-- Engineering verdict: PENDING until a separate reviewer inspects the committed candidate.
+- Engineering verdict: PASS at `73b37aa1c230c8eb5404d1652230421f89149bb2` after
+  [separate exact-candidate review](2026-09-05-2105-independent-robqa-vm633-lifecycle-state-contract.md).
 - Selected checks: scoped diff/whitespace, relative Markdown targets and new governing anchors, contextual
   contradiction review, card/board/reference consistency, and the transition walkthroughs above.
 - CPU-heavy validation: NOT REQUIRED.
@@ -119,11 +140,27 @@ suite or a claim of technical enforcement. Independent QA must review the exact 
 - Development relative Markdown target/new-anchor check: PASS across the changed documents, including
   existing board/index links. No missing target or anchor found.
 - VM-633 uniqueness, board section, and permitted changed-path check: PASS.
-- `git diff --check`: PASS before staging; repeat on the committed candidate for exact-state evidence.
+- `git diff --check 901c72d17d29128686d29e00f7db20fb126cb9ca..73b37aa1c230c8eb5404d1652230421f89149bb2`: PASS.
 - Contextual contradiction search: repaired the remaining direct Done shortcuts in CLAUDE and the board
   prompt; historical RobQA READY remains explicitly historical rather than an active verdict.
 - Manual development walkthrough of the transition scenarios above: PASS against the revised governing
   text. These findings are not an independent QA verdict or a runtime enforcement claim.
+- Independent RobQA: PASS, with its own committed-diff, transition, scoped link/anchor, and card checks;
+  no material finding. See the separate evidence record rather than treating development results as QA.
+- Existing change-report validator: PASS for this Git-derived baseline-to-candidate material report.
+- Remote GitHub observation: main still equals the baseline, and the VM-633 branch is absent from the
+  authenticated branch listing. The sandboxed Git HTTP probe could not connect; connector inspection
+  supplied the remote facts without credential or configuration changes.
+
+## Owner Review Path
+
+Inspect [workflow responsibility/lifecycle/evidence](../reference/workflow.md#responsibility-boundaries),
+[QA execution independence](../qa/RobQAPass.md#qa-execution-independence), and
+[engineering exit criteria](../qa/RobQAPass.md#24-robqapass-exit-criteria) for this candidate.
+Confirm that PASS precedes Owner judgment, integration-only blockage preserves acceptance, and the
+independence/evidence boundaries match the agreed intent. No product-page or screenshot review is needed.
+`ACCEPT VM-633` approves this exact material candidate and begins integration; `REJECT VM-633: <reason>`
+continues the same card/branch. No Owner acceptance has been recorded yet.
 
 ## Risks / Uncertainties
 
@@ -145,4 +182,4 @@ only then admit Phase 2. VM-632 remains the later routing card and is not implem
 
 ## Next Suggested Agent
 
-Independent RobQA reviewer for the committed VM-633 candidate, followed by the Owner.
+Owner for exact-candidate acceptance, then the delivery agent for authorized integration.

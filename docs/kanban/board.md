@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-633 — Lifecycle State Contract and QA Ownership](in-progress/VM-633-lifecycle-state-contract.md) - Phase 1 of the approved course correction: reconcile engineering PASS, local Owner acceptance, integration, and completion; independent governance QA required before Owner Review.
+- [VM-633 — Lifecycle State Contract and QA Ownership](in-progress/VM-633-lifecycle-state-contract.md) - Owner Review: independent engineering PASS at candidate `73b37aa1c230c8eb5404d1652230421f89149bb2`; Phase 1 lifecycle/QA ownership is complete locally. Owner acceptance and integration pending; Phase 2 unstarted.
 
 ## Blocked
 
