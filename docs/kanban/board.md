@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](in-progress/VM-634-hide-home-color-axis.md) - In Progress; preserve the full artwork while hiding the Home wrapper and collapsing its space. Owner Review and integration pending.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.

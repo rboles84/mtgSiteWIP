@@ -379,7 +379,7 @@ expect(
   'index.html should load the pinned local Keyrune stylesheet'
 );
 expect(
-  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm628" />'),
+  sources.home.includes('<link rel="stylesheet" href="./assets/css/home.css?v=vm634" />'),
   'index.html should load "./assets/css/home.css"'
 );
 expect(
@@ -555,7 +555,7 @@ for (const key of ["strategiumConsole", "strategiumReview"]) {
 const homeStylesheetHrefs = getStylesheetHrefs(sources.home);
 const homeTopbarLinkIndex = homeStylesheetHrefs.indexOf('./assets/css/topbar.css?v=vm618');
 const homeKeyruneLinkIndex = homeStylesheetHrefs.indexOf('./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0');
-const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm628');
+const homeRouteCssIndex = homeStylesheetHrefs.indexOf('./assets/css/home.css?v=vm634');
 expect(
   homeTopbarLinkIndex !== -1 &&
     homeKeyruneLinkIndex !== -1 &&
@@ -565,7 +565,7 @@ expect(
   "index.html should load topbar.css, then Keyrune, then home.css"
 );
 expect(
-  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm628',
+  homeStylesheetHrefs[homeStylesheetHrefs.length - 1] === './assets/css/home.css?v=vm634',
   "index.html should keep home.css as the last stylesheet in the head"
 );
 
