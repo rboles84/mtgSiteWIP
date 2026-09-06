@@ -40,13 +40,14 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](in-progress/VM-634-hide-home-color-axis.md) - Owner Review; RobQA QA-1 PASS at `b2a2441970470e20b42311cc58117c43566b582b`. Full artwork preserved, wrapper hidden with collapsed space; Owner decision and integration pending.
 
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
+
+- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](done/VM-634-hide-home-color-axis.md) - Done - Owner Accepted exact candidate `b2a2441970470e20b42311cc58117c43566b582b`; PR #28 passed required CI and squash-merged as `ec6cffb5`. Main synchronized and feature branches removed; hidden artwork remains preserved for restoration.
 
 - [VM-633 — Lifecycle State Contract and QA Ownership](done/VM-633-lifecycle-state-contract.md) - Done — Owner Accepted exact candidate `73b37aa1c230c8eb5404d1652230421f89149bb2`; PR #27 passed required deterministic validation and squash-merged as `ae4d650f7aa9f27d5f620548d41a4e33a943d037`. Main synchronized and feature branches removed; Phase 2 unstarted.
 - [VM-631 — Git-Authoritative Final Change Reporting](done/VM-631-git-authoritative-final-change-reporting.md) - Done — Owner Accepted / Integrated; PR #26 passed deterministic validation at exact evidence head `5f270f6c` and squash-merged as `2390ba0c`. The separately observed connector-discovery defect is bounded to VM-632.

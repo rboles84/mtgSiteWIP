@@ -1,5 +1,7 @@
 # VM-634 - Hide the Home Color Philosophy Strip
 
+Historical Owner Review record. The subsequent [Owner acceptance and integration closeout](2026-09-06-0907-codex-vm634-owner-accepted-closeout.md) supersedes the pending lifecycle statements below; original acceptance criteria and QA evidence remain unchanged.
+
 Agent name: Codex
 Task requested: Implement the Owner-approved temporary hide of the complete Home philosophy strip with collapsed space, preserved implementation, and delivery through Owner Review only.
 
@@ -74,7 +76,7 @@ Owner for visual acceptance; implementation agent only for a bounded Owner findi
 
 ## Related Kanban card, docs, or plans
 
-- [VM-634](../kanban/in-progress/VM-634-hide-home-color-axis.md)
+- [VM-634](../kanban/done/VM-634-hide-home-color-axis.md)
 - [Workflow](../reference/workflow.md)
 - [RobDev skill](../../.agents/skills/robdev/SKILL.md) and [frozen gate](../dev/RobDevPass.md)
 - [RobQA skill](../../.agents/skills/robqa/SKILL.md) and [frozen gate](../qa/RobQAPass.md)
@@ -91,10 +93,10 @@ Derived from git diff --name-status --find-renames baseline..candidate. This is 
 ## Evidence delta
 
 - Material candidate: `b2a2441970470e20b42311cc58117c43566b582b`
-- Evidence head: `HEAD`
+- Evidence head: `75f63ce31fdf1722171e2f662a449494b7e53b13`
 - Additional evidence-only paths: `4`
 
-HEAD denotes the consolidated evidence commit containing this report when validated for handoff. This delta is not the full task diff. It records only candidate binding, test observations, lifecycle summaries, and Git accounting; implementation and acceptance criteria are unchanged.
+The evidence head identifies the original consolidated Owner Review record. This delta is not the full task diff. It records only candidate binding, test observations, lifecycle summaries, and Git accounting; implementation and acceptance criteria are unchanged. Later lifecycle closeout has separate accounting in the linked closeout report.
 
 ## Evidence-only paths
 

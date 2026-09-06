@@ -2,7 +2,7 @@
 
 ID: VM-634
 Title: Temporarily Hide the Homepage Color Philosophy Strip
-Status: Owner Review
+Status: Done
 
 ## Delivery
 
@@ -11,11 +11,11 @@ Branch: codex/vm-634-hide-home-color-axis
 Admission baseline: 4e536641f8fddd26ceec520455474a0965460114
 Candidate: b2a2441970470e20b42311cc58117c43566b582b
 RobQA: PASS at b2a2441970470e20b42311cc58117c43566b582b; QA-1 SAME-AGENT DISTINCT PHASE, Codex; see Evidence.
-Owner: PENDING at b2a2441970470e20b42311cc58117c43566b582b; visual spacing review at /.
-Integration: PENDING; stop at Owner Review, without push or merge.
+Owner: ACCEPTED at b2a2441970470e20b42311cc58117c43566b582b; Owner said "Looks fine to me" in this task on 2026-09-06 after the Home spacing review.
+Integration: PR #28 squash-merged as ec6cffb5a674e5c7652b9f59a53ed974e7b82e60; required Deterministic Validation passed, main synchronized, local/remote feature branches removed.
 Dependencies: None.
 Decisions: Owner approved temporary hiding with collapsed space and preservation of the implementation in the 2026-09-06 task.
-Evidence: [Implementation and QA handoff](../../handoffs/2026-09-06-0818-codex-vm634-hide-home-color-axis.md).
+Evidence: [Implementation and QA handoff](../../handoffs/2026-09-06-0818-codex-vm634-hide-home-color-axis.md); [integration closeout](../../handoffs/2026-09-06-0907-codex-vm634-owner-accepted-closeout.md); [PR #28](https://github.com/rboles84/voxmana.io/pull/28).
 
 ## Implementation contract
 
