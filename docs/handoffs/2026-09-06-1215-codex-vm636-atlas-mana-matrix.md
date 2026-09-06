@@ -38,7 +38,7 @@ Use Start Here, the existing default exploration panel, rather than expose perso
 
 RobDev: READY.
 QA tier: QA-2 component presentation and initialization. Execution: SAME-AGENT DISTINCT PHASE, Codex; no routing, storage, scoring, semantic, security, migration or governance behavior is changed. The cache graph uses the existing contract.
-Candidate: 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e. RobQA: PASS at that exact candidate. Owner: PENDING. Integration: PENDING; stopped at Owner Review.
+Candidate: 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e. RobQA: PASS at that exact candidate. Owner: ACCEPTED on 2026-09-06: "Seems good yeah." Integration: PENDING explicit publication/integration authorization, as required by the earlier automatic approval review. No push or merge has occurred.
 CPU-heavy validation: NOT REQUIRED.
 Browser justification: objective visible canvas initialization, keyboard axis expansion, multicolor checkbox behavior, and tab/layout reveal cannot be fully established by source checks. Bounded witnesses cover Blue, multicolor, Colorless and an existing saved-reading restore. No screenshot or viewport matrix.
 Tests intentionally skipped: full Atlas navigation suite, full dev-review suite, broad frontend/engine/placement suites, screenshots, animation-fidelity waits, and exhaustive browser identity loops. No changed risk justifies them; local Edge startup was previously unavailable, and working in-app browser checks cover the new interaction directly.
@@ -57,15 +57,15 @@ In-app browser at the committed candidate on port 8000:
 
 Supplementary saved-reading browser witness: NOT COMPLETED / local-server and browser harness limitation. The older port 8766 server was no longer reachable; a bounded server-start check did not restore access, and the browser's error-document URL blocked further tab actions. The temporary process was stopped, and no further browser workaround or product change was attempted. No browser saved-reading restore or storage-byte comparison is claimed for this candidate. The objective isolation contract passes at the lower reliable layer: the production initializer is exercised with no result and with a conflicting saved result, asserts unchanged active result/view state, and uses the browsed profile; saved-state writers are unchanged and personal markup is byte-identical for all identities. This is an explicit evidence disposition, not an Owner test request or a change to acceptance criteria.
 
-No screenshot, animation-fidelity, viewport or semantic engine suite was run. Remaining Owner judgment is only matrix placement/appearance. No blocking correctness finding.
+No screenshot, animation-fidelity, viewport or semantic engine suite was run. Owner accepted matrix placement/appearance after review. No blocking correctness finding.
 
-## Remaining Owner judgment / shortest review
+## Owner review path (completed)
 
 Open http://127.0.0.1:8000/archscry/index.html?explore=blue and inspect the matrix above Start Here. Optionally use the Atlas to open a multicolor identity and try Component traces/Synthesis. PASS if the existing matrix feels correctly placed in the browse dossier; otherwise report the desired placement adjustment. Personal assessment and all-identity semantic review are not part of this request.
 
 ## Risks / uncertainties
 
-No known correctness blocker at development completion. Subjective placement remains Owner review. No push, merge, deployment, or new Owner acceptance is claimed. Existing chart fallback text/behavior and motion preference handling remain unchanged.
+No known correctness blocker at development completion. Owner accepted subjective placement at the unchanged QA-passed candidate. Explicit publication/integration authorization remains pending; no push, merge or deployment is claimed. Existing chart fallback text/behavior and motion preference handling remain unchanged.
 
 ## Not touched
 
@@ -73,7 +73,7 @@ All CSS, image files including official identity art, registry/data/scores/prose
 
 ## Follow-up / next suggested agent
 
-Owner reviews the exact QA-passed VM-636 candidate. Codex handles only a bounded finding or explicit later integration authorization. No further enhancement scope is inferred.
+Owner review is complete. Codex awaits explicit authorization to push VM-636, create its PR and squash-merge after required CI passes. The earlier automatic approval review required explicit publication authorization rather than inferring it from positive visual feedback. No further enhancement scope is inferred.
 
 ## Related card/docs/gates
 
@@ -137,7 +137,7 @@ Derived from git diff --name-status --find-renames baseline..candidate. The prim
 - Evidence head: `HEAD`
 - Additional evidence-only paths: `4`
 
-This is not the full task diff. HEAD denotes the consolidated Owner Review evidence commit containing this record; the final task response reports its exact SHA. Only test observations, exact-candidate binding, lifecycle summaries and Git accounting follow the material candidate; implementation and acceptance criteria are unchanged.
+This is not the full task diff. HEAD denotes the consolidated QA and Owner acceptance evidence commit containing this record; the final task response reports its exact SHA. Only test observations, exact-candidate binding, lifecycle summaries and Git accounting follow the material candidate; implementation and acceptance criteria are unchanged.
 
 ## Evidence-only paths
 
