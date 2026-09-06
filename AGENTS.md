@@ -29,11 +29,15 @@ Do not work from blank context.
 
 Use [Vox Mana Workflow](docs/reference/workflow.md#standard-branch-to-owner-to-pr-to-merge-delivery) as the durable delivery authority.
 
-- `SHIP VM-###` means rehydrate the card's current feature branch, worktree, optional PR, Dev, QA, and Owner state; apply RobDev; commit a stable Owner Review candidate; run independent RobQA against that exact commit; resolve routine Dev/QA findings automatically; and stop when RobQA PASS applies to the exact current candidate. Report the card, branch, candidate SHA, RobQA status, shortest manual review path, and known non-blocking issues. A PR is not required before Owner Review, and `SHIP` never merges or pushes material feature work directly to `main`.
+- `SHIP VM-###` means rehydrate the card's current feature branch, worktree, optional PR, Dev, QA, and Owner state; apply RobDev; commit a stable Owner Review candidate; run RobQA against that exact commit using its [QA execution independence rule](docs/qa/RobQAPass.md#qa-execution-independence); resolve routine Dev/QA findings automatically; and stop when engineering PASS applies to the exact current candidate with Owner Review pending. Report the card, branch, candidate SHA, RobQA status, shortest manual review path, and known non-blocking issues. A PR is not required before Owner Review, and `SHIP` never merges or pushes material feature work directly to `main`.
 - `ACCEPT VM-###` is the Owner's single approval of the exact current RobQA-passed candidate and authorization to integrate it. Verify that SHA, push the feature branch if needed, create or update the card's single PR against `main`, record exact-SHA RobQA and Owner evidence, run required PR CI and diff/integration checks, squash merge, verify and sync `main`, complete lifecycle documentation, and safely delete the feature branch. Do not ask for a second approval while the merged code remains the exact accepted candidate.
 - `REJECT VM-###: <reason>` keeps the same card and feature branch. Return the Owner finding to RobDev, create a corrected candidate commit, rerun proportionate RobQA against that exact commit, and return it to Owner Review. Repeat as often as needed. If a PR already exists, keep using it where practical; do not replace it merely to conform to PR timing.
 
-RobQA PASS and Owner ACCEPT are exact-candidate evidence. Any material implementation change after either decision makes the affected evidence stale and returns the new candidate through RobDev -> RobQA -> Owner Review. Non-material lifecycle/documentation follow-up may use the existing narrow exception rules.
+RobQA PASS and Owner ACCEPT are separate exact-candidate decisions. Apply the workflow's
+[lifecycle states](docs/reference/workflow.md#lifecycle-states-and-transitions) and
+[candidate/evidence rules](docs/reference/workflow.md#candidate-and-evidence-records) for invalidation,
+integration blockages, and closeout. Material policy and test-contract changes invalidate affected
+evidence just as implementation changes do; Markdown is not automatically evidence-only.
 
 The single-active-worktree rule below still governs branch creation. Rehydrate and continue existing work instead of restarting it to make the delivery sequence look clean.
 

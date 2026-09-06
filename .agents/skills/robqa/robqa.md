@@ -145,6 +145,8 @@ Record:
 
 ## 14. Completion
 
-RobQA READY means the deterministic risk-proportional checks and required self-QA are complete with no known correctness blocker.
-
-RobQA PASS requires the bounded owner review when one is required, no blocker or major defect, explicit disposition of remaining minor issues, and exact candidate/version/SHA binding where applicable.
+Apply the governing [engineering exit criteria](../../../docs/qa/RobQAPass.md#24-robqapass-exit-criteria)
+and [QA execution independence rule](../../../docs/qa/RobQAPass.md#qa-execution-independence). PASS binds
+sufficient engineering evidence to the exact candidate with Owner Review still pending. Owner acceptance
+and integration are separate [workflow states](../../../docs/reference/workflow.md#lifecycle-states-and-transitions).
+Do not issue READY as a competing RobQA verdict or reinterpret historical review records.

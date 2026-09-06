@@ -2,9 +2,12 @@
 
 ## Rob QA Pass — Risk-Proportional Owner QA Gate
 
-**Purpose:** Codify the way Rob actually tests software so implementation agents can perform the right QA before asking for owner review.
+**Purpose:** Define engineering evidence sufficiency before Owner Review, informed by how Rob tests the
+product. RobQA PASS is an engineering verdict; Owner ACCEPT is a separate product/scope decision under
+the [delivery lifecycle](../reference/workflow.md#lifecycle-states-and-transitions).
 
-This gate is not a replacement for unit, integration, accessibility, or regression testing. It is the final product-facing quality layer that asks:
+This gate is not a replacement for unit, integration, accessibility, or regression testing. Engineering
+QA and the subsequent Owner review together ask:
 
 > Does the changed product actually work, look right, read naturally, preserve the intended state, and give the user what the interface promises?
 
@@ -43,6 +46,11 @@ Examples of failure classes that automation commonly misses:
 
 **Rob QA evaluates product truth, not merely test truth.**
 
+The manual/optical sections describe Owner judgment and how engineering prepares it; they do not make
+completed Owner review a prerequisite for engineering PASS. RobQA owns evidence selection and
+sufficiency. RobDev supplies implementation evidence; the Owner accepts the exact candidate; workflow
+owns delivery state. Specialist authority is not transferred by an engineering PASS.
+
 ---
 
 # 2. Mandatory Pre-QA Classification
@@ -50,6 +58,25 @@ Examples of failure classes that automation commonly misses:
 Before running tests, classify the change.
 
 Do not choose tests until the changed behavior and protected contracts are identified.
+
+## QA Execution Independence
+
+Choose review execution from changed risk, separately from test breadth. A documentation-shaped change
+can need independent governance review while requiring only focused document checks.
+
+- **SEPARATE:** a reviewer who did not implement the material candidate must execute QA for substantive
+  governance, shared behavioral contracts, protected/semantic authority, security, migration, or
+  significant integration risk. Existing certification and specialist independence remain mandatory;
+  use their stricter separation rules. The mere act of ordinary integration does not broaden the
+  underlying risk or require repeating a completed independent review.
+- **SAME-AGENT DISTINCT PHASE:** allowed only for bounded low-risk work with none of those triggers and
+  no stricter requirement. After committing the candidate, re-read its actual diff and acceptance
+  criteria, classify risks, and inspect or execute the selected objective evidence. Do not relabel the
+  development phase's summary as QA or claim this mode is independent review.
+
+Both modes bind the verdict to the exact candidate and use the same evidence-sufficiency standard.
+Record the mode, reviewer/agent, and reason in the existing QA handoff; do not add another approval gate.
+If independence is required and unavailable, record BLOCKED rather than substituting self-review.
 
 ## QA-0 — Documentation / comments / non-runtime metadata
 
@@ -365,6 +392,11 @@ If that attempt finds no direct causal evidence:
 Known or suspected harness debt does not block Owner Review unless the current change plausibly caused it.
 Repair belongs to a dedicated task, not unrelated implementation work. If the visible behavior is cheap for
 the Owner to classify, provide the compact check below; otherwise record the bounded uncertainty.
+
+This allowance requires sufficient directly relevant evidence. If the failing harness is the only
+coverage for changed objective behavior, record a coverage gap and BLOCKED until proportionate alternate
+evidence or the required check resolves it. An unrelated-failure label or subjective Owner approval cannot
+prove an unverified objective contract.
 
 If the Owner directly verifies the real product behavior works, record **Product: Owner Manual PASS** and
 **Automated test: FAIL / known harness debt** unless contrary evidence exists. Do not investigate further
@@ -1438,6 +1470,8 @@ Every implementation handoff that claims RobQAPass readiness should include:
 - QA tier:
 - changed behavior:
 - protected behavior intentionally untouched:
+- QA execution mode, reviewer/agent, and risk-based reason:
+- exact candidate SHA and evidence reference:
 
 ## Tests selected
 
@@ -1495,7 +1529,7 @@ Keep this bounded and deterministic.
 
 # 24. RobQAPass Exit Criteria
 
-A change is **RobQAPass READY** when:
+A change has **RobQAPass PASS** (engineering PASS) when:
 
 - the QA tier was selected based on risk;
 - no unjustified heavy suite was run;
@@ -1510,20 +1544,31 @@ A change is **RobQAPass READY** when:
 - known manual defect classes have regressions;
 - environment/harness failures are not disguised as product failures;
 - owner review has been reduced to a small deterministic judgment set;
-- no known correctness blocker remains.
+- required independent and specialist reviews are complete;
+- no blocker or major correctness defect remains, and non-blocking limitations have an explicit
+  disposition without silently waiving acceptance criteria or specialist requirements;
+- the verdict, selected evidence, and execution mode are bound to the exact candidate/version/SHA
+  required by the delivery workflow in a durable retrievable record.
 
-A change is **RobQAPass PASS** when:
+Owner visual/product review may remain pending. PASS permits the workflow to enter **Owner Review**;
+it does not assert Owner acceptance, integration, deployment, or semantic certification beyond the
+applicable specialist evidence. The Owner's subsequent ACCEPT or REJECT follows the
+[lifecycle contract](../reference/workflow.md#lifecycle-states-and-transitions).
 
-- Rob completes the short deterministic owner review;
-- no blocker or major product defect remains;
-- any remaining minor issue is explicitly accepted or separately deferred;
-- acceptance is tied to the tested candidate/version/SHA when repository governance requires it.
+Use **PENDING** before QA is complete or when the candidate binding becomes stale; use **BLOCKED** for
+concrete correctness, evidence, or required-independence gaps. Newly discovered correctness evidence can
+revoke PASS even if the files have not changed. An integration-only obstacle does not revoke otherwise
+valid engineering/Owner decisions; material corrections use a new candidate and the required review loop.
+
+**RobQAPass READY is retired as an active verdict.** Historical READY/PASS records retain their original
+meaning and are not automatically promoted to current PASS or Owner ACCEPT. The intake card status Ready
+and RobDevPass READY describe different stages and are unaffected.
 
 ---
 
 # 25. Automatic Failure Conditions
 
-Do not claim RobQAPass READY if any of these are true:
+Do not claim RobQAPass PASS if any of these are true:
 
 - the selected verification layer cannot reliably protect the objective changed behavior;
 - browser automation ran without a named objective changed risk that cheaper checks could not protect;

@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-633 — Lifecycle State Contract and QA Ownership](in-progress/VM-633-lifecycle-state-contract.md) - Owner Review: independent engineering PASS at candidate `73b37aa1c230c8eb5404d1652230421f89149bb2`; Phase 1 lifecycle/QA ownership is complete locally. Owner acceptance and integration pending; Phase 2 unstarted.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
