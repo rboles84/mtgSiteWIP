@@ -3,7 +3,7 @@ import {
   CARD_PLAY_TILE_LABEL,
   CARD_VOICE_SECTION_INTRO,
   CARD_VOICE_TILE_LABEL,
-} from "../dossier-card-review-text.js?v=vm547r5";
+} from "../dossier-card-review-text.js?v=vm636";
 
 import {
   buildActionAttrs,
@@ -11,11 +11,11 @@ import {
   escapeHtml,
   normalizeCardName,
   renderStaticTagChips,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   APP_STATE,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export function factionCardRationaleRecords(faction, catalog = APP_STATE.cardRationaleCatalog) {
   const identityKey = faction?.key || faction?.identity?.expression_key || "";

@@ -2,17 +2,17 @@ import {
   archiveUserDeckLink,
   listUserDeckLinks,
   saveUserDeckLink,
-} from "../deck-link-service.js?v=vm547r5";
+} from "../deck-link-service.js?v=vm636";
 
 import {
   getDossierRadarProfile,
   initDossierManaRadar,
-} from "../dossier-radar.js?v=vm547r5";
+} from "../dossier-radar.js?v=vm636";
 
 import {
   hideCardPreviewOverlay,
   hydrateVisibleResultCardArt,
-} from "./card-media.js?v=vm547r5";
+} from "./card-media.js?v=vm636";
 
 import {
   buildActionAttrs,
@@ -22,13 +22,13 @@ import {
   escapeAttributeValue,
   escapeHtml,
   renderPlayerCopy,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   APP_STATE,
   SESSION,
   getFaction,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export const DOSSIER_DEFAULT_PANEL_ID = "placement";
 
@@ -746,19 +746,22 @@ export function isDossierRadarMeasurable() {
 }
 
 export function initializeDossierRadarIfVisible(result = APP_STATE.activeResult, faction = APP_STATE.activeDossierRadarFaction) {
-  const radarFaction = faction || getFaction(APP_STATE.activeViewKey) || getFaction(result?.faction);
-  if (!result || !radarFaction || !document.getElementById("dossierManaRadar")) {
+  const canvas = document.getElementById("dossierManaRadar");
+  const explorationMode = Boolean(canvas?.closest('[data-dossier-radar-context="identity-explore"]'));
+  const radarResult = explorationMode ? null : result;
+  const radarFaction = explorationMode ? faction : faction || getFaction(APP_STATE.activeViewKey) || getFaction(result?.faction);
+  if ((!radarResult && !explorationMode) || !radarFaction || !canvas) {
     return;
   }
 
   if (!isDossierRadarMeasurable()) {
     window.requestAnimationFrame(() => {
-      if (isDossierRadarMeasurable()) {
+      if (document.getElementById("dossierManaRadar") === canvas && isDossierRadarMeasurable()) {
         initDossierManaRadar({
-          result,
+          result: radarResult,
           faction: radarFaction,
           identityLayers: APP_STATE.identityLayers,
-          profile: getDossierRadarProfile(result, radarFaction, APP_STATE.identityLayers),
+          profile: getDossierRadarProfile(radarResult, radarFaction, APP_STATE.identityLayers),
         });
       }
     });
@@ -766,9 +769,9 @@ export function initializeDossierRadarIfVisible(result = APP_STATE.activeResult,
   }
 
   initDossierManaRadar({
-    result,
+    result: radarResult,
     faction: radarFaction,
     identityLayers: APP_STATE.identityLayers,
-    profile: getDossierRadarProfile(result, radarFaction, APP_STATE.identityLayers),
+    profile: getDossierRadarProfile(radarResult, radarFaction, APP_STATE.identityLayers),
   });
 }

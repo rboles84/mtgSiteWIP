@@ -1,11 +1,11 @@
 import {
   bindArchscryControls,
-} from "./runtime/actions.js?v=vm547r5";
+} from "./runtime/actions.js?v=vm636";
 
 import {
   renderInitializationError,
   restoreInitialView,
-} from "./runtime/boot.js?v=vm547r5";
+} from "./runtime/boot.js?v=vm636";
 
 import {
   loadDeckTagCatalog,
@@ -15,20 +15,20 @@ import {
   loadIdentityLayerData,
   loadPlacementModel,
   validateQuickReadingReachability,
-} from "./runtime/data.js?v=vm547r5";
+} from "./runtime/data.js?v=vm636";
 
 import {
   renderResult,
   returnToPrimaryReading,
   switchAdjacentView,
-} from "./runtime/dossier-view.js?v=vm547r5";
+} from "./runtime/dossier-view.js?v=vm636";
 
 import {
   openInterviewDossier,
   returnToInterviewSource,
   startInterviewFlow,
   submitInterview,
-} from "./runtime/interview.js?v=vm547r5";
+} from "./runtime/interview.js?v=vm636";
 
 import {
   applyTerminalVisibility,
@@ -38,34 +38,34 @@ import {
   openResearch,
   showSection,
   updateInterviewControls,
-} from "./runtime/navigation.js?v=vm547r5";
+} from "./runtime/navigation.js?v=vm636";
 
 import {
   answerQuickQuestion,
   goBackQuickQuestion,
   startQuickFlow,
-} from "./runtime/questionnaire.js?v=vm547r5";
+} from "./runtime/questionnaire.js?v=vm636";
 
 import {
   APP_STATE,
   SESSION,
-} from "./runtime/state.js?v=vm547r5";
+} from "./runtime/state.js?v=vm636";
 
 import {
   initializeVoxTelemetry,
-} from "../shared/vox-telemetry.js?v=vm547r5";
+} from "../shared/vox-telemetry.js?v=vm636";
 
 import {
   isArchscryDevReviewLocation,
-} from "./runtime/dev-review-gate.js?v=vm547r5";
+} from "./runtime/dev-review-gate.js?v=vm636";
 
 import {
   initializeIdentityExploration,
-} from "./runtime/identity-atlas.js?v=vm547r5";
+} from "./runtime/identity-atlas.js?v=vm636";
 
 export {
   validateDossierContentCatalogs,
-} from "./runtime/data.js?v=vm547r5";
+} from "./runtime/data.js?v=vm636";
 
 export {
   basicLandGuidanceCopy,
@@ -78,12 +78,12 @@ export {
   heroBannerArtworkAttributionForFaction,
   selectCuratedFlavorEchoesForFaction,
   selectFlavorEchoes,
-} from "./runtime/dossier-view.js?v=vm547r5";
+} from "./runtime/dossier-view.js?v=vm636";
 
 export {
   renderPlayerCopy,
   renderManaCost,
-} from "./runtime/render-utils.js?v=vm547r5";
+} from "./runtime/render-utils.js?v=vm636";
 
 export {
   approvedCardRationaleForFaction,
@@ -92,12 +92,12 @@ export {
   cardVoiceAvailabilityForFaction,
   buildCardVoicesHtml,
   buildFlavorEchoesHtml,
-} from "./runtime/content.js?v=vm547r5";
+} from "./runtime/content.js?v=vm636";
 
 export {
   resolveScryfallNamedCard,
   loadCachedScryfallNamedCard,
-} from "./runtime/card-media.js?v=vm547r5";
+} from "./runtime/card-media.js?v=vm636";
 
 document.addEventListener("vm_placementSaved", (event) => {
   if (new URLSearchParams(window.location.search).has("explore")) {
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   if (isArchscryDevReviewLocation(window.location)) {
-    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm547r5");
+    const { initializeArchscryDevReview } = await import("./runtime/dev-review.js?v=vm636");
     initializeArchscryDevReview();
   }
 });

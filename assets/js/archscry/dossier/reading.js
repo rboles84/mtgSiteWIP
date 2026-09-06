@@ -1,7 +1,7 @@
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js?v=vm547r5";
+} from "../identity-layers.js?v=vm636";
 
 import {
   MANA_ORDER,
@@ -35,7 +35,7 @@ import {
   unique,
   uniqueByDisplayName,
   uniqueObjectsBy,
-} from "./foundation.js?v=vm547r5";
+} from "./foundation.js?v=vm636";
 
 export function buildReadingOmens({
   evidenceTrail = [],

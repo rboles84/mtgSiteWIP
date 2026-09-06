@@ -3,7 +3,7 @@ import {
   READING_FIND_SECTION_CONFIG,
   getRowsForReading,
   hasRowsForOtherReadings,
-} from "../../maze/maze-scratchpad-store.js?v=vm547r5";
+} from "../../maze/maze-scratchpad-store.js?v=vm636";
 
 import {
   MAZE_PATH_LABELS,
@@ -18,12 +18,12 @@ import {
   selectReadingTagRefs,
   withArchscryMazeContext,
   withGateAPublicState,
-} from "../archscry-presentation.js?v=vm547r5";
+} from "../archscry-presentation.js?v=vm636";
 
 import {
   destroyDossierManaRadar,
   renderDossierRadarSection,
-} from "../dossier-radar.js?v=vm547r5";
+} from "../dossier-radar.js?v=vm636";
 
 import {
   buildBasicLandCards,
@@ -31,26 +31,26 @@ import {
   getExternalDeckRoutingAlias,
   getServiceChipMeta,
   hasRenderableLandTier,
-} from "../dossier/foundation.js?v=vm547r5";
+} from "../dossier/foundation.js?v=vm636";
 
 import {
   buildPreconRecommendations,
   selectPreconPreviewRecommendations,
-} from "../dossier/precons.js?v=vm547r5";
+} from "../dossier/precons.js?v=vm636";
 
 import {
   buildCommanderDossier,
-} from "../dossier/reading.js?v=vm547r5";
+} from "../dossier/reading.js?v=vm636";
 
 import {
   getExpressionKindLabel,
   normalizeLayeredIdentity,
-} from "../identity-layers.js?v=vm547r5";
+} from "../identity-layers.js?v=vm636";
 
 import {
   hydrateVisibleResultCardArt,
   shouldDisableResultCardArt,
-} from "./card-media.js?v=vm547r5";
+} from "./card-media.js?v=vm636";
 
 import {
   addUsageCards,
@@ -62,12 +62,12 @@ import {
   filterStarterCardsForUsage,
   selectApprovedCardRationales,
   selectApprovedCardVoices,
-} from "./content.js?v=vm547r5";
+} from "./content.js?v=vm636";
 
 import {
   matrixFlavorSnippetsForFaction,
   playerFacingIdentityDisplayLabel,
-} from "./data.js?v=vm547r5";
+} from "./data.js?v=vm636";
 
 import {
   ACCOUNT_DECK_LINKS_ENABLED,
@@ -87,14 +87,14 @@ import {
   normalizeDossierSegment,
   refreshAccountDeckLinks,
   resolveDossierConsoleState,
-} from "./dossier-controls.js?v=vm547r5";
+} from "./dossier-controls.js?v=vm636";
 
 import {
   applyTerminalVisibility,
   isScryingTerminalEnabled,
   showSection,
   updateTopbar,
-} from "./navigation.js?v=vm547r5";
+} from "./navigation.js?v=vm636";
 
 import {
   MANA_SYMBOL_NAMES,
@@ -105,7 +105,7 @@ import {
   normalizeCardName,
   renderPlayerCopy,
   renderStaticTagChips,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   APP_STATE,
@@ -114,7 +114,7 @@ import {
   getResumableQuickQuestion,
   getStarterProfile,
   placementQuestionById,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export const ARCHSCRY_MAZE_HANDOFF_KEY = "vm_archscry_maze_handoff_v1";
 
@@ -2113,6 +2113,7 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
     ${cardVoicesHtml}
     ${flavorEchoesHtml}`;
   const startPanelHtml = `
+    ${explorationMode ? renderDossierRadarSection({ result: null, faction, identityLayers: APP_STATE.identityLayers, explorationMode: true }) : ""}
     <div class="starter-section" data-education-surface="start-here">
       <div class="section-label">Start Here</div>
       <p class="signals-intro">Use these Commander starting points to turn ${identityOnlyMode ? "this identity" : "the reading"} into decks, cards, and searches you can compare.</p>
@@ -2311,6 +2312,8 @@ export function renderResult(viewKey, { mode = "placement", exploreSlug = "", ha
   updateTopbar();
   if (!identityOnlyMode) {
     void refreshAccountDeckLinks();
+  }
+  if (!identityOnlyMode || explorationMode) {
     initializeDossierRadarIfVisible(result, faction);
   }
   APP_STATE.resultCardArtGeneration += 1;

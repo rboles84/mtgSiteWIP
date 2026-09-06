@@ -4,23 +4,23 @@ import {
   getRefinementPath,
   getRoutingTrace,
   rankCandidates,
-} from "../gate-b1-placement-engine.js?v=vm547r5";
+} from "../gate-b1-placement-engine.js?v=vm636";
 
 import {
   renderIdentityDossier,
-} from "./dossier-view.js?v=vm547r5";
+} from "./dossier-view.js?v=vm636";
 
 import {
   startQuickFlow,
-} from "./questionnaire.js?v=vm547r5";
+} from "./questionnaire.js?v=vm636";
 
 import {
   APP_STATE,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 import {
   buildIdentityDirectoryEntries,
-} from "./identity-directory.js?v=vm547r5";
+} from "./identity-directory.js?v=vm636";
 
 const REVIEW_MODE = "dossier";
 const ENGINE_MODE = "engine";

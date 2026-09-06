@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-636 — Atlas Mana Alignment Matrix](in-progress/VM-636-atlas-mana-matrix.md) — In Progress; restore the existing identity-profile matrix in explored dossiers while preserving personal Placement and saved readings.
+
 
 
 ## Blocked
