@@ -415,6 +415,10 @@ section {
   text-shadow: 0 10px 24px rgba(0, 0, 0, 0.58);
 }
 
+.vm-color-axis[hidden] {
+  display: none !important;
+}
+
 .vm-color-axis {
   position: relative;
   width: min(100%, 35rem);

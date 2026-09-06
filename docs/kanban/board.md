@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](in-progress/VM-634-hide-home-color-axis.md) - Owner Review; RobQA QA-1 PASS at `b2a2441970470e20b42311cc58117c43566b582b`. Full artwork preserved, wrapper hidden with collapsed space; Owner decision and integration pending.
+
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
