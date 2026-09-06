@@ -2,10 +2,13 @@
 
 Date: 2026-09-05 21:05 local repository clock
 Agent: Codex independent RobQA reviewer (`vm633_independent_qa`)
-Related card: [VM-633](../kanban/in-progress/VM-633-lifecycle-state-contract.md)
+Related card: [VM-633](../kanban/done/VM-633-lifecycle-state-contract.md)
 Related plan: [Workflow course correction](../plans/workflow-course-correction.md)
 Verdict: **Engineering PASS** for `73b37aa1c230c8eb5404d1652230421f89149bb2`.
-Owner acceptance: **PENDING**. Integration: **PENDING**.
+At the independent review: Owner acceptance **PENDING**; integration **PENDING**.
+Later delivery outcome: see the [main agent's integration closeout](2026-09-05-2129-codex-vm633-owner-approved-integration.md).
+The review observations and recommendations below remain the review-time record; the reviewer did not
+execute the subsequent acceptance or integration.
 
 ## Task Requested
 

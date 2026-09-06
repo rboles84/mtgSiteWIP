@@ -2,7 +2,7 @@
 
 Status: Owner-approved implementation plan; staged delivery, not blanket candidate acceptance.
 Source: Owner discussion and approval in the course-correction task, 2026-09-05.
-Current implementation: [VM-633 — Phase 1](../kanban/in-progress/VM-633-lifecycle-state-contract.md).
+Current implementation: [VM-633 — Phase 1](../kanban/done/VM-633-lifecycle-state-contract.md) is integrated and closed; Phase 2 remains unstarted.
 
 ## Outcome And Authority
 

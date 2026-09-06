@@ -40,14 +40,13 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-633 — Lifecycle State Contract and QA Ownership](in-progress/VM-633-lifecycle-state-contract.md) - Owner Review: independent engineering PASS at candidate `73b37aa1c230c8eb5404d1652230421f89149bb2`; Phase 1 lifecycle/QA ownership is complete locally. Owner acceptance and integration pending; Phase 2 unstarted.
-
 ## Blocked
 
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
 
+- [VM-633 — Lifecycle State Contract and QA Ownership](done/VM-633-lifecycle-state-contract.md) - Done — Owner Accepted exact candidate `73b37aa1c230c8eb5404d1652230421f89149bb2`; PR #27 passed required deterministic validation and squash-merged as `ae4d650f7aa9f27d5f620548d41a4e33a943d037`. Main synchronized and feature branches removed; Phase 2 unstarted.
 - [VM-631 — Git-Authoritative Final Change Reporting](done/VM-631-git-authoritative-final-change-reporting.md) - Done — Owner Accepted / Integrated; PR #26 passed deterministic validation at exact evidence head `5f270f6c` and squash-merged as `2390ba0c`. The separately observed connector-discovery defect is bounded to VM-632.
 - [VM-598 — Lorehold Semantic Integrity Repair](done/VM-598-lorehold-semantic-integrity-repair.md) - Done — substantive repair complete; later Owner-accepted SIRF evidence retained Lorehold as a golden and supersedes the stale card-local review checkbox. No additional CRIT-001 recertification is required.
 - [VM-596 — WUBRG Semantic Repair](done/VM-596-wubrg-semantic-repair.md) - Done — substantive Five-Color repair complete; VM-603/VM-610 successor validation proved the corrected current source/build/render state and accepted WUBRG as a golden. No additional CRIT-001 recertification is required.

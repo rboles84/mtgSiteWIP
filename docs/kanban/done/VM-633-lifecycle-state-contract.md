@@ -2,7 +2,7 @@
 
 ID: VM-633
 Title: Lifecycle State Contract and QA Ownership
-Status: Owner Review
+Status: Done
 Type: Repository governance
 Area: Delivery workflow, RobDev, RobQA, Owner Review
 Priority: High
@@ -63,17 +63,20 @@ Branch: codex/vm-633-lifecycle-state-contract
 Admission baseline: 901c72d17d29128686d29e00f7db20fb126cb9ca
 Candidate: 73b37aa1c230c8eb5404d1652230421f89149bb2
 RobQA: PASS at 73b37aa1c230c8eb5404d1652230421f89149bb2; [independent evidence](../../handoffs/2026-09-05-2105-independent-robqa-vm633-lifecycle-state-contract.md).
-Owner: PENDING for 73b37aa1c230c8eb5404d1652230421f89149bb2
-Integration: PENDING
+Owner: ACCEPTED for 73b37aa1c230c8eb5404d1652230421f89149bb2 by explicit Owner ACCEPT on 2026-09-05; [decision and closeout](../../handoffs/2026-09-05-2129-codex-vm633-owner-approved-integration.md).
+Integration: INTEGRATED through [PR #27](https://github.com/rboles84/voxmana.io/pull/27), squash merge ae4d650f7aa9f27d5f620548d41a4e33a943d037; required Deterministic Validation passed. Main synchronized; local and remote feature branches removed.
 Dependencies: None; VM-626, VM-627, and VM-631 are integrated context.
 Decisions: See Source and the approved plan.
-Evidence: [Main handoff](../../handoffs/2026-09-05-2051-codex-vm633-lifecycle-state-contract.md) and [independent QA](../../handoffs/2026-09-05-2105-independent-robqa-vm633-lifecycle-state-contract.md).
+Evidence: [Main handoff](../../handoffs/2026-09-05-2051-codex-vm633-lifecycle-state-contract.md), [independent QA](../../handoffs/2026-09-05-2105-independent-robqa-vm633-lifecycle-state-contract.md), and [integration closeout](../../handoffs/2026-09-05-2129-codex-vm633-owner-approved-integration.md).
 
 ## Notes
 
 - Preflight: one registered worktree, clean main, no related active branch; existing VM-623, VM-625, and
   font-upgrade pointers are unrelated and preserved.
 - QA: QA-0 document verification with separate execution because policy risk is substantive.
-- Stop: exact-candidate engineering PASS and a bounded Owner review; Phase 2 remains future work.
-- Independent review found no material correctness defect; local candidate remains unpublished and
-  unintegrated. Later card/handoff/index edits only record the review and Git facts for this candidate.
+- Initial stop was exact-candidate engineering PASS and bounded Owner Review. The Owner subsequently
+  accepted that candidate and authorized integration; the required gates and lifecycle closeout are complete.
+- Independent review found no material correctness defect. PR evidence head
+  `736645803e9c8e620a2d20ae7a7635d066ff90b2` passed CI, and its complete tree matches the verified squash
+  merge. Subsequent changes only record lifecycle outcomes and update live references.
+- Phase 2 remains unstarted. No follow-on branch or implementation was begun during closeout.

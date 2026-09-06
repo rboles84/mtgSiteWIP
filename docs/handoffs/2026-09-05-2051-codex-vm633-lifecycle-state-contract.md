@@ -2,9 +2,13 @@
 
 Date: 2026-09-05
 Agent: Codex (main implementation agent)
-Related Card: [VM-633](../kanban/in-progress/VM-633-lifecycle-state-contract.md)
+Related Card: [VM-633](../kanban/done/VM-633-lifecycle-state-contract.md)
 Related Plan: [Approved course correction](../plans/workflow-course-correction.md)
-Status: Owner Review — independent engineering PASS; Owner acceptance and integration pending.
+Status: Done — exact candidate accepted and integrated through PR #27. See the [integration closeout](2026-09-05-2129-codex-vm633-owner-approved-integration.md).
+
+The implementation, review-path, and unpublished-state observations below are the original Owner Review
+snapshot. The later closeout records actual acceptance, CI, merge, and cleanup without reinterpreting
+that event-time evidence or changing the immutable material scope.
 
 ## Task Requested
 
