@@ -1,14 +1,15 @@
 # VM-636 — Restore the Mana Alignment Matrix in Atlas dossiers
 
 ID: VM-636
-Status: Accepted
+Status: Done
 Branch: codex/vm-636-atlas-mana-matrix
 Admission baseline: 29115b84dc6f628916c7a2f7cf07bac8dc4c5241
 Candidate: 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e
 RobQA: PASS at 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e; QA-2, Codex same-agent distinct post-commit phase. Source/profile/initializer, lint and three browser variants passed; supplementary saved-reading browser witness unavailable, with isolation verified deterministically.
 Owner: ACCEPTED at 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e on 2026-09-06: "Seems good yeah."
-Integration: PENDING explicit publication/integration authorization, as required by the earlier automatic approval review. Nothing pushed or merged.
+Integration: INTEGRATED via PR #30, squash fc8faca1d3ddf8f59d4669a9aad145e6ee58360d. Required Deterministic Validation passed at evidence head 33323d7e4bce51103d472d179a4a3008de9873a0. Owner explicitly authorized publication/integration after reviewing about five identities: "I cheched about 5 and it looked fine, we can push." Main synchronized; remote/local feature branches removed after full tree parity verification.
 Evidence: [Indexed implementation and QA handoff](../../handoffs/2026-09-06-1215-codex-vm636-atlas-mana-matrix.md).
+Closeout: [Owner-accepted integration](../../handoffs/2026-09-06-1232-codex-vm636-owner-accepted-closeout.md).
 
 ## Request and grounding
 

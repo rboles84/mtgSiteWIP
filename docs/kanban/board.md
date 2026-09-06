@@ -40,7 +40,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-636 — Atlas Mana Alignment Matrix](in-progress/VM-636-atlas-mana-matrix.md) — Accepted; QA-2 PASS and Owner acceptance at exact candidate `58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e`. Explored dossiers show the existing identity matrix in Start Here; personal Placement and saved readings preserved. Explicit publication/integration authorization pending; unintegrated.
 
 
 
@@ -50,6 +49,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## Done
 
+- [VM-636 — Atlas Mana Alignment Matrix](done/VM-636-atlas-mana-matrix.md) — Done; QA-2 PASS and Owner acceptance at `58ddae53`. PR #30 passed required CI and squash-merged as `fc8faca1`. Main synchronized; feature branches removed. Personal Placement, saved readings, protected art and VM-634/635 preserved.
 - [VM-635 - Replace Designated Background Imagery with Black](done/VM-635-black-page-backgrounds.md) - Done — Owner Accepted exact candidate `246f40ca11ebecd37b102eeb38a1f181b115cca9`; PR #29 passed required CI and squash-merged as `3fc83c4c`. Main synchronized; feature branches removed. Protected art and VM-634 preserved; later enhancement awaits Owner details.
 
 - [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](done/VM-634-hide-home-color-axis.md) - Done - Owner Accepted exact candidate `b2a2441970470e20b42311cc58117c43566b582b`; PR #28 passed required CI and squash-merged as `ec6cffb5`. Main synchronized and feature branches removed; hidden artwork remains preserved for restoration.

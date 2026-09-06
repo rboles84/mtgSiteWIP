@@ -5,6 +5,8 @@ Task requested: Add the missing Mana Alignment Matrix to explored identity dossi
 Branch: codex/vm-636-atlas-mana-matrix
 Admission baseline: 29115b84dc6f628916c7a2f7cf07bac8dc4c5241
 
+Historical candidate/Owner-review record, pinned to evidence head 33323d7e4bce51103d472d179a4a3008de9873a0. Subsequent publication authorization, PR #30 integration and Done state are recorded in the [closeout](2026-09-06-1232-codex-vm636-owner-accepted-closeout.md); pending-integration statements below retain their event-time meaning.
+
 ## Files reviewed / pre-flight
 
 Applied the repo-local RobDev and RobQA skills and usage guides with their previously read frozen gates. Rehydrated current board/index, VM-625 card and original implementation/integration handoffs, VM-635 closeout, route ownership, dossier view/controls/radar, shared VMRadar resolver, module-cache validator, and existing Atlas/dev-review tests. Inspected the Owner's Blue page: Start Here had no matrix before the change.
@@ -77,7 +79,7 @@ Owner review is complete. Codex awaits explicit authorization to push VM-636, cr
 
 ## Related card/docs/gates
 
-- [VM-636](../kanban/in-progress/VM-636-atlas-mana-matrix.md)
+- [VM-636](../kanban/done/VM-636-atlas-mana-matrix.md)
 - [VM-625](../kanban/done/VM-625-public-identity-atlas-explorer.md)
 - [Route ownership](../architecture/route-ownership-matrix.md)
 - [RobDev skill](../../.agents/skills/robdev/SKILL.md), [frozen gate](../dev/RobDevPass.md)
@@ -134,10 +136,10 @@ Derived from git diff --name-status --find-renames baseline..candidate. The prim
 ## Evidence delta
 
 - Material candidate: `58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e`
-- Evidence head: `HEAD`
+- Evidence head: `33323d7e4bce51103d472d179a4a3008de9873a0`
 - Additional evidence-only paths: `4`
 
-This is not the full task diff. HEAD denotes the consolidated QA and Owner acceptance evidence commit containing this record; the final task response reports its exact SHA. Only test observations, exact-candidate binding, lifecycle summaries and Git accounting follow the material candidate; implementation and acceptance criteria are unchanged.
+This is not the full task diff. The pinned evidence head denotes the consolidated QA and Owner acceptance evidence commit before publication. Only test observations, exact-candidate binding, lifecycle summaries and Git accounting follow the material candidate at that point; implementation and acceptance criteria are unchanged. Later integration accounting belongs to the closeout.
 
 ## Evidence-only paths
 
