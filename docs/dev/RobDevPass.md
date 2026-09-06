@@ -23,9 +23,11 @@ RobDevPass sits before RobQAPass:
 
 > Request -> repository grounding -> RobDevPass -> implementation -> RobQAPass -> owner judgment -> integration
 
-RobDevPass governs **how the change is investigated and built**. RobQAPass governs **how validation
-scope is selected and how owner acceptance is prepared**. Existing Vox Mana authorities retain their
-own contracts.
+RobDevPass governs **how the change is investigated and built**. RobQAPass owns engineering evidence
+sufficiency and candidate-bound PASS. The Owner separately accepts product and scope; the
+[workflow](../reference/workflow.md#responsibility-boundaries) owns lifecycle transitions. RobDev supplies
+development evidence without issuing a competing final QA verdict. Existing specialist authorities
+retain their own contracts.
 
 ---
 

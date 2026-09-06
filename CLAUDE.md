@@ -74,7 +74,7 @@ Return:
 - Preserve Vox Mana tone: mystical, lore-rich, Commander-first, readable.
 - Preserve existing project themes unless explicitly told to redesign.
 - Always report files changed and tests run.
-- Do not mark work done unless tests pass or the user confirms.
+- Use the [workflow lifecycle contract](docs/reference/workflow.md#lifecycle-states-and-transitions) for completion; tests or Owner acceptance alone do not prove repository integration and closeout.
 
 ---
 
@@ -115,7 +115,7 @@ Every significant change needs:
 - A handoff file at `docs/handoffs/YYYY-MM-DD-HHMM-agent-name-short-task.md`
 - An update to `docs/handoffs/HANDOFF_INDEX.md`
 
-Card template fields: ID, Title, Status, Type, Area, Priority, Created, Summary, Source, Acceptance Criteria, Files Likely Impacted, Risks, Implementation Prompt, Notes.
+Card template fields: ID, Title, Status, Type, Area, Priority, Created, Summary, Source, Acceptance Criteria, Files Likely Impacted, Risks, Implementation Prompt, Notes. New material cards also use the workflow's [minimal delivery record](docs/reference/workflow.md#minimal-delivery-record).
 
 ---
 
@@ -123,7 +123,7 @@ Card template fields: ID, Title, Status, Type, Area, Priority, Created, Summary,
 
 ### Kanban Steward
 
-Creates or updates file-based Kanban cards. Pre-flight required. Uses the card template above. Creates handoff and updates `HANDOFF_INDEX.md`. Does not modify runtime code. Does not delete cards. Does not mark work done unless tests or user confirmation support it.
+Creates or updates file-based Kanban cards. Pre-flight required. Uses the card template above. Creates handoff and updates `HANDOFF_INDEX.md`. Does not modify runtime code. Does not delete cards. Applies the workflow's lifecycle meanings and folder mapping rather than inventing a separate Done criterion.
 
 ### Documentation Steward
 

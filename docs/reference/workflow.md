@@ -4,7 +4,9 @@ This workflow keeps agent work grounded in project memory, file-based Kanban sta
 
 ## Source Of Truth
 
-Use `docs/kanban/` as the local source of truth for task state.
+The individual card in `docs/kanban/` owns declared task state. Git and GitHub establish actual branch,
+candidate, CI, and integration facts; reconcile the card with those observations before acting. Board,
+handoff, and PR summaries reference the card and evidence rather than independently deciding its state.
 
 - `docs/kanban/board.md` summarizes the active board.
 - `docs/kanban/backlog/` contains unscheduled cards.
@@ -30,9 +32,9 @@ For non-trivial work:
 
 Apply [Token And Reasoning Cost Control](token-reasoning-cost-control.md): perform proportionate checks by default. Broaden validation only when the current Owner request explicitly asks for it or a current stricter protected workflow requires it for the changed risk.
 
-The normal verification sequence is:
-
-`IMPLEMENT -> FOCUSED OBJECTIVE VERIFICATION -> OPTIONAL RISK-JUSTIFIED BROWSER VERIFICATION -> OWNER VISUAL REVIEW -> SHIP`
+Use the [standard delivery sequence](#standard-branch-to-owner-to-pr-to-merge-delivery): SHIP ends with
+engineering PASS and pending Owner Review. Owner visual/product judgment precedes ACCEPT and integration,
+not completion of engineering PASS.
 
 The current Owner request and canonical governance determine scope. Historical cards, handoffs, test catalogs,
 or phrases such as "all existing tests," "no skipped tests," and "full validation" do not authorize
@@ -58,7 +60,10 @@ Faction identity, placement, dossier, and gold-standard parity cards must follow
 
 ## Kanban Cards
 
-Cards should use `VM-###` IDs and live in the folder matching their status. Move a card between folders when its status changes, and update `docs/kanban/board.md` in the same change.
+Cards should use `VM-###` IDs and live in the folder mapped by the
+[lifecycle contract](#lifecycle-states-and-transitions). Move a card when its mapped folder changes, and
+update `docs/kanban/board.md` in the same change. Generated views are future work; current manual updates
+remain required until their replacement is adopted.
 
 Each card should include:
 
@@ -77,7 +82,91 @@ Each card should include:
 - Implementation Prompt
 - Notes
 
-Do not mark cards done until tests/checks or direct user confirmation support that status.
+For new repository delivery, Done requires the closeout evidence below; green tests or Owner acceptance
+alone do not prove integration. Historical statuses retain their event-time meaning and are not migrated
+by this amendment. Non-delivery work follows its explicit acceptance criteria; no external research,
+semantic, or certification requirement can be replaced by a repository merge.
+
+### Responsibility Boundaries
+
+| Decision | Owner | Boundary |
+|---|---|---|
+| Grounding and implementation | RobDev | Supplies changed/protected behavior and development evidence; does not issue a competing final QA verdict. |
+| Engineering evidence sufficiency | RobQA | Selects risk-proportional validation and issues candidate-bound PASS or BLOCKED under its governing gate. |
+| Product and scope acceptance | Owner | Issues ACCEPT or REJECT for the exact candidate; subjective visual judgment remains Owner work. |
+| Lifecycle and delivery coordination | This workflow, executed by the main agent | Transitions the card using actual evidence; neither the card nor an agent assertion manufactures Git facts or Owner consent. |
+
+Specialist source, semantic, CRIT, SIRF, security, migration, and certification authorities retain their
+own scope and independence. This table routes decisions; it does not transfer their authority to a card.
+
+### Lifecycle States And Transitions
+
+Engineering PASS is the [RobQA exit verdict](../qa/RobQAPass.md#24-robqapass-exit-criteria), not a second
+Owner acceptance decision. Use these prospective card states for repository delivery:
+
+| State | Required meaning / next transition | Folder |
+|---|---|---|
+| Backlog | Unscheduled work; scope it before Ready. | `backlog/` |
+| Ready | Scoped intake, not a QA verdict; admission begins In Progress. | `ready/` |
+| In Progress | RobDev or candidate QA is underway; engineering PASS permits Owner Review. | `in-progress/` |
+| Owner Review | The exact candidate has engineering PASS; Owner decision remains pending. | `in-progress/` |
+| Accepted | Owner accepted that candidate and authorized integration; integration may still be pending or blocked. | `in-progress/` |
+| Integrated | GitHub merge and resulting commit are verified; required closeout remains. | `in-progress/` |
+| Done | Integration, main sync, lifecycle documentation, and clean worktree are verified; safe cleanup is complete or explicitly deferred with reason and ownership. | `done/` |
+| Blocked | Work cannot advance because of a concrete unresolved obstacle; record the stage, cause, and evidence needed to resume. | `blocked/` |
+| Deferred | Intentionally postponed and incomplete; record the Owner disposition and resumption condition. | `blocked/` |
+
+An integration-only CI, network, permission, or environment obstacle leaves the card **Accepted**, with
+the integration blockage recorded separately. It does not erase the exact candidate's valid QA/Owner
+decisions or require another approval when the obstacle clears. Do not claim Integrated from a request
+or an unknown merge outcome. A newly discovered correctness blocker stops delivery even without a file
+change; retain historical Owner acceptance but do not use it to bypass a revoked engineering PASS.
+
+REJECT returns the same card to In Progress for correction. Material implementation, policy,
+acceptance-criteria, fixture, or test-contract changes create a new candidate, reset affected QA and Owner
+decisions to PENDING, and repeat RobDev -> RobQA -> Owner Review. Preserve prior decisions as history.
+Use the narrow evidence exception below only when its contents actually qualify.
+
+### Minimal Delivery Record
+
+For new material cards, retain the existing `ID`, `Title`, and `Status` header and add one `## Delivery`
+block using the same `Label: value` convention. This is a prospective documentation contract, not a new
+parser or a migration of legacy records.
+
+- `Record version: 1`.
+- `Branch`, `Admission baseline`, and `Candidate`: branch name and full Git-resolved commit IDs; use
+  PENDING until a candidate exists. A recorded baseline still requires Git ancestry/scope verification.
+- `RobQA` and `Owner`: current decisions, the exact candidate binding, and references to their evidence.
+- `Integration`: PENDING, a concrete blocked reason, or verified PR/merge reference; do not infer it from
+  acceptance. Record cleanup deferral in the closeout evidence when applicable.
+- `Dependencies`, `Decisions`, and `Evidence`: concise references to existing Markdown decisions,
+  dependencies, and handoffs; do not duplicate their explanatory prose or create a second task database.
+
+The card's state is a declared lifecycle summary. Fresh Git/host observations and authentic Owner input
+remain necessary. A SHA copied into metadata is neither an independent review nor proof of consent.
+
+### Candidate And Evidence Records
+
+Prepare substantive implementation documentation before committing the material candidate. Bind the
+completed QA decision to that immutable candidate in a durable, retrievable artifact before Owner Review.
+Local review remains the default. Use the existing task handoff and a consolidated evidence commit when
+needed to make local review resumable; an already suitable durable artifact does not require another
+commit. Transient chat alone is not the durable evidence store. After ACCEPT, the PR records the same
+QA/Owner binding; do not add a commit solely to repeat it.
+
+An evidence-only delta may record observations, test results, decision references, lifecycle fields,
+and corresponding board/index summaries. It must not change implementation, policy, scope, acceptance
+criteria, fixtures, or test assertions, including when those changes are Markdown. Do not classify by
+extension or path alone: inspect the contents. Uncertain classification is material and returns through
+the candidate loop. The [Git reporting contract](../../AGENTS.md#final-git-reporting-contract) keeps the
+material change set, evidence delta, and total branch scope distinct.
+
+Recording the result of an unchanged acceptance criterion is evidence; changing the criterion's wording
+or required outcome is material.
+
+Evidence changes receive proportionate record/link/diff validation and are identified at integration;
+they do not become a new material candidate when the exception is proven. They must never self-author
+Owner acceptance. Optional evidence commits do not waive the existing handoff requirements.
 
 ## Standard Branch to Owner to PR to Merge Delivery
 
@@ -115,9 +204,9 @@ Resume valid work at the correct point. Do not discard, duplicate, reset, clean,
 1. Rehydrate the card and repository state above.
 2. Apply RobDev to the accepted card scope. Inspect the final diff, remove accidental artifacts, run card-required developer verification, update required documentation and handoff records, and leave only intended candidate changes.
 3. Commit a stable Owner Review candidate on the feature branch. Pushing the branch or opening a PR is optional at this stage unless remote infrastructure or collaboration is concretely needed.
-4. Apply RobQA independently to that exact candidate commit. The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, and plausible regression surfaces rather than trusting the RobDev summary. Rerun only the risk-proportional set selected for the actual candidate; do not rerun every historical suite automatically.
+4. Apply RobQA to that exact candidate commit using its [QA execution independence rule](../qa/RobQAPass.md#qa-execution-independence). The authoritative scope is `merge-base(feature branch, main)..candidate SHA`, or the equivalent PR base/head diff when an early PR exists. Inspect changed files, acceptance criteria, relevant automated/manual evidence, and plausible regression surfaces rather than trusting the RobDev summary. Rerun only the risk-proportional set selected for the actual candidate; do not rerun every historical suite automatically.
 5. If RobQA is `BLOCKED`, record concrete findings and return the same card and branch to RobDev. Resolve ordinary bugs, missed acceptance criteria, directly relevant lint/test failures, and bounded implementation mistakes automatically; commit the correction and rerun proportionate QA until `PASS` or a genuine Owner decision is required. After one reasonable causal check, unrelated or ambiguous browser failures are disclosed as known or suspected harness debt and are not repeatedly retried or repaired inside the feature task.
-6. Bind final RobQA `PASS` to the exact reviewed candidate SHA in a durable evidence artifact and, when a PR exists, in the PR body. Any later material change makes QA `PENDING`/stale. Documentation-only follow-up uses the existing RobQA risk rules; never imply that materially changed code remains approved.
+6. Bind final engineering `PASS` to the exact reviewed candidate under [candidate and evidence records](#candidate-and-evidence-records) and, when a PR exists, in its body. Move the card to Owner Review with Owner PENDING. Any later material change makes affected QA/Owner evidence stale; documentation is not automatically evidence-only.
 7. Stop with a concise Owner handoff: card, feature branch, exact candidate SHA, RobQA status and evidence, the shortest manual inspection, and non-blocking limitations. A PR is not required for this Owner Review gate.
 
 Escalate from the Dev/QA loop only for changed accepted scope, Owner-reserved architecture, semantic authority, destructive behavior, or a genuine requirement conflict.
@@ -133,11 +222,15 @@ Escalate from the Dev/QA loop only for changed accepted scope, Owner-reserved ar
 5. Run and verify required PR CI/status checks.
 6. Verify the PR is mergeable and its base/head diff contains no unexpected work, commits, or artifacts.
 7. If all integration checks pass, use GitHub squash merge with the preferred subject `VM-###: <accepted card title>`.
-8. Obtain the resulting `main` SHA, sync local `main`, and verify the squash commit and clean worktree.
-9. Complete the card, board, and handoff closeout under existing governance and record the final merge SHA where required.
-10. Delete the remote and local feature branch when safe.
+8. Obtain and verify the resulting merge commit, record Integrated, sync local `main`, and verify the squash commit and worktree.
+9. Complete the card, board, and handoff closeout and record the final merge SHA. Delete the remote/local feature branch when safe; otherwise record the concrete reason and owner of deferred cleanup without discarding work.
+10. Persist the Done closeout record and verify the final clean worktree and completed closeout before reporting Done. A truthful cleanup deferral does not imply that deletion occurred.
 
-Do not request a second Owner approval while the code being merged remains the exact accepted candidate. If implementation code changes after Owner ACCEPT because of CI failure, merge conflict, integration correction, a discovered defect, or any other material reason, the prior RobQA PASS and Owner ACCEPT are stale. Commit a new candidate and return through RobDev -> RobQA -> Owner Review before merge. Non-material lifecycle/documentation updates may follow the existing narrow exception rules and must not conceal changed implementation.
+Do not request a second Owner approval while the candidate and its evidence remain valid. An
+integration-only blockage preserves Accepted. If resolving a CI failure, merge conflict, discovered defect,
+or other issue requires a material change (including governance or test contracts), the prior QA/Owner
+binding becomes stale. Commit a new candidate and repeat RobDev -> RobQA -> Owner Review before merge.
+Only proven [evidence-only updates](#candidate-and-evidence-records) may retain the material candidate.
 
 ### `REJECT VM-###: <reason>`
 
@@ -151,8 +244,10 @@ The PR is primarily the integration and durable review artifact. It normally ope
 - concise change and scope summary;
 - acceptance-criteria disposition;
 - important automated/manual verification;
-- `RobQA: PENDING | PASS | BLOCKED` plus reviewed SHA and evidence link;
-- `Owner Review: PENDING | ACCEPTED | REJECTED` plus reviewed SHA.
+- `RobQA: PENDING | PASS | BLOCKED` plus reviewed SHA, execution mode, and evidence link;
+- `Owner Review: PENDING | ACCEPTED | REJECTED` plus reviewed SHA and actual decision reference;
+- integration status and obstacle or verified merge reference, separate from Owner acceptance;
+- an identified evidence delta when the PR head differs from the material candidate.
 
 For the normal post-ACCEPT path, both RobQA and Owner fields must identify the exact accepted candidate before integration. For an early Draft PR, keep current evidence truthful and update the same PR as candidates change.
 

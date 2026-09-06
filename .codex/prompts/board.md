@@ -19,7 +19,7 @@ Create or update a file-based Kanban card.
 
 `docs/kanban/`
 
-Statuses:
+Physical folders (card states map through the [workflow lifecycle contract](../../docs/reference/workflow.md#lifecycle-states-and-transitions)):
 - `backlog`
 - `ready`
 - `in-progress`
@@ -35,7 +35,7 @@ Statuses:
 - Use the next available `VM-###` ID.
 - Update `docs/kanban/board.md`.
 - Do not delete cards.
-- Do not mark work done unless tests or user confirmation support it.
+- Apply the workflow's lifecycle and Done requirements; tests or Owner acceptance alone do not establish integration or closeout.
 - Do not invent requirements not present in the source plan.
 
 ## Card Template
@@ -56,6 +56,8 @@ Each card must include:
 - Risks
 - Implementation Prompt
 - Notes
+
+New material cards also use the workflow's [minimal delivery record](../../docs/reference/workflow.md#minimal-delivery-record). Keep decision prose in its existing Markdown owner rather than duplicating it in metadata.
 
 ## Required Handoff
 
