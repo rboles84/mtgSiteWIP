@@ -17,25 +17,25 @@
 <meta property="og:title" content="Vox Mana - Commander Identity Compass" />
 <meta property="og:description" content="Understand your Commander color identity, placement, play patterns, and browsing direction before you build or compare decks elsewhere." />
 <meta property="og:url" content="https://voxmana.io/" />
-<meta property="og:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg" />
-<meta property="og:image:alt" content="Vox Mana gateway artwork for a Commander identity compass." />
+<meta property="og:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
+<meta property="og:image:alt" content="Vox Mana gold sigil and Commander Identity Compass lettering on black." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Vox Mana - Commander Identity Compass" />
 <meta name="twitter:description" content="A Commander identity and taste compass for color signals, placement, play patterns, and browsing direction." />
-<meta name="twitter:image" content="https://voxmana.io/assets/img/vox-mana-hero-1280w.jpg" />
+<meta name="twitter:image" content="https://voxmana.io/assets/img/social/vox-mana-share-v1.png" />
 <link rel="icon" type="image/svg+xml" href="./assets/img/vox-mana-header-logo.svg">
 <!-- Archscry assets inserted here (background, canvas, web component).
   See docs/handoffs/2026-05-19-1505-copilot-archscry-extract.md for details. -->
 
 <link rel="preload" href="./assets/fonts/almendra-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="./assets/css/tokens.css?v=vm612" />
+<link rel="stylesheet" href="./assets/css/tokens.css?v=vm635" />
 <link rel="stylesheet" href="./assets/css/fonts.css?v=vm612" />
 <script src="assets/js/shared/vm-radar.js" defer></script>
-<link rel="stylesheet" href="./assets/css/layout.css" />
+<link rel="stylesheet" href="./assets/css/layout.css?v=vm635" />
 <link rel="stylesheet" href="./assets/css/topbar.css?v=vm618" />
 <link rel="stylesheet" href="./assets/vendor/keyrune/css/keyrune.min.css?v=3.19.0" />
 <link rel="stylesheet" href="./assets/css/guide-beacon.css?v=vm620" />
-<link rel="stylesheet" href="./assets/css/home.css?v=vm634" />
+<link rel="stylesheet" href="./assets/css/home.css?v=vm635" />
 </head>
 
 <!-- BODY: Visible page starts here. This contains the background layers, navigation, main content, footer, and JavaScript. -->
@@ -43,13 +43,7 @@
   <!-- Background with image and sparkling stars -->
   <!-- DECORATIVE BACKGROUND: aria-hidden="true" means screen readers ignore this because it is visual decoration only. -->
   <div class="vm-bg" aria-hidden="true">
-    <!-- RESPONSIVE BACKGROUND IMAGE: <picture> can serve modern image formats; here it points to the WebP background. -->
-    <picture class="vm-bg__picture">
-      <!-- BACKGROUND SOURCE: Browser can choose this WebP image; sizes="100vw" says it is intended to span the full viewport width. -->
-      <source type="image/webp" srcset="./assets/img/backgrounds/background-vox-gateway-clean-13.webp 2560w" sizes="100vw">
-      <!-- BACKGROUND FALLBACK IMG: The visible background image. Empty alt text is correct here because the image is decorative. -->
-      <img src="./assets/img/backgrounds/background-vox-gateway-clean-13.webp" alt="" width="1672" height="941" decoding="async" fetchpriority="high">
-    </picture>
+    <!-- VM-635: black backdrop; painted image assets preserved for rollback. -->
     <!-- NEBULA LAYER: Empty div used only for CSS radial-gradient atmosphere. -->
     <div class="vm-bg__nebula"></div>
     <!-- STAR CANVAS: Empty drawing surface. JavaScript later animates tiny gold particles on it. -->

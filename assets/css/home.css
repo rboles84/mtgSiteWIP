@@ -15,7 +15,7 @@
   --gold-2: #f7d784;
   --line-bright: rgba(247, 215, 132, 0.72);
   --theme-glow: rgba(88, 186, 255, 0.028);
-  --bg-image: url('../img/backgrounds/background-vox-gateway-clean-13.webp');
+  --bg-image: none;
 
   --mana-white: #f7f0d0;
   --mana-blue: #58b8ff;
@@ -88,6 +88,7 @@ body::after {
 /* BACKGROUND */
 /* BACKGROUND CONTAINER: Fixed decorative layer behind content. pointer-events:none prevents it from blocking clicks. */
 .vm-bg {
+  background: var(--vm-page-base, #000);
   position: fixed;
   inset: 0;
   z-index: -10;

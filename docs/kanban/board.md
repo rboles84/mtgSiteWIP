@@ -40,6 +40,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
+- [VM-635 - Replace Designated Background Imagery with Black](in-progress/VM-635-black-page-backgrounds.md) - In Progress; retire only designated background/hero image references, preserve all other art and procedural effects, and add a deterministic share graphic. Owner Review pending.
+
 
 ## Blocked
 

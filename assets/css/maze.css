@@ -10,7 +10,7 @@
 
 /* Route shell and shared background treatment */
 body.vm-maze-route {
-  --maze-bg-image: url("../img/backgrounds/background-maze-chamber-clean-01.webp");
+  --maze-bg-image: none;
   --maze-panel: rgba(12, 16, 25, 0.50);
   --maze-panel-strong: rgba(18, 23, 35, 0.62);
   --maze-panel-deep: rgba(8, 11, 18, 0.30);
@@ -70,7 +70,7 @@ body.vm-maze-route::after {
 
 body.vm-maze-route .vm-bg {
   z-index: -10;
-  background: transparent;
+  background: var(--vm-page-base, #000);
   overflow: visible;
 }
 

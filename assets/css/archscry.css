@@ -10,7 +10,7 @@
 /* Archscry route shell / rich atmosphere */
 
 body.vm-archscry-route {
-  --vm-archscry-bg-image: url("../img/backgrounds/background-vox-gateway-clean-09.webp");
+  --vm-archscry-bg-image: none;
   background:
     radial-gradient(circle at 20% 10%, rgba(88, 184, 255, 0.12), transparent 24rem),
     radial-gradient(circle at 80% 0%, rgba(164, 107, 234, 0.10), transparent 24rem),
@@ -49,7 +49,7 @@ body.vm-archscry-route::after {
 
 body.vm-archscry-route .vm-bg {
   z-index: -10;
-  background: transparent;
+  background: var(--vm-page-base, #000);
   overflow: visible;
 }
 
