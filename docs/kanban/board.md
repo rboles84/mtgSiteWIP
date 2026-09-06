@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-636 — Atlas Mana Alignment Matrix](in-progress/VM-636-atlas-mana-matrix.md) — In Progress; restore the existing identity-profile matrix in explored dossiers while preserving personal Placement and saved readings.
+- [VM-636 — Atlas Mana Alignment Matrix](in-progress/VM-636-atlas-mana-matrix.md) — Owner Review; QA-2 PASS at exact candidate `58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e`. Explored dossiers show the existing identity matrix in Start Here; personal Placement and saved readings preserved. Owner PENDING; unintegrated.
 
 
 

@@ -1,11 +1,11 @@
 # VM-636 — Restore the Mana Alignment Matrix in Atlas dossiers
 
 ID: VM-636
-Status: In Progress
+Status: Owner Review
 Branch: codex/vm-636-atlas-mana-matrix
 Admission baseline: 29115b84dc6f628916c7a2f7cf07bac8dc4c5241
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e
+RobQA: PASS at 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e; QA-2, Codex same-agent distinct post-commit phase. Source/profile/initializer, lint and three browser variants passed; supplementary saved-reading browser witness unavailable, with isolation verified deterministically.
 Owner: PENDING
 Integration: PENDING; stop at Owner Review.
 Evidence: [Indexed implementation and QA handoff](../../handoffs/2026-09-06-1215-codex-vm636-atlas-mana-matrix.md).

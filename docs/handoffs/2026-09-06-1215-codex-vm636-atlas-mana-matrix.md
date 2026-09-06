@@ -36,13 +36,28 @@ Use Start Here, the existing default exploration panel, rather than expose perso
 
 ## RobQA readiness / exact candidate
 
-RobDev: READY for candidate creation.
+RobDev: READY.
 QA tier: QA-2 component presentation and initialization. Execution: SAME-AGENT DISTINCT PHASE, Codex; no routing, storage, scoring, semantic, security, migration or governance behavior is changed. The cache graph uses the existing contract.
-Candidate: PENDING. RobQA: PENDING. Owner: PENDING. Integration: PENDING; stop at Owner Review.
+Candidate: 58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e. RobQA: PASS at that exact candidate. Owner: PENDING. Integration: PENDING; stopped at Owner Review.
 CPU-heavy validation: NOT REQUIRED.
 Browser justification: objective visible canvas initialization, keyboard axis expansion, multicolor checkbox behavior, and tab/layout reveal cannot be fully established by source checks. Bounded witnesses cover Blue, multicolor, Colorless and an existing saved-reading restore. No screenshot or viewport matrix.
 Tests intentionally skipped: full Atlas navigation suite, full dev-review suite, broad frontend/engine/placement suites, screenshots, animation-fidelity waits, and exhaustive browser identity loops. No changed risk justifies them; local Edge startup was previously unavailable, and working in-app browser checks cover the new interaction directly.
 Manual finding to invariant: Owner found Atlas dossiers lacked the matrix. Regression protects all active profile variants, identity-only initialization and preservation of the personal-reading boundary rather than special-casing Blue.
+
+### Distinct post-commit QA evidence
+
+Re-read the actual three-module implementation diff and acceptance criteria independently from the development summary. The merge-base with main equals the admission baseline; checkout was clean at candidate review. Reran HTML/JS lint, the focused matrix test, and baseline-to-candidate diff hygiene: PASS. Reran cache-only normalization and compared baseline/current personal-matrix rendered HTML for all 37 identities: PASS. No material correction or new candidate was needed.
+
+In-app browser at the committed candidate on port 8000:
+
+- Blue direct load: one visible 382x318 canvas, fallback hidden, Identity Profile and identity-alignment accessible label, correct existing values, no Placement panel. Keyboard Enter on Knowledge expands the existing detail; Escape collapses it.
+- Blue panel and layout: Identity & Play hides Start Here; returning to Start Here reveals the matrix. View All retains exactly one visible canvas and hidden fallback.
+- Jund: existing component and synthesis checkboxes present and enabled; component-only and synthesis-only states work. Attempting to uncheck the last layer restores Synthesis as designed. The browser setChecked helper reports a mismatch for that deliberately prevented state; observed checkbox state confirms the existing guard, not a product defect.
+- Colorless: one visible canvas, hidden fallback, correct existing profile/values, no multicolor toggles, and no Placement panel.
+
+Supplementary saved-reading browser witness: NOT COMPLETED / local-server and browser harness limitation. The older port 8766 server was no longer reachable; a bounded server-start check did not restore access, and the browser's error-document URL blocked further tab actions. The temporary process was stopped, and no further browser workaround or product change was attempted. No browser saved-reading restore or storage-byte comparison is claimed for this candidate. The objective isolation contract passes at the lower reliable layer: the production initializer is exercised with no result and with a conflicting saved result, asserts unchanged active result/view state, and uses the browsed profile; saved-state writers are unchanged and personal markup is byte-identical for all identities. This is an explicit evidence disposition, not an Owner test request or a change to acceptance criteria.
+
+No screenshot, animation-fidelity, viewport or semantic engine suite was run. Remaining Owner judgment is only matrix placement/appearance. No blocking correctness finding.
 
 ## Remaining Owner judgment / shortest review
 
@@ -69,6 +84,68 @@ Owner reviews the exact QA-passed VM-636 candidate. Codex handles only a bounded
 - [RobQA skill](../../.agents/skills/robqa/SKILL.md), [frozen gate](../qa/RobQAPass.md)
 - [Workflow](../reference/workflow.md)
 
-## Files changed / Git accounting
+## Material candidate
 
-Pending committed material candidate; derive all scopes from Git before delivery.
+- Baseline: `29115b84dc6f628916c7a2f7cf07bac8dc4c5241`
+- Candidate: `58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e`
+- Changed paths: `36`
+
+Derived from git diff --name-status --find-renames baseline..candidate. The primary task scope includes the existing module-cache epoch, three matrix implementation modules, focused test and documentation.
+
+## Files changed
+
+- `archscry/index.html`
+- `assets/js/archscry/archscry-presentation.js`
+- `assets/js/archscry/archscry-result.js`
+- `assets/js/archscry/commander-dossier.js`
+- `assets/js/archscry/deck-link-service.js`
+- `assets/js/archscry/dossier-radar.js`
+- `assets/js/archscry/dossier/audit.js`
+- `assets/js/archscry/dossier/foundation.js`
+- `assets/js/archscry/dossier/precons.js`
+- `assets/js/archscry/dossier/reading.js`
+- `assets/js/archscry/index.js`
+- `assets/js/archscry/quick-reading.js`
+- `assets/js/archscry/runtime/actions.js`
+- `assets/js/archscry/runtime/boot.js`
+- `assets/js/archscry/runtime/card-media.js`
+- `assets/js/archscry/runtime/content.js`
+- `assets/js/archscry/runtime/data.js`
+- `assets/js/archscry/runtime/dev-review.js`
+- `assets/js/archscry/runtime/dossier-controls.js`
+- `assets/js/archscry/runtime/dossier-view.js`
+- `assets/js/archscry/runtime/identity-atlas.js`
+- `assets/js/archscry/runtime/identity-directory.js`
+- `assets/js/archscry/runtime/interview.js`
+- `assets/js/archscry/runtime/navigation.js`
+- `assets/js/archscry/runtime/questionnaire.js`
+- `assets/js/archscry/runtime/state.js`
+- `assets/js/maze/maze-query-core.js`
+- `assets/js/maze/research-init.js`
+- `docs/architecture/route-ownership-matrix.md`
+- `docs/handoffs/2026-09-06-1215-codex-vm636-atlas-mana-matrix.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-636-atlas-mana-matrix.md`
+- `maze/index.html`
+- `scripts/validate-frontend-html.mjs`
+- `tests/archscry/identity-atlas-matrix-tests.js`
+
+## Evidence delta
+
+- Material candidate: `58ddae537f5f93fa5b1a5b8ade2cb6aac659ad6e`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This is not the full task diff. HEAD denotes the consolidated Owner Review evidence commit containing this record; the final task response reports its exact SHA. Only test observations, exact-candidate binding, lifecycle summaries and Git accounting follow the material candidate; implementation and acceptance criteria are unchanged.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-06-1215-codex-vm636-atlas-mana-matrix.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-636-atlas-mana-matrix.md`
+
+## Final branch delta
+
+The material set has 36 paths; evidence only updates existing delivery records. Baseline-to-final-HEAD count and clean worktree are confirmed by Git and the completion validator before delivery. No push or integration is authorized for this new candidate yet.
