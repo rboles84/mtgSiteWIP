@@ -40,7 +40,6 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-635 - Replace Designated Background Imagery with Black](in-progress/VM-635-black-page-backgrounds.md) - Owner Review; QA-1 engineering PASS at exact candidate `246f40ca11ebecd37b102eeb38a1f181b115cca9`. Black backgrounds and authored share preview; protected art and VM-634 preserved. Owner PENDING; unintegrated.
 
 
 ## Blocked
@@ -48,6 +47,8 @@ Cards live in the matching status folders under `docs/kanban/`:
 - [VM-469 - External Reviewer Two-Week Test](blocked/VM-469-external-reviewer-two-week-test.md) - Deferred and explicitly incomplete; the protocol needs five real outside responses and should be refreshed against the then-current product before execution. Engineering and release work are not blocked.
 
 ## Done
+
+- [VM-635 - Replace Designated Background Imagery with Black](done/VM-635-black-page-backgrounds.md) - Done — Owner Accepted exact candidate `246f40ca11ebecd37b102eeb38a1f181b115cca9`; PR #29 passed required CI and squash-merged as `3fc83c4c`. Main synchronized; feature branches removed. Protected art and VM-634 preserved; later enhancement awaits Owner details.
 
 - [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](done/VM-634-hide-home-color-axis.md) - Done - Owner Accepted exact candidate `b2a2441970470e20b42311cc58117c43566b582b`; PR #28 passed required CI and squash-merged as `ec6cffb5`. Main synchronized and feature branches removed; hidden artwork remains preserved for restoration.
 

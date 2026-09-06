@@ -5,6 +5,8 @@ Task requested: Implement the Owner-approved designated-background replacement a
 Branch: codex/vm-635-black-page-backgrounds
 Admission baseline: cc6c0de157419ff0271b94dfcf87013bfba2af8d
 
+Lifecycle update: Owner accepted the exact candidate and explicitly authorized integration. PR #29 merged as 3fc83c4cbf355ae8786e682c0f83bed441bb1510. The original Owner Review evidence below remains historical; see [closeout](2026-09-06-1205-codex-vm635-owner-accepted-closeout.md).
+
 ## Files reviewed and pre-flight
 
 Read RobDev/RobQA skills and usage guides, their frozen gates, workflow, current board/index, VM-634's implementation/accepted closeout, relevant Guide/atmosphere and official-art decisions, route ownership, all public route heads/background shells, shared and route CSS, metadata/HTML validators, asset manifest, and existing artwork references. Main was clean at admission with one registered checkout. Existing vm-623, vm-625, and font-upgrade branches were unrelated; one VM-635 branch was created in the existing checkout.
@@ -86,7 +88,7 @@ Owner: review presentation and ACCEPT or REJECT VM-635's exact passed candidate.
 
 ## Related Kanban card, docs, and gates
 
-- [VM-635](../kanban/in-progress/VM-635-black-page-backgrounds.md)
+- [VM-635](../kanban/done/VM-635-black-page-backgrounds.md)
 - [Asset manifest](../design/asset-manifest.md)
 - [RobDev skill](../../.agents/skills/robdev/SKILL.md), [frozen RobDev gate](../dev/RobDevPass.md)
 - [RobQA skill](../../.agents/skills/robqa/SKILL.md), [frozen RobQA gate](../qa/RobQAPass.md)
@@ -142,10 +144,10 @@ Derived from git diff --name-status --find-renames baseline..candidate.
 ## Evidence delta
 
 - Material candidate: `246f40ca11ebecd37b102eeb38a1f181b115cca9`
-- Evidence head: `HEAD`
+- Evidence head: `a6ff8fbd741f51324dd0d30a210012b6ea62f791`
 - Additional evidence-only paths: `4`
 
-This is not the full task diff. HEAD denotes the consolidated evidence commit containing this record; its exact SHA is reported in the task. Only QA observations, candidate bindings, lifecycle summaries and Git accounting follow the material candidate.
+This is not the full task diff. The evidence head identifies the original consolidated Owner Review record. Only QA observations, candidate bindings, lifecycle summaries and Git accounting followed the material candidate at that point. Later acceptance/integration has separate accounting in the linked closeout.
 
 ## Evidence-only paths
 
