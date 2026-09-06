@@ -2,15 +2,15 @@
 
 ID: VM-635
 Title: Replace Designated Background Imagery with Black
-Status: In Progress
+Status: Owner Review
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-635-black-page-backgrounds
 Admission baseline: cc6c0de157419ff0271b94dfcf87013bfba2af8d
-Candidate: PENDING
-RobQA: PENDING
+Candidate: 246f40ca11ebecd37b102eeb38a1f181b115cca9
+RobQA: PASS at 246f40ca11ebecd37b102eeb38a1f181b115cca9; QA-1, Codex same-agent distinct post-commit phase; all selected checks passed.
 Owner: PENDING
 Integration: PENDING; stop at Owner Review without pushing or merging.
 Dependencies: VM-634 is integrated; its philosophy strip stays hidden.

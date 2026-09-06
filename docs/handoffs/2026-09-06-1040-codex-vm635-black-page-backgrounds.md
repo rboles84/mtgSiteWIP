@@ -45,10 +45,26 @@ Environment limitation: local Edge headless exits before launch; one causal chec
 
 QA tier: QA-1 presentation. Execution: SAME-AGENT DISTINCT PHASE, Codex; presentation/source-loading change with no semantic, governance, security, migration, or interaction change requiring independent review. A distinct post-commit phase must re-read the actual candidate diff and acceptance criteria and rerun the selected checks.
 
-RobDev: READY for candidate creation. Candidate: PENDING. RobQA: PENDING. Owner: PENDING. Integration: PENDING.
+RobDev: READY. Candidate: 246f40ca11ebecd37b102eeb38a1f181b115cca9. RobQA: PASS at that exact candidate. Owner: PENDING. Integration: PENDING; stopped at Owner Review.
 CPU-heavy validation: NOT REQUIRED.
 Browser justification: objective image requests and resolved CSS cascade cannot be established solely by string absence. Browser scope is loading/cascade, not subjective visual judgment or engine behavior.
 Interaction checked: route loads only; no changed interactive behavior.
+
+Distinct post-commit execution: re-read the committed CSS/validator diff and card acceptance criteria; verified main merge-base equals admission baseline and the candidate checkout is clean. Reran HTML, all-16 metadata, source preservation, and baseline-to-candidate diff checks: PASS. Existing tracked image assets, all JS/data, and normalized non-background HTML are unchanged. Reviewed CSS changes retain gradient/overlay stacks, animation definitions, motion queries, and layout values. No post-candidate material corrections were needed.
+
+| Browser witness at exact candidate | Computed vm-bg base | Stars container | Vector logo |
+|---|---|---|---|
+| Home / | rgb(0, 0, 0) | Present | Loaded |
+| Archscry /archscry/ | rgb(0, 0, 0) | Present | Loaded |
+| Maze /maze/ | rgb(0, 0, 0) | Present | Loaded |
+| Guide /guide/ | rgb(0, 0, 0) | Present | Loaded |
+| Strategium /strategium/ | rgb(0, 0, 0) | Present | Loaded |
+| Apocrypha /apocrypha/ | rgb(0, 0, 0) | Present | Loaded |
+| Privacy /privacy/ | rgb(0, 0, 0) | Present | Loaded |
+
+The no-store local server at 127.0.0.1:8766 recorded zero requests to the retired image set. Existing logo, vignette/fog/glow overlays and obsidian SVG texture returned HTTP 200. Archscry restored the browser's existing Prismari reading without changing its stored state; its computed hero background still references identity-hero/official/prismari-galazeth-prismari.jpg, which returned HTTP 200, and its artist credit remains visible. No Scryfall network/service certification is claimed; unchanged rendering/mappings/fallback code is established by the preservation check.
+
+The share PNG loaded in the browser at 1200x630. A repeat SVG render produced the same SHA256 F594C17DFE631AB03B9F05E70B0C79E6E71AC1468DCBF44DFEC6564BA1CCBC2D and left the worktree clean. Local raw request evidence is in ignored artifacts/vm635/requests.ndjson; these observations are the durable summary. One /favicon.ico request from direct image navigation returned 404 (public pages declare their existing SVG favicon); no targeted image or protected image failed. Direct JPG-document navigation was blocked with the temporary server's generic MIME fallback; the actual CSS artwork request succeeded. The Atlas link click encountered stale initial markup during existing saved-reading restoration, so verification used the restored official-art dossier. These diagnostic limitations did not require product changes or weaken acceptance.
 Manual findings converted to invariants: none; the approved background preference is not an existing defect report.
 Skipped: engine, journey, synthetic/mutation/recovery suites, viewport matrices, screenshot/visual-regression and animation-fidelity suites; no changed contract justifies them. Semantic certification baseline is unaffected.
 
@@ -76,6 +92,68 @@ Owner: review presentation and ACCEPT or REJECT VM-635's exact passed candidate.
 - [RobQA skill](../../.agents/skills/robqa/SKILL.md), [frozen RobQA gate](../qa/RobQAPass.md)
 - [Workflow](../reference/workflow.md)
 
-## Files changed / Git accounting
+## Material candidate
 
-Pending committed candidate; derive material, evidence-only, and final-branch scopes from Git before delivery.
+- Baseline: `cc6c0de157419ff0271b94dfcf87013bfba2af8d`
+- Candidate: `246f40ca11ebecd37b102eeb38a1f181b115cca9`
+- Changed paths: `36`
+
+Derived from git diff --name-status --find-renames baseline..candidate.
+
+## Files changed
+
+- `apocrypha/index.html`
+- `archscry/index.html`
+- `assets/css/apocrypha.css`
+- `assets/css/archscry.css`
+- `assets/css/atmosphere.css`
+- `assets/css/home.css`
+- `assets/css/layout.css`
+- `assets/css/legal.css`
+- `assets/css/maze.css`
+- `assets/css/strategium.css`
+- `assets/css/tokens.css`
+- `assets/img/social/vox-mana-share-v1.png`
+- `assets/img/social/vox-mana-share-v1.svg`
+- `docs/design/asset-manifest.md`
+- `docs/handoffs/2026-09-06-1040-codex-vm635-black-page-backgrounds.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-635-black-page-backgrounds.md`
+- `guide/index.html`
+- `guide/maze/index.html`
+- `guide/reading/index.html`
+- `index.html`
+- `library/index.html`
+- `maze/index.html`
+- `privacy/index.html`
+- `scripts/build/build-social-preview.mjs`
+- `scripts/check-page-backgrounds.mjs`
+- `scripts/check-route-metadata.mjs`
+- `scripts/validate-frontend-html.mjs`
+- `strategium/before-game/index.html`
+- `strategium/console/index.html`
+- `strategium/during-game/index.html`
+- `strategium/find-a-table/index.html`
+- `strategium/index.html`
+- `strategium/review/index.html`
+- `terms/index.html`
+
+## Evidence delta
+
+- Material candidate: `246f40ca11ebecd37b102eeb38a1f181b115cca9`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+This is not the full task diff. HEAD denotes the consolidated evidence commit containing this record; its exact SHA is reported in the task. Only QA observations, candidate bindings, lifecycle summaries and Git accounting follow the material candidate.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-06-1040-codex-vm635-black-page-backgrounds.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-635-black-page-backgrounds.md`
+
+## Final branch delta
+
+The material Git path set contains 36 paths. Evidence updates only existing delivery records; the baseline-to-final-HEAD path count is validated after the consolidated evidence commit. Final clean worktree and publication state are reported from Git in the task. No push, merge, or deployment is part of Owner Review delivery.
