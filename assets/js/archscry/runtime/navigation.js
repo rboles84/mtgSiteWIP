@@ -1,20 +1,20 @@
 import {
   destroyDossierManaRadar,
-} from "../dossier-radar.js?v=vm547r5";
+} from "../dossier-radar.js?v=vm636";
 
 import {
   createInitialAdaptiveState,
-} from "../gate-b1-placement-engine.js?v=vm547r5";
+} from "../gate-b1-placement-engine.js?v=vm636";
 
 import {
   clearNode,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   APP_STATE,
   SESSION,
   getFaction,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export function isScryingTerminalEnabled() {
   return globalThis.VM_SITE_FLAGS?.SCRYING_TERMINAL_ENABLED === true;

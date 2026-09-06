@@ -1,26 +1,26 @@
 import {
   captureMazeReturnUrl,
   requestedDossierViewKey,
-} from "./dossier-controls.js?v=vm547r5";
+} from "./dossier-controls.js?v=vm636";
 
 import {
   readArchscryDossierHandoff,
   renderResult,
   scrollToAnchorOnce,
-} from "./dossier-view.js?v=vm547r5";
+} from "./dossier-view.js?v=vm636";
 
 import {
   showSection,
-} from "./navigation.js?v=vm547r5";
+} from "./navigation.js?v=vm636";
 
 import {
   clearNode,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   APP_STATE,
   SESSION,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export function renderInitializationError(error) {
   clearNode(document.body);

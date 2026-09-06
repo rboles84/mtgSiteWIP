@@ -2,28 +2,28 @@ import {
   buildIdentityDirectoryEntries,
   IDENTITY_DIRECTORY_GROUPS,
   resolveIdentityDirectorySlug,
-} from "./identity-directory.js?v=vm547r5";
+} from "./identity-directory.js?v=vm636";
 
 import {
   renderIdentityExplorationDossier,
   scrollToAnchorOnce,
-} from "./dossier-view.js?v=vm547r5";
+} from "./dossier-view.js?v=vm636";
 
 import {
   buildManaPipsHtml,
   escapeAttributeValue,
   escapeHtml,
-} from "./render-utils.js?v=vm547r5";
+} from "./render-utils.js?v=vm636";
 
 import {
   showSection,
   updateTopbar,
-} from "./navigation.js?v=vm547r5";
+} from "./navigation.js?v=vm636";
 
 import {
   APP_STATE,
   SESSION,
-} from "./state.js?v=vm547r5";
+} from "./state.js?v=vm636";
 
 export function resolveIdentityExploreRequest(search, entries = []) {
   const params = new URLSearchParams(search || "");

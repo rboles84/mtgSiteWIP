@@ -4,7 +4,7 @@ import {
   resolveCommunityDeckVoteToggle,
   normalizeDeckLinkVisibility,
   validateDeckLinkInput,
-} from "./deck-links.js?v=vm547r5";
+} from "./deck-links.js?v=vm636";
 
 export const USER_DECK_LINK_COLUMNS = [
   "id",

@@ -1,4 +1,4 @@
-import "../shared/vm-radar.js?v=vm547r5";
+import "../shared/vm-radar.js?v=vm636";
 
 const RADAR = globalThis.VMRadar;
 const DOSSIER_RADAR_AXES = RADAR.AXIS_LABELS;
@@ -118,7 +118,7 @@ function renderOptionalTextBlock(className, label, text) {
     </div>`;
 }
 
-function renderDossierRadarSection({ result, faction, flavorSnippets = [], identityLayers = null }) {
+function renderDossierRadarSection({ result, faction, flavorSnippets = [], identityLayers = null, explorationMode = false }) {
   void flavorSnippets;
   const profile = getDossierRadarProfile(result, faction, identityLayers);
   const multiColor = (profile.components || []).length > 1;
@@ -140,7 +140,7 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
     ${renderOptionalTextBlock("vm-core-tension", "Core Tension", profile.coreTension)}`.trim();
 
   return `
-    <div class="scores-section vm-dossier-matrix-section" style="--identity-color:${escapeDossierHtml(profile.hex)};">
+    <div class="scores-section vm-dossier-matrix-section"${explorationMode ? ' data-dossier-radar-context="identity-explore"' : ""} style="--identity-color:${escapeDossierHtml(profile.hex)};">
       <div class="section-label">Mana Alignment Matrix</div>
       <div class="vm-panel vm-lab-panel vm-dossier-radar-panel">
         <div class="vm-matrix-v2-grid">
@@ -150,11 +150,11 @@ function renderDossierRadarSection({ result, faction, flavorSnippets = [], ident
               <div class="vm-chart-wrap">
                 <div class="vm-radar-glow" id="dossierRadarGlow" aria-hidden="true"></div>
                 <div class="vm-radar-wrap">
-                  <canvas id="dossierManaRadar" aria-label="Vox Mana placement radar chart"></canvas>
+                  <canvas id="dossierManaRadar" aria-label="${explorationMode ? "Vox Mana identity alignment radar chart" : "Vox Mana placement radar chart"}"></canvas>
                   <div class="vm-radar-fallback" data-dossier-radar-fallback hidden></div>
                 </div>
                 <div class="vm-matrix-summary-card" id="dossierSelectedCard">
-                  <div class="vm-reading-kicker">Identity Reading</div>
+                  <div class="vm-reading-kicker">${explorationMode ? "Identity Profile" : "Identity Reading"}</div>
                   <div class="vm-selected-kicker" id="dossierSelectedKicker">${multiColor ? "Selected Synthesis" : "Selected Profile"}</div>
                   <h3 id="dossierColorTitle">${escapeDossierHtml(profile.title)}</h3>
                   <div class="vm-component-dot-row" id="dossierOverlayLine">${renderComponentManaSymbols(profile)}</div>
