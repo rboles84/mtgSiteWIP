@@ -40,7 +40,7 @@ Cards live in the matching status folders under `docs/kanban/`:
 
 ## In Progress
 
-- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](in-progress/VM-634-hide-home-color-axis.md) - In Progress; preserve the full artwork while hiding the Home wrapper and collapsing its space. Owner Review and integration pending.
+- [VM-634 - Temporarily Hide the Homepage Color Philosophy Strip](in-progress/VM-634-hide-home-color-axis.md) - Owner Review; RobQA QA-1 PASS at `b2a2441970470e20b42311cc58117c43566b582b`. Full artwork preserved, wrapper hidden with collapsed space; Owner decision and integration pending.
 
 ## Blocked
 

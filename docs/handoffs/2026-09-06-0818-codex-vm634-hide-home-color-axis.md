@@ -9,7 +9,13 @@ Reviewed the repo-local RobDev and RobQA skills and usage guides, frozen docs/de
 
 ## Files changed
 
-Pending Git-derived candidate accounting after the material commit.
+- `assets/css/home.css`
+- `docs/handoffs/2026-09-06-0818-codex-vm634-hide-home-color-axis.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-634-hide-home-color-axis.md`
+- `index.html`
+- `scripts/validate-frontend-html.mjs`
 
 ## What changed and why
 
@@ -28,13 +34,15 @@ The Owner wants the W/U/B/R/G philosophy strip unavailable in the UI for now. Th
 
 ## Tests run
 
-Development: npm.cmd run lint:html and git diff --check passed. A one-off Node assertion compared baseline and working files after normalizing line endings: Home HTML differs only by the hidden attribute, restoration comment, and cache key; CSS differs only by the unconditional hidden guard; Home JavaScript is unchanged; the validator differs only by Home's cache expectations. Source inspection found no reactivation of the axis wrapper. Candidate-bound RobQA is pending.
+Development: npm.cmd run lint:html and git diff --check passed. A one-off Node assertion compared baseline and working files after normalizing line endings: Home HTML differs only by the hidden attribute, restoration comment, and cache key; CSS differs only by the unconditional hidden guard; Home JavaScript is unchanged; the validator differs only by Home's cache expectations. Source inspection found no reactivation of the axis wrapper.
+
+Distinct post-commit RobQA: re-read the actual candidate diff and card acceptance criteria, verified the admission baseline equals merge-base(candidate, main), and reran the focused preservation assertions, npm.cmd run lint:html, and git diff --check baseline..candidate. All passed at b2a2441970470e20b42311cc58117c43566b582b with a clean candidate checkout. Native hidden semantics and the unconditional display:none guard establish no layout box or accessibility exposure without a JS dependency. No browser or screen-reader execution is claimed.
 
 ## RobQA readiness and Owner review
 
 QA tier: QA-1 presentation.
 QA execution: SAME-AGENT DISTINCT PHASE, Codex; bounded route-local visibility change with no governance, shared behavior, security, migration, semantic, or significant integration trigger.
-Candidate and verdict: PENDING.
+Candidate and verdict: PASS at b2a2441970470e20b42311cc58117c43566b582b; Owner PENDING. No correctness findings or implementation blockers.
 CPU-heavy validation: NOT REQUIRED.
 Browser justification: none; initial hidden markup, scoped unconditional display guard, and source preservation cover the objective contract below the browser layer. No browser/screen-reader execution or visual acceptance is claimed.
 Skipped: screenshots, visual regression, viewport matrices, animation-fidelity waits, browser smoke, and engine suites; none protects an additional changed risk here. The prior cursor-dimming handoff's Home-canvas smoke failure was not rerun or investigated.
@@ -71,3 +79,30 @@ Owner for visual acceptance; implementation agent only for a bounded Owner findi
 - [RobDev skill](../../.agents/skills/robdev/SKILL.md) and [frozen gate](../dev/RobDevPass.md)
 - [RobQA skill](../../.agents/skills/robqa/SKILL.md) and [frozen gate](../qa/RobQAPass.md)
 - Owner-approved plan in this task, 2026-09-06.
+
+## Material candidate
+
+- Baseline: `4e536641f8fddd26ceec520455474a0965460114`
+- Candidate: `b2a2441970470e20b42311cc58117c43566b582b`
+- Changed paths: `7`
+
+Derived from git diff --name-status --find-renames baseline..candidate. This is the primary task change set.
+
+## Evidence delta
+
+- Material candidate: `b2a2441970470e20b42311cc58117c43566b582b`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `4`
+
+HEAD denotes the consolidated evidence commit containing this report when validated for handoff. This delta is not the full task diff. It records only candidate binding, test observations, lifecycle summaries, and Git accounting; implementation and acceptance criteria are unchanged.
+
+## Evidence-only paths
+
+- `docs/handoffs/2026-09-06-0818-codex-vm634-hide-home-color-axis.md`
+- `docs/handoffs/HANDOFF_INDEX.md`
+- `docs/kanban/board.md`
+- `docs/kanban/in-progress/VM-634-hide-home-color-axis.md`
+
+## Final branch delta
+
+Git-derived total: 7 paths from admission baseline to the consolidated evidence head. The path set equals the material set; evidence only updates existing delivery records. Final exact evidence SHA and clean status are reported in the task after committing and validating this record.

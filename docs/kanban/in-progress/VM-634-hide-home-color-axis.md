@@ -2,16 +2,16 @@
 
 ID: VM-634
 Title: Temporarily Hide the Homepage Color Philosophy Strip
-Status: In Progress
+Status: Owner Review
 
 ## Delivery
 
 Record version: 1
 Branch: codex/vm-634-hide-home-color-axis
 Admission baseline: 4e536641f8fddd26ceec520455474a0965460114
-Candidate: PENDING
-RobQA: PENDING
-Owner: PENDING
+Candidate: b2a2441970470e20b42311cc58117c43566b582b
+RobQA: PASS at b2a2441970470e20b42311cc58117c43566b582b; QA-1 SAME-AGENT DISTINCT PHASE, Codex; see Evidence.
+Owner: PENDING at b2a2441970470e20b42311cc58117c43566b582b; visual spacing review at /.
 Integration: PENDING; stop at Owner Review, without push or merge.
 Dependencies: None.
 Decisions: Owner approved temporary hiding with collapsed space and preservation of the implementation in the 2026-09-06 task.
